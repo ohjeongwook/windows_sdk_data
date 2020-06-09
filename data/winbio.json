@@ -6442,6 +6442,71 @@
         },
         {
             "type": {
+                "name": "WinBioEnumEnrollments",
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "SessionHandle",
+                    "data_type": "TypeDecl",
+                    "type": "WINBIO_SESSION_HANDLE",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "UnitId",
+                    "data_type": "TypeDecl",
+                    "type": "WINBIO_UNIT_ID",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "Identity",
+                        "data_type": "TypeDecl",
+                        "type": "WINBIO_IDENTITY"
+                    },
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "PtrDecl",
+                        "type": {
+                            "name": "SubFactorArray",
+                            "data_type": "TypeDecl",
+                            "type": "WINBIO_BIOMETRIC_SUBTYPE"
+                        }
+                    },
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "SubFactorCount",
+                        "data_type": "TypeDecl",
+                        "type": "SIZE_T"
+                    },
+                    "sal": [
+                        "out",
+                        "optional"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "Winbio.dll",
+                "ext-ms-win-biometrics-winbio-core-l1-1-0.dll",
+                "Ext-MS-Win-BioMetrics-WinBio-Core-L1-1-1.dll"
+            ]
+        },
+        {
+            "type": {
                 "name": "WinBioRegisterEventMonitor",
                 "data_type": "TypeDecl",
                 "type": "HRESULT"
@@ -6538,6 +6603,90 @@
                 "winbio.dll",
                 "Ext-MS-Win-Biometrics-WinBio-Core-L1-1-0.dll",
                 "Ext-MS-Win-BioMetrics-WinBio-Core-L1-1-1.dll"
+            ]
+        },
+        {
+            "type": {
+                "name": "WinBioCaptureSample",
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "SessionHandle",
+                    "data_type": "TypeDecl",
+                    "type": "WINBIO_SESSION_HANDLE",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "Purpose",
+                    "data_type": "TypeDecl",
+                    "type": "WINBIO_BIR_PURPOSE",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "Flags",
+                    "data_type": "TypeDecl",
+                    "type": "WINBIO_BIR_DATA_FLAGS",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "UnitId",
+                        "data_type": "TypeDecl",
+                        "type": "WINBIO_UNIT_ID"
+                    },
+                    "sal": [
+                        "out",
+                        "optional"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "Sample",
+                        "data_type": "TypeDecl",
+                        "type": "PWINBIO_BIR"
+                    },
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "SampleSize",
+                        "data_type": "TypeDecl",
+                        "type": "SIZE_T"
+                    },
+                    "sal": [
+                        "out",
+                        "optional"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "RejectDetail",
+                        "data_type": "TypeDecl",
+                        "type": "WINBIO_REJECT_DETAIL"
+                    },
+                    "sal": [
+                        "out",
+                        "optional"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "Winbio.dll",
+                "WinBioExt.dll",
+                "Ext-MS-Win-BioMetrics-WinBio-l1-2-0.dll",
+                "Ext-MS-Win-BioMetrics-WinBio-L1-3-0.dll"
             ]
         },
         {
@@ -6706,6 +6855,289 @@
                 "Ext-MS-Win-BioMetrics-WinBio-l1-2-0.dll",
                 "winbioext.dll",
                 "Ext-MS-Win-BioMetrics-WinBio-Core-L1-1-0.dll",
+                "Ext-MS-Win-BioMetrics-WinBio-Core-L1-1-1.dll"
+            ]
+        },
+        {
+            "type": {
+                "name": "WinBioControlUnit",
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "SessionHandle",
+                    "data_type": "TypeDecl",
+                    "type": "WINBIO_SESSION_HANDLE",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "UnitId",
+                    "data_type": "TypeDecl",
+                    "type": "WINBIO_UNIT_ID",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "Component",
+                    "data_type": "TypeDecl",
+                    "type": "WINBIO_COMPONENT",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "ControlCode",
+                    "data_type": "TypeDecl",
+                    "type": "ULONG",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "SendBuffer",
+                    "data_type": "TypeDecl",
+                    "type": "PUCHAR",
+                    "sal": []
+                },
+                {
+                    "name": "SendBufferSize",
+                    "data_type": "TypeDecl",
+                    "type": "SIZE_T",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "ReceiveBuffer",
+                    "data_type": "TypeDecl",
+                    "type": "PUCHAR",
+                    "sal": []
+                },
+                {
+                    "name": "ReceiveBufferSize",
+                    "data_type": "TypeDecl",
+                    "type": "SIZE_T",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "ReceiveDataSize",
+                        "data_type": "TypeDecl",
+                        "type": "SIZE_T"
+                    },
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "OperationStatus",
+                        "data_type": "TypeDecl",
+                        "type": "ULONG"
+                    },
+                    "sal": [
+                        "out",
+                        "optional"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "Winbio.dll",
+                "Ext-MS-Win-BioMetrics-WinBio-l1-2-0.dll",
+                "winbioext.dll",
+                "Ext-MS-Win-BioMetrics-WinBio-Core-L1-1-0.dll",
+                "Ext-MS-Win-BioMetrics-WinBio-Core-L1-1-1.dll"
+            ]
+        },
+        {
+            "type": {
+                "name": "WinBioControlUnitPrivileged",
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "SessionHandle",
+                    "data_type": "TypeDecl",
+                    "type": "WINBIO_SESSION_HANDLE",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "UnitId",
+                    "data_type": "TypeDecl",
+                    "type": "WINBIO_UNIT_ID",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "Component",
+                    "data_type": "TypeDecl",
+                    "type": "WINBIO_COMPONENT",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "ControlCode",
+                    "data_type": "TypeDecl",
+                    "type": "ULONG",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "SendBuffer",
+                    "data_type": "TypeDecl",
+                    "type": "PUCHAR",
+                    "sal": []
+                },
+                {
+                    "name": "SendBufferSize",
+                    "data_type": "TypeDecl",
+                    "type": "SIZE_T",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "ReceiveBuffer",
+                    "data_type": "TypeDecl",
+                    "type": "PUCHAR",
+                    "sal": []
+                },
+                {
+                    "name": "ReceiveBufferSize",
+                    "data_type": "TypeDecl",
+                    "type": "SIZE_T",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "ReceiveDataSize",
+                        "data_type": "TypeDecl",
+                        "type": "SIZE_T"
+                    },
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "OperationStatus",
+                        "data_type": "TypeDecl",
+                        "type": "ULONG"
+                    },
+                    "sal": [
+                        "out",
+                        "optional"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "Winbio.dll",
+                "Ext-MS-Win-BioMetrics-WinBio-l1-2-0.dll",
+                "winbioext.dll",
+                "Ext-MS-Win-BioMetrics-WinBio-Core-L1-1-0.dll",
+                "Ext-MS-Win-BioMetrics-WinBio-Core-L1-1-1.dll"
+            ]
+        },
+        {
+            "type": {
+                "name": "WinBioGetProperty",
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "SessionHandle",
+                    "data_type": "TypeDecl",
+                    "type": "WINBIO_SESSION_HANDLE",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "PropertyType",
+                    "data_type": "TypeDecl",
+                    "type": "WINBIO_PROPERTY_TYPE",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "PropertyId",
+                    "data_type": "TypeDecl",
+                    "type": "WINBIO_PROPERTY_ID",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "UnitId",
+                    "data_type": "TypeDecl",
+                    "type": "WINBIO_UNIT_ID",
+                    "sal": [
+                        "in",
+                        "optional"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "Identity",
+                        "data_type": "TypeDecl",
+                        "type": "WINBIO_IDENTITY"
+                    },
+                    "sal": [
+                        "in",
+                        "optional"
+                    ]
+                },
+                {
+                    "name": "SubFactor",
+                    "data_type": "TypeDecl",
+                    "type": "WINBIO_BIOMETRIC_SUBTYPE",
+                    "sal": [
+                        "in",
+                        "optional"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "PropertyBuffer",
+                        "data_type": "TypeDecl",
+                        "type": "PVOID"
+                    },
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "PropertyBufferSize",
+                        "data_type": "TypeDecl",
+                        "type": "SIZE_T"
+                    },
+                    "sal": [
+                        "out",
+                        "optional"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "Winbio.dll",
+                "ext-ms-win-biometrics-winbio-core-l1-1-0.dll",
                 "Ext-MS-Win-BioMetrics-WinBio-Core-L1-1-1.dll"
             ]
         },

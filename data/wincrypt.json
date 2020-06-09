@@ -3855,6 +3855,101 @@
         },
         {
             "type": {
+                "name": "CryptMsgVerifyCountersignatureEncodedEx",
+                "data_type": "TypeDecl",
+                "type": "BOOL"
+            },
+            "arguments": [
+                {
+                    "name": "hCryptProv",
+                    "data_type": "TypeDecl",
+                    "type": "HCRYPTPROV_LEGACY",
+                    "sal": [
+                        "in",
+                        "optional"
+                    ]
+                },
+                {
+                    "name": "dwEncodingType",
+                    "data_type": "TypeDecl",
+                    "type": "DWORD",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "pbSignerInfo",
+                    "data_type": "TypeDecl",
+                    "type": "PBYTE",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "cbSignerInfo",
+                    "data_type": "TypeDecl",
+                    "type": "DWORD",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "pbSignerInfoCountersignature",
+                    "data_type": "TypeDecl",
+                    "type": "PBYTE",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "cbSignerInfoCountersignature",
+                    "data_type": "TypeDecl",
+                    "type": "DWORD",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "dwSignerType",
+                    "data_type": "TypeDecl",
+                    "type": "DWORD",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pvSigner",
+                        "data_type": "TypeDecl",
+                        "type": "void"
+                    },
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "dwFlags",
+                    "data_type": "TypeDecl",
+                    "type": "DWORD",
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pvExtra",
+                        "data_type": "TypeDecl",
+                        "type": "void"
+                    },
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "Crypt32.dll"
+            ]
+        },
+        {
+            "type": {
                 "name": "CryptMsgCountersign",
                 "data_type": "TypeDecl",
                 "type": "BOOL"
@@ -8000,6 +8095,85 @@
         },
         {
             "type": {
+                "name": "CryptHashCertificate2",
+                "data_type": "TypeDecl",
+                "type": "BOOL"
+            },
+            "arguments": [
+                {
+                    "name": "pwszCNGHashAlgid",
+                    "data_type": "TypeDecl",
+                    "type": "LPCWSTR",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "dwFlags",
+                    "data_type": "TypeDecl",
+                    "type": "DWORD",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pvReserved",
+                        "data_type": "TypeDecl",
+                        "type": "void"
+                    },
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pbEncoded",
+                        "data_type": "TypeDecl",
+                        "type": "BYTE"
+                    },
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "cbEncoded",
+                    "data_type": "TypeDecl",
+                    "type": "DWORD",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pbComputedHash",
+                        "data_type": "TypeDecl",
+                        "type": "BYTE"
+                    },
+                    "sal": [
+                        "out"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pcbComputedHash",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    "sal": [
+                        "in",
+                        "out"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "Crypt32.dll"
+            ]
+        },
+        {
+            "type": {
                 "name": "CryptSignCertificate",
                 "data_type": "TypeDecl",
                 "type": "BOOL"
@@ -11500,6 +11674,90 @@
         },
         {
             "type": {
+                "name": "CryptCreateAsyncHandle",
+                "data_type": "TypeDecl",
+                "type": "BOOL"
+            },
+            "arguments": [
+                {
+                    "name": "dwFlags",
+                    "data_type": "TypeDecl",
+                    "type": "DWORD",
+                    "sal": []
+                },
+                {
+                    "name": "phAsync",
+                    "data_type": "TypeDecl",
+                    "type": "PHCRYPTASYNC",
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "secforwarder.dll"
+            ]
+        },
+        {
+            "type": {
+                "name": "CryptGetAsyncParam",
+                "data_type": "TypeDecl",
+                "type": "BOOL"
+            },
+            "arguments": [
+                {
+                    "name": "hAsync",
+                    "data_type": "TypeDecl",
+                    "type": "HCRYPTASYNC",
+                    "sal": []
+                },
+                {
+                    "name": "pszParamOid",
+                    "data_type": "TypeDecl",
+                    "type": "LPSTR",
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "ppvParam",
+                        "data_type": "TypeDecl",
+                        "type": "LPVOID"
+                    },
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "ppfnFree",
+                        "data_type": "TypeDecl",
+                        "type": "PFN_CRYPT_ASYNC_PARAM_FREE_FUNC"
+                    },
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "secforwarder.dll"
+            ]
+        },
+        {
+            "type": {
+                "name": "CryptCloseAsyncHandle",
+                "data_type": "TypeDecl",
+                "type": "BOOL"
+            },
+            "arguments": [
+                {
+                    "name": "hAsync",
+                    "data_type": "TypeDecl",
+                    "type": "HCRYPTASYNC",
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "secforwarder.dll"
+            ]
+        },
+        {
+            "type": {
                 "name": "CryptRetrieveObjectByUrlA",
                 "data_type": "TypeDecl",
                 "type": "BOOL"
@@ -11670,6 +11928,88 @@
                     "sal": [
                         "in"
                     ]
+                }
+            ],
+            "api_locations": [
+                "Cryptnet.dll"
+            ]
+        },
+        {
+            "type": {
+                "name": "CryptGetObjectUrl",
+                "data_type": "TypeDecl",
+                "type": "BOOL"
+            },
+            "arguments": [
+                {
+                    "name": "pszUrlOid",
+                    "data_type": "TypeDecl",
+                    "type": "LPCSTR",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "pvPara",
+                    "data_type": "TypeDecl",
+                    "type": "LPVOID",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "dwFlags",
+                    "data_type": "TypeDecl",
+                    "type": "DWORD",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "pUrlArray",
+                    "data_type": "TypeDecl",
+                    "type": "PCRYPT_URL_ARRAY",
+                    "sal": [
+                        "out"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pcbUrlArray",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    "sal": [
+                        "in",
+                        "out"
+                    ]
+                },
+                {
+                    "name": "pUrlInfo",
+                    "data_type": "TypeDecl",
+                    "type": "PCRYPT_URL_INFO",
+                    "sal": [
+                        "out"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pcbUrlInfo",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    "sal": [
+                        "in",
+                        "out"
+                    ]
+                },
+                {
+                    "name": "pvReserved",
+                    "data_type": "TypeDecl",
+                    "type": "LPVOID",
+                    "sal": []
                 }
             ],
             "api_locations": [
@@ -12961,6 +13301,40 @@
         },
         {
             "type": {
+                "name": "CertOpenServerOcspResponse",
+                "data_type": "TypeDecl",
+                "type": "HCERT_SERVER_OCSP_RESPONSE"
+            },
+            "arguments": [
+                {
+                    "name": "pChainContext",
+                    "data_type": "TypeDecl",
+                    "type": "PCCERT_CHAIN_CONTEXT",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "dwFlags",
+                    "data_type": "TypeDecl",
+                    "type": "DWORD",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "pOpenPara",
+                    "data_type": "TypeDecl",
+                    "type": "PCERT_SERVER_OCSP_RESPONSE_OPEN_PARA",
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "Crypt32.dll"
+            ]
+        },
+        {
+            "type": {
                 "name": "CertAddRefServerOcspResponse",
                 "data_type": "TypeDecl",
                 "type": "void"
@@ -13009,6 +13383,40 @@
         },
         {
             "type": {
+                "name": "CertGetServerOcspResponseContext",
+                "data_type": "TypeDecl",
+                "type": "PCCERT_SERVER_OCSP_RESPONSE_CONTEXT"
+            },
+            "arguments": [
+                {
+                    "name": "hServerOcspResponse",
+                    "data_type": "TypeDecl",
+                    "type": "HCERT_SERVER_OCSP_RESPONSE",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "dwFlags",
+                    "data_type": "TypeDecl",
+                    "type": "DWORD",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "pvReserved",
+                    "data_type": "TypeDecl",
+                    "type": "LPVOID",
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "Crypt32.dll"
+            ]
+        },
+        {
+            "type": {
                 "name": "CertAddRefServerOcspResponseContext",
                 "data_type": "TypeDecl",
                 "type": "void"
@@ -13040,6 +13448,103 @@
                     "type": "PCCERT_SERVER_OCSP_RESPONSE_CONTEXT",
                     "sal": [
                         "in"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "Crypt32.dll"
+            ]
+        },
+        {
+            "type": {
+                "name": "CertRetrieveLogoOrBiometricInfo",
+                "data_type": "TypeDecl",
+                "type": "BOOL"
+            },
+            "arguments": [
+                {
+                    "name": "pCertContext",
+                    "data_type": "TypeDecl",
+                    "type": "PCCERT_CONTEXT",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "lpszLogoOrBiometricType",
+                    "data_type": "TypeDecl",
+                    "type": "LPCSTR",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "dwRetrievalFlags",
+                    "data_type": "TypeDecl",
+                    "type": "DWORD",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "dwTimeout",
+                    "data_type": "TypeDecl",
+                    "type": "DWORD",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "dwFlags",
+                    "data_type": "TypeDecl",
+                    "type": "DWORD",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pvReserved",
+                        "data_type": "TypeDecl",
+                        "type": "void"
+                    },
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "PtrDecl",
+                        "type": {
+                            "name": "ppbData",
+                            "data_type": "TypeDecl",
+                            "type": "BYTE"
+                        }
+                    },
+                    "sal": [
+                        "out"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pcbData",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    "sal": [
+                        "out"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "ppwszMimeType",
+                        "data_type": "TypeDecl",
+                        "type": "LPWSTR"
+                    },
+                    "sal": [
+                        "out"
                     ]
                 }
             ],
@@ -13148,6 +13653,201 @@
                     },
                     "sal": [
                         "in"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "Crypt32.dll"
+            ]
+        },
+        {
+            "type": {
+                "name": "CryptRetrieveTimeStamp",
+                "data_type": "TypeDecl",
+                "type": "BOOL"
+            },
+            "arguments": [
+                {
+                    "name": "wszUrl",
+                    "data_type": "TypeDecl",
+                    "type": "LPCWSTR",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "dwRetrievalFlags",
+                    "data_type": "TypeDecl",
+                    "type": "DWORD",
+                    "sal": []
+                },
+                {
+                    "name": "dwTimeout",
+                    "data_type": "TypeDecl",
+                    "type": "DWORD",
+                    "sal": []
+                },
+                {
+                    "name": "pszHashId",
+                    "data_type": "TypeDecl",
+                    "type": "LPCSTR",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pPara",
+                        "data_type": "TypeDecl",
+                        "type": "CRYPT_TIMESTAMP_PARA"
+                    },
+                    "sal": [
+                        "in",
+                        "optional"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pbData",
+                        "data_type": "TypeDecl",
+                        "type": "BYTE"
+                    },
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "cbData",
+                    "data_type": "TypeDecl",
+                    "type": "DWORD",
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "ppTsContext",
+                        "data_type": "TypeDecl",
+                        "type": "PCRYPT_TIMESTAMP_CONTEXT"
+                    },
+                    "sal": [
+                        "out"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "ppTsSigner",
+                        "data_type": "TypeDecl",
+                        "type": "PCCERT_CONTEXT"
+                    },
+                    "sal": [
+                        "out",
+                        "optional"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "phStore",
+                        "data_type": "TypeDecl",
+                        "type": "HCERTSTORE"
+                    },
+                    "sal": [
+                        "out",
+                        "optional"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "Crypt32.dll"
+            ]
+        },
+        {
+            "type": {
+                "name": "CryptVerifyTimeStampSignature",
+                "data_type": "TypeDecl",
+                "type": "BOOL"
+            },
+            "arguments": [
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pbTSContentInfo",
+                        "data_type": "TypeDecl",
+                        "type": "BYTE"
+                    },
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "cbTSContentInfo",
+                    "data_type": "TypeDecl",
+                    "type": "DWORD",
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pbData",
+                        "data_type": "TypeDecl",
+                        "type": "BYTE"
+                    },
+                    "sal": [
+                        "in",
+                        "optional"
+                    ]
+                },
+                {
+                    "name": "cbData",
+                    "data_type": "TypeDecl",
+                    "type": "DWORD",
+                    "sal": []
+                },
+                {
+                    "name": "hAdditionalStore",
+                    "data_type": "TypeDecl",
+                    "type": "HCERTSTORE",
+                    "sal": [
+                        "in",
+                        "optional"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "ppTsContext",
+                        "data_type": "TypeDecl",
+                        "type": "PCRYPT_TIMESTAMP_CONTEXT"
+                    },
+                    "sal": [
+                        "out"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "ppTsSigner",
+                        "data_type": "TypeDecl",
+                        "type": "PCCERT_CONTEXT"
+                    },
+                    "sal": [
+                        "out",
+                        "optional"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "phStore",
+                        "data_type": "TypeDecl",
+                        "type": "HCERTSTORE"
+                    },
+                    "sal": [
+                        "out",
+                        "optional"
                     ]
                 }
             ],

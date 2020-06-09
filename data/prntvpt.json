@@ -103,6 +103,98 @@
         },
         {
             "type": {
+                "name": "PTOpenProvider",
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "pszPrinterName",
+                    "data_type": "TypeDecl",
+                    "type": "PCWSTR",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "dwVersion",
+                    "data_type": "TypeDecl",
+                    "type": "DWORD",
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "phProvider",
+                        "data_type": "TypeDecl",
+                        "type": "HPTPROVIDER"
+                    },
+                    "sal": [
+                        "out"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "prntvpt.dll",
+                "Ext-MS-Win-printer-prntvpt-l1-1-0.dll"
+            ]
+        },
+        {
+            "type": {
+                "name": "PTOpenProviderEx",
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "pszPrinterName",
+                    "data_type": "TypeDecl",
+                    "type": "PCWSTR",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "dwMaxVersion",
+                    "data_type": "TypeDecl",
+                    "type": "DWORD",
+                    "sal": []
+                },
+                {
+                    "name": "dwPrefVersion",
+                    "data_type": "TypeDecl",
+                    "type": "DWORD",
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "phProvider",
+                        "data_type": "TypeDecl",
+                        "type": "HPTPROVIDER"
+                    },
+                    "sal": [
+                        "out"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pUsedVersion",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    "sal": [
+                        "out"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "prntvpt.dll"
+            ]
+        },
+        {
+            "type": {
                 "name": "PTCloseProvider",
                 "data_type": "TypeDecl",
                 "type": "HRESULT"
@@ -140,6 +232,371 @@
             ],
             "api_locations": [
                 "prntvpt.dll"
+            ]
+        },
+        {
+            "type": {
+                "name": "PTGetPrintCapabilities",
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "hProvider",
+                    "data_type": "TypeDecl",
+                    "type": "HPTPROVIDER",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pPrintTicket",
+                        "data_type": "TypeDecl",
+                        "type": "IStream"
+                    },
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pCapabilities",
+                        "data_type": "TypeDecl",
+                        "type": "IStream"
+                    },
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pbstrErrorMessage",
+                        "data_type": "TypeDecl",
+                        "type": "BSTR"
+                    },
+                    "sal": [
+                        "out"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "prntvpt.dll",
+                "Ext-MS-Win-printer-prntvpt-l1-1-0.dll"
+            ]
+        },
+        {
+            "type": {
+                "name": "PTGetPrintDeviceCapabilities",
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "hProvider",
+                    "data_type": "TypeDecl",
+                    "type": "HPTPROVIDER",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pPrintTicket",
+                        "data_type": "TypeDecl",
+                        "type": "IStream"
+                    },
+                    "sal": [
+                        "in",
+                        "optional"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pDeviceCapabilities",
+                        "data_type": "TypeDecl",
+                        "type": "IStream"
+                    },
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pbstrErrorMessage",
+                        "data_type": "TypeDecl",
+                        "type": "BSTR"
+                    },
+                    "sal": [
+                        "out",
+                        "optional"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "prntvpt.dll"
+            ]
+        },
+        {
+            "type": {
+                "name": "PTGetPrintDeviceResources",
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "hProvider",
+                    "data_type": "TypeDecl",
+                    "type": "HPTPROVIDER",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "pszLocaleName",
+                    "data_type": "TypeDecl",
+                    "type": "LPCWSTR",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pPrintTicket",
+                        "data_type": "TypeDecl",
+                        "type": "IStream"
+                    },
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pDeviceResources",
+                        "data_type": "TypeDecl",
+                        "type": "IStream"
+                    },
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pbstrErrorMessage",
+                        "data_type": "TypeDecl",
+                        "type": "BSTR"
+                    },
+                    "sal": [
+                        "out",
+                        "optional"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "prntvpt.dll"
+            ]
+        },
+        {
+            "type": {
+                "name": "PTMergeAndValidatePrintTicket",
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "hProvider",
+                    "data_type": "TypeDecl",
+                    "type": "HPTPROVIDER",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pBaseTicket",
+                        "data_type": "TypeDecl",
+                        "type": "IStream"
+                    },
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pDeltaTicket",
+                        "data_type": "TypeDecl",
+                        "type": "IStream"
+                    },
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "scope",
+                    "data_type": "TypeDecl",
+                    "type": "EPrintTicketScope",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pResultTicket",
+                        "data_type": "TypeDecl",
+                        "type": "IStream"
+                    },
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pbstrErrorMessage",
+                        "data_type": "TypeDecl",
+                        "type": "BSTR"
+                    },
+                    "sal": [
+                        "out"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "prntvpt.dll"
+            ]
+        },
+        {
+            "type": {
+                "name": "PTConvertPrintTicketToDevMode",
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "hProvider",
+                    "data_type": "TypeDecl",
+                    "type": "HPTPROVIDER",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pPrintTicket",
+                        "data_type": "TypeDecl",
+                        "type": "IStream"
+                    },
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "baseDevmodeType",
+                    "data_type": "TypeDecl",
+                    "type": "EDefaultDevmodeType",
+                    "sal": []
+                },
+                {
+                    "name": "scope",
+                    "data_type": "TypeDecl",
+                    "type": "EPrintTicketScope",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pcbDevmode",
+                        "data_type": "TypeDecl",
+                        "type": "ULONG"
+                    },
+                    "sal": [
+                        "out"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "ppDevmode",
+                        "data_type": "TypeDecl",
+                        "type": "PDEVMODE"
+                    },
+                    "sal": [
+                        "out"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pbstrErrorMessage",
+                        "data_type": "TypeDecl",
+                        "type": "BSTR"
+                    },
+                    "sal": [
+                        "out"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "prntvpt.dll"
+            ]
+        },
+        {
+            "type": {
+                "name": "PTConvertDevModeToPrintTicket",
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "hProvider",
+                    "data_type": "TypeDecl",
+                    "type": "HPTPROVIDER",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "cbDevmode",
+                    "data_type": "TypeDecl",
+                    "type": "ULONG",
+                    "sal": []
+                },
+                {
+                    "name": "pDevmode",
+                    "data_type": "TypeDecl",
+                    "type": "PDEVMODE",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "name": "scope",
+                    "data_type": "TypeDecl",
+                    "type": "EPrintTicketScope",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pPrintTicket",
+                        "data_type": "TypeDecl",
+                        "type": "IStream"
+                    },
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "prntvpt.dll",
+                "Ext-MS-Win-printer-prntvpt-l1-1-0.dll"
             ]
         }
     ]

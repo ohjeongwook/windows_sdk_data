@@ -4,6 +4,72 @@
     "funcdefs": [
         {
             "type": {
+                "name": "__WSAFDIsSet",
+                "data_type": "TypeDecl",
+                "type": "int"
+            },
+            "arguments": [
+                {
+                    "data_type": "TypeDecl",
+                    "type": "SOCKET",
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "fd_set"
+                    },
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "Ws2_32.dll"
+            ]
+        },
+        {
+            "type": {
+                "name": "bind",
+                "data_type": "TypeDecl",
+                "type": "int"
+            },
+            "arguments": [
+                {
+                    "name": "s",
+                    "data_type": "TypeDecl",
+                    "type": "SOCKET",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "addr",
+                        "data_type": "TypeDecl",
+                        "type": {
+                            "name": "sockaddr",
+                            "data_type": "Struct",
+                            "elements": []
+                        }
+                    },
+                    "sal": []
+                },
+                {
+                    "name": "namelen",
+                    "data_type": "TypeDecl",
+                    "type": "int",
+                    "sal": [
+                        "in"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "Ws2_32.dll"
+            ]
+        },
+        {
+            "type": {
                 "name": "closesocket",
                 "data_type": "TypeDecl",
                 "type": "int"
@@ -250,6 +316,27 @@
                     "sal": [
                         "in"
                     ]
+                }
+            ],
+            "api_locations": [
+                "Ws2_32.dll"
+            ]
+        },
+        {
+            "type": {
+                "name": "inet_addr",
+                "data_type": "TypeDecl",
+                "type": "unsigned long"
+            },
+            "arguments": [
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "cp",
+                        "data_type": "TypeDecl",
+                        "type": "char"
+                    },
+                    "sal": []
                 }
             ],
             "api_locations": [
@@ -606,6 +693,34 @@
         },
         {
             "type": {
+                "name": "WSAStartup",
+                "data_type": "TypeDecl",
+                "type": "int"
+            },
+            "arguments": [
+                {
+                    "name": "wVersionRequired",
+                    "data_type": "TypeDecl",
+                    "type": "WORD",
+                    "sal": []
+                },
+                {
+                    "name": "lpWSAData",
+                    "data_type": "TypeDecl",
+                    "type": "LPWSADATA",
+                    "sal": [
+                        "out"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "Ws2_32.dll",
+                "bcrypt.dll",
+                "wsock32.dll"
+            ]
+        },
+        {
+            "type": {
                 "name": "WSACleanup",
                 "data_type": "TypeDecl",
                 "type": "int"
@@ -908,6 +1023,114 @@
         },
         {
             "type": {
+                "name": "WSAAsyncGetHostByName",
+                "data_type": "TypeDecl",
+                "type": "HANDLE"
+            },
+            "arguments": [
+                {
+                    "name": "hWnd",
+                    "data_type": "TypeDecl",
+                    "type": "HWND",
+                    "sal": []
+                },
+                {
+                    "name": "wMsg",
+                    "data_type": "TypeDecl",
+                    "type": "u_int",
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "name",
+                        "data_type": "TypeDecl",
+                        "type": "char"
+                    },
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "buf",
+                        "data_type": "TypeDecl",
+                        "type": "char"
+                    },
+                    "sal": []
+                },
+                {
+                    "name": "buflen",
+                    "data_type": "TypeDecl",
+                    "type": "int",
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "Ws2_32.dll"
+            ]
+        },
+        {
+            "type": {
+                "name": "WSAAsyncGetHostByAddr",
+                "data_type": "TypeDecl",
+                "type": "HANDLE"
+            },
+            "arguments": [
+                {
+                    "name": "hWnd",
+                    "data_type": "TypeDecl",
+                    "type": "HWND",
+                    "sal": []
+                },
+                {
+                    "name": "wMsg",
+                    "data_type": "TypeDecl",
+                    "type": "u_int",
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "addr",
+                        "data_type": "TypeDecl",
+                        "type": "char"
+                    },
+                    "sal": []
+                },
+                {
+                    "name": "len",
+                    "data_type": "TypeDecl",
+                    "type": "int",
+                    "sal": []
+                },
+                {
+                    "name": "type",
+                    "data_type": "TypeDecl",
+                    "type": "int",
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "buf",
+                        "data_type": "TypeDecl",
+                        "type": "char"
+                    },
+                    "sal": []
+                },
+                {
+                    "name": "buflen",
+                    "data_type": "TypeDecl",
+                    "type": "int",
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "Ws2_32.dll"
+            ]
+        },
+        {
+            "type": {
                 "name": "WSACancelAsyncRequest",
                 "data_type": "TypeDecl",
                 "type": "int"
@@ -1016,6 +1239,60 @@
                         "in",
                         "out"
                     ]
+                }
+            ],
+            "api_locations": [
+                "Mswsock.dll"
+            ]
+        },
+        {
+            "type": {
+                "name": "TransmitFile",
+                "data_type": "TypeDecl",
+                "type": "BOOL"
+            },
+            "arguments": [
+                {
+                    "name": "hSocket",
+                    "data_type": "TypeDecl",
+                    "type": "SOCKET",
+                    "sal": []
+                },
+                {
+                    "name": "hFile",
+                    "data_type": "TypeDecl",
+                    "type": "HANDLE",
+                    "sal": []
+                },
+                {
+                    "name": "nNumberOfBytesToWrite",
+                    "data_type": "TypeDecl",
+                    "type": "DWORD",
+                    "sal": []
+                },
+                {
+                    "name": "nNumberOfBytesPerSend",
+                    "data_type": "TypeDecl",
+                    "type": "DWORD",
+                    "sal": []
+                },
+                {
+                    "name": "lpOverlapped",
+                    "data_type": "TypeDecl",
+                    "type": "LPOVERLAPPED",
+                    "sal": []
+                },
+                {
+                    "name": "lpTransmitBuffers",
+                    "data_type": "TypeDecl",
+                    "type": "LPTRANSMIT_FILE_BUFFERS",
+                    "sal": []
+                },
+                {
+                    "name": "dwReserved",
+                    "data_type": "TypeDecl",
+                    "type": "DWORD",
+                    "sal": []
                 }
             ],
             "api_locations": [
