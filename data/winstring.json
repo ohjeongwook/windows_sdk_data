@@ -1,0 +1,962 @@
+{
+    "typedefs": [
+        {
+            "name": "HSTRING__",
+            "data_type": "TypeDecl",
+            "type": {
+                "name": "HSTRING__",
+                "data_type": "Struct",
+                "elements": [
+                    {
+                        "name": "unused",
+                        "data_type": "TypeDecl",
+                        "type": "int"
+                    }
+                ]
+            }
+        },
+        {
+            "data_type": "PtrDecl",
+            "type": {
+                "name": "HSTRING",
+                "data_type": "TypeDecl",
+                "type": "HSTRING__"
+            }
+        },
+        {
+            "name": "HSTRING_HEADER",
+            "data_type": "TypeDecl",
+            "type": {
+                "name": "HSTRING_HEADER",
+                "data_type": "Struct",
+                "elements": [
+                    {
+                        "name": "Reserved",
+                        "data_type": "TypeDecl",
+                        "type": {
+                            "data_type": "Union",
+                            "elements": [
+                                {
+                                    "name": "Reserved1",
+                                    "data_type": "TypeDecl",
+                                    "type": "PVOID"
+                                },
+                                {
+                                    "data_type": "ArrayDecl",
+                                    "type": {
+                                        "name": "Reserved2",
+                                        "data_type": "TypeDecl",
+                                        "type": "char"
+                                    },
+                                    "dim": {
+                                        "type": "int",
+                                        "value": "24"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "data_type": "PtrDecl",
+            "type": {
+                "name": "HSTRING_BUFFER",
+                "data_type": "TypeDecl",
+                "type": {
+                    "name": "HSTRING_BUFFER__",
+                    "data_type": "Struct",
+                    "elements": []
+                }
+            }
+        },
+        {
+            "data_type": "PtrDecl",
+            "type": {
+                "data_type": "FuncDecl",
+                "type": {
+                    "name": "PINSPECT_HSTRING_CALLBACK",
+                    "data_type": "TypeDecl",
+                    "type": "HRESULT"
+                },
+                "func": {
+                    "name": "PINSPECT_HSTRING_CALLBACK",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "HRESULT"
+                    },
+                    "arguments": [
+                        {
+                            "data_type": "PtrDecl",
+                            "type": {
+                                "name": "context",
+                                "data_type": "TypeDecl",
+                                "type": "void"
+                            }
+                        },
+                        {
+                            "name": "readAddress",
+                            "data_type": "TypeDecl",
+                            "type": "UINT_PTR"
+                        },
+                        {
+                            "name": "length",
+                            "data_type": "TypeDecl",
+                            "type": "UINT32"
+                        },
+                        {
+                            "data_type": "PtrDecl",
+                            "type": {
+                                "name": "buffer",
+                                "data_type": "TypeDecl",
+                                "type": "BYTE"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "data_type": "PtrDecl",
+            "type": {
+                "data_type": "FuncDecl",
+                "type": {
+                    "name": "PINSPECT_HSTRING_CALLBACK2",
+                    "data_type": "TypeDecl",
+                    "type": "HRESULT"
+                },
+                "func": {
+                    "name": "PINSPECT_HSTRING_CALLBACK2",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "HRESULT"
+                    },
+                    "arguments": [
+                        {
+                            "data_type": "PtrDecl",
+                            "type": {
+                                "name": "context",
+                                "data_type": "TypeDecl",
+                                "type": "void"
+                            }
+                        },
+                        {
+                            "name": "readAddress",
+                            "data_type": "TypeDecl",
+                            "type": "UINT64"
+                        },
+                        {
+                            "name": "length",
+                            "data_type": "TypeDecl",
+                            "type": "UINT32"
+                        },
+                        {
+                            "data_type": "PtrDecl",
+                            "type": {
+                                "name": "buffer",
+                                "data_type": "TypeDecl",
+                                "type": "BYTE"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "structs": [
+        {
+            "name": "HSTRING_BUFFER__",
+            "type_data": {
+                "name": "HSTRING_BUFFER__",
+                "data_type": "Struct",
+                "elements": [
+                    {
+                        "name": "unused",
+                        "data_type": "TypeDecl",
+                        "type": "int"
+                    }
+                ]
+            }
+        }
+    ],
+    "funcdefs": [
+        {
+            "name": "WindowsCreateString",
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "sourceString",
+                    "data_type": "TypeDecl",
+                    "type": "PCNZWCH",
+                    "sal": []
+                },
+                {
+                    "name": "length",
+                    "data_type": "TypeDecl",
+                    "type": "UINT32",
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "string",
+                        "data_type": "TypeDecl",
+                        "type": "HSTRING"
+                    },
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "winstring.h",
+                "API-MS-Win-Core-WinRT-String-l1-1-0.dll",
+                "ComBase.dll",
+                "API-MS-Win-Core-WinRT-String-L1-1-1.dll"
+            ]
+        },
+        {
+            "name": "WindowsCreateStringReference",
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "sourceString",
+                    "data_type": "TypeDecl",
+                    "type": "PCWSTR",
+                    "sal": []
+                },
+                {
+                    "name": "length",
+                    "data_type": "TypeDecl",
+                    "type": "UINT32",
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "hstringHeader",
+                        "data_type": "TypeDecl",
+                        "type": "HSTRING_HEADER"
+                    },
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "string",
+                        "data_type": "TypeDecl",
+                        "type": "HSTRING"
+                    },
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "winstring.h",
+                "API-MS-Win-Core-WinRT-String-l1-1-0.dll",
+                "ComBase.dll",
+                "API-MS-Win-Core-WinRT-String-L1-1-1.dll"
+            ]
+        },
+        {
+            "name": "WindowsDeleteString",
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "string",
+                    "data_type": "TypeDecl",
+                    "type": "HSTRING",
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "winstring.h",
+                "API-MS-Win-Core-WinRT-String-l1-1-0.dll",
+                "ComBase.dll",
+                "API-MS-Win-Core-WinRT-String-L1-1-1.dll"
+            ]
+        },
+        {
+            "name": "WindowsDuplicateString",
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "string",
+                    "data_type": "TypeDecl",
+                    "type": "HSTRING",
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "newString",
+                        "data_type": "TypeDecl",
+                        "type": "HSTRING"
+                    },
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "winstring.h",
+                "API-MS-Win-Core-WinRT-String-l1-1-0.dll",
+                "ComBase.dll",
+                "API-MS-Win-Core-WinRT-String-L1-1-1.dll"
+            ]
+        },
+        {
+            "name": "WindowsGetStringLen",
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "UINT32"
+            },
+            "arguments": [
+                {
+                    "name": "string",
+                    "data_type": "TypeDecl",
+                    "type": "HSTRING",
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "winstring.h",
+                "API-MS-Win-Core-WinRT-String-l1-1-0.dll",
+                "ComBase.dll",
+                "API-MS-Win-Core-WinRT-String-L1-1-1.dll"
+            ]
+        },
+        {
+            "name": "WindowsGetStringRawBuffer",
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "PCWSTR"
+            },
+            "arguments": [
+                {
+                    "name": "string",
+                    "data_type": "TypeDecl",
+                    "type": "HSTRING",
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "length",
+                        "data_type": "TypeDecl",
+                        "type": "UINT32"
+                    },
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "winstring.h",
+                "API-MS-Win-Core-WinRT-String-l1-1-0.dll",
+                "ComBase.dll",
+                "API-MS-Win-Core-WinRT-String-L1-1-1.dll"
+            ]
+        },
+        {
+            "name": "WindowsIsStringEmpty",
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "BOOL"
+            },
+            "arguments": [
+                {
+                    "name": "string",
+                    "data_type": "TypeDecl",
+                    "type": "HSTRING",
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "winstring.h",
+                "API-MS-Win-Core-WinRT-String-l1-1-0.dll",
+                "ComBase.dll",
+                "API-MS-Win-Core-WinRT-String-L1-1-1.dll"
+            ]
+        },
+        {
+            "name": "WindowsStringHasEmbeddedNull",
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "string",
+                    "data_type": "TypeDecl",
+                    "type": "HSTRING",
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "hasEmbedNull",
+                        "data_type": "TypeDecl",
+                        "type": "BOOL"
+                    },
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "winstring.h",
+                "API-MS-Win-Core-WinRT-String-l1-1-0.dll",
+                "ComBase.dll",
+                "API-MS-Win-Core-WinRT-String-L1-1-1.dll"
+            ]
+        },
+        {
+            "name": "WindowsCompareStringOrdinal",
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "string1",
+                    "data_type": "TypeDecl",
+                    "type": "HSTRING",
+                    "sal": []
+                },
+                {
+                    "name": "string2",
+                    "data_type": "TypeDecl",
+                    "type": "HSTRING",
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "result",
+                        "data_type": "TypeDecl",
+                        "type": "INT32"
+                    },
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "WinRTType.lib",
+                "WinRTType.dll",
+                "API-MS-Win-Core-WinRT-String-l1-1-0.dll",
+                "ComBase.dll",
+                "API-MS-Win-Core-WinRT-String-L1-1-1.dll"
+            ]
+        },
+        {
+            "name": "WindowsSubstring",
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "string",
+                    "data_type": "TypeDecl",
+                    "type": "HSTRING",
+                    "sal": []
+                },
+                {
+                    "name": "startIndex",
+                    "data_type": "TypeDecl",
+                    "type": "UINT32",
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "newString",
+                        "data_type": "TypeDecl",
+                        "type": "HSTRING"
+                    },
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "winstring.h",
+                "API-MS-Win-Core-WinRT-String-l1-1-0.dll",
+                "ComBase.dll",
+                "API-MS-Win-Core-WinRT-String-L1-1-1.dll"
+            ]
+        },
+        {
+            "name": "WindowsSubstringWithSpecifiedLength",
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "string",
+                    "data_type": "TypeDecl",
+                    "type": "HSTRING",
+                    "sal": []
+                },
+                {
+                    "name": "startIndex",
+                    "data_type": "TypeDecl",
+                    "type": "UINT32",
+                    "sal": []
+                },
+                {
+                    "name": "length",
+                    "data_type": "TypeDecl",
+                    "type": "UINT32",
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "newString",
+                        "data_type": "TypeDecl",
+                        "type": "HSTRING"
+                    },
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "winstring.h",
+                "API-MS-Win-Core-WinRT-String-l1-1-0.dll",
+                "ComBase.dll",
+                "API-MS-Win-Core-WinRT-String-L1-1-1.dll"
+            ]
+        },
+        {
+            "name": "WindowsConcatString",
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "string1",
+                    "data_type": "TypeDecl",
+                    "type": "HSTRING",
+                    "sal": []
+                },
+                {
+                    "name": "string2",
+                    "data_type": "TypeDecl",
+                    "type": "HSTRING",
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "newString",
+                        "data_type": "TypeDecl",
+                        "type": "HSTRING"
+                    },
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "winstring.h",
+                "API-MS-Win-Core-WinRT-String-l1-1-0.dll",
+                "ComBase.dll",
+                "API-MS-Win-Core-WinRT-String-L1-1-1.dll"
+            ]
+        },
+        {
+            "name": "WindowsReplaceString",
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "string",
+                    "data_type": "TypeDecl",
+                    "type": "HSTRING",
+                    "sal": []
+                },
+                {
+                    "name": "stringReplaced",
+                    "data_type": "TypeDecl",
+                    "type": "HSTRING",
+                    "sal": []
+                },
+                {
+                    "name": "stringReplaceWith",
+                    "data_type": "TypeDecl",
+                    "type": "HSTRING",
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "newString",
+                        "data_type": "TypeDecl",
+                        "type": "HSTRING"
+                    },
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "winstring.h",
+                "API-MS-Win-Core-WinRT-String-l1-1-0.dll",
+                "ComBase.dll",
+                "API-MS-Win-Core-WinRT-String-L1-1-1.dll"
+            ]
+        },
+        {
+            "name": "WindowsTrimStringStart",
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "string",
+                    "data_type": "TypeDecl",
+                    "type": "HSTRING",
+                    "sal": []
+                },
+                {
+                    "name": "trimString",
+                    "data_type": "TypeDecl",
+                    "type": "HSTRING",
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "newString",
+                        "data_type": "TypeDecl",
+                        "type": "HSTRING"
+                    },
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "winstring.h",
+                "API-MS-Win-Core-WinRT-String-l1-1-0.dll",
+                "ComBase.dll",
+                "API-MS-Win-Core-WinRT-String-L1-1-1.dll"
+            ]
+        },
+        {
+            "name": "WindowsTrimStringEnd",
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "string",
+                    "data_type": "TypeDecl",
+                    "type": "HSTRING",
+                    "sal": []
+                },
+                {
+                    "name": "trimString",
+                    "data_type": "TypeDecl",
+                    "type": "HSTRING",
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "newString",
+                        "data_type": "TypeDecl",
+                        "type": "HSTRING"
+                    },
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "winstring.h",
+                "API-MS-Win-Core-WinRT-String-l1-1-0.dll",
+                "ComBase.dll",
+                "API-MS-Win-Core-WinRT-String-L1-1-1.dll"
+            ]
+        },
+        {
+            "name": "WindowsPreallocateStringBuffer",
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "length",
+                    "data_type": "TypeDecl",
+                    "type": "UINT32",
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "PtrDecl",
+                        "type": {
+                            "name": "charBuffer",
+                            "data_type": "TypeDecl",
+                            "type": "WCHAR"
+                        }
+                    },
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "bufferHandle",
+                        "data_type": "TypeDecl",
+                        "type": "HSTRING_BUFFER"
+                    },
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "ComBase.dll",
+                "API-MS-Win-Core-WinRT-String-l1-1-0.dll",
+                "API-MS-Win-Core-WinRT-String-L1-1-1.dll"
+            ]
+        },
+        {
+            "name": "WindowsPromoteStringBuffer",
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "bufferHandle",
+                    "data_type": "TypeDecl",
+                    "type": "HSTRING_BUFFER",
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "string",
+                        "data_type": "TypeDecl",
+                        "type": "HSTRING"
+                    },
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "ComBase.dll",
+                "API-MS-Win-Core-WinRT-String-l1-1-0.dll",
+                "API-MS-Win-Core-WinRT-String-L1-1-1.dll"
+            ]
+        },
+        {
+            "name": "WindowsDeleteStringBuffer",
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "bufferHandle",
+                    "data_type": "TypeDecl",
+                    "type": "HSTRING_BUFFER",
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "ComBase.dll",
+                "API-MS-Win-Core-WinRT-String-l1-1-0.dll",
+                "API-MS-Win-Core-WinRT-String-L1-1-1.dll"
+            ]
+        },
+        {
+            "name": "HSTRING_UserSize",
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "ULONG"
+            },
+            "arguments": [
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pFlags",
+                        "data_type": "TypeDecl",
+                        "type": "ULONG"
+                    },
+                    "sal": []
+                },
+                {
+                    "name": "StartingSize",
+                    "data_type": "TypeDecl",
+                    "type": "ULONG",
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "ppidl",
+                        "data_type": "TypeDecl",
+                        "type": "HSTRING"
+                    },
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "ComBase.dll",
+                "API-MS-Win-Core-WinRT-String-l1-1-0.dll",
+                "API-MS-Win-Core-WinRT-String-L1-1-1.dll"
+            ]
+        },
+        {
+            "name": "HSTRING_UserFree",
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "void"
+            },
+            "arguments": [
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "pFlags",
+                        "data_type": "TypeDecl",
+                        "type": "ULONG"
+                    },
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "ppidl",
+                        "data_type": "TypeDecl",
+                        "type": "HSTRING"
+                    },
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "ComBase.dll",
+                "API-MS-Win-Core-WinRT-String-l1-1-0.dll",
+                "API-MS-Win-Core-WinRT-String-L1-1-1.dll"
+            ]
+        },
+        {
+            "name": "WindowsInspectString",
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "targetHString",
+                    "data_type": "TypeDecl",
+                    "type": "UINT_PTR",
+                    "sal": []
+                },
+                {
+                    "name": "machine",
+                    "data_type": "TypeDecl",
+                    "type": "USHORT",
+                    "sal": []
+                },
+                {
+                    "name": "callback",
+                    "data_type": "TypeDecl",
+                    "type": "PINSPECT_HSTRING_CALLBACK",
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "context",
+                        "data_type": "TypeDecl",
+                        "type": "void"
+                    },
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "length",
+                        "data_type": "TypeDecl",
+                        "type": "UINT32"
+                    },
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "targetStringAddress",
+                        "data_type": "TypeDecl",
+                        "type": "UINT_PTR"
+                    },
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "ComBase.dll",
+                "API-MS-Win-Core-WinRT-String-l1-1-0.dll",
+                "API-MS-Win-Core-WinRT-String-L1-1-1.dll"
+            ]
+        },
+        {
+            "name": "WindowsInspectString2",
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "HRESULT"
+            },
+            "arguments": [
+                {
+                    "name": "targetHString",
+                    "data_type": "TypeDecl",
+                    "type": "UINT64",
+                    "sal": []
+                },
+                {
+                    "name": "machine",
+                    "data_type": "TypeDecl",
+                    "type": "USHORT",
+                    "sal": []
+                },
+                {
+                    "name": "callback",
+                    "data_type": "TypeDecl",
+                    "type": "PINSPECT_HSTRING_CALLBACK2",
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "context",
+                        "data_type": "TypeDecl",
+                        "type": "void"
+                    },
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "length",
+                        "data_type": "TypeDecl",
+                        "type": "UINT32"
+                    },
+                    "sal": []
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "name": "targetStringAddress",
+                        "data_type": "TypeDecl",
+                        "type": "UINT64"
+                    },
+                    "sal": []
+                }
+            ],
+            "api_locations": [
+                "ComBase.dll",
+                "API-MS-Win-Core-WinRT-String-l1-1-0.dll",
+                "API-MS-Win-Core-WinRT-String-L1-1-1.dll"
+            ]
+        }
+    ]
+}
