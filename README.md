@@ -73,12 +73,12 @@ Following shows an entry that are using typedef to define structure named __crt_
 ```
 
 ---
-### structs
+### structdefs
 
-The structs entry has the list of structures used in the function definitions. The entry type_data.elements contains list of structure members.
+The structdefs entry has the list of structures used in the function definitions. The entry type_data.elements contains list of structure members.
 
 ```
-    "structs": [
+    "structdefs": [
 
         {
             "name": "_SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX",
