@@ -1,55 +1,58 @@
 {
     "typedefs": [
         {
-            "name": "NET_INTERFACE_CONTEXT",
             "data_type": "TypeDecl",
-            "type": {
-                "name": "_NET_INTERFACE_CONTEXT",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "InterfaceIndex",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "ConfigurationName",
-                        "data_type": "TypeDecl",
-                        "type": "LPWSTR"
-                    }
-                ]
-            }
+            "name": "ONDEMAND_NOTIFICATION_CALLBACK",
+            "type": "void"
         },
         {
-            "name": "NET_INTERFACE_CONTEXT_TABLE",
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "InterfaceIndex",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "ConfigurationName",
+                    "type": "LPWSTR"
+                }
+            ],
+            "name": "_NET_INTERFACE_CONTEXT"
+        },
+        {
             "data_type": "TypeDecl",
-            "type": {
-                "name": "_NET_INTERFACE_CONTEXT_TABLE",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "InterfaceContextHandle",
-                        "data_type": "TypeDecl",
-                        "type": "HANDLE"
-                    },
-                    {
-                        "name": "NumberOfEntries",
-                        "data_type": "TypeDecl",
-                        "type": "UINT"
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "InterfaceContextArray",
-                            "data_type": "TypeDecl",
-                            "type": "NET_INTERFACE_CONTEXT"
-                        }
-                    }
-                ]
-            }
+            "name": "NET_INTERFACE_CONTEXT",
+            "type": "_NET_INTERFACE_CONTEXT"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "InterfaceContextHandle",
+                    "type": "HANDLE"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "NumberOfEntries",
+                    "type": "UINT"
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "InterfaceContextArray",
+                    "type": "NET_INTERFACE_CONTEXT"
+                }
+            ],
+            "name": "_NET_INTERFACE_CONTEXT_TABLE"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "NET_INTERFACE_CONTEXT_TABLE",
+            "type": "_NET_INTERFACE_CONTEXT_TABLE"
         }
     ],
-    "structdefs": [],
     "funcdefs": [
         {
             "name": "OnDemandGetRoutingHint",
@@ -59,8 +62,8 @@
             },
             "arguments": [
                 {
-                    "name": "destinationHostName",
                     "data_type": "TypeDecl",
+                    "name": "destinationHostName",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -68,11 +71,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "interfaceIndex",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
+                    "name": "interfaceIndex",
+                    "type": "DWORD",
                     "sal": [
                         "out"
                     ]
@@ -90,8 +90,8 @@
             },
             "arguments": [
                 {
-                    "name": "callback",
                     "data_type": "TypeDecl",
+                    "name": "callback",
                     "type": "ONDEMAND_NOTIFICATION_CALLBACK",
                     "sal": [
                         "in"
@@ -99,11 +99,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "callbackContext",
-                        "data_type": "TypeDecl",
-                        "type": "void"
-                    },
+                    "name": "callbackContext",
+                    "type": "void",
                     "sal": [
                         "in",
                         "optional"
@@ -111,11 +108,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "registrationHandle",
-                        "data_type": "TypeDecl",
-                        "type": "HANDLE"
-                    },
+                    "name": "registrationHandle",
+                    "type": "HANDLE",
                     "sal": [
                         "out"
                     ]
@@ -133,8 +127,8 @@
             },
             "arguments": [
                 {
+                    "data_type": "TypeDecl",
                     "name": "HostName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in",
@@ -142,8 +136,8 @@
                     ]
                 },
                 {
+                    "data_type": "TypeDecl",
                     "name": "ProxyName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in",
@@ -151,8 +145,8 @@
                     ]
                 },
                 {
-                    "name": "Flags",
                     "data_type": "TypeDecl",
+                    "name": "Flags",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -160,19 +154,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "ConnectionProfileFilterRawData",
-                        "data_type": "TypeDecl",
-                        "type": "BYTE"
-                    },
+                    "name": "ConnectionProfileFilterRawData",
+                    "type": "BYTE",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "name": "ConnectionProfileFilterRawDataSize",
                     "data_type": "TypeDecl",
+                    "name": "ConnectionProfileFilterRawDataSize",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -180,14 +171,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "InterfaceContextTable",
-                            "data_type": "TypeDecl",
-                            "type": "NET_INTERFACE_CONTEXT_TABLE"
-                        }
-                    },
+                    "name": "InterfaceContextTable",
+                    "type": "NET_INTERFACE_CONTEXT_TABLE",
                     "sal": [
                         "out"
                     ]
@@ -207,11 +192,8 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "InterfaceContextTable",
-                        "data_type": "TypeDecl",
-                        "type": "NET_INTERFACE_CONTEXT_TABLE"
-                    },
+                    "name": "InterfaceContextTable",
+                    "type": "NET_INTERFACE_CONTEXT_TABLE",
                     "sal": [
                         "in"
                     ]

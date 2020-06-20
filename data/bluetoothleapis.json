@@ -1,909 +1,479 @@
 {
     "typedefs": [
         {
-            "name": "BLUETOOTH_GATT_EVENT_HANDLE",
             "data_type": "TypeDecl",
+            "name": "BLUETOOTH_GATT_EVENT_HANDLE",
             "type": "HANDLE"
         },
         {
-            "name": "BTH_LE_UUID",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "_BTH_LE_UUID",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "IsShortUuid",
-                        "data_type": "TypeDecl",
-                        "type": "BOOLEAN"
-                    },
-                    {
-                        "name": "Value",
-                        "data_type": "TypeDecl",
-                        "type": {
-                            "data_type": "Union",
-                            "elements": [
-                                {
-                                    "name": "ShortUuid",
-                                    "data_type": "TypeDecl",
-                                    "type": "USHORT"
-                                },
-                                {
-                                    "name": "LongUuid",
-                                    "data_type": "TypeDecl",
-                                    "type": "GUID"
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "PBTH_LE_UUID",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "_BTH_LE_UUID",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "IsShortUuid",
-                            "data_type": "TypeDecl",
-                            "type": "BOOLEAN"
-                        },
-                        {
-                            "name": "Value",
-                            "data_type": "TypeDecl",
-                            "type": {
-                                "data_type": "Union",
-                                "elements": [
-                                    {
-                                        "name": "ShortUuid",
-                                        "data_type": "TypeDecl",
-                                        "type": "USHORT"
-                                    },
-                                    {
-                                        "name": "LongUuid",
-                                        "data_type": "TypeDecl",
-                                        "type": "GUID"
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "name": "BTH_LE_GATT_SERVICE",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "_BTH_LE_GATT_SERVICE",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "ServiceUuid",
-                        "data_type": "TypeDecl",
-                        "type": "BTH_LE_UUID"
-                    },
-                    {
-                        "name": "AttributeHandle",
-                        "data_type": "TypeDecl",
-                        "type": "USHORT"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "PBTH_LE_GATT_SERVICE",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "_BTH_LE_GATT_SERVICE",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "ServiceUuid",
-                            "data_type": "TypeDecl",
-                            "type": "BTH_LE_UUID"
-                        },
-                        {
-                            "name": "AttributeHandle",
-                            "data_type": "TypeDecl",
-                            "type": "USHORT"
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "name": "BTH_LE_GATT_DESCRIPTOR_TYPE",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "_BTH_LE_GATT_DESCRIPTOR_TYPE",
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "CharacteristicExtendedProperties",
-                        "value": {}
-                    },
-                    {
-                        "name": "CharacteristicUserDescription",
-                        "value": {}
-                    },
-                    {
-                        "name": "ClientCharacteristicConfiguration",
-                        "value": {}
-                    },
-                    {
-                        "name": "ServerCharacteristicConfiguration",
-                        "value": {}
-                    },
-                    {
-                        "name": "CharacteristicFormat",
-                        "value": {}
-                    },
-                    {
-                        "name": "CharacteristicAggregateFormat",
-                        "value": {}
-                    },
-                    {
-                        "name": "CustomDescriptor",
-                        "value": {}
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "PBTH_LE_GATT_DESCRIPTOR_TYPE",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "_BTH_LE_GATT_DESCRIPTOR_TYPE",
-                    "data_type": "Enum",
-                    "enumerators": [
-                        {
-                            "name": "CharacteristicExtendedProperties",
-                            "value": {}
-                        },
-                        {
-                            "name": "CharacteristicUserDescription",
-                            "value": {}
-                        },
-                        {
-                            "name": "ClientCharacteristicConfiguration",
-                            "value": {}
-                        },
-                        {
-                            "name": "ServerCharacteristicConfiguration",
-                            "value": {}
-                        },
-                        {
-                            "name": "CharacteristicFormat",
-                            "value": {}
-                        },
-                        {
-                            "name": "CharacteristicAggregateFormat",
-                            "value": {}
-                        },
-                        {
-                            "name": "CustomDescriptor",
-                            "value": {}
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "name": "BTH_LE_GATT_CHARACTERISTIC",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "_BTH_LE_GATT_CHARACTERISTIC",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "ServiceHandle",
-                        "data_type": "TypeDecl",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "CharacteristicUuid",
-                        "data_type": "TypeDecl",
-                        "type": "BTH_LE_UUID"
-                    },
-                    {
-                        "name": "AttributeHandle",
-                        "data_type": "TypeDecl",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "CharacteristicValueHandle",
-                        "data_type": "TypeDecl",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "IsBroadcastable",
-                        "data_type": "TypeDecl",
-                        "type": "BOOLEAN"
-                    },
-                    {
-                        "name": "IsReadable",
-                        "data_type": "TypeDecl",
-                        "type": "BOOLEAN"
-                    },
-                    {
-                        "name": "IsWritable",
-                        "data_type": "TypeDecl",
-                        "type": "BOOLEAN"
-                    },
-                    {
-                        "name": "IsWritableWithoutResponse",
-                        "data_type": "TypeDecl",
-                        "type": "BOOLEAN"
-                    },
-                    {
-                        "name": "IsSignedWritable",
-                        "data_type": "TypeDecl",
-                        "type": "BOOLEAN"
-                    },
-                    {
-                        "name": "IsNotifiable",
-                        "data_type": "TypeDecl",
-                        "type": "BOOLEAN"
-                    },
-                    {
-                        "name": "IsIndicatable",
-                        "data_type": "TypeDecl",
-                        "type": "BOOLEAN"
-                    },
-                    {
-                        "name": "HasExtendedProperties",
-                        "data_type": "TypeDecl",
-                        "type": "BOOLEAN"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "PBTH_LE_GATT_CHARACTERISTIC",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "_BTH_LE_GATT_CHARACTERISTIC",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "ServiceHandle",
-                            "data_type": "TypeDecl",
-                            "type": "USHORT"
-                        },
-                        {
-                            "name": "CharacteristicUuid",
-                            "data_type": "TypeDecl",
-                            "type": "BTH_LE_UUID"
-                        },
-                        {
-                            "name": "AttributeHandle",
-                            "data_type": "TypeDecl",
-                            "type": "USHORT"
-                        },
-                        {
-                            "name": "CharacteristicValueHandle",
-                            "data_type": "TypeDecl",
-                            "type": "USHORT"
-                        },
-                        {
-                            "name": "IsBroadcastable",
-                            "data_type": "TypeDecl",
-                            "type": "BOOLEAN"
-                        },
-                        {
-                            "name": "IsReadable",
-                            "data_type": "TypeDecl",
-                            "type": "BOOLEAN"
-                        },
-                        {
-                            "name": "IsWritable",
-                            "data_type": "TypeDecl",
-                            "type": "BOOLEAN"
-                        },
-                        {
-                            "name": "IsWritableWithoutResponse",
-                            "data_type": "TypeDecl",
-                            "type": "BOOLEAN"
-                        },
-                        {
-                            "name": "IsSignedWritable",
-                            "data_type": "TypeDecl",
-                            "type": "BOOLEAN"
-                        },
-                        {
-                            "name": "IsNotifiable",
-                            "data_type": "TypeDecl",
-                            "type": "BOOLEAN"
-                        },
-                        {
-                            "name": "IsIndicatable",
-                            "data_type": "TypeDecl",
-                            "type": "BOOLEAN"
-                        },
-                        {
-                            "name": "HasExtendedProperties",
-                            "data_type": "TypeDecl",
-                            "type": "BOOLEAN"
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "name": "BTH_LE_GATT_CHARACTERISTIC_VALUE",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "_BTH_LE_GATT_CHARACTERISTIC_VALUE",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "DataSize",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "type": {
-                            "name": "Data",
-                            "data_type": "TypeDecl",
-                            "type": "UCHAR"
-                        },
-                        "dim": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "PBTH_LE_GATT_CHARACTERISTIC_VALUE",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "_BTH_LE_GATT_CHARACTERISTIC_VALUE",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "DataSize",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        {
-                            "data_type": "ArrayDecl",
-                            "type": {
-                                "name": "Data",
-                                "data_type": "TypeDecl",
-                                "type": "UCHAR"
-                            },
-                            "dim": {
-                                "type": "int",
-                                "value": "1"
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "name": "BTH_LE_GATT_DESCRIPTOR",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "_BTH_LE_GATT_DESCRIPTOR",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "ServiceHandle",
-                        "data_type": "TypeDecl",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "CharacteristicHandle",
-                        "data_type": "TypeDecl",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "DescriptorType",
-                        "data_type": "TypeDecl",
-                        "type": "BTH_LE_GATT_DESCRIPTOR_TYPE"
-                    },
-                    {
-                        "name": "DescriptorUuid",
-                        "data_type": "TypeDecl",
-                        "type": "BTH_LE_UUID"
-                    },
-                    {
-                        "name": "AttributeHandle",
-                        "data_type": "TypeDecl",
-                        "type": "USHORT"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "PBTH_LE_GATT_DESCRIPTOR",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "_BTH_LE_GATT_DESCRIPTOR",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "ServiceHandle",
-                            "data_type": "TypeDecl",
-                            "type": "USHORT"
-                        },
-                        {
-                            "name": "CharacteristicHandle",
-                            "data_type": "TypeDecl",
-                            "type": "USHORT"
-                        },
-                        {
-                            "name": "DescriptorType",
-                            "data_type": "TypeDecl",
-                            "type": "BTH_LE_GATT_DESCRIPTOR_TYPE"
-                        },
-                        {
-                            "name": "DescriptorUuid",
-                            "data_type": "TypeDecl",
-                            "type": "BTH_LE_UUID"
-                        },
-                        {
-                            "name": "AttributeHandle",
-                            "data_type": "TypeDecl",
-                            "type": "USHORT"
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "name": "BTH_LE_GATT_DESCRIPTOR_VALUE",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "_BTH_LE_GATT_DESCRIPTOR_VALUE",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "DescriptorType",
-                        "data_type": "TypeDecl",
-                        "type": "BTH_LE_GATT_DESCRIPTOR_TYPE"
-                    },
-                    {
-                        "name": "DescriptorUuid",
-                        "data_type": "TypeDecl",
-                        "type": "BTH_LE_UUID"
-                    },
-                    {
-                        "data_type": "Union",
-                        "elements": [
-                            {
-                                "name": "CharacteristicExtendedProperties",
-                                "data_type": "TypeDecl",
-                                "type": {
-                                    "data_type": "Struct",
-                                    "elements": [
-                                        {
-                                            "name": "IsReliableWriteEnabled",
-                                            "data_type": "TypeDecl",
-                                            "type": "BOOLEAN"
-                                        },
-                                        {
-                                            "name": "IsAuxiliariesWritable",
-                                            "data_type": "TypeDecl",
-                                            "type": "BOOLEAN"
-                                        }
-                                    ]
-                                }
-                            },
-                            {
-                                "name": "ClientCharacteristicConfiguration",
-                                "data_type": "TypeDecl",
-                                "type": {
-                                    "data_type": "Struct",
-                                    "elements": [
-                                        {
-                                            "name": "IsSubscribeToNotification",
-                                            "data_type": "TypeDecl",
-                                            "type": "BOOLEAN"
-                                        },
-                                        {
-                                            "name": "IsSubscribeToIndication",
-                                            "data_type": "TypeDecl",
-                                            "type": "BOOLEAN"
-                                        }
-                                    ]
-                                }
-                            },
-                            {
-                                "name": "ServerCharacteristicConfiguration",
-                                "data_type": "TypeDecl",
-                                "type": {
-                                    "data_type": "Struct",
-                                    "elements": [
-                                        {
-                                            "name": "IsBroadcast",
-                                            "data_type": "TypeDecl",
-                                            "type": "BOOLEAN"
-                                        }
-                                    ]
-                                }
-                            },
-                            {
-                                "name": "CharacteristicFormat",
-                                "data_type": "TypeDecl",
-                                "type": {
-                                    "data_type": "Struct",
-                                    "elements": [
-                                        {
-                                            "name": "Format",
-                                            "data_type": "TypeDecl",
-                                            "type": "UCHAR"
-                                        },
-                                        {
-                                            "name": "Exponent",
-                                            "data_type": "TypeDecl",
-                                            "type": "UCHAR"
-                                        },
-                                        {
-                                            "name": "Unit",
-                                            "data_type": "TypeDecl",
-                                            "type": "BTH_LE_UUID"
-                                        },
-                                        {
-                                            "name": "NameSpace",
-                                            "data_type": "TypeDecl",
-                                            "type": "UCHAR"
-                                        },
-                                        {
-                                            "name": "Description",
-                                            "data_type": "TypeDecl",
-                                            "type": "BTH_LE_UUID"
-                                        }
-                                    ]
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "name": "DataSize",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "type": {
-                            "name": "Data",
-                            "data_type": "TypeDecl",
-                            "type": "UCHAR"
-                        },
-                        "dim": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "PBTH_LE_GATT_DESCRIPTOR_VALUE",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "_BTH_LE_GATT_DESCRIPTOR_VALUE",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "DescriptorType",
-                            "data_type": "TypeDecl",
-                            "type": "BTH_LE_GATT_DESCRIPTOR_TYPE"
-                        },
-                        {
-                            "name": "DescriptorUuid",
-                            "data_type": "TypeDecl",
-                            "type": "BTH_LE_UUID"
-                        },
-                        {
-                            "data_type": "Union",
-                            "elements": [
-                                {
-                                    "name": "CharacteristicExtendedProperties",
-                                    "data_type": "TypeDecl",
-                                    "type": {
-                                        "data_type": "Struct",
-                                        "elements": [
-                                            {
-                                                "name": "IsReliableWriteEnabled",
-                                                "data_type": "TypeDecl",
-                                                "type": "BOOLEAN"
-                                            },
-                                            {
-                                                "name": "IsAuxiliariesWritable",
-                                                "data_type": "TypeDecl",
-                                                "type": "BOOLEAN"
-                                            }
-                                        ]
-                                    }
-                                },
-                                {
-                                    "name": "ClientCharacteristicConfiguration",
-                                    "data_type": "TypeDecl",
-                                    "type": {
-                                        "data_type": "Struct",
-                                        "elements": [
-                                            {
-                                                "name": "IsSubscribeToNotification",
-                                                "data_type": "TypeDecl",
-                                                "type": "BOOLEAN"
-                                            },
-                                            {
-                                                "name": "IsSubscribeToIndication",
-                                                "data_type": "TypeDecl",
-                                                "type": "BOOLEAN"
-                                            }
-                                        ]
-                                    }
-                                },
-                                {
-                                    "name": "ServerCharacteristicConfiguration",
-                                    "data_type": "TypeDecl",
-                                    "type": {
-                                        "data_type": "Struct",
-                                        "elements": [
-                                            {
-                                                "name": "IsBroadcast",
-                                                "data_type": "TypeDecl",
-                                                "type": "BOOLEAN"
-                                            }
-                                        ]
-                                    }
-                                },
-                                {
-                                    "name": "CharacteristicFormat",
-                                    "data_type": "TypeDecl",
-                                    "type": {
-                                        "data_type": "Struct",
-                                        "elements": [
-                                            {
-                                                "name": "Format",
-                                                "data_type": "TypeDecl",
-                                                "type": "UCHAR"
-                                            },
-                                            {
-                                                "name": "Exponent",
-                                                "data_type": "TypeDecl",
-                                                "type": "UCHAR"
-                                            },
-                                            {
-                                                "name": "Unit",
-                                                "data_type": "TypeDecl",
-                                                "type": "BTH_LE_UUID"
-                                            },
-                                            {
-                                                "name": "NameSpace",
-                                                "data_type": "TypeDecl",
-                                                "type": "UCHAR"
-                                            },
-                                            {
-                                                "name": "Description",
-                                                "data_type": "TypeDecl",
-                                                "type": "BTH_LE_UUID"
-                                            }
-                                        ]
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            "name": "DataSize",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        {
-                            "data_type": "ArrayDecl",
-                            "type": {
-                                "name": "Data",
-                                "data_type": "TypeDecl",
-                                "type": "UCHAR"
-                            },
-                            "dim": {
-                                "type": "int",
-                                "value": "1"
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "name": "BTH_LE_GATT_EVENT_TYPE",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "_BTH_LE_GATT_EVENT_TYPE",
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "CharacteristicValueChangedEvent",
-                        "value": {}
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "FuncDecl",
-                "type": {
-                    "name": "PFNBLUETOOTH_GATT_EVENT_CALLBACK",
+            "data_type": "Struct",
+            "elements": [
+                {
                     "data_type": "TypeDecl",
-                    "type": "void"
+                    "name": "IsShortUuid",
+                    "type": "BOOLEAN"
                 },
-                "func": {
-                    "name": "PFNBLUETOOTH_GATT_EVENT_CALLBACK",
+                {
+                    "data_type": "Union",
+                    "elements": [
+                        {
+                            "data_type": "TypeDecl",
+                            "name": "ShortUuid",
+                            "type": "USHORT"
+                        },
+                        {
+                            "data_type": "TypeDecl",
+                            "name": "LongUuid",
+                            "type": "GUID"
+                        }
+                    ]
+                }
+            ],
+            "name": "_BTH_LE_UUID"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "BTH_LE_UUID",
+            "type": "_BTH_LE_UUID"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "PBTH_LE_UUID",
+            "type": "_BTH_LE_UUID"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "ServiceUuid",
+                    "type": "BTH_LE_UUID"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "AttributeHandle",
+                    "type": "USHORT"
+                }
+            ],
+            "name": "_BTH_LE_GATT_SERVICE"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "BTH_LE_GATT_SERVICE",
+            "type": "_BTH_LE_GATT_SERVICE"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "PBTH_LE_GATT_SERVICE",
+            "type": "_BTH_LE_GATT_SERVICE"
+        },
+        {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "CharacteristicExtendedProperties",
+                    "value": {}
+                },
+                {
+                    "name": "CharacteristicUserDescription",
+                    "value": {}
+                },
+                {
+                    "name": "ClientCharacteristicConfiguration",
+                    "value": {}
+                },
+                {
+                    "name": "ServerCharacteristicConfiguration",
+                    "value": {}
+                },
+                {
+                    "name": "CharacteristicFormat",
+                    "value": {}
+                },
+                {
+                    "name": "CharacteristicAggregateFormat",
+                    "value": {}
+                },
+                {
+                    "name": "CustomDescriptor",
+                    "value": {}
+                }
+            ],
+            "name": "_BTH_LE_GATT_DESCRIPTOR_TYPE"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "BTH_LE_GATT_DESCRIPTOR_TYPE",
+            "type": "_BTH_LE_GATT_DESCRIPTOR_TYPE"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "PBTH_LE_GATT_DESCRIPTOR_TYPE",
+            "type": "_BTH_LE_GATT_DESCRIPTOR_TYPE"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "ServiceHandle",
+                    "type": "USHORT"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "CharacteristicUuid",
+                    "type": "BTH_LE_UUID"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "AttributeHandle",
+                    "type": "USHORT"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "CharacteristicValueHandle",
+                    "type": "USHORT"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "IsBroadcastable",
+                    "type": "BOOLEAN"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "IsReadable",
+                    "type": "BOOLEAN"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "IsWritable",
+                    "type": "BOOLEAN"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "IsWritableWithoutResponse",
+                    "type": "BOOLEAN"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "IsSignedWritable",
+                    "type": "BOOLEAN"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "IsNotifiable",
+                    "type": "BOOLEAN"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "IsIndicatable",
+                    "type": "BOOLEAN"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "HasExtendedProperties",
+                    "type": "BOOLEAN"
+                }
+            ],
+            "name": "_BTH_LE_GATT_CHARACTERISTIC"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "BTH_LE_GATT_CHARACTERISTIC",
+            "type": "_BTH_LE_GATT_CHARACTERISTIC"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "PBTH_LE_GATT_CHARACTERISTIC",
+            "type": "_BTH_LE_GATT_CHARACTERISTIC"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "DataSize",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "1"
+                    },
                     "type": {
                         "data_type": "TypeDecl",
-                        "type": "void"
-                    },
-                    "arguments": [
-                        {
-                            "name": "EventType",
-                            "data_type": "TypeDecl",
-                            "type": "BTH_LE_GATT_EVENT_TYPE"
-                        },
-                        {
-                            "name": "EventOutParameter",
-                            "data_type": "TypeDecl",
-                            "type": "PVOID"
-                        },
-                        {
-                            "name": "Context",
-                            "data_type": "TypeDecl",
-                            "type": "PVOID"
-                        }
-                    ]
+                        "name": "Data",
+                        "type": "UCHAR"
+                    }
                 }
-            }
+            ],
+            "name": "_BTH_LE_GATT_CHARACTERISTIC_VALUE"
         },
         {
+            "data_type": "TypeDecl",
+            "name": "BTH_LE_GATT_CHARACTERISTIC_VALUE",
+            "type": "_BTH_LE_GATT_CHARACTERISTIC_VALUE"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "PBTH_LE_GATT_CHARACTERISTIC_VALUE",
+            "type": "_BTH_LE_GATT_CHARACTERISTIC_VALUE"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "ServiceHandle",
+                    "type": "USHORT"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "CharacteristicHandle",
+                    "type": "USHORT"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "DescriptorType",
+                    "type": "BTH_LE_GATT_DESCRIPTOR_TYPE"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "DescriptorUuid",
+                    "type": "BTH_LE_UUID"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "AttributeHandle",
+                    "type": "USHORT"
+                }
+            ],
+            "name": "_BTH_LE_GATT_DESCRIPTOR"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "BTH_LE_GATT_DESCRIPTOR",
+            "type": "_BTH_LE_GATT_DESCRIPTOR"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "PBTH_LE_GATT_DESCRIPTOR",
+            "type": "_BTH_LE_GATT_DESCRIPTOR"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "DescriptorType",
+                    "type": "BTH_LE_GATT_DESCRIPTOR_TYPE"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "DescriptorUuid",
+                    "type": "BTH_LE_UUID"
+                },
+                {
+                    "data_type": "Union",
+                    "elements": [
+                        {
+                            "data_type": "Struct",
+                            "elements": [
+                                {
+                                    "data_type": "TypeDecl",
+                                    "name": "IsReliableWriteEnabled",
+                                    "type": "BOOLEAN"
+                                },
+                                {
+                                    "data_type": "TypeDecl",
+                                    "name": "IsAuxiliariesWritable",
+                                    "type": "BOOLEAN"
+                                }
+                            ]
+                        },
+                        {
+                            "data_type": "Struct",
+                            "elements": [
+                                {
+                                    "data_type": "TypeDecl",
+                                    "name": "IsSubscribeToNotification",
+                                    "type": "BOOLEAN"
+                                },
+                                {
+                                    "data_type": "TypeDecl",
+                                    "name": "IsSubscribeToIndication",
+                                    "type": "BOOLEAN"
+                                }
+                            ]
+                        },
+                        {
+                            "data_type": "Struct",
+                            "elements": [
+                                {
+                                    "data_type": "TypeDecl",
+                                    "name": "IsBroadcast",
+                                    "type": "BOOLEAN"
+                                }
+                            ]
+                        },
+                        {
+                            "data_type": "Struct",
+                            "elements": [
+                                {
+                                    "data_type": "TypeDecl",
+                                    "name": "Format",
+                                    "type": "UCHAR"
+                                },
+                                {
+                                    "data_type": "TypeDecl",
+                                    "name": "Exponent",
+                                    "type": "UCHAR"
+                                },
+                                {
+                                    "data_type": "TypeDecl",
+                                    "name": "Unit",
+                                    "type": "BTH_LE_UUID"
+                                },
+                                {
+                                    "data_type": "TypeDecl",
+                                    "name": "NameSpace",
+                                    "type": "UCHAR"
+                                },
+                                {
+                                    "data_type": "TypeDecl",
+                                    "name": "Description",
+                                    "type": "BTH_LE_UUID"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "DataSize",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "1"
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "Data",
+                        "type": "UCHAR"
+                    }
+                }
+            ],
+            "name": "_BTH_LE_GATT_DESCRIPTOR_VALUE"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "BTH_LE_GATT_DESCRIPTOR_VALUE",
+            "type": "_BTH_LE_GATT_DESCRIPTOR_VALUE"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "PBTH_LE_GATT_DESCRIPTOR_VALUE",
+            "type": "_BTH_LE_GATT_DESCRIPTOR_VALUE"
+        },
+        {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "CharacteristicValueChangedEvent",
+                    "value": {}
+                }
+            ],
+            "name": "_BTH_LE_GATT_EVENT_TYPE"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "BTH_LE_GATT_EVENT_TYPE",
+            "type": "_BTH_LE_GATT_EVENT_TYPE"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "PFNBLUETOOTH_GATT_EVENT_CALLBACK",
+            "type": "void"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "NumCharacteristics",
+                    "type": "USHORT"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "1"
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "Characteristics",
+                        "type": "BTH_LE_GATT_CHARACTERISTIC"
+                    }
+                }
+            ],
+            "name": "_BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION"
+        },
+        {
+            "data_type": "TypeDecl",
             "name": "BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "_BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "NumCharacteristics",
-                        "data_type": "TypeDecl",
-                        "type": "USHORT"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "type": {
-                            "name": "Characteristics",
-                            "data_type": "TypeDecl",
-                            "type": "BTH_LE_GATT_CHARACTERISTIC"
-                        },
-                        "dim": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    }
-                ]
-            }
+            "type": "_BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION"
         },
         {
             "data_type": "PtrDecl",
-            "type": {
-                "name": "PBLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "_BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "NumCharacteristics",
-                            "data_type": "TypeDecl",
-                            "type": "USHORT"
-                        },
-                        {
-                            "data_type": "ArrayDecl",
-                            "type": {
-                                "name": "Characteristics",
-                                "data_type": "TypeDecl",
-                                "type": "BTH_LE_GATT_CHARACTERISTIC"
-                            },
-                            "dim": {
-                                "type": "int",
-                                "value": "1"
-                            }
-                        }
-                    ]
-                }
-            }
+            "name": "PBLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION",
+            "type": "_BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION"
         },
         {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "ChangedAttributeHandle",
+                    "type": "USHORT"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "CharacteristicValueDataSize",
+                    "type": "size_t"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "CharacteristicValue",
+                    "type": "PBTH_LE_GATT_CHARACTERISTIC_VALUE"
+                }
+            ],
+            "name": "_BLUETOOTH_GATT_VALUE_CHANGED_EVENT"
+        },
+        {
+            "data_type": "TypeDecl",
             "name": "BLUETOOTH_GATT_VALUE_CHANGED_EVENT",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "_BLUETOOTH_GATT_VALUE_CHANGED_EVENT",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "ChangedAttributeHandle",
-                        "data_type": "TypeDecl",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "CharacteristicValueDataSize",
-                        "data_type": "TypeDecl",
-                        "type": "size_t"
-                    },
-                    {
-                        "name": "CharacteristicValue",
-                        "data_type": "TypeDecl",
-                        "type": "PBTH_LE_GATT_CHARACTERISTIC_VALUE"
-                    }
-                ]
-            }
+            "type": "_BLUETOOTH_GATT_VALUE_CHANGED_EVENT"
         },
         {
             "data_type": "PtrDecl",
-            "type": {
-                "name": "PBLUETOOTH_GATT_VALUE_CHANGED_EVENT",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "_BLUETOOTH_GATT_VALUE_CHANGED_EVENT",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "ChangedAttributeHandle",
-                            "data_type": "TypeDecl",
-                            "type": "USHORT"
-                        },
-                        {
-                            "name": "CharacteristicValueDataSize",
-                            "data_type": "TypeDecl",
-                            "type": "size_t"
-                        },
-                        {
-                            "name": "CharacteristicValue",
-                            "data_type": "TypeDecl",
-                            "type": "PBTH_LE_GATT_CHARACTERISTIC_VALUE"
-                        }
-                    ]
-                }
-            }
+            "name": "PBLUETOOTH_GATT_VALUE_CHANGED_EVENT",
+            "type": "_BLUETOOTH_GATT_VALUE_CHANGED_EVENT"
         },
         {
-            "name": "BTH_LE_GATT_RELIABLE_WRITE_CONTEXT",
             "data_type": "TypeDecl",
+            "name": "BTH_LE_GATT_RELIABLE_WRITE_CONTEXT",
             "type": "ULONG64"
         },
         {
             "data_type": "PtrDecl",
-            "type": {
-                "name": "PBTH_LE_GATT_RELIABLE_WRITE_CONTEXT",
-                "data_type": "TypeDecl",
-                "type": "ULONG64"
-            }
+            "name": "PBTH_LE_GATT_RELIABLE_WRITE_CONTEXT",
+            "type": "ULONG64"
         }
     ],
-    "structdefs": [],
     "funcdefs": [
         {
             "name": "BluetoothGATTGetServices",
@@ -913,24 +483,24 @@
             },
             "arguments": [
                 {
-                    "name": "hDevice",
                     "data_type": "TypeDecl",
+                    "name": "hDevice",
                     "type": "HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "ServicesBufferCount",
                     "data_type": "TypeDecl",
+                    "name": "ServicesBufferCount",
                     "type": "USHORT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "ServicesBuffer",
                     "data_type": "TypeDecl",
+                    "name": "ServicesBuffer",
                     "type": "PBTH_LE_GATT_SERVICE",
                     "sal": [
                         "out",
@@ -939,18 +509,15 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "ServicesBufferActual",
-                        "data_type": "TypeDecl",
-                        "type": "USHORT"
-                    },
+                    "name": "ServicesBufferActual",
+                    "type": "USHORT",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "name": "Flags",
                     "data_type": "TypeDecl",
+                    "name": "Flags",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -970,16 +537,16 @@
             },
             "arguments": [
                 {
-                    "name": "hDevice",
                     "data_type": "TypeDecl",
+                    "name": "hDevice",
                     "type": "HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "ParentService",
                     "data_type": "TypeDecl",
+                    "name": "ParentService",
                     "type": "PBTH_LE_GATT_SERVICE",
                     "sal": [
                         "in",
@@ -987,16 +554,16 @@
                     ]
                 },
                 {
-                    "name": "IncludedServicesBufferCount",
                     "data_type": "TypeDecl",
+                    "name": "IncludedServicesBufferCount",
                     "type": "USHORT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "IncludedServicesBuffer",
                     "data_type": "TypeDecl",
+                    "name": "IncludedServicesBuffer",
                     "type": "PBTH_LE_GATT_SERVICE",
                     "sal": [
                         "out",
@@ -1005,18 +572,15 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "IncludedServicesBufferActual",
-                        "data_type": "TypeDecl",
-                        "type": "USHORT"
-                    },
+                    "name": "IncludedServicesBufferActual",
+                    "type": "USHORT",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "name": "Flags",
                     "data_type": "TypeDecl",
+                    "name": "Flags",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -1036,16 +600,16 @@
             },
             "arguments": [
                 {
-                    "name": "hDevice",
                     "data_type": "TypeDecl",
+                    "name": "hDevice",
                     "type": "HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "Service",
                     "data_type": "TypeDecl",
+                    "name": "Service",
                     "type": "PBTH_LE_GATT_SERVICE",
                     "sal": [
                         "in",
@@ -1053,16 +617,16 @@
                     ]
                 },
                 {
-                    "name": "CharacteristicsBufferCount",
                     "data_type": "TypeDecl",
+                    "name": "CharacteristicsBufferCount",
                     "type": "USHORT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "CharacteristicsBuffer",
                     "data_type": "TypeDecl",
+                    "name": "CharacteristicsBuffer",
                     "type": "PBTH_LE_GATT_CHARACTERISTIC",
                     "sal": [
                         "out",
@@ -1071,18 +635,15 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "CharacteristicsBufferActual",
-                        "data_type": "TypeDecl",
-                        "type": "USHORT"
-                    },
+                    "name": "CharacteristicsBufferActual",
+                    "type": "USHORT",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "name": "Flags",
                     "data_type": "TypeDecl",
+                    "name": "Flags",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -1102,32 +663,32 @@
             },
             "arguments": [
                 {
-                    "name": "hDevice",
                     "data_type": "TypeDecl",
+                    "name": "hDevice",
                     "type": "HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "Characteristic",
                     "data_type": "TypeDecl",
+                    "name": "Characteristic",
                     "type": "PBTH_LE_GATT_CHARACTERISTIC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "DescriptorsBufferCount",
                     "data_type": "TypeDecl",
+                    "name": "DescriptorsBufferCount",
                     "type": "USHORT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "DescriptorsBuffer",
                     "data_type": "TypeDecl",
+                    "name": "DescriptorsBuffer",
                     "type": "PBTH_LE_GATT_DESCRIPTOR",
                     "sal": [
                         "out",
@@ -1136,18 +697,15 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "DescriptorsBufferActual",
-                        "data_type": "TypeDecl",
-                        "type": "USHORT"
-                    },
+                    "name": "DescriptorsBufferActual",
+                    "type": "USHORT",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "name": "Flags",
                     "data_type": "TypeDecl",
+                    "name": "Flags",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -1167,32 +725,32 @@
             },
             "arguments": [
                 {
-                    "name": "hDevice",
                     "data_type": "TypeDecl",
+                    "name": "hDevice",
                     "type": "HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "Characteristic",
                     "data_type": "TypeDecl",
+                    "name": "Characteristic",
                     "type": "PBTH_LE_GATT_CHARACTERISTIC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "CharacteristicValueDataSize",
                     "data_type": "TypeDecl",
+                    "name": "CharacteristicValueDataSize",
                     "type": "ULONG",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "CharacteristicValue",
                     "data_type": "TypeDecl",
+                    "name": "CharacteristicValue",
                     "type": "PBTH_LE_GATT_CHARACTERISTIC_VALUE",
                     "sal": [
                         "out",
@@ -1201,19 +759,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "CharacteristicValueSizeRequired",
-                        "data_type": "TypeDecl",
-                        "type": "USHORT"
-                    },
+                    "name": "CharacteristicValueSizeRequired",
+                    "type": "USHORT",
                     "sal": [
                         "out",
                         "optional"
                     ]
                 },
                 {
-                    "name": "Flags",
                     "data_type": "TypeDecl",
+                    "name": "Flags",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -1233,32 +788,32 @@
             },
             "arguments": [
                 {
-                    "name": "hDevice",
                     "data_type": "TypeDecl",
+                    "name": "hDevice",
                     "type": "HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "Descriptor",
                     "data_type": "TypeDecl",
+                    "name": "Descriptor",
                     "type": "PBTH_LE_GATT_DESCRIPTOR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "DescriptorValueDataSize",
                     "data_type": "TypeDecl",
+                    "name": "DescriptorValueDataSize",
                     "type": "ULONG",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "DescriptorValue",
                     "data_type": "TypeDecl",
+                    "name": "DescriptorValue",
                     "type": "PBTH_LE_GATT_DESCRIPTOR_VALUE",
                     "sal": [
                         "out",
@@ -1267,19 +822,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "DescriptorValueSizeRequired",
-                        "data_type": "TypeDecl",
-                        "type": "USHORT"
-                    },
+                    "name": "DescriptorValueSizeRequired",
+                    "type": "USHORT",
                     "sal": [
                         "out",
                         "optional"
                     ]
                 },
                 {
-                    "name": "Flags",
                     "data_type": "TypeDecl",
+                    "name": "Flags",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -1299,24 +851,24 @@
             },
             "arguments": [
                 {
-                    "name": "hDevice",
                     "data_type": "TypeDecl",
+                    "name": "hDevice",
                     "type": "HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "ReliableWriteContext",
                     "data_type": "TypeDecl",
+                    "name": "ReliableWriteContext",
                     "type": "PBTH_LE_GATT_RELIABLE_WRITE_CONTEXT",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "name": "Flags",
                     "data_type": "TypeDecl",
+                    "name": "Flags",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -1336,32 +888,32 @@
             },
             "arguments": [
                 {
-                    "name": "hDevice",
                     "data_type": "TypeDecl",
+                    "name": "hDevice",
                     "type": "HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "Characteristic",
                     "data_type": "TypeDecl",
+                    "name": "Characteristic",
                     "type": "PBTH_LE_GATT_CHARACTERISTIC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "CharacteristicValue",
                     "data_type": "TypeDecl",
+                    "name": "CharacteristicValue",
                     "type": "PBTH_LE_GATT_CHARACTERISTIC_VALUE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "ReliableWriteContext",
                     "data_type": "TypeDecl",
+                    "name": "ReliableWriteContext",
                     "type": "BTH_LE_GATT_RELIABLE_WRITE_CONTEXT",
                     "sal": [
                         "in",
@@ -1369,8 +921,8 @@
                     ]
                 },
                 {
-                    "name": "Flags",
                     "data_type": "TypeDecl",
+                    "name": "Flags",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -1390,24 +942,24 @@
             },
             "arguments": [
                 {
-                    "name": "hDevice",
                     "data_type": "TypeDecl",
+                    "name": "hDevice",
                     "type": "HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "ReliableWriteContext",
                     "data_type": "TypeDecl",
+                    "name": "ReliableWriteContext",
                     "type": "BTH_LE_GATT_RELIABLE_WRITE_CONTEXT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "Flags",
                     "data_type": "TypeDecl",
+                    "name": "Flags",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -1427,24 +979,24 @@
             },
             "arguments": [
                 {
-                    "name": "hDevice",
                     "data_type": "TypeDecl",
+                    "name": "hDevice",
                     "type": "HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "ReliableWriteContext",
                     "data_type": "TypeDecl",
+                    "name": "ReliableWriteContext",
                     "type": "BTH_LE_GATT_RELIABLE_WRITE_CONTEXT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "Flags",
                     "data_type": "TypeDecl",
+                    "name": "Flags",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -1464,32 +1016,32 @@
             },
             "arguments": [
                 {
-                    "name": "hDevice",
                     "data_type": "TypeDecl",
+                    "name": "hDevice",
                     "type": "HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "Descriptor",
                     "data_type": "TypeDecl",
+                    "name": "Descriptor",
                     "type": "PBTH_LE_GATT_DESCRIPTOR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "DescriptorValue",
                     "data_type": "TypeDecl",
+                    "name": "DescriptorValue",
                     "type": "PBTH_LE_GATT_DESCRIPTOR_VALUE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "Flags",
                     "data_type": "TypeDecl",
+                    "name": "Flags",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -1509,40 +1061,40 @@
             },
             "arguments": [
                 {
-                    "name": "hService",
                     "data_type": "TypeDecl",
+                    "name": "hService",
                     "type": "HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "EventType",
                     "data_type": "TypeDecl",
+                    "name": "EventType",
                     "type": "BTH_LE_GATT_EVENT_TYPE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "EventParameterIn",
                     "data_type": "TypeDecl",
+                    "name": "EventParameterIn",
                     "type": "PVOID",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "Callback",
                     "data_type": "TypeDecl",
+                    "name": "Callback",
                     "type": "PFNBLUETOOTH_GATT_EVENT_CALLBACK",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "CallbackContext",
                     "data_type": "TypeDecl",
+                    "name": "CallbackContext",
                     "type": "PVOID",
                     "sal": [
                         "in",
@@ -1551,18 +1103,15 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "pEventHandle",
-                        "data_type": "TypeDecl",
-                        "type": "BLUETOOTH_GATT_EVENT_HANDLE"
-                    },
+                    "name": "pEventHandle",
+                    "type": "BLUETOOTH_GATT_EVENT_HANDLE",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "name": "Flags",
                     "data_type": "TypeDecl",
+                    "name": "Flags",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -1582,16 +1131,16 @@
             },
             "arguments": [
                 {
-                    "name": "EventHandle",
                     "data_type": "TypeDecl",
+                    "name": "EventHandle",
                     "type": "BLUETOOTH_GATT_EVENT_HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "Flags",
                     "data_type": "TypeDecl",
+                    "name": "Flags",
                     "type": "ULONG",
                     "sal": [
                         "in"

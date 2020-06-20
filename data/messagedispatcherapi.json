@@ -1,684 +1,475 @@
 {
     "typedefs": [
         {
-            "name": "IMessageDispatcher",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "IMessageDispatcher",
-                "data_type": "Struct",
-                "elements": []
-            }
-        },
-        {
-            "name": "IInspectable",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "IInspectable",
-                "data_type": "Struct",
-                "elements": []
-            }
-        },
-        {
-            "name": "HSTRING__",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "HSTRING__",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "unused",
-                        "data_type": "TypeDecl",
-                        "type": "int"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "HSTRING",
-                "data_type": "TypeDecl",
-                "type": "HSTRING__"
-            }
-        },
-        {
-            "name": "HSTRING_HEADER",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "HSTRING_HEADER",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "Reserved",
-                        "data_type": "TypeDecl",
-                        "type": {
-                            "data_type": "Union",
-                            "elements": [
-                                {
-                                    "name": "Reserved1",
-                                    "data_type": "TypeDecl",
-                                    "type": "PVOID"
-                                },
-                                {
-                                    "data_type": "ArrayDecl",
-                                    "type": {
-                                        "name": "Reserved2",
-                                        "data_type": "TypeDecl",
-                                        "type": "char"
-                                    },
-                                    "dim": {
-                                        "type": "int",
-                                        "value": "24"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "HSTRING_BUFFER",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "HSTRING_BUFFER__",
-                    "data_type": "Struct",
-                    "elements": []
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "unused",
+                    "type": "int"
                 }
-            }
+            ],
+            "name": "HSTRING__"
         },
         {
             "data_type": "PtrDecl",
-            "type": {
-                "name": "LPINSPECTABLE",
-                "data_type": "TypeDecl",
-                "type": "IInspectable"
-            }
+            "name": "HSTRING",
+            "type": "HSTRING__"
         },
         {
-            "name": "TrustLevel",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "TrustLevel",
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "BaseTrust",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "Union",
+                    "elements": [
+                        {
+                            "data_type": "TypeDecl",
+                            "name": "Reserved1",
+                            "type": "PVOID"
+                        },
+                        {
+                            "data_type": "ArrayDecl",
+                            "dim": {
+                                "type": "int",
+                                "value": "24"
+                            },
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "name": "Reserved2",
+                                "type": "char"
+                            }
                         }
-                    },
-                    {
-                        "name": "PartialTrust",
-                        "value": {}
-                    },
-                    {
-                        "name": "FullTrust",
-                        "value": {}
-                    }
-                ]
-            }
+                    ]
+                }
+            ],
+            "name": "HSTRING_HEADER"
         },
         {
-            "name": "IInspectableVtbl",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "IInspectableVtbl",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "QueryInterface",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "QueryInterface",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IInspectable"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "riid",
-                                            "data_type": "TypeDecl",
-                                            "type": "IID"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "data_type": "PtrDecl",
-                                            "type": {
-                                                "name": "ppvObject",
-                                                "data_type": "TypeDecl",
-                                                "type": "void"
-                                            }
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "AddRef",
-                                "data_type": "TypeDecl",
-                                "type": "ULONG"
-                            },
-                            "func": {
-                                "name": "AddRef",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "ULONG"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IInspectable"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "Release",
-                                "data_type": "TypeDecl",
-                                "type": "ULONG"
-                            },
-                            "func": {
-                                "name": "Release",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "ULONG"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IInspectable"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "GetIids",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "GetIids",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IInspectable"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "iidCount",
-                                            "data_type": "TypeDecl",
-                                            "type": "ULONG"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "data_type": "PtrDecl",
-                                            "type": {
-                                                "name": "iids",
-                                                "data_type": "TypeDecl",
-                                                "type": "IID"
-                                            }
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "GetRuntimeClassName",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "GetRuntimeClassName",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IInspectable"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "className",
-                                            "data_type": "TypeDecl",
-                                            "type": "HSTRING"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "GetTrustLevel",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "GetTrustLevel",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IInspectable"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "trustLevel",
-                                            "data_type": "TypeDecl",
-                                            "type": "TrustLevel"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "IMessageDispatcherVtbl",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "IMessageDispatcherVtbl",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "QueryInterface",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "QueryInterface",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMessageDispatcher"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "riid",
-                                            "data_type": "TypeDecl",
-                                            "type": "IID"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "data_type": "PtrDecl",
-                                            "type": {
-                                                "name": "ppvObject",
-                                                "data_type": "TypeDecl",
-                                                "type": "void"
-                                            }
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "AddRef",
-                                "data_type": "TypeDecl",
-                                "type": "ULONG"
-                            },
-                            "func": {
-                                "name": "AddRef",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "ULONG"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMessageDispatcher"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "Release",
-                                "data_type": "TypeDecl",
-                                "type": "ULONG"
-                            },
-                            "func": {
-                                "name": "Release",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "ULONG"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMessageDispatcher"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "GetIids",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "GetIids",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMessageDispatcher"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "iidCount",
-                                            "data_type": "TypeDecl",
-                                            "type": "ULONG"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "data_type": "PtrDecl",
-                                            "type": {
-                                                "name": "iids",
-                                                "data_type": "TypeDecl",
-                                                "type": "IID"
-                                            }
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "GetRuntimeClassName",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "GetRuntimeClassName",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMessageDispatcher"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "className",
-                                            "data_type": "TypeDecl",
-                                            "type": "HSTRING"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "GetTrustLevel",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "GetTrustLevel",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMessageDispatcher"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "trustLevel",
-                                            "data_type": "TypeDecl",
-                                            "type": "TrustLevel"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "PumpMessages",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "PumpMessages",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMessageDispatcher"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                ]
-            }
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "unused",
+                    "type": "int"
+                }
+            ],
+            "name": "HSTRING_BUFFER__"
         },
         {
             "data_type": "PtrDecl",
-            "type": {
-                "name": "PMessageDispatcher",
-                "data_type": "TypeDecl",
-                "type": "IMessageDispatcher"
-            }
-        }
-    ],
-    "structdefs": [
+            "name": "HSTRING_BUFFER",
+            "type": "HSTRING_BUFFER__"
+        },
         {
-            "name": "HSTRING_BUFFER__",
-            "type_data": {
-                "name": "HSTRING_BUFFER__",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "unused",
+            "data_type": "PtrDecl",
+            "name": "LPINSPECTABLE",
+            "type": "IInspectable"
+        },
+        {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "BaseTrust",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "PartialTrust",
+                    "value": {}
+                },
+                {
+                    "name": "FullTrust",
+                    "value": {}
+                }
+            ],
+            "name": "TrustLevel"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "QueryInterface",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IInspectable"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "riid",
+                                "type": "IID"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "ppvObject",
+                                "type": "void"
+                            }
+                        ]
+                    },
+                    "type": {
                         "data_type": "TypeDecl",
-                        "type": "int"
+                        "name": "QueryInterface",
+                        "type": "HRESULT"
                     }
-                ]
-            }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "AddRef",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "ULONG"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IInspectable"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "AddRef",
+                        "type": "ULONG"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "Release",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "ULONG"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IInspectable"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "Release",
+                        "type": "ULONG"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "GetIids",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IInspectable"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "iidCount",
+                                "type": "ULONG"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "iids",
+                                "type": "IID"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "GetIids",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "GetRuntimeClassName",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IInspectable"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "className",
+                                "type": "HSTRING"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "GetRuntimeClassName",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "GetTrustLevel",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IInspectable"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "trustLevel",
+                                "type": "TrustLevel"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "GetTrustLevel",
+                        "type": "HRESULT"
+                    }
+                }
+            ],
+            "name": "IInspectableVtbl"
         },
         {
-            "name": "IInspectable",
-            "type_data": {
-                "name": "IInspectable",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "lpVtbl",
-                            "data_type": "TypeDecl",
-                            "type": {
-                                "name": "IInspectableVtbl",
-                                "data_type": "Struct",
-                                "elements": []
-                            }
-                        }
-                    }
-                ]
-            }
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "PtrDecl",
+                    "name": "lpVtbl",
+                    "type": "IInspectableVtbl"
+                }
+            ],
+            "name": "IInspectable"
         },
         {
-            "name": "IMessageDispatcher",
-            "type_data": {
-                "name": "IMessageDispatcher",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "data_type": "PtrDecl",
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "QueryInterface",
                         "type": {
-                            "name": "lpVtbl",
                             "data_type": "TypeDecl",
-                            "type": {
-                                "name": "IMessageDispatcherVtbl",
-                                "data_type": "Struct",
-                                "elements": []
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMessageDispatcher"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "riid",
+                                "type": "IID"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "ppvObject",
+                                "type": "void"
                             }
-                        }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "QueryInterface",
+                        "type": "HRESULT"
                     }
-                ]
-            }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "AddRef",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "ULONG"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMessageDispatcher"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "AddRef",
+                        "type": "ULONG"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "Release",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "ULONG"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMessageDispatcher"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "Release",
+                        "type": "ULONG"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "GetIids",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMessageDispatcher"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "iidCount",
+                                "type": "ULONG"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "iids",
+                                "type": "IID"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "GetIids",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "GetRuntimeClassName",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMessageDispatcher"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "className",
+                                "type": "HSTRING"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "GetRuntimeClassName",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "GetTrustLevel",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMessageDispatcher"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "trustLevel",
+                                "type": "TrustLevel"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "GetTrustLevel",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "PumpMessages",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMessageDispatcher"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "PumpMessages",
+                        "type": "HRESULT"
+                    }
+                }
+            ],
+            "name": "IMessageDispatcherVtbl"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "PtrDecl",
+                    "name": "lpVtbl",
+                    "type": "IMessageDispatcherVtbl"
+                }
+            ],
+            "name": "IMessageDispatcher"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "PMessageDispatcher",
+            "type": "IMessageDispatcher"
         }
     ],
     "funcdefs": [

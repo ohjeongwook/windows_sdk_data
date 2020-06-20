@@ -1,1369 +1,686 @@
 {
     "typedefs": [
         {
-            "name": "EFFECTIVE_POWER_MODE",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "EFFECTIVE_POWER_MODE",
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "EffectivePowerModeBatterySaver",
-                        "value": {}
-                    },
-                    {
-                        "name": "EffectivePowerModeBetterBattery",
-                        "value": {}
-                    },
-                    {
-                        "name": "EffectivePowerModeBalanced",
-                        "value": {}
-                    },
-                    {
-                        "name": "EffectivePowerModeHighPerformance",
-                        "value": {}
-                    },
-                    {
-                        "name": "EffectivePowerModeMaxPerformance",
-                        "value": {}
-                    },
-                    {
-                        "name": "EffectivePowerModeGameMode",
-                        "value": {}
-                    },
-                    {
-                        "name": "EffectivePowerModeMixedReality",
-                        "value": {}
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EFFECTIVE_POWER_MODE_CALLBACK",
-                "data_type": "TypeDecl",
-                "type": "void"
-            },
-            "func": {
-                "name": "EFFECTIVE_POWER_MODE_CALLBACK",
-                "type": {
-                    "data_type": "TypeDecl",
-                    "type": "void"
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "EffectivePowerModeBatterySaver",
+                    "value": {}
                 },
-                "arguments": [
-                    {
-                        "name": "Mode",
-                        "data_type": "TypeDecl",
-                        "type": "EFFECTIVE_POWER_MODE"
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "Context",
-                            "data_type": "TypeDecl",
-                            "type": "void"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "GLOBAL_MACHINE_POWER_POLICY",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "_GLOBAL_MACHINE_POWER_POLICY",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "Revision",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "LidOpenWakeAc",
-                        "data_type": "TypeDecl",
-                        "type": "SYSTEM_POWER_STATE"
-                    },
-                    {
-                        "name": "LidOpenWakeDc",
-                        "data_type": "TypeDecl",
-                        "type": "SYSTEM_POWER_STATE"
-                    },
-                    {
-                        "name": "BroadcastCapacityResolution",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "PGLOBAL_MACHINE_POWER_POLICY",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "_GLOBAL_MACHINE_POWER_POLICY",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "Revision",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        {
-                            "name": "LidOpenWakeAc",
-                            "data_type": "TypeDecl",
-                            "type": "SYSTEM_POWER_STATE"
-                        },
-                        {
-                            "name": "LidOpenWakeDc",
-                            "data_type": "TypeDecl",
-                            "type": "SYSTEM_POWER_STATE"
-                        },
-                        {
-                            "name": "BroadcastCapacityResolution",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "name": "GLOBAL_USER_POWER_POLICY",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "_GLOBAL_USER_POWER_POLICY",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "Revision",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "PowerButtonAc",
-                        "data_type": "TypeDecl",
-                        "type": "POWER_ACTION_POLICY"
-                    },
-                    {
-                        "name": "PowerButtonDc",
-                        "data_type": "TypeDecl",
-                        "type": "POWER_ACTION_POLICY"
-                    },
-                    {
-                        "name": "SleepButtonAc",
-                        "data_type": "TypeDecl",
-                        "type": "POWER_ACTION_POLICY"
-                    },
-                    {
-                        "name": "SleepButtonDc",
-                        "data_type": "TypeDecl",
-                        "type": "POWER_ACTION_POLICY"
-                    },
-                    {
-                        "name": "LidCloseAc",
-                        "data_type": "TypeDecl",
-                        "type": "POWER_ACTION_POLICY"
-                    },
-                    {
-                        "name": "LidCloseDc",
-                        "data_type": "TypeDecl",
-                        "type": "POWER_ACTION_POLICY"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "type": {
-                            "name": "DischargePolicy",
-                            "data_type": "TypeDecl",
-                            "type": "SYSTEM_POWER_LEVEL"
-                        },
-                        "dim": {
-                            "type": "int",
-                            "value": "4"
-                        }
-                    },
-                    {
-                        "name": "GlobalFlags",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "PGLOBAL_USER_POWER_POLICY",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "_GLOBAL_USER_POWER_POLICY",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "Revision",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        {
-                            "name": "PowerButtonAc",
-                            "data_type": "TypeDecl",
-                            "type": "POWER_ACTION_POLICY"
-                        },
-                        {
-                            "name": "PowerButtonDc",
-                            "data_type": "TypeDecl",
-                            "type": "POWER_ACTION_POLICY"
-                        },
-                        {
-                            "name": "SleepButtonAc",
-                            "data_type": "TypeDecl",
-                            "type": "POWER_ACTION_POLICY"
-                        },
-                        {
-                            "name": "SleepButtonDc",
-                            "data_type": "TypeDecl",
-                            "type": "POWER_ACTION_POLICY"
-                        },
-                        {
-                            "name": "LidCloseAc",
-                            "data_type": "TypeDecl",
-                            "type": "POWER_ACTION_POLICY"
-                        },
-                        {
-                            "name": "LidCloseDc",
-                            "data_type": "TypeDecl",
-                            "type": "POWER_ACTION_POLICY"
-                        },
-                        {
-                            "data_type": "ArrayDecl",
-                            "type": {
-                                "name": "DischargePolicy",
-                                "data_type": "TypeDecl",
-                                "type": "SYSTEM_POWER_LEVEL"
-                            },
-                            "dim": {
-                                "type": "int",
-                                "value": "4"
-                            }
-                        },
-                        {
-                            "name": "GlobalFlags",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "name": "GLOBAL_POWER_POLICY",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "_GLOBAL_POWER_POLICY",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "user",
-                        "data_type": "TypeDecl",
-                        "type": "GLOBAL_USER_POWER_POLICY"
-                    },
-                    {
-                        "name": "mach",
-                        "data_type": "TypeDecl",
-                        "type": "GLOBAL_MACHINE_POWER_POLICY"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "PGLOBAL_POWER_POLICY",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "_GLOBAL_POWER_POLICY",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "user",
-                            "data_type": "TypeDecl",
-                            "type": "GLOBAL_USER_POWER_POLICY"
-                        },
-                        {
-                            "name": "mach",
-                            "data_type": "TypeDecl",
-                            "type": "GLOBAL_MACHINE_POWER_POLICY"
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "name": "MACHINE_POWER_POLICY",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "_MACHINE_POWER_POLICY",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "Revision",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "MinSleepAc",
-                        "data_type": "TypeDecl",
-                        "type": "SYSTEM_POWER_STATE"
-                    },
-                    {
-                        "name": "MinSleepDc",
-                        "data_type": "TypeDecl",
-                        "type": "SYSTEM_POWER_STATE"
-                    },
-                    {
-                        "name": "ReducedLatencySleepAc",
-                        "data_type": "TypeDecl",
-                        "type": "SYSTEM_POWER_STATE"
-                    },
-                    {
-                        "name": "ReducedLatencySleepDc",
-                        "data_type": "TypeDecl",
-                        "type": "SYSTEM_POWER_STATE"
-                    },
-                    {
-                        "name": "DozeTimeoutAc",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "DozeTimeoutDc",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "DozeS4TimeoutAc",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "DozeS4TimeoutDc",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "MinThrottleAc",
-                        "data_type": "TypeDecl",
-                        "type": "UCHAR"
-                    },
-                    {
-                        "name": "MinThrottleDc",
-                        "data_type": "TypeDecl",
-                        "type": "UCHAR"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "type": {
-                            "name": "pad1",
-                            "data_type": "TypeDecl",
-                            "type": "UCHAR"
-                        },
-                        "dim": {
-                            "type": "int",
-                            "value": "2"
-                        }
-                    },
-                    {
-                        "name": "OverThrottledAc",
-                        "data_type": "TypeDecl",
-                        "type": "POWER_ACTION_POLICY"
-                    },
-                    {
-                        "name": "OverThrottledDc",
-                        "data_type": "TypeDecl",
-                        "type": "POWER_ACTION_POLICY"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "PMACHINE_POWER_POLICY",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "_MACHINE_POWER_POLICY",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "Revision",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        {
-                            "name": "MinSleepAc",
-                            "data_type": "TypeDecl",
-                            "type": "SYSTEM_POWER_STATE"
-                        },
-                        {
-                            "name": "MinSleepDc",
-                            "data_type": "TypeDecl",
-                            "type": "SYSTEM_POWER_STATE"
-                        },
-                        {
-                            "name": "ReducedLatencySleepAc",
-                            "data_type": "TypeDecl",
-                            "type": "SYSTEM_POWER_STATE"
-                        },
-                        {
-                            "name": "ReducedLatencySleepDc",
-                            "data_type": "TypeDecl",
-                            "type": "SYSTEM_POWER_STATE"
-                        },
-                        {
-                            "name": "DozeTimeoutAc",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        {
-                            "name": "DozeTimeoutDc",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        {
-                            "name": "DozeS4TimeoutAc",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        {
-                            "name": "DozeS4TimeoutDc",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        {
-                            "name": "MinThrottleAc",
-                            "data_type": "TypeDecl",
-                            "type": "UCHAR"
-                        },
-                        {
-                            "name": "MinThrottleDc",
-                            "data_type": "TypeDecl",
-                            "type": "UCHAR"
-                        },
-                        {
-                            "data_type": "ArrayDecl",
-                            "type": {
-                                "name": "pad1",
-                                "data_type": "TypeDecl",
-                                "type": "UCHAR"
-                            },
-                            "dim": {
-                                "type": "int",
-                                "value": "2"
-                            }
-                        },
-                        {
-                            "name": "OverThrottledAc",
-                            "data_type": "TypeDecl",
-                            "type": "POWER_ACTION_POLICY"
-                        },
-                        {
-                            "name": "OverThrottledDc",
-                            "data_type": "TypeDecl",
-                            "type": "POWER_ACTION_POLICY"
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "name": "MACHINE_PROCESSOR_POWER_POLICY",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "_MACHINE_PROCESSOR_POWER_POLICY",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "Revision",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "ProcessorPolicyAc",
-                        "data_type": "TypeDecl",
-                        "type": "PROCESSOR_POWER_POLICY"
-                    },
-                    {
-                        "name": "ProcessorPolicyDc",
-                        "data_type": "TypeDecl",
-                        "type": "PROCESSOR_POWER_POLICY"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "PMACHINE_PROCESSOR_POWER_POLICY",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "_MACHINE_PROCESSOR_POWER_POLICY",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "Revision",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        {
-                            "name": "ProcessorPolicyAc",
-                            "data_type": "TypeDecl",
-                            "type": "PROCESSOR_POWER_POLICY"
-                        },
-                        {
-                            "name": "ProcessorPolicyDc",
-                            "data_type": "TypeDecl",
-                            "type": "PROCESSOR_POWER_POLICY"
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "name": "USER_POWER_POLICY",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "_USER_POWER_POLICY",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "Revision",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "IdleAc",
-                        "data_type": "TypeDecl",
-                        "type": "POWER_ACTION_POLICY"
-                    },
-                    {
-                        "name": "IdleDc",
-                        "data_type": "TypeDecl",
-                        "type": "POWER_ACTION_POLICY"
-                    },
-                    {
-                        "name": "IdleTimeoutAc",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "IdleTimeoutDc",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "IdleSensitivityAc",
-                        "data_type": "TypeDecl",
-                        "type": "UCHAR"
-                    },
-                    {
-                        "name": "IdleSensitivityDc",
-                        "data_type": "TypeDecl",
-                        "type": "UCHAR"
-                    },
-                    {
-                        "name": "ThrottlePolicyAc",
-                        "data_type": "TypeDecl",
-                        "type": "UCHAR"
-                    },
-                    {
-                        "name": "ThrottlePolicyDc",
-                        "data_type": "TypeDecl",
-                        "type": "UCHAR"
-                    },
-                    {
-                        "name": "MaxSleepAc",
-                        "data_type": "TypeDecl",
-                        "type": "SYSTEM_POWER_STATE"
-                    },
-                    {
-                        "name": "MaxSleepDc",
-                        "data_type": "TypeDecl",
-                        "type": "SYSTEM_POWER_STATE"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "type": {
-                            "name": "Reserved",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        "dim": {
-                            "type": "int",
-                            "value": "2"
-                        }
-                    },
-                    {
-                        "name": "VideoTimeoutAc",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "VideoTimeoutDc",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "SpindownTimeoutAc",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "SpindownTimeoutDc",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "OptimizeForPowerAc",
-                        "data_type": "TypeDecl",
-                        "type": "BOOLEAN"
-                    },
-                    {
-                        "name": "OptimizeForPowerDc",
-                        "data_type": "TypeDecl",
-                        "type": "BOOLEAN"
-                    },
-                    {
-                        "name": "FanThrottleToleranceAc",
-                        "data_type": "TypeDecl",
-                        "type": "UCHAR"
-                    },
-                    {
-                        "name": "FanThrottleToleranceDc",
-                        "data_type": "TypeDecl",
-                        "type": "UCHAR"
-                    },
-                    {
-                        "name": "ForcedThrottleAc",
-                        "data_type": "TypeDecl",
-                        "type": "UCHAR"
-                    },
-                    {
-                        "name": "ForcedThrottleDc",
-                        "data_type": "TypeDecl",
-                        "type": "UCHAR"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "PUSER_POWER_POLICY",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "_USER_POWER_POLICY",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "Revision",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        {
-                            "name": "IdleAc",
-                            "data_type": "TypeDecl",
-                            "type": "POWER_ACTION_POLICY"
-                        },
-                        {
-                            "name": "IdleDc",
-                            "data_type": "TypeDecl",
-                            "type": "POWER_ACTION_POLICY"
-                        },
-                        {
-                            "name": "IdleTimeoutAc",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        {
-                            "name": "IdleTimeoutDc",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        {
-                            "name": "IdleSensitivityAc",
-                            "data_type": "TypeDecl",
-                            "type": "UCHAR"
-                        },
-                        {
-                            "name": "IdleSensitivityDc",
-                            "data_type": "TypeDecl",
-                            "type": "UCHAR"
-                        },
-                        {
-                            "name": "ThrottlePolicyAc",
-                            "data_type": "TypeDecl",
-                            "type": "UCHAR"
-                        },
-                        {
-                            "name": "ThrottlePolicyDc",
-                            "data_type": "TypeDecl",
-                            "type": "UCHAR"
-                        },
-                        {
-                            "name": "MaxSleepAc",
-                            "data_type": "TypeDecl",
-                            "type": "SYSTEM_POWER_STATE"
-                        },
-                        {
-                            "name": "MaxSleepDc",
-                            "data_type": "TypeDecl",
-                            "type": "SYSTEM_POWER_STATE"
-                        },
-                        {
-                            "data_type": "ArrayDecl",
-                            "type": {
-                                "name": "Reserved",
-                                "data_type": "TypeDecl",
-                                "type": "ULONG"
-                            },
-                            "dim": {
-                                "type": "int",
-                                "value": "2"
-                            }
-                        },
-                        {
-                            "name": "VideoTimeoutAc",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        {
-                            "name": "VideoTimeoutDc",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        {
-                            "name": "SpindownTimeoutAc",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        {
-                            "name": "SpindownTimeoutDc",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        {
-                            "name": "OptimizeForPowerAc",
-                            "data_type": "TypeDecl",
-                            "type": "BOOLEAN"
-                        },
-                        {
-                            "name": "OptimizeForPowerDc",
-                            "data_type": "TypeDecl",
-                            "type": "BOOLEAN"
-                        },
-                        {
-                            "name": "FanThrottleToleranceAc",
-                            "data_type": "TypeDecl",
-                            "type": "UCHAR"
-                        },
-                        {
-                            "name": "FanThrottleToleranceDc",
-                            "data_type": "TypeDecl",
-                            "type": "UCHAR"
-                        },
-                        {
-                            "name": "ForcedThrottleAc",
-                            "data_type": "TypeDecl",
-                            "type": "UCHAR"
-                        },
-                        {
-                            "name": "ForcedThrottleDc",
-                            "data_type": "TypeDecl",
-                            "type": "UCHAR"
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "name": "POWER_POLICY",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "_POWER_POLICY",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "user",
-                        "data_type": "TypeDecl",
-                        "type": "USER_POWER_POLICY"
-                    },
-                    {
-                        "name": "mach",
-                        "data_type": "TypeDecl",
-                        "type": "MACHINE_POWER_POLICY"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "PPOWER_POLICY",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "_POWER_POLICY",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "user",
-                            "data_type": "TypeDecl",
-                            "type": "USER_POWER_POLICY"
-                        },
-                        {
-                            "name": "mach",
-                            "data_type": "TypeDecl",
-                            "type": "MACHINE_POWER_POLICY"
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PWRSCHEMESENUMPROC_V1",
-                "data_type": "TypeDecl",
-                "type": "BOOLEAN"
-            },
-            "func": {
-                "name": "PWRSCHEMESENUMPROC_V1",
-                "type": {
-                    "data_type": "TypeDecl",
-                    "type": "BOOLEAN"
+                {
+                    "name": "EffectivePowerModeBetterBattery",
+                    "value": {}
                 },
-                "arguments": [
-                    {
-                        "name": "Index",
-                        "data_type": "TypeDecl",
-                        "type": "UINT"
-                    },
-                    {
-                        "name": "NameSize",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "Name",
-                        "data_type": "TypeDecl",
-                        "type": "LPTSTR"
-                    },
-                    {
-                        "name": "DescriptionSize",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "Description",
-                        "data_type": "TypeDecl",
-                        "type": "LPTSTR"
-                    },
-                    {
-                        "name": "Policy",
-                        "data_type": "TypeDecl",
-                        "type": "PPOWER_POLICY"
-                    },
-                    {
-                        "name": "Context",
-                        "data_type": "TypeDecl",
-                        "type": "LPARAM"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PWRSCHEMESENUMPROC_V2",
-                "data_type": "TypeDecl",
-                "type": "BOOLEAN"
-            },
-            "func": {
-                "name": "PWRSCHEMESENUMPROC_V2",
-                "type": {
-                    "data_type": "TypeDecl",
-                    "type": "BOOLEAN"
+                {
+                    "name": "EffectivePowerModeBalanced",
+                    "value": {}
                 },
-                "arguments": [
-                    {
-                        "name": "Index",
-                        "data_type": "TypeDecl",
-                        "type": "UINT"
-                    },
-                    {
-                        "name": "NameSize",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "Name",
-                        "data_type": "TypeDecl",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "DescriptionSize",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "Description",
-                        "data_type": "TypeDecl",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "Policy",
-                        "data_type": "TypeDecl",
-                        "type": "PPOWER_POLICY"
-                    },
-                    {
-                        "name": "Context",
-                        "data_type": "TypeDecl",
-                        "type": "LPARAM"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "PWRSCHEMESENUMPROC",
-                "data_type": "TypeDecl",
-                "type": "PWRSCHEMESENUMPROC_V2"
-            }
-        },
-        {
-            "name": "POWER_DATA_ACCESSOR",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "_POWER_DATA_ACCESSOR",
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "ACCESS_AC_POWER_SETTING_INDEX",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "ACCESS_DC_POWER_SETTING_INDEX",
-                        "value": {}
-                    },
-                    {
-                        "name": "ACCESS_FRIENDLY_NAME",
-                        "value": {}
-                    },
-                    {
-                        "name": "ACCESS_DESCRIPTION",
-                        "value": {}
-                    },
-                    {
-                        "name": "ACCESS_POSSIBLE_POWER_SETTING",
-                        "value": {}
-                    },
-                    {
-                        "name": "ACCESS_POSSIBLE_POWER_SETTING_FRIENDLY_NAME",
-                        "value": {}
-                    },
-                    {
-                        "name": "ACCESS_POSSIBLE_POWER_SETTING_DESCRIPTION",
-                        "value": {}
-                    },
-                    {
-                        "name": "ACCESS_DEFAULT_AC_POWER_SETTING",
-                        "value": {}
-                    },
-                    {
-                        "name": "ACCESS_DEFAULT_DC_POWER_SETTING",
-                        "value": {}
-                    },
-                    {
-                        "name": "ACCESS_POSSIBLE_VALUE_MIN",
-                        "value": {}
-                    },
-                    {
-                        "name": "ACCESS_POSSIBLE_VALUE_MAX",
-                        "value": {}
-                    },
-                    {
-                        "name": "ACCESS_POSSIBLE_VALUE_INCREMENT",
-                        "value": {}
-                    },
-                    {
-                        "name": "ACCESS_POSSIBLE_VALUE_UNITS",
-                        "value": {}
-                    },
-                    {
-                        "name": "ACCESS_ICON_RESOURCE",
-                        "value": {}
-                    },
-                    {
-                        "name": "ACCESS_DEFAULT_SECURITY_DESCRIPTOR",
-                        "value": {}
-                    },
-                    {
-                        "name": "ACCESS_ATTRIBUTES",
-                        "value": {}
-                    },
-                    {
-                        "name": "ACCESS_SCHEME",
-                        "value": {}
-                    },
-                    {
-                        "name": "ACCESS_SUBGROUP",
-                        "value": {}
-                    },
-                    {
-                        "name": "ACCESS_INDIVIDUAL_SETTING",
-                        "value": {}
-                    },
-                    {
-                        "name": "ACCESS_ACTIVE_SCHEME",
-                        "value": {}
-                    },
-                    {
-                        "name": "ACCESS_CREATE_SCHEME",
-                        "value": {}
-                    },
-                    {
-                        "name": "ACCESS_AC_POWER_SETTING_MAX",
-                        "value": {}
-                    },
-                    {
-                        "name": "ACCESS_DC_POWER_SETTING_MAX",
-                        "value": {}
-                    },
-                    {
-                        "name": "ACCESS_AC_POWER_SETTING_MIN",
-                        "value": {}
-                    },
-                    {
-                        "name": "ACCESS_DC_POWER_SETTING_MIN",
-                        "value": {}
-                    },
-                    {
-                        "name": "ACCESS_PROFILE",
-                        "value": {}
-                    },
-                    {
-                        "name": "ACCESS_OVERLAY_SCHEME",
-                        "value": {}
-                    },
-                    {
-                        "name": "ACCESS_ACTIVE_OVERLAY_SCHEME",
-                        "value": {}
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "PPOWER_DATA_ACCESSOR",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "_POWER_DATA_ACCESSOR",
-                    "data_type": "Enum",
-                    "enumerators": [
-                        {
-                            "name": "ACCESS_AC_POWER_SETTING_INDEX",
-                            "value": {
-                                "type": "int",
-                                "value": "0"
-                            }
-                        },
-                        {
-                            "name": "ACCESS_DC_POWER_SETTING_INDEX",
-                            "value": {}
-                        },
-                        {
-                            "name": "ACCESS_FRIENDLY_NAME",
-                            "value": {}
-                        },
-                        {
-                            "name": "ACCESS_DESCRIPTION",
-                            "value": {}
-                        },
-                        {
-                            "name": "ACCESS_POSSIBLE_POWER_SETTING",
-                            "value": {}
-                        },
-                        {
-                            "name": "ACCESS_POSSIBLE_POWER_SETTING_FRIENDLY_NAME",
-                            "value": {}
-                        },
-                        {
-                            "name": "ACCESS_POSSIBLE_POWER_SETTING_DESCRIPTION",
-                            "value": {}
-                        },
-                        {
-                            "name": "ACCESS_DEFAULT_AC_POWER_SETTING",
-                            "value": {}
-                        },
-                        {
-                            "name": "ACCESS_DEFAULT_DC_POWER_SETTING",
-                            "value": {}
-                        },
-                        {
-                            "name": "ACCESS_POSSIBLE_VALUE_MIN",
-                            "value": {}
-                        },
-                        {
-                            "name": "ACCESS_POSSIBLE_VALUE_MAX",
-                            "value": {}
-                        },
-                        {
-                            "name": "ACCESS_POSSIBLE_VALUE_INCREMENT",
-                            "value": {}
-                        },
-                        {
-                            "name": "ACCESS_POSSIBLE_VALUE_UNITS",
-                            "value": {}
-                        },
-                        {
-                            "name": "ACCESS_ICON_RESOURCE",
-                            "value": {}
-                        },
-                        {
-                            "name": "ACCESS_DEFAULT_SECURITY_DESCRIPTOR",
-                            "value": {}
-                        },
-                        {
-                            "name": "ACCESS_ATTRIBUTES",
-                            "value": {}
-                        },
-                        {
-                            "name": "ACCESS_SCHEME",
-                            "value": {}
-                        },
-                        {
-                            "name": "ACCESS_SUBGROUP",
-                            "value": {}
-                        },
-                        {
-                            "name": "ACCESS_INDIVIDUAL_SETTING",
-                            "value": {}
-                        },
-                        {
-                            "name": "ACCESS_ACTIVE_SCHEME",
-                            "value": {}
-                        },
-                        {
-                            "name": "ACCESS_CREATE_SCHEME",
-                            "value": {}
-                        },
-                        {
-                            "name": "ACCESS_AC_POWER_SETTING_MAX",
-                            "value": {}
-                        },
-                        {
-                            "name": "ACCESS_DC_POWER_SETTING_MAX",
-                            "value": {}
-                        },
-                        {
-                            "name": "ACCESS_AC_POWER_SETTING_MIN",
-                            "value": {}
-                        },
-                        {
-                            "name": "ACCESS_DC_POWER_SETTING_MIN",
-                            "value": {}
-                        },
-                        {
-                            "name": "ACCESS_PROFILE",
-                            "value": {}
-                        },
-                        {
-                            "name": "ACCESS_OVERLAY_SCHEME",
-                            "value": {}
-                        },
-                        {
-                            "name": "ACCESS_ACTIVE_OVERLAY_SCHEME",
-                            "value": {}
-                        }
-                    ]
+                {
+                    "name": "EffectivePowerModeHighPerformance",
+                    "value": {}
+                },
+                {
+                    "name": "EffectivePowerModeMaxPerformance",
+                    "value": {}
+                },
+                {
+                    "name": "EffectivePowerModeGameMode",
+                    "value": {}
+                },
+                {
+                    "name": "EffectivePowerModeMixedReality",
+                    "value": {}
                 }
-            }
+            ],
+            "name": "EFFECTIVE_POWER_MODE"
         },
         {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "DEVICE_NOTIFY_CALLBACK_ROUTINE",
-                "data_type": "TypeDecl",
-                "type": "ULONG"
-            },
-            "func": {
-                "name": "DEVICE_NOTIFY_CALLBACK_ROUTINE",
-                "type": {
+            "data_type": "TypeDecl",
+            "name": "EFFECTIVE_POWER_MODE_CALLBACK",
+            "type": "void"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
                     "data_type": "TypeDecl",
+                    "name": "Revision",
                     "type": "ULONG"
                 },
-                "arguments": [
-                    {
-                        "name": "Context",
-                        "data_type": "TypeDecl",
-                        "type": "PVOID"
-                    },
-                    {
-                        "name": "Type",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "Setting",
-                        "data_type": "TypeDecl",
-                        "type": "PVOID"
-                    }
-                ]
-            }
+                {
+                    "data_type": "TypeDecl",
+                    "name": "LidOpenWakeAc",
+                    "type": "SYSTEM_POWER_STATE"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "LidOpenWakeDc",
+                    "type": "SYSTEM_POWER_STATE"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "BroadcastCapacityResolution",
+                    "type": "ULONG"
+                }
+            ],
+            "name": "_GLOBAL_MACHINE_POWER_POLICY"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "GLOBAL_MACHINE_POWER_POLICY",
+            "type": "_GLOBAL_MACHINE_POWER_POLICY"
         },
         {
             "data_type": "PtrDecl",
-            "type": {
-                "name": "PDEVICE_NOTIFY_CALLBACK_ROUTINE",
-                "data_type": "TypeDecl",
-                "type": "DEVICE_NOTIFY_CALLBACK_ROUTINE"
-            }
+            "name": "PGLOBAL_MACHINE_POWER_POLICY",
+            "type": "_GLOBAL_MACHINE_POWER_POLICY"
         },
         {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "Revision",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "PowerButtonAc",
+                    "type": "POWER_ACTION_POLICY"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "PowerButtonDc",
+                    "type": "POWER_ACTION_POLICY"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "SleepButtonAc",
+                    "type": "POWER_ACTION_POLICY"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "SleepButtonDc",
+                    "type": "POWER_ACTION_POLICY"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "LidCloseAc",
+                    "type": "POWER_ACTION_POLICY"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "LidCloseDc",
+                    "type": "POWER_ACTION_POLICY"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "4"
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "DischargePolicy",
+                        "type": "SYSTEM_POWER_LEVEL"
+                    }
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "GlobalFlags",
+                    "type": "ULONG"
+                }
+            ],
+            "name": "_GLOBAL_USER_POWER_POLICY"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "GLOBAL_USER_POWER_POLICY",
+            "type": "_GLOBAL_USER_POWER_POLICY"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "PGLOBAL_USER_POWER_POLICY",
+            "type": "_GLOBAL_USER_POWER_POLICY"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "user",
+                    "type": "GLOBAL_USER_POWER_POLICY"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "mach",
+                    "type": "GLOBAL_MACHINE_POWER_POLICY"
+                }
+            ],
+            "name": "_GLOBAL_POWER_POLICY"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "GLOBAL_POWER_POLICY",
+            "type": "_GLOBAL_POWER_POLICY"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "PGLOBAL_POWER_POLICY",
+            "type": "_GLOBAL_POWER_POLICY"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "Revision",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "MinSleepAc",
+                    "type": "SYSTEM_POWER_STATE"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "MinSleepDc",
+                    "type": "SYSTEM_POWER_STATE"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "ReducedLatencySleepAc",
+                    "type": "SYSTEM_POWER_STATE"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "ReducedLatencySleepDc",
+                    "type": "SYSTEM_POWER_STATE"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "DozeTimeoutAc",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "DozeTimeoutDc",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "DozeS4TimeoutAc",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "DozeS4TimeoutDc",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "MinThrottleAc",
+                    "type": "UCHAR"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "MinThrottleDc",
+                    "type": "UCHAR"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "2"
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "pad1",
+                        "type": "UCHAR"
+                    }
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "OverThrottledAc",
+                    "type": "POWER_ACTION_POLICY"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "OverThrottledDc",
+                    "type": "POWER_ACTION_POLICY"
+                }
+            ],
+            "name": "_MACHINE_POWER_POLICY"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "MACHINE_POWER_POLICY",
+            "type": "_MACHINE_POWER_POLICY"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "PMACHINE_POWER_POLICY",
+            "type": "_MACHINE_POWER_POLICY"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "Revision",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "ProcessorPolicyAc",
+                    "type": "PROCESSOR_POWER_POLICY"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "ProcessorPolicyDc",
+                    "type": "PROCESSOR_POWER_POLICY"
+                }
+            ],
+            "name": "_MACHINE_PROCESSOR_POWER_POLICY"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "MACHINE_PROCESSOR_POWER_POLICY",
+            "type": "_MACHINE_PROCESSOR_POWER_POLICY"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "PMACHINE_PROCESSOR_POWER_POLICY",
+            "type": "_MACHINE_PROCESSOR_POWER_POLICY"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "Revision",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "IdleAc",
+                    "type": "POWER_ACTION_POLICY"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "IdleDc",
+                    "type": "POWER_ACTION_POLICY"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "IdleTimeoutAc",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "IdleTimeoutDc",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "IdleSensitivityAc",
+                    "type": "UCHAR"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "IdleSensitivityDc",
+                    "type": "UCHAR"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "ThrottlePolicyAc",
+                    "type": "UCHAR"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "ThrottlePolicyDc",
+                    "type": "UCHAR"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "MaxSleepAc",
+                    "type": "SYSTEM_POWER_STATE"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "MaxSleepDc",
+                    "type": "SYSTEM_POWER_STATE"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "2"
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "Reserved",
+                        "type": "ULONG"
+                    }
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "VideoTimeoutAc",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "VideoTimeoutDc",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "SpindownTimeoutAc",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "SpindownTimeoutDc",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "OptimizeForPowerAc",
+                    "type": "BOOLEAN"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "OptimizeForPowerDc",
+                    "type": "BOOLEAN"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "FanThrottleToleranceAc",
+                    "type": "UCHAR"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "FanThrottleToleranceDc",
+                    "type": "UCHAR"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "ForcedThrottleAc",
+                    "type": "UCHAR"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "ForcedThrottleDc",
+                    "type": "UCHAR"
+                }
+            ],
+            "name": "_USER_POWER_POLICY"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "USER_POWER_POLICY",
+            "type": "_USER_POWER_POLICY"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "PUSER_POWER_POLICY",
+            "type": "_USER_POWER_POLICY"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "user",
+                    "type": "USER_POWER_POLICY"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "mach",
+                    "type": "MACHINE_POWER_POLICY"
+                }
+            ],
+            "name": "_POWER_POLICY"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "POWER_POLICY",
+            "type": "_POWER_POLICY"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "PPOWER_POLICY",
+            "type": "_POWER_POLICY"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "PWRSCHEMESENUMPROC_V1",
+            "type": "BOOLEAN"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "PWRSCHEMESENUMPROC_V2",
+            "type": "BOOLEAN"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "PWRSCHEMESENUMPROC",
+            "type": "PWRSCHEMESENUMPROC_V2"
+        },
+        {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "ACCESS_AC_POWER_SETTING_INDEX",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "ACCESS_DC_POWER_SETTING_INDEX",
+                    "value": {}
+                },
+                {
+                    "name": "ACCESS_FRIENDLY_NAME",
+                    "value": {}
+                },
+                {
+                    "name": "ACCESS_DESCRIPTION",
+                    "value": {}
+                },
+                {
+                    "name": "ACCESS_POSSIBLE_POWER_SETTING",
+                    "value": {}
+                },
+                {
+                    "name": "ACCESS_POSSIBLE_POWER_SETTING_FRIENDLY_NAME",
+                    "value": {}
+                },
+                {
+                    "name": "ACCESS_POSSIBLE_POWER_SETTING_DESCRIPTION",
+                    "value": {}
+                },
+                {
+                    "name": "ACCESS_DEFAULT_AC_POWER_SETTING",
+                    "value": {}
+                },
+                {
+                    "name": "ACCESS_DEFAULT_DC_POWER_SETTING",
+                    "value": {}
+                },
+                {
+                    "name": "ACCESS_POSSIBLE_VALUE_MIN",
+                    "value": {}
+                },
+                {
+                    "name": "ACCESS_POSSIBLE_VALUE_MAX",
+                    "value": {}
+                },
+                {
+                    "name": "ACCESS_POSSIBLE_VALUE_INCREMENT",
+                    "value": {}
+                },
+                {
+                    "name": "ACCESS_POSSIBLE_VALUE_UNITS",
+                    "value": {}
+                },
+                {
+                    "name": "ACCESS_ICON_RESOURCE",
+                    "value": {}
+                },
+                {
+                    "name": "ACCESS_DEFAULT_SECURITY_DESCRIPTOR",
+                    "value": {}
+                },
+                {
+                    "name": "ACCESS_ATTRIBUTES",
+                    "value": {}
+                },
+                {
+                    "name": "ACCESS_SCHEME",
+                    "value": {}
+                },
+                {
+                    "name": "ACCESS_SUBGROUP",
+                    "value": {}
+                },
+                {
+                    "name": "ACCESS_INDIVIDUAL_SETTING",
+                    "value": {}
+                },
+                {
+                    "name": "ACCESS_ACTIVE_SCHEME",
+                    "value": {}
+                },
+                {
+                    "name": "ACCESS_CREATE_SCHEME",
+                    "value": {}
+                },
+                {
+                    "name": "ACCESS_AC_POWER_SETTING_MAX",
+                    "value": {}
+                },
+                {
+                    "name": "ACCESS_DC_POWER_SETTING_MAX",
+                    "value": {}
+                },
+                {
+                    "name": "ACCESS_AC_POWER_SETTING_MIN",
+                    "value": {}
+                },
+                {
+                    "name": "ACCESS_DC_POWER_SETTING_MIN",
+                    "value": {}
+                },
+                {
+                    "name": "ACCESS_PROFILE",
+                    "value": {}
+                },
+                {
+                    "name": "ACCESS_OVERLAY_SCHEME",
+                    "value": {}
+                },
+                {
+                    "name": "ACCESS_ACTIVE_OVERLAY_SCHEME",
+                    "value": {}
+                }
+            ],
+            "name": "_POWER_DATA_ACCESSOR"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "POWER_DATA_ACCESSOR",
+            "type": "_POWER_DATA_ACCESSOR"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "PPOWER_DATA_ACCESSOR",
+            "type": "_POWER_DATA_ACCESSOR"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "DEVICE_NOTIFY_CALLBACK_ROUTINE",
+            "type": "ULONG"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "PDEVICE_NOTIFY_CALLBACK_ROUTINE",
+            "type": "DEVICE_NOTIFY_CALLBACK_ROUTINE"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "Callback",
+                    "type": "PDEVICE_NOTIFY_CALLBACK_ROUTINE"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "Context",
+                    "type": "PVOID"
+                }
+            ],
+            "name": "_DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS"
+        },
+        {
+            "data_type": "TypeDecl",
             "name": "DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "_DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "Callback",
-                        "data_type": "TypeDecl",
-                        "type": "PDEVICE_NOTIFY_CALLBACK_ROUTINE"
-                    },
-                    {
-                        "name": "Context",
-                        "data_type": "TypeDecl",
-                        "type": "PVOID"
-                    }
-                ]
-            }
+            "type": "_DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS"
         },
         {
             "data_type": "PtrDecl",
-            "type": {
-                "name": "PDEVICE_NOTIFY_SUBSCRIBE_PARAMETERS",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "_DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "Callback",
-                            "data_type": "TypeDecl",
-                            "type": "PDEVICE_NOTIFY_CALLBACK_ROUTINE"
-                        },
-                        {
-                            "name": "Context",
-                            "data_type": "TypeDecl",
-                            "type": "PVOID"
-                        }
-                    ]
-                }
-            }
+            "name": "PDEVICE_NOTIFY_SUBSCRIBE_PARAMETERS",
+            "type": "_DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS"
         },
         {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "Version",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "Size",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "Type",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "Temperature",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "TripPointTemperature",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "Initiator",
+                    "type": "LPWSTR"
+                }
+            ],
+            "name": "_THERMAL_EVENT"
+        },
+        {
+            "data_type": "TypeDecl",
             "name": "THERMAL_EVENT",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "_THERMAL_EVENT",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "Version",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "Size",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "Type",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "Temperature",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "TripPointTemperature",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "Initiator",
-                        "data_type": "TypeDecl",
-                        "type": "LPWSTR"
-                    }
-                ]
-            }
+            "type": "_THERMAL_EVENT"
         },
         {
             "data_type": "PtrDecl",
-            "type": {
-                "name": "PTHERMAL_EVENT",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "_THERMAL_EVENT",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "Version",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        {
-                            "name": "Size",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        {
-                            "name": "Type",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        {
-                            "name": "Temperature",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        {
-                            "name": "TripPointTemperature",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        {
-                            "name": "Initiator",
-                            "data_type": "TypeDecl",
-                            "type": "LPWSTR"
-                        }
-                    ]
-                }
-            }
+            "name": "PTHERMAL_EVENT",
+            "type": "_THERMAL_EVENT"
         }
     ],
-    "structdefs": [],
     "funcdefs": [
         {
             "name": "GetPwrDiskSpindownRange",
@@ -1373,16 +690,16 @@
             },
             "arguments": [
                 {
-                    "name": "puiMax",
                     "data_type": "TypeDecl",
+                    "name": "puiMax",
                     "type": "PUINT",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "name": "puiMin",
                     "data_type": "TypeDecl",
+                    "name": "puiMin",
                     "type": "PUINT",
                     "sal": [
                         "out"
@@ -1401,16 +718,16 @@
             },
             "arguments": [
                 {
-                    "name": "lpfn",
                     "data_type": "TypeDecl",
+                    "name": "lpfn",
                     "type": "PWRSCHEMESENUMPROC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "lParam",
                     "data_type": "TypeDecl",
+                    "name": "lParam",
                     "type": "LPARAM",
                     "sal": [
                         "in"
@@ -1429,8 +746,8 @@
             },
             "arguments": [
                 {
-                    "name": "pGlobalPowerPolicy",
                     "data_type": "TypeDecl",
+                    "name": "pGlobalPowerPolicy",
                     "type": "PGLOBAL_POWER_POLICY",
                     "sal": [
                         "out"
@@ -1449,16 +766,16 @@
             },
             "arguments": [
                 {
-                    "name": "uiID",
                     "data_type": "TypeDecl",
+                    "name": "uiID",
                     "type": "UINT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "pPowerPolicy",
                     "data_type": "TypeDecl",
+                    "name": "pPowerPolicy",
                     "type": "PPOWER_POLICY",
                     "sal": [
                         "out"
@@ -1477,24 +794,24 @@
             },
             "arguments": [
                 {
-                    "name": "puiID",
                     "data_type": "TypeDecl",
+                    "name": "puiID",
                     "type": "PUINT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "lpszSchemeName",
                     "data_type": "TypeDecl",
+                    "name": "lpszSchemeName",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "lpszDescription",
                     "data_type": "TypeDecl",
+                    "name": "lpszDescription",
                     "type": "LPCWSTR",
                     "sal": [
                         "in",
@@ -1502,8 +819,8 @@
                     ]
                 },
                 {
-                    "name": "lpScheme",
                     "data_type": "TypeDecl",
+                    "name": "lpScheme",
                     "type": "PPOWER_POLICY",
                     "sal": [
                         "in"
@@ -1522,8 +839,8 @@
             },
             "arguments": [
                 {
-                    "name": "pGlobalPowerPolicy",
                     "data_type": "TypeDecl",
+                    "name": "pGlobalPowerPolicy",
                     "type": "PGLOBAL_POWER_POLICY",
                     "sal": [
                         "in"
@@ -1542,8 +859,8 @@
             },
             "arguments": [
                 {
-                    "name": "uiID",
                     "data_type": "TypeDecl",
+                    "name": "uiID",
                     "type": "UINT",
                     "sal": [
                         "in"
@@ -1562,8 +879,8 @@
             },
             "arguments": [
                 {
-                    "name": "puiID",
                     "data_type": "TypeDecl",
+                    "name": "puiID",
                     "type": "PUINT",
                     "sal": [
                         "out"
@@ -1582,16 +899,16 @@
             },
             "arguments": [
                 {
-                    "name": "uiID",
                     "data_type": "TypeDecl",
+                    "name": "uiID",
                     "type": "UINT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "pGlobalPowerPolicy",
                     "data_type": "TypeDecl",
+                    "name": "pGlobalPowerPolicy",
                     "type": "PGLOBAL_POWER_POLICY",
                     "sal": [
                         "in",
@@ -1599,8 +916,8 @@
                     ]
                 },
                 {
-                    "name": "pPowerPolicy",
                     "data_type": "TypeDecl",
+                    "name": "pPowerPolicy",
                     "type": "PPOWER_POLICY",
                     "sal": [
                         "in",
@@ -1668,24 +985,24 @@
             },
             "arguments": [
                 {
+                    "data_type": "TypeDecl",
                     "name": "bHibernate",
-                    "data_type": "TypeDecl",
                     "type": "BOOLEAN",
                     "sal": [
                         "in"
                     ]
                 },
                 {
+                    "data_type": "TypeDecl",
                     "name": "bForce",
-                    "data_type": "TypeDecl",
                     "type": "BOOLEAN",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "bWakeupEventsDisabled",
                     "data_type": "TypeDecl",
+                    "name": "bWakeupEventsDisabled",
                     "type": "BOOLEAN",
                     "sal": [
                         "in"
@@ -1704,16 +1021,16 @@
             },
             "arguments": [
                 {
-                    "name": "pGlobalPowerPolicy",
                     "data_type": "TypeDecl",
+                    "name": "pGlobalPowerPolicy",
                     "type": "PGLOBAL_POWER_POLICY",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "name": "pPowerPolicy",
                     "data_type": "TypeDecl",
+                    "name": "pPowerPolicy",
                     "type": "PPOWER_POLICY",
                     "sal": [
                         "out"
@@ -1748,16 +1065,16 @@
             },
             "arguments": [
                 {
-                    "name": "uiID",
                     "data_type": "TypeDecl",
+                    "name": "uiID",
                     "type": "UINT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "pMachineProcessorPowerPolicy",
                     "data_type": "TypeDecl",
+                    "name": "pMachineProcessorPowerPolicy",
                     "type": "PMACHINE_PROCESSOR_POWER_POLICY",
                     "sal": [
                         "out"
@@ -1776,16 +1093,16 @@
             },
             "arguments": [
                 {
-                    "name": "uiID",
                     "data_type": "TypeDecl",
+                    "name": "uiID",
                     "type": "UINT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "pMachineProcessorPowerPolicy",
                     "data_type": "TypeDecl",
+                    "name": "pMachineProcessorPowerPolicy",
                     "type": "PMACHINE_PROCESSOR_POWER_POLICY",
                     "sal": [
                         "in"
@@ -1805,11 +1122,8 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubKeyGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubKeyGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -1817,11 +1131,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -1840,8 +1151,8 @@
             },
             "arguments": [
                 {
-                    "name": "AccessFlags",
                     "data_type": "TypeDecl",
+                    "name": "AccessFlags",
                     "type": "POWER_DATA_ACCESSOR",
                     "sal": [
                         "in"
@@ -1849,19 +1160,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "name": "AccessType",
                     "data_type": "TypeDecl",
+                    "name": "AccessType",
                     "type": "REGSAM",
                     "sal": [
                         "in"
@@ -1880,8 +1188,8 @@
             },
             "arguments": [
                 {
-                    "name": "AccessFlags",
                     "data_type": "TypeDecl",
+                    "name": "AccessFlags",
                     "type": "POWER_DATA_ACCESSOR",
                     "sal": [
                         "in"
@@ -1889,11 +1197,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -1912,8 +1217,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -1922,11 +1227,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SchemeGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SchemeGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -1934,11 +1236,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -1946,19 +1245,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "name": "AcValueIndex",
                     "data_type": "TypeDecl",
+                    "name": "AcValueIndex",
                     "type": "LPDWORD",
                     "sal": [
                         "out"
@@ -1977,8 +1273,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -1987,11 +1283,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SchemeGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SchemeGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -1999,11 +1292,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -2011,19 +1301,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "name": "DcValueIndex",
                     "data_type": "TypeDecl",
+                    "name": "DcValueIndex",
                     "type": "LPDWORD",
                     "sal": [
                         "out"
@@ -2042,8 +1329,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -2052,11 +1339,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SchemeGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SchemeGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -2064,11 +1348,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -2076,19 +1357,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "name": "Buffer",
                     "data_type": "TypeDecl",
+                    "name": "Buffer",
                     "type": "PUCHAR",
                     "sal": [
                         "out",
@@ -2096,8 +1374,8 @@
                     ]
                 },
                 {
-                    "name": "BufferSize",
                     "data_type": "TypeDecl",
+                    "name": "BufferSize",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -2117,8 +1395,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -2127,11 +1405,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SchemeGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SchemeGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -2139,11 +1414,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -2151,19 +1423,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "name": "Buffer",
                     "data_type": "TypeDecl",
+                    "name": "Buffer",
                     "type": "PUCHAR",
                     "sal": [
                         "out",
@@ -2171,8 +1440,8 @@
                     ]
                 },
                 {
-                    "name": "BufferSize",
                     "data_type": "TypeDecl",
+                    "name": "BufferSize",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -2192,8 +1461,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -2202,11 +1471,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -2214,19 +1480,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "name": "Type",
                     "data_type": "TypeDecl",
+                    "name": "Type",
                     "type": "PULONG",
                     "sal": [
                         "out",
@@ -2234,16 +1497,16 @@
                     ]
                 },
                 {
-                    "name": "PossibleSettingIndex",
                     "data_type": "TypeDecl",
+                    "name": "PossibleSettingIndex",
                     "type": "ULONG",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "Buffer",
                     "data_type": "TypeDecl",
+                    "name": "Buffer",
                     "type": "PUCHAR",
                     "sal": [
                         "out",
@@ -2251,8 +1514,8 @@
                     ]
                 },
                 {
-                    "name": "BufferSize",
                     "data_type": "TypeDecl",
+                    "name": "BufferSize",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -2272,8 +1535,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -2282,11 +1545,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -2294,27 +1554,24 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "name": "PossibleSettingIndex",
                     "data_type": "TypeDecl",
+                    "name": "PossibleSettingIndex",
                     "type": "ULONG",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "Buffer",
                     "data_type": "TypeDecl",
+                    "name": "Buffer",
                     "type": "PUCHAR",
                     "sal": [
                         "out",
@@ -2322,8 +1579,8 @@
                     ]
                 },
                 {
-                    "name": "BufferSize",
                     "data_type": "TypeDecl",
+                    "name": "BufferSize",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -2343,8 +1600,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -2353,11 +1610,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -2365,27 +1619,24 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "name": "PossibleSettingIndex",
                     "data_type": "TypeDecl",
+                    "name": "PossibleSettingIndex",
                     "type": "ULONG",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "Buffer",
                     "data_type": "TypeDecl",
+                    "name": "Buffer",
                     "type": "PUCHAR",
                     "sal": [
                         "out",
@@ -2393,8 +1644,8 @@
                     ]
                 },
                 {
-                    "name": "BufferSize",
                     "data_type": "TypeDecl",
+                    "name": "BufferSize",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -2414,8 +1665,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -2424,11 +1675,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -2436,19 +1684,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "name": "ValueMinimum",
                     "data_type": "TypeDecl",
+                    "name": "ValueMinimum",
                     "type": "LPDWORD",
                     "sal": [
                         "out"
@@ -2467,8 +1712,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -2477,11 +1722,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -2489,19 +1731,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "name": "ValueMaximum",
                     "data_type": "TypeDecl",
+                    "name": "ValueMaximum",
                     "type": "LPDWORD",
                     "sal": [
                         "out"
@@ -2520,8 +1759,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -2530,11 +1769,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -2542,19 +1778,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "name": "ValueIncrement",
                     "data_type": "TypeDecl",
+                    "name": "ValueIncrement",
                     "type": "LPDWORD",
                     "sal": [
                         "out"
@@ -2573,8 +1806,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -2583,11 +1816,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -2595,11 +1825,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -2607,19 +1834,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "Buffer",
-                        "data_type": "TypeDecl",
-                        "type": "UCHAR"
-                    },
+                    "name": "Buffer",
+                    "type": "UCHAR",
                     "sal": [
                         "out",
                         "optional"
                     ]
                 },
                 {
-                    "name": "BufferSize",
                     "data_type": "TypeDecl",
+                    "name": "BufferSize",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -2639,8 +1863,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -2649,22 +1873,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SchemePersonalityGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SchemePersonalityGuid",
+                    "type": "GUID",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -2672,18 +1890,15 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "AcDefaultIndex",
                     "data_type": "TypeDecl",
+                    "name": "AcDefaultIndex",
                     "type": "LPDWORD",
                     "sal": [
                         "out"
@@ -2702,8 +1917,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -2712,22 +1927,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SchemePersonalityGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SchemePersonalityGuid",
+                    "type": "GUID",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -2735,18 +1944,15 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "DcDefaultIndex",
                     "data_type": "TypeDecl",
+                    "name": "DcDefaultIndex",
                     "type": "LPDWORD",
                     "sal": [
                         "out"
@@ -2765,8 +1971,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -2775,11 +1981,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SchemeGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SchemeGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -2787,11 +1990,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -2799,19 +1999,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "name": "Buffer",
                     "data_type": "TypeDecl",
+                    "name": "Buffer",
                     "type": "PUCHAR",
                     "sal": [
                         "out",
@@ -2819,8 +2016,8 @@
                     ]
                 },
                 {
-                    "name": "BufferSize",
                     "data_type": "TypeDecl",
+                    "name": "BufferSize",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -2841,22 +2038,16 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupGuid",
+                    "type": "GUID",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in"
                     ]
@@ -2874,8 +2065,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -2884,22 +2075,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SchemeGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SchemeGuid",
+                    "type": "GUID",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -2907,11 +2092,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -2919,18 +2101,15 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "Buffer",
-                        "data_type": "TypeDecl",
-                        "type": "UCHAR"
-                    },
+                    "name": "Buffer",
+                    "type": "UCHAR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "BufferSize",
                     "data_type": "TypeDecl",
+                    "name": "BufferSize",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -2949,8 +2128,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -2959,22 +2138,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SchemeGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SchemeGuid",
+                    "type": "GUID",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -2982,11 +2155,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -2994,18 +2164,15 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "Buffer",
-                        "data_type": "TypeDecl",
-                        "type": "UCHAR"
-                    },
+                    "name": "Buffer",
+                    "type": "UCHAR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "BufferSize",
                     "data_type": "TypeDecl",
+                    "name": "BufferSize",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -3024,8 +2191,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -3034,11 +2201,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -3046,27 +2210,24 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
+                    "data_type": "TypeDecl",
                     "name": "Type",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "PossibleSettingIndex",
                     "data_type": "TypeDecl",
+                    "name": "PossibleSettingIndex",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -3074,18 +2235,15 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "Buffer",
-                        "data_type": "TypeDecl",
-                        "type": "UCHAR"
-                    },
+                    "name": "Buffer",
+                    "type": "UCHAR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "BufferSize",
                     "data_type": "TypeDecl",
+                    "name": "BufferSize",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -3104,8 +2262,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -3114,11 +2272,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -3126,19 +2281,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "name": "PossibleSettingIndex",
                     "data_type": "TypeDecl",
+                    "name": "PossibleSettingIndex",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -3146,18 +2298,15 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "Buffer",
-                        "data_type": "TypeDecl",
-                        "type": "UCHAR"
-                    },
+                    "name": "Buffer",
+                    "type": "UCHAR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "BufferSize",
                     "data_type": "TypeDecl",
+                    "name": "BufferSize",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -3176,8 +2325,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -3186,11 +2335,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -3198,19 +2344,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "name": "PossibleSettingIndex",
                     "data_type": "TypeDecl",
+                    "name": "PossibleSettingIndex",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -3218,18 +2361,15 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "Buffer",
-                        "data_type": "TypeDecl",
-                        "type": "UCHAR"
-                    },
+                    "name": "Buffer",
+                    "type": "UCHAR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "BufferSize",
                     "data_type": "TypeDecl",
+                    "name": "BufferSize",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -3248,8 +2388,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -3258,11 +2398,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -3270,19 +2407,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "name": "ValueMinimum",
                     "data_type": "TypeDecl",
+                    "name": "ValueMinimum",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -3301,8 +2435,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -3311,11 +2445,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -3323,19 +2454,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "name": "ValueMaximum",
                     "data_type": "TypeDecl",
+                    "name": "ValueMaximum",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -3354,8 +2482,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -3364,11 +2492,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -3376,19 +2501,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "name": "ValueIncrement",
                     "data_type": "TypeDecl",
+                    "name": "ValueIncrement",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -3407,8 +2529,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -3417,11 +2539,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -3429,11 +2548,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -3441,18 +2557,15 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "Buffer",
-                        "data_type": "TypeDecl",
-                        "type": "UCHAR"
-                    },
+                    "name": "Buffer",
+                    "type": "UCHAR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "BufferSize",
                     "data_type": "TypeDecl",
+                    "name": "BufferSize",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -3471,8 +2584,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootSystemPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootSystemPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -3481,22 +2594,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SchemePersonalityGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SchemePersonalityGuid",
+                    "type": "GUID",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -3504,18 +2611,15 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "DefaultAcIndex",
                     "data_type": "TypeDecl",
+                    "name": "DefaultAcIndex",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -3534,8 +2638,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootSystemPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootSystemPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -3544,22 +2648,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SchemePersonalityGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SchemePersonalityGuid",
+                    "type": "GUID",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -3567,18 +2665,15 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "DefaultDcIndex",
                     "data_type": "TypeDecl",
+                    "name": "DefaultDcIndex",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -3597,8 +2692,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -3607,22 +2702,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SchemeGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SchemeGuid",
+                    "type": "GUID",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -3630,11 +2719,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -3642,18 +2728,15 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "Buffer",
-                        "data_type": "TypeDecl",
-                        "type": "UCHAR"
-                    },
+                    "name": "Buffer",
+                    "type": "UCHAR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "BufferSize",
                     "data_type": "TypeDecl",
+                    "name": "BufferSize",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -3673,29 +2756,23 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupGuid",
+                    "type": "GUID",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "Attributes",
                     "data_type": "TypeDecl",
+                    "name": "Attributes",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -3714,8 +2791,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -3724,25 +2801,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SourceSchemeGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SourceSchemeGuid",
+                    "type": "GUID",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "DestinationSchemeGuid",
-                            "data_type": "TypeDecl",
-                            "type": "GUID"
-                        }
-                    },
+                    "name": "DestinationSchemeGuid",
+                    "type": "GUID",
                     "sal": [
                         "in"
                     ]
@@ -3760,16 +2828,16 @@
             },
             "arguments": [
                 {
-                    "name": "RootPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "ImportFileNamePath",
                     "data_type": "TypeDecl",
+                    "name": "ImportFileNamePath",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -3777,14 +2845,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "DestinationSchemeGuid",
-                            "data_type": "TypeDecl",
-                            "type": "GUID"
-                        }
-                    },
+                    "name": "DestinationSchemeGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "out"
@@ -3803,8 +2865,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -3813,11 +2875,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SchemeGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SchemeGuid",
+                    "type": "GUID",
                     "sal": [
                         "in"
                     ]
@@ -3836,22 +2895,16 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingSubKeyGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingSubKeyGuid",
+                    "type": "GUID",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in"
                     ]
@@ -3869,8 +2922,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootSystemPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootSystemPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -3879,22 +2932,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in"
                     ]
@@ -3912,8 +2959,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootSystemPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootSystemPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -3922,29 +2969,23 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PowerSettingGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "PowerSettingGuid",
+                    "type": "GUID",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "PossibleSettingIndex",
                     "data_type": "TypeDecl",
+                    "name": "PossibleSettingIndex",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -3963,8 +3004,8 @@
             },
             "arguments": [
                 {
-                    "name": "RootPowerKey",
                     "data_type": "TypeDecl",
+                    "name": "RootPowerKey",
                     "type": "HKEY",
                     "sal": [
                         "in",
@@ -3973,11 +3014,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SchemeGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SchemeGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
@@ -3985,27 +3023,24 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SubGroupOfPowerSettingsGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SubGroupOfPowerSettingsGuid",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "name": "AccessFlags",
                     "data_type": "TypeDecl",
+                    "name": "AccessFlags",
                     "type": "POWER_DATA_ACCESSOR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "Index",
                     "data_type": "TypeDecl",
+                    "name": "Index",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -4013,11 +3048,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "Buffer",
-                        "data_type": "TypeDecl",
-                        "type": "UCHAR"
-                    },
+                    "name": "Buffer",
+                    "type": "UCHAR",
                     "sal": [
                         "out",
                         "optional"
@@ -4025,11 +3057,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "BufferSize",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
+                    "name": "BufferSize",
+                    "type": "DWORD",
                     "sal": [
                         "in",
                         "out"
@@ -4049,11 +3078,8 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SchemeGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SchemeGuid",
+                    "type": "GUID",
                     "sal": [
                         "in"
                     ]
@@ -4072,11 +3098,8 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "SchemeGuid",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "SchemeGuid",
+                    "type": "GUID",
                     "sal": [
                         "in"
                     ]
@@ -4142,32 +3165,32 @@
             },
             "arguments": [
                 {
+                    "data_type": "TypeDecl",
                     "name": "QueryIndex",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
                     ]
                 },
                 {
+                    "data_type": "TypeDecl",
                     "name": "QueryInterpretationFlags",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
                     ]
                 },
                 {
+                    "data_type": "TypeDecl",
                     "name": "QueryFlags",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "pReturnBuffer",
                     "data_type": "TypeDecl",
+                    "name": "pReturnBuffer",
                     "type": "PBYTE",
                     "sal": [
                         "out",
@@ -4175,8 +3198,8 @@
                     ]
                 },
                 {
-                    "name": "pBufferSize",
                     "data_type": "TypeDecl",
+                    "name": "pBufferSize",
                     "type": "PULONG",
                     "sal": [
                         "in",
@@ -4196,24 +3219,24 @@
             },
             "arguments": [
                 {
-                    "name": "DeviceDescription",
                     "data_type": "TypeDecl",
+                    "name": "DeviceDescription",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "SetFlags",
                     "data_type": "TypeDecl",
+                    "name": "SetFlags",
                     "type": "ULONG",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "SetData",
                     "data_type": "TypeDecl",
+                    "name": "SetData",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -4232,8 +3255,8 @@
             },
             "arguments": [
                 {
-                    "name": "DebugMask",
                     "data_type": "TypeDecl",
+                    "name": "DebugMask",
                     "type": "ULONG",
                     "sal": [
                         "optional"
@@ -4268,8 +3291,8 @@
             },
             "arguments": [
                 {
-                    "name": "Event",
                     "data_type": "TypeDecl",
+                    "name": "Event",
                     "type": "PTHERMAL_EVENT",
                     "sal": [
                         "in"

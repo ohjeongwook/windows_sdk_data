@@ -1,2558 +1,1886 @@
 {
     "typedefs": [
         {
-            "name": "IMediaBuffer",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "IMediaBuffer",
-                "data_type": "Struct",
-                "elements": []
-            }
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "majortype",
+                    "type": "GUID"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "subtype",
+                    "type": "GUID"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "bFixedSizeSamples",
+                    "type": "BOOL"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "bTemporalCompression",
+                    "type": "BOOL"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "lSampleSize",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "formattype",
+                    "type": "GUID"
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pUnk",
+                    "type": "IUnknown"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "cbFormat",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pbFormat",
+                    "type": "BYTE"
+                }
+            ],
+            "name": "_DMOMediaType"
         },
         {
-            "name": "IMediaObject",
             "data_type": "TypeDecl",
-            "type": {
-                "name": "IMediaObject",
-                "data_type": "Struct",
-                "elements": []
-            }
-        },
-        {
-            "name": "IEnumDMO",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "IEnumDMO",
-                "data_type": "Struct",
-                "elements": []
-            }
-        },
-        {
-            "name": "IMediaObjectInPlace",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "IMediaObjectInPlace",
-                "data_type": "Struct",
-                "elements": []
-            }
-        },
-        {
-            "name": "IDMOQualityControl",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "IDMOQualityControl",
-                "data_type": "Struct",
-                "elements": []
-            }
-        },
-        {
-            "name": "IDMOVideoOutputOptimizations",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "IDMOVideoOutputOptimizations",
-                "data_type": "Struct",
-                "elements": []
-            }
-        },
-        {
             "name": "DMO_MEDIA_TYPE",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "_DMOMediaType",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "majortype",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
-                    {
-                        "name": "subtype",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
-                    {
-                        "name": "bFixedSizeSamples",
-                        "data_type": "TypeDecl",
-                        "type": "BOOL"
-                    },
-                    {
-                        "name": "bTemporalCompression",
-                        "data_type": "TypeDecl",
-                        "type": "BOOL"
-                    },
-                    {
-                        "name": "lSampleSize",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "formattype",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "pUnk",
-                            "data_type": "TypeDecl",
-                            "type": "IUnknown"
-                        }
-                    },
-                    {
-                        "name": "cbFormat",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "pbFormat",
-                            "data_type": "TypeDecl",
-                            "type": "BYTE"
-                        }
-                    }
-                ]
-            }
+            "type": "_DMOMediaType"
         },
         {
-            "name": "REFERENCE_TIME",
             "data_type": "TypeDecl",
+            "name": "REFERENCE_TIME",
             "type": "LONGLONG"
         },
         {
-            "name": "IMediaBufferVtbl",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "IMediaBufferVtbl",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "data_type": "PtrDecl",
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "QueryInterface",
                         "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "QueryInterface",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "QueryInterface",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaBuffer"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "riid",
-                                            "data_type": "TypeDecl",
-                                            "type": "IID"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "data_type": "PtrDecl",
-                                            "type": {
-                                                "name": "ppvObject",
-                                                "data_type": "TypeDecl",
-                                                "type": "void"
-                                            }
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "AddRef",
-                                "data_type": "TypeDecl",
-                                "type": "ULONG"
-                            },
-                            "func": {
-                                "name": "AddRef",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "ULONG"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaBuffer"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "Release",
-                                "data_type": "TypeDecl",
-                                "type": "ULONG"
-                            },
-                            "func": {
-                                "name": "Release",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "ULONG"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaBuffer"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "SetLength",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "SetLength",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaBuffer"
-                                        }
-                                    },
-                                    {
-                                        "name": "cbLength",
-                                        "data_type": "TypeDecl",
-                                        "type": "DWORD"
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "GetMaxLength",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "GetMaxLength",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaBuffer"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "pcbMaxLength",
-                                            "data_type": "TypeDecl",
-                                            "type": "DWORD"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "GetBufferAndLength",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "GetBufferAndLength",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaBuffer"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "data_type": "PtrDecl",
-                                            "type": {
-                                                "name": "ppBuffer",
-                                                "data_type": "TypeDecl",
-                                                "type": "BYTE"
-                                            }
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "pcbLength",
-                                            "data_type": "TypeDecl",
-                                            "type": "DWORD"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "DMO_OUTPUT_DATA_BUFFER",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "_DMO_OUTPUT_DATA_BUFFER",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "pBuffer",
                             "data_type": "TypeDecl",
-                            "type": "IMediaBuffer"
-                        }
-                    },
-                    {
-                        "name": "dwStatus",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "rtTimestamp",
-                        "data_type": "TypeDecl",
-                        "type": "REFERENCE_TIME"
-                    },
-                    {
-                        "name": "rtTimelength",
-                        "data_type": "TypeDecl",
-                        "type": "REFERENCE_TIME"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "PDMO_OUTPUT_DATA_BUFFER",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "_DMO_OUTPUT_DATA_BUFFER",
-                    "data_type": "Struct",
-                    "elements": []
-                }
-            }
-        },
-        {
-            "name": "IMediaObjectVtbl",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "IMediaObjectVtbl",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "QueryInterface",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "QueryInterface",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObject"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "riid",
-                                            "data_type": "TypeDecl",
-                                            "type": "IID"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "data_type": "PtrDecl",
-                                            "type": {
-                                                "name": "ppvObject",
-                                                "data_type": "TypeDecl",
-                                                "type": "void"
-                                            }
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "AddRef",
-                                "data_type": "TypeDecl",
-                                "type": "ULONG"
-                            },
-                            "func": {
-                                "name": "AddRef",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "ULONG"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObject"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "Release",
-                                "data_type": "TypeDecl",
-                                "type": "ULONG"
-                            },
-                            "func": {
-                                "name": "Release",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "ULONG"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObject"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "GetStreamCount",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "GetStreamCount",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObject"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "pcInputStreams",
-                                            "data_type": "TypeDecl",
-                                            "type": "DWORD"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "pcOutputStreams",
-                                            "data_type": "TypeDecl",
-                                            "type": "DWORD"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "GetInputStreamInfo",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "GetInputStreamInfo",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObject"
-                                        }
-                                    },
-                                    {
-                                        "name": "dwInputStreamIndex",
-                                        "data_type": "TypeDecl",
-                                        "type": "DWORD"
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "pdwFlags",
-                                            "data_type": "TypeDecl",
-                                            "type": "DWORD"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "GetOutputStreamInfo",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "GetOutputStreamInfo",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObject"
-                                        }
-                                    },
-                                    {
-                                        "name": "dwOutputStreamIndex",
-                                        "data_type": "TypeDecl",
-                                        "type": "DWORD"
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "pdwFlags",
-                                            "data_type": "TypeDecl",
-                                            "type": "DWORD"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "GetInputType",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "GetInputType",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObject"
-                                        }
-                                    },
-                                    {
-                                        "name": "dwInputStreamIndex",
-                                        "data_type": "TypeDecl",
-                                        "type": "DWORD"
-                                    },
-                                    {
-                                        "name": "dwTypeIndex",
-                                        "data_type": "TypeDecl",
-                                        "type": "DWORD"
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "pmt",
-                                            "data_type": "TypeDecl",
-                                            "type": "DMO_MEDIA_TYPE"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "GetOutputType",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "GetOutputType",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObject"
-                                        }
-                                    },
-                                    {
-                                        "name": "dwOutputStreamIndex",
-                                        "data_type": "TypeDecl",
-                                        "type": "DWORD"
-                                    },
-                                    {
-                                        "name": "dwTypeIndex",
-                                        "data_type": "TypeDecl",
-                                        "type": "DWORD"
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "pmt",
-                                            "data_type": "TypeDecl",
-                                            "type": "DMO_MEDIA_TYPE"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "SetInputType",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "SetInputType",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObject"
-                                        }
-                                    },
-                                    {
-                                        "name": "dwInputStreamIndex",
-                                        "data_type": "TypeDecl",
-                                        "type": "DWORD"
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "pmt",
-                                            "data_type": "TypeDecl",
-                                            "type": "DMO_MEDIA_TYPE"
-                                        }
-                                    },
-                                    {
-                                        "name": "dwFlags",
-                                        "data_type": "TypeDecl",
-                                        "type": "DWORD"
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "SetOutputType",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "SetOutputType",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObject"
-                                        }
-                                    },
-                                    {
-                                        "name": "dwOutputStreamIndex",
-                                        "data_type": "TypeDecl",
-                                        "type": "DWORD"
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "pmt",
-                                            "data_type": "TypeDecl",
-                                            "type": "DMO_MEDIA_TYPE"
-                                        }
-                                    },
-                                    {
-                                        "name": "dwFlags",
-                                        "data_type": "TypeDecl",
-                                        "type": "DWORD"
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "GetInputCurrentType",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "GetInputCurrentType",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObject"
-                                        }
-                                    },
-                                    {
-                                        "name": "dwInputStreamIndex",
-                                        "data_type": "TypeDecl",
-                                        "type": "DWORD"
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "pmt",
-                                            "data_type": "TypeDecl",
-                                            "type": "DMO_MEDIA_TYPE"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "GetOutputCurrentType",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "GetOutputCurrentType",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObject"
-                                        }
-                                    },
-                                    {
-                                        "name": "dwOutputStreamIndex",
-                                        "data_type": "TypeDecl",
-                                        "type": "DWORD"
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "pmt",
-                                            "data_type": "TypeDecl",
-                                            "type": "DMO_MEDIA_TYPE"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "GetInputSizeInfo",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "GetInputSizeInfo",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObject"
-                                        }
-                                    },
-                                    {
-                                        "name": "dwInputStreamIndex",
-                                        "data_type": "TypeDecl",
-                                        "type": "DWORD"
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "pcbSize",
-                                            "data_type": "TypeDecl",
-                                            "type": "DWORD"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "pcbMaxLookahead",
-                                            "data_type": "TypeDecl",
-                                            "type": "DWORD"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "pcbAlignment",
-                                            "data_type": "TypeDecl",
-                                            "type": "DWORD"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "GetOutputSizeInfo",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "GetOutputSizeInfo",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObject"
-                                        }
-                                    },
-                                    {
-                                        "name": "dwOutputStreamIndex",
-                                        "data_type": "TypeDecl",
-                                        "type": "DWORD"
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "pcbSize",
-                                            "data_type": "TypeDecl",
-                                            "type": "DWORD"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "pcbAlignment",
-                                            "data_type": "TypeDecl",
-                                            "type": "DWORD"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "GetInputMaxLatency",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "GetInputMaxLatency",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObject"
-                                        }
-                                    },
-                                    {
-                                        "name": "dwInputStreamIndex",
-                                        "data_type": "TypeDecl",
-                                        "type": "DWORD"
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "prtMaxLatency",
-                                            "data_type": "TypeDecl",
-                                            "type": "REFERENCE_TIME"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "SetInputMaxLatency",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "SetInputMaxLatency",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObject"
-                                        }
-                                    },
-                                    {
-                                        "name": "dwInputStreamIndex",
-                                        "data_type": "TypeDecl",
-                                        "type": "DWORD"
-                                    },
-                                    {
-                                        "name": "rtMaxLatency",
-                                        "data_type": "TypeDecl",
-                                        "type": "REFERENCE_TIME"
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "Flush",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "Flush",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObject"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "Discontinuity",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "Discontinuity",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObject"
-                                        }
-                                    },
-                                    {
-                                        "name": "dwInputStreamIndex",
-                                        "data_type": "TypeDecl",
-                                        "type": "DWORD"
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "AllocateStreamingResources",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "AllocateStreamingResources",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObject"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "FreeStreamingResources",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "FreeStreamingResources",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObject"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "GetInputStatus",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "GetInputStatus",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObject"
-                                        }
-                                    },
-                                    {
-                                        "name": "dwInputStreamIndex",
-                                        "data_type": "TypeDecl",
-                                        "type": "DWORD"
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "dwFlags",
-                                            "data_type": "TypeDecl",
-                                            "type": "DWORD"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "ProcessInput",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "ProcessInput",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObject"
-                                        }
-                                    },
-                                    {
-                                        "name": "dwInputStreamIndex",
-                                        "data_type": "TypeDecl",
-                                        "type": "DWORD"
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "pBuffer",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaBuffer"
-                                        }
-                                    },
-                                    {
-                                        "name": "dwFlags",
-                                        "data_type": "TypeDecl",
-                                        "type": "DWORD"
-                                    },
-                                    {
-                                        "name": "rtTimestamp",
-                                        "data_type": "TypeDecl",
-                                        "type": "REFERENCE_TIME"
-                                    },
-                                    {
-                                        "name": "rtTimelength",
-                                        "data_type": "TypeDecl",
-                                        "type": "REFERENCE_TIME"
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "ProcessOutput",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "ProcessOutput",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObject"
-                                        }
-                                    },
-                                    {
-                                        "name": "dwFlags",
-                                        "data_type": "TypeDecl",
-                                        "type": "DWORD"
-                                    },
-                                    {
-                                        "name": "cOutputBufferCount",
-                                        "data_type": "TypeDecl",
-                                        "type": "DWORD"
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "pOutputBuffers",
-                                            "data_type": "TypeDecl",
-                                            "type": "DMO_OUTPUT_DATA_BUFFER"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "pdwStatus",
-                                            "data_type": "TypeDecl",
-                                            "type": "DWORD"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "Lock",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "Lock",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObject"
-                                        }
-                                    },
-                                    {
-                                        "name": "bLock",
-                                        "data_type": "TypeDecl",
-                                        "type": "LONG"
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "IEnumDMOVtbl",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "IEnumDMOVtbl",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "QueryInterface",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "QueryInterface",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IEnumDMO"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "riid",
-                                            "data_type": "TypeDecl",
-                                            "type": "IID"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "data_type": "PtrDecl",
-                                            "type": {
-                                                "name": "ppvObject",
-                                                "data_type": "TypeDecl",
-                                                "type": "void"
-                                            }
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "AddRef",
-                                "data_type": "TypeDecl",
-                                "type": "ULONG"
-                            },
-                            "func": {
-                                "name": "AddRef",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "ULONG"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IEnumDMO"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "Release",
-                                "data_type": "TypeDecl",
-                                "type": "ULONG"
-                            },
-                            "func": {
-                                "name": "Release",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "ULONG"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IEnumDMO"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "Next",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "Next",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IEnumDMO"
-                                        }
-                                    },
-                                    {
-                                        "name": "cItemsToFetch",
-                                        "data_type": "TypeDecl",
-                                        "type": "DWORD"
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "pCLSID",
-                                            "data_type": "TypeDecl",
-                                            "type": "CLSID"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "Names",
-                                            "data_type": "TypeDecl",
-                                            "type": "LPWSTR"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "pcItemsFetched",
-                                            "data_type": "TypeDecl",
-                                            "type": "DWORD"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "Skip",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "Skip",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IEnumDMO"
-                                        }
-                                    },
-                                    {
-                                        "name": "cItemsToSkip",
-                                        "data_type": "TypeDecl",
-                                        "type": "DWORD"
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "Reset",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "Reset",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IEnumDMO"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "Clone",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "Clone",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IEnumDMO"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "data_type": "PtrDecl",
-                                            "type": {
-                                                "name": "ppEnum",
-                                                "data_type": "TypeDecl",
-                                                "type": "IEnumDMO"
-                                            }
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "IMediaObjectInPlaceVtbl",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "IMediaObjectInPlaceVtbl",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "QueryInterface",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "QueryInterface",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObjectInPlace"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "riid",
-                                            "data_type": "TypeDecl",
-                                            "type": "IID"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "data_type": "PtrDecl",
-                                            "type": {
-                                                "name": "ppvObject",
-                                                "data_type": "TypeDecl",
-                                                "type": "void"
-                                            }
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "AddRef",
-                                "data_type": "TypeDecl",
-                                "type": "ULONG"
-                            },
-                            "func": {
-                                "name": "AddRef",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "ULONG"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObjectInPlace"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "Release",
-                                "data_type": "TypeDecl",
-                                "type": "ULONG"
-                            },
-                            "func": {
-                                "name": "Release",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "ULONG"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObjectInPlace"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "Process",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "Process",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObjectInPlace"
-                                        }
-                                    },
-                                    {
-                                        "name": "ulSize",
-                                        "data_type": "TypeDecl",
-                                        "type": "ULONG"
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "pData",
-                                            "data_type": "TypeDecl",
-                                            "type": "BYTE"
-                                        }
-                                    },
-                                    {
-                                        "name": "refTimeStart",
-                                        "data_type": "TypeDecl",
-                                        "type": "REFERENCE_TIME"
-                                    },
-                                    {
-                                        "name": "dwFlags",
-                                        "data_type": "TypeDecl",
-                                        "type": "DWORD"
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "Clone",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "Clone",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObjectInPlace"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "data_type": "PtrDecl",
-                                            "type": {
-                                                "name": "ppMediaObject",
-                                                "data_type": "TypeDecl",
-                                                "type": "IMediaObjectInPlace"
-                                            }
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "GetLatency",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "GetLatency",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IMediaObjectInPlace"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "pLatencyTime",
-                                            "data_type": "TypeDecl",
-                                            "type": "REFERENCE_TIME"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "IDMOQualityControlVtbl",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "IDMOQualityControlVtbl",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "QueryInterface",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "QueryInterface",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IDMOQualityControl"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "riid",
-                                            "data_type": "TypeDecl",
-                                            "type": "IID"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "data_type": "PtrDecl",
-                                            "type": {
-                                                "name": "ppvObject",
-                                                "data_type": "TypeDecl",
-                                                "type": "void"
-                                            }
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "AddRef",
-                                "data_type": "TypeDecl",
-                                "type": "ULONG"
-                            },
-                            "func": {
-                                "name": "AddRef",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "ULONG"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IDMOQualityControl"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "Release",
-                                "data_type": "TypeDecl",
-                                "type": "ULONG"
-                            },
-                            "func": {
-                                "name": "Release",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "ULONG"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IDMOQualityControl"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "SetNow",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "SetNow",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IDMOQualityControl"
-                                        }
-                                    },
-                                    {
-                                        "name": "rtNow",
-                                        "data_type": "TypeDecl",
-                                        "type": "REFERENCE_TIME"
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "SetStatus",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "SetStatus",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IDMOQualityControl"
-                                        }
-                                    },
-                                    {
-                                        "name": "dwFlags",
-                                        "data_type": "TypeDecl",
-                                        "type": "DWORD"
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "GetStatus",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "GetStatus",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IDMOQualityControl"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "pdwFlags",
-                                            "data_type": "TypeDecl",
-                                            "type": "DWORD"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "IDMOVideoOutputOptimizationsVtbl",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "IDMOVideoOutputOptimizationsVtbl",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "QueryInterface",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "QueryInterface",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IDMOVideoOutputOptimizations"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "riid",
-                                            "data_type": "TypeDecl",
-                                            "type": "IID"
-                                        }
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "data_type": "PtrDecl",
-                                            "type": {
-                                                "name": "ppvObject",
-                                                "data_type": "TypeDecl",
-                                                "type": "void"
-                                            }
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "AddRef",
-                                "data_type": "TypeDecl",
-                                "type": "ULONG"
-                            },
-                            "func": {
-                                "name": "AddRef",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "ULONG"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IDMOVideoOutputOptimizations"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "Release",
-                                "data_type": "TypeDecl",
-                                "type": "ULONG"
-                            },
-                            "func": {
-                                "name": "Release",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "ULONG"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IDMOVideoOutputOptimizations"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "QueryOperationModePreferences",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "QueryOperationModePreferences",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IDMOVideoOutputOptimizations"
-                                        }
-                                    },
-                                    {
-                                        "name": "ulOutputStreamIndex",
-                                        "data_type": "TypeDecl",
-                                        "type": "ULONG"
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "pdwRequestedCapabilities",
-                                            "data_type": "TypeDecl",
-                                            "type": "DWORD"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "SetOperationMode",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "SetOperationMode",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IDMOVideoOutputOptimizations"
-                                        }
-                                    },
-                                    {
-                                        "name": "ulOutputStreamIndex",
-                                        "data_type": "TypeDecl",
-                                        "type": "ULONG"
-                                    },
-                                    {
-                                        "name": "dwEnabledFeatures",
-                                        "data_type": "TypeDecl",
-                                        "type": "DWORD"
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "GetCurrentOperationMode",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "GetCurrentOperationMode",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IDMOVideoOutputOptimizations"
-                                        }
-                                    },
-                                    {
-                                        "name": "ulOutputStreamIndex",
-                                        "data_type": "TypeDecl",
-                                        "type": "ULONG"
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "pdwEnabledFeatures",
-                                            "data_type": "TypeDecl",
-                                            "type": "DWORD"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "FuncDecl",
-                            "type": {
-                                "name": "GetCurrentSampleRequirements",
-                                "data_type": "TypeDecl",
-                                "type": "HRESULT"
-                            },
-                            "func": {
-                                "name": "GetCurrentSampleRequirements",
-                                "type": {
-                                    "data_type": "TypeDecl",
-                                    "type": "HRESULT"
-                                },
-                                "arguments": [
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "This",
-                                            "data_type": "TypeDecl",
-                                            "type": "IDMOVideoOutputOptimizations"
-                                        }
-                                    },
-                                    {
-                                        "name": "ulOutputStreamIndex",
-                                        "data_type": "TypeDecl",
-                                        "type": "ULONG"
-                                    },
-                                    {
-                                        "data_type": "PtrDecl",
-                                        "type": {
-                                            "name": "pdwRequestedFeatures",
-                                            "data_type": "TypeDecl",
-                                            "type": "DWORD"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "DMO_PARTIAL_MEDIATYPE",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "_DMO_PARTIAL_MEDIATYPE",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "type",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
-                    {
-                        "name": "subtype",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "PDMO_PARTIAL_MEDIATYPE",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "_DMO_PARTIAL_MEDIATYPE",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "type",
-                            "data_type": "TypeDecl",
-                            "type": "GUID"
+                            "type": "HRESULT"
                         },
-                        {
-                            "name": "subtype",
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaBuffer"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "riid",
+                                "type": "IID"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "ppvObject",
+                                "type": "void"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "QueryInterface",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "AddRef",
+                        "type": {
                             "data_type": "TypeDecl",
-                            "type": "GUID"
-                        }
-                    ]
+                            "type": "ULONG"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaBuffer"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "AddRef",
+                        "type": "ULONG"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "Release",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "ULONG"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaBuffer"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "Release",
+                        "type": "ULONG"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "SetLength",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaBuffer"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "cbLength",
+                                "type": "DWORD"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "SetLength",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "GetMaxLength",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaBuffer"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "pcbMaxLength",
+                                "type": "DWORD"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "GetMaxLength",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "GetBufferAndLength",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaBuffer"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "ppBuffer",
+                                "type": "BYTE"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "pcbLength",
+                                "type": "DWORD"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "GetBufferAndLength",
+                        "type": "HRESULT"
+                    }
                 }
-            }
-        }
-    ],
-    "structdefs": [
-        {
-            "name": "IMediaBuffer",
-            "type_data": {
-                "name": "IMediaBuffer",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "lpVtbl",
-                            "data_type": "TypeDecl",
-                            "type": {
-                                "name": "IMediaBufferVtbl",
-                                "data_type": "Struct",
-                                "elements": []
-                            }
-                        }
-                    }
-                ]
-            }
+            ],
+            "name": "IMediaBufferVtbl"
         },
         {
-            "name": "IMediaObject",
-            "type_data": {
-                "name": "IMediaObject",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "lpVtbl",
-                            "data_type": "TypeDecl",
-                            "type": {
-                                "name": "IMediaObjectVtbl",
-                                "data_type": "Struct",
-                                "elements": []
-                            }
-                        }
-                    }
-                ]
-            }
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "PtrDecl",
+                    "name": "lpVtbl",
+                    "type": "IMediaBufferVtbl"
+                }
+            ],
+            "name": "IMediaBuffer"
         },
         {
-            "name": "IEnumDMO",
-            "type_data": {
-                "name": "IEnumDMO",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "lpVtbl",
-                            "data_type": "TypeDecl",
-                            "type": {
-                                "name": "IEnumDMOVtbl",
-                                "data_type": "Struct",
-                                "elements": []
-                            }
-                        }
-                    }
-                ]
-            }
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pBuffer",
+                    "type": "IMediaBuffer"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwStatus",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "rtTimestamp",
+                    "type": "REFERENCE_TIME"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "rtTimelength",
+                    "type": "REFERENCE_TIME"
+                }
+            ],
+            "name": "_DMO_OUTPUT_DATA_BUFFER"
         },
         {
-            "name": "IMediaObjectInPlace",
-            "type_data": {
-                "name": "IMediaObjectInPlace",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "lpVtbl",
-                            "data_type": "TypeDecl",
-                            "type": {
-                                "name": "IMediaObjectInPlaceVtbl",
-                                "data_type": "Struct",
-                                "elements": []
-                            }
-                        }
-                    }
-                ]
-            }
+            "data_type": "TypeDecl",
+            "name": "DMO_OUTPUT_DATA_BUFFER",
+            "type": "_DMO_OUTPUT_DATA_BUFFER"
         },
         {
-            "name": "IDMOQualityControl",
-            "type_data": {
-                "name": "IDMOQualityControl",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "lpVtbl",
-                            "data_type": "TypeDecl",
-                            "type": {
-                                "name": "IDMOQualityControlVtbl",
-                                "data_type": "Struct",
-                                "elements": []
-                            }
-                        }
-                    }
-                ]
-            }
+            "data_type": "PtrDecl",
+            "name": "PDMO_OUTPUT_DATA_BUFFER",
+            "type": "_DMO_OUTPUT_DATA_BUFFER"
         },
         {
-            "name": "IDMOVideoOutputOptimizations",
-            "type_data": {
-                "name": "IDMOVideoOutputOptimizations",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "data_type": "PtrDecl",
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "QueryInterface",
                         "type": {
-                            "name": "lpVtbl",
                             "data_type": "TypeDecl",
-                            "type": {
-                                "name": "IDMOVideoOutputOptimizationsVtbl",
-                                "data_type": "Struct",
-                                "elements": []
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObject"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "riid",
+                                "type": "IID"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "ppvObject",
+                                "type": "void"
                             }
-                        }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "QueryInterface",
+                        "type": "HRESULT"
                     }
-                ]
-            }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "AddRef",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "ULONG"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObject"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "AddRef",
+                        "type": "ULONG"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "Release",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "ULONG"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObject"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "Release",
+                        "type": "ULONG"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "GetStreamCount",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObject"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "pcInputStreams",
+                                "type": "DWORD"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "pcOutputStreams",
+                                "type": "DWORD"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "GetStreamCount",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "GetInputStreamInfo",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObject"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "dwInputStreamIndex",
+                                "type": "DWORD"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "pdwFlags",
+                                "type": "DWORD"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "GetInputStreamInfo",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "GetOutputStreamInfo",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObject"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "dwOutputStreamIndex",
+                                "type": "DWORD"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "pdwFlags",
+                                "type": "DWORD"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "GetOutputStreamInfo",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "GetInputType",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObject"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "dwInputStreamIndex",
+                                "type": "DWORD"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "dwTypeIndex",
+                                "type": "DWORD"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "pmt",
+                                "type": "DMO_MEDIA_TYPE"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "GetInputType",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "GetOutputType",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObject"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "dwOutputStreamIndex",
+                                "type": "DWORD"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "dwTypeIndex",
+                                "type": "DWORD"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "pmt",
+                                "type": "DMO_MEDIA_TYPE"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "GetOutputType",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "SetInputType",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObject"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "dwInputStreamIndex",
+                                "type": "DWORD"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "pmt",
+                                "type": "DMO_MEDIA_TYPE"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "dwFlags",
+                                "type": "DWORD"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "SetInputType",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "SetOutputType",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObject"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "dwOutputStreamIndex",
+                                "type": "DWORD"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "pmt",
+                                "type": "DMO_MEDIA_TYPE"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "dwFlags",
+                                "type": "DWORD"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "SetOutputType",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "GetInputCurrentType",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObject"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "dwInputStreamIndex",
+                                "type": "DWORD"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "pmt",
+                                "type": "DMO_MEDIA_TYPE"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "GetInputCurrentType",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "GetOutputCurrentType",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObject"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "dwOutputStreamIndex",
+                                "type": "DWORD"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "pmt",
+                                "type": "DMO_MEDIA_TYPE"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "GetOutputCurrentType",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "GetInputSizeInfo",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObject"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "dwInputStreamIndex",
+                                "type": "DWORD"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "pcbSize",
+                                "type": "DWORD"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "pcbMaxLookahead",
+                                "type": "DWORD"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "pcbAlignment",
+                                "type": "DWORD"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "GetInputSizeInfo",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "GetOutputSizeInfo",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObject"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "dwOutputStreamIndex",
+                                "type": "DWORD"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "pcbSize",
+                                "type": "DWORD"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "pcbAlignment",
+                                "type": "DWORD"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "GetOutputSizeInfo",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "GetInputMaxLatency",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObject"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "dwInputStreamIndex",
+                                "type": "DWORD"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "prtMaxLatency",
+                                "type": "REFERENCE_TIME"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "GetInputMaxLatency",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "SetInputMaxLatency",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObject"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "dwInputStreamIndex",
+                                "type": "DWORD"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "rtMaxLatency",
+                                "type": "REFERENCE_TIME"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "SetInputMaxLatency",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "Flush",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObject"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "Flush",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "Discontinuity",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObject"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "dwInputStreamIndex",
+                                "type": "DWORD"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "Discontinuity",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "AllocateStreamingResources",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObject"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "AllocateStreamingResources",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "FreeStreamingResources",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObject"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "FreeStreamingResources",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "GetInputStatus",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObject"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "dwInputStreamIndex",
+                                "type": "DWORD"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "dwFlags",
+                                "type": "DWORD"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "GetInputStatus",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "ProcessInput",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObject"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "dwInputStreamIndex",
+                                "type": "DWORD"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "pBuffer",
+                                "type": "IMediaBuffer"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "dwFlags",
+                                "type": "DWORD"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "rtTimestamp",
+                                "type": "REFERENCE_TIME"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "rtTimelength",
+                                "type": "REFERENCE_TIME"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "ProcessInput",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "ProcessOutput",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObject"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "dwFlags",
+                                "type": "DWORD"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "cOutputBufferCount",
+                                "type": "DWORD"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "pOutputBuffers",
+                                "type": "DMO_OUTPUT_DATA_BUFFER"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "pdwStatus",
+                                "type": "DWORD"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "ProcessOutput",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "Lock",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObject"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "bLock",
+                                "type": "LONG"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "Lock",
+                        "type": "HRESULT"
+                    }
+                }
+            ],
+            "name": "IMediaObjectVtbl"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "PtrDecl",
+                    "name": "lpVtbl",
+                    "type": "IMediaObjectVtbl"
+                }
+            ],
+            "name": "IMediaObject"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "QueryInterface",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IEnumDMO"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "riid",
+                                "type": "IID"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "ppvObject",
+                                "type": "void"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "QueryInterface",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "AddRef",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "ULONG"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IEnumDMO"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "AddRef",
+                        "type": "ULONG"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "Release",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "ULONG"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IEnumDMO"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "Release",
+                        "type": "ULONG"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "Next",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IEnumDMO"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "cItemsToFetch",
+                                "type": "DWORD"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "pCLSID",
+                                "type": "CLSID"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "Names",
+                                "type": "LPWSTR"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "pcItemsFetched",
+                                "type": "DWORD"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "Next",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "Skip",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IEnumDMO"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "cItemsToSkip",
+                                "type": "DWORD"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "Skip",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "Reset",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IEnumDMO"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "Reset",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "Clone",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IEnumDMO"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "ppEnum",
+                                "type": "IEnumDMO"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "Clone",
+                        "type": "HRESULT"
+                    }
+                }
+            ],
+            "name": "IEnumDMOVtbl"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "PtrDecl",
+                    "name": "lpVtbl",
+                    "type": "IEnumDMOVtbl"
+                }
+            ],
+            "name": "IEnumDMO"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "QueryInterface",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObjectInPlace"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "riid",
+                                "type": "IID"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "ppvObject",
+                                "type": "void"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "QueryInterface",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "AddRef",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "ULONG"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObjectInPlace"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "AddRef",
+                        "type": "ULONG"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "Release",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "ULONG"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObjectInPlace"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "Release",
+                        "type": "ULONG"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "Process",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObjectInPlace"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "ulSize",
+                                "type": "ULONG"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "pData",
+                                "type": "BYTE"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "refTimeStart",
+                                "type": "REFERENCE_TIME"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "dwFlags",
+                                "type": "DWORD"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "Process",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "Clone",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObjectInPlace"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "ppMediaObject",
+                                "type": "IMediaObjectInPlace"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "Clone",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "GetLatency",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IMediaObjectInPlace"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "pLatencyTime",
+                                "type": "REFERENCE_TIME"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "GetLatency",
+                        "type": "HRESULT"
+                    }
+                }
+            ],
+            "name": "IMediaObjectInPlaceVtbl"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "PtrDecl",
+                    "name": "lpVtbl",
+                    "type": "IMediaObjectInPlaceVtbl"
+                }
+            ],
+            "name": "IMediaObjectInPlace"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "QueryInterface",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IDMOQualityControl"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "riid",
+                                "type": "IID"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "ppvObject",
+                                "type": "void"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "QueryInterface",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "AddRef",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "ULONG"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IDMOQualityControl"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "AddRef",
+                        "type": "ULONG"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "Release",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "ULONG"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IDMOQualityControl"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "Release",
+                        "type": "ULONG"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "SetNow",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IDMOQualityControl"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "rtNow",
+                                "type": "REFERENCE_TIME"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "SetNow",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "SetStatus",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IDMOQualityControl"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "dwFlags",
+                                "type": "DWORD"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "SetStatus",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "GetStatus",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IDMOQualityControl"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "pdwFlags",
+                                "type": "DWORD"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "GetStatus",
+                        "type": "HRESULT"
+                    }
+                }
+            ],
+            "name": "IDMOQualityControlVtbl"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "PtrDecl",
+                    "name": "lpVtbl",
+                    "type": "IDMOQualityControlVtbl"
+                }
+            ],
+            "name": "IDMOQualityControl"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "QueryInterface",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IDMOVideoOutputOptimizations"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "riid",
+                                "type": "IID"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "ppvObject",
+                                "type": "void"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "QueryInterface",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "AddRef",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "ULONG"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IDMOVideoOutputOptimizations"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "AddRef",
+                        "type": "ULONG"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "Release",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "ULONG"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IDMOVideoOutputOptimizations"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "Release",
+                        "type": "ULONG"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "QueryOperationModePreferences",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IDMOVideoOutputOptimizations"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "ulOutputStreamIndex",
+                                "type": "ULONG"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "pdwRequestedCapabilities",
+                                "type": "DWORD"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "QueryOperationModePreferences",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "SetOperationMode",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IDMOVideoOutputOptimizations"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "ulOutputStreamIndex",
+                                "type": "ULONG"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "dwEnabledFeatures",
+                                "type": "DWORD"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "SetOperationMode",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "GetCurrentOperationMode",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IDMOVideoOutputOptimizations"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "ulOutputStreamIndex",
+                                "type": "ULONG"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "pdwEnabledFeatures",
+                                "type": "DWORD"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "GetCurrentOperationMode",
+                        "type": "HRESULT"
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "func": {
+                        "name": "GetCurrentSampleRequirements",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "arguments": [
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "This",
+                                "type": "IDMOVideoOutputOptimizations"
+                            },
+                            {
+                                "data_type": "TypeDecl",
+                                "name": "ulOutputStreamIndex",
+                                "type": "ULONG"
+                            },
+                            {
+                                "data_type": "PtrDecl",
+                                "name": "pdwRequestedFeatures",
+                                "type": "DWORD"
+                            }
+                        ]
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "GetCurrentSampleRequirements",
+                        "type": "HRESULT"
+                    }
+                }
+            ],
+            "name": "IDMOVideoOutputOptimizationsVtbl"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "PtrDecl",
+                    "name": "lpVtbl",
+                    "type": "IDMOVideoOutputOptimizationsVtbl"
+                }
+            ],
+            "name": "IDMOVideoOutputOptimizations"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "type",
+                    "type": "GUID"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "subtype",
+                    "type": "GUID"
+                }
+            ],
+            "name": "_DMO_PARTIAL_MEDIATYPE"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "DMO_PARTIAL_MEDIATYPE",
+            "type": "_DMO_PARTIAL_MEDIATYPE"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "PDMO_PARTIAL_MEDIATYPE",
+            "type": "_DMO_PARTIAL_MEDIATYPE"
         }
     ],
     "funcdefs": [
@@ -2564,63 +1892,51 @@
             },
             "arguments": [
                 {
-                    "name": "szName",
                     "data_type": "TypeDecl",
+                    "name": "szName",
                     "type": "LPCWSTR",
                     "sal": []
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "clsidDMO",
-                        "data_type": "TypeDecl",
-                        "type": "IID"
-                    },
+                    "name": "clsidDMO",
+                    "type": "IID",
                     "sal": []
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "guidCategory",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "guidCategory",
+                    "type": "GUID",
                     "sal": []
                 },
                 {
+                    "data_type": "TypeDecl",
                     "name": "dwFlags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
+                    "data_type": "TypeDecl",
                     "name": "cInTypes",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "pInTypes",
-                        "data_type": "TypeDecl",
-                        "type": "DMO_PARTIAL_MEDIATYPE"
-                    },
+                    "name": "pInTypes",
+                    "type": "DMO_PARTIAL_MEDIATYPE",
                     "sal": []
                 },
                 {
+                    "data_type": "TypeDecl",
                     "name": "cOutTypes",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "pOutTypes",
-                        "data_type": "TypeDecl",
-                        "type": "DMO_PARTIAL_MEDIATYPE"
-                    },
+                    "name": "pOutTypes",
+                    "type": "DMO_PARTIAL_MEDIATYPE",
                     "sal": []
                 }
             ],
@@ -2637,20 +1953,14 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "clsidDMO",
-                        "data_type": "TypeDecl",
-                        "type": "IID"
-                    },
+                    "name": "clsidDMO",
+                    "type": "IID",
                     "sal": []
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "guidCategory",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "guidCategory",
+                    "type": "GUID",
                     "sal": []
                 }
             ],
@@ -2667,59 +1977,44 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "guidCategory",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "guidCategory",
+                    "type": "GUID",
                     "sal": []
                 },
                 {
+                    "data_type": "TypeDecl",
                     "name": "dwFlags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
+                    "data_type": "TypeDecl",
                     "name": "cInTypes",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "pInTypes",
-                        "data_type": "TypeDecl",
-                        "type": "DMO_PARTIAL_MEDIATYPE"
-                    },
+                    "name": "pInTypes",
+                    "type": "DMO_PARTIAL_MEDIATYPE",
                     "sal": []
                 },
                 {
+                    "data_type": "TypeDecl",
                     "name": "cOutTypes",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "pOutTypes",
-                        "data_type": "TypeDecl",
-                        "type": "DMO_PARTIAL_MEDIATYPE"
-                    },
+                    "name": "pOutTypes",
+                    "type": "DMO_PARTIAL_MEDIATYPE",
                     "sal": []
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "ppEnum",
-                            "data_type": "TypeDecl",
-                            "type": "IEnumDMO"
-                        }
-                    },
+                    "name": "ppEnum",
+                    "type": "IEnumDMO",
                     "sal": []
                 }
             ],
@@ -2736,59 +2031,44 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "clsidDMO",
-                        "data_type": "TypeDecl",
-                        "type": "IID"
-                    },
+                    "name": "clsidDMO",
+                    "type": "IID",
                     "sal": []
                 },
                 {
+                    "data_type": "TypeDecl",
                     "name": "ulInputTypesRequested",
-                    "data_type": "TypeDecl",
                     "type": "unsigned long",
                     "sal": []
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "pulInputTypesSupplied",
-                        "data_type": "TypeDecl",
-                        "type": "unsigned long"
-                    },
+                    "name": "pulInputTypesSupplied",
+                    "type": "unsigned long",
                     "sal": []
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "pInputTypes",
-                        "data_type": "TypeDecl",
-                        "type": "DMO_PARTIAL_MEDIATYPE"
-                    },
+                    "name": "pInputTypes",
+                    "type": "DMO_PARTIAL_MEDIATYPE",
                     "sal": []
                 },
                 {
+                    "data_type": "TypeDecl",
                     "name": "ulOutputTypesRequested",
-                    "data_type": "TypeDecl",
                     "type": "unsigned long",
                     "sal": []
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "pulOutputTypesSupplied",
-                        "data_type": "TypeDecl",
-                        "type": "unsigned long"
-                    },
+                    "name": "pulOutputTypesSupplied",
+                    "type": "unsigned long",
                     "sal": []
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "pOutputTypes",
-                        "data_type": "TypeDecl",
-                        "type": "DMO_PARTIAL_MEDIATYPE"
-                    },
+                    "name": "pOutputTypes",
+                    "type": "DMO_PARTIAL_MEDIATYPE",
                     "sal": []
                 }
             ],
@@ -2805,23 +2085,20 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "clsidDMO",
-                        "data_type": "TypeDecl",
-                        "type": "IID"
-                    },
+                    "name": "clsidDMO",
+                    "type": "IID",
                     "sal": []
                 },
                 {
                     "data_type": "ArrayDecl",
-                    "type": {
-                        "name": "szName",
-                        "data_type": "TypeDecl",
-                        "type": "WCHAR"
-                    },
                     "dim": {
                         "type": "int",
                         "value": "80"
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "szName",
+                        "type": "WCHAR"
                     },
                     "sal": []
                 }

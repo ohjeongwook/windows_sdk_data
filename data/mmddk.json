@@ -1,877 +1,502 @@
 {
     "typedefs": [
         {
-            "name": "DRVM_IOCTL_DATA",
-            "data_type": "TypeDecl",
-            "type": {
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "dwSize",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "dwCmd",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "LPDRVM_IOCTL_DATA",
-                "data_type": "TypeDecl",
-                "type": {
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "dwSize",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "name": "dwCmd",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "name": "MDEVICECAPSEX",
-            "data_type": "TypeDecl",
-            "type": {
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "cbSize",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "pCaps",
-                        "data_type": "TypeDecl",
-                        "type": "LPVOID"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "WAVEOPENDESC",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "waveopendesc_tag",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "hWave",
-                        "data_type": "TypeDecl",
-                        "type": "HWAVE"
-                    },
-                    {
-                        "name": "lpFormat",
-                        "data_type": "TypeDecl",
-                        "type": "LPWAVEFORMAT"
-                    },
-                    {
-                        "name": "dwCallback",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD_PTR"
-                    },
-                    {
-                        "name": "dwInstance",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD_PTR"
-                    },
-                    {
-                        "name": "uMappedDeviceID",
-                        "data_type": "TypeDecl",
-                        "type": "UINT"
-                    },
-                    {
-                        "name": "dnDevNode",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD_PTR"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "LPWAVEOPENDESC",
-                "data_type": "TypeDecl",
-                "type": "WAVEOPENDESC"
-            }
-        },
-        {
-            "name": "MIDIOPENSTRMID",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "midiopenstrmid_tag",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "dwStreamID",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "uDeviceID",
-                        "data_type": "TypeDecl",
-                        "type": "UINT"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "MIDIOPENDESC",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "midiopendesc_tag",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "hMidi",
-                        "data_type": "TypeDecl",
-                        "type": "HMIDI"
-                    },
-                    {
-                        "name": "dwCallback",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD_PTR"
-                    },
-                    {
-                        "name": "dwInstance",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD_PTR"
-                    },
-                    {
-                        "name": "dnDevNode",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD_PTR"
-                    },
-                    {
-                        "name": "cIds",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "type": {
-                            "name": "rgIds",
-                            "data_type": "TypeDecl",
-                            "type": "MIDIOPENSTRMID"
-                        },
-                        "dim": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "LPMIDIOPENDESC",
-                "data_type": "TypeDecl",
-                "type": "MIDIOPENDESC"
-            }
-        },
-        {
-            "name": "MIXEROPENDESC",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "tMIXEROPENDESC",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "hmx",
-                        "data_type": "TypeDecl",
-                        "type": "HMIXER"
-                    },
-                    {
-                        "name": "pReserved0",
-                        "data_type": "TypeDecl",
-                        "type": "LPVOID"
-                    },
-                    {
-                        "name": "dwCallback",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD_PTR"
-                    },
-                    {
-                        "name": "dwInstance",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD_PTR"
-                    },
-                    {
-                        "name": "dnDevNode",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD_PTR"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "PMIXEROPENDESC",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "tMIXEROPENDESC",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "hmx",
-                            "data_type": "TypeDecl",
-                            "type": "HMIXER"
-                        },
-                        {
-                            "name": "pReserved0",
-                            "data_type": "TypeDecl",
-                            "type": "LPVOID"
-                        },
-                        {
-                            "name": "dwCallback",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD_PTR"
-                        },
-                        {
-                            "name": "dwInstance",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD_PTR"
-                        },
-                        {
-                            "name": "dnDevNode",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD_PTR"
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "LPMIXEROPENDESC",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "tMIXEROPENDESC",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "hmx",
-                            "data_type": "TypeDecl",
-                            "type": "HMIXER"
-                        },
-                        {
-                            "name": "pReserved0",
-                            "data_type": "TypeDecl",
-                            "type": "LPVOID"
-                        },
-                        {
-                            "name": "dwCallback",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD_PTR"
-                        },
-                        {
-                            "name": "dwInstance",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD_PTR"
-                        },
-                        {
-                            "name": "dnDevNode",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD_PTR"
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "name": "TIMEREVENT",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "timerevent_tag",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "wDelay",
-                        "data_type": "TypeDecl",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "wResolution",
-                        "data_type": "TypeDecl",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "lpFunction",
-                        "data_type": "TypeDecl",
-                        "type": "LPTIMECALLBACK"
-                    },
-                    {
-                        "name": "dwUser",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "wFlags",
-                        "data_type": "TypeDecl",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "wReserved1",
-                        "data_type": "TypeDecl",
-                        "type": "WORD"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "LPTIMEREVENT",
-                "data_type": "TypeDecl",
-                "type": "TIMEREVENT"
-            }
-        },
-        {
-            "name": "JOYPOS",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "joypos_tag",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "dwX",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "dwY",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "dwZ",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "dwR",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "dwU",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "dwV",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "LPJOYPOS",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "joypos_tag",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "dwX",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "name": "dwY",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "name": "dwZ",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "name": "dwR",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "name": "dwU",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "name": "dwV",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "name": "JOYRANGE",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "joyrange_tag",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "jpMin",
-                        "data_type": "TypeDecl",
-                        "type": "JOYPOS"
-                    },
-                    {
-                        "name": "jpMax",
-                        "data_type": "TypeDecl",
-                        "type": "JOYPOS"
-                    },
-                    {
-                        "name": "jpCenter",
-                        "data_type": "TypeDecl",
-                        "type": "JOYPOS"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "LPJOYRANGE",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "joyrange_tag",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "jpMin",
-                            "data_type": "TypeDecl",
-                            "type": "JOYPOS"
-                        },
-                        {
-                            "name": "jpMax",
-                            "data_type": "TypeDecl",
-                            "type": "JOYPOS"
-                        },
-                        {
-                            "name": "jpCenter",
-                            "data_type": "TypeDecl",
-                            "type": "JOYPOS"
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "name": "JOYREGUSERVALUES",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "joyreguservalues_tag",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "dwTimeOut",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "jrvRanges",
-                        "data_type": "TypeDecl",
-                        "type": "JOYRANGE"
-                    },
-                    {
-                        "name": "jpDeadZone",
-                        "data_type": "TypeDecl",
-                        "type": "JOYPOS"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "LPJOYREGUSERVALUES",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "joyreguservalues_tag",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "dwTimeOut",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "name": "jrvRanges",
-                            "data_type": "TypeDecl",
-                            "type": "JOYRANGE"
-                        },
-                        {
-                            "name": "jpDeadZone",
-                            "data_type": "TypeDecl",
-                            "type": "JOYPOS"
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "name": "JOYREGHWSETTINGS",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "joyreghwsettings_tag",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "dwFlags",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "dwNumButtons",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "LPJOYHWSETTINGS",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "joyreghwsettings_tag",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "dwFlags",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "name": "dwNumButtons",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "name": "JOYREGHWVALUES",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "joyreghwvalues_tag",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "jrvHardware",
-                        "data_type": "TypeDecl",
-                        "type": "JOYRANGE"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "type": {
-                            "name": "dwPOVValues",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        "dim": {
-                            "type": "int",
-                            "value": "4"
-                        }
-                    },
-                    {
-                        "name": "dwCalFlags",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "LPJOYREGHWVALUES",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "joyreghwvalues_tag",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "jrvHardware",
-                            "data_type": "TypeDecl",
-                            "type": "JOYRANGE"
-                        },
-                        {
-                            "data_type": "ArrayDecl",
-                            "type": {
-                                "name": "dwPOVValues",
-                                "data_type": "TypeDecl",
-                                "type": "DWORD"
-                            },
-                            "dim": {
-                                "type": "int",
-                                "value": "4"
-                            }
-                        },
-                        {
-                            "name": "dwCalFlags",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "name": "JOYREGHWCONFIG",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "joyreghwconfig_tag",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "hws",
-                        "data_type": "TypeDecl",
-                        "type": "JOYREGHWSETTINGS"
-                    },
-                    {
-                        "name": "dwUsageSettings",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "hwv",
-                        "data_type": "TypeDecl",
-                        "type": "JOYREGHWVALUES"
-                    },
-                    {
-                        "name": "dwType",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "dwReserved",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "LPJOYREGHWCONFIG",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "joyreghwconfig_tag",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "hws",
-                            "data_type": "TypeDecl",
-                            "type": "JOYREGHWSETTINGS"
-                        },
-                        {
-                            "name": "dwUsageSettings",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "name": "hwv",
-                            "data_type": "TypeDecl",
-                            "type": "JOYREGHWVALUES"
-                        },
-                        {
-                            "name": "dwType",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "name": "dwReserved",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "name": "JOYCALIBRATE",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "joycalibrate_tag",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "wXbase",
-                        "data_type": "TypeDecl",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "wXdelta",
-                        "data_type": "TypeDecl",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "wYbase",
-                        "data_type": "TypeDecl",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "wYdelta",
-                        "data_type": "TypeDecl",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "wZbase",
-                        "data_type": "TypeDecl",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "wZdelta",
-                        "data_type": "TypeDecl",
-                        "type": "WORD"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "LPJOYCALIBRATE",
-                "data_type": "TypeDecl",
-                "type": "JOYCALIBRATE"
-            }
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "JOYDEVMSGPROC",
-                "data_type": "TypeDecl",
-                "type": "DWORD"
-            },
-            "func": {
-                "name": "JOYDEVMSGPROC",
-                "type": {
+            "data_type": "Struct",
+            "elements": [
+                {
                     "data_type": "TypeDecl",
+                    "name": "hWave",
+                    "type": "HWAVE"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "lpFormat",
+                    "type": "LPWAVEFORMAT"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwCallback",
+                    "type": "DWORD_PTR"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwInstance",
+                    "type": "DWORD_PTR"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "uMappedDeviceID",
+                    "type": "UINT"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dnDevNode",
+                    "type": "DWORD_PTR"
+                }
+            ],
+            "name": "waveopendesc_tag"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "WAVEOPENDESC",
+            "type": "waveopendesc_tag"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "LPWAVEOPENDESC",
+            "type": "WAVEOPENDESC"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwStreamID",
                     "type": "DWORD"
                 },
-                "arguments": [
-                    {
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "data_type": "TypeDecl",
-                        "type": "UINT"
-                    },
-                    {
-                        "data_type": "TypeDecl",
-                        "type": "LONG"
-                    },
-                    {
-                        "data_type": "TypeDecl",
-                        "type": "LONG"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "LPJOYDEVMSGPROC",
-                "data_type": "TypeDecl",
-                "type": "JOYDEVMSGPROC"
-            }
-        },
-        {
-            "name": "MCI_OPEN_DRIVER_PARMS",
-            "data_type": "TypeDecl",
-            "type": {
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "wDeviceID",
-                        "data_type": "TypeDecl",
-                        "type": "MCIDEVICEID"
-                    },
-                    {
-                        "name": "lpstrParams",
-                        "data_type": "TypeDecl",
-                        "type": "LPCWSTR"
-                    },
-                    {
-                        "name": "wCustomCommandTable",
-                        "data_type": "TypeDecl",
-                        "type": "UINT"
-                    },
-                    {
-                        "name": "wType",
-                        "data_type": "TypeDecl",
-                        "type": "UINT"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "LPMCI_OPEN_DRIVER_PARMS",
-                "data_type": "TypeDecl",
-                "type": "MCI_OPEN_DRIVER_PARMS"
-            }
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "TASKCALLBACK",
-                "data_type": "TypeDecl",
-                "type": "void"
-            },
-            "func": {
-                "name": "TASKCALLBACK",
-                "type": {
+                {
                     "data_type": "TypeDecl",
-                    "type": "void"
+                    "name": "uDeviceID",
+                    "type": "UINT"
+                }
+            ],
+            "name": "midiopenstrmid_tag"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "MIDIOPENSTRMID",
+            "type": "midiopenstrmid_tag"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "hMidi",
+                    "type": "HMIDI"
                 },
-                "arguments": [
-                    {
-                        "name": "dwInst",
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwCallback",
+                    "type": "DWORD_PTR"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwInstance",
+                    "type": "DWORD_PTR"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dnDevNode",
+                    "type": "DWORD_PTR"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "cIds",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "1"
+                    },
+                    "type": {
                         "data_type": "TypeDecl",
-                        "type": "DWORD_PTR"
+                        "name": "rgIds",
+                        "type": "MIDIOPENSTRMID"
                     }
-                ]
-            }
+                }
+            ],
+            "name": "midiopendesc_tag"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "MIDIOPENDESC",
+            "type": "midiopendesc_tag"
         },
         {
             "data_type": "PtrDecl",
-            "type": {
-                "name": "LPTASKCALLBACK",
-                "data_type": "TypeDecl",
-                "type": "TASKCALLBACK"
-            }
+            "name": "LPMIDIOPENDESC",
+            "type": "MIDIOPENDESC"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "hmx",
+                    "type": "HMIXER"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "pReserved0",
+                    "type": "LPVOID"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwCallback",
+                    "type": "DWORD_PTR"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwInstance",
+                    "type": "DWORD_PTR"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dnDevNode",
+                    "type": "DWORD_PTR"
+                }
+            ],
+            "name": "tMIXEROPENDESC"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "MIXEROPENDESC",
+            "type": "tMIXEROPENDESC"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "PMIXEROPENDESC",
+            "type": "tMIXEROPENDESC"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "LPMIXEROPENDESC",
+            "type": "tMIXEROPENDESC"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "wDelay",
+                    "type": "WORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "wResolution",
+                    "type": "WORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "lpFunction",
+                    "type": "LPTIMECALLBACK"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwUser",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "wFlags",
+                    "type": "WORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "wReserved1",
+                    "type": "WORD"
+                }
+            ],
+            "name": "timerevent_tag"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "TIMEREVENT",
+            "type": "timerevent_tag"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "LPTIMEREVENT",
+            "type": "TIMEREVENT"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwX",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwY",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwZ",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwR",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwU",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwV",
+                    "type": "DWORD"
+                }
+            ],
+            "name": "joypos_tag"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "JOYPOS",
+            "type": "joypos_tag"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "LPJOYPOS",
+            "type": "joypos_tag"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "jpMin",
+                    "type": "JOYPOS"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "jpMax",
+                    "type": "JOYPOS"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "jpCenter",
+                    "type": "JOYPOS"
+                }
+            ],
+            "name": "joyrange_tag"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "JOYRANGE",
+            "type": "joyrange_tag"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "LPJOYRANGE",
+            "type": "joyrange_tag"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwTimeOut",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "jrvRanges",
+                    "type": "JOYRANGE"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "jpDeadZone",
+                    "type": "JOYPOS"
+                }
+            ],
+            "name": "joyreguservalues_tag"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "JOYREGUSERVALUES",
+            "type": "joyreguservalues_tag"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "LPJOYREGUSERVALUES",
+            "type": "joyreguservalues_tag"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwFlags",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwNumButtons",
+                    "type": "DWORD"
+                }
+            ],
+            "name": "joyreghwsettings_tag"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "JOYREGHWSETTINGS",
+            "type": "joyreghwsettings_tag"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "LPJOYHWSETTINGS",
+            "type": "joyreghwsettings_tag"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "jrvHardware",
+                    "type": "JOYRANGE"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "4"
+                    },
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "name": "dwPOVValues",
+                        "type": "DWORD"
+                    }
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwCalFlags",
+                    "type": "DWORD"
+                }
+            ],
+            "name": "joyreghwvalues_tag"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "JOYREGHWVALUES",
+            "type": "joyreghwvalues_tag"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "LPJOYREGHWVALUES",
+            "type": "joyreghwvalues_tag"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "hws",
+                    "type": "JOYREGHWSETTINGS"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwUsageSettings",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "hwv",
+                    "type": "JOYREGHWVALUES"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwType",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwReserved",
+                    "type": "DWORD"
+                }
+            ],
+            "name": "joyreghwconfig_tag"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "JOYREGHWCONFIG",
+            "type": "joyreghwconfig_tag"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "LPJOYREGHWCONFIG",
+            "type": "joyreghwconfig_tag"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "wXbase",
+                    "type": "WORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "wXdelta",
+                    "type": "WORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "wYbase",
+                    "type": "WORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "wYdelta",
+                    "type": "WORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "wZbase",
+                    "type": "WORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "wZdelta",
+                    "type": "WORD"
+                }
+            ],
+            "name": "joycalibrate_tag"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "JOYCALIBRATE",
+            "type": "joycalibrate_tag"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "LPJOYCALIBRATE",
+            "type": "JOYCALIBRATE"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "JOYDEVMSGPROC",
+            "type": "DWORD"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "LPJOYDEVMSGPROC",
+            "type": "JOYDEVMSGPROC"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "LPMCI_OPEN_DRIVER_PARMS",
+            "type": "MCI_OPEN_DRIVER_PARMS"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "TASKCALLBACK",
+            "type": "void"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "LPTASKCALLBACK",
+            "type": "TASKCALLBACK"
         }
     ],
-    "structdefs": [],
     "funcdefs": [
         {
             "name": "mmTaskCreate",
@@ -881,23 +506,20 @@
             },
             "arguments": [
                 {
-                    "name": "lpfn",
                     "data_type": "TypeDecl",
+                    "name": "lpfn",
                     "type": "LPTASKCALLBACK",
                     "sal": []
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "lph",
-                        "data_type": "TypeDecl",
-                        "type": "HANDLE"
-                    },
+                    "name": "lph",
+                    "type": "HANDLE",
                     "sal": []
                 },
                 {
-                    "name": "dwInst",
                     "data_type": "TypeDecl",
+                    "name": "dwInst",
                     "type": "DWORD_PTR",
                     "sal": []
                 }
@@ -914,8 +536,8 @@
             },
             "arguments": [
                 {
-                    "name": "h",
                     "data_type": "TypeDecl",
+                    "name": "h",
                     "type": "DWORD",
                     "sal": []
                 }
@@ -932,8 +554,8 @@
             },
             "arguments": [
                 {
-                    "name": "h",
                     "data_type": "TypeDecl",
+                    "name": "h",
                     "type": "DWORD",
                     "sal": []
                 }

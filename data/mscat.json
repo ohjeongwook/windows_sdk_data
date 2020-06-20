@@ -1,1702 +1,782 @@
 {
     "typedefs": [
         {
-            "name": "CRYPT_DIGEST_DATA",
             "data_type": "TypeDecl",
+            "name": "CRYPT_DIGEST_DATA",
             "type": "CRYPT_HASH_BLOB"
         },
         {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "cbSize",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pgSubjectType",
+                    "type": "GUID"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "hFile",
+                    "type": "HANDLE"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "pwsFileName",
+                    "type": "LPCWSTR"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "pwsDisplayName",
+                    "type": "LPCWSTR"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwReserved1",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwIntVersion",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "hProv",
+                    "type": "HCRYPTPROV"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "DigestAlgorithm",
+                    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwFlags",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwEncodingType",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwReserved2",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "fdwCAPISettings",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "fdwSecuritySettings",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwIndex",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwUnionChoice",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "Union",
+                    "elements": [
+                        {
+                            "data_type": "PtrDecl",
+                            "name": "psFlat",
+                            "type": "MS_ADDINFO_FLAT_"
+                        },
+                        {
+                            "data_type": "PtrDecl",
+                            "name": "psCatMember",
+                            "type": "MS_ADDINFO_CATALOGMEMBER_"
+                        },
+                        {
+                            "data_type": "PtrDecl",
+                            "name": "psBlob",
+                            "type": "MS_ADDINFO_BLOB_"
+                        }
+                    ]
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "pClientData",
+                    "type": "LPVOID"
+                }
+            ],
+            "name": "SIP_SUBJECTINFO_"
+        },
+        {
+            "data_type": "TypeDecl",
             "name": "SIP_SUBJECTINFO",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "SIP_SUBJECTINFO_",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "cbSize",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "pgSubjectType",
-                            "data_type": "TypeDecl",
-                            "type": "GUID"
-                        }
-                    },
-                    {
-                        "name": "hFile",
-                        "data_type": "TypeDecl",
-                        "type": "HANDLE"
-                    },
-                    {
-                        "name": "pwsFileName",
-                        "data_type": "TypeDecl",
-                        "type": "LPCWSTR"
-                    },
-                    {
-                        "name": "pwsDisplayName",
-                        "data_type": "TypeDecl",
-                        "type": "LPCWSTR"
-                    },
-                    {
-                        "name": "dwReserved1",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "dwIntVersion",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "hProv",
-                        "data_type": "TypeDecl",
-                        "type": "HCRYPTPROV"
-                    },
-                    {
-                        "name": "DigestAlgorithm",
-                        "data_type": "TypeDecl",
-                        "type": "CRYPT_ALGORITHM_IDENTIFIER"
-                    },
-                    {
-                        "name": "dwFlags",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "dwEncodingType",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "dwReserved2",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "fdwCAPISettings",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "fdwSecuritySettings",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "dwIndex",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "dwUnionChoice",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "data_type": "Union",
-                        "elements": [
-                            {
-                                "data_type": "PtrDecl",
-                                "type": {
-                                    "name": "psFlat",
-                                    "data_type": "TypeDecl",
-                                    "type": {
-                                        "name": "MS_ADDINFO_FLAT_",
-                                        "data_type": "Struct",
-                                        "elements": []
-                                    }
-                                }
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "type": {
-                                    "name": "psCatMember",
-                                    "data_type": "TypeDecl",
-                                    "type": {
-                                        "name": "MS_ADDINFO_CATALOGMEMBER_",
-                                        "data_type": "Struct",
-                                        "elements": []
-                                    }
-                                }
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "type": {
-                                    "name": "psBlob",
-                                    "data_type": "TypeDecl",
-                                    "type": {
-                                        "name": "MS_ADDINFO_BLOB_",
-                                        "data_type": "Struct",
-                                        "elements": []
-                                    }
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "name": "pClientData",
-                        "data_type": "TypeDecl",
-                        "type": "LPVOID"
-                    }
-                ]
-            }
+            "type": "SIP_SUBJECTINFO_"
         },
         {
             "data_type": "PtrDecl",
-            "type": {
-                "name": "LPSIP_SUBJECTINFO",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "SIP_SUBJECTINFO_",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "cbSize",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pgSubjectType",
-                                "data_type": "TypeDecl",
-                                "type": "GUID"
-                            }
-                        },
-                        {
-                            "name": "hFile",
-                            "data_type": "TypeDecl",
-                            "type": "HANDLE"
-                        },
-                        {
-                            "name": "pwsFileName",
-                            "data_type": "TypeDecl",
-                            "type": "LPCWSTR"
-                        },
-                        {
-                            "name": "pwsDisplayName",
-                            "data_type": "TypeDecl",
-                            "type": "LPCWSTR"
-                        },
-                        {
-                            "name": "dwReserved1",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "name": "dwIntVersion",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "name": "hProv",
-                            "data_type": "TypeDecl",
-                            "type": "HCRYPTPROV"
-                        },
-                        {
-                            "name": "DigestAlgorithm",
-                            "data_type": "TypeDecl",
-                            "type": "CRYPT_ALGORITHM_IDENTIFIER"
-                        },
-                        {
-                            "name": "dwFlags",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "name": "dwEncodingType",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "name": "dwReserved2",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "name": "fdwCAPISettings",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "name": "fdwSecuritySettings",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "name": "dwIndex",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "name": "dwUnionChoice",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "data_type": "Union",
-                            "elements": [
-                                {
-                                    "data_type": "PtrDecl",
-                                    "type": {
-                                        "name": "psFlat",
-                                        "data_type": "TypeDecl",
-                                        "type": {
-                                            "name": "MS_ADDINFO_FLAT_",
-                                            "data_type": "Struct",
-                                            "elements": []
-                                        }
-                                    }
-                                },
-                                {
-                                    "data_type": "PtrDecl",
-                                    "type": {
-                                        "name": "psCatMember",
-                                        "data_type": "TypeDecl",
-                                        "type": {
-                                            "name": "MS_ADDINFO_CATALOGMEMBER_",
-                                            "data_type": "Struct",
-                                            "elements": []
-                                        }
-                                    }
-                                },
-                                {
-                                    "data_type": "PtrDecl",
-                                    "type": {
-                                        "name": "psBlob",
-                                        "data_type": "TypeDecl",
-                                        "type": {
-                                            "name": "MS_ADDINFO_BLOB_",
-                                            "data_type": "Struct",
-                                            "elements": []
-                                        }
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            "name": "pClientData",
-                            "data_type": "TypeDecl",
-                            "type": "LPVOID"
-                        }
-                    ]
-                }
-            }
+            "name": "LPSIP_SUBJECTINFO",
+            "type": "SIP_SUBJECTINFO_"
         },
         {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "cbStruct",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pIndirectData",
+                    "type": "SIP_INDIRECT_DATA_"
+                }
+            ],
+            "name": "MS_ADDINFO_FLAT_"
+        },
+        {
+            "data_type": "TypeDecl",
             "name": "MS_ADDINFO_FLAT",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "MS_ADDINFO_FLAT_",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "cbStruct",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "pIndirectData",
-                            "data_type": "TypeDecl",
-                            "type": {
-                                "name": "SIP_INDIRECT_DATA_",
-                                "data_type": "Struct",
-                                "elements": []
-                            }
-                        }
-                    }
-                ]
-            }
+            "type": "MS_ADDINFO_FLAT_"
         },
         {
             "data_type": "PtrDecl",
-            "type": {
-                "name": "PMS_ADDINFO_FLAT",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "MS_ADDINFO_FLAT_",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "cbStruct",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pIndirectData",
-                                "data_type": "TypeDecl",
-                                "type": {
-                                    "name": "SIP_INDIRECT_DATA_",
-                                    "data_type": "Struct",
-                                    "elements": []
-                                }
-                            }
-                        }
-                    ]
-                }
-            }
+            "name": "PMS_ADDINFO_FLAT",
+            "type": "MS_ADDINFO_FLAT_"
         },
         {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "cbStruct",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pStore",
+                    "type": "CRYPTCATSTORE_"
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pMember",
+                    "type": "CRYPTCATMEMBER_"
+                }
+            ],
+            "name": "MS_ADDINFO_CATALOGMEMBER_"
+        },
+        {
+            "data_type": "TypeDecl",
             "name": "MS_ADDINFO_CATALOGMEMBER",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "MS_ADDINFO_CATALOGMEMBER_",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "cbStruct",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "pStore",
-                            "data_type": "TypeDecl",
-                            "type": {
-                                "name": "CRYPTCATSTORE_",
-                                "data_type": "Struct",
-                                "elements": []
-                            }
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "pMember",
-                            "data_type": "TypeDecl",
-                            "type": {
-                                "name": "CRYPTCATMEMBER_",
-                                "data_type": "Struct",
-                                "elements": []
-                            }
-                        }
-                    }
-                ]
-            }
+            "type": "MS_ADDINFO_CATALOGMEMBER_"
         },
         {
             "data_type": "PtrDecl",
-            "type": {
-                "name": "PMS_ADDINFO_CATALOGMEMBER",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "MS_ADDINFO_CATALOGMEMBER_",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "cbStruct",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pStore",
-                                "data_type": "TypeDecl",
-                                "type": {
-                                    "name": "CRYPTCATSTORE_",
-                                    "data_type": "Struct",
-                                    "elements": []
-                                }
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pMember",
-                                "data_type": "TypeDecl",
-                                "type": {
-                                    "name": "CRYPTCATMEMBER_",
-                                    "data_type": "Struct",
-                                    "elements": []
-                                }
-                            }
-                        }
-                    ]
-                }
-            }
+            "name": "PMS_ADDINFO_CATALOGMEMBER",
+            "type": "MS_ADDINFO_CATALOGMEMBER_"
         },
         {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "cbStruct",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "cbMemObject",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pbMemObject",
+                    "type": "BYTE"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "cbMemSignedMsg",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pbMemSignedMsg",
+                    "type": "BYTE"
+                }
+            ],
+            "name": "MS_ADDINFO_BLOB_"
+        },
+        {
+            "data_type": "TypeDecl",
             "name": "MS_ADDINFO_BLOB",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "MS_ADDINFO_BLOB_",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "cbStruct",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "cbMemObject",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "pbMemObject",
-                            "data_type": "TypeDecl",
-                            "type": "BYTE"
-                        }
-                    },
-                    {
-                        "name": "cbMemSignedMsg",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "pbMemSignedMsg",
-                            "data_type": "TypeDecl",
-                            "type": "BYTE"
-                        }
-                    }
-                ]
-            }
+            "type": "MS_ADDINFO_BLOB_"
         },
         {
             "data_type": "PtrDecl",
-            "type": {
-                "name": "PMS_ADDINFO_BLOB",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "MS_ADDINFO_BLOB_",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "cbStruct",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "name": "cbMemObject",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pbMemObject",
-                                "data_type": "TypeDecl",
-                                "type": "BYTE"
-                            }
-                        },
-                        {
-                            "name": "cbMemSignedMsg",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pbMemSignedMsg",
-                                "data_type": "TypeDecl",
-                                "type": "BYTE"
-                            }
-                        }
-                    ]
-                }
-            }
+            "name": "PMS_ADDINFO_BLOB",
+            "type": "MS_ADDINFO_BLOB_"
         },
         {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "cbSize",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwVersion",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "isMultiSign",
+                    "type": "BOOL"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwReserved",
+                    "type": "DWORD"
+                }
+            ],
+            "name": "_SIP_CAP_SET_V2"
+        },
+        {
+            "data_type": "TypeDecl",
             "name": "SIP_CAP_SET_V2",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "_SIP_CAP_SET_V2",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "cbSize",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "dwVersion",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "isMultiSign",
-                        "data_type": "TypeDecl",
-                        "type": "BOOL"
-                    },
-                    {
-                        "name": "dwReserved",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    }
-                ]
-            }
+            "type": "_SIP_CAP_SET_V2"
         },
         {
             "data_type": "PtrDecl",
-            "type": {
-                "name": "PSIP_CAP_SET_V2",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "_SIP_CAP_SET_V2",
-                    "data_type": "Struct",
+            "name": "PSIP_CAP_SET_V2",
+            "type": "_SIP_CAP_SET_V2"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "cbSize",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwVersion",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "isMultiSign",
+                    "type": "BOOL"
+                },
+                {
+                    "data_type": "Union",
                     "elements": [
                         {
-                            "name": "cbSize",
                             "data_type": "TypeDecl",
+                            "name": "dwFlags",
                             "type": "DWORD"
                         },
                         {
-                            "name": "dwVersion",
                             "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "name": "isMultiSign",
-                            "data_type": "TypeDecl",
-                            "type": "BOOL"
-                        },
-                        {
                             "name": "dwReserved",
-                            "data_type": "TypeDecl",
                             "type": "DWORD"
                         }
                     ]
                 }
-            }
+            ],
+            "name": "_SIP_CAP_SET_V3"
         },
         {
-            "name": "SIP_CAP_SET_V3",
             "data_type": "TypeDecl",
-            "type": {
-                "name": "_SIP_CAP_SET_V3",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "cbSize",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "dwVersion",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "isMultiSign",
-                        "data_type": "TypeDecl",
-                        "type": "BOOL"
-                    },
-                    {
-                        "data_type": "Union",
-                        "elements": [
-                            {
-                                "name": "dwFlags",
-                                "data_type": "TypeDecl",
-                                "type": "DWORD"
-                            },
-                            {
-                                "name": "dwReserved",
-                                "data_type": "TypeDecl",
-                                "type": "DWORD"
-                            }
-                        ]
-                    }
-                ]
-            }
+            "name": "SIP_CAP_SET_V3",
+            "type": "_SIP_CAP_SET_V3"
         },
         {
             "data_type": "PtrDecl",
-            "type": {
-                "name": "PSIP_CAP_SET_V3",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "_SIP_CAP_SET_V3",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "cbSize",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "name": "dwVersion",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "name": "isMultiSign",
-                            "data_type": "TypeDecl",
-                            "type": "BOOL"
-                        },
-                        {
-                            "data_type": "Union",
-                            "elements": [
-                                {
-                                    "name": "dwFlags",
-                                    "data_type": "TypeDecl",
-                                    "type": "DWORD"
-                                },
-                                {
-                                    "name": "dwReserved",
-                                    "data_type": "TypeDecl",
-                                    "type": "DWORD"
-                                }
-                            ]
-                        }
-                    ]
-                }
-            }
+            "name": "PSIP_CAP_SET_V3",
+            "type": "_SIP_CAP_SET_V3"
         },
         {
-            "name": "SIP_CAP_SET",
             "data_type": "TypeDecl",
+            "name": "SIP_CAP_SET",
             "type": "SIP_CAP_SET_V3"
         },
         {
-            "name": "PSIP_CAP_SET",
             "data_type": "TypeDecl",
+            "name": "PSIP_CAP_SET",
             "type": "PSIP_CAP_SET_V3"
         },
         {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "Data",
+                    "type": "CRYPT_ATTRIBUTE_TYPE_VALUE"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "DigestAlgorithm",
+                    "type": "CRYPT_ALGORITHM_IDENTIFIER"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "Digest",
+                    "type": "CRYPT_HASH_BLOB"
+                }
+            ],
+            "name": "SIP_INDIRECT_DATA_"
+        },
+        {
+            "data_type": "TypeDecl",
             "name": "SIP_INDIRECT_DATA",
+            "type": "SIP_INDIRECT_DATA_"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "PSIP_INDIRECT_DATA",
+            "type": "SIP_INDIRECT_DATA_"
+        },
+        {
             "data_type": "TypeDecl",
-            "type": {
-                "name": "SIP_INDIRECT_DATA_",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "Data",
-                        "data_type": "TypeDecl",
-                        "type": "CRYPT_ATTRIBUTE_TYPE_VALUE"
-                    },
-                    {
-                        "name": "DigestAlgorithm",
-                        "data_type": "TypeDecl",
-                        "type": "CRYPT_ALGORITHM_IDENTIFIER"
-                    },
-                    {
-                        "name": "Digest",
-                        "data_type": "TypeDecl",
-                        "type": "CRYPT_HASH_BLOB"
-                    }
-                ]
-            }
+            "name": "pCryptSIPGetSignedDataMsg",
+            "type": "BOOL"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "PSIP_INDIRECT_DATA",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "SIP_INDIRECT_DATA_",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "Data",
-                            "data_type": "TypeDecl",
-                            "type": "CRYPT_ATTRIBUTE_TYPE_VALUE"
-                        },
-                        {
-                            "name": "DigestAlgorithm",
-                            "data_type": "TypeDecl",
-                            "type": "CRYPT_ALGORITHM_IDENTIFIER"
-                        },
-                        {
-                            "name": "Digest",
-                            "data_type": "TypeDecl",
-                            "type": "CRYPT_HASH_BLOB"
-                        }
-                    ]
-                }
-            }
+            "data_type": "TypeDecl",
+            "name": "pCryptSIPPutSignedDataMsg",
+            "type": "BOOL"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "FuncDecl",
-                "type": {
-                    "name": "pCryptSIPGetSignedDataMsg",
+            "data_type": "TypeDecl",
+            "name": "pCryptSIPCreateIndirectData",
+            "type": "BOOL"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "pCryptSIPVerifyIndirectData",
+            "type": "BOOL"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "pCryptSIPRemoveSignedDataMsg",
+            "type": "BOOL"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
                     "data_type": "TypeDecl",
-                    "type": "BOOL"
+                    "name": "cbSize",
+                    "type": "DWORD"
                 },
-                "func": {
-                    "name": "pCryptSIPGetSignedDataMsg",
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "type": "BOOL"
-                    },
-                    "arguments": [
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pSubjectInfo",
-                                "data_type": "TypeDecl",
-                                "type": "SIP_SUBJECTINFO"
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pdwEncodingType",
-                                "data_type": "TypeDecl",
-                                "type": "DWORD"
-                            }
-                        },
-                        {
-                            "name": "dwIndex",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pcbSignedDataMsg",
-                                "data_type": "TypeDecl",
-                                "type": "DWORD"
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pbSignedDataMsg",
-                                "data_type": "TypeDecl",
-                                "type": "BYTE"
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "FuncDecl",
-                "type": {
-                    "name": "pCryptSIPPutSignedDataMsg",
+                {
                     "data_type": "TypeDecl",
-                    "type": "BOOL"
+                    "name": "hSIP",
+                    "type": "HANDLE"
                 },
-                "func": {
-                    "name": "pCryptSIPPutSignedDataMsg",
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "type": "BOOL"
-                    },
-                    "arguments": [
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pSubjectInfo",
-                                "data_type": "TypeDecl",
-                                "type": "SIP_SUBJECTINFO"
-                            }
-                        },
-                        {
-                            "name": "dwEncodingType",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pdwIndex",
-                                "data_type": "TypeDecl",
-                                "type": "DWORD"
-                            }
-                        },
-                        {
-                            "name": "cbSignedDataMsg",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pbSignedDataMsg",
-                                "data_type": "TypeDecl",
-                                "type": "BYTE"
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "FuncDecl",
-                "type": {
-                    "name": "pCryptSIPCreateIndirectData",
+                {
                     "data_type": "TypeDecl",
-                    "type": "BOOL"
+                    "name": "pfGet",
+                    "type": "pCryptSIPGetSignedDataMsg"
                 },
-                "func": {
-                    "name": "pCryptSIPCreateIndirectData",
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "type": "BOOL"
-                    },
-                    "arguments": [
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pSubjectInfo",
-                                "data_type": "TypeDecl",
-                                "type": "SIP_SUBJECTINFO"
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pcbIndirectData",
-                                "data_type": "TypeDecl",
-                                "type": "DWORD"
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pIndirectData",
-                                "data_type": "TypeDecl",
-                                "type": "SIP_INDIRECT_DATA"
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "FuncDecl",
-                "type": {
-                    "name": "pCryptSIPVerifyIndirectData",
+                {
                     "data_type": "TypeDecl",
-                    "type": "BOOL"
+                    "name": "pfPut",
+                    "type": "pCryptSIPPutSignedDataMsg"
                 },
-                "func": {
-                    "name": "pCryptSIPVerifyIndirectData",
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "type": "BOOL"
-                    },
-                    "arguments": [
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pSubjectInfo",
-                                "data_type": "TypeDecl",
-                                "type": "SIP_SUBJECTINFO"
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pIndirectData",
-                                "data_type": "TypeDecl",
-                                "type": "SIP_INDIRECT_DATA"
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "FuncDecl",
-                "type": {
-                    "name": "pCryptSIPRemoveSignedDataMsg",
+                {
                     "data_type": "TypeDecl",
-                    "type": "BOOL"
+                    "name": "pfCreate",
+                    "type": "pCryptSIPCreateIndirectData"
                 },
-                "func": {
-                    "name": "pCryptSIPRemoveSignedDataMsg",
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "type": "BOOL"
-                    },
-                    "arguments": [
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pSubjectInfo",
-                                "data_type": "TypeDecl",
-                                "type": "SIP_SUBJECTINFO"
-                            }
-                        },
-                        {
-                            "name": "dwIndex",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        }
-                    ]
+                {
+                    "data_type": "TypeDecl",
+                    "name": "pfVerify",
+                    "type": "pCryptSIPVerifyIndirectData"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "pfRemove",
+                    "type": "pCryptSIPRemoveSignedDataMsg"
                 }
-            }
+            ],
+            "name": "SIP_DISPATCH_INFO_"
         },
         {
+            "data_type": "TypeDecl",
             "name": "SIP_DISPATCH_INFO",
+            "type": "SIP_DISPATCH_INFO_"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "LPSIP_DISPATCH_INFO",
+            "type": "SIP_DISPATCH_INFO_"
+        },
+        {
             "data_type": "TypeDecl",
-            "type": {
-                "name": "SIP_DISPATCH_INFO_",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "cbSize",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "hSIP",
-                        "data_type": "TypeDecl",
-                        "type": "HANDLE"
-                    },
-                    {
-                        "name": "pfGet",
-                        "data_type": "TypeDecl",
-                        "type": "pCryptSIPGetSignedDataMsg"
-                    },
-                    {
-                        "name": "pfPut",
-                        "data_type": "TypeDecl",
-                        "type": "pCryptSIPPutSignedDataMsg"
-                    },
-                    {
-                        "name": "pfCreate",
-                        "data_type": "TypeDecl",
-                        "type": "pCryptSIPCreateIndirectData"
-                    },
-                    {
-                        "name": "pfVerify",
-                        "data_type": "TypeDecl",
-                        "type": "pCryptSIPVerifyIndirectData"
-                    },
-                    {
-                        "name": "pfRemove",
-                        "data_type": "TypeDecl",
-                        "type": "pCryptSIPRemoveSignedDataMsg"
-                    }
-                ]
-            }
+            "name": "pfnIsFileSupported",
+            "type": "BOOL"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "LPSIP_DISPATCH_INFO",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "SIP_DISPATCH_INFO_",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "cbSize",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "name": "hSIP",
-                            "data_type": "TypeDecl",
-                            "type": "HANDLE"
-                        },
-                        {
-                            "name": "pfGet",
-                            "data_type": "TypeDecl",
-                            "type": "pCryptSIPGetSignedDataMsg"
-                        },
-                        {
-                            "name": "pfPut",
-                            "data_type": "TypeDecl",
-                            "type": "pCryptSIPPutSignedDataMsg"
-                        },
-                        {
-                            "name": "pfCreate",
-                            "data_type": "TypeDecl",
-                            "type": "pCryptSIPCreateIndirectData"
-                        },
-                        {
-                            "name": "pfVerify",
-                            "data_type": "TypeDecl",
-                            "type": "pCryptSIPVerifyIndirectData"
-                        },
-                        {
-                            "name": "pfRemove",
-                            "data_type": "TypeDecl",
-                            "type": "pCryptSIPRemoveSignedDataMsg"
-                        }
-                    ]
-                }
-            }
+            "data_type": "TypeDecl",
+            "name": "pfnIsFileSupportedName",
+            "type": "BOOL"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "FuncDecl",
-                "type": {
-                    "name": "pfnIsFileSupported",
+            "data_type": "Struct",
+            "elements": [
+                {
                     "data_type": "TypeDecl",
-                    "type": "BOOL"
+                    "name": "cbStruct",
+                    "type": "DWORD"
                 },
-                "func": {
-                    "name": "pfnIsFileSupported",
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "type": "BOOL"
-                    },
-                    "arguments": [
-                        {
-                            "name": "hFile",
-                            "data_type": "TypeDecl",
-                            "type": "HANDLE"
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pgSubject",
-                                "data_type": "TypeDecl",
-                                "type": "GUID"
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "FuncDecl",
-                "type": {
-                    "name": "pfnIsFileSupportedName",
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pgSubject",
+                    "type": "GUID"
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pwszDLLFileName",
+                    "type": "WCHAR"
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pwszMagicNumber",
+                    "type": "WCHAR"
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pwszIsFunctionName",
+                    "type": "WCHAR"
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pwszGetFuncName",
+                    "type": "WCHAR"
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pwszPutFuncName",
+                    "type": "WCHAR"
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pwszCreateFuncName",
+                    "type": "WCHAR"
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pwszVerifyFuncName",
+                    "type": "WCHAR"
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pwszRemoveFuncName",
+                    "type": "WCHAR"
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pwszIsFunctionNameFmt2",
+                    "type": "WCHAR"
+                },
+                {
                     "data_type": "TypeDecl",
-                    "type": "BOOL"
-                },
-                "func": {
-                    "name": "pfnIsFileSupportedName",
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "type": "BOOL"
-                    },
-                    "arguments": [
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pwszFileName",
-                                "data_type": "TypeDecl",
-                                "type": "WCHAR"
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pgSubject",
-                                "data_type": "TypeDecl",
-                                "type": "GUID"
-                            }
-                        }
-                    ]
+                    "name": "pwszGetCapFuncName",
+                    "type": "PWSTR"
                 }
-            }
+            ],
+            "name": "SIP_ADD_NEWPROVIDER_"
         },
         {
+            "data_type": "TypeDecl",
             "name": "SIP_ADD_NEWPROVIDER",
+            "type": "SIP_ADD_NEWPROVIDER_"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "PSIP_ADD_NEWPROVIDER",
+            "type": "SIP_ADD_NEWPROVIDER_"
+        },
+        {
             "data_type": "TypeDecl",
-            "type": {
-                "name": "SIP_ADD_NEWPROVIDER_",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "cbStruct",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "pgSubject",
-                            "data_type": "TypeDecl",
-                            "type": "GUID"
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "pwszDLLFileName",
-                            "data_type": "TypeDecl",
-                            "type": "WCHAR"
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "pwszMagicNumber",
-                            "data_type": "TypeDecl",
-                            "type": "WCHAR"
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "pwszIsFunctionName",
-                            "data_type": "TypeDecl",
-                            "type": "WCHAR"
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "pwszGetFuncName",
-                            "data_type": "TypeDecl",
-                            "type": "WCHAR"
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "pwszPutFuncName",
-                            "data_type": "TypeDecl",
-                            "type": "WCHAR"
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "pwszCreateFuncName",
-                            "data_type": "TypeDecl",
-                            "type": "WCHAR"
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "pwszVerifyFuncName",
-                            "data_type": "TypeDecl",
-                            "type": "WCHAR"
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "pwszRemoveFuncName",
-                            "data_type": "TypeDecl",
-                            "type": "WCHAR"
-                        }
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "pwszIsFunctionNameFmt2",
-                            "data_type": "TypeDecl",
-                            "type": "WCHAR"
-                        }
-                    },
-                    {
-                        "name": "pwszGetCapFuncName",
-                        "data_type": "TypeDecl",
-                        "type": "PWSTR"
-                    }
-                ]
-            }
+            "name": "pCryptSIPGetCaps",
+            "type": "BOOL"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "PSIP_ADD_NEWPROVIDER",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "SIP_ADD_NEWPROVIDER_",
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "cbStruct",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pgSubject",
-                                "data_type": "TypeDecl",
-                                "type": "GUID"
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pwszDLLFileName",
-                                "data_type": "TypeDecl",
-                                "type": "WCHAR"
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pwszMagicNumber",
-                                "data_type": "TypeDecl",
-                                "type": "WCHAR"
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pwszIsFunctionName",
-                                "data_type": "TypeDecl",
-                                "type": "WCHAR"
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pwszGetFuncName",
-                                "data_type": "TypeDecl",
-                                "type": "WCHAR"
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pwszPutFuncName",
-                                "data_type": "TypeDecl",
-                                "type": "WCHAR"
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pwszCreateFuncName",
-                                "data_type": "TypeDecl",
-                                "type": "WCHAR"
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pwszVerifyFuncName",
-                                "data_type": "TypeDecl",
-                                "type": "WCHAR"
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pwszRemoveFuncName",
-                                "data_type": "TypeDecl",
-                                "type": "WCHAR"
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pwszIsFunctionNameFmt2",
-                                "data_type": "TypeDecl",
-                                "type": "WCHAR"
-                            }
-                        },
-                        {
-                            "name": "pwszGetCapFuncName",
-                            "data_type": "TypeDecl",
-                            "type": "PWSTR"
-                        }
-                    ]
-                }
-            }
+            "data_type": "TypeDecl",
+            "name": "pCryptSIPGetSealedDigest",
+            "type": "BOOL"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "FuncDecl",
-                "type": {
-                    "name": "pCryptSIPGetCaps",
+            "data_type": "Struct",
+            "elements": [
+                {
                     "data_type": "TypeDecl",
-                    "type": "BOOL"
+                    "name": "cbStruct",
+                    "type": "DWORD"
                 },
-                "func": {
-                    "name": "pCryptSIPGetCaps",
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "type": "BOOL"
-                    },
-                    "arguments": [
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pSubjInfo",
-                                "data_type": "TypeDecl",
-                                "type": "SIP_SUBJECTINFO"
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pCaps",
-                                "data_type": "TypeDecl",
-                                "type": "SIP_CAP_SET"
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "FuncDecl",
-                "type": {
-                    "name": "pCryptSIPGetSealedDigest",
+                {
                     "data_type": "TypeDecl",
-                    "type": "BOOL"
+                    "name": "dwPublicVersion",
+                    "type": "DWORD"
                 },
-                "func": {
-                    "name": "pCryptSIPGetSealedDigest",
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "type": "BOOL"
-                    },
-                    "arguments": [
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pSubjectInfo",
-                                "data_type": "TypeDecl",
-                                "type": "SIP_SUBJECTINFO"
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pSig",
-                                "data_type": "TypeDecl",
-                                "type": "BYTE"
-                            }
-                        },
-                        {
-                            "name": "dwSig",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pbDigest",
-                                "data_type": "TypeDecl",
-                                "type": "BYTE"
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pcbDigest",
-                                "data_type": "TypeDecl",
-                                "type": "DWORD"
-                            }
-                        }
-                    ]
+                {
+                    "data_type": "TypeDecl",
+                    "name": "pwszP7File",
+                    "type": "LPWSTR"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "hProv",
+                    "type": "HCRYPTPROV"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwEncodingType",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "fdwStoreFlags",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "hReserved",
+                    "type": "HANDLE"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "hAttrs",
+                    "type": "HANDLE"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "hCryptMsg",
+                    "type": "HCRYPTMSG"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "hSorted",
+                    "type": "HANDLE"
                 }
-            }
+            ],
+            "name": "CRYPTCATSTORE_"
         },
         {
+            "data_type": "TypeDecl",
             "name": "CRYPTCATSTORE",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "CRYPTCATSTORE_",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "cbStruct",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "dwPublicVersion",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "pwszP7File",
-                        "data_type": "TypeDecl",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "hProv",
-                        "data_type": "TypeDecl",
-                        "type": "HCRYPTPROV"
-                    },
-                    {
-                        "name": "dwEncodingType",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "fdwStoreFlags",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "hReserved",
-                        "data_type": "TypeDecl",
-                        "type": "HANDLE"
-                    },
-                    {
-                        "name": "hAttrs",
-                        "data_type": "TypeDecl",
-                        "type": "HANDLE"
-                    },
-                    {
-                        "name": "hCryptMsg",
-                        "data_type": "TypeDecl",
-                        "type": "HCRYPTMSG"
-                    },
-                    {
-                        "name": "hSorted",
-                        "data_type": "TypeDecl",
-                        "type": "HANDLE"
-                    }
-                ]
-            }
+            "type": "CRYPTCATSTORE_"
         },
         {
-            "name": "CRYPTCATMEMBER",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "CRYPTCATMEMBER_",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "cbStruct",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "pwszReferenceTag",
-                        "data_type": "TypeDecl",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "pwszFileName",
-                        "data_type": "TypeDecl",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "gSubjectType",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
-                    {
-                        "name": "fdwMemberFlags",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "pIndirectData",
-                            "data_type": "TypeDecl",
-                            "type": {
-                                "name": "SIP_INDIRECT_DATA_",
-                                "data_type": "Struct",
-                                "elements": []
-                            }
-                        }
-                    },
-                    {
-                        "name": "dwCertVersion",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "dwReserved",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "hReserved",
-                        "data_type": "TypeDecl",
-                        "type": "HANDLE"
-                    },
-                    {
-                        "name": "sEncodedIndirectData",
-                        "data_type": "TypeDecl",
-                        "type": "CRYPT_ATTR_BLOB"
-                    },
-                    {
-                        "name": "sEncodedMemberInfo",
-                        "data_type": "TypeDecl",
-                        "type": "CRYPT_ATTR_BLOB"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "CRYPTCATATTRIBUTE",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "CRYPTCATATTRIBUTE_",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "cbStruct",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "pwszReferenceTag",
-                        "data_type": "TypeDecl",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "dwAttrTypeAndAction",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "cbValue",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "pbValue",
-                            "data_type": "TypeDecl",
-                            "type": "BYTE"
-                        }
-                    },
-                    {
-                        "name": "dwReserved",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "CRYPTCATCDF",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "CRYPTCATCDF_",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "cbStruct",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "hFile",
-                        "data_type": "TypeDecl",
-                        "type": "HANDLE"
-                    },
-                    {
-                        "name": "dwCurFilePos",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "dwLastMemberOffset",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "fEOF",
-                        "data_type": "TypeDecl",
-                        "type": "BOOL"
-                    },
-                    {
-                        "name": "pwszResultDir",
-                        "data_type": "TypeDecl",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "hCATStore",
-                        "data_type": "TypeDecl",
-                        "type": "HANDLE"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "CATALOG_INFO",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "CATALOG_INFO_",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "cbStruct",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "type": {
-                            "name": "wszCatalogFile",
-                            "data_type": "TypeDecl",
-                            "type": "WCHAR"
-                        },
-                        "dim": {
-                            "type": "int",
-                            "value": "260"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "HCATADMIN",
-            "data_type": "TypeDecl",
-            "type": "HANDLE"
-        },
-        {
-            "name": "HCATINFO",
-            "data_type": "TypeDecl",
-            "type": "HANDLE"
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "FuncDecl",
-                "type": {
-                    "name": "PFN_CDF_PARSE_ERROR_CALLBACK",
+            "data_type": "Struct",
+            "elements": [
+                {
                     "data_type": "TypeDecl",
-                    "type": "void"
+                    "name": "cbStruct",
+                    "type": "DWORD"
                 },
-                "func": {
-                    "name": "PFN_CDF_PARSE_ERROR_CALLBACK",
+                {
+                    "data_type": "TypeDecl",
+                    "name": "pwszReferenceTag",
+                    "type": "LPWSTR"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "pwszFileName",
+                    "type": "LPWSTR"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "gSubjectType",
+                    "type": "GUID"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "fdwMemberFlags",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pIndirectData",
+                    "type": "SIP_INDIRECT_DATA_"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwCertVersion",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwReserved",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "hReserved",
+                    "type": "HANDLE"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "sEncodedIndirectData",
+                    "type": "CRYPT_ATTR_BLOB"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "sEncodedMemberInfo",
+                    "type": "CRYPT_ATTR_BLOB"
+                }
+            ],
+            "name": "CRYPTCATMEMBER_"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "CRYPTCATMEMBER",
+            "type": "CRYPTCATMEMBER_"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "cbStruct",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "pwszReferenceTag",
+                    "type": "LPWSTR"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwAttrTypeAndAction",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "cbValue",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pbValue",
+                    "type": "BYTE"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwReserved",
+                    "type": "DWORD"
+                }
+            ],
+            "name": "CRYPTCATATTRIBUTE_"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "CRYPTCATATTRIBUTE",
+            "type": "CRYPTCATATTRIBUTE_"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "cbStruct",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "hFile",
+                    "type": "HANDLE"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwCurFilePos",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwLastMemberOffset",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "fEOF",
+                    "type": "BOOL"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "pwszResultDir",
+                    "type": "LPWSTR"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "hCATStore",
+                    "type": "HANDLE"
+                }
+            ],
+            "name": "CRYPTCATCDF_"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "CRYPTCATCDF",
+            "type": "CRYPTCATCDF_"
+        },
+        {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "cbStruct",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "260"
+                    },
                     "type": {
                         "data_type": "TypeDecl",
-                        "type": "void"
-                    },
-                    "arguments": [
-                        {
-                            "name": "dwErrorArea",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "name": "dwLocalError",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pwszLine",
-                                "data_type": "TypeDecl",
-                                "type": "WCHAR"
-                            }
-                        }
-                    ]
+                        "name": "wszCatalogFile",
+                        "type": "WCHAR"
+                    }
                 }
-            }
+            ],
+            "name": "CATALOG_INFO_"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "CATALOG_INFO",
+            "type": "CATALOG_INFO_"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "HCATADMIN",
+            "type": "HANDLE"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "HCATINFO",
+            "type": "HANDLE"
+        },
+        {
+            "data_type": "TypeDecl",
+            "name": "PFN_CDF_PARSE_ERROR_CALLBACK",
+            "type": "void"
         }
     ],
-    "structdefs": [],
     "funcdefs": [
         {
             "name": "CryptCATOpen",
@@ -1706,40 +786,40 @@
             },
             "arguments": [
                 {
-                    "name": "pwszFileName",
                     "data_type": "TypeDecl",
+                    "name": "pwszFileName",
                     "type": "LPWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "fdwOpenFlags",
                     "data_type": "TypeDecl",
+                    "name": "fdwOpenFlags",
                     "type": "DWORD",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "hProv",
                     "data_type": "TypeDecl",
+                    "name": "hProv",
                     "type": "HCRYPTPROV",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "dwPublicVersion",
                     "data_type": "TypeDecl",
+                    "name": "dwPublicVersion",
                     "type": "DWORD",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "dwEncodingType",
                     "data_type": "TypeDecl",
+                    "name": "dwEncodingType",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1758,8 +838,28 @@
             },
             "arguments": [
                 {
-                    "name": "hCatalog",
                     "data_type": "TypeDecl",
+                    "name": "hCatalog",
+                    "type": "HANDLE",
+                    "sal": [
+                        "in"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "Wintrust.dll"
+            ]
+        },
+        {
+            "name": "CryptCATStoreFromHandle",
+            "type": {
+                "data_type": "PtrDecl",
+                "type": "CRYPTCATSTORE"
+            },
+            "arguments": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "hCatalog",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -1779,11 +879,8 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "pCatStore",
-                        "data_type": "TypeDecl",
-                        "type": "CRYPTCATSTORE"
-                    },
+                    "name": "pCatStore",
+                    "type": "CRYPTCATSTORE",
                     "sal": [
                         "in"
                     ]
@@ -1801,11 +898,377 @@
             },
             "arguments": [
                 {
-                    "name": "hCatalog",
                     "data_type": "TypeDecl",
+                    "name": "hCatalog",
                     "type": "HANDLE",
                     "sal": [
                         "in"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "Wintrust.dll"
+            ]
+        },
+        {
+            "name": "CryptCATPutCatAttrInfo",
+            "type": {
+                "data_type": "PtrDecl",
+                "type": "CRYPTCATATTRIBUTE"
+            },
+            "arguments": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "hCatalog",
+                    "type": "HANDLE",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "pwszReferenceTag",
+                    "type": "LPWSTR",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwAttrTypeAndAction",
+                    "type": "DWORD",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "cbData",
+                    "type": "DWORD",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pbData",
+                    "type": "BYTE",
+                    "sal": [
+                        "in"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "Wintrust.dll"
+            ]
+        },
+        {
+            "name": "CryptCATEnumerateCatAttr",
+            "type": {
+                "data_type": "PtrDecl",
+                "type": "CRYPTCATATTRIBUTE"
+            },
+            "arguments": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "hCatalog",
+                    "type": "HANDLE",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pPrevAttr",
+                    "type": "CRYPTCATATTRIBUTE",
+                    "sal": [
+                        "in"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "Wintrust.dll"
+            ]
+        },
+        {
+            "name": "CryptCATGetMemberInfo",
+            "type": {
+                "data_type": "PtrDecl",
+                "type": "CRYPTCATMEMBER"
+            },
+            "arguments": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "hCatalog",
+                    "type": "HANDLE",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "pwszReferenceTag",
+                    "type": "LPWSTR",
+                    "sal": [
+                        "in"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "Wintrust.dll"
+            ]
+        },
+        {
+            "name": "CryptCATGetAttrInfo",
+            "type": {
+                "data_type": "PtrDecl",
+                "type": "CRYPTCATATTRIBUTE"
+            },
+            "arguments": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "hCatalog",
+                    "type": "HANDLE",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pCatMember",
+                    "type": "CRYPTCATMEMBER",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "pwszReferenceTag",
+                    "type": "LPWSTR",
+                    "sal": [
+                        "in"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "Wintrust.dll"
+            ]
+        },
+        {
+            "name": "CryptCATPutMemberInfo",
+            "type": {
+                "data_type": "PtrDecl",
+                "type": "CRYPTCATMEMBER"
+            },
+            "arguments": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "hCatalog",
+                    "type": "HANDLE",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "pwszFileName",
+                    "type": "LPWSTR",
+                    "sal": [
+                        "in",
+                        "optional"
+                    ]
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "pwszReferenceTag",
+                    "type": "LPWSTR",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pgSubjectType",
+                    "type": "GUID",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwCertVersion",
+                    "type": "DWORD",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "cbSIPIndirectData",
+                    "type": "DWORD",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pbSIPIndirectData",
+                    "type": "BYTE",
+                    "sal": [
+                        "in"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "Wintrust.dll"
+            ]
+        },
+        {
+            "name": "CryptCATPutAttrInfo",
+            "type": {
+                "data_type": "PtrDecl",
+                "type": "CRYPTCATATTRIBUTE"
+            },
+            "arguments": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "hCatalog",
+                    "type": "HANDLE",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pCatMember",
+                    "type": "CRYPTCATMEMBER",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "pwszReferenceTag",
+                    "type": "LPWSTR",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "dwAttrTypeAndAction",
+                    "type": "DWORD",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "cbData",
+                    "type": "DWORD",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pbData",
+                    "type": "BYTE",
+                    "sal": [
+                        "in"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "Wintrust.dll"
+            ]
+        },
+        {
+            "name": "CryptCATEnumerateMember",
+            "type": {
+                "data_type": "PtrDecl",
+                "type": "CRYPTCATMEMBER"
+            },
+            "arguments": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "hCatalog",
+                    "type": "HANDLE",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pPrevMember",
+                    "type": "CRYPTCATMEMBER",
+                    "sal": [
+                        "in"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "Wintrust.dll"
+            ]
+        },
+        {
+            "name": "CryptCATEnumerateAttr",
+            "type": {
+                "data_type": "PtrDecl",
+                "type": "CRYPTCATATTRIBUTE"
+            },
+            "arguments": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "hCatalog",
+                    "type": "HANDLE",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pCatMember",
+                    "type": "CRYPTCATMEMBER",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pPrevAttr",
+                    "type": "CRYPTCATATTRIBUTE",
+                    "sal": [
+                        "in"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "Wintrust.dll"
+            ]
+        },
+        {
+            "name": "CryptCATCDFOpen",
+            "type": {
+                "data_type": "PtrDecl",
+                "type": "CRYPTCATCDF"
+            },
+            "arguments": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "pwszFilePath",
+                    "type": "LPWSTR",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "pfnParseError",
+                    "type": "PFN_CDF_PARSE_ERROR_CALLBACK",
+                    "sal": [
+                        "in",
+                        "optional"
                     ]
                 }
             ],
@@ -1822,11 +1285,44 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "pCDF",
-                        "data_type": "TypeDecl",
-                        "type": "CRYPTCATCDF"
-                    },
+                    "name": "pCDF",
+                    "type": "CRYPTCATCDF",
+                    "sal": [
+                        "in"
+                    ]
+                }
+            ],
+            "api_locations": [
+                "Wintrust.dll"
+            ]
+        },
+        {
+            "name": "CryptCATCDFEnumCatAttributes",
+            "type": {
+                "data_type": "PtrDecl",
+                "type": "CRYPTCATATTRIBUTE"
+            },
+            "arguments": [
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pCDF",
+                    "type": "CRYPTCATCDF",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "name": "pPrevAttr",
+                    "type": "CRYPTCATATTRIBUTE",
+                    "sal": [
+                        "in"
+                    ]
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "pfnParseError",
+                    "type": "PFN_CDF_PARSE_ERROR_CALLBACK",
                     "sal": [
                         "in"
                     ]
@@ -1844,8 +1340,8 @@
             },
             "arguments": [
                 {
-                    "name": "hFile",
                     "data_type": "TypeDecl",
+                    "name": "hFile",
                     "type": "HANDLE",
                     "sal": [
                         "in",
@@ -1854,11 +1350,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "pwszFileName",
-                        "data_type": "TypeDecl",
-                        "type": "WCHAR"
-                    },
+                    "name": "pwszFileName",
+                    "type": "WCHAR",
                     "sal": [
                         "in",
                         "optional"
@@ -1878,29 +1371,23 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "phCatAdmin",
-                        "data_type": "TypeDecl",
-                        "type": "HCATADMIN"
-                    },
+                    "name": "phCatAdmin",
+                    "type": "HCATADMIN",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "pgSubsystem",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "pgSubsystem",
+                    "type": "GUID",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "dwFlags",
                     "data_type": "TypeDecl",
+                    "name": "dwFlags",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1920,30 +1407,24 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "phCatAdmin",
-                        "data_type": "TypeDecl",
-                        "type": "HCATADMIN"
-                    },
+                    "name": "phCatAdmin",
+                    "type": "HCATADMIN",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "pgSubsystem",
-                        "data_type": "TypeDecl",
-                        "type": "GUID"
-                    },
+                    "name": "pgSubsystem",
+                    "type": "GUID",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "name": "pwszHashAlgorithm",
                     "data_type": "TypeDecl",
+                    "name": "pwszHashAlgorithm",
                     "type": "PCWSTR",
                     "sal": [
                         "in",
@@ -1951,8 +1432,8 @@
                     ]
                 },
                 {
-                    "name": "pStrongHashPolicy",
                     "data_type": "TypeDecl",
+                    "name": "pStrongHashPolicy",
                     "type": "PCCERT_STRONG_SIGN_PARA",
                     "sal": [
                         "in",
@@ -1960,8 +1441,8 @@
                     ]
                 },
                 {
-                    "name": "dwFlags",
                     "data_type": "TypeDecl",
+                    "name": "dwFlags",
                     "type": "DWORD",
                     "sal": []
                 }
@@ -1978,16 +1459,16 @@
             },
             "arguments": [
                 {
-                    "name": "hCatAdmin",
                     "data_type": "TypeDecl",
+                    "name": "hCatAdmin",
                     "type": "HCATADMIN",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "dwFlags",
                     "data_type": "TypeDecl",
+                    "name": "dwFlags",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -2006,24 +1487,24 @@
             },
             "arguments": [
                 {
-                    "name": "hCatAdmin",
                     "data_type": "TypeDecl",
+                    "name": "hCatAdmin",
                     "type": "HCATADMIN",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "hCatInfo",
                     "data_type": "TypeDecl",
+                    "name": "hCatInfo",
                     "type": "HCATINFO",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "dwFlags",
                     "data_type": "TypeDecl",
+                    "name": "dwFlags",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -2042,8 +1523,8 @@
             },
             "arguments": [
                 {
-                    "name": "hCatAdmin",
                     "data_type": "TypeDecl",
+                    "name": "hCatAdmin",
                     "type": "HCATADMIN",
                     "sal": [
                         "in"
@@ -2051,26 +1532,23 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "pbHash",
-                        "data_type": "TypeDecl",
-                        "type": "BYTE"
-                    },
+                    "name": "pbHash",
+                    "type": "BYTE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "cbHash",
                     "data_type": "TypeDecl",
+                    "name": "cbHash",
                     "type": "DWORD",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "dwFlags",
                     "data_type": "TypeDecl",
+                    "name": "dwFlags",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -2078,11 +1556,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "phPrevCatInfo",
-                        "data_type": "TypeDecl",
-                        "type": "HCATINFO"
-                    },
+                    "name": "phPrevCatInfo",
+                    "type": "HCATINFO",
                     "sal": [
                         "in"
                     ]
@@ -2101,8 +1576,8 @@
             },
             "arguments": [
                 {
-                    "name": "hFile",
                     "data_type": "TypeDecl",
+                    "name": "hFile",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -2110,11 +1585,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "pcbHash",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
+                    "name": "pcbHash",
+                    "type": "DWORD",
                     "sal": [
                         "in",
                         "out"
@@ -2122,18 +1594,15 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "pbHash",
-                        "data_type": "TypeDecl",
-                        "type": "BYTE"
-                    },
+                    "name": "pbHash",
+                    "type": "BYTE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "dwFlags",
                     "data_type": "TypeDecl",
+                    "name": "dwFlags",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -2153,16 +1622,16 @@
             },
             "arguments": [
                 {
-                    "name": "hCatAdmin",
                     "data_type": "TypeDecl",
+                    "name": "hCatAdmin",
                     "type": "HCATADMIN",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "hFile",
                     "data_type": "TypeDecl",
+                    "name": "hFile",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -2170,11 +1639,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "pcbHash",
-                        "data_type": "TypeDecl",
-                        "type": "DWORD"
-                    },
+                    "name": "pcbHash",
+                    "type": "DWORD",
                     "sal": [
                         "in",
                         "out"
@@ -2182,16 +1648,13 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "pbHash",
-                        "data_type": "TypeDecl",
-                        "type": "BYTE"
-                    },
+                    "name": "pbHash",
+                    "type": "BYTE",
                     "sal": []
                 },
                 {
-                    "name": "dwFlags",
                     "data_type": "TypeDecl",
+                    "name": "dwFlags",
                     "type": "DWORD",
                     "sal": []
                 }
@@ -2208,32 +1671,32 @@
             },
             "arguments": [
                 {
-                    "name": "hCatAdmin",
                     "data_type": "TypeDecl",
+                    "name": "hCatAdmin",
                     "type": "HCATADMIN",
                     "sal": [
                         "in"
                     ]
                 },
                 {
+                    "data_type": "TypeDecl",
                     "name": "pwszCatalogFile",
-                    "data_type": "TypeDecl",
                     "type": "PWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
+                    "data_type": "TypeDecl",
                     "name": "pwszSelectBaseName",
-                    "data_type": "TypeDecl",
                     "type": "PWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "dwFlags",
                     "data_type": "TypeDecl",
+                    "name": "dwFlags",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -2252,24 +1715,24 @@
             },
             "arguments": [
                 {
-                    "name": "hCatAdmin",
                     "data_type": "TypeDecl",
+                    "name": "hCatAdmin",
                     "type": "HCATADMIN",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "pwszCatalogFile",
                     "data_type": "TypeDecl",
+                    "name": "pwszCatalogFile",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "dwFlags",
                     "data_type": "TypeDecl",
+                    "name": "dwFlags",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -2288,8 +1751,8 @@
             },
             "arguments": [
                 {
-                    "name": "hCatInfo",
                     "data_type": "TypeDecl",
+                    "name": "hCatInfo",
                     "type": "HCATINFO",
                     "sal": [
                         "in"
@@ -2297,19 +1760,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "psCatInfo",
-                        "data_type": "TypeDecl",
-                        "type": "CATALOG_INFO"
-                    },
+                    "name": "psCatInfo",
+                    "type": "CATALOG_INFO",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "name": "dwFlags",
                     "data_type": "TypeDecl",
+                    "name": "dwFlags",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -2329,8 +1789,8 @@
             },
             "arguments": [
                 {
-                    "name": "hCatAdmin",
                     "data_type": "TypeDecl",
+                    "name": "hCatAdmin",
                     "type": "HCATADMIN",
                     "sal": [
                         "in"
@@ -2338,30 +1798,24 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "pwszCatalogFile",
-                        "data_type": "TypeDecl",
-                        "type": "WCHAR"
-                    },
+                    "name": "pwszCatalogFile",
+                    "type": "WCHAR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "psCatInfo",
-                        "data_type": "TypeDecl",
-                        "type": "CATALOG_INFO"
-                    },
+                    "name": "psCatInfo",
+                    "type": "CATALOG_INFO",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "name": "dwFlags",
                     "data_type": "TypeDecl",
+                    "name": "dwFlags",
                     "type": "DWORD",
                     "sal": [
                         "in"

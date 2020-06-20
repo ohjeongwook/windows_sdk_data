@@ -1,809 +1,106 @@
 {
     "typedefs": [
         {
+            "data_type": "TypeDecl",
             "name": "CHECKSUM",
-            "data_type": "TypeDecl",
             "type": "unsigned long"
         },
         {
+            "data_type": "TypeDecl",
             "name": "UOFF",
-            "data_type": "TypeDecl",
             "type": "unsigned long"
         },
         {
+            "data_type": "TypeDecl",
             "name": "COFF",
-            "data_type": "TypeDecl",
             "type": "unsigned long"
-        },
-        {
-            "name": "ERF",
-            "data_type": "TypeDecl",
-            "type": {
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "erfOper",
-                        "data_type": "TypeDecl",
-                        "type": "int"
-                    },
-                    {
-                        "name": "erfType",
-                        "data_type": "TypeDecl",
-                        "type": "int"
-                    },
-                    {
-                        "name": "fError",
-                        "data_type": "TypeDecl",
-                        "type": "BOOL"
-                    }
-                ]
-            }
         },
         {
             "data_type": "PtrDecl",
-            "type": {
-                "name": "PERF",
-                "data_type": "TypeDecl",
-                "type": "ERF"
-            }
+            "name": "PERF",
+            "type": "ERF"
         },
         {
-            "name": "TCOMP",
             "data_type": "TypeDecl",
+            "name": "TCOMP",
             "type": "unsigned short"
         },
         {
             "data_type": "PtrDecl",
-            "type": {
-                "name": "LPSTR",
-                "data_type": "TypeDecl",
-                "type": "char"
-            }
+            "name": "HFCI",
+            "type": "void"
         },
         {
-            "name": "FCIERROR",
+            "data_type": "PtrDecl",
+            "name": "PCCAB",
+            "type": "CCAB"
+        },
+        {
+            "data_type": "PtrDecl",
+            "name": "PFNFCIALLOC",
+            "type": "void"
+        },
+        {
             "data_type": "TypeDecl",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "FCIERR_NONE",
-                        "value": {}
-                    },
-                    {
-                        "name": "FCIERR_OPEN_SRC",
-                        "value": {}
-                    },
-                    {
-                        "name": "FCIERR_READ_SRC",
-                        "value": {}
-                    },
-                    {
-                        "name": "FCIERR_ALLOC_FAIL",
-                        "value": {}
-                    },
-                    {
-                        "name": "FCIERR_TEMP_FILE",
-                        "value": {}
-                    },
-                    {
-                        "name": "FCIERR_BAD_COMPR_TYPE",
-                        "value": {}
-                    },
-                    {
-                        "name": "FCIERR_CAB_FILE",
-                        "value": {}
-                    },
-                    {
-                        "name": "FCIERR_USER_ABORT",
-                        "value": {}
-                    },
-                    {
-                        "name": "FCIERR_MCI_FAIL",
-                        "value": {}
-                    },
-                    {
-                        "name": "FCIERR_CAB_FORMAT_LIMIT",
-                        "value": {}
-                    }
-                ]
-            }
+            "name": "PFNFCIFREE",
+            "type": "void"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "HFCI",
-                "data_type": "TypeDecl",
-                "type": "void"
-            }
-        },
-        {
-            "name": "CCAB",
             "data_type": "TypeDecl",
-            "type": {
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "cb",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "cbFolderThresh",
-                        "data_type": "TypeDecl",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "cbReserveCFHeader",
-                        "data_type": "TypeDecl",
-                        "type": "UINT"
-                    },
-                    {
-                        "name": "cbReserveCFFolder",
-                        "data_type": "TypeDecl",
-                        "type": "UINT"
-                    },
-                    {
-                        "name": "cbReserveCFData",
-                        "data_type": "TypeDecl",
-                        "type": "UINT"
-                    },
-                    {
-                        "name": "iCab",
-                        "data_type": "TypeDecl",
-                        "type": "int"
-                    },
-                    {
-                        "name": "iDisk",
-                        "data_type": "TypeDecl",
-                        "type": "int"
-                    },
-                    {
-                        "name": "fFailOnIncompressible",
-                        "data_type": "TypeDecl",
-                        "type": "int"
-                    },
-                    {
-                        "name": "setID",
-                        "data_type": "TypeDecl",
-                        "type": "USHORT"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "type": {
-                            "name": "szDisk",
-                            "data_type": "TypeDecl",
-                            "type": "char"
-                        },
-                        "dim": {
-                            "type": "int",
-                            "value": "256"
-                        }
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "type": {
-                            "name": "szCab",
-                            "data_type": "TypeDecl",
-                            "type": "char"
-                        },
-                        "dim": {
-                            "type": "int",
-                            "value": "256"
-                        }
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "type": {
-                            "name": "szCabPath",
-                            "data_type": "TypeDecl",
-                            "type": "char"
-                        },
-                        "dim": {
-                            "type": "int",
-                            "value": "256"
-                        }
-                    }
-                ]
-            }
+            "name": "PFNFCIOPEN",
+            "type": "INT_PTR"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "PCCAB",
-                "data_type": "TypeDecl",
-                "type": "CCAB"
-            }
+            "data_type": "TypeDecl",
+            "name": "PFNFCIREAD",
+            "type": "UINT"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "FuncDecl",
-                "type": {
-                    "data_type": "PtrDecl",
-                    "type": {
-                        "name": "PFNFCIALLOC",
-                        "data_type": "TypeDecl",
-                        "type": "void"
-                    }
-                },
-                "func": {
-                    "name": "",
-                    "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "name": "PFNFCIALLOC",
-                            "data_type": "TypeDecl",
-                            "type": "void"
-                        }
-                    },
-                    "arguments": [
-                        {
-                            "name": "cb",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        }
-                    ]
-                }
-            }
+            "data_type": "TypeDecl",
+            "name": "PFNFCIWRITE",
+            "type": "UINT"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "FuncDecl",
-                "type": {
-                    "name": "PFNFCIFREE",
-                    "data_type": "TypeDecl",
-                    "type": "void"
-                },
-                "func": {
-                    "name": "PFNFCIFREE",
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "type": "void"
-                    },
-                    "arguments": [
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "memory",
-                                "data_type": "TypeDecl",
-                                "type": "void"
-                            }
-                        }
-                    ]
-                }
-            }
+            "data_type": "TypeDecl",
+            "name": "PFNFCICLOSE",
+            "type": "int"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "FuncDecl",
-                "type": {
-                    "name": "PFNFCIOPEN",
-                    "data_type": "TypeDecl",
-                    "type": "INT_PTR"
-                },
-                "func": {
-                    "name": "PFNFCIOPEN",
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "type": "INT_PTR"
-                    },
-                    "arguments": [
-                        {
-                            "name": "pszFile",
-                            "data_type": "TypeDecl",
-                            "type": "LPSTR"
-                        },
-                        {
-                            "name": "oflag",
-                            "data_type": "TypeDecl",
-                            "type": "int"
-                        },
-                        {
-                            "name": "pmode",
-                            "data_type": "TypeDecl",
-                            "type": "int"
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "err",
-                                "data_type": "TypeDecl",
-                                "type": "int"
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pv",
-                                "data_type": "TypeDecl",
-                                "type": "void"
-                            }
-                        }
-                    ]
-                }
-            }
+            "data_type": "TypeDecl",
+            "name": "PFNFCISEEK",
+            "type": "long"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "FuncDecl",
-                "type": {
-                    "name": "PFNFCIREAD",
-                    "data_type": "TypeDecl",
-                    "type": "UINT"
-                },
-                "func": {
-                    "name": "PFNFCIREAD",
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "type": "UINT"
-                    },
-                    "arguments": [
-                        {
-                            "name": "hf",
-                            "data_type": "TypeDecl",
-                            "type": "INT_PTR"
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "memory",
-                                "data_type": "TypeDecl",
-                                "type": "void"
-                            }
-                        },
-                        {
-                            "name": "cb",
-                            "data_type": "TypeDecl",
-                            "type": "UINT"
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "err",
-                                "data_type": "TypeDecl",
-                                "type": "int"
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pv",
-                                "data_type": "TypeDecl",
-                                "type": "void"
-                            }
-                        }
-                    ]
-                }
-            }
+            "data_type": "TypeDecl",
+            "name": "PFNFCIDELETE",
+            "type": "int"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "FuncDecl",
-                "type": {
-                    "name": "PFNFCIWRITE",
-                    "data_type": "TypeDecl",
-                    "type": "UINT"
-                },
-                "func": {
-                    "name": "PFNFCIWRITE",
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "type": "UINT"
-                    },
-                    "arguments": [
-                        {
-                            "name": "hf",
-                            "data_type": "TypeDecl",
-                            "type": "INT_PTR"
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "memory",
-                                "data_type": "TypeDecl",
-                                "type": "void"
-                            }
-                        },
-                        {
-                            "name": "cb",
-                            "data_type": "TypeDecl",
-                            "type": "UINT"
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "err",
-                                "data_type": "TypeDecl",
-                                "type": "int"
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pv",
-                                "data_type": "TypeDecl",
-                                "type": "void"
-                            }
-                        }
-                    ]
-                }
-            }
+            "data_type": "TypeDecl",
+            "name": "PFNFCIGETNEXTCABINET",
+            "type": "BOOL"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "FuncDecl",
-                "type": {
-                    "name": "PFNFCICLOSE",
-                    "data_type": "TypeDecl",
-                    "type": "int"
-                },
-                "func": {
-                    "name": "PFNFCICLOSE",
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "type": "int"
-                    },
-                    "arguments": [
-                        {
-                            "name": "hf",
-                            "data_type": "TypeDecl",
-                            "type": "INT_PTR"
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "err",
-                                "data_type": "TypeDecl",
-                                "type": "int"
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pv",
-                                "data_type": "TypeDecl",
-                                "type": "void"
-                            }
-                        }
-                    ]
-                }
-            }
+            "data_type": "TypeDecl",
+            "name": "PFNFCIFILEPLACED",
+            "type": "int"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "FuncDecl",
-                "type": {
-                    "name": "PFNFCISEEK",
-                    "data_type": "TypeDecl",
-                    "type": "long"
-                },
-                "func": {
-                    "name": "PFNFCISEEK",
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "type": "long"
-                    },
-                    "arguments": [
-                        {
-                            "name": "hf",
-                            "data_type": "TypeDecl",
-                            "type": "INT_PTR"
-                        },
-                        {
-                            "name": "dist",
-                            "data_type": "TypeDecl",
-                            "type": "long"
-                        },
-                        {
-                            "name": "seektype",
-                            "data_type": "TypeDecl",
-                            "type": "int"
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "err",
-                                "data_type": "TypeDecl",
-                                "type": "int"
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pv",
-                                "data_type": "TypeDecl",
-                                "type": "void"
-                            }
-                        }
-                    ]
-                }
-            }
+            "data_type": "TypeDecl",
+            "name": "PFNFCIGETOPENINFO",
+            "type": "INT_PTR"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "FuncDecl",
-                "type": {
-                    "name": "PFNFCIDELETE",
-                    "data_type": "TypeDecl",
-                    "type": "int"
-                },
-                "func": {
-                    "name": "PFNFCIDELETE",
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "type": "int"
-                    },
-                    "arguments": [
-                        {
-                            "name": "pszFile",
-                            "data_type": "TypeDecl",
-                            "type": "LPSTR"
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "err",
-                                "data_type": "TypeDecl",
-                                "type": "int"
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pv",
-                                "data_type": "TypeDecl",
-                                "type": "void"
-                            }
-                        }
-                    ]
-                }
-            }
+            "data_type": "TypeDecl",
+            "name": "PFNFCISTATUS",
+            "type": "long"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "FuncDecl",
-                "type": {
-                    "name": "PFNFCIGETNEXTCABINET",
-                    "data_type": "TypeDecl",
-                    "type": "BOOL"
-                },
-                "func": {
-                    "name": "PFNFCIGETNEXTCABINET",
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "type": "BOOL"
-                    },
-                    "arguments": [
-                        {
-                            "name": "pccab",
-                            "data_type": "TypeDecl",
-                            "type": "PCCAB"
-                        },
-                        {
-                            "name": "cbPrevCab",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pv",
-                                "data_type": "TypeDecl",
-                                "type": "void"
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "FuncDecl",
-                "type": {
-                    "name": "PFNFCIFILEPLACED",
-                    "data_type": "TypeDecl",
-                    "type": "int"
-                },
-                "func": {
-                    "name": "PFNFCIFILEPLACED",
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "type": "int"
-                    },
-                    "arguments": [
-                        {
-                            "name": "pccab",
-                            "data_type": "TypeDecl",
-                            "type": "PCCAB"
-                        },
-                        {
-                            "name": "pszFile",
-                            "data_type": "TypeDecl",
-                            "type": "LPSTR"
-                        },
-                        {
-                            "name": "cbFile",
-                            "data_type": "TypeDecl",
-                            "type": "long"
-                        },
-                        {
-                            "name": "fContinuation",
-                            "data_type": "TypeDecl",
-                            "type": "BOOL"
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pv",
-                                "data_type": "TypeDecl",
-                                "type": "void"
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "FuncDecl",
-                "type": {
-                    "name": "PFNFCIGETOPENINFO",
-                    "data_type": "TypeDecl",
-                    "type": "INT_PTR"
-                },
-                "func": {
-                    "name": "PFNFCIGETOPENINFO",
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "type": "INT_PTR"
-                    },
-                    "arguments": [
-                        {
-                            "name": "pszName",
-                            "data_type": "TypeDecl",
-                            "type": "LPSTR"
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pdate",
-                                "data_type": "TypeDecl",
-                                "type": "USHORT"
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "ptime",
-                                "data_type": "TypeDecl",
-                                "type": "USHORT"
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pattribs",
-                                "data_type": "TypeDecl",
-                                "type": "USHORT"
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "err",
-                                "data_type": "TypeDecl",
-                                "type": "int"
-                            }
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pv",
-                                "data_type": "TypeDecl",
-                                "type": "void"
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "FuncDecl",
-                "type": {
-                    "name": "PFNFCISTATUS",
-                    "data_type": "TypeDecl",
-                    "type": "long"
-                },
-                "func": {
-                    "name": "PFNFCISTATUS",
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "type": "long"
-                    },
-                    "arguments": [
-                        {
-                            "name": "typeStatus",
-                            "data_type": "TypeDecl",
-                            "type": "UINT"
-                        },
-                        {
-                            "name": "cb1",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        {
-                            "name": "cb2",
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pv",
-                                "data_type": "TypeDecl",
-                                "type": "void"
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "FuncDecl",
-                "type": {
-                    "name": "PFNFCIGETTEMPFILE",
-                    "data_type": "TypeDecl",
-                    "type": "BOOL"
-                },
-                "func": {
-                    "name": "PFNFCIGETTEMPFILE",
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "type": "BOOL"
-                    },
-                    "arguments": [
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pszTempName",
-                                "data_type": "TypeDecl",
-                                "type": "char"
-                            }
-                        },
-                        {
-                            "name": "cbTempName",
-                            "data_type": "TypeDecl",
-                            "type": "int"
-                        },
-                        {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "pv",
-                                "data_type": "TypeDecl",
-                                "type": "void"
-                            }
-                        }
-                    ]
-                }
-            }
+            "data_type": "TypeDecl",
+            "name": "PFNFCIGETTEMPFILE",
+            "type": "BOOL"
         }
     ],
-    "structdefs": [],
     "funcdefs": [
         {
             "name": "FCICreate",
@@ -813,8 +110,8 @@
             },
             "arguments": [
                 {
-                    "name": "perf",
                     "data_type": "TypeDecl",
+                    "name": "perf",
                     "type": "PERF",
                     "sal": [
                         "in",
@@ -822,88 +119,88 @@
                     ]
                 },
                 {
-                    "name": "pfnfcifp",
                     "data_type": "TypeDecl",
+                    "name": "pfnfcifp",
                     "type": "PFNFCIFILEPLACED",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "pfna",
                     "data_type": "TypeDecl",
+                    "name": "pfna",
                     "type": "PFNFCIALLOC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "pfnf",
                     "data_type": "TypeDecl",
+                    "name": "pfnf",
                     "type": "PFNFCIFREE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "pfnopen",
                     "data_type": "TypeDecl",
+                    "name": "pfnopen",
                     "type": "PFNFCIOPEN",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "pfnread",
                     "data_type": "TypeDecl",
+                    "name": "pfnread",
                     "type": "PFNFCIREAD",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "pfnwrite",
                     "data_type": "TypeDecl",
+                    "name": "pfnwrite",
                     "type": "PFNFCIWRITE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "pfnclose",
                     "data_type": "TypeDecl",
+                    "name": "pfnclose",
                     "type": "PFNFCICLOSE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "pfnseek",
                     "data_type": "TypeDecl",
+                    "name": "pfnseek",
                     "type": "PFNFCISEEK",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "pfndelete",
                     "data_type": "TypeDecl",
+                    "name": "pfndelete",
                     "type": "PFNFCIDELETE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "pfnfcigtf",
                     "data_type": "TypeDecl",
+                    "name": "pfnfcigtf",
                     "type": "PFNFCIGETTEMPFILE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "pccab",
                     "data_type": "TypeDecl",
+                    "name": "pccab",
                     "type": "PCCAB",
                     "sal": [
                         "in"
@@ -911,11 +208,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "pv",
-                        "data_type": "TypeDecl",
-                        "type": "void"
-                    },
+                    "name": "pv",
+                    "type": "void",
                     "sal": [
                         "in",
                         "optional"
@@ -934,64 +228,64 @@
             },
             "arguments": [
                 {
-                    "name": "hfci",
                     "data_type": "TypeDecl",
+                    "name": "hfci",
                     "type": "HFCI",
                     "sal": [
                         "in"
                     ]
                 },
                 {
+                    "data_type": "TypeDecl",
                     "name": "pszSourceFile",
-                    "data_type": "TypeDecl",
                     "type": "LPSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
+                    "data_type": "TypeDecl",
                     "name": "pszFileName",
-                    "data_type": "TypeDecl",
                     "type": "LPSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "fExecute",
                     "data_type": "TypeDecl",
+                    "name": "fExecute",
                     "type": "BOOL",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "pfnfcignc",
                     "data_type": "TypeDecl",
+                    "name": "pfnfcignc",
                     "type": "PFNFCIGETNEXTCABINET",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "pfnfcis",
                     "data_type": "TypeDecl",
+                    "name": "pfnfcis",
                     "type": "PFNFCISTATUS",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "pfnfcigoi",
                     "data_type": "TypeDecl",
+                    "name": "pfnfcigoi",
                     "type": "PFNFCIGETOPENINFO",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "typeCompress",
                     "data_type": "TypeDecl",
+                    "name": "typeCompress",
                     "type": "TCOMP",
                     "sal": [
                         "in"
@@ -1010,32 +304,32 @@
             },
             "arguments": [
                 {
-                    "name": "hfci",
                     "data_type": "TypeDecl",
+                    "name": "hfci",
                     "type": "HFCI",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "fGetNextCab",
                     "data_type": "TypeDecl",
+                    "name": "fGetNextCab",
                     "type": "BOOL",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "pfnfcignc",
                     "data_type": "TypeDecl",
+                    "name": "pfnfcignc",
                     "type": "PFNFCIGETNEXTCABINET",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "pfnfcis",
                     "data_type": "TypeDecl",
+                    "name": "pfnfcis",
                     "type": "PFNFCISTATUS",
                     "sal": [
                         "in"
@@ -1054,24 +348,24 @@
             },
             "arguments": [
                 {
-                    "name": "hfci",
                     "data_type": "TypeDecl",
+                    "name": "hfci",
                     "type": "HFCI",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "pfnfcignc",
                     "data_type": "TypeDecl",
+                    "name": "pfnfcignc",
                     "type": "PFNFCIGETNEXTCABINET",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "pfnfcis",
                     "data_type": "TypeDecl",
+                    "name": "pfnfcis",
                     "type": "PFNFCISTATUS",
                     "sal": [
                         "in"
@@ -1090,8 +384,8 @@
             },
             "arguments": [
                 {
-                    "name": "hfci",
                     "data_type": "TypeDecl",
+                    "name": "hfci",
                     "type": "HFCI",
                     "sal": [
                         "in"

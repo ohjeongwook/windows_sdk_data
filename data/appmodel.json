@@ -1,489 +1,431 @@
 {
     "typedefs": [
         {
-            "name": "PACKAGE_VERSION",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "PACKAGE_VERSION",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "data_type": "Union",
-                        "elements": [
-                            {
-                                "name": "Version",
-                                "data_type": "TypeDecl",
-                                "type": "UINT64"
-                            },
-                            {
-                                "data_type": "Struct",
-                                "elements": [
-                                    {
-                                        "name": "Revision",
-                                        "data_type": "TypeDecl",
-                                        "type": "USHORT"
-                                    },
-                                    {
-                                        "name": "Build",
-                                        "data_type": "TypeDecl",
-                                        "type": "USHORT"
-                                    },
-                                    {
-                                        "name": "Minor",
-                                        "data_type": "TypeDecl",
-                                        "type": "USHORT"
-                                    },
-                                    {
-                                        "name": "Major",
-                                        "data_type": "TypeDecl",
-                                        "type": "USHORT"
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PACKAGE_ID",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "PACKAGE_ID",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "reserved",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
-                    {
-                        "name": "processorArchitecture",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
-                    {
-                        "name": "version",
-                        "data_type": "TypeDecl",
-                        "type": "PACKAGE_VERSION"
-                    },
-                    {
-                        "name": "name",
-                        "data_type": "TypeDecl",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "publisher",
-                        "data_type": "TypeDecl",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "resourceId",
-                        "data_type": "TypeDecl",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "publisherId",
-                        "data_type": "TypeDecl",
-                        "type": "PWSTR"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PackagePathType",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "PackagePathType",
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "PackagePathType_Install",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "PackagePathType_Mutable",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    },
-                    {
-                        "name": "PackagePathType_Effective",
-                        "value": {
-                            "type": "int",
-                            "value": "2"
-                        }
-                    },
-                    {
-                        "name": "PackagePathType_MachineExternal",
-                        "value": {
-                            "type": "int",
-                            "value": "3"
-                        }
-                    },
-                    {
-                        "name": "PackagePathType_UserExternal",
-                        "value": {
-                            "type": "int",
-                            "value": "4"
-                        }
-                    },
-                    {
-                        "name": "PackagePathType_EffectiveExternal",
-                        "value": {
-                            "type": "int",
-                            "value": "5"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PackageOrigin",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "PackageOrigin",
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "PackageOrigin_Unknown",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "PackageOrigin_Unsigned",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    },
-                    {
-                        "name": "PackageOrigin_Inbox",
-                        "value": {
-                            "type": "int",
-                            "value": "2"
-                        }
-                    },
-                    {
-                        "name": "PackageOrigin_Store",
-                        "value": {
-                            "type": "int",
-                            "value": "3"
-                        }
-                    },
-                    {
-                        "name": "PackageOrigin_DeveloperUnsigned",
-                        "value": {
-                            "type": "int",
-                            "value": "4"
-                        }
-                    },
-                    {
-                        "name": "PackageOrigin_DeveloperSigned",
-                        "value": {
-                            "type": "int",
-                            "value": "5"
-                        }
-                    },
-                    {
-                        "name": "PackageOrigin_LineOfBusiness",
-                        "value": {
-                            "type": "int",
-                            "value": "6"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "name": "PACKAGE_INFO_REFERENCE",
-                "data_type": "TypeDecl",
-                "type": {
-                    "name": "_PACKAGE_INFO_REFERENCE",
-                    "data_type": "Struct",
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "Union",
                     "elements": [
                         {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "name": "reserved",
-                                "data_type": "TypeDecl",
-                                "type": "void"
-                            }
+                            "data_type": "TypeDecl",
+                            "name": "Version",
+                            "type": "UINT64"
+                        },
+                        {
+                            "data_type": "Struct",
+                            "elements": [
+                                {
+                                    "data_type": "TypeDecl",
+                                    "name": "Revision",
+                                    "type": "USHORT"
+                                },
+                                {
+                                    "data_type": "TypeDecl",
+                                    "name": "Build",
+                                    "type": "USHORT"
+                                },
+                                {
+                                    "data_type": "TypeDecl",
+                                    "name": "Minor",
+                                    "type": "USHORT"
+                                },
+                                {
+                                    "data_type": "TypeDecl",
+                                    "name": "Major",
+                                    "type": "USHORT"
+                                }
+                            ]
                         }
                     ]
                 }
-            }
+            ],
+            "name": "PACKAGE_VERSION"
         },
         {
-            "name": "PACKAGE_INFO",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "PACKAGE_INFO",
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "reserved",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
-                    {
-                        "name": "flags",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
-                    {
-                        "name": "path",
-                        "data_type": "TypeDecl",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "packageFullName",
-                        "data_type": "TypeDecl",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "packageFamilyName",
-                        "data_type": "TypeDecl",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "packageId",
-                        "data_type": "TypeDecl",
-                        "type": "PACKAGE_ID"
-                    }
-                ]
-            }
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "reserved",
+                    "type": "UINT32"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "processorArchitecture",
+                    "type": "UINT32"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "version",
+                    "type": "PACKAGE_VERSION"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "name",
+                    "type": "PWSTR"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "publisher",
+                    "type": "PWSTR"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "resourceId",
+                    "type": "PWSTR"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "publisherId",
+                    "type": "PWSTR"
+                }
+            ],
+            "name": "PACKAGE_ID"
         },
         {
-            "name": "AppPolicyLifecycleManagement",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "AppPolicyLifecycleManagement",
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AppPolicyLifecycleManagement_Unmanaged",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyLifecycleManagement_Managed",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "PackagePathType_Install",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
                     }
-                ]
-            }
+                },
+                {
+                    "name": "PackagePathType_Mutable",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                },
+                {
+                    "name": "PackagePathType_Effective",
+                    "value": {
+                        "type": "int",
+                        "value": "2"
+                    }
+                },
+                {
+                    "name": "PackagePathType_MachineExternal",
+                    "value": {
+                        "type": "int",
+                        "value": "3"
+                    }
+                },
+                {
+                    "name": "PackagePathType_UserExternal",
+                    "value": {
+                        "type": "int",
+                        "value": "4"
+                    }
+                },
+                {
+                    "name": "PackagePathType_EffectiveExternal",
+                    "value": {
+                        "type": "int",
+                        "value": "5"
+                    }
+                }
+            ],
+            "name": "PackagePathType"
         },
         {
-            "name": "AppPolicyWindowingModel",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "AppPolicyWindowingModel",
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AppPolicyWindowingModel_None",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyWindowingModel_Universal",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyWindowingModel_ClassicDesktop",
-                        "value": {
-                            "type": "int",
-                            "value": "2"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyWindowingModel_ClassicPhone",
-                        "value": {
-                            "type": "int",
-                            "value": "3"
-                        }
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "PackageOrigin_Unknown",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
                     }
-                ]
-            }
+                },
+                {
+                    "name": "PackageOrigin_Unsigned",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                },
+                {
+                    "name": "PackageOrigin_Inbox",
+                    "value": {
+                        "type": "int",
+                        "value": "2"
+                    }
+                },
+                {
+                    "name": "PackageOrigin_Store",
+                    "value": {
+                        "type": "int",
+                        "value": "3"
+                    }
+                },
+                {
+                    "name": "PackageOrigin_DeveloperUnsigned",
+                    "value": {
+                        "type": "int",
+                        "value": "4"
+                    }
+                },
+                {
+                    "name": "PackageOrigin_DeveloperSigned",
+                    "value": {
+                        "type": "int",
+                        "value": "5"
+                    }
+                },
+                {
+                    "name": "PackageOrigin_LineOfBusiness",
+                    "value": {
+                        "type": "int",
+                        "value": "6"
+                    }
+                }
+            ],
+            "name": "PackageOrigin"
         },
         {
-            "name": "AppPolicyMediaFoundationCodecLoading",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "AppPolicyMediaFoundationCodecLoading",
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AppPolicyMediaFoundationCodecLoading_All",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyMediaFoundationCodecLoading_InboxOnly",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    }
-                ]
-            }
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "PtrDecl",
+                    "name": "reserved",
+                    "type": "void"
+                }
+            ],
+            "name": "_PACKAGE_INFO_REFERENCE"
         },
         {
-            "name": "AppPolicyClrCompat",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "AppPolicyClrCompat",
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AppPolicyClrCompat_Other",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyClrCompat_ClassicDesktop",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyClrCompat_Universal",
-                        "value": {
-                            "type": "int",
-                            "value": "2"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyClrCompat_PackagedDesktop",
-                        "value": {
-                            "type": "int",
-                            "value": "3"
-                        }
-                    }
-                ]
-            }
+            "data_type": "PtrDecl",
+            "name": "PACKAGE_INFO_REFERENCE",
+            "type": "_PACKAGE_INFO_REFERENCE"
         },
         {
-            "name": "AppPolicyThreadInitializationType",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "AppPolicyThreadInitializationType",
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AppPolicyThreadInitializationType_None",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyThreadInitializationType_InitializeWinRT",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    }
-                ]
-            }
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "TypeDecl",
+                    "name": "reserved",
+                    "type": "UINT32"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "flags",
+                    "type": "UINT32"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "path",
+                    "type": "PWSTR"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "packageFullName",
+                    "type": "PWSTR"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "packageFamilyName",
+                    "type": "PWSTR"
+                },
+                {
+                    "data_type": "TypeDecl",
+                    "name": "packageId",
+                    "type": "PACKAGE_ID"
+                }
+            ],
+            "name": "PACKAGE_INFO"
         },
         {
-            "name": "AppPolicyShowDeveloperDiagnostic",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "AppPolicyShowDeveloperDiagnostic",
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AppPolicyShowDeveloperDiagnostic_None",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyShowDeveloperDiagnostic_ShowUI",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AppPolicyLifecycleManagement_Unmanaged",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
                     }
-                ]
-            }
+                },
+                {
+                    "name": "AppPolicyLifecycleManagement_Managed",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                }
+            ],
+            "name": "AppPolicyLifecycleManagement"
         },
         {
-            "name": "AppPolicyProcessTerminationMethod",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "AppPolicyProcessTerminationMethod",
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AppPolicyProcessTerminationMethod_ExitProcess",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyProcessTerminationMethod_TerminateProcess",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AppPolicyWindowingModel_None",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
                     }
-                ]
-            }
+                },
+                {
+                    "name": "AppPolicyWindowingModel_Universal",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                },
+                {
+                    "name": "AppPolicyWindowingModel_ClassicDesktop",
+                    "value": {
+                        "type": "int",
+                        "value": "2"
+                    }
+                },
+                {
+                    "name": "AppPolicyWindowingModel_ClassicPhone",
+                    "value": {
+                        "type": "int",
+                        "value": "3"
+                    }
+                }
+            ],
+            "name": "AppPolicyWindowingModel"
         },
         {
-            "name": "AppPolicyCreateFileAccess",
-            "data_type": "TypeDecl",
-            "type": {
-                "name": "AppPolicyCreateFileAccess",
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AppPolicyCreateFileAccess_Full",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyCreateFileAccess_Limited",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AppPolicyMediaFoundationCodecLoading_All",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
                     }
-                ]
-            }
+                },
+                {
+                    "name": "AppPolicyMediaFoundationCodecLoading_InboxOnly",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                }
+            ],
+            "name": "AppPolicyMediaFoundationCodecLoading"
+        },
+        {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AppPolicyClrCompat_Other",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "AppPolicyClrCompat_ClassicDesktop",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                },
+                {
+                    "name": "AppPolicyClrCompat_Universal",
+                    "value": {
+                        "type": "int",
+                        "value": "2"
+                    }
+                },
+                {
+                    "name": "AppPolicyClrCompat_PackagedDesktop",
+                    "value": {
+                        "type": "int",
+                        "value": "3"
+                    }
+                }
+            ],
+            "name": "AppPolicyClrCompat"
+        },
+        {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AppPolicyThreadInitializationType_None",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "AppPolicyThreadInitializationType_InitializeWinRT",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                }
+            ],
+            "name": "AppPolicyThreadInitializationType"
+        },
+        {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AppPolicyShowDeveloperDiagnostic_None",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "AppPolicyShowDeveloperDiagnostic_ShowUI",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                }
+            ],
+            "name": "AppPolicyShowDeveloperDiagnostic"
+        },
+        {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AppPolicyProcessTerminationMethod_ExitProcess",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "AppPolicyProcessTerminationMethod_TerminateProcess",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                }
+            ],
+            "name": "AppPolicyProcessTerminationMethod"
+        },
+        {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AppPolicyCreateFileAccess_Full",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "AppPolicyCreateFileAccess_Limited",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                }
+            ],
+            "name": "AppPolicyCreateFileAccess"
         }
     ],
-    "structdefs": [],
     "funcdefs": [
         {
             "name": "GetCurrentPackageId",
@@ -494,11 +436,8 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "bufferLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "bufferLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
@@ -506,11 +445,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "buffer",
-                        "data_type": "TypeDecl",
-                        "type": "BYTE"
-                    },
+                    "name": "buffer",
+                    "type": "BYTE",
                     "sal": [
                         "out",
                         "optional"
@@ -539,19 +475,16 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "packageFullNameLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "packageFullNameLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "name": "packageFullName",
                     "data_type": "TypeDecl",
+                    "name": "packageFullName",
                     "type": "PWSTR",
                     "sal": [
                         "out",
@@ -577,19 +510,16 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "packageFamilyNameLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "packageFamilyNameLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "name": "packageFamilyName",
                     "data_type": "TypeDecl",
+                    "name": "packageFamilyName",
                     "type": "PWSTR",
                     "sal": [
                         "out",
@@ -615,19 +545,16 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "pathLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "pathLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "name": "path",
                     "data_type": "TypeDecl",
+                    "name": "path",
                     "type": "PWSTR",
                     "sal": [
                         "out",
@@ -652,8 +579,8 @@
             },
             "arguments": [
                 {
-                    "name": "hProcess",
                     "data_type": "TypeDecl",
+                    "name": "hProcess",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -661,11 +588,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "bufferLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "bufferLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
@@ -673,11 +597,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "buffer",
-                        "data_type": "TypeDecl",
-                        "type": "BYTE"
-                    },
+                    "name": "buffer",
+                    "type": "BYTE",
                     "sal": [
                         "out",
                         "optional"
@@ -704,8 +625,8 @@
             },
             "arguments": [
                 {
-                    "name": "hProcess",
                     "data_type": "TypeDecl",
+                    "name": "hProcess",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -713,19 +634,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "packageFullNameLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "packageFullNameLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "name": "packageFullName",
                     "data_type": "TypeDecl",
+                    "name": "packageFullName",
                     "type": "PWSTR",
                     "sal": [
                         "out",
@@ -753,8 +671,8 @@
             },
             "arguments": [
                 {
-                    "name": "token",
                     "data_type": "TypeDecl",
+                    "name": "token",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -762,19 +680,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "packageFullNameLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "packageFullNameLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "name": "packageFullName",
                     "data_type": "TypeDecl",
+                    "name": "packageFullName",
                     "type": "PWSTR",
                     "sal": [
                         "out",
@@ -805,8 +720,8 @@
             },
             "arguments": [
                 {
-                    "name": "hProcess",
                     "data_type": "TypeDecl",
+                    "name": "hProcess",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -814,19 +729,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "packageFamilyNameLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "packageFamilyNameLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "name": "packageFamilyName",
                     "data_type": "TypeDecl",
+                    "name": "packageFamilyName",
                     "type": "PWSTR",
                     "sal": [
                         "out",
@@ -854,8 +766,8 @@
             },
             "arguments": [
                 {
-                    "name": "token",
                     "data_type": "TypeDecl",
+                    "name": "token",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -863,19 +775,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "packageFamilyNameLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "packageFamilyNameLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "name": "packageFamilyName",
                     "data_type": "TypeDecl",
+                    "name": "packageFamilyName",
                     "type": "PWSTR",
                     "sal": [
                         "out",
@@ -904,36 +813,30 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "packageId",
-                        "data_type": "TypeDecl",
-                        "type": "PACKAGE_ID"
-                    },
+                    "name": "packageId",
+                    "type": "PACKAGE_ID",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "reserved",
                     "data_type": "TypeDecl",
+                    "name": "reserved",
                     "type": "UINT32",
                     "sal": []
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "pathLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "pathLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "name": "path",
                     "data_type": "TypeDecl",
+                    "name": "path",
                     "type": "PWSTR",
                     "sal": [
                         "out",
@@ -961,8 +864,8 @@
             },
             "arguments": [
                 {
-                    "name": "packageFullName",
                     "data_type": "TypeDecl",
+                    "name": "packageFullName",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -970,19 +873,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "pathLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "pathLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "name": "path",
                     "data_type": "TypeDecl",
+                    "name": "path",
                     "type": "PWSTR",
                     "sal": [
                         "out",
@@ -1005,8 +905,8 @@
             },
             "arguments": [
                 {
-                    "name": "packageFullName",
                     "data_type": "TypeDecl",
+                    "name": "packageFullName",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -1014,19 +914,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "pathLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "pathLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "name": "path",
                     "data_type": "TypeDecl",
+                    "name": "path",
                     "type": "PWSTR",
                     "sal": [
                         "out",
@@ -1050,19 +947,16 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "applicationUserModelIdLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "applicationUserModelIdLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "name": "applicationUserModelId",
                     "data_type": "TypeDecl",
+                    "name": "applicationUserModelId",
                     "type": "PWSTR",
                     "sal": [
                         "out"
@@ -1086,8 +980,8 @@
             },
             "arguments": [
                 {
-                    "name": "hProcess",
                     "data_type": "TypeDecl",
+                    "name": "hProcess",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -1095,19 +989,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "applicationUserModelIdLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "applicationUserModelIdLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "name": "applicationUserModelId",
                     "data_type": "TypeDecl",
+                    "name": "applicationUserModelId",
                     "type": "PWSTR",
                     "sal": [
                         "out"
@@ -1131,8 +1022,8 @@
             },
             "arguments": [
                 {
-                    "name": "token",
                     "data_type": "TypeDecl",
+                    "name": "token",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -1140,19 +1031,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "applicationUserModelIdLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "applicationUserModelIdLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "name": "applicationUserModelId",
                     "data_type": "TypeDecl",
+                    "name": "applicationUserModelId",
                     "type": "PWSTR",
                     "sal": [
                         "out"
@@ -1176,16 +1064,16 @@
             },
             "arguments": [
                 {
-                    "name": "packageFullName",
                     "data_type": "TypeDecl",
+                    "name": "packageFullName",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "flags",
                     "data_type": "TypeDecl",
+                    "name": "flags",
                     "type": "UINT32",
                     "sal": [
                         "in"
@@ -1193,11 +1081,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "bufferLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "bufferLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
@@ -1205,11 +1090,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "buffer",
-                        "data_type": "TypeDecl",
-                        "type": "BYTE"
-                    },
+                    "name": "buffer",
+                    "type": "BYTE",
                     "sal": [
                         "out",
                         "optional"
@@ -1237,30 +1119,24 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "packageId",
-                        "data_type": "TypeDecl",
-                        "type": "PACKAGE_ID"
-                    },
+                    "name": "packageId",
+                    "type": "PACKAGE_ID",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "packageFullNameLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "packageFullNameLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "name": "packageFullName",
                     "data_type": "TypeDecl",
+                    "name": "packageFullName",
                     "type": "PWSTR",
                     "sal": [
                         "out",
@@ -1289,30 +1165,24 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "packageId",
-                        "data_type": "TypeDecl",
-                        "type": "PACKAGE_ID"
-                    },
+                    "name": "packageId",
+                    "type": "PACKAGE_ID",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "packageFamilyNameLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "packageFamilyNameLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "name": "packageFamilyName",
                     "data_type": "TypeDecl",
+                    "name": "packageFamilyName",
                     "type": "PWSTR",
                     "sal": [
                         "out",
@@ -1340,8 +1210,8 @@
             },
             "arguments": [
                 {
-                    "name": "packageFullName",
                     "data_type": "TypeDecl",
+                    "name": "packageFullName",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -1349,19 +1219,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "packageFamilyNameLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "packageFamilyNameLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "name": "packageFamilyName",
                     "data_type": "TypeDecl",
+                    "name": "packageFamilyName",
                     "type": "PWSTR",
                     "sal": [
                         "out",
@@ -1389,8 +1256,8 @@
             },
             "arguments": [
                 {
-                    "name": "packageFamilyName",
                     "data_type": "TypeDecl",
+                    "name": "packageFamilyName",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -1398,19 +1265,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "packageNameLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "packageNameLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "name": "packageName",
                     "data_type": "TypeDecl",
+                    "name": "packageName",
                     "type": "PWSTR",
                     "sal": [
                         "out",
@@ -1419,19 +1283,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "packagePublisherIdLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "packagePublisherIdLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "name": "packagePublisherId",
                     "data_type": "TypeDecl",
+                    "name": "packagePublisherId",
                     "type": "PWSTR",
                     "sal": [
                         "out",
@@ -1456,16 +1317,16 @@
             },
             "arguments": [
                 {
-                    "name": "packageFamilyName",
                     "data_type": "TypeDecl",
+                    "name": "packageFamilyName",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "packageRelativeApplicationId",
                     "data_type": "TypeDecl",
+                    "name": "packageRelativeApplicationId",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -1473,19 +1334,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "applicationUserModelIdLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "applicationUserModelIdLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "name": "applicationUserModelId",
                     "data_type": "TypeDecl",
+                    "name": "applicationUserModelId",
                     "type": "PWSTR",
                     "sal": [
                         "out",
@@ -1510,8 +1368,8 @@
             },
             "arguments": [
                 {
-                    "name": "applicationUserModelId",
                     "data_type": "TypeDecl",
+                    "name": "applicationUserModelId",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -1519,19 +1377,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "packageFamilyNameLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "packageFamilyNameLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "name": "packageFamilyName",
                     "data_type": "TypeDecl",
+                    "name": "packageFamilyName",
                     "type": "PWSTR",
                     "sal": [
                         "out",
@@ -1540,19 +1395,16 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "packageRelativeApplicationIdLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "packageRelativeApplicationIdLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "name": "packageRelativeApplicationId",
                     "data_type": "TypeDecl",
+                    "name": "packageRelativeApplicationId",
                     "type": "PWSTR",
                     "sal": [
                         "out",
@@ -1575,8 +1427,8 @@
             },
             "arguments": [
                 {
-                    "name": "packageFamilyName",
                     "data_type": "TypeDecl",
+                    "name": "packageFamilyName",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -1584,11 +1436,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "count",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "count",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
@@ -1596,11 +1445,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "packageFullNames",
-                        "data_type": "TypeDecl",
-                        "type": "PWSTR"
-                    },
+                    "name": "packageFullNames",
+                    "type": "PWSTR",
                     "sal": [
                         "out",
                         "optional"
@@ -1608,11 +1454,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "bufferLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "bufferLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
@@ -1620,11 +1463,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "buffer",
-                        "data_type": "TypeDecl",
-                        "type": "WCHAR"
-                    },
+                    "name": "buffer",
+                    "type": "WCHAR",
                     "sal": [
                         "out",
                         "optional"
@@ -1651,16 +1491,16 @@
             },
             "arguments": [
                 {
-                    "name": "packageFamilyName",
                     "data_type": "TypeDecl",
+                    "name": "packageFamilyName",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "packageFilters",
                     "data_type": "TypeDecl",
+                    "name": "packageFilters",
                     "type": "UINT32",
                     "sal": [
                         "in"
@@ -1668,11 +1508,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "count",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "count",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
@@ -1680,11 +1517,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "packageFullNames",
-                        "data_type": "TypeDecl",
-                        "type": "PWSTR"
-                    },
+                    "name": "packageFullNames",
+                    "type": "PWSTR",
                     "sal": [
                         "out",
                         "optional"
@@ -1692,11 +1526,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "bufferLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "bufferLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
@@ -1704,11 +1535,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "buffer",
-                        "data_type": "TypeDecl",
-                        "type": "WCHAR"
-                    },
+                    "name": "buffer",
+                    "type": "WCHAR",
                     "sal": [
                         "out",
                         "optional"
@@ -1716,11 +1544,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "packageProperties",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "packageProperties",
+                    "type": "UINT32",
                     "sal": [
                         "out",
                         "optional"
@@ -1742,8 +1567,8 @@
             },
             "arguments": [
                 {
-                    "name": "packageFullName",
                     "data_type": "TypeDecl",
+                    "name": "packageFullName",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -1751,11 +1576,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "origin",
-                        "data_type": "TypeDecl",
-                        "type": "PackageOrigin"
-                    },
+                    "name": "origin",
+                    "type": "PackageOrigin",
                     "sal": [
                         "out"
                     ]
@@ -1778,8 +1600,8 @@
             },
             "arguments": [
                 {
-                    "name": "flags",
                     "data_type": "TypeDecl",
+                    "name": "flags",
                     "type": "UINT32",
                     "sal": [
                         "in"
@@ -1787,11 +1609,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "bufferLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "bufferLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
@@ -1799,11 +1618,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "buffer",
-                        "data_type": "TypeDecl",
-                        "type": "BYTE"
-                    },
+                    "name": "buffer",
+                    "type": "BYTE",
                     "sal": [
                         "out",
                         "optional"
@@ -1811,11 +1627,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "count",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "count",
+                    "type": "UINT32",
                     "sal": [
                         "out",
                         "optional"
@@ -1843,26 +1656,23 @@
             },
             "arguments": [
                 {
-                    "name": "packageFullName",
                     "data_type": "TypeDecl",
+                    "name": "packageFullName",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "reserved",
                     "data_type": "TypeDecl",
+                    "name": "reserved",
                     "type": "UINT32",
                     "sal": []
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "packageInfoReference",
-                        "data_type": "TypeDecl",
-                        "type": "PACKAGE_INFO_REFERENCE"
-                    },
+                    "name": "packageInfoReference",
+                    "type": "PACKAGE_INFO_REFERENCE",
                     "sal": [
                         "out"
                     ]
@@ -1888,8 +1698,8 @@
             },
             "arguments": [
                 {
-                    "name": "packageInfoReference",
                     "data_type": "TypeDecl",
+                    "name": "packageInfoReference",
                     "type": "PACKAGE_INFO_REFERENCE",
                     "sal": [
                         "in"
@@ -1916,16 +1726,16 @@
             },
             "arguments": [
                 {
-                    "name": "packageInfoReference",
                     "data_type": "TypeDecl",
+                    "name": "packageInfoReference",
                     "type": "PACKAGE_INFO_REFERENCE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "name": "flags",
                     "data_type": "TypeDecl",
+                    "name": "flags",
                     "type": "UINT32",
                     "sal": [
                         "in"
@@ -1933,11 +1743,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "bufferLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "bufferLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
@@ -1945,11 +1752,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "buffer",
-                        "data_type": "TypeDecl",
-                        "type": "BYTE"
-                    },
+                    "name": "buffer",
+                    "type": "BYTE",
                     "sal": [
                         "out",
                         "optional"
@@ -1957,11 +1761,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "count",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "count",
+                    "type": "UINT32",
                     "sal": [
                         "out",
                         "optional"
@@ -1988,8 +1789,8 @@
             },
             "arguments": [
                 {
-                    "name": "packageInfoReference",
                     "data_type": "TypeDecl",
+                    "name": "packageInfoReference",
                     "type": "PACKAGE_INFO_REFERENCE",
                     "sal": [
                         "in"
@@ -1997,11 +1798,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "bufferLength",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "bufferLength",
+                    "type": "UINT32",
                     "sal": [
                         "in",
                         "out"
@@ -2009,11 +1807,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "buffer",
-                        "data_type": "TypeDecl",
-                        "type": "BYTE"
-                    },
+                    "name": "buffer",
+                    "type": "BYTE",
                     "sal": [
                         "out",
                         "optional"
@@ -2021,11 +1816,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "count",
-                        "data_type": "TypeDecl",
-                        "type": "UINT32"
-                    },
+                    "name": "count",
+                    "type": "UINT32",
                     "sal": [
                         "out",
                         "optional"
@@ -2047,8 +1839,8 @@
             },
             "arguments": [
                 {
-                    "name": "processToken",
                     "data_type": "TypeDecl",
+                    "name": "processToken",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -2056,11 +1848,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "policy",
-                        "data_type": "TypeDecl",
-                        "type": "AppPolicyLifecycleManagement"
-                    },
+                    "name": "policy",
+                    "type": "AppPolicyLifecycleManagement",
                     "sal": [
                         "out"
                     ]
@@ -2078,8 +1867,8 @@
             },
             "arguments": [
                 {
-                    "name": "processToken",
                     "data_type": "TypeDecl",
+                    "name": "processToken",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -2087,11 +1876,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "policy",
-                        "data_type": "TypeDecl",
-                        "type": "AppPolicyWindowingModel"
-                    },
+                    "name": "policy",
+                    "type": "AppPolicyWindowingModel",
                     "sal": [
                         "out"
                     ]
@@ -2112,8 +1898,8 @@
             },
             "arguments": [
                 {
-                    "name": "processToken",
                     "data_type": "TypeDecl",
+                    "name": "processToken",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -2121,11 +1907,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "policy",
-                        "data_type": "TypeDecl",
-                        "type": "AppPolicyMediaFoundationCodecLoading"
-                    },
+                    "name": "policy",
+                    "type": "AppPolicyMediaFoundationCodecLoading",
                     "sal": [
                         "out"
                     ]
@@ -2143,8 +1926,8 @@
             },
             "arguments": [
                 {
-                    "name": "processToken",
                     "data_type": "TypeDecl",
+                    "name": "processToken",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -2152,11 +1935,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "policy",
-                        "data_type": "TypeDecl",
-                        "type": "AppPolicyClrCompat"
-                    },
+                    "name": "policy",
+                    "type": "AppPolicyClrCompat",
                     "sal": [
                         "out"
                     ]
@@ -2174,8 +1954,8 @@
             },
             "arguments": [
                 {
-                    "name": "processToken",
                     "data_type": "TypeDecl",
+                    "name": "processToken",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -2183,11 +1963,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "policy",
-                        "data_type": "TypeDecl",
-                        "type": "AppPolicyThreadInitializationType"
-                    },
+                    "name": "policy",
+                    "type": "AppPolicyThreadInitializationType",
                     "sal": [
                         "out"
                     ]
@@ -2208,8 +1985,8 @@
             },
             "arguments": [
                 {
-                    "name": "processToken",
                     "data_type": "TypeDecl",
+                    "name": "processToken",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -2217,11 +1994,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "policy",
-                        "data_type": "TypeDecl",
-                        "type": "AppPolicyShowDeveloperDiagnostic"
-                    },
+                    "name": "policy",
+                    "type": "AppPolicyShowDeveloperDiagnostic",
                     "sal": [
                         "out"
                     ]
@@ -2242,8 +2016,8 @@
             },
             "arguments": [
                 {
-                    "name": "processToken",
                     "data_type": "TypeDecl",
+                    "name": "processToken",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -2251,11 +2025,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "policy",
-                        "data_type": "TypeDecl",
-                        "type": "AppPolicyProcessTerminationMethod"
-                    },
+                    "name": "policy",
+                    "type": "AppPolicyProcessTerminationMethod",
                     "sal": [
                         "out"
                     ]
@@ -2276,8 +2047,8 @@
             },
             "arguments": [
                 {
-                    "name": "processToken",
                     "data_type": "TypeDecl",
+                    "name": "processToken",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -2285,11 +2056,8 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": {
-                        "name": "policy",
-                        "data_type": "TypeDecl",
-                        "type": "AppPolicyCreateFileAccess"
-                    },
+                    "name": "policy",
+                    "type": "AppPolicyCreateFileAccess",
                     "sal": [
                         "out"
                     ]
