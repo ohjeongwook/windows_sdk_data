@@ -1,39 +1,49 @@
 {
     "typedefs": [
         {
+            "name": "HPTPROVIDER__",
             "data_type": "Struct",
             "elements": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "unused",
+                    "data_type": "TypeDecl",
                     "type": "int"
                 }
-            ],
-            "name": "HPTPROVIDER__"
+            ]
         },
         {
             "data_type": "PtrDecl",
-            "name": "HPTPROVIDER",
-            "type": "HPTPROVIDER__"
+            "type": {
+                "type": "HPTPROVIDER__",
+                "data_type": "TypeDecl"
+            },
+            "name": "HPTPROVIDER"
         },
         {
-            "data_type": "Enum",
-            "enumerators": [
-                {
-                    "name": "kUserDefaultDevmode",
-                    "value": {}
-                },
-                {
-                    "name": "kPrinterDefaultDevmode",
-                    "value": {}
-                }
-            ],
-            "name": "tagEDefaultDevmodeType"
-        },
-        {
-            "data_type": "TypeDecl",
             "name": "EDefaultDevmodeType",
-            "type": "tagEDefaultDevmodeType"
+            "type": "tagEDefaultDevmodeType",
+            "data_type": "TypeDecl"
+        },
+        {
+            "name": "EPrintTicketScope",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "kPTPageScope",
+                        "value": {}
+                    },
+                    {
+                        "name": "kPTDocumentScope",
+                        "value": {}
+                    },
+                    {
+                        "name": "kPTJobScope",
+                        "value": {}
+                    }
+                ]
+            }
         }
     ],
     "funcdefs": [
@@ -45,8 +55,8 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "pszPrinterName",
+                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -54,8 +64,11 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
                     "name": "pMaxVersion",
-                    "type": "DWORD",
                     "sal": [
                         "out"
                     ]
@@ -74,23 +87,26 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "pszPrinterName",
+                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "dwVersion",
+                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "HPTPROVIDER"
+                    },
                     "name": "phProvider",
-                    "type": "HPTPROVIDER",
                     "sal": [
                         "out"
                     ]
@@ -109,37 +125,43 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "pszPrinterName",
+                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "dwMaxVersion",
+                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "dwPrefVersion",
+                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "HPTPROVIDER"
+                    },
                     "name": "phProvider",
-                    "type": "HPTPROVIDER",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
                     "name": "pUsedVersion",
-                    "type": "DWORD",
                     "sal": [
                         "out"
                     ]
@@ -157,8 +179,8 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "hProvider",
+                    "data_type": "TypeDecl",
                     "type": "HPTPROVIDER",
                     "sal": [
                         "in"
@@ -178,8 +200,8 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "pBuffer",
+                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -198,8 +220,8 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "hProvider",
+                    "data_type": "TypeDecl",
                     "type": "HPTPROVIDER",
                     "sal": [
                         "in"
@@ -207,22 +229,31 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "IStream"
+                    },
                     "name": "pPrintTicket",
-                    "type": "IStream",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "IStream"
+                    },
                     "name": "pCapabilities",
-                    "type": "IStream",
                     "sal": []
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "BSTR"
+                    },
                     "name": "pbstrErrorMessage",
-                    "type": "BSTR",
                     "sal": [
                         "out"
                     ]
@@ -241,8 +272,8 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "hProvider",
+                    "data_type": "TypeDecl",
                     "type": "HPTPROVIDER",
                     "sal": [
                         "in"
@@ -250,8 +281,11 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "IStream"
+                    },
                     "name": "pPrintTicket",
-                    "type": "IStream",
                     "sal": [
                         "in",
                         "optional"
@@ -259,14 +293,20 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "IStream"
+                    },
                     "name": "pDeviceCapabilities",
-                    "type": "IStream",
                     "sal": []
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "BSTR"
+                    },
                     "name": "pbstrErrorMessage",
-                    "type": "BSTR",
                     "sal": [
                         "out",
                         "optional"
@@ -285,16 +325,16 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "hProvider",
+                    "data_type": "TypeDecl",
                     "type": "HPTPROVIDER",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "pszLocaleName",
+                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -302,22 +342,31 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "IStream"
+                    },
                     "name": "pPrintTicket",
-                    "type": "IStream",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "IStream"
+                    },
                     "name": "pDeviceResources",
-                    "type": "IStream",
                     "sal": []
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "BSTR"
+                    },
                     "name": "pbstrErrorMessage",
-                    "type": "BSTR",
                     "sal": [
                         "out",
                         "optional"
@@ -336,8 +385,8 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "hProvider",
+                    "data_type": "TypeDecl",
                     "type": "HPTPROVIDER",
                     "sal": [
                         "in"
@@ -345,23 +394,29 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "IStream"
+                    },
                     "name": "pBaseTicket",
-                    "type": "IStream",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "IStream"
+                    },
                     "name": "pDeltaTicket",
-                    "type": "IStream",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "scope",
+                    "data_type": "TypeDecl",
                     "type": "EPrintTicketScope",
                     "sal": [
                         "in"
@@ -369,14 +424,20 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "IStream"
+                    },
                     "name": "pResultTicket",
-                    "type": "IStream",
                     "sal": []
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "BSTR"
+                    },
                     "name": "pbstrErrorMessage",
-                    "type": "BSTR",
                     "sal": [
                         "out"
                     ]
@@ -394,8 +455,8 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "hProvider",
+                    "data_type": "TypeDecl",
                     "type": "HPTPROVIDER",
                     "sal": [
                         "in"
@@ -403,21 +464,24 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "IStream"
+                    },
                     "name": "pPrintTicket",
-                    "type": "IStream",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "baseDevmodeType",
+                    "data_type": "TypeDecl",
                     "type": "EDefaultDevmodeType",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "scope",
+                    "data_type": "TypeDecl",
                     "type": "EPrintTicketScope",
                     "sal": [
                         "in"
@@ -425,24 +489,33 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "ULONG"
+                    },
                     "name": "pcbDevmode",
-                    "type": "ULONG",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "PDEVMODE"
+                    },
                     "name": "ppDevmode",
-                    "type": "PDEVMODE",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "BSTR"
+                    },
                     "name": "pbstrErrorMessage",
-                    "type": "BSTR",
                     "sal": [
                         "out"
                     ]
@@ -460,30 +533,30 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "hProvider",
+                    "data_type": "TypeDecl",
                     "type": "HPTPROVIDER",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "cbDevmode",
+                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "pDevmode",
+                    "data_type": "TypeDecl",
                     "type": "PDEVMODE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "scope",
+                    "data_type": "TypeDecl",
                     "type": "EPrintTicketScope",
                     "sal": [
                         "in"
@@ -491,8 +564,11 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "IStream"
+                    },
                     "name": "pPrintTicket",
-                    "type": "IStream",
                     "sal": []
                 }
             ],

@@ -1,6 +1,7 @@
 {
     "typedefs": [
         {
+            "name": "FEATURE_CHANGE_TIME",
             "data_type": "Enum",
             "enumerators": [
                 {
@@ -31,10 +32,10 @@
                         "value": "3"
                     }
                 }
-            ],
-            "name": "FEATURE_CHANGE_TIME"
+            ]
         },
         {
+            "name": "FEATURE_ENABLED_STATE",
             "data_type": "Enum",
             "enumerators": [
                 {
@@ -58,110 +59,110 @@
                         "value": "2"
                     }
                 }
-            ],
-            "name": "FEATURE_ENABLED_STATE"
+            ]
         },
         {
+            "name": "FEATURE_ERROR",
             "data_type": "Struct",
             "elements": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "hr",
+                    "data_type": "TypeDecl",
                     "type": "HRESULT"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "lineNumber",
+                    "data_type": "TypeDecl",
                     "type": "UINT16"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "file",
+                    "data_type": "TypeDecl",
                     "type": "PCSTR"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "process",
+                    "data_type": "TypeDecl",
                     "type": "PCSTR"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "module",
+                    "data_type": "TypeDecl",
                     "type": "PCSTR"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "callerReturnAddressOffset",
+                    "data_type": "TypeDecl",
                     "type": "UINT32"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "callerModule",
+                    "data_type": "TypeDecl",
                     "type": "PCSTR"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "message",
+                    "data_type": "TypeDecl",
                     "type": "PCSTR"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "originLineNumber",
+                    "data_type": "TypeDecl",
                     "type": "UINT16"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "originFile",
+                    "data_type": "TypeDecl",
                     "type": "PCSTR"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "originModule",
+                    "data_type": "TypeDecl",
                     "type": "PCSTR"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "originCallerReturnAddressOffset",
+                    "data_type": "TypeDecl",
                     "type": "UINT32"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "originCallerModule",
+                    "data_type": "TypeDecl",
                     "type": "PCSTR"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "originName",
+                    "data_type": "TypeDecl",
                     "type": "PCSTR"
                 }
-            ],
-            "name": "FEATURE_ERROR"
+            ]
         },
         {
+            "name": "FEATURE_STATE_CHANGE_SUBSCRIPTION__",
             "data_type": "Struct",
             "elements": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "unused",
+                    "data_type": "TypeDecl",
                     "type": "int"
                 }
-            ],
-            "name": "FEATURE_STATE_CHANGE_SUBSCRIPTION__"
+            ]
         },
         {
             "data_type": "PtrDecl",
-            "name": "FEATURE_STATE_CHANGE_SUBSCRIPTION",
-            "type": "FEATURE_STATE_CHANGE_SUBSCRIPTION__"
-        },
-        {
-            "data_type": "TypeDecl",
-            "name": "FEATURE_STATE_CHANGE_CALLBACK",
-            "type": "void"
+            "type": {
+                "type": "FEATURE_STATE_CHANGE_SUBSCRIPTION__",
+                "data_type": "TypeDecl"
+            },
+            "name": "FEATURE_STATE_CHANGE_SUBSCRIPTION"
         },
         {
             "data_type": "PtrDecl",
-            "name": "PFEATURE_STATE_CHANGE_CALLBACK",
-            "type": "FEATURE_STATE_CHANGE_CALLBACK"
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "FEATURE_STATE_CHANGE_CALLBACK"
+            },
+            "name": "PFEATURE_STATE_CHANGE_CALLBACK"
         }
     ],
     "funcdefs": [
@@ -173,14 +174,14 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "featureId",
+                    "data_type": "TypeDecl",
                     "type": "UINT32",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "changeTime",
+                    "data_type": "TypeDecl",
                     "type": "FEATURE_CHANGE_TIME",
                     "sal": []
                 }
@@ -197,26 +198,26 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "featureId",
+                    "data_type": "TypeDecl",
                     "type": "UINT32",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "kind",
+                    "data_type": "TypeDecl",
                     "type": "UINT32",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "addend",
+                    "data_type": "TypeDecl",
                     "type": "UINT32",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "originName",
+                    "data_type": "TypeDecl",
                     "type": "PCSTR",
                     "sal": [
                         "in"
@@ -235,15 +236,18 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "featureId",
+                    "data_type": "TypeDecl",
                     "type": "UINT32",
                     "sal": []
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "FEATURE_ERROR"
+                    },
                     "name": "error",
-                    "type": "FEATURE_ERROR",
                     "sal": [
                         "in"
                     ]
@@ -262,15 +266,18 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "FEATURE_STATE_CHANGE_SUBSCRIPTION"
+                    },
                     "name": "subscription",
-                    "type": "FEATURE_STATE_CHANGE_SUBSCRIPTION",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "callback",
+                    "data_type": "TypeDecl",
                     "type": "PFEATURE_STATE_CHANGE_CALLBACK",
                     "sal": [
                         "in"
@@ -278,8 +285,11 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "void"
+                    },
                     "name": "context",
-                    "type": "void",
                     "sal": [
                         "in",
                         "optional"
@@ -298,8 +308,8 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "subscription",
+                    "data_type": "TypeDecl",
                     "type": "FEATURE_STATE_CHANGE_SUBSCRIPTION",
                     "sal": [
                         "in"
@@ -318,29 +328,35 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "featureId",
+                    "data_type": "TypeDecl",
                     "type": "UINT32",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "changeTime",
+                    "data_type": "TypeDecl",
                     "type": "FEATURE_CHANGE_TIME",
                     "sal": []
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "UINT32"
+                    },
                     "name": "payloadId",
-                    "type": "UINT32",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "BOOL"
+                    },
                     "name": "hasNotification",
-                    "type": "BOOL",
                     "sal": [
                         "out"
                     ]

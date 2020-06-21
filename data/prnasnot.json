@@ -1,465 +1,835 @@
 {
     "typedefs": [
         {
+            "name": "PrintAsyncNotifyUserFilter",
             "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "kPerUser",
+                        "value": {}
+                    },
+                    {
+                        "name": "kAllUsers",
+                        "value": {}
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PrintAsyncNotifyConversationStyle",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "kBiDirectional",
+                        "value": {}
+                    },
+                    {
+                        "name": "kUniDirectional",
+                        "value": {}
+                    }
+                ]
+            }
+        },
+        {
             "name": "PrintAsyncNotificationType",
+            "data_type": "TypeDecl",
             "type": "GUID"
         },
         {
+            "name": "IPrintAsyncNotifyDataObject",
             "data_type": "Struct",
             "elements": [
                 {
                     "data_type": "PtrDecl",
-                    "name": "lpVtbl",
-                    "type": "IPrintAsyncNotifyDataObjectVtbl"
+                    "type": {
+                        "type": "IPrintAsyncNotifyDataObjectVtbl",
+                        "data_type": "TypeDecl"
+                    },
+                    "name": "lpVtbl"
                 }
-            ],
-            "name": "IPrintAsyncNotifyDataObject"
+            ]
         },
         {
+            "name": "IPrintAsyncNotifyDataObjectVtbl",
             "data_type": "Struct",
             "elements": [
                 {
                     "data_type": "PtrDecl",
-                    "func": {
-                        "name": "QueryInterface",
+                    "type": {
+                        "data_type": "FuncDecl",
                         "type": {
+                            "name": "QueryInterface",
                             "data_type": "TypeDecl",
                             "type": "HRESULT"
                         },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "IPrintAsyncNotifyDataObject"
+                        "func": {
+                            "name": "QueryInterface",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "HRESULT"
                             },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "riid",
-                                "type": "IID"
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "ppvObj",
-                                "type": "void"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "QueryInterface",
-                        "type": "HRESULT"
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IPrintAsyncNotifyDataObject"
+                                    },
+                                    "name": "This"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IID"
+                                    },
+                                    "name": "riid"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "PtrDecl",
+                                        "type": {
+                                            "data_type": "TypeDecl",
+                                            "type": "void"
+                                        }
+                                    },
+                                    "name": "ppvObj"
+                                }
+                            ]
+                        }
                     }
                 },
                 {
                     "data_type": "PtrDecl",
-                    "func": {
-                        "name": "AddRef",
+                    "type": {
+                        "data_type": "FuncDecl",
                         "type": {
+                            "name": "AddRef",
                             "data_type": "TypeDecl",
                             "type": "ULONG"
                         },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "IPrintAsyncNotifyDataObject"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "AddRef",
-                        "type": "ULONG"
-                    }
-                },
-                {
-                    "data_type": "PtrDecl",
-                    "func": {
-                        "name": "Release",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "IPrintAsyncNotifyDataObject"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "Release",
-                        "type": "ULONG"
-                    }
-                },
-                {
-                    "data_type": "PtrDecl",
-                    "func": {
-                        "name": "AcquireData",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "HRESULT"
-                        },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "IPrintAsyncNotifyDataObject"
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "ppNotificationData",
-                                "type": "BYTE"
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "pSize",
+                        "func": {
+                            "name": "AddRef",
+                            "type": {
+                                "data_type": "TypeDecl",
                                 "type": "ULONG"
                             },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "ppSchema",
-                                "type": "PrintAsyncNotificationType"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "AcquireData",
-                        "type": "HRESULT"
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IPrintAsyncNotifyDataObject"
+                                    },
+                                    "name": "This"
+                                }
+                            ]
+                        }
                     }
                 },
                 {
                     "data_type": "PtrDecl",
-                    "func": {
-                        "name": "ReleaseData",
+                    "type": {
+                        "data_type": "FuncDecl",
                         "type": {
+                            "name": "Release",
+                            "data_type": "TypeDecl",
+                            "type": "ULONG"
+                        },
+                        "func": {
+                            "name": "Release",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "ULONG"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IPrintAsyncNotifyDataObject"
+                                    },
+                                    "name": "This"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "FuncDecl",
+                        "type": {
+                            "name": "AcquireData",
                             "data_type": "TypeDecl",
                             "type": "HRESULT"
                         },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "IPrintAsyncNotifyDataObject"
-                            }
-                        ]
-                    },
+                        "func": {
+                            "name": "AcquireData",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "HRESULT"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IPrintAsyncNotifyDataObject"
+                                    },
+                                    "name": "This"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "PtrDecl",
+                                        "type": {
+                                            "data_type": "TypeDecl",
+                                            "type": "BYTE"
+                                        }
+                                    },
+                                    "name": "ppNotificationData"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "ULONG"
+                                    },
+                                    "name": "pSize"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "PtrDecl",
+                                        "type": {
+                                            "data_type": "TypeDecl",
+                                            "type": "PrintAsyncNotificationType"
+                                        }
+                                    },
+                                    "name": "ppSchema"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
-                        "name": "ReleaseData",
-                        "type": "HRESULT"
+                        "data_type": "FuncDecl",
+                        "type": {
+                            "name": "ReleaseData",
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "func": {
+                            "name": "ReleaseData",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "HRESULT"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IPrintAsyncNotifyDataObject"
+                                    },
+                                    "name": "This"
+                                }
+                            ]
+                        }
                     }
                 }
-            ],
-            "name": "IPrintAsyncNotifyDataObjectVtbl"
+            ]
         },
         {
+            "name": "IPrintAsyncNotifyChannel",
             "data_type": "Struct",
             "elements": [
                 {
                     "data_type": "PtrDecl",
-                    "name": "lpVtbl",
-                    "type": "IPrintAsyncNotifyChannelVtbl"
+                    "type": {
+                        "type": "IPrintAsyncNotifyChannelVtbl",
+                        "data_type": "TypeDecl"
+                    },
+                    "name": "lpVtbl"
                 }
-            ],
-            "name": "IPrintAsyncNotifyChannel"
+            ]
         },
         {
+            "name": "IPrintAsyncNotifyChannelVtbl",
             "data_type": "Struct",
             "elements": [
                 {
                     "data_type": "PtrDecl",
-                    "func": {
-                        "name": "QueryInterface",
+                    "type": {
+                        "data_type": "FuncDecl",
                         "type": {
+                            "name": "QueryInterface",
                             "data_type": "TypeDecl",
                             "type": "HRESULT"
                         },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "IPrintAsyncNotifyChannel"
+                        "func": {
+                            "name": "QueryInterface",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "HRESULT"
                             },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "riid",
-                                "type": "IID"
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "ppvObj",
-                                "type": "void"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "QueryInterface",
-                        "type": "HRESULT"
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IPrintAsyncNotifyChannel"
+                                    },
+                                    "name": "This"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IID"
+                                    },
+                                    "name": "riid"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "PtrDecl",
+                                        "type": {
+                                            "data_type": "TypeDecl",
+                                            "type": "void"
+                                        }
+                                    },
+                                    "name": "ppvObj"
+                                }
+                            ]
+                        }
                     }
                 },
                 {
                     "data_type": "PtrDecl",
-                    "func": {
-                        "name": "AddRef",
+                    "type": {
+                        "data_type": "FuncDecl",
                         "type": {
+                            "name": "AddRef",
                             "data_type": "TypeDecl",
                             "type": "ULONG"
                         },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "IPrintAsyncNotifyChannel"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "AddRef",
-                        "type": "ULONG"
+                        "func": {
+                            "name": "AddRef",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "ULONG"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IPrintAsyncNotifyChannel"
+                                    },
+                                    "name": "This"
+                                }
+                            ]
+                        }
                     }
                 },
                 {
                     "data_type": "PtrDecl",
-                    "func": {
-                        "name": "Release",
+                    "type": {
+                        "data_type": "FuncDecl",
                         "type": {
+                            "name": "Release",
                             "data_type": "TypeDecl",
                             "type": "ULONG"
                         },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "IPrintAsyncNotifyChannel"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "Release",
-                        "type": "ULONG"
+                        "func": {
+                            "name": "Release",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "ULONG"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IPrintAsyncNotifyChannel"
+                                    },
+                                    "name": "This"
+                                }
+                            ]
+                        }
                     }
                 },
                 {
                     "data_type": "PtrDecl",
-                    "func": {
-                        "name": "SendNotification",
+                    "type": {
+                        "data_type": "FuncDecl",
                         "type": {
+                            "name": "SendNotification",
                             "data_type": "TypeDecl",
                             "type": "HRESULT"
                         },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "IPrintAsyncNotifyChannel"
+                        "func": {
+                            "name": "SendNotification",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "HRESULT"
                             },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "pData",
-                                "type": "IPrintAsyncNotifyDataObject"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "SendNotification",
-                        "type": "HRESULT"
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IPrintAsyncNotifyChannel"
+                                    },
+                                    "name": "This"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IPrintAsyncNotifyDataObject"
+                                    },
+                                    "name": "pData"
+                                }
+                            ]
+                        }
                     }
                 },
                 {
                     "data_type": "PtrDecl",
-                    "func": {
-                        "name": "CloseChannel",
+                    "type": {
+                        "data_type": "FuncDecl",
                         "type": {
+                            "name": "CloseChannel",
                             "data_type": "TypeDecl",
                             "type": "HRESULT"
                         },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "IPrintAsyncNotifyChannel"
+                        "func": {
+                            "name": "CloseChannel",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "HRESULT"
                             },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "pData",
-                                "type": "IPrintAsyncNotifyDataObject"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "CloseChannel",
-                        "type": "HRESULT"
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IPrintAsyncNotifyChannel"
+                                    },
+                                    "name": "This"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IPrintAsyncNotifyDataObject"
+                                    },
+                                    "name": "pData"
+                                }
+                            ]
+                        }
                     }
                 }
-            ],
-            "name": "IPrintAsyncNotifyChannelVtbl"
+            ]
         },
         {
+            "name": "IPrintAsyncNotifyCallback",
             "data_type": "Struct",
             "elements": [
                 {
                     "data_type": "PtrDecl",
-                    "name": "lpVtbl",
-                    "type": "IPrintAsyncNotifyCallbackVtbl"
+                    "type": {
+                        "type": "IPrintAsyncNotifyCallbackVtbl",
+                        "data_type": "TypeDecl"
+                    },
+                    "name": "lpVtbl"
                 }
-            ],
-            "name": "IPrintAsyncNotifyCallback"
+            ]
         },
         {
+            "name": "IPrintAsyncNotifyCallbackVtbl",
             "data_type": "Struct",
             "elements": [
                 {
                     "data_type": "PtrDecl",
-                    "func": {
-                        "name": "QueryInterface",
+                    "type": {
+                        "data_type": "FuncDecl",
                         "type": {
+                            "name": "QueryInterface",
                             "data_type": "TypeDecl",
                             "type": "HRESULT"
                         },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "IPrintAsyncNotifyCallback"
+                        "func": {
+                            "name": "QueryInterface",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "HRESULT"
                             },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "riid",
-                                "type": "IID"
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "ppvObj",
-                                "type": "void"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "QueryInterface",
-                        "type": "HRESULT"
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IPrintAsyncNotifyCallback"
+                                    },
+                                    "name": "This"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IID"
+                                    },
+                                    "name": "riid"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "PtrDecl",
+                                        "type": {
+                                            "data_type": "TypeDecl",
+                                            "type": "void"
+                                        }
+                                    },
+                                    "name": "ppvObj"
+                                }
+                            ]
+                        }
                     }
                 },
                 {
                     "data_type": "PtrDecl",
-                    "func": {
-                        "name": "AddRef",
+                    "type": {
+                        "data_type": "FuncDecl",
                         "type": {
+                            "name": "AddRef",
                             "data_type": "TypeDecl",
                             "type": "ULONG"
                         },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "IPrintAsyncNotifyCallback"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "AddRef",
-                        "type": "ULONG"
+                        "func": {
+                            "name": "AddRef",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "ULONG"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IPrintAsyncNotifyCallback"
+                                    },
+                                    "name": "This"
+                                }
+                            ]
+                        }
                     }
                 },
                 {
                     "data_type": "PtrDecl",
-                    "func": {
-                        "name": "Release",
+                    "type": {
+                        "data_type": "FuncDecl",
                         "type": {
+                            "name": "Release",
                             "data_type": "TypeDecl",
                             "type": "ULONG"
                         },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "IPrintAsyncNotifyCallback"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "Release",
-                        "type": "ULONG"
+                        "func": {
+                            "name": "Release",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "ULONG"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IPrintAsyncNotifyCallback"
+                                    },
+                                    "name": "This"
+                                }
+                            ]
+                        }
                     }
                 },
                 {
                     "data_type": "PtrDecl",
-                    "func": {
-                        "name": "OnEventNotify",
+                    "type": {
+                        "data_type": "FuncDecl",
                         "type": {
+                            "name": "OnEventNotify",
                             "data_type": "TypeDecl",
                             "type": "HRESULT"
                         },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "IPrintAsyncNotifyCallback"
+                        "func": {
+                            "name": "OnEventNotify",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "HRESULT"
                             },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "pChannel",
-                                "type": "IPrintAsyncNotifyChannel"
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "pData",
-                                "type": "IPrintAsyncNotifyDataObject"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "OnEventNotify",
-                        "type": "HRESULT"
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IPrintAsyncNotifyCallback"
+                                    },
+                                    "name": "This"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IPrintAsyncNotifyChannel"
+                                    },
+                                    "name": "pChannel"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IPrintAsyncNotifyDataObject"
+                                    },
+                                    "name": "pData"
+                                }
+                            ]
+                        }
                     }
                 },
                 {
                     "data_type": "PtrDecl",
-                    "func": {
-                        "name": "ChannelClosed",
+                    "type": {
+                        "data_type": "FuncDecl",
                         "type": {
+                            "name": "ChannelClosed",
                             "data_type": "TypeDecl",
                             "type": "HRESULT"
                         },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "IPrintAsyncNotifyCallback"
+                        "func": {
+                            "name": "ChannelClosed",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "HRESULT"
                             },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "pChannel",
-                                "type": "IPrintAsyncNotifyChannel"
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "pData",
-                                "type": "IPrintAsyncNotifyDataObject"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "ChannelClosed",
-                        "type": "HRESULT"
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IPrintAsyncNotifyCallback"
+                                    },
+                                    "name": "This"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IPrintAsyncNotifyChannel"
+                                    },
+                                    "name": "pChannel"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IPrintAsyncNotifyDataObject"
+                                    },
+                                    "name": "pData"
+                                }
+                            ]
+                        }
                     }
                 }
-            ],
-            "name": "IPrintAsyncNotifyCallbackVtbl"
+            ]
+        },
+        {
+            "name": "PrintAsyncNotifyError",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "CHANNEL_CLOSED_BY_SERVER",
+                        "value": {
+                            "type": "int",
+                            "value": "0x01"
+                        }
+                    },
+                    {
+                        "name": "CHANNEL_CLOSED_BY_ANOTHER_LISTENER",
+                        "value": {
+                            "type": "int",
+                            "value": "0x02"
+                        }
+                    },
+                    {
+                        "name": "CHANNEL_CLOSED_BY_SAME_LISTENER",
+                        "value": {
+                            "type": "int",
+                            "value": "0x03"
+                        }
+                    },
+                    {
+                        "name": "CHANNEL_RELEASED_BY_LISTENER",
+                        "value": {
+                            "type": "int",
+                            "value": "0x04"
+                        }
+                    },
+                    {
+                        "name": "UNIRECTIONAL_NOTIFICATION_LOST",
+                        "value": {
+                            "type": "int",
+                            "value": "0x05"
+                        }
+                    },
+                    {
+                        "name": "ASYNC_NOTIFICATION_FAILURE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x06"
+                        }
+                    },
+                    {
+                        "name": "NO_LISTENERS",
+                        "value": {
+                            "type": "int",
+                            "value": "0x07"
+                        }
+                    },
+                    {
+                        "name": "CHANNEL_ALREADY_CLOSED",
+                        "value": {
+                            "type": "int",
+                            "value": "0x08"
+                        }
+                    },
+                    {
+                        "name": "CHANNEL_ALREADY_OPENED",
+                        "value": {
+                            "type": "int",
+                            "value": "0x09"
+                        }
+                    },
+                    {
+                        "name": "CHANNEL_WAITING_FOR_CLIENT_NOTIFICATION",
+                        "value": {
+                            "type": "int",
+                            "value": "0x0a"
+                        }
+                    },
+                    {
+                        "name": "CHANNEL_NOT_OPENED",
+                        "value": {
+                            "type": "int",
+                            "value": "0x0b"
+                        }
+                    },
+                    {
+                        "name": "ASYNC_CALL_ALREADY_PARKED",
+                        "value": {
+                            "type": "int",
+                            "value": "0x0c"
+                        }
+                    },
+                    {
+                        "name": "NOT_REGISTERED",
+                        "value": {
+                            "type": "int",
+                            "value": "0x0d"
+                        }
+                    },
+                    {
+                        "name": "ALREADY_UNREGISTERED",
+                        "value": {
+                            "type": "int",
+                            "value": "0x0e"
+                        }
+                    },
+                    {
+                        "name": "ALREADY_REGISTERED",
+                        "value": {
+                            "type": "int",
+                            "value": "0x0f"
+                        }
+                    },
+                    {
+                        "name": "CHANNEL_ACQUIRED",
+                        "value": {
+                            "type": "int",
+                            "value": "0x10"
+                        }
+                    },
+                    {
+                        "name": "ASYNC_CALL_IN_PROGRESS",
+                        "value": {
+                            "type": "int",
+                            "value": "0x11"
+                        }
+                    },
+                    {
+                        "name": "MAX_NOTIFICATION_SIZE_EXCEEDED",
+                        "value": {
+                            "type": "int",
+                            "value": "0x12"
+                        }
+                    },
+                    {
+                        "name": "INTERNAL_NOTIFICATION_QUEUE_IS_FULL",
+                        "value": {
+                            "type": "int",
+                            "value": "0x13"
+                        }
+                    },
+                    {
+                        "name": "INVALID_NOTIFICATION_TYPE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x14"
+                        }
+                    },
+                    {
+                        "name": "MAX_REGISTRATION_COUNT_EXCEEDED",
+                        "value": {
+                            "type": "int",
+                            "value": "0x15"
+                        }
+                    },
+                    {
+                        "name": "MAX_CHANNEL_COUNT_EXCEEDED",
+                        "value": {
+                            "type": "int",
+                            "value": "0x16"
+                        }
+                    },
+                    {
+                        "name": "LOCAL_ONLY_REGISTRATION",
+                        "value": {
+                            "type": "int",
+                            "value": "0x17"
+                        }
+                    },
+                    {
+                        "name": "REMOTE_ONLY_REGISTRATION",
+                        "value": {
+                            "type": "int",
+                            "value": "0x18"
+                        }
+                    }
+                ]
+            }
         }
     ],
     "funcdefs": [
@@ -471,8 +841,8 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "pszName",
+                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -480,23 +850,26 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "PrintAsyncNotificationType"
+                    },
                     "name": "pNotificationType",
-                    "type": "PrintAsyncNotificationType",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "eUserFilter",
+                    "data_type": "TypeDecl",
                     "type": "PrintAsyncNotifyUserFilter",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "eConversationStyle",
+                    "data_type": "TypeDecl",
                     "type": "PrintAsyncNotifyConversationStyle",
                     "sal": [
                         "in"
@@ -504,16 +877,22 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "IPrintAsyncNotifyCallback"
+                    },
                     "name": "pCallback",
-                    "type": "IPrintAsyncNotifyCallback",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "HANDLE"
+                    },
                     "name": "phNotify",
-                    "type": "HANDLE",
                     "sal": [
                         "out"
                     ]
@@ -550,8 +929,8 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "pszName",
+                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -559,23 +938,26 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "PrintAsyncNotificationType"
+                    },
                     "name": "pNotificationType",
-                    "type": "PrintAsyncNotificationType",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "eUserFilter",
+                    "data_type": "TypeDecl",
                     "type": "PrintAsyncNotifyUserFilter",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "eConversationStyle",
+                    "data_type": "TypeDecl",
                     "type": "PrintAsyncNotifyConversationStyle",
                     "sal": [
                         "in"
@@ -583,16 +965,25 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "IPrintAsyncNotifyCallback"
+                    },
                     "name": "pCallback",
-                    "type": "IPrintAsyncNotifyCallback",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "PtrDecl",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "IPrintAsyncNotifyChannel"
+                        }
+                    },
                     "name": "ppIAsynchNotification",
-                    "type": "IPrintAsyncNotifyChannel",
                     "sal": [
                         "out"
                     ]

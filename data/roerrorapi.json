@@ -1,806 +1,1110 @@
 {
     "typedefs": [
         {
+            "name": "HSTRING__",
             "data_type": "Struct",
             "elements": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "unused",
+                    "data_type": "TypeDecl",
                     "type": "int"
                 }
-            ],
-            "name": "HSTRING__"
+            ]
         },
         {
             "data_type": "PtrDecl",
-            "name": "HSTRING",
-            "type": "HSTRING__"
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "HSTRING__"
+            },
+            "name": "HSTRING"
         },
         {
+            "name": "HSTRING_HEADER",
             "data_type": "Struct",
             "elements": [
                 {
-                    "data_type": "Union",
-                    "elements": [
-                        {
-                            "data_type": "TypeDecl",
-                            "name": "Reserved1",
-                            "type": "PVOID"
-                        },
-                        {
-                            "data_type": "ArrayDecl",
-                            "dim": {
-                                "type": "int",
-                                "value": "24"
-                            },
-                            "type": {
-                                "data_type": "TypeDecl",
-                                "name": "Reserved2",
-                                "type": "char"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "name": "HSTRING_HEADER"
-        },
-        {
-            "data_type": "Struct",
-            "elements": [
-                {
+                    "name": "Reserved",
                     "data_type": "TypeDecl",
-                    "name": "unused",
-                    "type": "int"
-                }
-            ],
-            "name": "HSTRING_BUFFER__"
-        },
-        {
-            "data_type": "PtrDecl",
-            "name": "HSTRING_BUFFER",
-            "type": "HSTRING_BUFFER__"
-        },
-        {
-            "data_type": "Struct",
-            "elements": [
-                {
-                    "data_type": "PtrDecl",
-                    "func": {
-                        "name": "QueryInterface",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "HRESULT"
-                        },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "IRestrictedErrorInfo"
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "riid",
-                                "type": "IID"
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "ppvObject",
-                                "type": "void"
-                            }
-                        ]
-                    },
                     "type": {
-                        "data_type": "TypeDecl",
-                        "name": "QueryInterface",
-                        "type": "HRESULT"
-                    }
-                },
-                {
-                    "data_type": "PtrDecl",
-                    "func": {
-                        "name": "AddRef",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        "arguments": [
+                        "data_type": "Union",
+                        "elements": [
                             {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "IRestrictedErrorInfo"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "AddRef",
-                        "type": "ULONG"
-                    }
-                },
-                {
-                    "data_type": "PtrDecl",
-                    "func": {
-                        "name": "Release",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "IRestrictedErrorInfo"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "Release",
-                        "type": "ULONG"
-                    }
-                },
-                {
-                    "data_type": "PtrDecl",
-                    "func": {
-                        "name": "GetErrorDetails",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "HRESULT"
-                        },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "IRestrictedErrorInfo"
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "description",
-                                "type": "BSTR"
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "error",
-                                "type": "HRESULT"
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "restrictedDescription",
-                                "type": "BSTR"
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "capabilitySid",
-                                "type": "BSTR"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "GetErrorDetails",
-                        "type": "HRESULT"
-                    }
-                },
-                {
-                    "data_type": "PtrDecl",
-                    "func": {
-                        "name": "GetReference",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "HRESULT"
-                        },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "IRestrictedErrorInfo"
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "reference",
-                                "type": "BSTR"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "GetReference",
-                        "type": "HRESULT"
-                    }
-                }
-            ],
-            "name": "IRestrictedErrorInfoVtbl"
-        },
-        {
-            "data_type": "Struct",
-            "elements": [
-                {
-                    "data_type": "PtrDecl",
-                    "name": "lpVtbl",
-                    "type": "IRestrictedErrorInfoVtbl"
-                }
-            ],
-            "name": "IRestrictedErrorInfo"
-        },
-        {
-            "data_type": "Struct",
-            "elements": [
-                {
-                    "data_type": "PtrDecl",
-                    "func": {
-                        "name": "QueryInterface",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "HRESULT"
-                        },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "ILanguageExceptionErrorInfo"
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "riid",
-                                "type": "IID"
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "ppvObject",
-                                "type": "void"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "QueryInterface",
-                        "type": "HRESULT"
-                    }
-                },
-                {
-                    "data_type": "PtrDecl",
-                    "func": {
-                        "name": "AddRef",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "ILanguageExceptionErrorInfo"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "AddRef",
-                        "type": "ULONG"
-                    }
-                },
-                {
-                    "data_type": "PtrDecl",
-                    "func": {
-                        "name": "Release",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "ILanguageExceptionErrorInfo"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "Release",
-                        "type": "ULONG"
-                    }
-                },
-                {
-                    "data_type": "PtrDecl",
-                    "func": {
-                        "name": "GetLanguageException",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "HRESULT"
-                        },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "ILanguageExceptionErrorInfo"
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "languageException",
-                                "type": "IUnknown"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "GetLanguageException",
-                        "type": "HRESULT"
-                    }
-                }
-            ],
-            "name": "ILanguageExceptionErrorInfoVtbl"
-        },
-        {
-            "data_type": "Struct",
-            "elements": [
-                {
-                    "data_type": "PtrDecl",
-                    "name": "lpVtbl",
-                    "type": "ILanguageExceptionErrorInfoVtbl"
-                }
-            ],
-            "name": "ILanguageExceptionErrorInfo"
-        },
-        {
-            "data_type": "Struct",
-            "elements": [
-                {
-                    "data_type": "PtrDecl",
-                    "func": {
-                        "name": "QueryInterface",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "HRESULT"
-                        },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "ILanguageExceptionTransform"
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "riid",
-                                "type": "IID"
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "ppvObject",
-                                "type": "void"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "QueryInterface",
-                        "type": "HRESULT"
-                    }
-                },
-                {
-                    "data_type": "PtrDecl",
-                    "func": {
-                        "name": "AddRef",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "ILanguageExceptionTransform"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "AddRef",
-                        "type": "ULONG"
-                    }
-                },
-                {
-                    "data_type": "PtrDecl",
-                    "func": {
-                        "name": "Release",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "ILanguageExceptionTransform"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "Release",
-                        "type": "ULONG"
-                    }
-                },
-                {
-                    "data_type": "PtrDecl",
-                    "func": {
-                        "name": "GetTransformedRestrictedErrorInfo",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "HRESULT"
-                        },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "ILanguageExceptionTransform"
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "restrictedErrorInfo",
-                                "type": "IRestrictedErrorInfo"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "GetTransformedRestrictedErrorInfo",
-                        "type": "HRESULT"
-                    }
-                }
-            ],
-            "name": "ILanguageExceptionTransformVtbl"
-        },
-        {
-            "data_type": "Struct",
-            "elements": [
-                {
-                    "data_type": "PtrDecl",
-                    "name": "lpVtbl",
-                    "type": "ILanguageExceptionTransformVtbl"
-                }
-            ],
-            "name": "ILanguageExceptionTransform"
-        },
-        {
-            "data_type": "Struct",
-            "elements": [
-                {
-                    "data_type": "PtrDecl",
-                    "func": {
-                        "name": "QueryInterface",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "HRESULT"
-                        },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "ILanguageExceptionStackBackTrace"
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "riid",
-                                "type": "IID"
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "ppvObject",
-                                "type": "void"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "QueryInterface",
-                        "type": "HRESULT"
-                    }
-                },
-                {
-                    "data_type": "PtrDecl",
-                    "func": {
-                        "name": "AddRef",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "ILanguageExceptionStackBackTrace"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "AddRef",
-                        "type": "ULONG"
-                    }
-                },
-                {
-                    "data_type": "PtrDecl",
-                    "func": {
-                        "name": "Release",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "ILanguageExceptionStackBackTrace"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "Release",
-                        "type": "ULONG"
-                    }
-                },
-                {
-                    "data_type": "PtrDecl",
-                    "func": {
-                        "name": "GetStackBackTrace",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "HRESULT"
-                        },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "ILanguageExceptionStackBackTrace"
-                            },
-                            {
+                                "name": "Reserved1",
                                 "data_type": "TypeDecl",
-                                "name": "maxFramesToCapture",
-                                "type": "ULONG"
+                                "type": "PVOID"
                             },
                             {
                                 "data_type": "ArrayDecl",
-                                "dim": {},
                                 "type": {
+                                    "name": "Reserved2",
                                     "data_type": "TypeDecl",
-                                    "name": "stackBackTrace",
-                                    "type": "UINT_PTR"
+                                    "type": "char"
+                                },
+                                "dim": {
+                                    "type": "int",
+                                    "value": "24"
                                 }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "HSTRING_BUFFER__",
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "name": "unused",
+                    "data_type": "TypeDecl",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "data_type": "PtrDecl",
+            "type": {
+                "type": "HSTRING_BUFFER__",
+                "data_type": "TypeDecl"
+            },
+            "name": "HSTRING_BUFFER"
+        },
+        {
+            "name": "IRestrictedErrorInfoVtbl",
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "FuncDecl",
+                        "type": {
+                            "name": "QueryInterface",
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "func": {
+                            "name": "QueryInterface",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "HRESULT"
                             },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "framesCaptured",
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IRestrictedErrorInfo"
+                                    },
+                                    "name": "This"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IID"
+                                    },
+                                    "name": "riid"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "PtrDecl",
+                                        "type": {
+                                            "data_type": "TypeDecl",
+                                            "type": "void"
+                                        }
+                                    },
+                                    "name": "ppvObject"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "FuncDecl",
+                        "type": {
+                            "name": "AddRef",
+                            "data_type": "TypeDecl",
+                            "type": "ULONG"
+                        },
+                        "func": {
+                            "name": "AddRef",
+                            "type": {
+                                "data_type": "TypeDecl",
                                 "type": "ULONG"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "GetStackBackTrace",
-                        "type": "HRESULT"
-                    }
-                }
-            ],
-            "name": "ILanguageExceptionStackBackTraceVtbl"
-        },
-        {
-            "data_type": "Struct",
-            "elements": [
-                {
-                    "data_type": "PtrDecl",
-                    "name": "lpVtbl",
-                    "type": "ILanguageExceptionStackBackTraceVtbl"
-                }
-            ],
-            "name": "ILanguageExceptionStackBackTrace"
-        },
-        {
-            "data_type": "Struct",
-            "elements": [
-                {
-                    "data_type": "PtrDecl",
-                    "func": {
-                        "name": "QueryInterface",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "HRESULT"
-                        },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "ILanguageExceptionErrorInfo2"
                             },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "riid",
-                                "type": "IID"
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "ppvObject",
-                                "type": "void"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "QueryInterface",
-                        "type": "HRESULT"
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IRestrictedErrorInfo"
+                                    },
+                                    "name": "This"
+                                }
+                            ]
+                        }
                     }
                 },
                 {
                     "data_type": "PtrDecl",
-                    "func": {
-                        "name": "AddRef",
+                    "type": {
+                        "data_type": "FuncDecl",
                         "type": {
+                            "name": "Release",
                             "data_type": "TypeDecl",
                             "type": "ULONG"
                         },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "ILanguageExceptionErrorInfo2"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "AddRef",
-                        "type": "ULONG"
+                        "func": {
+                            "name": "Release",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "ULONG"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IRestrictedErrorInfo"
+                                    },
+                                    "name": "This"
+                                }
+                            ]
+                        }
                     }
                 },
                 {
                     "data_type": "PtrDecl",
-                    "func": {
-                        "name": "Release",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "ILanguageExceptionErrorInfo2"
-                            }
-                        ]
-                    },
                     "type": {
-                        "data_type": "TypeDecl",
-                        "name": "Release",
-                        "type": "ULONG"
-                    }
-                },
-                {
-                    "data_type": "PtrDecl",
-                    "func": {
-                        "name": "GetLanguageException",
+                        "data_type": "FuncDecl",
                         "type": {
+                            "name": "GetErrorDetails",
                             "data_type": "TypeDecl",
                             "type": "HRESULT"
                         },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "ILanguageExceptionErrorInfo2"
+                        "func": {
+                            "name": "GetErrorDetails",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "HRESULT"
                             },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "languageException",
-                                "type": "IUnknown"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "GetLanguageException",
-                        "type": "HRESULT"
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IRestrictedErrorInfo"
+                                    },
+                                    "name": "This"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "BSTR"
+                                    },
+                                    "name": "description"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "HRESULT"
+                                    },
+                                    "name": "error"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "BSTR"
+                                    },
+                                    "name": "restrictedDescription"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "BSTR"
+                                    },
+                                    "name": "capabilitySid"
+                                }
+                            ]
+                        }
                     }
                 },
                 {
                     "data_type": "PtrDecl",
-                    "func": {
-                        "name": "GetPreviousLanguageExceptionErrorInfo",
+                    "type": {
+                        "data_type": "FuncDecl",
                         "type": {
+                            "name": "GetReference",
                             "data_type": "TypeDecl",
                             "type": "HRESULT"
                         },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "ILanguageExceptionErrorInfo2"
+                        "func": {
+                            "name": "GetReference",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "HRESULT"
                             },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "previousLanguageExceptionErrorInfo",
-                                "type": "ILanguageExceptionErrorInfo2"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "GetPreviousLanguageExceptionErrorInfo",
-                        "type": "HRESULT"
-                    }
-                },
-                {
-                    "data_type": "PtrDecl",
-                    "func": {
-                        "name": "CapturePropagationContext",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "HRESULT"
-                        },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "ILanguageExceptionErrorInfo2"
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "languageException",
-                                "type": "IUnknown"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "CapturePropagationContext",
-                        "type": "HRESULT"
-                    }
-                },
-                {
-                    "data_type": "PtrDecl",
-                    "func": {
-                        "name": "GetPropagationContextHead",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "HRESULT"
-                        },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "ILanguageExceptionErrorInfo2"
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "propagatedLanguageExceptionErrorInfoHead",
-                                "type": "ILanguageExceptionErrorInfo2"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "GetPropagationContextHead",
-                        "type": "HRESULT"
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IRestrictedErrorInfo"
+                                    },
+                                    "name": "This"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "BSTR"
+                                    },
+                                    "name": "reference"
+                                }
+                            ]
+                        }
                     }
                 }
-            ],
-            "name": "ILanguageExceptionErrorInfo2Vtbl"
+            ]
         },
         {
+            "name": "IRestrictedErrorInfo",
             "data_type": "Struct",
             "elements": [
                 {
                     "data_type": "PtrDecl",
-                    "name": "lpVtbl",
-                    "type": "ILanguageExceptionErrorInfo2Vtbl"
+                    "type": {
+                        "type": "IRestrictedErrorInfoVtbl",
+                        "data_type": "TypeDecl"
+                    },
+                    "name": "lpVtbl"
                 }
-            ],
-            "name": "ILanguageExceptionErrorInfo2"
+            ]
         },
         {
+            "name": "ILanguageExceptionErrorInfoVtbl",
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "FuncDecl",
+                        "type": {
+                            "name": "QueryInterface",
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "func": {
+                            "name": "QueryInterface",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "HRESULT"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "ILanguageExceptionErrorInfo"
+                                    },
+                                    "name": "This"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IID"
+                                    },
+                                    "name": "riid"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "PtrDecl",
+                                        "type": {
+                                            "data_type": "TypeDecl",
+                                            "type": "void"
+                                        }
+                                    },
+                                    "name": "ppvObject"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "FuncDecl",
+                        "type": {
+                            "name": "AddRef",
+                            "data_type": "TypeDecl",
+                            "type": "ULONG"
+                        },
+                        "func": {
+                            "name": "AddRef",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "ULONG"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "ILanguageExceptionErrorInfo"
+                                    },
+                                    "name": "This"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "FuncDecl",
+                        "type": {
+                            "name": "Release",
+                            "data_type": "TypeDecl",
+                            "type": "ULONG"
+                        },
+                        "func": {
+                            "name": "Release",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "ULONG"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "ILanguageExceptionErrorInfo"
+                                    },
+                                    "name": "This"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "FuncDecl",
+                        "type": {
+                            "name": "GetLanguageException",
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "func": {
+                            "name": "GetLanguageException",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "HRESULT"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "ILanguageExceptionErrorInfo"
+                                    },
+                                    "name": "This"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "PtrDecl",
+                                        "type": {
+                                            "data_type": "TypeDecl",
+                                            "type": "IUnknown"
+                                        }
+                                    },
+                                    "name": "languageException"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "ILanguageExceptionErrorInfo",
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "type": "ILanguageExceptionErrorInfoVtbl",
+                        "data_type": "TypeDecl"
+                    },
+                    "name": "lpVtbl"
+                }
+            ]
+        },
+        {
+            "name": "ILanguageExceptionTransformVtbl",
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "FuncDecl",
+                        "type": {
+                            "name": "QueryInterface",
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "func": {
+                            "name": "QueryInterface",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "HRESULT"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "ILanguageExceptionTransform"
+                                    },
+                                    "name": "This"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IID"
+                                    },
+                                    "name": "riid"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "PtrDecl",
+                                        "type": {
+                                            "data_type": "TypeDecl",
+                                            "type": "void"
+                                        }
+                                    },
+                                    "name": "ppvObject"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "FuncDecl",
+                        "type": {
+                            "name": "AddRef",
+                            "data_type": "TypeDecl",
+                            "type": "ULONG"
+                        },
+                        "func": {
+                            "name": "AddRef",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "ULONG"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "ILanguageExceptionTransform"
+                                    },
+                                    "name": "This"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "FuncDecl",
+                        "type": {
+                            "name": "Release",
+                            "data_type": "TypeDecl",
+                            "type": "ULONG"
+                        },
+                        "func": {
+                            "name": "Release",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "ULONG"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "ILanguageExceptionTransform"
+                                    },
+                                    "name": "This"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "FuncDecl",
+                        "type": {
+                            "name": "GetTransformedRestrictedErrorInfo",
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "func": {
+                            "name": "GetTransformedRestrictedErrorInfo",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "HRESULT"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "ILanguageExceptionTransform"
+                                    },
+                                    "name": "This"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "PtrDecl",
+                                        "type": {
+                                            "data_type": "TypeDecl",
+                                            "type": "IRestrictedErrorInfo"
+                                        }
+                                    },
+                                    "name": "restrictedErrorInfo"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "ILanguageExceptionTransform",
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "type": "ILanguageExceptionTransformVtbl",
+                        "data_type": "TypeDecl"
+                    },
+                    "name": "lpVtbl"
+                }
+            ]
+        },
+        {
+            "name": "ILanguageExceptionStackBackTraceVtbl",
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "FuncDecl",
+                        "type": {
+                            "name": "QueryInterface",
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "func": {
+                            "name": "QueryInterface",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "HRESULT"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "ILanguageExceptionStackBackTrace"
+                                    },
+                                    "name": "This"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IID"
+                                    },
+                                    "name": "riid"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "PtrDecl",
+                                        "type": {
+                                            "data_type": "TypeDecl",
+                                            "type": "void"
+                                        }
+                                    },
+                                    "name": "ppvObject"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "FuncDecl",
+                        "type": {
+                            "name": "AddRef",
+                            "data_type": "TypeDecl",
+                            "type": "ULONG"
+                        },
+                        "func": {
+                            "name": "AddRef",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "ULONG"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "ILanguageExceptionStackBackTrace"
+                                    },
+                                    "name": "This"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "FuncDecl",
+                        "type": {
+                            "name": "Release",
+                            "data_type": "TypeDecl",
+                            "type": "ULONG"
+                        },
+                        "func": {
+                            "name": "Release",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "ULONG"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "ILanguageExceptionStackBackTrace"
+                                    },
+                                    "name": "This"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "FuncDecl",
+                        "type": {
+                            "name": "GetStackBackTrace",
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "func": {
+                            "name": "GetStackBackTrace",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "HRESULT"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "ILanguageExceptionStackBackTrace"
+                                    },
+                                    "name": "This"
+                                },
+                                {
+                                    "name": "maxFramesToCapture",
+                                    "data_type": "TypeDecl",
+                                    "type": "ULONG"
+                                },
+                                {
+                                    "data_type": "ArrayDecl",
+                                    "type": {
+                                        "name": "stackBackTrace",
+                                        "data_type": "TypeDecl",
+                                        "type": "UINT_PTR"
+                                    },
+                                    "dim": {}
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "ULONG"
+                                    },
+                                    "name": "framesCaptured"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "ILanguageExceptionStackBackTrace",
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "type": "ILanguageExceptionStackBackTraceVtbl",
+                        "data_type": "TypeDecl"
+                    },
+                    "name": "lpVtbl"
+                }
+            ]
+        },
+        {
+            "name": "ILanguageExceptionErrorInfo2Vtbl",
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "FuncDecl",
+                        "type": {
+                            "name": "QueryInterface",
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "func": {
+                            "name": "QueryInterface",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "HRESULT"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "ILanguageExceptionErrorInfo2"
+                                    },
+                                    "name": "This"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IID"
+                                    },
+                                    "name": "riid"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "PtrDecl",
+                                        "type": {
+                                            "data_type": "TypeDecl",
+                                            "type": "void"
+                                        }
+                                    },
+                                    "name": "ppvObject"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "FuncDecl",
+                        "type": {
+                            "name": "AddRef",
+                            "data_type": "TypeDecl",
+                            "type": "ULONG"
+                        },
+                        "func": {
+                            "name": "AddRef",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "ULONG"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "ILanguageExceptionErrorInfo2"
+                                    },
+                                    "name": "This"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "FuncDecl",
+                        "type": {
+                            "name": "Release",
+                            "data_type": "TypeDecl",
+                            "type": "ULONG"
+                        },
+                        "func": {
+                            "name": "Release",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "ULONG"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "ILanguageExceptionErrorInfo2"
+                                    },
+                                    "name": "This"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "FuncDecl",
+                        "type": {
+                            "name": "GetLanguageException",
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "func": {
+                            "name": "GetLanguageException",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "HRESULT"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "ILanguageExceptionErrorInfo2"
+                                    },
+                                    "name": "This"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "PtrDecl",
+                                        "type": {
+                                            "data_type": "TypeDecl",
+                                            "type": "IUnknown"
+                                        }
+                                    },
+                                    "name": "languageException"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "FuncDecl",
+                        "type": {
+                            "name": "GetPreviousLanguageExceptionErrorInfo",
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "func": {
+                            "name": "GetPreviousLanguageExceptionErrorInfo",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "HRESULT"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "ILanguageExceptionErrorInfo2"
+                                    },
+                                    "name": "This"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "PtrDecl",
+                                        "type": {
+                                            "data_type": "TypeDecl",
+                                            "type": "ILanguageExceptionErrorInfo2"
+                                        }
+                                    },
+                                    "name": "previousLanguageExceptionErrorInfo"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "FuncDecl",
+                        "type": {
+                            "name": "CapturePropagationContext",
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "func": {
+                            "name": "CapturePropagationContext",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "HRESULT"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "ILanguageExceptionErrorInfo2"
+                                    },
+                                    "name": "This"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IUnknown"
+                                    },
+                                    "name": "languageException"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "FuncDecl",
+                        "type": {
+                            "name": "GetPropagationContextHead",
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "func": {
+                            "name": "GetPropagationContextHead",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "HRESULT"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "ILanguageExceptionErrorInfo2"
+                                    },
+                                    "name": "This"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "PtrDecl",
+                                        "type": {
+                                            "data_type": "TypeDecl",
+                                            "type": "ILanguageExceptionErrorInfo2"
+                                        }
+                                    },
+                                    "name": "propagatedLanguageExceptionErrorInfoHead"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "ILanguageExceptionErrorInfo2",
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "type": "ILanguageExceptionErrorInfo2Vtbl",
+                        "data_type": "TypeDecl"
+                    },
+                    "name": "lpVtbl"
+                }
+            ]
+        },
+        {
+            "name": "RO_ERROR_REPORTING_FLAGS",
             "data_type": "TypeDecl",
-            "name": "PINSPECT_MEMORY_CALLBACK",
-            "type": "HRESULT"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "RO_ERROR_REPORTING_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000000"
+                        }
+                    },
+                    {
+                        "name": "RO_ERROR_REPORTING_SUPPRESSEXCEPTIONS",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000001"
+                        }
+                    },
+                    {
+                        "name": "RO_ERROR_REPORTING_FORCEEXCEPTIONS",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000002"
+                        }
+                    },
+                    {
+                        "name": "RO_ERROR_REPORTING_USESETERRORINFO",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000004"
+                        }
+                    },
+                    {
+                        "name": "RO_ERROR_REPORTING_SUPPRESSSETERRORINFO",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000008"
+                        }
+                    }
+                ]
+            }
         }
     ],
     "funcdefs": [
@@ -813,8 +1117,11 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "UINT32"
+                    },
                     "name": "pflags",
-                    "type": "UINT32",
                     "sal": [
                         "out"
                     ]
@@ -835,8 +1142,8 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "flags",
+                    "data_type": "TypeDecl",
                     "type": "UINT32",
                     "sal": [
                         "in"
@@ -858,8 +1165,8 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "reference",
+                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -867,8 +1174,14 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "PtrDecl",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "IRestrictedErrorInfo"
+                        }
+                    },
                     "name": "ppRestrictedErrorInfo",
-                    "type": "IRestrictedErrorInfo",
                     "sal": [
                         "out"
                     ]
@@ -891,8 +1204,11 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "IRestrictedErrorInfo"
+                    },
                     "name": "pRestrictedErrorInfo",
-                    "type": "IRestrictedErrorInfo",
                     "sal": [
                         "in"
                     ]
@@ -913,8 +1229,14 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "PtrDecl",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "IRestrictedErrorInfo"
+                        }
+                    },
                     "name": "ppRestrictedErrorInfo",
-                    "type": "IRestrictedErrorInfo",
                     "sal": [
                         "out"
                     ]
@@ -934,24 +1256,24 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "error",
+                    "data_type": "TypeDecl",
                     "type": "HRESULT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "cchMax",
+                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "message",
+                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -974,16 +1296,16 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "error",
+                    "data_type": "TypeDecl",
                     "type": "HRESULT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "message",
+                    "data_type": "TypeDecl",
                     "type": "HSTRING",
                     "sal": [
                         "in"
@@ -1006,32 +1328,32 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "oldError",
+                    "data_type": "TypeDecl",
                     "type": "HRESULT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "newError",
+                    "data_type": "TypeDecl",
                     "type": "HRESULT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "cchMax",
+                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "message",
+                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -1053,24 +1375,24 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "oldError",
+                    "data_type": "TypeDecl",
                     "type": "HRESULT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "newError",
+                    "data_type": "TypeDecl",
                     "type": "HRESULT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "message",
+                    "data_type": "TypeDecl",
                     "type": "HSTRING",
                     "sal": [
                         "in"
@@ -1092,8 +1414,8 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "hr",
+                    "data_type": "TypeDecl",
                     "type": "HRESULT",
                     "sal": []
                 }
@@ -1112,8 +1434,8 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "hrError",
+                    "data_type": "TypeDecl",
                     "type": "HRESULT",
                     "sal": [
                         "in"
@@ -1134,16 +1456,16 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "error",
+                    "data_type": "TypeDecl",
                     "type": "HRESULT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "message",
+                    "data_type": "TypeDecl",
                     "type": "HSTRING",
                     "sal": [
                         "in",
@@ -1152,8 +1474,11 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "IUnknown"
+                    },
                     "name": "languageException",
-                    "type": "IUnknown",
                     "sal": [
                         "in"
                     ]
@@ -1190,8 +1515,11 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "IRestrictedErrorInfo"
+                    },
                     "name": "pRestrictedErrorInfo",
-                    "type": "IRestrictedErrorInfo",
                     "sal": [
                         "in"
                     ]
@@ -1210,28 +1538,28 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "targetTebAddress",
+                    "data_type": "TypeDecl",
                     "type": "UINT_PTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "machine",
+                    "data_type": "TypeDecl",
                     "type": "USHORT",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "readMemoryCallback",
+                    "data_type": "TypeDecl",
                     "type": "PINSPECT_MEMORY_CALLBACK",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "context",
+                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in",
@@ -1240,8 +1568,11 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "UINT_PTR"
+                    },
                     "name": "targetErrorInfoAddress",
-                    "type": "UINT_PTR",
                     "sal": [
                         "out"
                     ]
@@ -1260,28 +1591,28 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "targetErrorInfoAddress",
+                    "data_type": "TypeDecl",
                     "type": "UINT_PTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "machine",
+                    "data_type": "TypeDecl",
                     "type": "USHORT",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "readMemoryCallback",
+                    "data_type": "TypeDecl",
                     "type": "PINSPECT_MEMORY_CALLBACK",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "context",
+                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in",
@@ -1290,16 +1621,22 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "UINT32"
+                    },
                     "name": "frameCount",
-                    "type": "UINT32",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "UINT_PTR"
+                    },
                     "name": "targetBackTraceAddress",
-                    "type": "UINT_PTR",
                     "sal": [
                         "out"
                     ]
@@ -1319,16 +1656,22 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "IUnknown"
+                    },
                     "name": "punkDelegate",
-                    "type": "IUnknown",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "IRestrictedErrorInfo"
+                    },
                     "name": "pRestrictedErrorInfo",
-                    "type": "IRestrictedErrorInfo",
                     "sal": [
                         "in"
                     ]

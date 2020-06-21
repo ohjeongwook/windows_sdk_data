@@ -1,36 +1,1444 @@
 {
     "typedefs": [
         {
+            "name": "PSS_HANDLE_FLAGS",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "PSS_HANDLE_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00"
+                        }
+                    },
+                    {
+                        "name": "PSS_HANDLE_HAVE_TYPE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x01"
+                        }
+                    },
+                    {
+                        "name": "PSS_HANDLE_HAVE_NAME",
+                        "value": {
+                            "type": "int",
+                            "value": "0x02"
+                        }
+                    },
+                    {
+                        "name": "PSS_HANDLE_HAVE_BASIC_INFORMATION",
+                        "value": {
+                            "type": "int",
+                            "value": "0x04"
+                        }
+                    },
+                    {
+                        "name": "PSS_HANDLE_HAVE_TYPE_SPECIFIC_INFORMATION",
+                        "value": {
+                            "type": "int",
+                            "value": "0x08"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PSS_OBJECT_TYPE",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "PSS_OBJECT_TYPE_UNKNOWN",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "PSS_OBJECT_TYPE_PROCESS",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "PSS_OBJECT_TYPE_THREAD",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "PSS_OBJECT_TYPE_MUTANT",
+                        "value": {
+                            "type": "int",
+                            "value": "3"
+                        }
+                    },
+                    {
+                        "name": "PSS_OBJECT_TYPE_EVENT",
+                        "value": {
+                            "type": "int",
+                            "value": "4"
+                        }
+                    },
+                    {
+                        "name": "PSS_OBJECT_TYPE_SECTION",
+                        "value": {
+                            "type": "int",
+                            "value": "5"
+                        }
+                    },
+                    {
+                        "name": "PSS_OBJECT_TYPE_SEMAPHORE",
+                        "value": {
+                            "type": "int",
+                            "value": "6"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PSS_CAPTURE_FLAGS",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "PSS_CAPTURE_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000000"
+                        }
+                    },
+                    {
+                        "name": "PSS_CAPTURE_VA_CLONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000001"
+                        }
+                    },
+                    {
+                        "name": "PSS_CAPTURE_RESERVED_00000002",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000002"
+                        }
+                    },
+                    {
+                        "name": "PSS_CAPTURE_HANDLES",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000004"
+                        }
+                    },
+                    {
+                        "name": "PSS_CAPTURE_HANDLE_NAME_INFORMATION",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000008"
+                        }
+                    },
+                    {
+                        "name": "PSS_CAPTURE_HANDLE_BASIC_INFORMATION",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000010"
+                        }
+                    },
+                    {
+                        "name": "PSS_CAPTURE_HANDLE_TYPE_SPECIFIC_INFORMATION",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000020"
+                        }
+                    },
+                    {
+                        "name": "PSS_CAPTURE_HANDLE_TRACE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000040"
+                        }
+                    },
+                    {
+                        "name": "PSS_CAPTURE_THREADS",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000080"
+                        }
+                    },
+                    {
+                        "name": "PSS_CAPTURE_THREAD_CONTEXT",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000100"
+                        }
+                    },
+                    {
+                        "name": "PSS_CAPTURE_THREAD_CONTEXT_EXTENDED",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000200"
+                        }
+                    },
+                    {
+                        "name": "PSS_CAPTURE_RESERVED_00000400",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000400"
+                        }
+                    },
+                    {
+                        "name": "PSS_CAPTURE_VA_SPACE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000800"
+                        }
+                    },
+                    {
+                        "name": "PSS_CAPTURE_VA_SPACE_SECTION_INFORMATION",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00001000"
+                        }
+                    },
+                    {
+                        "name": "PSS_CAPTURE_IPT_TRACE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00002000"
+                        }
+                    },
+                    {
+                        "name": "PSS_CAPTURE_RESERVED_00004000",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00004000"
+                        }
+                    },
+                    {
+                        "name": "PSS_CREATE_BREAKAWAY_OPTIONAL",
+                        "value": {
+                            "type": "int",
+                            "value": "0x04000000"
+                        }
+                    },
+                    {
+                        "name": "PSS_CREATE_BREAKAWAY",
+                        "value": {
+                            "type": "int",
+                            "value": "0x08000000"
+                        }
+                    },
+                    {
+                        "name": "PSS_CREATE_FORCE_BREAKAWAY",
+                        "value": {
+                            "type": "int",
+                            "value": "0x10000000"
+                        }
+                    },
+                    {
+                        "name": "PSS_CREATE_USE_VM_ALLOCATIONS",
+                        "value": {
+                            "type": "int",
+                            "value": "0x20000000"
+                        }
+                    },
+                    {
+                        "name": "PSS_CREATE_MEASURE_PERFORMANCE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x40000000"
+                        }
+                    },
+                    {
+                        "name": "PSS_CREATE_RELEASE_SECTION",
+                        "value": {
+                            "type": "int",
+                            "value": "0x80000000"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PSS_QUERY_INFORMATION_CLASS",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "PSS_QUERY_PROCESS_INFORMATION",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "PSS_QUERY_VA_CLONE_INFORMATION",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "PSS_QUERY_AUXILIARY_PAGES_INFORMATION",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "PSS_QUERY_VA_SPACE_INFORMATION",
+                        "value": {
+                            "type": "int",
+                            "value": "3"
+                        }
+                    },
+                    {
+                        "name": "PSS_QUERY_HANDLE_INFORMATION",
+                        "value": {
+                            "type": "int",
+                            "value": "4"
+                        }
+                    },
+                    {
+                        "name": "PSS_QUERY_THREAD_INFORMATION",
+                        "value": {
+                            "type": "int",
+                            "value": "5"
+                        }
+                    },
+                    {
+                        "name": "PSS_QUERY_HANDLE_TRACE_INFORMATION",
+                        "value": {
+                            "type": "int",
+                            "value": "6"
+                        }
+                    },
+                    {
+                        "name": "PSS_QUERY_PERFORMANCE_COUNTERS",
+                        "value": {
+                            "type": "int",
+                            "value": "7"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PSS_WALK_INFORMATION_CLASS",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "PSS_WALK_AUXILIARY_PAGES",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "PSS_WALK_VA_SPACE",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "PSS_WALK_HANDLES",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "PSS_WALK_THREADS",
+                        "value": {
+                            "type": "int",
+                            "value": "3"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PSS_DUPLICATE_FLAGS",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "PSS_DUPLICATE_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00"
+                        }
+                    },
+                    {
+                        "name": "PSS_DUPLICATE_CLOSE_SOURCE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x01"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "HPSS__",
             "data_type": "Struct",
             "elements": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "unused",
+                    "data_type": "TypeDecl",
                     "type": "int"
                 }
-            ],
-            "name": "HPSS__"
+            ]
         },
         {
             "data_type": "PtrDecl",
-            "name": "HPSS",
-            "type": "HPSS__"
+            "type": {
+                "type": "HPSS__",
+                "data_type": "TypeDecl"
+            },
+            "name": "HPSS"
         },
         {
+            "name": "HPSSWALK__",
             "data_type": "Struct",
             "elements": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "unused",
+                    "data_type": "TypeDecl",
                     "type": "int"
                 }
-            ],
-            "name": "HPSSWALK__"
+            ]
         },
         {
             "data_type": "PtrDecl",
-            "name": "HPSSWALK",
-            "type": "HPSSWALK__"
+            "type": {
+                "type": "HPSSWALK__",
+                "data_type": "TypeDecl"
+            },
+            "name": "HPSSWALK"
+        },
+        {
+            "name": "PSS_PROCESS_FLAGS",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "PSS_PROCESS_FLAGS_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000000"
+                        }
+                    },
+                    {
+                        "name": "PSS_PROCESS_FLAGS_PROTECTED",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000001"
+                        }
+                    },
+                    {
+                        "name": "PSS_PROCESS_FLAGS_WOW64",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000002"
+                        }
+                    },
+                    {
+                        "name": "PSS_PROCESS_FLAGS_RESERVED_03",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000004"
+                        }
+                    },
+                    {
+                        "name": "PSS_PROCESS_FLAGS_RESERVED_04",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000008"
+                        }
+                    },
+                    {
+                        "name": "PSS_PROCESS_FLAGS_FROZEN",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000010"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PSS_PROCESS_INFORMATION",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Struct",
+                "elements": [
+                    {
+                        "name": "ExitStatus",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    {
+                        "data_type": "PtrDecl",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "void"
+                        },
+                        "name": "PebBaseAddress"
+                    },
+                    {
+                        "name": "AffinityMask",
+                        "data_type": "TypeDecl",
+                        "type": "ULONG_PTR"
+                    },
+                    {
+                        "name": "BasePriority",
+                        "data_type": "TypeDecl",
+                        "type": "LONG"
+                    },
+                    {
+                        "name": "ProcessId",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "ParentProcessId",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "Flags",
+                        "data_type": "TypeDecl",
+                        "type": "PSS_PROCESS_FLAGS"
+                    },
+                    {
+                        "name": "CreateTime",
+                        "data_type": "TypeDecl",
+                        "type": "FILETIME"
+                    },
+                    {
+                        "name": "ExitTime",
+                        "data_type": "TypeDecl",
+                        "type": "FILETIME"
+                    },
+                    {
+                        "name": "KernelTime",
+                        "data_type": "TypeDecl",
+                        "type": "FILETIME"
+                    },
+                    {
+                        "name": "UserTime",
+                        "data_type": "TypeDecl",
+                        "type": "FILETIME"
+                    },
+                    {
+                        "name": "PriorityClass",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "PeakVirtualSize",
+                        "data_type": "TypeDecl",
+                        "type": "ULONG_PTR"
+                    },
+                    {
+                        "name": "VirtualSize",
+                        "data_type": "TypeDecl",
+                        "type": "ULONG_PTR"
+                    },
+                    {
+                        "name": "PageFaultCount",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "PeakWorkingSetSize",
+                        "data_type": "TypeDecl",
+                        "type": "ULONG_PTR"
+                    },
+                    {
+                        "name": "WorkingSetSize",
+                        "data_type": "TypeDecl",
+                        "type": "ULONG_PTR"
+                    },
+                    {
+                        "name": "QuotaPeakPagedPoolUsage",
+                        "data_type": "TypeDecl",
+                        "type": "ULONG_PTR"
+                    },
+                    {
+                        "name": "QuotaPagedPoolUsage",
+                        "data_type": "TypeDecl",
+                        "type": "ULONG_PTR"
+                    },
+                    {
+                        "name": "QuotaPeakNonPagedPoolUsage",
+                        "data_type": "TypeDecl",
+                        "type": "ULONG_PTR"
+                    },
+                    {
+                        "name": "QuotaNonPagedPoolUsage",
+                        "data_type": "TypeDecl",
+                        "type": "ULONG_PTR"
+                    },
+                    {
+                        "name": "PagefileUsage",
+                        "data_type": "TypeDecl",
+                        "type": "ULONG_PTR"
+                    },
+                    {
+                        "name": "PeakPagefileUsage",
+                        "data_type": "TypeDecl",
+                        "type": "ULONG_PTR"
+                    },
+                    {
+                        "name": "PrivateUsage",
+                        "data_type": "TypeDecl",
+                        "type": "ULONG_PTR"
+                    },
+                    {
+                        "name": "ExecuteFlags",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "type": {
+                            "name": "ImageFileName",
+                            "data_type": "TypeDecl",
+                            "type": "wchar_t"
+                        },
+                        "dim": {
+                            "type": "int",
+                            "value": "260"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PSS_VA_CLONE_INFORMATION",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Struct",
+                "elements": [
+                    {
+                        "name": "VaCloneHandle",
+                        "data_type": "TypeDecl",
+                        "type": "HANDLE"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PSS_AUXILIARY_PAGES_INFORMATION",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Struct",
+                "elements": [
+                    {
+                        "name": "AuxPagesCaptured",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PSS_VA_SPACE_INFORMATION",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Struct",
+                "elements": [
+                    {
+                        "name": "RegionCount",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PSS_HANDLE_INFORMATION",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Struct",
+                "elements": [
+                    {
+                        "name": "HandlesCaptured",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PSS_THREAD_INFORMATION",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Struct",
+                "elements": [
+                    {
+                        "name": "ThreadsCaptured",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "ContextLength",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PSS_HANDLE_TRACE_INFORMATION",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Struct",
+                "elements": [
+                    {
+                        "name": "SectionHandle",
+                        "data_type": "TypeDecl",
+                        "type": "HANDLE"
+                    },
+                    {
+                        "name": "Size",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PSS_PERFORMANCE_COUNTERS",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Struct",
+                "elements": [
+                    {
+                        "name": "TotalCycleCount",
+                        "data_type": "TypeDecl",
+                        "type": "UINT64"
+                    },
+                    {
+                        "name": "TotalWallClockPeriod",
+                        "data_type": "TypeDecl",
+                        "type": "UINT64"
+                    },
+                    {
+                        "name": "VaCloneCycleCount",
+                        "data_type": "TypeDecl",
+                        "type": "UINT64"
+                    },
+                    {
+                        "name": "VaCloneWallClockPeriod",
+                        "data_type": "TypeDecl",
+                        "type": "UINT64"
+                    },
+                    {
+                        "name": "VaSpaceCycleCount",
+                        "data_type": "TypeDecl",
+                        "type": "UINT64"
+                    },
+                    {
+                        "name": "VaSpaceWallClockPeriod",
+                        "data_type": "TypeDecl",
+                        "type": "UINT64"
+                    },
+                    {
+                        "name": "AuxPagesCycleCount",
+                        "data_type": "TypeDecl",
+                        "type": "UINT64"
+                    },
+                    {
+                        "name": "AuxPagesWallClockPeriod",
+                        "data_type": "TypeDecl",
+                        "type": "UINT64"
+                    },
+                    {
+                        "name": "HandlesCycleCount",
+                        "data_type": "TypeDecl",
+                        "type": "UINT64"
+                    },
+                    {
+                        "name": "HandlesWallClockPeriod",
+                        "data_type": "TypeDecl",
+                        "type": "UINT64"
+                    },
+                    {
+                        "name": "ThreadsCycleCount",
+                        "data_type": "TypeDecl",
+                        "type": "UINT64"
+                    },
+                    {
+                        "name": "ThreadsWallClockPeriod",
+                        "data_type": "TypeDecl",
+                        "type": "UINT64"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PSS_AUXILIARY_PAGE_ENTRY",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Struct",
+                "elements": [
+                    {
+                        "data_type": "PtrDecl",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "void"
+                        },
+                        "name": "Address"
+                    },
+                    {
+                        "name": "BasicInformation",
+                        "data_type": "TypeDecl",
+                        "type": "MEMORY_BASIC_INFORMATION"
+                    },
+                    {
+                        "name": "CaptureTime",
+                        "data_type": "TypeDecl",
+                        "type": "FILETIME"
+                    },
+                    {
+                        "data_type": "PtrDecl",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "void"
+                        },
+                        "name": "PageContents"
+                    },
+                    {
+                        "name": "PageSize",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PSS_VA_SPACE_ENTRY",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Struct",
+                "elements": [
+                    {
+                        "data_type": "PtrDecl",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "void"
+                        },
+                        "name": "BaseAddress"
+                    },
+                    {
+                        "data_type": "PtrDecl",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "void"
+                        },
+                        "name": "AllocationBase"
+                    },
+                    {
+                        "name": "AllocationProtect",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "RegionSize",
+                        "data_type": "TypeDecl",
+                        "type": "ULONG_PTR"
+                    },
+                    {
+                        "name": "State",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "Protect",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "Type",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "TimeDateStamp",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "SizeOfImage",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    {
+                        "data_type": "PtrDecl",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "void"
+                        },
+                        "name": "ImageBase"
+                    },
+                    {
+                        "name": "CheckSum",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "MappedFileNameLength",
+                        "data_type": "TypeDecl",
+                        "type": "WORD"
+                    },
+                    {
+                        "data_type": "PtrDecl",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "wchar_t"
+                        },
+                        "name": "MappedFileName"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PSS_HANDLE_ENTRY",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Struct",
+                "elements": [
+                    {
+                        "name": "Handle",
+                        "data_type": "TypeDecl",
+                        "type": "HANDLE"
+                    },
+                    {
+                        "name": "Flags",
+                        "data_type": "TypeDecl",
+                        "type": "PSS_HANDLE_FLAGS"
+                    },
+                    {
+                        "name": "ObjectType",
+                        "data_type": "TypeDecl",
+                        "type": "PSS_OBJECT_TYPE"
+                    },
+                    {
+                        "name": "CaptureTime",
+                        "data_type": "TypeDecl",
+                        "type": "FILETIME"
+                    },
+                    {
+                        "name": "Attributes",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "GrantedAccess",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "HandleCount",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "PointerCount",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "PagedPoolCharge",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "NonPagedPoolCharge",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "CreationTime",
+                        "data_type": "TypeDecl",
+                        "type": "FILETIME"
+                    },
+                    {
+                        "name": "TypeNameLength",
+                        "data_type": "TypeDecl",
+                        "type": "WORD"
+                    },
+                    {
+                        "data_type": "PtrDecl",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "wchar_t"
+                        },
+                        "name": "TypeName"
+                    },
+                    {
+                        "name": "ObjectNameLength",
+                        "data_type": "TypeDecl",
+                        "type": "WORD"
+                    },
+                    {
+                        "data_type": "PtrDecl",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "wchar_t"
+                        },
+                        "name": "ObjectName"
+                    },
+                    {
+                        "name": "TypeSpecificInformation",
+                        "data_type": "TypeDecl",
+                        "type": {
+                            "data_type": "Union",
+                            "elements": [
+                                {
+                                    "name": "Process",
+                                    "data_type": "TypeDecl",
+                                    "type": {
+                                        "data_type": "Struct",
+                                        "elements": [
+                                            {
+                                                "name": "ExitStatus",
+                                                "data_type": "TypeDecl",
+                                                "type": "DWORD"
+                                            },
+                                            {
+                                                "data_type": "PtrDecl",
+                                                "type": {
+                                                    "data_type": "TypeDecl",
+                                                    "type": "void"
+                                                },
+                                                "name": "PebBaseAddress"
+                                            },
+                                            {
+                                                "name": "AffinityMask",
+                                                "data_type": "TypeDecl",
+                                                "type": "ULONG_PTR"
+                                            },
+                                            {
+                                                "name": "BasePriority",
+                                                "data_type": "TypeDecl",
+                                                "type": "LONG"
+                                            },
+                                            {
+                                                "name": "ProcessId",
+                                                "data_type": "TypeDecl",
+                                                "type": "DWORD"
+                                            },
+                                            {
+                                                "name": "ParentProcessId",
+                                                "data_type": "TypeDecl",
+                                                "type": "DWORD"
+                                            },
+                                            {
+                                                "name": "Flags",
+                                                "data_type": "TypeDecl",
+                                                "type": "DWORD"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "name": "Thread",
+                                    "data_type": "TypeDecl",
+                                    "type": {
+                                        "data_type": "Struct",
+                                        "elements": [
+                                            {
+                                                "name": "ExitStatus",
+                                                "data_type": "TypeDecl",
+                                                "type": "DWORD"
+                                            },
+                                            {
+                                                "data_type": "PtrDecl",
+                                                "type": {
+                                                    "data_type": "TypeDecl",
+                                                    "type": "void"
+                                                },
+                                                "name": "TebBaseAddress"
+                                            },
+                                            {
+                                                "name": "ProcessId",
+                                                "data_type": "TypeDecl",
+                                                "type": "DWORD"
+                                            },
+                                            {
+                                                "name": "ThreadId",
+                                                "data_type": "TypeDecl",
+                                                "type": "DWORD"
+                                            },
+                                            {
+                                                "name": "AffinityMask",
+                                                "data_type": "TypeDecl",
+                                                "type": "ULONG_PTR"
+                                            },
+                                            {
+                                                "name": "Priority",
+                                                "data_type": "TypeDecl",
+                                                "type": "int"
+                                            },
+                                            {
+                                                "name": "BasePriority",
+                                                "data_type": "TypeDecl",
+                                                "type": "int"
+                                            },
+                                            {
+                                                "data_type": "PtrDecl",
+                                                "type": {
+                                                    "data_type": "TypeDecl",
+                                                    "type": "void"
+                                                },
+                                                "name": "Win32StartAddress"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "name": "Mutant",
+                                    "data_type": "TypeDecl",
+                                    "type": {
+                                        "data_type": "Struct",
+                                        "elements": [
+                                            {
+                                                "name": "CurrentCount",
+                                                "data_type": "TypeDecl",
+                                                "type": "LONG"
+                                            },
+                                            {
+                                                "name": "Abandoned",
+                                                "data_type": "TypeDecl",
+                                                "type": "BOOL"
+                                            },
+                                            {
+                                                "name": "OwnerProcessId",
+                                                "data_type": "TypeDecl",
+                                                "type": "DWORD"
+                                            },
+                                            {
+                                                "name": "OwnerThreadId",
+                                                "data_type": "TypeDecl",
+                                                "type": "DWORD"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "name": "Event",
+                                    "data_type": "TypeDecl",
+                                    "type": {
+                                        "data_type": "Struct",
+                                        "elements": [
+                                            {
+                                                "name": "ManualReset",
+                                                "data_type": "TypeDecl",
+                                                "type": "BOOL"
+                                            },
+                                            {
+                                                "name": "Signaled",
+                                                "data_type": "TypeDecl",
+                                                "type": "BOOL"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "name": "Section",
+                                    "data_type": "TypeDecl",
+                                    "type": {
+                                        "data_type": "Struct",
+                                        "elements": [
+                                            {
+                                                "data_type": "PtrDecl",
+                                                "type": {
+                                                    "data_type": "TypeDecl",
+                                                    "type": "void"
+                                                },
+                                                "name": "BaseAddress"
+                                            },
+                                            {
+                                                "name": "AllocationAttributes",
+                                                "data_type": "TypeDecl",
+                                                "type": "DWORD"
+                                            },
+                                            {
+                                                "name": "MaximumSize",
+                                                "data_type": "TypeDecl",
+                                                "type": "LARGE_INTEGER"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "name": "Semaphore",
+                                    "data_type": "TypeDecl",
+                                    "type": {
+                                        "data_type": "Struct",
+                                        "elements": [
+                                            {
+                                                "name": "CurrentCount",
+                                                "data_type": "TypeDecl",
+                                                "type": "LONG"
+                                            },
+                                            {
+                                                "name": "MaximumCount",
+                                                "data_type": "TypeDecl",
+                                                "type": "LONG"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PSS_THREAD_FLAGS",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "PSS_THREAD_FLAGS_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x0000"
+                        }
+                    },
+                    {
+                        "name": "PSS_THREAD_FLAGS_TERMINATED",
+                        "value": {
+                            "type": "int",
+                            "value": "0x0001"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PSS_THREAD_ENTRY",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Struct",
+                "elements": [
+                    {
+                        "name": "ExitStatus",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    {
+                        "data_type": "PtrDecl",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "void"
+                        },
+                        "name": "TebBaseAddress"
+                    },
+                    {
+                        "name": "ProcessId",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "ThreadId",
+                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "AffinityMask",
+                        "data_type": "TypeDecl",
+                        "type": "ULONG_PTR"
+                    },
+                    {
+                        "name": "Priority",
+                        "data_type": "TypeDecl",
+                        "type": "int"
+                    },
+                    {
+                        "name": "BasePriority",
+                        "data_type": "TypeDecl",
+                        "type": "int"
+                    },
+                    {
+                        "data_type": "PtrDecl",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "void"
+                        },
+                        "name": "LastSyscallFirstArgument"
+                    },
+                    {
+                        "name": "LastSyscallNumber",
+                        "data_type": "TypeDecl",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "CreateTime",
+                        "data_type": "TypeDecl",
+                        "type": "FILETIME"
+                    },
+                    {
+                        "name": "ExitTime",
+                        "data_type": "TypeDecl",
+                        "type": "FILETIME"
+                    },
+                    {
+                        "name": "KernelTime",
+                        "data_type": "TypeDecl",
+                        "type": "FILETIME"
+                    },
+                    {
+                        "name": "UserTime",
+                        "data_type": "TypeDecl",
+                        "type": "FILETIME"
+                    },
+                    {
+                        "data_type": "PtrDecl",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "void"
+                        },
+                        "name": "Win32StartAddress"
+                    },
+                    {
+                        "name": "CaptureTime",
+                        "data_type": "TypeDecl",
+                        "type": "FILETIME"
+                    },
+                    {
+                        "name": "Flags",
+                        "data_type": "TypeDecl",
+                        "type": "PSS_THREAD_FLAGS"
+                    },
+                    {
+                        "name": "SuspendCount",
+                        "data_type": "TypeDecl",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "SizeOfContextRecord",
+                        "data_type": "TypeDecl",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "ContextRecord",
+                        "data_type": "TypeDecl",
+                        "type": "PCONTEXT"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PSS_ALLOCATOR",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Struct",
+                "elements": [
+                    {
+                        "data_type": "PtrDecl",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "void"
+                        },
+                        "name": "Context"
+                    },
+                    {
+                        "data_type": "PtrDecl",
+                        "type": {
+                            "data_type": "FuncDecl",
+                            "type": {
+                                "data_type": "PtrDecl",
+                                "type": {
+                                    "data_type": "TypeDecl",
+                                    "type": "void"
+                                },
+                                "name": "AllocRoutine"
+                            },
+                            "func": {
+                                "name": "AllocRoutine",
+                                "type": {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "void"
+                                    }
+                                },
+                                "arguments": [
+                                    {
+                                        "data_type": "PtrDecl",
+                                        "type": {
+                                            "data_type": "TypeDecl",
+                                            "type": "void"
+                                        },
+                                        "name": "Context"
+                                    },
+                                    {
+                                        "name": "Size",
+                                        "data_type": "TypeDecl",
+                                        "type": "DWORD"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "data_type": "PtrDecl",
+                        "type": {
+                            "data_type": "FuncDecl",
+                            "type": {
+                                "name": "FreeRoutine",
+                                "data_type": "TypeDecl",
+                                "type": "void"
+                            },
+                            "func": {
+                                "name": "FreeRoutine",
+                                "type": {
+                                    "data_type": "TypeDecl",
+                                    "type": "void"
+                                },
+                                "arguments": [
+                                    {
+                                        "data_type": "PtrDecl",
+                                        "type": {
+                                            "data_type": "TypeDecl",
+                                            "type": "void"
+                                        },
+                                        "name": "Context"
+                                    },
+                                    {
+                                        "data_type": "PtrDecl",
+                                        "type": {
+                                            "data_type": "TypeDecl",
+                                            "type": "void"
+                                        },
+                                        "name": "Address"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
         }
     ],
     "funcdefs": [
@@ -42,24 +1450,24 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "ProcessHandle",
+                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "CaptureFlags",
+                    "data_type": "TypeDecl",
                     "type": "PSS_CAPTURE_FLAGS",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "ThreadContextFlags",
+                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in",
@@ -68,8 +1476,11 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "HPSS"
+                    },
                     "name": "SnapshotHandle",
-                    "type": "HPSS",
                     "sal": [
                         "out"
                     ]
@@ -89,16 +1500,16 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "ProcessHandle",
+                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "SnapshotHandle",
+                    "data_type": "TypeDecl",
                     "type": "HPSS",
                     "sal": [
                         "in"
@@ -119,16 +1530,16 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "SnapshotHandle",
+                    "data_type": "TypeDecl",
                     "type": "HPSS",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "InformationClass",
+                    "data_type": "TypeDecl",
                     "type": "PSS_QUERY_INFORMATION_CLASS",
                     "sal": [
                         "in"
@@ -136,15 +1547,18 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "void"
+                    },
                     "name": "Buffer",
-                    "type": "void",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "BufferLength",
+                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -165,24 +1579,24 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "SnapshotHandle",
+                    "data_type": "TypeDecl",
                     "type": "HPSS",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "InformationClass",
+                    "data_type": "TypeDecl",
                     "type": "PSS_WALK_INFORMATION_CLASS",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "WalkMarkerHandle",
+                    "data_type": "TypeDecl",
                     "type": "HPSSWALK",
                     "sal": [
                         "in"
@@ -190,15 +1604,18 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "void"
+                    },
                     "name": "Buffer",
-                    "type": "void",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "BufferLength",
+                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -219,24 +1636,24 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "SourceProcessHandle",
+                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "SnapshotHandle",
+                    "data_type": "TypeDecl",
                     "type": "HPSS",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "TargetProcessHandle",
+                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -244,15 +1661,18 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "HPSS"
+                    },
                     "name": "TargetSnapshotHandle",
-                    "type": "HPSS",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "Flags",
+                    "data_type": "TypeDecl",
                     "type": "PSS_DUPLICATE_FLAGS",
                     "sal": [
                         "in",
@@ -275,8 +1695,11 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "PSS_ALLOCATOR"
+                    },
                     "name": "Allocator",
-                    "type": "PSS_ALLOCATOR",
                     "sal": [
                         "in",
                         "optional"
@@ -284,8 +1707,11 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "HPSSWALK"
+                    },
                     "name": "WalkMarkerHandle",
-                    "type": "HPSSWALK",
                     "sal": [
                         "out"
                     ]
@@ -305,8 +1731,8 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "WalkMarkerHandle",
+                    "data_type": "TypeDecl",
                     "type": "HPSSWALK",
                     "sal": [
                         "in"
@@ -327,8 +1753,8 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "WalkMarkerHandle",
+                    "data_type": "TypeDecl",
                     "type": "HPSSWALK",
                     "sal": [
                         "in"
@@ -336,8 +1762,11 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "ULONG_PTR"
+                    },
                     "name": "Position",
-                    "type": "ULONG_PTR",
                     "sal": [
                         "out"
                     ]
@@ -357,16 +1786,16 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "WalkMarkerHandle",
+                    "data_type": "TypeDecl",
                     "type": "HPSSWALK",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "Position",
+                    "data_type": "TypeDecl",
                     "type": "ULONG_PTR",
                     "sal": [
                         "in"
@@ -387,8 +1816,8 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "WalkMarkerHandle",
+                    "data_type": "TypeDecl",
                     "type": "HPSSWALK",
                     "sal": [
                         "in"

@@ -1,104 +1,211 @@
 {
     "typedefs": [
         {
-            "data_type": "TypeDecl",
             "name": "CHECKSUM",
+            "data_type": "TypeDecl",
             "type": "unsigned long"
         },
         {
-            "data_type": "TypeDecl",
             "name": "UOFF",
+            "data_type": "TypeDecl",
             "type": "unsigned long"
         },
         {
-            "data_type": "TypeDecl",
             "name": "COFF",
+            "data_type": "TypeDecl",
             "type": "unsigned long"
+        },
+        {
+            "name": "ERF",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Struct",
+                "elements": [
+                    {
+                        "name": "erfOper",
+                        "data_type": "TypeDecl",
+                        "type": "int"
+                    },
+                    {
+                        "name": "erfType",
+                        "data_type": "TypeDecl",
+                        "type": "int"
+                    },
+                    {
+                        "name": "fError",
+                        "data_type": "TypeDecl",
+                        "type": "BOOL"
+                    }
+                ]
+            }
         },
         {
             "data_type": "PtrDecl",
-            "name": "PERF",
-            "type": "ERF"
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "ERF"
+            },
+            "name": "PERF"
         },
         {
-            "data_type": "TypeDecl",
             "name": "TCOMP",
+            "data_type": "TypeDecl",
             "type": "unsigned short"
         },
         {
+            "name": "FCIERROR",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "FCIERR_NONE",
+                        "value": {}
+                    },
+                    {
+                        "name": "FCIERR_OPEN_SRC",
+                        "value": {}
+                    },
+                    {
+                        "name": "FCIERR_READ_SRC",
+                        "value": {}
+                    },
+                    {
+                        "name": "FCIERR_ALLOC_FAIL",
+                        "value": {}
+                    },
+                    {
+                        "name": "FCIERR_TEMP_FILE",
+                        "value": {}
+                    },
+                    {
+                        "name": "FCIERR_BAD_COMPR_TYPE",
+                        "value": {}
+                    },
+                    {
+                        "name": "FCIERR_CAB_FILE",
+                        "value": {}
+                    },
+                    {
+                        "name": "FCIERR_USER_ABORT",
+                        "value": {}
+                    },
+                    {
+                        "name": "FCIERR_MCI_FAIL",
+                        "value": {}
+                    },
+                    {
+                        "name": "FCIERR_CAB_FORMAT_LIMIT",
+                        "value": {}
+                    }
+                ]
+            }
+        },
+        {
             "data_type": "PtrDecl",
-            "name": "HFCI",
-            "type": "void"
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "void"
+            },
+            "name": "HFCI"
+        },
+        {
+            "name": "CCAB",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Struct",
+                "elements": [
+                    {
+                        "name": "cb",
+                        "data_type": "TypeDecl",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "cbFolderThresh",
+                        "data_type": "TypeDecl",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "cbReserveCFHeader",
+                        "data_type": "TypeDecl",
+                        "type": "UINT"
+                    },
+                    {
+                        "name": "cbReserveCFFolder",
+                        "data_type": "TypeDecl",
+                        "type": "UINT"
+                    },
+                    {
+                        "name": "cbReserveCFData",
+                        "data_type": "TypeDecl",
+                        "type": "UINT"
+                    },
+                    {
+                        "name": "iCab",
+                        "data_type": "TypeDecl",
+                        "type": "int"
+                    },
+                    {
+                        "name": "iDisk",
+                        "data_type": "TypeDecl",
+                        "type": "int"
+                    },
+                    {
+                        "name": "fFailOnIncompressible",
+                        "data_type": "TypeDecl",
+                        "type": "int"
+                    },
+                    {
+                        "name": "setID",
+                        "data_type": "TypeDecl",
+                        "type": "USHORT"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "type": {
+                            "name": "szDisk",
+                            "data_type": "TypeDecl",
+                            "type": "char"
+                        },
+                        "dim": {
+                            "type": "int",
+                            "value": "256"
+                        }
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "type": {
+                            "name": "szCab",
+                            "data_type": "TypeDecl",
+                            "type": "char"
+                        },
+                        "dim": {
+                            "type": "int",
+                            "value": "256"
+                        }
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "type": {
+                            "name": "szCabPath",
+                            "data_type": "TypeDecl",
+                            "type": "char"
+                        },
+                        "dim": {
+                            "type": "int",
+                            "value": "256"
+                        }
+                    }
+                ]
+            }
         },
         {
             "data_type": "PtrDecl",
-            "name": "PCCAB",
-            "type": "CCAB"
-        },
-        {
-            "data_type": "PtrDecl",
-            "name": "PFNFCIALLOC",
-            "type": "void"
-        },
-        {
-            "data_type": "TypeDecl",
-            "name": "PFNFCIFREE",
-            "type": "void"
-        },
-        {
-            "data_type": "TypeDecl",
-            "name": "PFNFCIOPEN",
-            "type": "INT_PTR"
-        },
-        {
-            "data_type": "TypeDecl",
-            "name": "PFNFCIREAD",
-            "type": "UINT"
-        },
-        {
-            "data_type": "TypeDecl",
-            "name": "PFNFCIWRITE",
-            "type": "UINT"
-        },
-        {
-            "data_type": "TypeDecl",
-            "name": "PFNFCICLOSE",
-            "type": "int"
-        },
-        {
-            "data_type": "TypeDecl",
-            "name": "PFNFCISEEK",
-            "type": "long"
-        },
-        {
-            "data_type": "TypeDecl",
-            "name": "PFNFCIDELETE",
-            "type": "int"
-        },
-        {
-            "data_type": "TypeDecl",
-            "name": "PFNFCIGETNEXTCABINET",
-            "type": "BOOL"
-        },
-        {
-            "data_type": "TypeDecl",
-            "name": "PFNFCIFILEPLACED",
-            "type": "int"
-        },
-        {
-            "data_type": "TypeDecl",
-            "name": "PFNFCIGETOPENINFO",
-            "type": "INT_PTR"
-        },
-        {
-            "data_type": "TypeDecl",
-            "name": "PFNFCISTATUS",
-            "type": "long"
-        },
-        {
-            "data_type": "TypeDecl",
-            "name": "PFNFCIGETTEMPFILE",
-            "type": "BOOL"
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "CCAB"
+            },
+            "name": "PCCAB"
         }
     ],
     "funcdefs": [
@@ -110,8 +217,8 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "perf",
+                    "data_type": "TypeDecl",
                     "type": "PERF",
                     "sal": [
                         "in",
@@ -119,88 +226,88 @@
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "pfnfcifp",
+                    "data_type": "TypeDecl",
                     "type": "PFNFCIFILEPLACED",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "pfna",
+                    "data_type": "TypeDecl",
                     "type": "PFNFCIALLOC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "pfnf",
+                    "data_type": "TypeDecl",
                     "type": "PFNFCIFREE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "pfnopen",
+                    "data_type": "TypeDecl",
                     "type": "PFNFCIOPEN",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "pfnread",
+                    "data_type": "TypeDecl",
                     "type": "PFNFCIREAD",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "pfnwrite",
+                    "data_type": "TypeDecl",
                     "type": "PFNFCIWRITE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "pfnclose",
+                    "data_type": "TypeDecl",
                     "type": "PFNFCICLOSE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "pfnseek",
+                    "data_type": "TypeDecl",
                     "type": "PFNFCISEEK",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "pfndelete",
+                    "data_type": "TypeDecl",
                     "type": "PFNFCIDELETE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "pfnfcigtf",
+                    "data_type": "TypeDecl",
                     "type": "PFNFCIGETTEMPFILE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "pccab",
+                    "data_type": "TypeDecl",
                     "type": "PCCAB",
                     "sal": [
                         "in"
@@ -208,8 +315,11 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "void"
+                    },
                     "name": "pv",
-                    "type": "void",
                     "sal": [
                         "in",
                         "optional"
@@ -228,64 +338,64 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "hfci",
+                    "data_type": "TypeDecl",
                     "type": "HFCI",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "pszSourceFile",
+                    "data_type": "TypeDecl",
                     "type": "LPSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "pszFileName",
+                    "data_type": "TypeDecl",
                     "type": "LPSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "fExecute",
+                    "data_type": "TypeDecl",
                     "type": "BOOL",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "pfnfcignc",
+                    "data_type": "TypeDecl",
                     "type": "PFNFCIGETNEXTCABINET",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "pfnfcis",
+                    "data_type": "TypeDecl",
                     "type": "PFNFCISTATUS",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "pfnfcigoi",
+                    "data_type": "TypeDecl",
                     "type": "PFNFCIGETOPENINFO",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "typeCompress",
+                    "data_type": "TypeDecl",
                     "type": "TCOMP",
                     "sal": [
                         "in"
@@ -304,32 +414,32 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "hfci",
+                    "data_type": "TypeDecl",
                     "type": "HFCI",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "fGetNextCab",
+                    "data_type": "TypeDecl",
                     "type": "BOOL",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "pfnfcignc",
+                    "data_type": "TypeDecl",
                     "type": "PFNFCIGETNEXTCABINET",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "pfnfcis",
+                    "data_type": "TypeDecl",
                     "type": "PFNFCISTATUS",
                     "sal": [
                         "in"
@@ -348,24 +458,24 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "hfci",
+                    "data_type": "TypeDecl",
                     "type": "HFCI",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "pfnfcignc",
+                    "data_type": "TypeDecl",
                     "type": "PFNFCIGETNEXTCABINET",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "pfnfcis",
+                    "data_type": "TypeDecl",
                     "type": "PFNFCISTATUS",
                     "sal": [
                         "in"
@@ -384,8 +494,8 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "hfci",
+                    "data_type": "TypeDecl",
                     "type": "HFCI",
                     "sal": [
                         "in"

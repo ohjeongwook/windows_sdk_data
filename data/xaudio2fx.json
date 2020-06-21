@@ -1,279 +1,402 @@
 {
     "typedefs": [
         {
+            "name": "_exception",
             "data_type": "Struct",
             "elements": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "type",
+                    "data_type": "TypeDecl",
                     "type": "int"
                 },
                 {
                     "data_type": "PtrDecl",
-                    "name": "name",
-                    "type": "char"
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "char"
+                    },
+                    "name": "name"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "arg1",
+                    "data_type": "TypeDecl",
                     "type": "double"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "arg2",
+                    "data_type": "TypeDecl",
                     "type": "double"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "retval",
+                    "data_type": "TypeDecl",
                     "type": "double"
                 }
-            ],
-            "name": "_exception"
+            ]
         },
         {
+            "name": "_complex",
             "data_type": "Struct",
             "elements": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "x",
+                    "data_type": "TypeDecl",
                     "type": "double"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "y",
+                    "data_type": "TypeDecl",
                     "type": "double"
                 }
-            ],
-            "name": "_complex"
+            ]
         },
         {
-            "data_type": "TypeDecl",
             "name": "float_t",
+            "data_type": "TypeDecl",
             "type": "float"
         },
         {
-            "data_type": "TypeDecl",
             "name": "double_t",
+            "data_type": "TypeDecl",
             "type": "double"
         },
         {
-            "data_type": "Struct",
-            "elements": [
-                {
-                    "data_type": "PtrDecl",
-                    "name": "pPeakLevels",
-                    "type": "float"
-                },
-                {
-                    "data_type": "PtrDecl",
-                    "name": "pRMSLevels",
-                    "type": "float"
-                },
-                {
-                    "data_type": "TypeDecl",
-                    "name": "ChannelCount",
-                    "type": "UINT32"
-                }
-            ],
-            "name": "XAUDIO2FX_VOLUMEMETER_LEVELS"
+            "name": "_double_val",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Union",
+                "elements": [
+                    {
+                        "data_type": "ArrayDecl",
+                        "type": {
+                            "name": "_Sh",
+                            "data_type": "TypeDecl",
+                            "type": "unsigned short"
+                        },
+                        "dim": {
+                            "type": "int",
+                            "value": "4"
+                        }
+                    },
+                    {
+                        "name": "_Val",
+                        "data_type": "TypeDecl",
+                        "type": "double"
+                    }
+                ]
+            }
         },
         {
+            "name": "_float_val",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Union",
+                "elements": [
+                    {
+                        "data_type": "ArrayDecl",
+                        "type": {
+                            "name": "_Sh",
+                            "data_type": "TypeDecl",
+                            "type": "unsigned short"
+                        },
+                        "dim": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "_Val",
+                        "data_type": "TypeDecl",
+                        "type": "float"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "_ldouble_val",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Union",
+                "elements": [
+                    {
+                        "data_type": "ArrayDecl",
+                        "type": {
+                            "name": "_Sh",
+                            "data_type": "TypeDecl",
+                            "type": "unsigned short"
+                        },
+                        "dim": {
+                            "type": "int",
+                            "value": "4"
+                        }
+                    },
+                    {
+                        "name": "_Val",
+                        "data_type": "TypeDecl",
+                        "type": "long double"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "_float_const",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Union",
+                "elements": [
+                    {
+                        "data_type": "ArrayDecl",
+                        "type": {
+                            "name": "_Word",
+                            "data_type": "TypeDecl",
+                            "type": "unsigned short"
+                        },
+                        "dim": {
+                            "type": "int",
+                            "value": "4"
+                        }
+                    },
+                    {
+                        "name": "_Float",
+                        "data_type": "TypeDecl",
+                        "type": "float"
+                    },
+                    {
+                        "name": "_Double",
+                        "data_type": "TypeDecl",
+                        "type": "double"
+                    },
+                    {
+                        "name": "_Long_double",
+                        "data_type": "TypeDecl",
+                        "type": "long double"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "XAUDIO2FX_VOLUMEMETER_LEVELS",
             "data_type": "Struct",
             "elements": [
                 {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "float"
+                    },
+                    "name": "pPeakLevels"
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "float"
+                    },
+                    "name": "pRMSLevels"
+                },
+                {
+                    "name": "ChannelCount",
                     "data_type": "TypeDecl",
+                    "type": "UINT32"
+                }
+            ]
+        },
+        {
+            "name": "XAUDIO2FX_REVERB_PARAMETERS",
+            "data_type": "Struct",
+            "elements": [
+                {
                     "name": "WetDryMix",
+                    "data_type": "TypeDecl",
                     "type": "float"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "ReflectionsDelay",
+                    "data_type": "TypeDecl",
                     "type": "UINT32"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "ReverbDelay",
+                    "data_type": "TypeDecl",
                     "type": "BYTE"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "RearDelay",
+                    "data_type": "TypeDecl",
                     "type": "BYTE"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "SideDelay",
+                    "data_type": "TypeDecl",
                     "type": "BYTE"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "PositionLeft",
+                    "data_type": "TypeDecl",
                     "type": "BYTE"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "PositionRight",
+                    "data_type": "TypeDecl",
                     "type": "BYTE"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "PositionMatrixLeft",
+                    "data_type": "TypeDecl",
                     "type": "BYTE"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "PositionMatrixRight",
+                    "data_type": "TypeDecl",
                     "type": "BYTE"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "EarlyDiffusion",
+                    "data_type": "TypeDecl",
                     "type": "BYTE"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "LateDiffusion",
+                    "data_type": "TypeDecl",
                     "type": "BYTE"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "LowEQGain",
+                    "data_type": "TypeDecl",
                     "type": "BYTE"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "LowEQCutoff",
+                    "data_type": "TypeDecl",
                     "type": "BYTE"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "HighEQGain",
+                    "data_type": "TypeDecl",
                     "type": "BYTE"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "HighEQCutoff",
+                    "data_type": "TypeDecl",
                     "type": "BYTE"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "RoomFilterFreq",
+                    "data_type": "TypeDecl",
                     "type": "float"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "RoomFilterMain",
+                    "data_type": "TypeDecl",
                     "type": "float"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "RoomFilterHF",
+                    "data_type": "TypeDecl",
                     "type": "float"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "ReflectionsGain",
+                    "data_type": "TypeDecl",
                     "type": "float"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "ReverbGain",
+                    "data_type": "TypeDecl",
                     "type": "float"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "DecayTime",
+                    "data_type": "TypeDecl",
                     "type": "float"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "Density",
+                    "data_type": "TypeDecl",
                     "type": "float"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "RoomSize",
+                    "data_type": "TypeDecl",
                     "type": "float"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "DisableLateField",
+                    "data_type": "TypeDecl",
                     "type": "BOOL"
                 }
-            ],
-            "name": "XAUDIO2FX_REVERB_PARAMETERS"
+            ]
         },
         {
+            "name": "XAUDIO2FX_REVERB_I3DL2_PARAMETERS",
             "data_type": "Struct",
             "elements": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "WetDryMix",
+                    "data_type": "TypeDecl",
                     "type": "float"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "Room",
+                    "data_type": "TypeDecl",
                     "type": "INT32"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "RoomHF",
+                    "data_type": "TypeDecl",
                     "type": "INT32"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "RoomRolloffFactor",
+                    "data_type": "TypeDecl",
                     "type": "float"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "DecayTime",
+                    "data_type": "TypeDecl",
                     "type": "float"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "DecayHFRatio",
+                    "data_type": "TypeDecl",
                     "type": "float"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "Reflections",
+                    "data_type": "TypeDecl",
                     "type": "INT32"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "ReflectionsDelay",
+                    "data_type": "TypeDecl",
                     "type": "float"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "Reverb",
+                    "data_type": "TypeDecl",
                     "type": "INT32"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "ReverbDelay",
+                    "data_type": "TypeDecl",
                     "type": "float"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "Diffusion",
+                    "data_type": "TypeDecl",
                     "type": "float"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "Density",
+                    "data_type": "TypeDecl",
                     "type": "float"
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "HFReference",
+                    "data_type": "TypeDecl",
                     "type": "float"
                 }
-            ],
-            "name": "XAUDIO2FX_REVERB_I3DL2_PARAMETERS"
+            ]
         }
     ],
     "funcdefs": [
@@ -286,16 +409,22 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "PtrDecl",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "IUnknown"
+                        }
+                    },
                     "name": "ppApo",
-                    "type": "IUnknown",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "Flags",
+                    "data_type": "TypeDecl",
                     "type": "UINT32",
                     "sal": [
                         "in"

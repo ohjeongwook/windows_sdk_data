@@ -1,71 +1,85 @@
 {
     "typedefs": [
         {
+            "name": "HSTRING__",
             "data_type": "Struct",
             "elements": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "unused",
+                    "data_type": "TypeDecl",
                     "type": "int"
                 }
-            ],
-            "name": "HSTRING__"
+            ]
         },
         {
             "data_type": "PtrDecl",
-            "name": "HSTRING",
-            "type": "HSTRING__"
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "HSTRING__"
+            },
+            "name": "HSTRING"
         },
         {
+            "name": "HSTRING_HEADER",
             "data_type": "Struct",
             "elements": [
                 {
-                    "data_type": "Union",
-                    "elements": [
-                        {
-                            "data_type": "TypeDecl",
-                            "name": "Reserved1",
-                            "type": "PVOID"
-                        },
-                        {
-                            "data_type": "ArrayDecl",
-                            "dim": {
-                                "type": "int",
-                                "value": "24"
-                            },
-                            "type": {
+                    "name": "Reserved",
+                    "data_type": "TypeDecl",
+                    "type": {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Reserved1",
                                 "data_type": "TypeDecl",
-                                "name": "Reserved2",
-                                "type": "char"
+                                "type": "PVOID"
+                            },
+                            {
+                                "data_type": "ArrayDecl",
+                                "type": {
+                                    "name": "Reserved2",
+                                    "data_type": "TypeDecl",
+                                    "type": "char"
+                                },
+                                "dim": {
+                                    "type": "int",
+                                    "value": "24"
+                                }
                             }
-                        }
-                    ]
+                        ]
+                    }
                 }
-            ],
-            "name": "HSTRING_HEADER"
+            ]
         },
         {
+            "name": "HSTRING_BUFFER__",
             "data_type": "Struct",
             "elements": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "unused",
+                    "data_type": "TypeDecl",
                     "type": "int"
                 }
-            ],
-            "name": "HSTRING_BUFFER__"
+            ]
         },
         {
             "data_type": "PtrDecl",
-            "name": "HSTRING_BUFFER",
-            "type": "HSTRING_BUFFER__"
+            "type": {
+                "type": "HSTRING_BUFFER__",
+                "data_type": "TypeDecl"
+            },
+            "name": "HSTRING_BUFFER"
         },
         {
             "data_type": "PtrDecl",
-            "name": "LPINSPECTABLE",
-            "type": "IInspectable"
+            "type": {
+                "data_type": "TypeDecl",
+                "type": "IInspectable"
+            },
+            "name": "LPINSPECTABLE"
         },
         {
+            "name": "TrustLevel",
             "data_type": "Enum",
             "enumerators": [
                 {
@@ -83,187 +97,249 @@
                     "name": "FullTrust",
                     "value": {}
                 }
-            ],
-            "name": "TrustLevel"
+            ]
         },
         {
+            "name": "IInspectableVtbl",
             "data_type": "Struct",
             "elements": [
                 {
                     "data_type": "PtrDecl",
-                    "func": {
-                        "name": "QueryInterface",
+                    "type": {
+                        "data_type": "FuncDecl",
                         "type": {
+                            "name": "QueryInterface",
                             "data_type": "TypeDecl",
                             "type": "HRESULT"
                         },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "IInspectable"
+                        "func": {
+                            "name": "QueryInterface",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "HRESULT"
                             },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "riid",
-                                "type": "IID"
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "ppvObject",
-                                "type": "void"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "QueryInterface",
-                        "type": "HRESULT"
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IInspectable"
+                                    },
+                                    "name": "This"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IID"
+                                    },
+                                    "name": "riid"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "PtrDecl",
+                                        "type": {
+                                            "data_type": "TypeDecl",
+                                            "type": "void"
+                                        }
+                                    },
+                                    "name": "ppvObject"
+                                }
+                            ]
+                        }
                     }
                 },
                 {
                     "data_type": "PtrDecl",
-                    "func": {
-                        "name": "AddRef",
+                    "type": {
+                        "data_type": "FuncDecl",
                         "type": {
+                            "name": "AddRef",
                             "data_type": "TypeDecl",
                             "type": "ULONG"
                         },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "IInspectable"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "AddRef",
-                        "type": "ULONG"
-                    }
-                },
-                {
-                    "data_type": "PtrDecl",
-                    "func": {
-                        "name": "Release",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "ULONG"
-                        },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "IInspectable"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "Release",
-                        "type": "ULONG"
-                    }
-                },
-                {
-                    "data_type": "PtrDecl",
-                    "func": {
-                        "name": "GetIids",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "HRESULT"
-                        },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "IInspectable"
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "iidCount",
+                        "func": {
+                            "name": "AddRef",
+                            "type": {
+                                "data_type": "TypeDecl",
                                 "type": "ULONG"
                             },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "iids",
-                                "type": "IID"
-                            }
-                        ]
-                    },
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "name": "GetIids",
-                        "type": "HRESULT"
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IInspectable"
+                                    },
+                                    "name": "This"
+                                }
+                            ]
+                        }
                     }
                 },
                 {
                     "data_type": "PtrDecl",
-                    "func": {
-                        "name": "GetRuntimeClassName",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "HRESULT"
-                        },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "IInspectable"
-                            },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "className",
-                                "type": "HSTRING"
-                            }
-                        ]
-                    },
                     "type": {
-                        "data_type": "TypeDecl",
-                        "name": "GetRuntimeClassName",
-                        "type": "HRESULT"
+                        "data_type": "FuncDecl",
+                        "type": {
+                            "name": "Release",
+                            "data_type": "TypeDecl",
+                            "type": "ULONG"
+                        },
+                        "func": {
+                            "name": "Release",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "ULONG"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IInspectable"
+                                    },
+                                    "name": "This"
+                                }
+                            ]
+                        }
                     }
                 },
                 {
                     "data_type": "PtrDecl",
-                    "func": {
-                        "name": "GetTrustLevel",
+                    "type": {
+                        "data_type": "FuncDecl",
                         "type": {
+                            "name": "GetIids",
                             "data_type": "TypeDecl",
                             "type": "HRESULT"
                         },
-                        "arguments": [
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "This",
-                                "type": "IInspectable"
+                        "func": {
+                            "name": "GetIids",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "HRESULT"
                             },
-                            {
-                                "data_type": "PtrDecl",
-                                "name": "trustLevel",
-                                "type": "TrustLevel"
-                            }
-                        ]
-                    },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IInspectable"
+                                    },
+                                    "name": "This"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "ULONG"
+                                    },
+                                    "name": "iidCount"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "PtrDecl",
+                                        "type": {
+                                            "data_type": "TypeDecl",
+                                            "type": "IID"
+                                        }
+                                    },
+                                    "name": "iids"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
-                        "name": "GetTrustLevel",
-                        "type": "HRESULT"
+                        "data_type": "FuncDecl",
+                        "type": {
+                            "name": "GetRuntimeClassName",
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "func": {
+                            "name": "GetRuntimeClassName",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "HRESULT"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IInspectable"
+                                    },
+                                    "name": "This"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "HSTRING"
+                                    },
+                                    "name": "className"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "FuncDecl",
+                        "type": {
+                            "name": "GetTrustLevel",
+                            "data_type": "TypeDecl",
+                            "type": "HRESULT"
+                        },
+                        "func": {
+                            "name": "GetTrustLevel",
+                            "type": {
+                                "data_type": "TypeDecl",
+                                "type": "HRESULT"
+                            },
+                            "arguments": [
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "IInspectable"
+                                    },
+                                    "name": "This"
+                                },
+                                {
+                                    "data_type": "PtrDecl",
+                                    "type": {
+                                        "data_type": "TypeDecl",
+                                        "type": "TrustLevel"
+                                    },
+                                    "name": "trustLevel"
+                                }
+                            ]
+                        }
                     }
                 }
-            ],
-            "name": "IInspectableVtbl"
+            ]
         },
         {
+            "name": "IInspectable",
             "data_type": "Struct",
             "elements": [
                 {
                     "data_type": "PtrDecl",
-                    "name": "lpVtbl",
-                    "type": "IInspectableVtbl"
+                    "type": {
+                        "type": "IInspectableVtbl",
+                        "data_type": "TypeDecl"
+                    },
+                    "name": "lpVtbl"
                 }
-            ],
-            "name": "IInspectable"
+            ]
         }
     ],
     "funcdefs": [
@@ -276,7 +352,10 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": "unsigned long",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "unsigned long"
+                    },
                     "sal": []
                 },
                 {
@@ -286,7 +365,10 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": "HSTRING",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "HSTRING"
+                    },
                     "sal": []
                 }
             ],
@@ -300,22 +382,34 @@
             "name": "HSTRING_UserMarshal",
             "type": {
                 "data_type": "PtrDecl",
-                "type": "unsigned char"
+                "type": {
+                    "data_type": "TypeDecl",
+                    "type": "unsigned char"
+                }
             },
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": "unsigned long",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "unsigned long"
+                    },
                     "sal": []
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": "unsigned char",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "unsigned char"
+                    },
                     "sal": []
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": "HSTRING",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "HSTRING"
+                    },
                     "sal": []
                 }
             ],
@@ -329,22 +423,34 @@
             "name": "HSTRING_UserUnmarshal",
             "type": {
                 "data_type": "PtrDecl",
-                "type": "unsigned char"
+                "type": {
+                    "data_type": "TypeDecl",
+                    "type": "unsigned char"
+                }
             },
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": "unsigned long",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "unsigned long"
+                    },
                     "sal": []
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": "unsigned char",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "unsigned char"
+                    },
                     "sal": []
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": "HSTRING",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "HSTRING"
+                    },
                     "sal": []
                 }
             ],
@@ -363,12 +469,18 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": "unsigned long",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "unsigned long"
+                    },
                     "sal": []
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": "HSTRING",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "HSTRING"
+                    },
                     "sal": []
                 }
             ],
@@ -387,7 +499,10 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": "unsigned long",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "unsigned long"
+                    },
                     "sal": [
                         "in"
                     ]
@@ -401,7 +516,10 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": "HSTRING",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "HSTRING"
+                    },
                     "sal": [
                         "in"
                     ]
@@ -417,19 +535,28 @@
             "name": "HSTRING_UserMarshal64",
             "type": {
                 "data_type": "PtrDecl",
-                "type": "unsigned char"
+                "type": {
+                    "data_type": "TypeDecl",
+                    "type": "unsigned char"
+                }
             },
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": "unsigned long",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "unsigned long"
+                    },
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": "unsigned char",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "unsigned char"
+                    },
                     "sal": [
                         "in",
                         "out"
@@ -437,7 +564,10 @@
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": "HSTRING",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "HSTRING"
+                    },
                     "sal": [
                         "in"
                     ]
@@ -453,26 +583,38 @@
             "name": "HSTRING_UserUnmarshal64",
             "type": {
                 "data_type": "PtrDecl",
-                "type": "unsigned char"
+                "type": {
+                    "data_type": "TypeDecl",
+                    "type": "unsigned char"
+                }
             },
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": "unsigned long",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "unsigned long"
+                    },
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": "unsigned char",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "unsigned char"
+                    },
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": "HSTRING",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "HSTRING"
+                    },
                     "sal": [
                         "out"
                     ]
@@ -493,14 +635,20 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
-                    "type": "unsigned long",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "unsigned long"
+                    },
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
-                    "type": "HSTRING",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "HSTRING"
+                    },
                     "sal": [
                         "in"
                     ]

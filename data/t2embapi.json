@@ -1,14 +1,152 @@
 {
     "typedefs": [
         {
+            "name": "TTLOADINFO",
             "data_type": "TypeDecl",
-            "name": "READEMBEDPROC",
-            "type": "unsigned long"
+            "type": {
+                "data_type": "Struct",
+                "elements": [
+                    {
+                        "name": "usStructSize",
+                        "data_type": "TypeDecl",
+                        "type": "unsigned short"
+                    },
+                    {
+                        "name": "usRefStrSize",
+                        "data_type": "TypeDecl",
+                        "type": "unsigned short"
+                    },
+                    {
+                        "data_type": "PtrDecl",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "unsigned short"
+                        },
+                        "name": "pusRefStr"
+                    }
+                ]
+            }
         },
         {
+            "name": "TTEMBEDINFO",
             "data_type": "TypeDecl",
-            "name": "WRITEEMBEDPROC",
-            "type": "unsigned long"
+            "type": {
+                "data_type": "Struct",
+                "elements": [
+                    {
+                        "name": "usStructSize",
+                        "data_type": "TypeDecl",
+                        "type": "unsigned short"
+                    },
+                    {
+                        "name": "usRootStrSize",
+                        "data_type": "TypeDecl",
+                        "type": "unsigned short"
+                    },
+                    {
+                        "data_type": "PtrDecl",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "unsigned short"
+                        },
+                        "name": "pusRootStr"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "TTVALIDATIONTESTSPARAMS",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Struct",
+                "elements": [
+                    {
+                        "name": "ulStructSize",
+                        "data_type": "TypeDecl",
+                        "type": "unsigned long"
+                    },
+                    {
+                        "name": "lTestFromSize",
+                        "data_type": "TypeDecl",
+                        "type": "long"
+                    },
+                    {
+                        "name": "lTestToSize",
+                        "data_type": "TypeDecl",
+                        "type": "long"
+                    },
+                    {
+                        "name": "ulCharSet",
+                        "data_type": "TypeDecl",
+                        "type": "unsigned long"
+                    },
+                    {
+                        "name": "usReserved1",
+                        "data_type": "TypeDecl",
+                        "type": "unsigned short"
+                    },
+                    {
+                        "name": "usCharCodeCount",
+                        "data_type": "TypeDecl",
+                        "type": "unsigned short"
+                    },
+                    {
+                        "data_type": "PtrDecl",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "unsigned short"
+                        },
+                        "name": "pusCharCodeSet"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "TTVALIDATIONTESTSPARAMSEX",
+            "data_type": "TypeDecl",
+            "type": {
+                "data_type": "Struct",
+                "elements": [
+                    {
+                        "name": "ulStructSize",
+                        "data_type": "TypeDecl",
+                        "type": "unsigned long"
+                    },
+                    {
+                        "name": "lTestFromSize",
+                        "data_type": "TypeDecl",
+                        "type": "long"
+                    },
+                    {
+                        "name": "lTestToSize",
+                        "data_type": "TypeDecl",
+                        "type": "long"
+                    },
+                    {
+                        "name": "ulCharSet",
+                        "data_type": "TypeDecl",
+                        "type": "unsigned long"
+                    },
+                    {
+                        "name": "usReserved1",
+                        "data_type": "TypeDecl",
+                        "type": "unsigned short"
+                    },
+                    {
+                        "name": "usCharCodeCount",
+                        "data_type": "TypeDecl",
+                        "type": "unsigned short"
+                    },
+                    {
+                        "data_type": "PtrDecl",
+                        "type": {
+                            "data_type": "TypeDecl",
+                            "type": "unsigned long"
+                        },
+                        "name": "pulCharCodeSet"
+                    }
+                ]
+            }
         }
     ],
     "funcdefs": [
@@ -20,24 +158,24 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "hDC",
+                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "ulFlags",
+                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "ulCharSet",
+                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -45,29 +183,35 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "ULONG"
+                    },
                     "name": "pulPrivStatus",
-                    "type": "ULONG",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "ULONG"
+                    },
                     "name": "pulStatus",
-                    "type": "ULONG",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "lpfnWriteToStream",
+                    "data_type": "TypeDecl",
                     "type": "WRITEEMBEDPROC",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "lpvWriteStream",
+                    "data_type": "TypeDecl",
                     "type": "LPVOID",
                     "sal": [
                         "in"
@@ -75,23 +219,26 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "USHORT"
+                    },
                     "name": "pusCharCodeSet",
-                    "type": "USHORT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "usCharCodeCount",
+                    "data_type": "TypeDecl",
                     "type": "USHORT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "usLanguage",
+                    "data_type": "TypeDecl",
                     "type": "USHORT",
                     "sal": [
                         "in"
@@ -99,8 +246,11 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "TTEMBEDINFO"
+                    },
                     "name": "pTTEmbedInfo",
-                    "type": "TTEMBEDINFO",
                     "sal": [
                         "in",
                         "optional"
@@ -119,40 +269,40 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "hDC",
+                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "szFontFileName",
+                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "usTTCIndex",
+                    "data_type": "TypeDecl",
                     "type": "USHORT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "ulFlags",
+                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "ulCharSet",
+                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -160,29 +310,35 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "ULONG"
+                    },
                     "name": "pulPrivStatus",
-                    "type": "ULONG",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "ULONG"
+                    },
                     "name": "pulStatus",
-                    "type": "ULONG",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "lpfnWriteToStream",
+                    "data_type": "TypeDecl",
                     "type": "WRITEEMBEDPROC",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "lpvWriteStream",
+                    "data_type": "TypeDecl",
                     "type": "LPVOID",
                     "sal": [
                         "in"
@@ -190,23 +346,26 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "USHORT"
+                    },
                     "name": "pusCharCodeSet",
-                    "type": "USHORT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "usCharCodeCount",
+                    "data_type": "TypeDecl",
                     "type": "USHORT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "usLanguage",
+                    "data_type": "TypeDecl",
                     "type": "USHORT",
                     "sal": [
                         "in"
@@ -214,8 +373,11 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "TTEMBEDINFO"
+                    },
                     "name": "pTTEmbedInfo",
-                    "type": "TTEMBEDINFO",
                     "sal": [
                         "in",
                         "optional"
@@ -235,15 +397,18 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "HANDLE"
+                    },
                     "name": "phFontReference",
-                    "type": "HANDLE",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "ulFlags",
+                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -251,15 +416,18 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "ULONG"
+                    },
                     "name": "pulPrivStatus",
-                    "type": "ULONG",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "ulPrivs",
+                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -267,31 +435,34 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "ULONG"
+                    },
                     "name": "pulStatus",
-                    "type": "ULONG",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "lpfnReadFromStream",
+                    "data_type": "TypeDecl",
                     "type": "READEMBEDPROC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "lpvReadStream",
+                    "data_type": "TypeDecl",
                     "type": "LPVOID",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "szWinFamilyName",
+                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "in",
@@ -299,8 +470,8 @@
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "szMacFamilyName",
+                    "data_type": "TypeDecl",
                     "type": "LPSTR",
                     "sal": [
                         "in",
@@ -309,8 +480,11 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "TTLOADINFO"
+                    },
                     "name": "pTTLoadInfo",
-                    "type": "TTLOADINFO",
                     "sal": [
                         "in",
                         "optional"
@@ -329,8 +503,8 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "ulFlags",
+                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -338,15 +512,18 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "ULONG"
+                    },
                     "name": "pulPrivStatus",
-                    "type": "ULONG",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "ulPrivs",
+                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -354,21 +531,24 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "ULONG"
+                    },
                     "name": "pulStatus",
-                    "type": "ULONG",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "lpfnReadFromStream",
+                    "data_type": "TypeDecl",
                     "type": "READEMBEDPROC",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "lpvReadStream",
+                    "data_type": "TypeDecl",
                     "type": "LPVOID",
                     "sal": [
                         "in"
@@ -376,8 +556,11 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "TTLOADINFO"
+                    },
                     "name": "pTTLoadInfo",
-                    "type": "TTLOADINFO",
                     "sal": [
                         "in"
                     ]
@@ -395,16 +578,16 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "hFontReference",
+                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "ulFlags",
+                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -412,8 +595,11 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "ULONG"
+                    },
                     "name": "pulStatus",
-                    "type": "ULONG",
                     "sal": [
                         "out"
                     ]
@@ -431,8 +617,8 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "hDC",
+                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": [
                         "in"
@@ -440,8 +626,11 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "ULONG"
+                    },
                     "name": "pulEmbedType",
-                    "type": "ULONG",
                     "sal": [
                         "in"
                     ]
@@ -459,8 +648,8 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "hDC",
+                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": [
                         "in"
@@ -468,15 +657,18 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "UCHAR"
+                    },
                     "name": "pucCharCodes",
-                    "type": "UCHAR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "ulCharCodeSize",
+                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -484,23 +676,26 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "USHORT"
+                    },
                     "name": "pusShortCodes",
-                    "type": "USHORT",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "ulShortCodeSize",
+                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "ulFlags",
+                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -519,8 +714,8 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "hDC",
+                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": [
                         "in"
@@ -528,8 +723,11 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "TTVALIDATIONTESTSPARAMS"
+                    },
                     "name": "pTestParam",
-                    "type": "TTVALIDATIONTESTSPARAMS",
                     "sal": [
                         "in"
                     ]
@@ -547,8 +745,8 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "hDC",
+                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": [
                         "in"
@@ -556,8 +754,11 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "BOOL"
+                    },
                     "name": "pbEnabled",
-                    "type": "BOOL",
                     "sal": [
                         "out"
                     ]
@@ -575,8 +776,8 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "lpszFacename",
+                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -584,8 +785,11 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "BOOL"
+                    },
                     "name": "pbEnabled",
-                    "type": "BOOL",
                     "sal": [
                         "out"
                     ]
@@ -603,16 +807,16 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "lpszFacename",
+                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "bEnable",
+                    "data_type": "TypeDecl",
                     "type": "BOOL",
                     "sal": [
                         "in"
@@ -631,24 +835,24 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "hDC",
+                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "ulFlags",
+                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "ulCharSet",
+                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -656,29 +860,35 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "ULONG"
+                    },
                     "name": "pulPrivStatus",
-                    "type": "ULONG",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "ULONG"
+                    },
                     "name": "pulStatus",
-                    "type": "ULONG",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "lpfnWriteToStream",
+                    "data_type": "TypeDecl",
                     "type": "WRITEEMBEDPROC",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "lpvWriteStream",
+                    "data_type": "TypeDecl",
                     "type": "LPVOID",
                     "sal": [
                         "in"
@@ -686,23 +896,26 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "ULONG"
+                    },
                     "name": "pulCharCodeSet",
-                    "type": "ULONG",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "usCharCodeCount",
+                    "data_type": "TypeDecl",
                     "type": "USHORT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "usLanguage",
+                    "data_type": "TypeDecl",
                     "type": "USHORT",
                     "sal": [
                         "in"
@@ -710,8 +923,11 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "TTEMBEDINFO"
+                    },
                     "name": "pTTEmbedInfo",
-                    "type": "TTEMBEDINFO",
                     "sal": [
                         "in",
                         "optional"
@@ -730,8 +946,8 @@
             },
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "name": "hDC",
+                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": [
                         "in"
@@ -739,8 +955,11 @@
                 },
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "TTVALIDATIONTESTSPARAMSEX"
+                    },
                     "name": "pTestParam",
-                    "type": "TTVALIDATIONTESTSPARAMSEX",
                     "sal": [
                         "in"
                     ]
@@ -759,39 +978,42 @@
             "arguments": [
                 {
                     "data_type": "PtrDecl",
+                    "type": {
+                        "data_type": "TypeDecl",
+                        "type": "HANDLE"
+                    },
                     "name": "phFontReference",
-                    "type": "HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "wzWinFamilyName",
+                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "cchMaxWinName",
+                    "data_type": "TypeDecl",
                     "type": "LONG",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "szMacFamilyName",
+                    "data_type": "TypeDecl",
                     "type": "LPSTR",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "TypeDecl",
                     "name": "cchMaxMacName",
+                    "data_type": "TypeDecl",
                     "type": "LONG",
                     "sal": [
                         "in"
