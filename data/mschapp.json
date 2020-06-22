@@ -2,86 +2,137 @@
     "typedefs": [
         {
             "name": "CYPHER_BLOCK",
-            "type": "_CYPHER_BLOCK",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_CYPHER_BLOCK",
+                "elements": [
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "8"
+                        },
+                        "name": "data"
+                    }
+                ]
+            }
         },
         {
             "name": "LM_OWF_PASSWORD",
-            "type": "_LM_OWF_PASSWORD",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_LM_OWF_PASSWORD",
+                "elements": [
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "2"
+                        },
+                        "name": "data"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "LM_OWF_PASSWORD"
-            },
-            "name": "PLM_OWF_PASSWORD"
+            "name": "PLM_OWF_PASSWORD",
+            "type": "LM_OWF_PASSWORD",
+            "data_type": "Ptr"
         },
         {
             "name": "NT_OWF_PASSWORD",
-            "data_type": "TypeDecl",
             "type": "LM_OWF_PASSWORD"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "NT_OWF_PASSWORD"
-            },
-            "name": "PNT_OWF_PASSWORD"
+            "name": "PNT_OWF_PASSWORD",
+            "type": "NT_OWF_PASSWORD",
+            "data_type": "Ptr"
         },
         {
             "name": "SAMPR_ENCRYPTED_USER_PASSWORD",
-            "type": "_SAMPR_ENCRYPTED_USER_PASSWORD",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_SAMPR_ENCRYPTED_USER_PASSWORD",
+                "elements": [
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {},
+                        "name": "Buffer"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PSAMPR_ENCRYPTED_USER_PASSWORD",
             "type": {
-                "type": "_SAMPR_ENCRYPTED_USER_PASSWORD",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_SAMPR_ENCRYPTED_USER_PASSWORD",
+                "elements": [
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {},
+                        "name": "Buffer"
+                    }
+                ]
             },
-            "name": "PSAMPR_ENCRYPTED_USER_PASSWORD"
+            "data_type": "Ptr"
         },
         {
             "name": "ENCRYPTED_LM_OWF_PASSWORD",
-            "type": "_ENCRYPTED_LM_OWF_PASSWORD",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_ENCRYPTED_LM_OWF_PASSWORD",
+                "elements": [
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "2"
+                        },
+                        "name": "data"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PENCRYPTED_LM_OWF_PASSWORD",
             "type": {
-                "type": "_ENCRYPTED_LM_OWF_PASSWORD",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_ENCRYPTED_LM_OWF_PASSWORD",
+                "elements": [
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "2"
+                        },
+                        "name": "data"
+                    }
+                ]
             },
-            "name": "PENCRYPTED_LM_OWF_PASSWORD"
+            "data_type": "Ptr"
         },
         {
             "name": "ENCRYPTED_NT_OWF_PASSWORD",
-            "data_type": "TypeDecl",
             "type": "ENCRYPTED_LM_OWF_PASSWORD"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "ENCRYPTED_NT_OWF_PASSWORD"
-            },
-            "name": "PENCRYPTED_NT_OWF_PASSWORD"
+            "name": "PENCRYPTED_NT_OWF_PASSWORD",
+            "type": "ENCRYPTED_NT_OWF_PASSWORD",
+            "data_type": "Ptr"
         }
     ],
     "funcdefs": [
         {
-            "name": "MSChapSrvChangePassword",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MSChapSrvChangePassword",
                 "type": "DWORD"
             },
+            "name": "MSChapSrvChangePassword",
             "arguments": [
                 {
                     "name": "ServerName",
-                    "data_type": "TypeDecl",
                     "type": "PWSTR",
                     "sal": [
                         "in"
@@ -89,7 +140,6 @@
                 },
                 {
                     "name": "UserName",
-                    "data_type": "TypeDecl",
                     "type": "PWSTR",
                     "sal": [
                         "in"
@@ -97,7 +147,6 @@
                 },
                 {
                     "name": "LmOldPresent",
-                    "data_type": "TypeDecl",
                     "type": "BOOLEAN",
                     "sal": [
                         "in"
@@ -105,7 +154,6 @@
                 },
                 {
                     "name": "LmOldOwfPassword",
-                    "data_type": "TypeDecl",
                     "type": "PLM_OWF_PASSWORD",
                     "sal": [
                         "in"
@@ -113,7 +161,6 @@
                 },
                 {
                     "name": "LmNewOwfPassword",
-                    "data_type": "TypeDecl",
                     "type": "PLM_OWF_PASSWORD",
                     "sal": [
                         "in"
@@ -121,7 +168,6 @@
                 },
                 {
                     "name": "NtOldOwfPassword",
-                    "data_type": "TypeDecl",
                     "type": "PNT_OWF_PASSWORD",
                     "sal": [
                         "in"
@@ -129,7 +175,6 @@
                 },
                 {
                     "name": "NtNewOwfPassword",
-                    "data_type": "TypeDecl",
                     "type": "PNT_OWF_PASSWORD",
                     "sal": [
                         "in"
@@ -141,15 +186,15 @@
             ]
         },
         {
-            "name": "MSChapSrvChangePassword2",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MSChapSrvChangePassword2",
                 "type": "DWORD"
             },
+            "name": "MSChapSrvChangePassword2",
             "arguments": [
                 {
                     "name": "ServerName",
-                    "data_type": "TypeDecl",
                     "type": "PWSTR",
                     "sal": [
                         "in"
@@ -157,7 +202,6 @@
                 },
                 {
                     "name": "UserName",
-                    "data_type": "TypeDecl",
                     "type": "PWSTR",
                     "sal": [
                         "in"
@@ -165,7 +209,6 @@
                 },
                 {
                     "name": "NewPasswordEncryptedWithOldNt",
-                    "data_type": "TypeDecl",
                     "type": "PSAMPR_ENCRYPTED_USER_PASSWORD",
                     "sal": [
                         "in"
@@ -173,7 +216,6 @@
                 },
                 {
                     "name": "OldNtOwfPasswordEncryptedWithNewNt",
-                    "data_type": "TypeDecl",
                     "type": "PENCRYPTED_NT_OWF_PASSWORD",
                     "sal": [
                         "in"
@@ -181,7 +223,6 @@
                 },
                 {
                     "name": "LmPresent",
-                    "data_type": "TypeDecl",
                     "type": "BOOLEAN",
                     "sal": [
                         "in"
@@ -189,7 +230,6 @@
                 },
                 {
                     "name": "NewPasswordEncryptedWithOldLm",
-                    "data_type": "TypeDecl",
                     "type": "PSAMPR_ENCRYPTED_USER_PASSWORD",
                     "sal": [
                         "in"
@@ -197,7 +237,6 @@
                 },
                 {
                     "name": "OldLmOwfPasswordEncryptedWithNewLmOrNt",
-                    "data_type": "TypeDecl",
                     "type": "PENCRYPTED_LM_OWF_PASSWORD",
                     "sal": [
                         "in"

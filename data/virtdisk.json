@@ -2,530 +2,3787 @@
     "typedefs": [
         {
             "name": "OPEN_VIRTUAL_DISK_VERSION",
-            "type": "_OPEN_VIRTUAL_DISK_VERSION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "OPEN_VIRTUAL_DISK_VERSION_UNSPECIFIED",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "OPEN_VIRTUAL_DISK_VERSION_1",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "OPEN_VIRTUAL_DISK_VERSION_2",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "OPEN_VIRTUAL_DISK_VERSION_3",
+                        "value": {
+                            "type": "int",
+                            "value": "3"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "OPEN_VIRTUAL_DISK_PARAMETERS",
-            "type": "_OPEN_VIRTUAL_DISK_PARAMETERS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_OPEN_VIRTUAL_DISK_PARAMETERS",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "OPEN_VIRTUAL_DISK_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Version1",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "RWDepth",
+                                            "type": "ULONG"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Version2",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "GetInfoOnly",
+                                            "type": "BOOL"
+                                        },
+                                        {
+                                            "name": "ReadOnly",
+                                            "type": "BOOL"
+                                        },
+                                        {
+                                            "name": "ResiliencyGuid",
+                                            "type": "GUID"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Version3",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "GetInfoOnly",
+                                            "type": "BOOL"
+                                        },
+                                        {
+                                            "name": "ReadOnly",
+                                            "type": "BOOL"
+                                        },
+                                        {
+                                            "name": "ResiliencyGuid",
+                                            "type": "GUID"
+                                        },
+                                        {
+                                            "name": "SnapshotId",
+                                            "type": "GUID"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "POPEN_VIRTUAL_DISK_PARAMETERS",
             "type": {
-                "type": "_OPEN_VIRTUAL_DISK_PARAMETERS",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_OPEN_VIRTUAL_DISK_PARAMETERS",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "OPEN_VIRTUAL_DISK_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Version1",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "RWDepth",
+                                            "type": "ULONG"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Version2",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "GetInfoOnly",
+                                            "type": "BOOL"
+                                        },
+                                        {
+                                            "name": "ReadOnly",
+                                            "type": "BOOL"
+                                        },
+                                        {
+                                            "name": "ResiliencyGuid",
+                                            "type": "GUID"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Version3",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "GetInfoOnly",
+                                            "type": "BOOL"
+                                        },
+                                        {
+                                            "name": "ReadOnly",
+                                            "type": "BOOL"
+                                        },
+                                        {
+                                            "name": "ResiliencyGuid",
+                                            "type": "GUID"
+                                        },
+                                        {
+                                            "name": "SnapshotId",
+                                            "type": "GUID"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
             },
-            "name": "POPEN_VIRTUAL_DISK_PARAMETERS"
+            "data_type": "Ptr"
         },
         {
             "name": "VIRTUAL_DISK_ACCESS_MASK",
-            "type": "_VIRTUAL_DISK_ACCESS_MASK",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "VIRTUAL_DISK_ACCESS_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000000"
+                        }
+                    },
+                    {
+                        "name": "VIRTUAL_DISK_ACCESS_ATTACH_RO",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00010000"
+                        }
+                    },
+                    {
+                        "name": "VIRTUAL_DISK_ACCESS_ATTACH_RW",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00020000"
+                        }
+                    },
+                    {
+                        "name": "VIRTUAL_DISK_ACCESS_DETACH",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00040000"
+                        }
+                    },
+                    {
+                        "name": "VIRTUAL_DISK_ACCESS_GET_INFO",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00080000"
+                        }
+                    },
+                    {
+                        "name": "VIRTUAL_DISK_ACCESS_CREATE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00100000"
+                        }
+                    },
+                    {
+                        "name": "VIRTUAL_DISK_ACCESS_METAOPS",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00200000"
+                        }
+                    },
+                    {
+                        "name": "VIRTUAL_DISK_ACCESS_READ",
+                        "value": {
+                            "type": "int",
+                            "value": "0x000d0000"
+                        }
+                    },
+                    {
+                        "name": "VIRTUAL_DISK_ACCESS_ALL",
+                        "value": {
+                            "type": "int",
+                            "value": "0x003f0000"
+                        }
+                    },
+                    {
+                        "name": "VIRTUAL_DISK_ACCESS_WRITABLE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00320000"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "OPEN_VIRTUAL_DISK_FLAG",
-            "type": "_OPEN_VIRTUAL_DISK_FLAG",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "OPEN_VIRTUAL_DISK_FLAG_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000000"
+                        }
+                    },
+                    {
+                        "name": "OPEN_VIRTUAL_DISK_FLAG_NO_PARENTS",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000001"
+                        }
+                    },
+                    {
+                        "name": "OPEN_VIRTUAL_DISK_FLAG_BLANK_FILE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000002"
+                        }
+                    },
+                    {
+                        "name": "OPEN_VIRTUAL_DISK_FLAG_BOOT_DRIVE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000004"
+                        }
+                    },
+                    {
+                        "name": "OPEN_VIRTUAL_DISK_FLAG_CACHED_IO",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000008"
+                        }
+                    },
+                    {
+                        "name": "OPEN_VIRTUAL_DISK_FLAG_CUSTOM_DIFF_CHAIN",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000010"
+                        }
+                    },
+                    {
+                        "name": "OPEN_VIRTUAL_DISK_FLAG_PARENT_CACHED_IO",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000020"
+                        }
+                    },
+                    {
+                        "name": "OPEN_VIRTUAL_DISK_FLAG_VHDSET_FILE_ONLY",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000040"
+                        }
+                    },
+                    {
+                        "name": "OPEN_VIRTUAL_DISK_FLAG_IGNORE_RELATIVE_PARENT_LOCATOR",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000080"
+                        }
+                    },
+                    {
+                        "name": "OPEN_VIRTUAL_DISK_FLAG_NO_WRITE_HARDENING",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000100"
+                        }
+                    },
+                    {
+                        "name": "OPEN_VIRTUAL_DISK_FLAG_SUPPORT_COMPRESSED_VOLUMES",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000200"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "CREATE_VIRTUAL_DISK_VERSION",
-            "type": "_CREATE_VIRTUAL_DISK_VERSION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "CREATE_VIRTUAL_DISK_VERSION_UNSPECIFIED",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "CREATE_VIRTUAL_DISK_VERSION_1",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "CREATE_VIRTUAL_DISK_VERSION_2",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "CREATE_VIRTUAL_DISK_VERSION_3",
+                        "value": {
+                            "type": "int",
+                            "value": "3"
+                        }
+                    },
+                    {
+                        "name": "CREATE_VIRTUAL_DISK_VERSION_4",
+                        "value": {
+                            "type": "int",
+                            "value": "4"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "CREATE_VIRTUAL_DISK_PARAMETERS",
-            "type": "_CREATE_VIRTUAL_DISK_PARAMETERS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_CREATE_VIRTUAL_DISK_PARAMETERS",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "CREATE_VIRTUAL_DISK_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Version1",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "UniqueId",
+                                            "type": "GUID"
+                                        },
+                                        {
+                                            "name": "MaximumSize",
+                                            "type": "ULONGLONG"
+                                        },
+                                        {
+                                            "name": "BlockSizeInBytes",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "SectorSizeInBytes",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "ParentPath",
+                                            "type": "PCWSTR"
+                                        },
+                                        {
+                                            "name": "SourcePath",
+                                            "type": "PCWSTR"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Version2",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "UniqueId",
+                                            "type": "GUID"
+                                        },
+                                        {
+                                            "name": "MaximumSize",
+                                            "type": "ULONGLONG"
+                                        },
+                                        {
+                                            "name": "BlockSizeInBytes",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "SectorSizeInBytes",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "PhysicalSectorSizeInBytes",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "ParentPath",
+                                            "type": "PCWSTR"
+                                        },
+                                        {
+                                            "name": "SourcePath",
+                                            "type": "PCWSTR"
+                                        },
+                                        {
+                                            "name": "OpenFlags",
+                                            "type": "OPEN_VIRTUAL_DISK_FLAG"
+                                        },
+                                        {
+                                            "name": "ParentVirtualStorageType",
+                                            "type": "VIRTUAL_STORAGE_TYPE"
+                                        },
+                                        {
+                                            "name": "SourceVirtualStorageType",
+                                            "type": "VIRTUAL_STORAGE_TYPE"
+                                        },
+                                        {
+                                            "name": "ResiliencyGuid",
+                                            "type": "GUID"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Version3",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "UniqueId",
+                                            "type": "GUID"
+                                        },
+                                        {
+                                            "name": "MaximumSize",
+                                            "type": "ULONGLONG"
+                                        },
+                                        {
+                                            "name": "BlockSizeInBytes",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "SectorSizeInBytes",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "PhysicalSectorSizeInBytes",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "ParentPath",
+                                            "type": "PCWSTR"
+                                        },
+                                        {
+                                            "name": "SourcePath",
+                                            "type": "PCWSTR"
+                                        },
+                                        {
+                                            "name": "OpenFlags",
+                                            "type": "OPEN_VIRTUAL_DISK_FLAG"
+                                        },
+                                        {
+                                            "name": "ParentVirtualStorageType",
+                                            "type": "VIRTUAL_STORAGE_TYPE"
+                                        },
+                                        {
+                                            "name": "SourceVirtualStorageType",
+                                            "type": "VIRTUAL_STORAGE_TYPE"
+                                        },
+                                        {
+                                            "name": "ResiliencyGuid",
+                                            "type": "GUID"
+                                        },
+                                        {
+                                            "name": "SourceLimitPath",
+                                            "type": "PCWSTR"
+                                        },
+                                        {
+                                            "name": "BackingStorageType",
+                                            "type": "VIRTUAL_STORAGE_TYPE"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Version4",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "UniqueId",
+                                            "type": "GUID"
+                                        },
+                                        {
+                                            "name": "MaximumSize",
+                                            "type": "ULONGLONG"
+                                        },
+                                        {
+                                            "name": "BlockSizeInBytes",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "SectorSizeInBytes",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "PhysicalSectorSizeInBytes",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "ParentPath",
+                                            "type": "PCWSTR"
+                                        },
+                                        {
+                                            "name": "SourcePath",
+                                            "type": "PCWSTR"
+                                        },
+                                        {
+                                            "name": "OpenFlags",
+                                            "type": "OPEN_VIRTUAL_DISK_FLAG"
+                                        },
+                                        {
+                                            "name": "ParentVirtualStorageType",
+                                            "type": "VIRTUAL_STORAGE_TYPE"
+                                        },
+                                        {
+                                            "name": "SourceVirtualStorageType",
+                                            "type": "VIRTUAL_STORAGE_TYPE"
+                                        },
+                                        {
+                                            "name": "ResiliencyGuid",
+                                            "type": "GUID"
+                                        },
+                                        {
+                                            "name": "SourceLimitPath",
+                                            "type": "PCWSTR"
+                                        },
+                                        {
+                                            "name": "BackingStorageType",
+                                            "type": "VIRTUAL_STORAGE_TYPE"
+                                        },
+                                        {
+                                            "name": "PmemAddressAbstractionType",
+                                            "type": "GUID"
+                                        },
+                                        {
+                                            "name": "DataAlignment",
+                                            "type": "ULONGLONG"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PCREATE_VIRTUAL_DISK_PARAMETERS",
             "type": {
-                "type": "_CREATE_VIRTUAL_DISK_PARAMETERS",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_CREATE_VIRTUAL_DISK_PARAMETERS",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "CREATE_VIRTUAL_DISK_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Version1",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "UniqueId",
+                                            "type": "GUID"
+                                        },
+                                        {
+                                            "name": "MaximumSize",
+                                            "type": "ULONGLONG"
+                                        },
+                                        {
+                                            "name": "BlockSizeInBytes",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "SectorSizeInBytes",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "ParentPath",
+                                            "type": "PCWSTR"
+                                        },
+                                        {
+                                            "name": "SourcePath",
+                                            "type": "PCWSTR"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Version2",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "UniqueId",
+                                            "type": "GUID"
+                                        },
+                                        {
+                                            "name": "MaximumSize",
+                                            "type": "ULONGLONG"
+                                        },
+                                        {
+                                            "name": "BlockSizeInBytes",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "SectorSizeInBytes",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "PhysicalSectorSizeInBytes",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "ParentPath",
+                                            "type": "PCWSTR"
+                                        },
+                                        {
+                                            "name": "SourcePath",
+                                            "type": "PCWSTR"
+                                        },
+                                        {
+                                            "name": "OpenFlags",
+                                            "type": "OPEN_VIRTUAL_DISK_FLAG"
+                                        },
+                                        {
+                                            "name": "ParentVirtualStorageType",
+                                            "type": "VIRTUAL_STORAGE_TYPE"
+                                        },
+                                        {
+                                            "name": "SourceVirtualStorageType",
+                                            "type": "VIRTUAL_STORAGE_TYPE"
+                                        },
+                                        {
+                                            "name": "ResiliencyGuid",
+                                            "type": "GUID"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Version3",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "UniqueId",
+                                            "type": "GUID"
+                                        },
+                                        {
+                                            "name": "MaximumSize",
+                                            "type": "ULONGLONG"
+                                        },
+                                        {
+                                            "name": "BlockSizeInBytes",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "SectorSizeInBytes",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "PhysicalSectorSizeInBytes",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "ParentPath",
+                                            "type": "PCWSTR"
+                                        },
+                                        {
+                                            "name": "SourcePath",
+                                            "type": "PCWSTR"
+                                        },
+                                        {
+                                            "name": "OpenFlags",
+                                            "type": "OPEN_VIRTUAL_DISK_FLAG"
+                                        },
+                                        {
+                                            "name": "ParentVirtualStorageType",
+                                            "type": "VIRTUAL_STORAGE_TYPE"
+                                        },
+                                        {
+                                            "name": "SourceVirtualStorageType",
+                                            "type": "VIRTUAL_STORAGE_TYPE"
+                                        },
+                                        {
+                                            "name": "ResiliencyGuid",
+                                            "type": "GUID"
+                                        },
+                                        {
+                                            "name": "SourceLimitPath",
+                                            "type": "PCWSTR"
+                                        },
+                                        {
+                                            "name": "BackingStorageType",
+                                            "type": "VIRTUAL_STORAGE_TYPE"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Version4",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "UniqueId",
+                                            "type": "GUID"
+                                        },
+                                        {
+                                            "name": "MaximumSize",
+                                            "type": "ULONGLONG"
+                                        },
+                                        {
+                                            "name": "BlockSizeInBytes",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "SectorSizeInBytes",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "PhysicalSectorSizeInBytes",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "ParentPath",
+                                            "type": "PCWSTR"
+                                        },
+                                        {
+                                            "name": "SourcePath",
+                                            "type": "PCWSTR"
+                                        },
+                                        {
+                                            "name": "OpenFlags",
+                                            "type": "OPEN_VIRTUAL_DISK_FLAG"
+                                        },
+                                        {
+                                            "name": "ParentVirtualStorageType",
+                                            "type": "VIRTUAL_STORAGE_TYPE"
+                                        },
+                                        {
+                                            "name": "SourceVirtualStorageType",
+                                            "type": "VIRTUAL_STORAGE_TYPE"
+                                        },
+                                        {
+                                            "name": "ResiliencyGuid",
+                                            "type": "GUID"
+                                        },
+                                        {
+                                            "name": "SourceLimitPath",
+                                            "type": "PCWSTR"
+                                        },
+                                        {
+                                            "name": "BackingStorageType",
+                                            "type": "VIRTUAL_STORAGE_TYPE"
+                                        },
+                                        {
+                                            "name": "PmemAddressAbstractionType",
+                                            "type": "GUID"
+                                        },
+                                        {
+                                            "name": "DataAlignment",
+                                            "type": "ULONGLONG"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
             },
-            "name": "PCREATE_VIRTUAL_DISK_PARAMETERS"
+            "data_type": "Ptr"
         },
         {
             "name": "CREATE_VIRTUAL_DISK_FLAG",
-            "type": "_CREATE_VIRTUAL_DISK_FLAG",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "CREATE_VIRTUAL_DISK_FLAG_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x0"
+                        }
+                    },
+                    {
+                        "name": "CREATE_VIRTUAL_DISK_FLAG_FULL_PHYSICAL_ALLOCATION",
+                        "value": {
+                            "type": "int",
+                            "value": "0x1"
+                        }
+                    },
+                    {
+                        "name": "CREATE_VIRTUAL_DISK_FLAG_PREVENT_WRITES_TO_SOURCE_DISK",
+                        "value": {
+                            "type": "int",
+                            "value": "0x2"
+                        }
+                    },
+                    {
+                        "name": "CREATE_VIRTUAL_DISK_FLAG_DO_NOT_COPY_METADATA_FROM_PARENT",
+                        "value": {
+                            "type": "int",
+                            "value": "0x4"
+                        }
+                    },
+                    {
+                        "name": "CREATE_VIRTUAL_DISK_FLAG_CREATE_BACKING_STORAGE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x8"
+                        }
+                    },
+                    {
+                        "name": "CREATE_VIRTUAL_DISK_FLAG_USE_CHANGE_TRACKING_SOURCE_LIMIT",
+                        "value": {
+                            "type": "int",
+                            "value": "0x10"
+                        }
+                    },
+                    {
+                        "name": "CREATE_VIRTUAL_DISK_FLAG_PRESERVE_PARENT_CHANGE_TRACKING_STATE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x20"
+                        }
+                    },
+                    {
+                        "name": "CREATE_VIRTUAL_DISK_FLAG_VHD_SET_USE_ORIGINAL_BACKING_STORAGE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x40"
+                        }
+                    },
+                    {
+                        "name": "CREATE_VIRTUAL_DISK_FLAG_SPARSE_FILE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x80"
+                        }
+                    },
+                    {
+                        "name": "CREATE_VIRTUAL_DISK_FLAG_PMEM_COMPATIBLE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x100"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "ATTACH_VIRTUAL_DISK_VERSION",
-            "type": "_ATTACH_VIRTUAL_DISK_VERSION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "ATTACH_VIRTUAL_DISK_VERSION_UNSPECIFIED",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "ATTACH_VIRTUAL_DISK_VERSION_1",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "ATTACH_VIRTUAL_DISK_VERSION_2",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "ATTACH_VIRTUAL_DISK_PARAMETERS",
-            "type": "_ATTACH_VIRTUAL_DISK_PARAMETERS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_ATTACH_VIRTUAL_DISK_PARAMETERS",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "ATTACH_VIRTUAL_DISK_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Version1",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "Reserved",
+                                            "type": "ULONG"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Version2",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "RestrictedOffset",
+                                            "type": "ULONGLONG"
+                                        },
+                                        {
+                                            "name": "RestrictedLength",
+                                            "type": "ULONGLONG"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PATTACH_VIRTUAL_DISK_PARAMETERS",
             "type": {
-                "type": "_ATTACH_VIRTUAL_DISK_PARAMETERS",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_ATTACH_VIRTUAL_DISK_PARAMETERS",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "ATTACH_VIRTUAL_DISK_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Version1",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "Reserved",
+                                            "type": "ULONG"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Version2",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "RestrictedOffset",
+                                            "type": "ULONGLONG"
+                                        },
+                                        {
+                                            "name": "RestrictedLength",
+                                            "type": "ULONGLONG"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
             },
-            "name": "PATTACH_VIRTUAL_DISK_PARAMETERS"
+            "data_type": "Ptr"
         },
         {
             "name": "ATTACH_VIRTUAL_DISK_FLAG",
-            "type": "_ATTACH_VIRTUAL_DISK_FLAG",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "ATTACH_VIRTUAL_DISK_FLAG_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000000"
+                        }
+                    },
+                    {
+                        "name": "ATTACH_VIRTUAL_DISK_FLAG_READ_ONLY",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000001"
+                        }
+                    },
+                    {
+                        "name": "ATTACH_VIRTUAL_DISK_FLAG_NO_DRIVE_LETTER",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000002"
+                        }
+                    },
+                    {
+                        "name": "ATTACH_VIRTUAL_DISK_FLAG_PERMANENT_LIFETIME",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000004"
+                        }
+                    },
+                    {
+                        "name": "ATTACH_VIRTUAL_DISK_FLAG_NO_LOCAL_HOST",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000008"
+                        }
+                    },
+                    {
+                        "name": "ATTACH_VIRTUAL_DISK_FLAG_NO_SECURITY_DESCRIPTOR",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000010"
+                        }
+                    },
+                    {
+                        "name": "ATTACH_VIRTUAL_DISK_FLAG_BYPASS_DEFAULT_ENCRYPTION_POLICY",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000020"
+                        }
+                    },
+                    {
+                        "name": "ATTACH_VIRTUAL_DISK_FLAG_NON_PNP",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000040"
+                        }
+                    },
+                    {
+                        "name": "ATTACH_VIRTUAL_DISK_FLAG_RESTRICTED_RANGE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000080"
+                        }
+                    },
+                    {
+                        "name": "ATTACH_VIRTUAL_DISK_FLAG_SINGLE_PARTITION",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000100"
+                        }
+                    },
+                    {
+                        "name": "ATTACH_VIRTUAL_DISK_FLAG_REGISTER_VOLUME",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000200"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "DETACH_VIRTUAL_DISK_FLAG",
-            "type": "_DETACH_VIRTUAL_DISK_FLAG",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "DETACH_VIRTUAL_DISK_FLAG_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000000"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "DEPENDENT_DISK_FLAG",
-            "type": "_DEPENDENT_DISK_FLAG",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "DEPENDENT_DISK_FLAG_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000000"
+                        }
+                    },
+                    {
+                        "name": "DEPENDENT_DISK_FLAG_MULT_BACKING_FILES",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000001"
+                        }
+                    },
+                    {
+                        "name": "DEPENDENT_DISK_FLAG_FULLY_ALLOCATED",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000002"
+                        }
+                    },
+                    {
+                        "name": "DEPENDENT_DISK_FLAG_READ_ONLY",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000004"
+                        }
+                    },
+                    {
+                        "name": "DEPENDENT_DISK_FLAG_REMOTE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000008"
+                        }
+                    },
+                    {
+                        "name": "DEPENDENT_DISK_FLAG_SYSTEM_VOLUME",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000010"
+                        }
+                    },
+                    {
+                        "name": "DEPENDENT_DISK_FLAG_SYSTEM_VOLUME_PARENT",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000020"
+                        }
+                    },
+                    {
+                        "name": "DEPENDENT_DISK_FLAG_REMOVABLE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000040"
+                        }
+                    },
+                    {
+                        "name": "DEPENDENT_DISK_FLAG_NO_DRIVE_LETTER",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000080"
+                        }
+                    },
+                    {
+                        "name": "DEPENDENT_DISK_FLAG_PARENT",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000100"
+                        }
+                    },
+                    {
+                        "name": "DEPENDENT_DISK_FLAG_NO_HOST_DISK",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000200"
+                        }
+                    },
+                    {
+                        "name": "DEPENDENT_DISK_FLAG_PERMANENT_LIFETIME",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000400"
+                        }
+                    },
+                    {
+                        "name": "DEPENDENT_DISK_FLAG_SUPPORT_COMPRESSED_VOLUMES",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000800"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "STORAGE_DEPENDENCY_INFO_VERSION",
-            "type": "_STORAGE_DEPENDENCY_INFO_VERSION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "STORAGE_DEPENDENCY_INFO_VERSION_UNSPECIFIED",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "STORAGE_DEPENDENCY_INFO_VERSION_1",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "STORAGE_DEPENDENCY_INFO_VERSION_2",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "STORAGE_DEPENDENCY_INFO_TYPE_1",
-            "type": "_STORAGE_DEPENDENCY_INFO_TYPE_1",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_STORAGE_DEPENDENCY_INFO_TYPE_1",
+                "elements": [
+                    {
+                        "name": "DependencyTypeFlags",
+                        "type": "DEPENDENT_DISK_FLAG"
+                    },
+                    {
+                        "name": "ProviderSpecificFlags",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "VirtualStorageType",
+                        "type": "VIRTUAL_STORAGE_TYPE"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PSTORAGE_DEPENDENCY_INFO_TYPE_1",
             "type": {
-                "type": "_STORAGE_DEPENDENCY_INFO_TYPE_1",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_STORAGE_DEPENDENCY_INFO_TYPE_1",
+                "elements": [
+                    {
+                        "name": "DependencyTypeFlags",
+                        "type": "DEPENDENT_DISK_FLAG"
+                    },
+                    {
+                        "name": "ProviderSpecificFlags",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "VirtualStorageType",
+                        "type": "VIRTUAL_STORAGE_TYPE"
+                    }
+                ]
             },
-            "name": "PSTORAGE_DEPENDENCY_INFO_TYPE_1"
+            "data_type": "Ptr"
         },
         {
             "name": "STORAGE_DEPENDENCY_INFO_TYPE_2",
-            "type": "_STORAGE_DEPENDENCY_INFO_TYPE_2",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_STORAGE_DEPENDENCY_INFO_TYPE_2",
+                "elements": [
+                    {
+                        "name": "DependencyTypeFlags",
+                        "type": "DEPENDENT_DISK_FLAG"
+                    },
+                    {
+                        "name": "ProviderSpecificFlags",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "VirtualStorageType",
+                        "type": "VIRTUAL_STORAGE_TYPE"
+                    },
+                    {
+                        "name": "AncestorLevel",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "DependencyDeviceName",
+                        "type": "PWSTR"
+                    },
+                    {
+                        "name": "HostVolumeName",
+                        "type": "PWSTR"
+                    },
+                    {
+                        "name": "DependentVolumeName",
+                        "type": "PWSTR"
+                    },
+                    {
+                        "name": "DependentVolumeRelativePath",
+                        "type": "PWSTR"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PSTORAGE_DEPENDENCY_INFO_TYPE_2",
             "type": {
-                "type": "_STORAGE_DEPENDENCY_INFO_TYPE_2",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_STORAGE_DEPENDENCY_INFO_TYPE_2",
+                "elements": [
+                    {
+                        "name": "DependencyTypeFlags",
+                        "type": "DEPENDENT_DISK_FLAG"
+                    },
+                    {
+                        "name": "ProviderSpecificFlags",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "VirtualStorageType",
+                        "type": "VIRTUAL_STORAGE_TYPE"
+                    },
+                    {
+                        "name": "AncestorLevel",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "DependencyDeviceName",
+                        "type": "PWSTR"
+                    },
+                    {
+                        "name": "HostVolumeName",
+                        "type": "PWSTR"
+                    },
+                    {
+                        "name": "DependentVolumeName",
+                        "type": "PWSTR"
+                    },
+                    {
+                        "name": "DependentVolumeRelativePath",
+                        "type": "PWSTR"
+                    }
+                ]
             },
-            "name": "PSTORAGE_DEPENDENCY_INFO_TYPE_2"
+            "data_type": "Ptr"
         },
         {
             "name": "STORAGE_DEPENDENCY_INFO",
-            "type": "_STORAGE_DEPENDENCY_INFO",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_STORAGE_DEPENDENCY_INFO",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "STORAGE_DEPENDENCY_INFO_VERSION"
+                    },
+                    {
+                        "name": "NumberEntries",
+                        "type": "ULONG"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "data_type": "ArrayDecl",
+                                "dim": {},
+                                "name": "Version1Entries"
+                            },
+                            {
+                                "data_type": "ArrayDecl",
+                                "dim": {},
+                                "name": "Version2Entries"
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PSTORAGE_DEPENDENCY_INFO",
             "type": {
-                "type": "_STORAGE_DEPENDENCY_INFO",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_STORAGE_DEPENDENCY_INFO",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "STORAGE_DEPENDENCY_INFO_VERSION"
+                    },
+                    {
+                        "name": "NumberEntries",
+                        "type": "ULONG"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "data_type": "ArrayDecl",
+                                "dim": {},
+                                "name": "Version1Entries"
+                            },
+                            {
+                                "data_type": "ArrayDecl",
+                                "dim": {},
+                                "name": "Version2Entries"
+                            }
+                        ]
+                    }
+                ]
             },
-            "name": "PSTORAGE_DEPENDENCY_INFO"
+            "data_type": "Ptr"
         },
         {
             "name": "GET_STORAGE_DEPENDENCY_FLAG",
-            "type": "_GET_STORAGE_DEPENDENCY_FLAG",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "GET_STORAGE_DEPENDENCY_FLAG_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000000"
+                        }
+                    },
+                    {
+                        "name": "GET_STORAGE_DEPENDENCY_FLAG_HOST_VOLUMES",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000001"
+                        }
+                    },
+                    {
+                        "name": "GET_STORAGE_DEPENDENCY_FLAG_DISK_HANDLE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000002"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "GET_VIRTUAL_DISK_INFO_VERSION",
-            "type": "_GET_VIRTUAL_DISK_INFO_VERSION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "GET_VIRTUAL_DISK_INFO_UNSPECIFIED",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "GET_VIRTUAL_DISK_INFO_SIZE",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "GET_VIRTUAL_DISK_INFO_IDENTIFIER",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "GET_VIRTUAL_DISK_INFO_PARENT_LOCATION",
+                        "value": {
+                            "type": "int",
+                            "value": "3"
+                        }
+                    },
+                    {
+                        "name": "GET_VIRTUAL_DISK_INFO_PARENT_IDENTIFIER",
+                        "value": {
+                            "type": "int",
+                            "value": "4"
+                        }
+                    },
+                    {
+                        "name": "GET_VIRTUAL_DISK_INFO_PARENT_TIMESTAMP",
+                        "value": {
+                            "type": "int",
+                            "value": "5"
+                        }
+                    },
+                    {
+                        "name": "GET_VIRTUAL_DISK_INFO_VIRTUAL_STORAGE_TYPE",
+                        "value": {
+                            "type": "int",
+                            "value": "6"
+                        }
+                    },
+                    {
+                        "name": "GET_VIRTUAL_DISK_INFO_PROVIDER_SUBTYPE",
+                        "value": {
+                            "type": "int",
+                            "value": "7"
+                        }
+                    },
+                    {
+                        "name": "GET_VIRTUAL_DISK_INFO_IS_4K_ALIGNED",
+                        "value": {
+                            "type": "int",
+                            "value": "8"
+                        }
+                    },
+                    {
+                        "name": "GET_VIRTUAL_DISK_INFO_PHYSICAL_DISK",
+                        "value": {
+                            "type": "int",
+                            "value": "9"
+                        }
+                    },
+                    {
+                        "name": "GET_VIRTUAL_DISK_INFO_VHD_PHYSICAL_SECTOR_SIZE",
+                        "value": {
+                            "type": "int",
+                            "value": "10"
+                        }
+                    },
+                    {
+                        "name": "GET_VIRTUAL_DISK_INFO_SMALLEST_SAFE_VIRTUAL_SIZE",
+                        "value": {
+                            "type": "int",
+                            "value": "11"
+                        }
+                    },
+                    {
+                        "name": "GET_VIRTUAL_DISK_INFO_FRAGMENTATION",
+                        "value": {
+                            "type": "int",
+                            "value": "12"
+                        }
+                    },
+                    {
+                        "name": "GET_VIRTUAL_DISK_INFO_IS_LOADED",
+                        "value": {
+                            "type": "int",
+                            "value": "13"
+                        }
+                    },
+                    {
+                        "name": "GET_VIRTUAL_DISK_INFO_VIRTUAL_DISK_ID",
+                        "value": {
+                            "type": "int",
+                            "value": "14"
+                        }
+                    },
+                    {
+                        "name": "GET_VIRTUAL_DISK_INFO_CHANGE_TRACKING_STATE",
+                        "value": {
+                            "type": "int",
+                            "value": "15"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "GET_VIRTUAL_DISK_INFO",
-            "type": "_GET_VIRTUAL_DISK_INFO",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_GET_VIRTUAL_DISK_INFO",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "GET_VIRTUAL_DISK_INFO_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Size",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "VirtualSize",
+                                            "type": "ULONGLONG"
+                                        },
+                                        {
+                                            "name": "PhysicalSize",
+                                            "type": "ULONGLONG"
+                                        },
+                                        {
+                                            "name": "BlockSize",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "SectorSize",
+                                            "type": "ULONG"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Identifier",
+                                "type": "GUID"
+                            },
+                            {
+                                "name": "ParentLocation",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "ParentResolved",
+                                            "type": "BOOL"
+                                        },
+                                        {
+                                            "data_type": "ArrayDecl",
+                                            "dim": {
+                                                "type": "int",
+                                                "value": "1"
+                                            },
+                                            "name": "ParentLocationBuffer"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "ParentIdentifier",
+                                "type": "GUID"
+                            },
+                            {
+                                "name": "ParentTimestamp",
+                                "type": "ULONG"
+                            },
+                            {
+                                "name": "VirtualStorageType",
+                                "type": "VIRTUAL_STORAGE_TYPE"
+                            },
+                            {
+                                "name": "ProviderSubtype",
+                                "type": "ULONG"
+                            },
+                            {
+                                "name": "Is4kAligned",
+                                "type": "BOOL"
+                            },
+                            {
+                                "name": "IsLoaded",
+                                "type": "BOOL"
+                            },
+                            {
+                                "name": "PhysicalDisk",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "LogicalSectorSize",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "PhysicalSectorSize",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "IsRemote",
+                                            "type": "BOOL"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "VhdPhysicalSectorSize",
+                                "type": "ULONG"
+                            },
+                            {
+                                "name": "SmallestSafeVirtualSize",
+                                "type": "ULONGLONG"
+                            },
+                            {
+                                "name": "FragmentationPercentage",
+                                "type": "ULONG"
+                            },
+                            {
+                                "name": "VirtualDiskId",
+                                "type": "GUID"
+                            },
+                            {
+                                "name": "ChangeTrackingState",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "Enabled",
+                                            "type": "BOOL"
+                                        },
+                                        {
+                                            "name": "NewerChanges",
+                                            "type": "BOOL"
+                                        },
+                                        {
+                                            "data_type": "ArrayDecl",
+                                            "dim": {
+                                                "type": "int",
+                                                "value": "1"
+                                            },
+                                            "name": "MostRecentId"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PGET_VIRTUAL_DISK_INFO",
             "type": {
-                "type": "_GET_VIRTUAL_DISK_INFO",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_GET_VIRTUAL_DISK_INFO",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "GET_VIRTUAL_DISK_INFO_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Size",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "VirtualSize",
+                                            "type": "ULONGLONG"
+                                        },
+                                        {
+                                            "name": "PhysicalSize",
+                                            "type": "ULONGLONG"
+                                        },
+                                        {
+                                            "name": "BlockSize",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "SectorSize",
+                                            "type": "ULONG"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Identifier",
+                                "type": "GUID"
+                            },
+                            {
+                                "name": "ParentLocation",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "ParentResolved",
+                                            "type": "BOOL"
+                                        },
+                                        {
+                                            "data_type": "ArrayDecl",
+                                            "dim": {
+                                                "type": "int",
+                                                "value": "1"
+                                            },
+                                            "name": "ParentLocationBuffer"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "ParentIdentifier",
+                                "type": "GUID"
+                            },
+                            {
+                                "name": "ParentTimestamp",
+                                "type": "ULONG"
+                            },
+                            {
+                                "name": "VirtualStorageType",
+                                "type": "VIRTUAL_STORAGE_TYPE"
+                            },
+                            {
+                                "name": "ProviderSubtype",
+                                "type": "ULONG"
+                            },
+                            {
+                                "name": "Is4kAligned",
+                                "type": "BOOL"
+                            },
+                            {
+                                "name": "IsLoaded",
+                                "type": "BOOL"
+                            },
+                            {
+                                "name": "PhysicalDisk",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "LogicalSectorSize",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "PhysicalSectorSize",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "IsRemote",
+                                            "type": "BOOL"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "VhdPhysicalSectorSize",
+                                "type": "ULONG"
+                            },
+                            {
+                                "name": "SmallestSafeVirtualSize",
+                                "type": "ULONGLONG"
+                            },
+                            {
+                                "name": "FragmentationPercentage",
+                                "type": "ULONG"
+                            },
+                            {
+                                "name": "VirtualDiskId",
+                                "type": "GUID"
+                            },
+                            {
+                                "name": "ChangeTrackingState",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "Enabled",
+                                            "type": "BOOL"
+                                        },
+                                        {
+                                            "name": "NewerChanges",
+                                            "type": "BOOL"
+                                        },
+                                        {
+                                            "data_type": "ArrayDecl",
+                                            "dim": {
+                                                "type": "int",
+                                                "value": "1"
+                                            },
+                                            "name": "MostRecentId"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
             },
-            "name": "PGET_VIRTUAL_DISK_INFO"
+            "data_type": "Ptr"
         },
         {
             "name": "SET_VIRTUAL_DISK_INFO_VERSION",
-            "type": "_SET_VIRTUAL_DISK_INFO_VERSION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "SET_VIRTUAL_DISK_INFO_UNSPECIFIED",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "SET_VIRTUAL_DISK_INFO_PARENT_PATH",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "SET_VIRTUAL_DISK_INFO_IDENTIFIER",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "SET_VIRTUAL_DISK_INFO_PARENT_PATH_WITH_DEPTH",
+                        "value": {
+                            "type": "int",
+                            "value": "3"
+                        }
+                    },
+                    {
+                        "name": "SET_VIRTUAL_DISK_INFO_PHYSICAL_SECTOR_SIZE",
+                        "value": {
+                            "type": "int",
+                            "value": "4"
+                        }
+                    },
+                    {
+                        "name": "SET_VIRTUAL_DISK_INFO_VIRTUAL_DISK_ID",
+                        "value": {
+                            "type": "int",
+                            "value": "5"
+                        }
+                    },
+                    {
+                        "name": "SET_VIRTUAL_DISK_INFO_CHANGE_TRACKING_STATE",
+                        "value": {
+                            "type": "int",
+                            "value": "6"
+                        }
+                    },
+                    {
+                        "name": "SET_VIRTUAL_DISK_INFO_PARENT_LOCATOR",
+                        "value": {
+                            "type": "int",
+                            "value": "7"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "SET_VIRTUAL_DISK_INFO",
-            "type": "_SET_VIRTUAL_DISK_INFO",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_SET_VIRTUAL_DISK_INFO",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "SET_VIRTUAL_DISK_INFO_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "ParentFilePath",
+                                "type": "PCWSTR"
+                            },
+                            {
+                                "name": "UniqueIdentifier",
+                                "type": "GUID"
+                            },
+                            {
+                                "name": "ParentPathWithDepthInfo",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "ChildDepth",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "ParentFilePath",
+                                            "type": "PCWSTR"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "VhdPhysicalSectorSize",
+                                "type": "ULONG"
+                            },
+                            {
+                                "name": "VirtualDiskId",
+                                "type": "GUID"
+                            },
+                            {
+                                "name": "ChangeTrackingEnabled",
+                                "type": "BOOL"
+                            },
+                            {
+                                "name": "ParentLocator",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "LinkageId",
+                                            "type": "GUID"
+                                        },
+                                        {
+                                            "name": "ParentFilePath",
+                                            "type": "PCWSTR"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PSET_VIRTUAL_DISK_INFO",
             "type": {
-                "type": "_SET_VIRTUAL_DISK_INFO",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_SET_VIRTUAL_DISK_INFO",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "SET_VIRTUAL_DISK_INFO_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "ParentFilePath",
+                                "type": "PCWSTR"
+                            },
+                            {
+                                "name": "UniqueIdentifier",
+                                "type": "GUID"
+                            },
+                            {
+                                "name": "ParentPathWithDepthInfo",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "ChildDepth",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "ParentFilePath",
+                                            "type": "PCWSTR"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "VhdPhysicalSectorSize",
+                                "type": "ULONG"
+                            },
+                            {
+                                "name": "VirtualDiskId",
+                                "type": "GUID"
+                            },
+                            {
+                                "name": "ChangeTrackingEnabled",
+                                "type": "BOOL"
+                            },
+                            {
+                                "name": "ParentLocator",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "LinkageId",
+                                            "type": "GUID"
+                                        },
+                                        {
+                                            "name": "ParentFilePath",
+                                            "type": "PCWSTR"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
             },
-            "name": "PSET_VIRTUAL_DISK_INFO"
+            "data_type": "Ptr"
         },
         {
             "name": "VIRTUAL_DISK_PROGRESS",
-            "type": "_VIRTUAL_DISK_PROGRESS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_VIRTUAL_DISK_PROGRESS",
+                "elements": [
+                    {
+                        "name": "OperationStatus",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "CurrentValue",
+                        "type": "ULONGLONG"
+                    },
+                    {
+                        "name": "CompletionValue",
+                        "type": "ULONGLONG"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PVIRTUAL_DISK_PROGRESS",
             "type": {
-                "type": "_VIRTUAL_DISK_PROGRESS",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_VIRTUAL_DISK_PROGRESS",
+                "elements": [
+                    {
+                        "name": "OperationStatus",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "CurrentValue",
+                        "type": "ULONGLONG"
+                    },
+                    {
+                        "name": "CompletionValue",
+                        "type": "ULONGLONG"
+                    }
+                ]
             },
-            "name": "PVIRTUAL_DISK_PROGRESS"
+            "data_type": "Ptr"
         },
         {
             "name": "COMPACT_VIRTUAL_DISK_VERSION",
-            "type": "_COMPACT_VIRTUAL_DISK_VERSION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "COMPACT_VIRTUAL_DISK_VERSION_UNSPECIFIED",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "COMPACT_VIRTUAL_DISK_VERSION_1",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "COMPACT_VIRTUAL_DISK_PARAMETERS",
-            "type": "_COMPACT_VIRTUAL_DISK_PARAMETERS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_COMPACT_VIRTUAL_DISK_PARAMETERS",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "COMPACT_VIRTUAL_DISK_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Version1",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "Reserved",
+                                            "type": "ULONG"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PCOMPACT_VIRTUAL_DISK_PARAMETERS",
             "type": {
-                "type": "_COMPACT_VIRTUAL_DISK_PARAMETERS",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_COMPACT_VIRTUAL_DISK_PARAMETERS",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "COMPACT_VIRTUAL_DISK_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Version1",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "Reserved",
+                                            "type": "ULONG"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
             },
-            "name": "PCOMPACT_VIRTUAL_DISK_PARAMETERS"
+            "data_type": "Ptr"
         },
         {
             "name": "COMPACT_VIRTUAL_DISK_FLAG",
-            "type": "_COMPACT_VIRTUAL_DISK_FLAG",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "COMPACT_VIRTUAL_DISK_FLAG_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000000"
+                        }
+                    },
+                    {
+                        "name": "COMPACT_VIRTUAL_DISK_FLAG_NO_ZERO_SCAN",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000001"
+                        }
+                    },
+                    {
+                        "name": "COMPACT_VIRTUAL_DISK_FLAG_NO_BLOCK_MOVES",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000002"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "MERGE_VIRTUAL_DISK_VERSION",
-            "type": "_MERGE_VIRTUAL_DISK_VERSION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MERGE_VIRTUAL_DISK_VERSION_UNSPECIFIED",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "MERGE_VIRTUAL_DISK_VERSION_1",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "MERGE_VIRTUAL_DISK_VERSION_2",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "MERGE_VIRTUAL_DISK_PARAMETERS",
-            "type": "_MERGE_VIRTUAL_DISK_PARAMETERS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_MERGE_VIRTUAL_DISK_PARAMETERS",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "MERGE_VIRTUAL_DISK_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Version1",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "MergeDepth",
+                                            "type": "ULONG"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Version2",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "MergeSourceDepth",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "MergeTargetDepth",
+                                            "type": "ULONG"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PMERGE_VIRTUAL_DISK_PARAMETERS",
             "type": {
-                "type": "_MERGE_VIRTUAL_DISK_PARAMETERS",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_MERGE_VIRTUAL_DISK_PARAMETERS",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "MERGE_VIRTUAL_DISK_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Version1",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "MergeDepth",
+                                            "type": "ULONG"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "Version2",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "MergeSourceDepth",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "MergeTargetDepth",
+                                            "type": "ULONG"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
             },
-            "name": "PMERGE_VIRTUAL_DISK_PARAMETERS"
+            "data_type": "Ptr"
         },
         {
             "name": "MERGE_VIRTUAL_DISK_FLAG",
-            "type": "_MERGE_VIRTUAL_DISK_FLAG",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MERGE_VIRTUAL_DISK_FLAG_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000000"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "EXPAND_VIRTUAL_DISK_VERSION",
-            "type": "_EXPAND_VIRTUAL_DISK_VERSION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "EXPAND_VIRTUAL_DISK_VERSION_UNSPECIFIED",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "EXPAND_VIRTUAL_DISK_VERSION_1",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "EXPAND_VIRTUAL_DISK_PARAMETERS",
-            "type": "_EXPAND_VIRTUAL_DISK_PARAMETERS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_EXPAND_VIRTUAL_DISK_PARAMETERS",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "EXPAND_VIRTUAL_DISK_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Version1",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "NewSize",
+                                            "type": "ULONGLONG"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PEXPAND_VIRTUAL_DISK_PARAMETERS",
             "type": {
-                "type": "_EXPAND_VIRTUAL_DISK_PARAMETERS",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_EXPAND_VIRTUAL_DISK_PARAMETERS",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "EXPAND_VIRTUAL_DISK_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Version1",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "NewSize",
+                                            "type": "ULONGLONG"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
             },
-            "name": "PEXPAND_VIRTUAL_DISK_PARAMETERS"
+            "data_type": "Ptr"
         },
         {
             "name": "EXPAND_VIRTUAL_DISK_FLAG",
-            "type": "_EXPAND_VIRTUAL_DISK_FLAG",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "EXPAND_VIRTUAL_DISK_FLAG_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000000"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "RESIZE_VIRTUAL_DISK_VERSION",
-            "type": "_RESIZE_VIRTUAL_DISK_VERSION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "RESIZE_VIRTUAL_DISK_VERSION_UNSPECIFIED",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "RESIZE_VIRTUAL_DISK_VERSION_1",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "RESIZE_VIRTUAL_DISK_PARAMETERS",
-            "type": "_RESIZE_VIRTUAL_DISK_PARAMETERS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_RESIZE_VIRTUAL_DISK_PARAMETERS",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "RESIZE_VIRTUAL_DISK_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Version1",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "NewSize",
+                                            "type": "ULONGLONG"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PRESIZE_VIRTUAL_DISK_PARAMETERS",
             "type": {
-                "type": "_RESIZE_VIRTUAL_DISK_PARAMETERS",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_RESIZE_VIRTUAL_DISK_PARAMETERS",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "RESIZE_VIRTUAL_DISK_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Version1",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "NewSize",
+                                            "type": "ULONGLONG"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
             },
-            "name": "PRESIZE_VIRTUAL_DISK_PARAMETERS"
+            "data_type": "Ptr"
         },
         {
             "name": "RESIZE_VIRTUAL_DISK_FLAG",
-            "type": "_RESIZE_VIRTUAL_DISK_FLAG",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "RESIZE_VIRTUAL_DISK_FLAG_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x0"
+                        }
+                    },
+                    {
+                        "name": "RESIZE_VIRTUAL_DISK_FLAG_ALLOW_UNSAFE_VIRTUAL_SIZE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x1"
+                        }
+                    },
+                    {
+                        "name": "RESIZE_VIRTUAL_DISK_FLAG_RESIZE_TO_SMALLEST_SAFE_VIRTUAL_SIZE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x2"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "MIRROR_VIRTUAL_DISK_VERSION",
-            "type": "_MIRROR_VIRTUAL_DISK_VERSION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MIRROR_VIRTUAL_DISK_VERSION_UNSPECIFIED",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "MIRROR_VIRTUAL_DISK_VERSION_1",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "MIRROR_VIRTUAL_DISK_PARAMETERS",
-            "type": "_MIRROR_VIRTUAL_DISK_PARAMETERS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_MIRROR_VIRTUAL_DISK_PARAMETERS",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "MIRROR_VIRTUAL_DISK_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Version1",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "MirrorVirtualDiskPath",
+                                            "type": "PCWSTR"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PMIRROR_VIRTUAL_DISK_PARAMETERS",
             "type": {
-                "type": "_MIRROR_VIRTUAL_DISK_PARAMETERS",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_MIRROR_VIRTUAL_DISK_PARAMETERS",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "MIRROR_VIRTUAL_DISK_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Version1",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "MirrorVirtualDiskPath",
+                                            "type": "PCWSTR"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
             },
-            "name": "PMIRROR_VIRTUAL_DISK_PARAMETERS"
+            "data_type": "Ptr"
         },
         {
             "name": "MIRROR_VIRTUAL_DISK_FLAG",
-            "type": "_MIRROR_VIRTUAL_DISK_FLAG",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MIRROR_VIRTUAL_DISK_FLAG_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000000"
+                        }
+                    },
+                    {
+                        "name": "MIRROR_VIRTUAL_DISK_FLAG_EXISTING_FILE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000001"
+                        }
+                    },
+                    {
+                        "name": "MIRROR_VIRTUAL_DISK_FLAG_SKIP_MIRROR_ACTIVATION",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000002"
+                        }
+                    },
+                    {
+                        "name": "MIRROR_VIRTUAL_DISK_FLAG_ENABLE_SMB_COMPRESSION",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000004"
+                        }
+                    },
+                    {
+                        "name": "MIRROR_VIRTUAL_DISK_FLAG_IS_LIVE_MIGRATION",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000008"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "QUERY_CHANGES_VIRTUAL_DISK_RANGE",
-            "type": "_QUERY_CHANGES_VIRTUAL_DISK_RANGE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_QUERY_CHANGES_VIRTUAL_DISK_RANGE",
+                "elements": [
+                    {
+                        "name": "ByteOffset",
+                        "type": "ULONG64"
+                    },
+                    {
+                        "name": "ByteLength",
+                        "type": "ULONG64"
+                    },
+                    {
+                        "name": "Reserved",
+                        "type": "ULONG64"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PQUERY_CHANGES_VIRTUAL_DISK_RANGE",
             "type": {
-                "type": "_QUERY_CHANGES_VIRTUAL_DISK_RANGE",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_QUERY_CHANGES_VIRTUAL_DISK_RANGE",
+                "elements": [
+                    {
+                        "name": "ByteOffset",
+                        "type": "ULONG64"
+                    },
+                    {
+                        "name": "ByteLength",
+                        "type": "ULONG64"
+                    },
+                    {
+                        "name": "Reserved",
+                        "type": "ULONG64"
+                    }
+                ]
             },
-            "name": "PQUERY_CHANGES_VIRTUAL_DISK_RANGE"
+            "data_type": "Ptr"
         },
         {
             "name": "QUERY_CHANGES_VIRTUAL_DISK_FLAG",
-            "type": "_QUERY_CHANGES_VIRTUAL_DISK_FLAG",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "QUERY_CHANGES_VIRTUAL_DISK_FLAG_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000000"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "TAKE_SNAPSHOT_VHDSET_FLAG",
-            "type": "_TAKE_SNAPSHOT_VHDSET_FLAG",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "TAKE_SNAPSHOT_VHDSET_FLAG_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000000"
+                        }
+                    },
+                    {
+                        "name": "TAKE_SNAPSHOT_VHDSET_FLAG_WRITEABLE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000001"
+                        }
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PTAKE_SNAPSHOT_VHDSET_FLAG",
             "type": {
-                "type": "_TAKE_SNAPSHOT_VHDSET_FLAG",
-                "data_type": "TypeDecl"
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "TAKE_SNAPSHOT_VHDSET_FLAG_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000000"
+                        }
+                    },
+                    {
+                        "name": "TAKE_SNAPSHOT_VHDSET_FLAG_WRITEABLE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000001"
+                        }
+                    }
+                ]
             },
-            "name": "PTAKE_SNAPSHOT_VHDSET_FLAG"
+            "data_type": "Ptr"
         },
         {
             "name": "TAKE_SNAPSHOT_VHDSET_VERSION",
-            "type": "_TAKE_SNAPSHOT_VHDSET_VERSION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "TAKE_SNAPSHOT_VHDSET_VERSION_UNSPECIFIED",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "TAKE_SNAPSHOT_VHDSET_VERSION_1",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "TAKE_SNAPSHOT_VHDSET_PARAMETERS",
-            "type": "_TAKE_SNAPSHOT_VHDSET_PARAMETERS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_TAKE_SNAPSHOT_VHDSET_PARAMETERS",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "TAKE_SNAPSHOT_VHDSET_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Version1",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "SnapshotId",
+                                            "type": "GUID"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PTAKE_SNAPSHOT_VHDSET_PARAMETERS",
             "type": {
-                "type": "_TAKE_SNAPSHOT_VHDSET_PARAMETERS",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_TAKE_SNAPSHOT_VHDSET_PARAMETERS",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "TAKE_SNAPSHOT_VHDSET_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Version1",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "SnapshotId",
+                                            "type": "GUID"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
             },
-            "name": "PTAKE_SNAPSHOT_VHDSET_PARAMETERS"
+            "data_type": "Ptr"
         },
         {
             "name": "DELETE_SNAPSHOT_VHDSET_FLAG",
-            "type": "_DELETE_SNAPSHOT_VHDSET_FLAG",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "DELETE_SNAPSHOT_VHDSET_FLAG_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000000"
+                        }
+                    },
+                    {
+                        "name": "DELETE_SNAPSHOT_VHDSET_FLAG_PERSIST_RCT",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000001"
+                        }
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PDELETE_SNAPSHOT_VHDSET_FLAG",
             "type": {
-                "type": "_DELETE_SNAPSHOT_VHDSET_FLAG",
-                "data_type": "TypeDecl"
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "DELETE_SNAPSHOT_VHDSET_FLAG_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000000"
+                        }
+                    },
+                    {
+                        "name": "DELETE_SNAPSHOT_VHDSET_FLAG_PERSIST_RCT",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000001"
+                        }
+                    }
+                ]
             },
-            "name": "PDELETE_SNAPSHOT_VHDSET_FLAG"
+            "data_type": "Ptr"
         },
         {
             "name": "DELETE_SNAPSHOT_VHDSET_VERSION",
-            "type": "_DELETE_SNAPSHOT_VHDSET_VERSION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "DELETE_SNAPSHOT_VHDSET_VERSION_UNSPECIFIED",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "DELETE_SNAPSHOT_VHDSET_VERSION_1",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "DELETE_SNAPSHOT_VHDSET_PARAMETERS",
-            "type": "_DELETE_SNAPSHOT_VHDSET_PARAMETERS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_DELETE_SNAPSHOT_VHDSET_PARAMETERS",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "DELETE_SNAPSHOT_VHDSET_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Version1",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "SnapshotId",
+                                            "type": "GUID"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PDELETE_SNAPSHOT_VHDSET_PARAMETERS",
             "type": {
-                "type": "_DELETE_SNAPSHOT_VHDSET_PARAMETERS",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_DELETE_SNAPSHOT_VHDSET_PARAMETERS",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "DELETE_SNAPSHOT_VHDSET_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Version1",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "SnapshotId",
+                                            "type": "GUID"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
             },
-            "name": "PDELETE_SNAPSHOT_VHDSET_PARAMETERS"
+            "data_type": "Ptr"
         },
         {
             "name": "MODIFY_VHDSET_VERSION",
-            "type": "_MODIFY_VHDSET_VERSION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MODIFY_VHDSET_UNSPECIFIED",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "MODIFY_VHDSET_SNAPSHOT_PATH",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "MODIFY_VHDSET_REMOVE_SNAPSHOT",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "MODIFY_VHDSET_DEFAULT_SNAPSHOT_PATH",
+                        "value": {
+                            "type": "int",
+                            "value": "3"
+                        }
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PMODIFY_VHDSET_VERSION",
             "type": {
-                "type": "_MODIFY_VHDSET_VERSION",
-                "data_type": "TypeDecl"
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MODIFY_VHDSET_UNSPECIFIED",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "MODIFY_VHDSET_SNAPSHOT_PATH",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "MODIFY_VHDSET_REMOVE_SNAPSHOT",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "MODIFY_VHDSET_DEFAULT_SNAPSHOT_PATH",
+                        "value": {
+                            "type": "int",
+                            "value": "3"
+                        }
+                    }
+                ]
             },
-            "name": "PMODIFY_VHDSET_VERSION"
+            "data_type": "Ptr"
         },
         {
             "name": "MODIFY_VHDSET_FLAG",
-            "type": "_MODIFY_VHDSET_FLAG",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MODIFY_VHDSET_FLAG_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000000"
+                        }
+                    },
+                    {
+                        "name": "MODIFY_VHDSET_FLAG_WRITEABLE_SNAPSHOT",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000001"
+                        }
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PMODIFY_VHDSET_FLAG",
             "type": {
-                "type": "_MODIFY_VHDSET_FLAG",
-                "data_type": "TypeDecl"
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MODIFY_VHDSET_FLAG_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000000"
+                        }
+                    },
+                    {
+                        "name": "MODIFY_VHDSET_FLAG_WRITEABLE_SNAPSHOT",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000001"
+                        }
+                    }
+                ]
             },
-            "name": "PMODIFY_VHDSET_FLAG"
+            "data_type": "Ptr"
         },
         {
             "name": "MODIFY_VHDSET_PARAMETERS",
-            "type": "_MODIFY_VHDSET_PARAMETERS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_MODIFY_VHDSET_PARAMETERS",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "MODIFY_VHDSET_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "SnapshotPath",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "SnapshotId",
+                                            "type": "GUID"
+                                        },
+                                        {
+                                            "name": "SnapshotFilePath",
+                                            "type": "PCWSTR"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "SnapshotId",
+                                "type": "GUID"
+                            },
+                            {
+                                "name": "DefaultFilePath",
+                                "type": "PCWSTR"
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PMODIFY_VHDSET_PARAMETERS",
             "type": {
-                "type": "_MODIFY_VHDSET_PARAMETERS",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_MODIFY_VHDSET_PARAMETERS",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "MODIFY_VHDSET_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "SnapshotPath",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "SnapshotId",
+                                            "type": "GUID"
+                                        },
+                                        {
+                                            "name": "SnapshotFilePath",
+                                            "type": "PCWSTR"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "SnapshotId",
+                                "type": "GUID"
+                            },
+                            {
+                                "name": "DefaultFilePath",
+                                "type": "PCWSTR"
+                            }
+                        ]
+                    }
+                ]
             },
-            "name": "PMODIFY_VHDSET_PARAMETERS"
+            "data_type": "Ptr"
         },
         {
             "name": "APPLY_SNAPSHOT_VHDSET_FLAG",
-            "type": "_APPLY_SNAPSHOT_VHDSET_FLAG",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "APPLY_SNAPSHOT_VHDSET_FLAG_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000000"
+                        }
+                    },
+                    {
+                        "name": "APPLY_SNAPSHOT_VHDSET_FLAG_WRITEABLE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000001"
+                        }
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PAPPLY_SNAPSHOT_VHDSET_FLAG",
             "type": {
-                "type": "_APPLY_SNAPSHOT_VHDSET_FLAG",
-                "data_type": "TypeDecl"
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "APPLY_SNAPSHOT_VHDSET_FLAG_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000000"
+                        }
+                    },
+                    {
+                        "name": "APPLY_SNAPSHOT_VHDSET_FLAG_WRITEABLE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000001"
+                        }
+                    }
+                ]
             },
-            "name": "PAPPLY_SNAPSHOT_VHDSET_FLAG"
+            "data_type": "Ptr"
         },
         {
             "name": "APPLY_SNAPSHOT_VHDSET_VERSION",
-            "type": "_APPLY_SNAPSHOT_VHDSET_VERSION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "APPLY_SNAPSHOT_VHDSET_VERSION_UNSPECIFIED",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "APPLY_SNAPSHOT_VHDSET_VERSION_1",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "APPLY_SNAPSHOT_VHDSET_PARAMETERS",
-            "type": "_APPLY_SNAPSHOT_VHDSET_PARAMETERS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_APPLY_SNAPSHOT_VHDSET_PARAMETERS",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "APPLY_SNAPSHOT_VHDSET_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Version1",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "SnapshotId",
+                                            "type": "GUID"
+                                        },
+                                        {
+                                            "name": "LeafSnapshotId",
+                                            "type": "GUID"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PAPPLY_SNAPSHOT_VHDSET_PARAMETERS",
             "type": {
-                "type": "_APPLY_SNAPSHOT_VHDSET_PARAMETERS",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_APPLY_SNAPSHOT_VHDSET_PARAMETERS",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "APPLY_SNAPSHOT_VHDSET_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Version1",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "SnapshotId",
+                                            "type": "GUID"
+                                        },
+                                        {
+                                            "name": "LeafSnapshotId",
+                                            "type": "GUID"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
             },
-            "name": "PAPPLY_SNAPSHOT_VHDSET_PARAMETERS"
+            "data_type": "Ptr"
         },
         {
             "name": "RAW_SCSI_VIRTUAL_DISK_FLAG",
-            "type": "_RAW_SCSI_VIRTUAL_DISK_FLAG",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "RAW_SCSI_VIRTUAL_DISK_FLAG_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0X00000000"
+                        }
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PRAW_SCSI_VIRTUAL_DISK_FLAG",
             "type": {
-                "type": "_RAW_SCSI_VIRTUAL_DISK_FLAG",
-                "data_type": "TypeDecl"
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "RAW_SCSI_VIRTUAL_DISK_FLAG_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0X00000000"
+                        }
+                    }
+                ]
             },
-            "name": "PRAW_SCSI_VIRTUAL_DISK_FLAG"
+            "data_type": "Ptr"
         },
         {
             "name": "RAW_SCSI_VIRTUAL_DISK_VERSION",
-            "type": "_RAW_SCSI_VIRTUAL_DISK_VERSION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "RAW_SCSI_VIRTUAL_DISK_VERSION_UNSPECIFIED",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "RAW_SCSI_VIRTUAL_DISK_VERSION_1",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "RAW_SCSI_VIRTUAL_DISK_PARAMETERS",
-            "type": "_RAW_SCSI_VIRTUAL_DISK_PARAMETERS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_RAW_SCSI_VIRTUAL_DISK_PARAMETERS",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "RAW_SCSI_VIRTUAL_DISK_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Version1",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "RSVDHandle",
+                                            "type": "BOOL"
+                                        },
+                                        {
+                                            "name": "DataIn",
+                                            "type": "UCHAR"
+                                        },
+                                        {
+                                            "name": "CdbLength",
+                                            "type": "UCHAR"
+                                        },
+                                        {
+                                            "name": "SenseInfoLength",
+                                            "type": "UCHAR"
+                                        },
+                                        {
+                                            "name": "SrbFlags",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "DataTransferLength",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "DataBuffer",
+                                            "type": "PVOID"
+                                        },
+                                        {
+                                            "name": "SenseInfo",
+                                            "type": "UCHAR",
+                                            "data_type": "Ptr"
+                                        },
+                                        {
+                                            "name": "Cdb",
+                                            "type": "UCHAR",
+                                            "data_type": "Ptr"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PRAW_SCSI_VIRTUAL_DISK_PARAMETERS",
             "type": {
-                "type": "_RAW_SCSI_VIRTUAL_DISK_PARAMETERS",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_RAW_SCSI_VIRTUAL_DISK_PARAMETERS",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "RAW_SCSI_VIRTUAL_DISK_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Version1",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "RSVDHandle",
+                                            "type": "BOOL"
+                                        },
+                                        {
+                                            "name": "DataIn",
+                                            "type": "UCHAR"
+                                        },
+                                        {
+                                            "name": "CdbLength",
+                                            "type": "UCHAR"
+                                        },
+                                        {
+                                            "name": "SenseInfoLength",
+                                            "type": "UCHAR"
+                                        },
+                                        {
+                                            "name": "SrbFlags",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "DataTransferLength",
+                                            "type": "ULONG"
+                                        },
+                                        {
+                                            "name": "DataBuffer",
+                                            "type": "PVOID"
+                                        },
+                                        {
+                                            "name": "SenseInfo",
+                                            "type": "UCHAR",
+                                            "data_type": "Ptr"
+                                        },
+                                        {
+                                            "name": "Cdb",
+                                            "type": "UCHAR",
+                                            "data_type": "Ptr"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
             },
-            "name": "PRAW_SCSI_VIRTUAL_DISK_PARAMETERS"
+            "data_type": "Ptr"
         },
         {
             "name": "RAW_SCSI_VIRTUAL_DISK_RESPONSE",
-            "type": "_RAW_SCSI_VIRTUAL_DISK_RESPONSE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_RAW_SCSI_VIRTUAL_DISK_RESPONSE",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "RAW_SCSI_VIRTUAL_DISK_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Version1",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "ScsiStatus",
+                                            "type": "UCHAR"
+                                        },
+                                        {
+                                            "name": "SenseInfoLength",
+                                            "type": "UCHAR"
+                                        },
+                                        {
+                                            "name": "DataTransferLength",
+                                            "type": "ULONG"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PRAW_SCSI_VIRTUAL_DISK_RESPONSE",
             "type": {
-                "type": "_RAW_SCSI_VIRTUAL_DISK_RESPONSE",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_RAW_SCSI_VIRTUAL_DISK_RESPONSE",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "RAW_SCSI_VIRTUAL_DISK_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Version1",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "ScsiStatus",
+                                            "type": "UCHAR"
+                                        },
+                                        {
+                                            "name": "SenseInfoLength",
+                                            "type": "UCHAR"
+                                        },
+                                        {
+                                            "name": "DataTransferLength",
+                                            "type": "ULONG"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
             },
-            "name": "PRAW_SCSI_VIRTUAL_DISK_RESPONSE"
+            "data_type": "Ptr"
         },
         {
             "name": "FORK_VIRTUAL_DISK_VERSION",
-            "type": "_FORK_VIRTUAL_DISK_VERSION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "FORK_VIRTUAL_DISK_VERSION_UNSPECIFIED",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "FORK_VIRTUAL_DISK_VERSION_1",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "FORK_VIRTUAL_DISK_PARAMETERS",
-            "type": "_FORK_VIRTUAL_DISK_PARAMETERS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_FORK_VIRTUAL_DISK_PARAMETERS",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "FORK_VIRTUAL_DISK_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Version1",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "ForkedVirtualDiskPath",
+                                            "type": "PCWSTR"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PFORK_VIRTUAL_DISK_PARAMETERS",
             "type": {
-                "type": "_FORK_VIRTUAL_DISK_PARAMETERS",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_FORK_VIRTUAL_DISK_PARAMETERS",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "FORK_VIRTUAL_DISK_VERSION"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Version1",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "ForkedVirtualDiskPath",
+                                            "type": "PCWSTR"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
             },
-            "name": "PFORK_VIRTUAL_DISK_PARAMETERS"
+            "data_type": "Ptr"
         },
         {
             "name": "FORK_VIRTUAL_DISK_FLAG",
-            "type": "_FORK_VIRTUAL_DISK_FLAG",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "FORK_VIRTUAL_DISK_FLAG_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000000"
+                        }
+                    },
+                    {
+                        "name": "FORK_VIRTUAL_DISK_FLAG_EXISTING_FILE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000001"
+                        }
+                    }
+                ]
+            }
         }
     ],
     "funcdefs": [
         {
-            "name": "OpenVirtualDisk",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "OpenVirtualDisk",
                 "type": "DWORD"
             },
+            "name": "OpenVirtualDisk",
             "arguments": [
                 {
                     "name": "VirtualStorageType",
-                    "data_type": "TypeDecl",
                     "type": "PVIRTUAL_STORAGE_TYPE",
                     "sal": [
                         "in"
@@ -533,7 +3790,6 @@
                 },
                 {
                     "name": "Path",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -541,7 +3797,6 @@
                 },
                 {
                     "name": "VirtualDiskAccessMask",
-                    "data_type": "TypeDecl",
                     "type": "VIRTUAL_DISK_ACCESS_MASK",
                     "sal": [
                         "in"
@@ -549,7 +3804,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "OPEN_VIRTUAL_DISK_FLAG",
                     "sal": [
                         "in"
@@ -557,7 +3811,6 @@
                 },
                 {
                     "name": "Parameters",
-                    "data_type": "TypeDecl",
                     "type": "POPEN_VIRTUAL_DISK_PARAMETERS",
                     "sal": [
                         "in",
@@ -566,7 +3819,6 @@
                 },
                 {
                     "name": "Handle",
-                    "data_type": "TypeDecl",
                     "type": "PHANDLE",
                     "sal": [
                         "out"
@@ -578,15 +3830,15 @@
             ]
         },
         {
-            "name": "CreateVirtualDisk",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CreateVirtualDisk",
                 "type": "DWORD"
             },
+            "name": "CreateVirtualDisk",
             "arguments": [
                 {
                     "name": "VirtualStorageType",
-                    "data_type": "TypeDecl",
                     "type": "PVIRTUAL_STORAGE_TYPE",
                     "sal": [
                         "in"
@@ -594,7 +3846,6 @@
                 },
                 {
                     "name": "Path",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -602,7 +3853,6 @@
                 },
                 {
                     "name": "VirtualDiskAccessMask",
-                    "data_type": "TypeDecl",
                     "type": "VIRTUAL_DISK_ACCESS_MASK",
                     "sal": [
                         "in"
@@ -610,7 +3860,6 @@
                 },
                 {
                     "name": "SecurityDescriptor",
-                    "data_type": "TypeDecl",
                     "type": "PSECURITY_DESCRIPTOR",
                     "sal": [
                         "in",
@@ -619,7 +3868,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "CREATE_VIRTUAL_DISK_FLAG",
                     "sal": [
                         "in"
@@ -627,7 +3875,6 @@
                 },
                 {
                     "name": "ProviderSpecificFlags",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -635,7 +3882,6 @@
                 },
                 {
                     "name": "Parameters",
-                    "data_type": "TypeDecl",
                     "type": "PCREATE_VIRTUAL_DISK_PARAMETERS",
                     "sal": [
                         "in"
@@ -643,7 +3889,6 @@
                 },
                 {
                     "name": "Overlapped",
-                    "data_type": "TypeDecl",
                     "type": "LPOVERLAPPED",
                     "sal": [
                         "in",
@@ -652,7 +3897,6 @@
                 },
                 {
                     "name": "Handle",
-                    "data_type": "TypeDecl",
                     "type": "PHANDLE",
                     "sal": [
                         "out"
@@ -664,15 +3908,15 @@
             ]
         },
         {
-            "name": "AttachVirtualDisk",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "AttachVirtualDisk",
                 "type": "DWORD"
             },
+            "name": "AttachVirtualDisk",
             "arguments": [
                 {
                     "name": "VirtualDiskHandle",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -680,7 +3924,6 @@
                 },
                 {
                     "name": "SecurityDescriptor",
-                    "data_type": "TypeDecl",
                     "type": "PSECURITY_DESCRIPTOR",
                     "sal": [
                         "in",
@@ -689,7 +3932,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "ATTACH_VIRTUAL_DISK_FLAG",
                     "sal": [
                         "in"
@@ -697,7 +3939,6 @@
                 },
                 {
                     "name": "ProviderSpecificFlags",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -705,7 +3946,6 @@
                 },
                 {
                     "name": "Parameters",
-                    "data_type": "TypeDecl",
                     "type": "PATTACH_VIRTUAL_DISK_PARAMETERS",
                     "sal": [
                         "in",
@@ -714,7 +3954,6 @@
                 },
                 {
                     "name": "Overlapped",
-                    "data_type": "TypeDecl",
                     "type": "LPOVERLAPPED",
                     "sal": [
                         "in",
@@ -727,15 +3966,15 @@
             ]
         },
         {
-            "name": "DetachVirtualDisk",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DetachVirtualDisk",
                 "type": "DWORD"
             },
+            "name": "DetachVirtualDisk",
             "arguments": [
                 {
                     "name": "VirtualDiskHandle",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -743,7 +3982,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "DETACH_VIRTUAL_DISK_FLAG",
                     "sal": [
                         "in"
@@ -751,7 +3989,6 @@
                 },
                 {
                     "name": "ProviderSpecificFlags",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -763,15 +4000,15 @@
             ]
         },
         {
-            "name": "GetVirtualDiskPhysicalPath",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "GetVirtualDiskPhysicalPath",
                 "type": "DWORD"
             },
+            "name": "GetVirtualDiskPhysicalPath",
             "arguments": [
                 {
                     "name": "VirtualDiskHandle",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -779,7 +4016,6 @@
                 },
                 {
                     "name": "DiskPathSizeInBytes",
-                    "data_type": "TypeDecl",
                     "type": "PULONG",
                     "sal": [
                         "in",
@@ -788,7 +4024,6 @@
                 },
                 {
                     "name": "DiskPath",
-                    "data_type": "TypeDecl",
                     "type": "PWSTR",
                     "sal": [
                         "out",
@@ -801,15 +4036,15 @@
             ]
         },
         {
-            "name": "GetStorageDependencyInformation",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "GetStorageDependencyInformation",
                 "type": "DWORD"
             },
+            "name": "GetStorageDependencyInformation",
             "arguments": [
                 {
                     "name": "ObjectHandle",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -817,7 +4052,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "GET_STORAGE_DEPENDENCY_FLAG",
                     "sal": [
                         "in"
@@ -825,7 +4059,6 @@
                 },
                 {
                     "name": "StorageDependencyInfoSize",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -833,7 +4066,6 @@
                 },
                 {
                     "name": "StorageDependencyInfo",
-                    "data_type": "TypeDecl",
                     "type": "PSTORAGE_DEPENDENCY_INFO",
                     "sal": [
                         "in",
@@ -842,7 +4074,6 @@
                 },
                 {
                     "name": "SizeUsed",
-                    "data_type": "TypeDecl",
                     "type": "PULONG",
                     "sal": [
                         "in",
@@ -856,15 +4087,15 @@
             ]
         },
         {
-            "name": "GetVirtualDiskInformation",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "GetVirtualDiskInformation",
                 "type": "DWORD"
             },
+            "name": "GetVirtualDiskInformation",
             "arguments": [
                 {
                     "name": "VirtualDiskHandle",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -872,7 +4103,6 @@
                 },
                 {
                     "name": "VirtualDiskInfoSize",
-                    "data_type": "TypeDecl",
                     "type": "PULONG",
                     "sal": [
                         "in",
@@ -881,7 +4111,6 @@
                 },
                 {
                     "name": "VirtualDiskInfo",
-                    "data_type": "TypeDecl",
                     "type": "PGET_VIRTUAL_DISK_INFO",
                     "sal": [
                         "in",
@@ -890,7 +4119,6 @@
                 },
                 {
                     "name": "SizeUsed",
-                    "data_type": "TypeDecl",
                     "type": "PULONG",
                     "sal": [
                         "in",
@@ -904,15 +4132,15 @@
             ]
         },
         {
-            "name": "SetVirtualDiskInformation",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SetVirtualDiskInformation",
                 "type": "DWORD"
             },
+            "name": "SetVirtualDiskInformation",
             "arguments": [
                 {
                     "name": "VirtualDiskHandle",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -920,7 +4148,6 @@
                 },
                 {
                     "name": "VirtualDiskInfo",
-                    "data_type": "TypeDecl",
                     "type": "PSET_VIRTUAL_DISK_INFO",
                     "sal": [
                         "in"
@@ -932,15 +4159,15 @@
             ]
         },
         {
-            "name": "EnumerateVirtualDiskMetadata",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EnumerateVirtualDiskMetadata",
                 "type": "DWORD"
             },
+            "name": "EnumerateVirtualDiskMetadata",
             "arguments": [
                 {
                     "name": "VirtualDiskHandle",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -948,7 +4175,6 @@
                 },
                 {
                     "name": "NumberOfItems",
-                    "data_type": "TypeDecl",
                     "type": "PULONG",
                     "sal": [
                         "in",
@@ -956,12 +4182,10 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "Items",
                         "type": "GUID"
                     },
-                    "name": "Items",
                     "sal": [
                         "out"
                     ]
@@ -972,34 +4196,31 @@
             ]
         },
         {
-            "name": "GetVirtualDiskMetadata",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "GetVirtualDiskMetadata",
                 "type": "DWORD"
             },
+            "name": "GetVirtualDiskMetadata",
             "arguments": [
                 {
                     "name": "VirtualDiskHandle",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "Item",
                         "type": "GUID"
                     },
-                    "name": "Item",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "MetaDataSize",
-                    "data_type": "TypeDecl",
                     "type": "PULONG",
                     "sal": [
                         "in",
@@ -1008,7 +4229,6 @@
                 },
                 {
                     "name": "MetaData",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "out"
@@ -1020,46 +4240,41 @@
             ]
         },
         {
-            "name": "SetVirtualDiskMetadata",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SetVirtualDiskMetadata",
                 "type": "DWORD"
             },
+            "name": "SetVirtualDiskMetadata",
             "arguments": [
                 {
                     "name": "VirtualDiskHandle",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "Item",
                         "type": "GUID"
                     },
-                    "name": "Item",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "MetaDataSize",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "MetaData",
                         "type": "void"
                     },
-                    "name": "MetaData",
                     "sal": [
                         "in"
                     ]
@@ -1070,27 +4285,25 @@
             ]
         },
         {
-            "name": "DeleteVirtualDiskMetadata",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DeleteVirtualDiskMetadata",
                 "type": "DWORD"
             },
+            "name": "DeleteVirtualDiskMetadata",
             "arguments": [
                 {
                     "name": "VirtualDiskHandle",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "Item",
                         "type": "GUID"
                     },
-                    "name": "Item",
                     "sal": [
                         "in"
                     ]
@@ -1101,15 +4314,15 @@
             ]
         },
         {
-            "name": "GetVirtualDiskOperationProgress",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "GetVirtualDiskOperationProgress",
                 "type": "DWORD"
             },
+            "name": "GetVirtualDiskOperationProgress",
             "arguments": [
                 {
                     "name": "VirtualDiskHandle",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -1117,7 +4330,6 @@
                 },
                 {
                     "name": "Overlapped",
-                    "data_type": "TypeDecl",
                     "type": "LPOVERLAPPED",
                     "sal": [
                         "in"
@@ -1125,7 +4337,6 @@
                 },
                 {
                     "name": "Progress",
-                    "data_type": "TypeDecl",
                     "type": "PVIRTUAL_DISK_PROGRESS",
                     "sal": [
                         "out"
@@ -1137,15 +4348,15 @@
             ]
         },
         {
-            "name": "CompactVirtualDisk",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CompactVirtualDisk",
                 "type": "DWORD"
             },
+            "name": "CompactVirtualDisk",
             "arguments": [
                 {
                     "name": "VirtualDiskHandle",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -1153,7 +4364,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "COMPACT_VIRTUAL_DISK_FLAG",
                     "sal": [
                         "in"
@@ -1161,7 +4371,6 @@
                 },
                 {
                     "name": "Parameters",
-                    "data_type": "TypeDecl",
                     "type": "PCOMPACT_VIRTUAL_DISK_PARAMETERS",
                     "sal": [
                         "in",
@@ -1170,7 +4379,6 @@
                 },
                 {
                     "name": "Overlapped",
-                    "data_type": "TypeDecl",
                     "type": "LPOVERLAPPED",
                     "sal": [
                         "in",
@@ -1183,15 +4391,15 @@
             ]
         },
         {
-            "name": "MergeVirtualDisk",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MergeVirtualDisk",
                 "type": "DWORD"
             },
+            "name": "MergeVirtualDisk",
             "arguments": [
                 {
                     "name": "VirtualDiskHandle",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -1199,7 +4407,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "MERGE_VIRTUAL_DISK_FLAG",
                     "sal": [
                         "in"
@@ -1207,7 +4414,6 @@
                 },
                 {
                     "name": "Parameters",
-                    "data_type": "TypeDecl",
                     "type": "PMERGE_VIRTUAL_DISK_PARAMETERS",
                     "sal": [
                         "in"
@@ -1215,7 +4421,6 @@
                 },
                 {
                     "name": "Overlapped",
-                    "data_type": "TypeDecl",
                     "type": "LPOVERLAPPED",
                     "sal": [
                         "in",
@@ -1228,15 +4433,15 @@
             ]
         },
         {
-            "name": "ExpandVirtualDisk",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ExpandVirtualDisk",
                 "type": "DWORD"
             },
+            "name": "ExpandVirtualDisk",
             "arguments": [
                 {
                     "name": "VirtualDiskHandle",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -1244,7 +4449,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "EXPAND_VIRTUAL_DISK_FLAG",
                     "sal": [
                         "in"
@@ -1252,7 +4456,6 @@
                 },
                 {
                     "name": "Parameters",
-                    "data_type": "TypeDecl",
                     "type": "PEXPAND_VIRTUAL_DISK_PARAMETERS",
                     "sal": [
                         "in"
@@ -1260,7 +4463,6 @@
                 },
                 {
                     "name": "Overlapped",
-                    "data_type": "TypeDecl",
                     "type": "LPOVERLAPPED",
                     "sal": [
                         "in",
@@ -1273,15 +4475,15 @@
             ]
         },
         {
-            "name": "ResizeVirtualDisk",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ResizeVirtualDisk",
                 "type": "DWORD"
             },
+            "name": "ResizeVirtualDisk",
             "arguments": [
                 {
                     "name": "VirtualDiskHandle",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -1289,7 +4491,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "RESIZE_VIRTUAL_DISK_FLAG",
                     "sal": [
                         "in"
@@ -1297,7 +4498,6 @@
                 },
                 {
                     "name": "Parameters",
-                    "data_type": "TypeDecl",
                     "type": "PRESIZE_VIRTUAL_DISK_PARAMETERS",
                     "sal": [
                         "in"
@@ -1305,7 +4505,6 @@
                 },
                 {
                     "name": "Overlapped",
-                    "data_type": "TypeDecl",
                     "type": "LPOVERLAPPED",
                     "sal": [
                         "in",
@@ -1318,15 +4517,15 @@
             ]
         },
         {
-            "name": "MirrorVirtualDisk",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MirrorVirtualDisk",
                 "type": "DWORD"
             },
+            "name": "MirrorVirtualDisk",
             "arguments": [
                 {
                     "name": "VirtualDiskHandle",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -1334,7 +4533,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "MIRROR_VIRTUAL_DISK_FLAG",
                     "sal": [
                         "in"
@@ -1342,7 +4540,6 @@
                 },
                 {
                     "name": "Parameters",
-                    "data_type": "TypeDecl",
                     "type": "PMIRROR_VIRTUAL_DISK_PARAMETERS",
                     "sal": [
                         "in"
@@ -1350,7 +4547,6 @@
                 },
                 {
                     "name": "Overlapped",
-                    "data_type": "TypeDecl",
                     "type": "LPOVERLAPPED",
                     "sal": [
                         "in"
@@ -1362,15 +4558,15 @@
             ]
         },
         {
-            "name": "BreakMirrorVirtualDisk",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "BreakMirrorVirtualDisk",
                 "type": "DWORD"
             },
+            "name": "BreakMirrorVirtualDisk",
             "arguments": [
                 {
                     "name": "VirtualDiskHandle",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -1382,15 +4578,15 @@
             ]
         },
         {
-            "name": "AddVirtualDiskParent",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "AddVirtualDiskParent",
                 "type": "DWORD"
             },
+            "name": "AddVirtualDiskParent",
             "arguments": [
                 {
                     "name": "VirtualDiskHandle",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -1398,7 +4594,6 @@
                 },
                 {
                     "name": "ParentPath",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -1410,15 +4605,15 @@
             ]
         },
         {
-            "name": "QueryChangesVirtualDisk",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "QueryChangesVirtualDisk",
                 "type": "DWORD"
             },
+            "name": "QueryChangesVirtualDisk",
             "arguments": [
                 {
                     "name": "VirtualDiskHandle",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -1426,7 +4621,6 @@
                 },
                 {
                     "name": "ChangeTrackingId",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -1434,7 +4628,6 @@
                 },
                 {
                     "name": "ByteOffset",
-                    "data_type": "TypeDecl",
                     "type": "ULONG64",
                     "sal": [
                         "in"
@@ -1442,7 +4635,6 @@
                 },
                 {
                     "name": "ByteLength",
-                    "data_type": "TypeDecl",
                     "type": "ULONG64",
                     "sal": [
                         "in"
@@ -1450,7 +4642,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "QUERY_CHANGES_VIRTUAL_DISK_FLAG",
                     "sal": [
                         "in"
@@ -1458,7 +4649,6 @@
                 },
                 {
                     "name": "Ranges",
-                    "data_type": "TypeDecl",
                     "type": "PQUERY_CHANGES_VIRTUAL_DISK_RANGE",
                     "sal": [
                         "out"
@@ -1466,7 +4656,6 @@
                 },
                 {
                     "name": "RangeCount",
-                    "data_type": "TypeDecl",
                     "type": "PULONG",
                     "sal": [
                         "in",
@@ -1475,7 +4664,6 @@
                 },
                 {
                     "name": "ProcessedLength",
-                    "data_type": "TypeDecl",
                     "type": "PULONG64",
                     "sal": [
                         "out"
@@ -1487,15 +4675,15 @@
             ]
         },
         {
-            "name": "TakeSnapshotVhdSet",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "TakeSnapshotVhdSet",
                 "type": "DWORD"
             },
+            "name": "TakeSnapshotVhdSet",
             "arguments": [
                 {
                     "name": "VirtualDiskHandle",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -1503,7 +4691,6 @@
                 },
                 {
                     "name": "Parameters",
-                    "data_type": "TypeDecl",
                     "type": "PTAKE_SNAPSHOT_VHDSET_PARAMETERS",
                     "sal": [
                         "in"
@@ -1511,7 +4698,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "TAKE_SNAPSHOT_VHDSET_FLAG",
                     "sal": [
                         "in"
@@ -1523,15 +4709,15 @@
             ]
         },
         {
-            "name": "DeleteSnapshotVhdSet",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DeleteSnapshotVhdSet",
                 "type": "DWORD"
             },
+            "name": "DeleteSnapshotVhdSet",
             "arguments": [
                 {
                     "name": "VirtualDiskHandle",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -1539,7 +4725,6 @@
                 },
                 {
                     "name": "Parameters",
-                    "data_type": "TypeDecl",
                     "type": "PDELETE_SNAPSHOT_VHDSET_PARAMETERS",
                     "sal": [
                         "in"
@@ -1547,7 +4732,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "DELETE_SNAPSHOT_VHDSET_FLAG",
                     "sal": [
                         "in"
@@ -1559,15 +4743,15 @@
             ]
         },
         {
-            "name": "ModifyVhdSet",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ModifyVhdSet",
                 "type": "DWORD"
             },
+            "name": "ModifyVhdSet",
             "arguments": [
                 {
                     "name": "VirtualDiskHandle",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -1575,7 +4759,6 @@
                 },
                 {
                     "name": "Parameters",
-                    "data_type": "TypeDecl",
                     "type": "PMODIFY_VHDSET_PARAMETERS",
                     "sal": [
                         "in"
@@ -1583,7 +4766,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "MODIFY_VHDSET_FLAG",
                     "sal": [
                         "in"
@@ -1595,15 +4777,15 @@
             ]
         },
         {
-            "name": "ApplySnapshotVhdSet",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ApplySnapshotVhdSet",
                 "type": "DWORD"
             },
+            "name": "ApplySnapshotVhdSet",
             "arguments": [
                 {
                     "name": "VirtualDiskHandle",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -1611,7 +4793,6 @@
                 },
                 {
                     "name": "Parameters",
-                    "data_type": "TypeDecl",
                     "type": "PAPPLY_SNAPSHOT_VHDSET_PARAMETERS",
                     "sal": [
                         "in"
@@ -1619,7 +4800,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "APPLY_SNAPSHOT_VHDSET_FLAG",
                     "sal": [
                         "in"
@@ -1631,15 +4811,15 @@
             ]
         },
         {
-            "name": "RawSCSIVirtualDisk",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "RawSCSIVirtualDisk",
                 "type": "DWORD"
             },
+            "name": "RawSCSIVirtualDisk",
             "arguments": [
                 {
                     "name": "VirtualDiskHandle",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -1647,7 +4827,6 @@
                 },
                 {
                     "name": "Parameters",
-                    "data_type": "TypeDecl",
                     "type": "PRAW_SCSI_VIRTUAL_DISK_PARAMETERS",
                     "sal": [
                         "in"
@@ -1655,7 +4834,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "RAW_SCSI_VIRTUAL_DISK_FLAG",
                     "sal": [
                         "in"
@@ -1663,7 +4841,6 @@
                 },
                 {
                     "name": "Response",
-                    "data_type": "TypeDecl",
                     "type": "PRAW_SCSI_VIRTUAL_DISK_RESPONSE",
                     "sal": [
                         "out"

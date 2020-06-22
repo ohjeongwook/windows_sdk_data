@@ -2,291 +2,612 @@
     "typedefs": [
         {
             "name": "SHITEMID",
-            "type": "_SHITEMID",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_SHITEMID",
+                "elements": [
+                    {
+                        "name": "cb",
+                        "type": "USHORT"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "1"
+                        },
+                        "name": "abID"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "SHITEMID"
-            },
-            "name": "LPSHITEMID"
+            "name": "LPSHITEMID",
+            "type": "SHITEMID",
+            "data_type": "Ptr"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "SHITEMID"
-            },
-            "name": "LPCSHITEMID"
+            "name": "LPCSHITEMID",
+            "type": "SHITEMID",
+            "data_type": "Ptr"
         },
         {
             "name": "ITEMIDLIST",
-            "type": "_ITEMIDLIST",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_ITEMIDLIST",
+                "elements": [
+                    {
+                        "name": "mkid",
+                        "type": "SHITEMID"
+                    }
+                ]
+            }
         },
         {
             "name": "ITEMIDLIST_RELATIVE",
-            "data_type": "TypeDecl",
             "type": "ITEMIDLIST"
         },
         {
             "name": "ITEMID_CHILD",
-            "data_type": "TypeDecl",
             "type": "ITEMIDLIST"
         },
         {
             "name": "ITEMIDLIST_ABSOLUTE",
-            "data_type": "TypeDecl",
             "type": "ITEMIDLIST"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "BYTE_BLOB"
-            },
-            "name": "wirePIDL"
+            "name": "wirePIDL",
+            "type": "BYTE_BLOB",
+            "data_type": "Ptr"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "ITEMIDLIST"
-            },
-            "name": "LPITEMIDLIST"
+            "name": "LPITEMIDLIST",
+            "type": "ITEMIDLIST",
+            "data_type": "Ptr"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "ITEMIDLIST"
-            },
-            "name": "LPCITEMIDLIST"
+            "name": "LPCITEMIDLIST",
+            "type": "ITEMIDLIST",
+            "data_type": "Ptr"
         },
         {
             "name": "STRRET_TYPE",
-            "type": "tagSTRRET_TYPE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "STRRET_WSTR",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "STRRET_OFFSET",
+                        "value": {
+                            "type": "int",
+                            "value": "0x1"
+                        }
+                    },
+                    {
+                        "name": "STRRET_CSTR",
+                        "value": {
+                            "type": "int",
+                            "value": "0x2"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "STRRET",
-            "type": "_STRRET",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_STRRET",
+                "elements": [
+                    {
+                        "name": "uType",
+                        "type": "UINT"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "pOleStr",
+                                "type": "LPWSTR"
+                            },
+                            {
+                                "name": "uOffset",
+                                "type": "UINT"
+                            },
+                            {
+                                "data_type": "ArrayDecl",
+                                "dim": {
+                                    "type": "int",
+                                    "value": "260"
+                                },
+                                "name": "cStr"
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "STRRET"
-            },
-            "name": "LPSTRRET"
+            "name": "LPSTRRET",
+            "type": "STRRET",
+            "data_type": "Ptr"
         },
         {
             "name": "SHELLDETAILS",
-            "type": "_SHELLDETAILS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_SHELLDETAILS",
+                "elements": [
+                    {
+                        "name": "fmt",
+                        "type": "int"
+                    },
+                    {
+                        "name": "cxChar",
+                        "type": "int"
+                    },
+                    {
+                        "name": "str",
+                        "type": "STRRET"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "LPSHELLDETAILS",
             "type": {
-                "type": "_SHELLDETAILS",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_SHELLDETAILS",
+                "elements": []
             },
-            "name": "LPSHELLDETAILS"
+            "data_type": "Ptr"
         },
         {
             "name": "PERCEIVED",
-            "type": "tagPERCEIVED",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "PERCEIVED_TYPE_FIRST",
+                        "value": {}
+                    },
+                    {
+                        "name": "PERCEIVED_TYPE_CUSTOM",
+                        "value": {}
+                    },
+                    {
+                        "name": "PERCEIVED_TYPE_UNSPECIFIED",
+                        "value": {}
+                    },
+                    {
+                        "name": "PERCEIVED_TYPE_FOLDER",
+                        "value": {}
+                    },
+                    {
+                        "name": "PERCEIVED_TYPE_UNKNOWN",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "PERCEIVED_TYPE_TEXT",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "PERCEIVED_TYPE_IMAGE",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "PERCEIVED_TYPE_AUDIO",
+                        "value": {
+                            "type": "int",
+                            "value": "3"
+                        }
+                    },
+                    {
+                        "name": "PERCEIVED_TYPE_VIDEO",
+                        "value": {
+                            "type": "int",
+                            "value": "4"
+                        }
+                    },
+                    {
+                        "name": "PERCEIVED_TYPE_COMPRESSED",
+                        "value": {
+                            "type": "int",
+                            "value": "5"
+                        }
+                    },
+                    {
+                        "name": "PERCEIVED_TYPE_DOCUMENT",
+                        "value": {
+                            "type": "int",
+                            "value": "6"
+                        }
+                    },
+                    {
+                        "name": "PERCEIVED_TYPE_SYSTEM",
+                        "value": {
+                            "type": "int",
+                            "value": "7"
+                        }
+                    },
+                    {
+                        "name": "PERCEIVED_TYPE_APPLICATION",
+                        "value": {
+                            "type": "int",
+                            "value": "8"
+                        }
+                    },
+                    {
+                        "name": "PERCEIVED_TYPE_GAMEMEDIA",
+                        "value": {
+                            "type": "int",
+                            "value": "9"
+                        }
+                    },
+                    {
+                        "name": "PERCEIVED_TYPE_CONTACTS",
+                        "value": {
+                            "type": "int",
+                            "value": "10"
+                        }
+                    },
+                    {
+                        "name": "PERCEIVED_TYPE_LAST",
+                        "value": {
+                            "type": "int",
+                            "value": "10"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "PERCEIVEDFLAG",
-            "data_type": "TypeDecl",
             "type": "DWORD"
         },
         {
             "name": "COMDLG_FILTERSPEC",
-            "type": "_COMDLG_FILTERSPEC",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_COMDLG_FILTERSPEC",
+                "elements": [
+                    {
+                        "name": "pszName",
+                        "type": "LPCWSTR"
+                    },
+                    {
+                        "name": "pszSpec",
+                        "type": "LPCWSTR"
+                    }
+                ]
+            }
         },
         {
             "name": "KNOWNFOLDERID",
-            "data_type": "TypeDecl",
             "type": "GUID"
         },
         {
             "name": "KF_REDIRECT_FLAGS",
-            "data_type": "TypeDecl",
             "type": "DWORD"
         },
         {
             "name": "FOLDERTYPEID",
-            "data_type": "TypeDecl",
             "type": "GUID"
         },
         {
             "name": "TASKOWNERID",
-            "data_type": "TypeDecl",
             "type": "GUID"
         },
         {
             "name": "ELEMENTID",
-            "data_type": "TypeDecl",
             "type": "GUID"
         },
         {
             "name": "SHCOLSTATE",
-            "type": "tagSHCOLSTATE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "SHCOLSTATE_DEFAULT",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "SHCOLSTATE_TYPE_STR",
+                        "value": {
+                            "type": "int",
+                            "value": "0x1"
+                        }
+                    },
+                    {
+                        "name": "SHCOLSTATE_TYPE_INT",
+                        "value": {
+                            "type": "int",
+                            "value": "0x2"
+                        }
+                    },
+                    {
+                        "name": "SHCOLSTATE_TYPE_DATE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x3"
+                        }
+                    },
+                    {
+                        "name": "SHCOLSTATE_TYPEMASK",
+                        "value": {
+                            "type": "int",
+                            "value": "0xf"
+                        }
+                    },
+                    {
+                        "name": "SHCOLSTATE_ONBYDEFAULT",
+                        "value": {
+                            "type": "int",
+                            "value": "0x10"
+                        }
+                    },
+                    {
+                        "name": "SHCOLSTATE_SLOW",
+                        "value": {
+                            "type": "int",
+                            "value": "0x20"
+                        }
+                    },
+                    {
+                        "name": "SHCOLSTATE_EXTENDED",
+                        "value": {
+                            "type": "int",
+                            "value": "0x40"
+                        }
+                    },
+                    {
+                        "name": "SHCOLSTATE_SECONDARYUI",
+                        "value": {
+                            "type": "int",
+                            "value": "0x80"
+                        }
+                    },
+                    {
+                        "name": "SHCOLSTATE_HIDDEN",
+                        "value": {
+                            "type": "int",
+                            "value": "0x100"
+                        }
+                    },
+                    {
+                        "name": "SHCOLSTATE_PREFER_VARCMP",
+                        "value": {
+                            "type": "int",
+                            "value": "0x200"
+                        }
+                    },
+                    {
+                        "name": "SHCOLSTATE_PREFER_FMTCMP",
+                        "value": {
+                            "type": "int",
+                            "value": "0x400"
+                        }
+                    },
+                    {
+                        "name": "SHCOLSTATE_NOSORTBYFOLDERNESS",
+                        "value": {
+                            "type": "int",
+                            "value": "0x800"
+                        }
+                    },
+                    {
+                        "name": "SHCOLSTATE_VIEWONLY",
+                        "value": {
+                            "type": "int",
+                            "value": "0x10000"
+                        }
+                    },
+                    {
+                        "name": "SHCOLSTATE_BATCHREAD",
+                        "value": {
+                            "type": "int",
+                            "value": "0x20000"
+                        }
+                    },
+                    {
+                        "name": "SHCOLSTATE_NO_GROUPBY",
+                        "value": {
+                            "type": "int",
+                            "value": "0x40000"
+                        }
+                    },
+                    {
+                        "name": "SHCOLSTATE_FIXED_WIDTH",
+                        "value": {
+                            "type": "int",
+                            "value": "0x1000"
+                        }
+                    },
+                    {
+                        "name": "SHCOLSTATE_NODPISCALE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x2000"
+                        }
+                    },
+                    {
+                        "name": "SHCOLSTATE_FIXED_RATIO",
+                        "value": {
+                            "type": "int",
+                            "value": "0x4000"
+                        }
+                    },
+                    {
+                        "name": "SHCOLSTATE_DISPLAYMASK",
+                        "value": {
+                            "type": "int",
+                            "value": "0xf000"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "SHCOLSTATEF",
-            "data_type": "TypeDecl",
             "type": "DWORD"
         },
         {
             "name": "SHCOLUMNID",
-            "data_type": "TypeDecl",
             "type": "PROPERTYKEY"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "SHCOLUMNID"
-            },
-            "name": "LPCSHCOLUMNID"
+            "name": "LPCSHCOLUMNID",
+            "type": "SHCOLUMNID",
+            "data_type": "Ptr"
         },
         {
             "name": "DEVICE_SCALE_FACTOR",
-            "data_type": "Enum",
-            "enumerators": [
-                {
-                    "name": "DEVICE_SCALE_FACTOR_INVALID",
-                    "value": {
-                        "type": "int",
-                        "value": "0"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "DEVICE_SCALE_FACTOR_INVALID",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "SCALE_100_PERCENT",
+                        "value": {
+                            "type": "int",
+                            "value": "100"
+                        }
+                    },
+                    {
+                        "name": "SCALE_120_PERCENT",
+                        "value": {
+                            "type": "int",
+                            "value": "120"
+                        }
+                    },
+                    {
+                        "name": "SCALE_125_PERCENT",
+                        "value": {
+                            "type": "int",
+                            "value": "125"
+                        }
+                    },
+                    {
+                        "name": "SCALE_140_PERCENT",
+                        "value": {
+                            "type": "int",
+                            "value": "140"
+                        }
+                    },
+                    {
+                        "name": "SCALE_150_PERCENT",
+                        "value": {
+                            "type": "int",
+                            "value": "150"
+                        }
+                    },
+                    {
+                        "name": "SCALE_160_PERCENT",
+                        "value": {
+                            "type": "int",
+                            "value": "160"
+                        }
+                    },
+                    {
+                        "name": "SCALE_175_PERCENT",
+                        "value": {
+                            "type": "int",
+                            "value": "175"
+                        }
+                    },
+                    {
+                        "name": "SCALE_180_PERCENT",
+                        "value": {
+                            "type": "int",
+                            "value": "180"
+                        }
+                    },
+                    {
+                        "name": "SCALE_200_PERCENT",
+                        "value": {
+                            "type": "int",
+                            "value": "200"
+                        }
+                    },
+                    {
+                        "name": "SCALE_225_PERCENT",
+                        "value": {
+                            "type": "int",
+                            "value": "225"
+                        }
+                    },
+                    {
+                        "name": "SCALE_250_PERCENT",
+                        "value": {
+                            "type": "int",
+                            "value": "250"
+                        }
+                    },
+                    {
+                        "name": "SCALE_300_PERCENT",
+                        "value": {
+                            "type": "int",
+                            "value": "300"
+                        }
+                    },
+                    {
+                        "name": "SCALE_350_PERCENT",
+                        "value": {
+                            "type": "int",
+                            "value": "350"
+                        }
+                    },
+                    {
+                        "name": "SCALE_400_PERCENT",
+                        "value": {
+                            "type": "int",
+                            "value": "400"
+                        }
+                    },
+                    {
+                        "name": "SCALE_450_PERCENT",
+                        "value": {
+                            "type": "int",
+                            "value": "450"
+                        }
+                    },
+                    {
+                        "name": "SCALE_500_PERCENT",
+                        "value": {
+                            "type": "int",
+                            "value": "500"
+                        }
                     }
-                },
-                {
-                    "name": "SCALE_100_PERCENT",
-                    "value": {
-                        "type": "int",
-                        "value": "100"
-                    }
-                },
-                {
-                    "name": "SCALE_120_PERCENT",
-                    "value": {
-                        "type": "int",
-                        "value": "120"
-                    }
-                },
-                {
-                    "name": "SCALE_125_PERCENT",
-                    "value": {
-                        "type": "int",
-                        "value": "125"
-                    }
-                },
-                {
-                    "name": "SCALE_140_PERCENT",
-                    "value": {
-                        "type": "int",
-                        "value": "140"
-                    }
-                },
-                {
-                    "name": "SCALE_150_PERCENT",
-                    "value": {
-                        "type": "int",
-                        "value": "150"
-                    }
-                },
-                {
-                    "name": "SCALE_160_PERCENT",
-                    "value": {
-                        "type": "int",
-                        "value": "160"
-                    }
-                },
-                {
-                    "name": "SCALE_175_PERCENT",
-                    "value": {
-                        "type": "int",
-                        "value": "175"
-                    }
-                },
-                {
-                    "name": "SCALE_180_PERCENT",
-                    "value": {
-                        "type": "int",
-                        "value": "180"
-                    }
-                },
-                {
-                    "name": "SCALE_200_PERCENT",
-                    "value": {
-                        "type": "int",
-                        "value": "200"
-                    }
-                },
-                {
-                    "name": "SCALE_225_PERCENT",
-                    "value": {
-                        "type": "int",
-                        "value": "225"
-                    }
-                },
-                {
-                    "name": "SCALE_250_PERCENT",
-                    "value": {
-                        "type": "int",
-                        "value": "250"
-                    }
-                },
-                {
-                    "name": "SCALE_300_PERCENT",
-                    "value": {
-                        "type": "int",
-                        "value": "300"
-                    }
-                },
-                {
-                    "name": "SCALE_350_PERCENT",
-                    "value": {
-                        "type": "int",
-                        "value": "350"
-                    }
-                },
-                {
-                    "name": "SCALE_400_PERCENT",
-                    "value": {
-                        "type": "int",
-                        "value": "400"
-                    }
-                },
-                {
-                    "name": "SCALE_450_PERCENT",
-                    "value": {
-                        "type": "int",
-                        "value": "450"
-                    }
-                },
-                {
-                    "name": "SCALE_500_PERCENT",
-                    "value": {
-                        "type": "int",
-                        "value": "500"
-                    }
-                }
-            ]
+                ]
+            }
         },
         {
             "name": "DISPLAY_DEVICE_TYPE",
-            "data_type": "TypeDecl",
             "type": {
                 "data_type": "Enum",
                 "enumerators": [
@@ -309,7 +630,6 @@
         },
         {
             "name": "SCALE_CHANGE_FLAGS",
-            "data_type": "TypeDecl",
             "type": {
                 "data_type": "Enum",
                 "enumerators": [
@@ -339,65 +659,68 @@
         },
         {
             "name": "PROCESS_DPI_AWARENESS",
-            "data_type": "Enum",
-            "enumerators": [
-                {
-                    "name": "PROCESS_DPI_UNAWARE",
-                    "value": {
-                        "type": "int",
-                        "value": "0"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "PROCESS_DPI_UNAWARE",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "PROCESS_SYSTEM_DPI_AWARE",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "PROCESS_PER_MONITOR_DPI_AWARE",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
                     }
-                },
-                {
-                    "name": "PROCESS_SYSTEM_DPI_AWARE",
-                    "value": {
-                        "type": "int",
-                        "value": "1"
-                    }
-                },
-                {
-                    "name": "PROCESS_PER_MONITOR_DPI_AWARE",
-                    "value": {
-                        "type": "int",
-                        "value": "2"
-                    }
-                }
-            ]
+                ]
+            }
         },
         {
             "name": "MONITOR_DPI_TYPE",
-            "data_type": "Enum",
-            "enumerators": [
-                {
-                    "name": "MDT_EFFECTIVE_DPI",
-                    "value": {
-                        "type": "int",
-                        "value": "0"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MDT_EFFECTIVE_DPI",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "MDT_ANGULAR_DPI",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "MDT_RAW_DPI",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "MDT_DEFAULT",
+                        "value": {}
                     }
-                },
-                {
-                    "name": "MDT_ANGULAR_DPI",
-                    "value": {
-                        "type": "int",
-                        "value": "1"
-                    }
-                },
-                {
-                    "name": "MDT_RAW_DPI",
-                    "value": {
-                        "type": "int",
-                        "value": "2"
-                    }
-                },
-                {
-                    "name": "MDT_DEFAULT",
-                    "value": {}
-                }
-            ]
+                ]
+            }
         },
         {
             "name": "SHELL_UI_COMPONENT",
-            "data_type": "TypeDecl",
             "type": {
                 "data_type": "Enum",
                 "enumerators": [
@@ -428,15 +751,15 @@
     ],
     "funcdefs": [
         {
-            "name": "GetScaleFactorForDevice",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "GetScaleFactorForDevice",
                 "type": "DEVICE_SCALE_FACTOR"
             },
+            "name": "GetScaleFactorForDevice",
             "arguments": [
                 {
                     "name": "deviceType",
-                    "data_type": "TypeDecl",
                     "type": "DISPLAY_DEVICE_TYPE",
                     "sal": [
                         "in"
@@ -452,15 +775,15 @@
             ]
         },
         {
-            "name": "RegisterScaleChangeNotifications",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "RegisterScaleChangeNotifications",
                 "type": "HRESULT"
             },
+            "name": "RegisterScaleChangeNotifications",
             "arguments": [
                 {
                     "name": "displayDevice",
-                    "data_type": "TypeDecl",
                     "type": "DISPLAY_DEVICE_TYPE",
                     "sal": [
                         "in"
@@ -468,7 +791,6 @@
                 },
                 {
                     "name": "hwndNotify",
-                    "data_type": "TypeDecl",
                     "type": "HWND",
                     "sal": [
                         "in"
@@ -476,19 +798,16 @@
                 },
                 {
                     "name": "uMsgNotify",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pdwCookie",
                         "type": "DWORD"
                     },
-                    "name": "pdwCookie",
                     "sal": [
                         "out"
                     ]
@@ -503,15 +822,15 @@
             ]
         },
         {
-            "name": "RevokeScaleChangeNotifications",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "RevokeScaleChangeNotifications",
                 "type": "HRESULT"
             },
+            "name": "RevokeScaleChangeNotifications",
             "arguments": [
                 {
                     "name": "displayDevice",
-                    "data_type": "TypeDecl",
                     "type": "DISPLAY_DEVICE_TYPE",
                     "sal": [
                         "in"
@@ -519,7 +838,6 @@
                 },
                 {
                     "name": "dwCookie",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -535,27 +853,25 @@
             ]
         },
         {
-            "name": "GetScaleFactorForMonitor",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "GetScaleFactorForMonitor",
                 "type": "HRESULT"
             },
+            "name": "GetScaleFactorForMonitor",
             "arguments": [
                 {
                     "name": "hMon",
-                    "data_type": "TypeDecl",
                     "type": "HMONITOR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pScale",
                         "type": "DEVICE_SCALE_FACTOR"
                     },
-                    "name": "pScale",
                     "sal": [
                         "out"
                     ]
@@ -569,27 +885,25 @@
             ]
         },
         {
-            "name": "RegisterScaleChangeEvent",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "RegisterScaleChangeEvent",
                 "type": "HRESULT"
             },
+            "name": "RegisterScaleChangeEvent",
             "arguments": [
                 {
                     "name": "hEvent",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pdwCookie",
                         "type": "DWORD_PTR"
                     },
-                    "name": "pdwCookie",
                     "sal": [
                         "out"
                     ]
@@ -603,15 +917,15 @@
             ]
         },
         {
-            "name": "UnregisterScaleChangeEvent",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "UnregisterScaleChangeEvent",
                 "type": "HRESULT"
             },
+            "name": "UnregisterScaleChangeEvent",
             "arguments": [
                 {
                     "name": "dwCookie",
-                    "data_type": "TypeDecl",
                     "type": "DWORD_PTR",
                     "sal": [
                         "in"
@@ -626,15 +940,15 @@
             ]
         },
         {
-            "name": "SetProcessDpiAwareness",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SetProcessDpiAwareness",
                 "type": "HRESULT"
             },
+            "name": "SetProcessDpiAwareness",
             "arguments": [
                 {
                     "name": "value",
-                    "data_type": "TypeDecl",
                     "type": "PROCESS_DPI_AWARENESS",
                     "sal": [
                         "in"
@@ -648,27 +962,25 @@
             ]
         },
         {
-            "name": "GetProcessDpiAwareness",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "GetProcessDpiAwareness",
                 "type": "HRESULT"
             },
+            "name": "GetProcessDpiAwareness",
             "arguments": [
                 {
                     "name": "hprocess",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "value",
                         "type": "PROCESS_DPI_AWARENESS"
                     },
-                    "name": "value",
                     "sal": [
                         "out"
                     ]
@@ -681,15 +993,15 @@
             ]
         },
         {
-            "name": "GetDpiForMonitor",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "GetDpiForMonitor",
                 "type": "HRESULT"
             },
+            "name": "GetDpiForMonitor",
             "arguments": [
                 {
                     "name": "hmonitor",
-                    "data_type": "TypeDecl",
                     "type": "HMONITOR",
                     "sal": [
                         "in"
@@ -697,30 +1009,25 @@
                 },
                 {
                     "name": "dpiType",
-                    "data_type": "TypeDecl",
                     "type": "MONITOR_DPI_TYPE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "dpiX",
                         "type": "UINT"
                     },
-                    "name": "dpiX",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "dpiY",
                         "type": "UINT"
                     },
-                    "name": "dpiY",
                     "sal": [
                         "out"
                     ]

@@ -2,193 +2,594 @@
     "typedefs": [
         {
             "name": "NS_REQS",
-            "type": "_NS_REQS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "NS_REQ_ZERO",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "NS_REQ_PRESENT",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "NS_REQ_ALLOW_MULTIPLE",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "NS_REQ_ONE_OR_MORE",
+                        "value": {
+                            "type": "int",
+                            "value": "3"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "TOKEN_VALUE",
-            "type": "_TOKEN_VALUE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_TOKEN_VALUE",
+                "elements": [
+                    {
+                        "name": "pwszToken",
+                        "type": "LPCWSTR"
+                    },
+                    {
+                        "name": "dwValue",
+                        "type": "DWORD"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PTOKEN_VALUE",
             "type": {
-                "type": "_TOKEN_VALUE",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_TOKEN_VALUE",
+                "elements": [
+                    {
+                        "name": "pwszToken",
+                        "type": "LPCWSTR"
+                    },
+                    {
+                        "name": "dwValue",
+                        "type": "DWORD"
+                    }
+                ]
             },
-            "name": "PTOKEN_VALUE"
+            "data_type": "Ptr"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "GET_RESOURCE_STRING_FN"
-            },
-            "name": "PGET_RESOURCE_STRING_FN"
+            "name": "PGET_RESOURCE_STRING_FN",
+            "type": "GET_RESOURCE_STRING_FN",
+            "data_type": "Ptr"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "NS_CONTEXT_COMMIT_FN"
-            },
-            "name": "PNS_CONTEXT_COMMIT_FN"
+            "name": "PNS_CONTEXT_COMMIT_FN",
+            "type": "NS_CONTEXT_COMMIT_FN",
+            "data_type": "Ptr"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "NS_CONTEXT_CONNECT_FN"
-            },
-            "name": "PNS_CONTEXT_CONNECT_FN"
+            "name": "PNS_CONTEXT_CONNECT_FN",
+            "type": "NS_CONTEXT_CONNECT_FN",
+            "data_type": "Ptr"
         },
         {
             "name": "NS_CONTEXT_ATTRIBUTES",
-            "type": "_NS_CONTEXT_ATTRIBUTES",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_NS_CONTEXT_ATTRIBUTES",
+                "elements": []
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "NS_CONTEXT_ATTRIBUTES",
             "type": {
-                "data_type": "TypeDecl",
-                "type": "NS_CONTEXT_DUMP_FN"
-            },
-            "name": "PNS_CONTEXT_DUMP_FN"
+                "data_type": "Struct",
+                "name": "_NS_CONTEXT_ATTRIBUTES",
+                "elements": [
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "data_type": "Struct",
+                                "elements": [
+                                    {
+                                        "name": "dwVersion",
+                                        "type": "DWORD"
+                                    },
+                                    {
+                                        "name": "dwReserved",
+                                        "type": "DWORD"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "_ullAlign",
+                                "type": "ULONGLONG"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "pwszContext",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "guidHelper",
+                        "type": "GUID"
+                    },
+                    {
+                        "name": "dwFlags",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "ulPriority",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "ulNumTopCmds",
+                        "type": "ULONG"
+                    },
+                    {
+                        "data_type": "ArrayDeclPtr",
+                        "dim": {},
+                        "name": "pTopCmds"
+                    },
+                    {
+                        "name": "ulNumGroups",
+                        "type": "ULONG"
+                    },
+                    {
+                        "data_type": "ArrayDeclPtr",
+                        "dim": {},
+                        "name": "pCmdGroups"
+                    },
+                    {
+                        "name": "pfnCommitFn",
+                        "type": "PNS_CONTEXT_COMMIT_FN"
+                    },
+                    {
+                        "name": "pfnDumpFn",
+                        "type": "PNS_CONTEXT_DUMP_FN"
+                    },
+                    {
+                        "name": "pfnConnectFn",
+                        "type": "PNS_CONTEXT_CONNECT_FN"
+                    },
+                    {
+                        "name": "pReserved",
+                        "type": "PVOID"
+                    },
+                    {
+                        "name": "pfnOsVersionCheck",
+                        "type": "PNS_OSVERSIONCHECK"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "NS_DLL_STOP_FN"
-            },
-            "name": "PNS_DLL_STOP_FN"
+            "name": "PNS_CONTEXT_DUMP_FN",
+            "type": "NS_CONTEXT_DUMP_FN",
+            "data_type": "Ptr"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "NS_HELPER_START_FN"
-            },
-            "name": "PNS_HELPER_START_FN"
+            "name": "PNS_DLL_STOP_FN",
+            "type": "NS_DLL_STOP_FN",
+            "data_type": "Ptr"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "NS_HELPER_STOP_FN"
-            },
-            "name": "PNS_HELPER_STOP_FN"
+            "name": "PNS_HELPER_START_FN",
+            "type": "NS_HELPER_START_FN",
+            "data_type": "Ptr"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "FN_HANDLE_CMD"
-            },
-            "name": "PFN_HANDLE_CMD"
+            "name": "PNS_HELPER_STOP_FN",
+            "type": "NS_HELPER_STOP_FN",
+            "data_type": "Ptr"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "NS_OSVERSIONCHECK"
-            },
-            "name": "PNS_OSVERSIONCHECK"
+            "name": "PFN_HANDLE_CMD",
+            "type": "FN_HANDLE_CMD",
+            "data_type": "Ptr"
+        },
+        {
+            "name": "PNS_OSVERSIONCHECK",
+            "type": "NS_OSVERSIONCHECK",
+            "data_type": "Ptr"
         },
         {
             "name": "NS_HELPER_ATTRIBUTES",
-            "type": "_NS_HELPER_ATTRIBUTES",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_NS_HELPER_ATTRIBUTES",
+                "elements": [
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "data_type": "Struct",
+                                "elements": [
+                                    {
+                                        "name": "dwVersion",
+                                        "type": "DWORD"
+                                    },
+                                    {
+                                        "name": "dwReserved",
+                                        "type": "DWORD"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "_ullAlign",
+                                "type": "ULONGLONG"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "guidHelper",
+                        "type": "GUID"
+                    },
+                    {
+                        "name": "pfnStart",
+                        "type": "PNS_HELPER_START_FN"
+                    },
+                    {
+                        "name": "pfnStop",
+                        "type": "PNS_HELPER_STOP_FN"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PNS_HELPER_ATTRIBUTES",
             "type": {
-                "type": "_NS_HELPER_ATTRIBUTES",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_NS_HELPER_ATTRIBUTES",
+                "elements": [
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "data_type": "Struct",
+                                "elements": [
+                                    {
+                                        "name": "dwVersion",
+                                        "type": "DWORD"
+                                    },
+                                    {
+                                        "name": "dwReserved",
+                                        "type": "DWORD"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "_ullAlign",
+                                "type": "ULONGLONG"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "guidHelper",
+                        "type": "GUID"
+                    },
+                    {
+                        "name": "pfnStart",
+                        "type": "PNS_HELPER_START_FN"
+                    },
+                    {
+                        "name": "pfnStop",
+                        "type": "PNS_HELPER_STOP_FN"
+                    }
+                ]
             },
-            "name": "PNS_HELPER_ATTRIBUTES"
+            "data_type": "Ptr"
         },
         {
             "name": "CMD_ENTRY",
-            "type": "_CMD_ENTRY",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_CMD_ENTRY",
+                "elements": [
+                    {
+                        "name": "pwszCmdToken",
+                        "type": "LPCWSTR"
+                    },
+                    {
+                        "name": "pfnCmdHandler",
+                        "type": "PFN_HANDLE_CMD"
+                    },
+                    {
+                        "name": "dwShortCmdHelpToken",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwCmdHlpToken",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwFlags",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "pOsVersionCheck",
+                        "type": "PNS_OSVERSIONCHECK"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PCMD_ENTRY",
             "type": {
-                "type": "_CMD_ENTRY",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_CMD_ENTRY",
+                "elements": [
+                    {
+                        "name": "pwszCmdToken",
+                        "type": "LPCWSTR"
+                    },
+                    {
+                        "name": "pfnCmdHandler",
+                        "type": "PFN_HANDLE_CMD"
+                    },
+                    {
+                        "name": "dwShortCmdHelpToken",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwCmdHlpToken",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwFlags",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "pOsVersionCheck",
+                        "type": "PNS_OSVERSIONCHECK"
+                    }
+                ]
             },
-            "name": "PCMD_ENTRY"
+            "data_type": "Ptr"
         },
         {
             "name": "CMD_GROUP_ENTRY",
-            "type": "_CMD_GROUP_ENTRY",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_CMD_GROUP_ENTRY",
+                "elements": [
+                    {
+                        "name": "pwszCmdGroupToken",
+                        "type": "LPCWSTR"
+                    },
+                    {
+                        "name": "dwShortCmdHelpToken",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "ulCmdGroupSize",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "dwFlags",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "pCmdGroup",
+                        "type": "PCMD_ENTRY"
+                    },
+                    {
+                        "name": "pOsVersionCheck",
+                        "type": "PNS_OSVERSIONCHECK"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PCMD_GROUP_ENTRY",
             "type": {
-                "type": "_CMD_GROUP_ENTRY",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_CMD_GROUP_ENTRY",
+                "elements": [
+                    {
+                        "name": "pwszCmdGroupToken",
+                        "type": "LPCWSTR"
+                    },
+                    {
+                        "name": "dwShortCmdHelpToken",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "ulCmdGroupSize",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "dwFlags",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "pCmdGroup",
+                        "type": "PCMD_ENTRY"
+                    },
+                    {
+                        "name": "pOsVersionCheck",
+                        "type": "PNS_OSVERSIONCHECK"
+                    }
+                ]
             },
-            "name": "PCMD_GROUP_ENTRY"
+            "data_type": "Ptr"
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PNS_CONTEXT_ATTRIBUTES",
             "type": {
-                "type": "_NS_CONTEXT_ATTRIBUTES",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_NS_CONTEXT_ATTRIBUTES",
+                "elements": [
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "data_type": "Struct",
+                                "elements": [
+                                    {
+                                        "name": "dwVersion",
+                                        "type": "DWORD"
+                                    },
+                                    {
+                                        "name": "dwReserved",
+                                        "type": "DWORD"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "_ullAlign",
+                                "type": "ULONGLONG"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "pwszContext",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "guidHelper",
+                        "type": "GUID"
+                    },
+                    {
+                        "name": "dwFlags",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "ulPriority",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "ulNumTopCmds",
+                        "type": "ULONG"
+                    },
+                    {
+                        "data_type": "ArrayDeclPtr",
+                        "dim": {},
+                        "name": "pTopCmds"
+                    },
+                    {
+                        "name": "ulNumGroups",
+                        "type": "ULONG"
+                    },
+                    {
+                        "data_type": "ArrayDeclPtr",
+                        "dim": {},
+                        "name": "pCmdGroups"
+                    },
+                    {
+                        "name": "pfnCommitFn",
+                        "type": "PNS_CONTEXT_COMMIT_FN"
+                    },
+                    {
+                        "name": "pfnDumpFn",
+                        "type": "PNS_CONTEXT_DUMP_FN"
+                    },
+                    {
+                        "name": "pfnConnectFn",
+                        "type": "PNS_CONTEXT_CONNECT_FN"
+                    },
+                    {
+                        "name": "pReserved",
+                        "type": "PVOID"
+                    },
+                    {
+                        "name": "pfnOsVersionCheck",
+                        "type": "PNS_OSVERSIONCHECK"
+                    }
+                ]
             },
-            "name": "PNS_CONTEXT_ATTRIBUTES"
+            "data_type": "Ptr"
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PCNS_CONTEXT_ATTRIBUTES",
             "type": {
-                "type": "_NS_CONTEXT_ATTRIBUTES",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_NS_CONTEXT_ATTRIBUTES",
+                "elements": []
             },
-            "name": "PCNS_CONTEXT_ATTRIBUTES"
+            "data_type": "Ptr"
         },
         {
             "name": "TAG_TYPE",
-            "type": "_TAG_TYPE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_TAG_TYPE",
+                "elements": [
+                    {
+                        "name": "pwszTag",
+                        "type": "LPCWSTR"
+                    },
+                    {
+                        "name": "dwRequired",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "bPresent",
+                        "type": "BOOL"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PTAG_TYPE",
             "type": {
-                "type": "_TAG_TYPE",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_TAG_TYPE",
+                "elements": [
+                    {
+                        "name": "pwszTag",
+                        "type": "LPCWSTR"
+                    },
+                    {
+                        "name": "dwRequired",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "bPresent",
+                        "type": "BOOL"
+                    }
+                ]
             },
-            "name": "PTAG_TYPE"
+            "data_type": "Ptr"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "NS_DLL_INIT_FN"
-            },
-            "name": "PNS_DLL_INIT_FN"
+            "name": "PNS_DLL_INIT_FN",
+            "type": "NS_DLL_INIT_FN",
+            "data_type": "Ptr"
         }
     ],
     "funcdefs": [
         {
-            "name": "MatchEnumTag",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MatchEnumTag",
                 "type": "DWORD"
             },
+            "name": "MatchEnumTag",
             "arguments": [
                 {
                     "name": "hModule",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": []
                 },
                 {
                     "name": "pwcArg",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -196,26 +597,22 @@
                 },
                 {
                     "name": "dwNumArg",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pEnumTable",
                         "type": "TOKEN_VALUE"
                     },
-                    "name": "pEnumTable",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "pdwValue",
-                    "data_type": "TypeDecl",
                     "type": "PDWORD",
                     "sal": [
                         "out"
@@ -227,15 +624,15 @@
             ]
         },
         {
-            "name": "MatchToken",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MatchToken",
                 "type": "BOOL"
             },
+            "name": "MatchToken",
             "arguments": [
                 {
                     "name": "pwszUserToken",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -243,7 +640,6 @@
                 },
                 {
                     "name": "pwszCmdToken",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -255,25 +651,23 @@
             ]
         },
         {
-            "name": "PreprocessCommand",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PreprocessCommand",
                 "type": "DWORD"
             },
+            "name": "PreprocessCommand",
             "arguments": [
                 {
                     "name": "hModule",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppwcArguments",
                         "type": "LPWSTR"
                     },
-                    "name": "ppwcArguments",
                     "sal": [
                         "in",
                         "out"
@@ -281,7 +675,6 @@
                 },
                 {
                     "name": "dwCurrentIndex",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -289,26 +682,22 @@
                 },
                 {
                     "name": "dwArgCount",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pttTags",
                         "type": "TAG_TYPE"
                     },
-                    "name": "pttTags",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "dwTagCount",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -316,7 +705,6 @@
                 },
                 {
                     "name": "dwMinArgs",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -324,19 +712,16 @@
                 },
                 {
                     "name": "dwMaxArgs",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pdwTagType",
                         "type": "DWORD"
                     },
-                    "name": "pdwTagType",
                     "sal": [
                         "out"
                     ]
@@ -347,15 +732,15 @@
             ]
         },
         {
-            "name": "PrintError",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PrintError",
                 "type": "DWORD"
             },
+            "name": "PrintError",
             "arguments": [
                 {
                     "name": "hModule",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -363,7 +748,6 @@
                 },
                 {
                     "name": "dwErrId",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -375,15 +759,15 @@
             ]
         },
         {
-            "name": "PrintMessageFromModule",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PrintMessageFromModule",
                 "type": "DWORD"
             },
+            "name": "PrintMessageFromModule",
             "arguments": [
                 {
                     "name": "hModule",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -391,7 +775,6 @@
                 },
                 {
                     "name": "dwMsgId",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -403,15 +786,15 @@
             ]
         },
         {
-            "name": "PrintMessage",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PrintMessage",
                 "type": "DWORD"
             },
+            "name": "PrintMessage",
             "arguments": [
                 {
                     "name": "pwszFormat",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -423,19 +806,18 @@
             ]
         },
         {
-            "name": "RegisterContext",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "RegisterContext",
                 "type": "DWORD"
             },
+            "name": "RegisterContext",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pChildContext",
                         "type": "NS_CONTEXT_ATTRIBUTES"
                     },
-                    "name": "pChildContext",
                     "sal": [
                         "in"
                     ]
@@ -446,30 +828,27 @@
             ]
         },
         {
-            "name": "RegisterHelper",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "RegisterHelper",
                 "type": "DWORD"
             },
+            "name": "RegisterHelper",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pguidParentContext",
                         "type": "GUID"
                     },
-                    "name": "pguidParentContext",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pfnRegisterSubContext",
                         "type": "NS_HELPER_ATTRIBUTES"
                     },
-                    "name": "pfnRegisterSubContext",
                     "sal": [
                         "in"
                     ]

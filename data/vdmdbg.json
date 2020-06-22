@@ -2,336 +2,1324 @@
     "typedefs": [
         {
             "name": "FLOATING_SAVE_AREA",
-            "type": "_FLOATING_SAVE_AREA",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_FLOATING_SAVE_AREA",
+                "elements": [
+                    {
+                        "name": "ControlWord",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "StatusWord",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "TagWord",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "ErrorOffset",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "ErrorSelector",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "DataOffset",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "DataSelector",
+                        "type": "ULONG"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "80"
+                        },
+                        "name": "RegisterArea"
+                    },
+                    {
+                        "name": "Cr0NpxState",
+                        "type": "ULONG"
+                    }
+                ]
+            }
         },
         {
             "name": "VDMCONTEXT",
-            "type": "_VDMCONTEXT",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_VDMCONTEXT",
+                "elements": [
+                    {
+                        "name": "ContextFlags",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Dr0",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Dr1",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Dr2",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Dr3",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Dr6",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Dr7",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "FloatSave",
+                        "type": "FLOATING_SAVE_AREA"
+                    },
+                    {
+                        "name": "SegGs",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "SegFs",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "SegEs",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "SegDs",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Edi",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Esi",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Ebx",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Edx",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Ecx",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Eax",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Ebp",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Eip",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "SegCs",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "EFlags",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Esp",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "SegSs",
+                        "type": "ULONG"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "512"
+                        },
+                        "name": "ExtendedRegisters"
+                    }
+                ]
+            }
         },
         {
             "name": "VDMLDT_ENTRY",
-            "type": "_VDMLDT_ENTRY",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_VDMLDT_ENTRY",
+                "elements": [
+                    {
+                        "name": "LimitLow",
+                        "type": "USHORT"
+                    },
+                    {
+                        "name": "BaseLow",
+                        "type": "USHORT"
+                    },
+                    {
+                        "name": "HighWord",
+                        "type": {
+                            "data_type": "Union",
+                            "elements": [
+                                {
+                                    "name": "Bytes",
+                                    "type": {
+                                        "data_type": "Struct",
+                                        "elements": [
+                                            {
+                                                "name": "BaseMid",
+                                                "type": "UCHAR"
+                                            },
+                                            {
+                                                "name": "Flags1",
+                                                "type": "UCHAR"
+                                            },
+                                            {
+                                                "name": "Flags2",
+                                                "type": "UCHAR"
+                                            },
+                                            {
+                                                "name": "BaseHi",
+                                                "type": "UCHAR"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "name": "Bits",
+                                    "type": {
+                                        "data_type": "Struct",
+                                        "elements": [
+                                            {
+                                                "name": "BaseMid",
+                                                "type": "ULONG"
+                                            },
+                                            {
+                                                "name": "Type",
+                                                "type": "ULONG"
+                                            },
+                                            {
+                                                "name": "Dpl",
+                                                "type": "ULONG"
+                                            },
+                                            {
+                                                "name": "Pres",
+                                                "type": "ULONG"
+                                            },
+                                            {
+                                                "name": "LimitHi",
+                                                "type": "ULONG"
+                                            },
+                                            {
+                                                "name": "Sys",
+                                                "type": "ULONG"
+                                            },
+                                            {
+                                                "name": "Reserved_0",
+                                                "type": "ULONG"
+                                            },
+                                            {
+                                                "name": "Default_Big",
+                                                "type": "ULONG"
+                                            },
+                                            {
+                                                "name": "Granularity",
+                                                "type": "ULONG"
+                                            },
+                                            {
+                                                "name": "BaseHi",
+                                                "type": "ULONG"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "VDMCONTEXT_WITHOUT_XSAVE",
-            "type": "_VDMCONTEXT_WITHOUT_XSAVE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_VDMCONTEXT_WITHOUT_XSAVE",
+                "elements": [
+                    {
+                        "name": "ContextFlags",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Dr0",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Dr1",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Dr2",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Dr3",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Dr6",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Dr7",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "FloatSave",
+                        "type": "FLOATING_SAVE_AREA"
+                    },
+                    {
+                        "name": "SegGs",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "SegFs",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "SegEs",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "SegDs",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Edi",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Esi",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Ebx",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Edx",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Ecx",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Eax",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Ebp",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Eip",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "SegCs",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "EFlags",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Esp",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "SegSs",
+                        "type": "ULONG"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "VDMCONTEXT"
-            },
-            "name": "LPVDMCONTEXT"
+            "name": "LPVDMCONTEXT",
+            "type": "VDMCONTEXT",
+            "data_type": "Ptr"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "VDMLDT_ENTRY"
-            },
-            "name": "LPVDMLDT_ENTRY"
+            "name": "LPVDMLDT_ENTRY",
+            "type": "VDMLDT_ENTRY",
+            "data_type": "Ptr"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "VDMLDT_ENTRY"
-            },
-            "name": "PVDMLDT_ENTRY"
+            "name": "PVDMLDT_ENTRY",
+            "type": "VDMLDT_ENTRY",
+            "data_type": "Ptr"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "PVDMLDT_ENTRY"
-            },
-            "name": "PPVDMLDT_ENTRY"
+            "name": "PPVDMLDT_ENTRY",
+            "type": "PVDMLDT_ENTRY",
+            "data_type": "Ptr"
         },
         {
             "name": "SEGMENT_NOTE",
-            "type": "_SEGMENT_NOTE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_SEGMENT_NOTE",
+                "elements": [
+                    {
+                        "name": "Selector1",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "Selector2",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "Segment",
+                        "type": "WORD"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {},
+                        "name": "Module"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {},
+                        "name": "FileName"
+                    },
+                    {
+                        "name": "Type",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "Length",
+                        "type": "DWORD"
+                    }
+                ]
+            }
         },
         {
             "name": "IMAGE_NOTE",
-            "type": "_IMAGE_NOTE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_IMAGE_NOTE",
+                "elements": [
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {},
+                        "name": "Module"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {},
+                        "name": "FileName"
+                    },
+                    {
+                        "name": "hModule",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "hTask",
+                        "type": "WORD"
+                    }
+                ]
+            }
         },
         {
             "name": "MODULEENTRY",
-            "data_type": "TypeDecl",
             "type": {
                 "data_type": "Struct",
                 "elements": [
                     {
                         "name": "dwSize",
-                        "data_type": "TypeDecl",
                         "type": "DWORD"
                     },
                     {
                         "data_type": "ArrayDecl",
-                        "type": {
-                            "name": "szModule",
-                            "data_type": "TypeDecl",
-                            "type": "char"
-                        },
-                        "dim": {}
+                        "dim": {},
+                        "name": "szModule"
                     },
                     {
                         "name": "hModule",
-                        "data_type": "TypeDecl",
                         "type": "HANDLE"
                     },
                     {
                         "name": "wcUsage",
-                        "data_type": "TypeDecl",
                         "type": "WORD"
                     },
                     {
                         "data_type": "ArrayDecl",
-                        "type": {
-                            "name": "szExePath",
-                            "data_type": "TypeDecl",
-                            "type": "char"
-                        },
-                        "dim": {}
+                        "dim": {},
+                        "name": "szExePath"
                     },
                     {
                         "name": "wNext",
-                        "data_type": "TypeDecl",
                         "type": "WORD"
                     }
                 ]
             }
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": {
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "dwSize",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "data_type": "ArrayDecl",
-                            "type": {
-                                "name": "szModule",
-                                "data_type": "TypeDecl",
-                                "type": "char"
-                            },
-                            "dim": {}
-                        },
-                        {
-                            "name": "hModule",
-                            "data_type": "TypeDecl",
-                            "type": "HANDLE"
-                        },
-                        {
-                            "name": "wcUsage",
-                            "data_type": "TypeDecl",
-                            "type": "WORD"
-                        },
-                        {
-                            "data_type": "ArrayDecl",
-                            "type": {
-                                "name": "szExePath",
-                                "data_type": "TypeDecl",
-                                "type": "char"
-                            },
-                            "dim": {}
-                        },
-                        {
-                            "name": "wNext",
-                            "data_type": "TypeDecl",
-                            "type": "WORD"
-                        }
-                    ]
-                }
-            },
-            "name": "LPMODULEENTRY"
-        },
-        {
-            "name": "TEMP_BP_NOTE",
-            "type": "_TEMP_BP_NOTE",
-            "data_type": "TypeDecl"
-        },
-        {
-            "name": "VDM_SEGINFO",
-            "type": "_VDM_SEGINFO",
-            "data_type": "TypeDecl"
-        },
-        {
-            "name": "GLOBALENTRY",
-            "data_type": "TypeDecl",
+            "name": "LPMODULEENTRY",
             "type": {
                 "data_type": "Struct",
                 "elements": [
                     {
                         "name": "dwSize",
-                        "data_type": "TypeDecl",
+                        "type": "DWORD"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {},
+                        "name": "szModule"
+                    },
+                    {
+                        "name": "hModule",
+                        "type": "HANDLE"
+                    },
+                    {
+                        "name": "wcUsage",
+                        "type": "WORD"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {},
+                        "name": "szExePath"
+                    },
+                    {
+                        "name": "wNext",
+                        "type": "WORD"
+                    }
+                ]
+            },
+            "data_type": "Ptr"
+        },
+        {
+            "name": "TEMP_BP_NOTE",
+            "type": {
+                "data_type": "Struct",
+                "name": "_TEMP_BP_NOTE",
+                "elements": [
+                    {
+                        "name": "Seg",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "Offset",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "bPM",
+                        "type": "BOOL"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "VDM_SEGINFO",
+            "type": {
+                "data_type": "Struct",
+                "name": "_VDM_SEGINFO",
+                "elements": [
+                    {
+                        "name": "Selector",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "SegNumber",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "Length",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "Type",
+                        "type": "WORD"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {},
+                        "name": "ModuleName"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "255"
+                        },
+                        "name": "FileName"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "GLOBALENTRY",
+            "type": {
+                "data_type": "Struct",
+                "elements": [
+                    {
+                        "name": "dwSize",
                         "type": "DWORD"
                     },
                     {
                         "name": "dwAddress",
-                        "data_type": "TypeDecl",
                         "type": "DWORD"
                     },
                     {
                         "name": "dwBlockSize",
-                        "data_type": "TypeDecl",
                         "type": "DWORD"
                     },
                     {
                         "name": "hBlock",
-                        "data_type": "TypeDecl",
                         "type": "HANDLE"
                     },
                     {
                         "name": "wcLock",
-                        "data_type": "TypeDecl",
                         "type": "WORD"
                     },
                     {
                         "name": "wcPageLock",
-                        "data_type": "TypeDecl",
                         "type": "WORD"
                     },
                     {
                         "name": "wFlags",
-                        "data_type": "TypeDecl",
                         "type": "WORD"
                     },
                     {
                         "name": "wHeapPresent",
-                        "data_type": "TypeDecl",
                         "type": "BOOL"
                     },
                     {
                         "name": "hOwner",
-                        "data_type": "TypeDecl",
                         "type": "HANDLE"
                     },
                     {
                         "name": "wType",
-                        "data_type": "TypeDecl",
                         "type": "WORD"
                     },
                     {
                         "name": "wData",
-                        "data_type": "TypeDecl",
                         "type": "WORD"
                     },
                     {
                         "name": "dwNext",
-                        "data_type": "TypeDecl",
                         "type": "DWORD"
                     },
                     {
                         "name": "dwNextAlt",
-                        "data_type": "TypeDecl",
                         "type": "DWORD"
                     }
                 ]
             }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "LPGLOBALENTRY",
             "type": {
-                "data_type": "TypeDecl",
-                "type": {
-                    "data_type": "Struct",
-                    "elements": [
-                        {
-                            "name": "dwSize",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "name": "dwAddress",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "name": "dwBlockSize",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "name": "hBlock",
-                            "data_type": "TypeDecl",
-                            "type": "HANDLE"
-                        },
-                        {
-                            "name": "wcLock",
-                            "data_type": "TypeDecl",
-                            "type": "WORD"
-                        },
-                        {
-                            "name": "wcPageLock",
-                            "data_type": "TypeDecl",
-                            "type": "WORD"
-                        },
-                        {
-                            "name": "wFlags",
-                            "data_type": "TypeDecl",
-                            "type": "WORD"
-                        },
-                        {
-                            "name": "wHeapPresent",
-                            "data_type": "TypeDecl",
-                            "type": "BOOL"
-                        },
-                        {
-                            "name": "hOwner",
-                            "data_type": "TypeDecl",
-                            "type": "HANDLE"
-                        },
-                        {
-                            "name": "wType",
-                            "data_type": "TypeDecl",
-                            "type": "WORD"
-                        },
-                        {
-                            "name": "wData",
-                            "data_type": "TypeDecl",
-                            "type": "WORD"
-                        },
-                        {
-                            "name": "dwNext",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        },
-                        {
-                            "name": "dwNextAlt",
-                            "data_type": "TypeDecl",
-                            "type": "DWORD"
-                        }
-                    ]
-                }
+                "data_type": "Struct",
+                "elements": [
+                    {
+                        "name": "dwSize",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwAddress",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwBlockSize",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "hBlock",
+                        "type": "HANDLE"
+                    },
+                    {
+                        "name": "wcLock",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "wcPageLock",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "wFlags",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "wHeapPresent",
+                        "type": "BOOL"
+                    },
+                    {
+                        "name": "hOwner",
+                        "type": "HANDLE"
+                    },
+                    {
+                        "name": "wType",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "wData",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "dwNext",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwNextAlt",
+                        "type": "DWORD"
+                    }
+                ]
             },
-            "name": "LPGLOBALENTRY"
+            "data_type": "Ptr"
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "DEBUGEVENTPROC",
+                "type": "DWORD"
+            },
+            "name": "DEBUGEVENTPROC",
+            "arguments": [
+                {
+                    "type": "LPDEBUG_EVENT"
+                },
+                {
+                    "type": "LPVOID"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PROCESSENUMPROC",
+                "type": "BOOL"
+            },
+            "name": "PROCESSENUMPROC",
+            "arguments": [
+                {
+                    "name": "dwProcessId",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "dwAttributes",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "lpUserDefined",
+                    "type": "LPARAM"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "TASKENUMPROC",
+                "type": "BOOL"
+            },
+            "name": "TASKENUMPROC",
+            "arguments": [
+                {
+                    "name": "dwThreadId",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "hMod16",
+                    "type": "WORD"
+                },
+                {
+                    "name": "hTask16",
+                    "type": "WORD"
+                },
+                {
+                    "name": "lpUserDefined",
+                    "type": "LPARAM"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "TASKENUMPROCEX",
+                "type": "BOOL"
+            },
+            "name": "TASKENUMPROCEX",
+            "arguments": [
+                {
+                    "name": "dwThreadId",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "hMod16",
+                    "type": "WORD"
+                },
+                {
+                    "name": "hTask16",
+                    "type": "WORD"
+                },
+                {
+                    "name": "pszModName",
+                    "type": "PSZ"
+                },
+                {
+                    "name": "pszFileName",
+                    "type": "PSZ"
+                },
+                {
+                    "name": "lpUserDefined",
+                    "type": "LPARAM"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "VDMPROCESSEXCEPTIONPROC",
+                "type": "BOOL"
+            },
+            "name": "VDMPROCESSEXCEPTIONPROC",
+            "arguments": [
+                {
+                    "type": "LPDEBUG_EVENT"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "VDMGETTHREADSELECTORENTRYPROC",
+                "type": "BOOL"
+            },
+            "name": "VDMGETTHREADSELECTORENTRYPROC",
+            "arguments": [
+                {
+                    "type": "HANDLE"
+                },
+                {
+                    "type": "HANDLE"
+                },
+                {
+                    "type": "DWORD"
+                },
+                {
+                    "type": "LPVDMLDT_ENTRY"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "VDMGETPOINTERPROC",
+                "type": "ULONG"
+            },
+            "name": "VDMGETPOINTERPROC",
+            "arguments": [
+                {
+                    "type": "HANDLE"
+                },
+                {
+                    "type": "HANDLE"
+                },
+                {
+                    "type": "WORD"
+                },
+                {
+                    "type": "DWORD"
+                },
+                {
+                    "type": "BOOL"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "VDMGETCONTEXTPROC",
+                "type": "BOOL"
+            },
+            "name": "VDMGETCONTEXTPROC",
+            "arguments": [
+                {
+                    "type": "HANDLE"
+                },
+                {
+                    "type": "HANDLE"
+                },
+                {
+                    "type": "LPVDMCONTEXT"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "VDMSETCONTEXTPROC",
+                "type": "BOOL"
+            },
+            "name": "VDMSETCONTEXTPROC",
+            "arguments": [
+                {
+                    "type": "HANDLE"
+                },
+                {
+                    "type": "HANDLE"
+                },
+                {
+                    "type": "LPVDMCONTEXT"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "VDMKILLWOWPROC",
+                "type": "BOOL"
+            },
+            "name": "VDMKILLWOWPROC",
+            "arguments": [
+                {
+                    "type": "void"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "VDMDETECTWOWPROC",
+                "type": "BOOL"
+            },
+            "name": "VDMDETECTWOWPROC",
+            "arguments": [
+                {
+                    "type": "void"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "VDMBREAKTHREADPROC",
+                "type": "BOOL"
+            },
+            "name": "VDMBREAKTHREADPROC",
+            "arguments": [
+                {
+                    "type": "HANDLE"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "VDMGETSELECTORMODULEPROC",
+                "type": "BOOL"
+            },
+            "name": "VDMGETSELECTORMODULEPROC",
+            "arguments": [
+                {
+                    "type": "HANDLE"
+                },
+                {
+                    "type": "HANDLE"
+                },
+                {
+                    "type": "WORD"
+                },
+                {
+                    "type": "PUINT"
+                },
+                {
+                    "type": "LPSTR"
+                },
+                {
+                    "type": "UINT"
+                },
+                {
+                    "type": "LPSTR"
+                },
+                {
+                    "type": "UINT"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "VDMGETMODULESELECTORPROC",
+                "type": "BOOL"
+            },
+            "name": "VDMGETMODULESELECTORPROC",
+            "arguments": [
+                {
+                    "type": "HANDLE"
+                },
+                {
+                    "type": "HANDLE"
+                },
+                {
+                    "type": "UINT"
+                },
+                {
+                    "type": "LPSTR"
+                },
+                {
+                    "type": "LPWORD"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "VDMMODULEFIRSTPROC",
+                "type": "BOOL"
+            },
+            "name": "VDMMODULEFIRSTPROC",
+            "arguments": [
+                {
+                    "type": "HANDLE"
+                },
+                {
+                    "type": "HANDLE"
+                },
+                {
+                    "type": "LPMODULEENTRY"
+                },
+                {
+                    "type": "DEBUGEVENTPROC"
+                },
+                {
+                    "type": "LPVOID"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "VDMMODULENEXTPROC",
+                "type": "BOOL"
+            },
+            "name": "VDMMODULENEXTPROC",
+            "arguments": [
+                {
+                    "type": "HANDLE"
+                },
+                {
+                    "type": "HANDLE"
+                },
+                {
+                    "type": "LPMODULEENTRY"
+                },
+                {
+                    "type": "DEBUGEVENTPROC"
+                },
+                {
+                    "type": "LPVOID"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "VDMGLOBALFIRSTPROC",
+                "type": "BOOL"
+            },
+            "name": "VDMGLOBALFIRSTPROC",
+            "arguments": [
+                {
+                    "type": "HANDLE"
+                },
+                {
+                    "type": "HANDLE"
+                },
+                {
+                    "type": "LPGLOBALENTRY"
+                },
+                {
+                    "type": "WORD"
+                },
+                {
+                    "type": "DEBUGEVENTPROC"
+                },
+                {
+                    "type": "LPVOID"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "VDMGLOBALNEXTPROC",
+                "type": "BOOL"
+            },
+            "name": "VDMGLOBALNEXTPROC",
+            "arguments": [
+                {
+                    "type": "HANDLE"
+                },
+                {
+                    "type": "HANDLE"
+                },
+                {
+                    "type": "LPGLOBALENTRY"
+                },
+                {
+                    "type": "WORD"
+                },
+                {
+                    "type": "DEBUGEVENTPROC"
+                },
+                {
+                    "type": "LPVOID"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "VDMENUMPROCESSWOWPROC",
+                "type": "INT"
+            },
+            "name": "VDMENUMPROCESSWOWPROC",
+            "arguments": [
+                {
+                    "type": "PROCESSENUMPROC"
+                },
+                {
+                    "type": "LPARAM"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "VDMENUMTASKWOWPROC",
+                "type": "INT"
+            },
+            "name": "VDMENUMTASKWOWPROC",
+            "arguments": [
+                {
+                    "type": "DWORD"
+                },
+                {
+                    "type": "TASKENUMPROC"
+                },
+                {
+                    "type": "LPARAM"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "VDMENUMTASKWOWEXPROC",
+                "type": "INT"
+            },
+            "name": "VDMENUMTASKWOWEXPROC",
+            "arguments": [
+                {
+                    "type": "DWORD"
+                },
+                {
+                    "type": "TASKENUMPROCEX"
+                },
+                {
+                    "type": "LPARAM"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "VDMTERMINATETASKINWOWPROC",
+                "type": "BOOL"
+            },
+            "name": "VDMTERMINATETASKINWOWPROC",
+            "arguments": [
+                {
+                    "type": "DWORD"
+                },
+                {
+                    "type": "WORD"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "VDMSTARTTASKINWOWPROC",
+                "type": "BOOL"
+            },
+            "name": "VDMSTARTTASKINWOWPROC",
+            "arguments": [
+                {
+                    "type": "DWORD"
+                },
+                {
+                    "type": "LPSTR"
+                },
+                {
+                    "type": "WORD"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "VDMGETDBGFLAGSPROC",
+                "type": "DWORD"
+            },
+            "name": "VDMGETDBGFLAGSPROC",
+            "arguments": [
+                {
+                    "type": "HANDLE"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "VDMSETDBGFLAGSPROC",
+                "type": "BOOL"
+            },
+            "name": "VDMSETDBGFLAGSPROC",
+            "arguments": [
+                {
+                    "type": "HANDLE"
+                },
+                {
+                    "type": "DWORD"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "VDMISMODULELOADEDPROC",
+                "type": "BOOL"
+            },
+            "name": "VDMISMODULELOADEDPROC",
+            "arguments": [
+                {
+                    "type": "LPSTR"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "VDMGETSEGMENTINFOPROC",
+                "type": "BOOL"
+            },
+            "name": "VDMGETSEGMENTINFOPROC",
+            "arguments": [
+                {
+                    "type": "WORD"
+                },
+                {
+                    "type": "ULONG"
+                },
+                {
+                    "type": "BOOL"
+                },
+                {
+                    "type": "VDM_SEGINFO"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "VDMGETSYMBOLPROC",
+                "type": "BOOL"
+            },
+            "name": "VDMGETSYMBOLPROC",
+            "arguments": [
+                {
+                    "type": "LPSTR"
+                },
+                {
+                    "type": "WORD"
+                },
+                {
+                    "type": "DWORD"
+                },
+                {
+                    "type": "BOOL"
+                },
+                {
+                    "type": "BOOL"
+                },
+                {
+                    "type": "LPSTR"
+                },
+                {
+                    "type": "PDWORD"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "VDMGETADDREXPRESSIONPROC",
+                "type": "BOOL"
+            },
+            "name": "VDMGETADDREXPRESSIONPROC",
+            "arguments": [
+                {
+                    "type": "LPSTR"
+                },
+                {
+                    "type": "LPSTR"
+                },
+                {
+                    "type": "PWORD"
+                },
+                {
+                    "type": "PDWORD"
+                },
+                {
+                    "type": "PWORD"
+                }
+            ]
         }
     ],
     "funcdefs": [
         {
-            "name": "VDMEnumProcessWOW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "VDMEnumProcessWOW",
                 "type": "INT"
             },
+            "name": "VDMEnumProcessWOW",
             "arguments": [
                 {
                     "name": "fp",
-                    "data_type": "TypeDecl",
                     "type": "PROCESSENUMPROC",
                     "sal": [
                         "in"
@@ -339,7 +1327,6 @@
                 },
                 {
                     "name": "lparam",
-                    "data_type": "TypeDecl",
                     "type": "LPARAM",
                     "sal": [
                         "in"
@@ -351,15 +1338,15 @@
             ]
         },
         {
-            "name": "VDMEnumTaskWOWEx",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "VDMEnumTaskWOWEx",
                 "type": "INT"
             },
+            "name": "VDMEnumTaskWOWEx",
             "arguments": [
                 {
                     "name": "dwProcessId",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -367,7 +1354,6 @@
                 },
                 {
                     "name": "fp",
-                    "data_type": "TypeDecl",
                     "type": "TASKENUMPROCEX",
                     "sal": [
                         "in"
@@ -375,7 +1361,6 @@
                 },
                 {
                     "name": "lparam",
-                    "data_type": "TypeDecl",
                     "type": "LPARAM",
                     "sal": [
                         "in"

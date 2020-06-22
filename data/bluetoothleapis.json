@@ -2,156 +2,746 @@
     "typedefs": [
         {
             "name": "BLUETOOTH_GATT_EVENT_HANDLE",
-            "data_type": "TypeDecl",
             "type": "HANDLE"
         },
         {
             "name": "BTH_LE_UUID",
-            "type": "_BTH_LE_UUID",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_BTH_LE_UUID",
+                "elements": [
+                    {
+                        "name": "IsShortUuid",
+                        "type": "BOOLEAN"
+                    },
+                    {
+                        "name": "Value",
+                        "type": {
+                            "data_type": "Union",
+                            "elements": [
+                                {
+                                    "name": "ShortUuid",
+                                    "type": "USHORT"
+                                },
+                                {
+                                    "name": "LongUuid",
+                                    "type": "GUID"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PBTH_LE_UUID",
             "type": {
-                "type": "_BTH_LE_UUID",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_BTH_LE_UUID",
+                "elements": [
+                    {
+                        "name": "IsShortUuid",
+                        "type": "BOOLEAN"
+                    },
+                    {
+                        "name": "Value",
+                        "type": {
+                            "data_type": "Union",
+                            "elements": [
+                                {
+                                    "name": "ShortUuid",
+                                    "type": "USHORT"
+                                },
+                                {
+                                    "name": "LongUuid",
+                                    "type": "GUID"
+                                }
+                            ]
+                        }
+                    }
+                ]
             },
-            "name": "PBTH_LE_UUID"
+            "data_type": "Ptr"
         },
         {
             "name": "BTH_LE_GATT_SERVICE",
-            "type": "_BTH_LE_GATT_SERVICE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_BTH_LE_GATT_SERVICE",
+                "elements": [
+                    {
+                        "name": "ServiceUuid",
+                        "type": "BTH_LE_UUID"
+                    },
+                    {
+                        "name": "AttributeHandle",
+                        "type": "USHORT"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PBTH_LE_GATT_SERVICE",
             "type": {
-                "type": "_BTH_LE_GATT_SERVICE",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_BTH_LE_GATT_SERVICE",
+                "elements": [
+                    {
+                        "name": "ServiceUuid",
+                        "type": "BTH_LE_UUID"
+                    },
+                    {
+                        "name": "AttributeHandle",
+                        "type": "USHORT"
+                    }
+                ]
             },
-            "name": "PBTH_LE_GATT_SERVICE"
+            "data_type": "Ptr"
         },
         {
             "name": "BTH_LE_GATT_DESCRIPTOR_TYPE",
-            "type": "_BTH_LE_GATT_DESCRIPTOR_TYPE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "CharacteristicExtendedProperties",
+                        "value": {}
+                    },
+                    {
+                        "name": "CharacteristicUserDescription",
+                        "value": {}
+                    },
+                    {
+                        "name": "ClientCharacteristicConfiguration",
+                        "value": {}
+                    },
+                    {
+                        "name": "ServerCharacteristicConfiguration",
+                        "value": {}
+                    },
+                    {
+                        "name": "CharacteristicFormat",
+                        "value": {}
+                    },
+                    {
+                        "name": "CharacteristicAggregateFormat",
+                        "value": {}
+                    },
+                    {
+                        "name": "CustomDescriptor",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PBTH_LE_GATT_DESCRIPTOR_TYPE",
             "type": {
-                "type": "_BTH_LE_GATT_DESCRIPTOR_TYPE",
-                "data_type": "TypeDecl"
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "CharacteristicExtendedProperties",
+                        "value": {}
+                    },
+                    {
+                        "name": "CharacteristicUserDescription",
+                        "value": {}
+                    },
+                    {
+                        "name": "ClientCharacteristicConfiguration",
+                        "value": {}
+                    },
+                    {
+                        "name": "ServerCharacteristicConfiguration",
+                        "value": {}
+                    },
+                    {
+                        "name": "CharacteristicFormat",
+                        "value": {}
+                    },
+                    {
+                        "name": "CharacteristicAggregateFormat",
+                        "value": {}
+                    },
+                    {
+                        "name": "CustomDescriptor",
+                        "value": {}
+                    }
+                ]
             },
-            "name": "PBTH_LE_GATT_DESCRIPTOR_TYPE"
+            "data_type": "Ptr"
         },
         {
             "name": "BTH_LE_GATT_CHARACTERISTIC",
-            "type": "_BTH_LE_GATT_CHARACTERISTIC",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_BTH_LE_GATT_CHARACTERISTIC",
+                "elements": [
+                    {
+                        "name": "ServiceHandle",
+                        "type": "USHORT"
+                    },
+                    {
+                        "name": "CharacteristicUuid",
+                        "type": "BTH_LE_UUID"
+                    },
+                    {
+                        "name": "AttributeHandle",
+                        "type": "USHORT"
+                    },
+                    {
+                        "name": "CharacteristicValueHandle",
+                        "type": "USHORT"
+                    },
+                    {
+                        "name": "IsBroadcastable",
+                        "type": "BOOLEAN"
+                    },
+                    {
+                        "name": "IsReadable",
+                        "type": "BOOLEAN"
+                    },
+                    {
+                        "name": "IsWritable",
+                        "type": "BOOLEAN"
+                    },
+                    {
+                        "name": "IsWritableWithoutResponse",
+                        "type": "BOOLEAN"
+                    },
+                    {
+                        "name": "IsSignedWritable",
+                        "type": "BOOLEAN"
+                    },
+                    {
+                        "name": "IsNotifiable",
+                        "type": "BOOLEAN"
+                    },
+                    {
+                        "name": "IsIndicatable",
+                        "type": "BOOLEAN"
+                    },
+                    {
+                        "name": "HasExtendedProperties",
+                        "type": "BOOLEAN"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PBTH_LE_GATT_CHARACTERISTIC",
             "type": {
-                "type": "_BTH_LE_GATT_CHARACTERISTIC",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_BTH_LE_GATT_CHARACTERISTIC",
+                "elements": [
+                    {
+                        "name": "ServiceHandle",
+                        "type": "USHORT"
+                    },
+                    {
+                        "name": "CharacteristicUuid",
+                        "type": "BTH_LE_UUID"
+                    },
+                    {
+                        "name": "AttributeHandle",
+                        "type": "USHORT"
+                    },
+                    {
+                        "name": "CharacteristicValueHandle",
+                        "type": "USHORT"
+                    },
+                    {
+                        "name": "IsBroadcastable",
+                        "type": "BOOLEAN"
+                    },
+                    {
+                        "name": "IsReadable",
+                        "type": "BOOLEAN"
+                    },
+                    {
+                        "name": "IsWritable",
+                        "type": "BOOLEAN"
+                    },
+                    {
+                        "name": "IsWritableWithoutResponse",
+                        "type": "BOOLEAN"
+                    },
+                    {
+                        "name": "IsSignedWritable",
+                        "type": "BOOLEAN"
+                    },
+                    {
+                        "name": "IsNotifiable",
+                        "type": "BOOLEAN"
+                    },
+                    {
+                        "name": "IsIndicatable",
+                        "type": "BOOLEAN"
+                    },
+                    {
+                        "name": "HasExtendedProperties",
+                        "type": "BOOLEAN"
+                    }
+                ]
             },
-            "name": "PBTH_LE_GATT_CHARACTERISTIC"
+            "data_type": "Ptr"
         },
         {
             "name": "BTH_LE_GATT_CHARACTERISTIC_VALUE",
-            "type": "_BTH_LE_GATT_CHARACTERISTIC_VALUE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_BTH_LE_GATT_CHARACTERISTIC_VALUE",
+                "elements": [
+                    {
+                        "name": "DataSize",
+                        "type": "ULONG"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "1"
+                        },
+                        "name": "Data"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PBTH_LE_GATT_CHARACTERISTIC_VALUE",
             "type": {
-                "type": "_BTH_LE_GATT_CHARACTERISTIC_VALUE",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_BTH_LE_GATT_CHARACTERISTIC_VALUE",
+                "elements": [
+                    {
+                        "name": "DataSize",
+                        "type": "ULONG"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "1"
+                        },
+                        "name": "Data"
+                    }
+                ]
             },
-            "name": "PBTH_LE_GATT_CHARACTERISTIC_VALUE"
+            "data_type": "Ptr"
         },
         {
             "name": "BTH_LE_GATT_DESCRIPTOR",
-            "type": "_BTH_LE_GATT_DESCRIPTOR",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_BTH_LE_GATT_DESCRIPTOR",
+                "elements": [
+                    {
+                        "name": "ServiceHandle",
+                        "type": "USHORT"
+                    },
+                    {
+                        "name": "CharacteristicHandle",
+                        "type": "USHORT"
+                    },
+                    {
+                        "name": "DescriptorType",
+                        "type": "BTH_LE_GATT_DESCRIPTOR_TYPE"
+                    },
+                    {
+                        "name": "DescriptorUuid",
+                        "type": "BTH_LE_UUID"
+                    },
+                    {
+                        "name": "AttributeHandle",
+                        "type": "USHORT"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PBTH_LE_GATT_DESCRIPTOR",
             "type": {
-                "type": "_BTH_LE_GATT_DESCRIPTOR",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_BTH_LE_GATT_DESCRIPTOR",
+                "elements": [
+                    {
+                        "name": "ServiceHandle",
+                        "type": "USHORT"
+                    },
+                    {
+                        "name": "CharacteristicHandle",
+                        "type": "USHORT"
+                    },
+                    {
+                        "name": "DescriptorType",
+                        "type": "BTH_LE_GATT_DESCRIPTOR_TYPE"
+                    },
+                    {
+                        "name": "DescriptorUuid",
+                        "type": "BTH_LE_UUID"
+                    },
+                    {
+                        "name": "AttributeHandle",
+                        "type": "USHORT"
+                    }
+                ]
             },
-            "name": "PBTH_LE_GATT_DESCRIPTOR"
+            "data_type": "Ptr"
         },
         {
             "name": "BTH_LE_GATT_DESCRIPTOR_VALUE",
-            "type": "_BTH_LE_GATT_DESCRIPTOR_VALUE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_BTH_LE_GATT_DESCRIPTOR_VALUE",
+                "elements": [
+                    {
+                        "name": "DescriptorType",
+                        "type": "BTH_LE_GATT_DESCRIPTOR_TYPE"
+                    },
+                    {
+                        "name": "DescriptorUuid",
+                        "type": "BTH_LE_UUID"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "CharacteristicExtendedProperties",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "IsReliableWriteEnabled",
+                                            "type": "BOOLEAN"
+                                        },
+                                        {
+                                            "name": "IsAuxiliariesWritable",
+                                            "type": "BOOLEAN"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "ClientCharacteristicConfiguration",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "IsSubscribeToNotification",
+                                            "type": "BOOLEAN"
+                                        },
+                                        {
+                                            "name": "IsSubscribeToIndication",
+                                            "type": "BOOLEAN"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "ServerCharacteristicConfiguration",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "IsBroadcast",
+                                            "type": "BOOLEAN"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "CharacteristicFormat",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "Format",
+                                            "type": "UCHAR"
+                                        },
+                                        {
+                                            "name": "Exponent",
+                                            "type": "UCHAR"
+                                        },
+                                        {
+                                            "name": "Unit",
+                                            "type": "BTH_LE_UUID"
+                                        },
+                                        {
+                                            "name": "NameSpace",
+                                            "type": "UCHAR"
+                                        },
+                                        {
+                                            "name": "Description",
+                                            "type": "BTH_LE_UUID"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "DataSize",
+                        "type": "ULONG"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "1"
+                        },
+                        "name": "Data"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PBTH_LE_GATT_DESCRIPTOR_VALUE",
             "type": {
-                "type": "_BTH_LE_GATT_DESCRIPTOR_VALUE",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_BTH_LE_GATT_DESCRIPTOR_VALUE",
+                "elements": [
+                    {
+                        "name": "DescriptorType",
+                        "type": "BTH_LE_GATT_DESCRIPTOR_TYPE"
+                    },
+                    {
+                        "name": "DescriptorUuid",
+                        "type": "BTH_LE_UUID"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "CharacteristicExtendedProperties",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "IsReliableWriteEnabled",
+                                            "type": "BOOLEAN"
+                                        },
+                                        {
+                                            "name": "IsAuxiliariesWritable",
+                                            "type": "BOOLEAN"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "ClientCharacteristicConfiguration",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "IsSubscribeToNotification",
+                                            "type": "BOOLEAN"
+                                        },
+                                        {
+                                            "name": "IsSubscribeToIndication",
+                                            "type": "BOOLEAN"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "ServerCharacteristicConfiguration",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "IsBroadcast",
+                                            "type": "BOOLEAN"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "CharacteristicFormat",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "Format",
+                                            "type": "UCHAR"
+                                        },
+                                        {
+                                            "name": "Exponent",
+                                            "type": "UCHAR"
+                                        },
+                                        {
+                                            "name": "Unit",
+                                            "type": "BTH_LE_UUID"
+                                        },
+                                        {
+                                            "name": "NameSpace",
+                                            "type": "UCHAR"
+                                        },
+                                        {
+                                            "name": "Description",
+                                            "type": "BTH_LE_UUID"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "DataSize",
+                        "type": "ULONG"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "1"
+                        },
+                        "name": "Data"
+                    }
+                ]
             },
-            "name": "PBTH_LE_GATT_DESCRIPTOR_VALUE"
+            "data_type": "Ptr"
         },
         {
             "name": "BTH_LE_GATT_EVENT_TYPE",
-            "type": "_BTH_LE_GATT_EVENT_TYPE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "CharacteristicValueChangedEvent",
+                        "value": {}
+                    }
+                ]
+            }
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PFNBLUETOOTH_GATT_EVENT_CALLBACK",
+                "type": "void"
+            },
+            "name": "PFNBLUETOOTH_GATT_EVENT_CALLBACK",
+            "arguments": [
+                {
+                    "name": "EventType",
+                    "type": "BTH_LE_GATT_EVENT_TYPE"
+                },
+                {
+                    "name": "EventOutParameter",
+                    "type": "PVOID"
+                },
+                {
+                    "name": "Context",
+                    "type": "PVOID"
+                }
+            ]
         },
         {
             "name": "BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION",
-            "type": "_BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION",
+                "elements": [
+                    {
+                        "name": "NumCharacteristics",
+                        "type": "USHORT"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "1"
+                        },
+                        "name": "Characteristics"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PBLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION",
             "type": {
-                "type": "_BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION",
+                "elements": [
+                    {
+                        "name": "NumCharacteristics",
+                        "type": "USHORT"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "1"
+                        },
+                        "name": "Characteristics"
+                    }
+                ]
             },
-            "name": "PBLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION"
+            "data_type": "Ptr"
         },
         {
             "name": "BLUETOOTH_GATT_VALUE_CHANGED_EVENT",
-            "type": "_BLUETOOTH_GATT_VALUE_CHANGED_EVENT",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_BLUETOOTH_GATT_VALUE_CHANGED_EVENT",
+                "elements": [
+                    {
+                        "name": "ChangedAttributeHandle",
+                        "type": "USHORT"
+                    },
+                    {
+                        "name": "CharacteristicValueDataSize",
+                        "type": "size_t"
+                    },
+                    {
+                        "name": "CharacteristicValue",
+                        "type": "PBTH_LE_GATT_CHARACTERISTIC_VALUE"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PBLUETOOTH_GATT_VALUE_CHANGED_EVENT",
             "type": {
-                "type": "_BLUETOOTH_GATT_VALUE_CHANGED_EVENT",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_BLUETOOTH_GATT_VALUE_CHANGED_EVENT",
+                "elements": [
+                    {
+                        "name": "ChangedAttributeHandle",
+                        "type": "USHORT"
+                    },
+                    {
+                        "name": "CharacteristicValueDataSize",
+                        "type": "size_t"
+                    },
+                    {
+                        "name": "CharacteristicValue",
+                        "type": "PBTH_LE_GATT_CHARACTERISTIC_VALUE"
+                    }
+                ]
             },
-            "name": "PBLUETOOTH_GATT_VALUE_CHANGED_EVENT"
+            "data_type": "Ptr"
         },
         {
             "name": "BTH_LE_GATT_RELIABLE_WRITE_CONTEXT",
-            "data_type": "TypeDecl",
             "type": "ULONG64"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "ULONG64"
-            },
-            "name": "PBTH_LE_GATT_RELIABLE_WRITE_CONTEXT"
+            "name": "PBTH_LE_GATT_RELIABLE_WRITE_CONTEXT",
+            "type": "ULONG64",
+            "data_type": "Ptr"
         }
     ],
     "funcdefs": [
         {
-            "name": "BluetoothGATTGetServices",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "BluetoothGATTGetServices",
                 "type": "HRESULT"
             },
+            "name": "BluetoothGATTGetServices",
             "arguments": [
                 {
                     "name": "hDevice",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -159,7 +749,6 @@
                 },
                 {
                     "name": "ServicesBufferCount",
-                    "data_type": "TypeDecl",
                     "type": "USHORT",
                     "sal": [
                         "in"
@@ -167,7 +756,6 @@
                 },
                 {
                     "name": "ServicesBuffer",
-                    "data_type": "TypeDecl",
                     "type": "PBTH_LE_GATT_SERVICE",
                     "sal": [
                         "out",
@@ -175,19 +763,16 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ServicesBufferActual",
                         "type": "USHORT"
                     },
-                    "name": "ServicesBufferActual",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -200,15 +785,15 @@
             ]
         },
         {
-            "name": "BluetoothGATTGetIncludedServices",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "BluetoothGATTGetIncludedServices",
                 "type": "HRESULT"
             },
+            "name": "BluetoothGATTGetIncludedServices",
             "arguments": [
                 {
                     "name": "hDevice",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -216,7 +801,6 @@
                 },
                 {
                     "name": "ParentService",
-                    "data_type": "TypeDecl",
                     "type": "PBTH_LE_GATT_SERVICE",
                     "sal": [
                         "in",
@@ -225,7 +809,6 @@
                 },
                 {
                     "name": "IncludedServicesBufferCount",
-                    "data_type": "TypeDecl",
                     "type": "USHORT",
                     "sal": [
                         "in"
@@ -233,7 +816,6 @@
                 },
                 {
                     "name": "IncludedServicesBuffer",
-                    "data_type": "TypeDecl",
                     "type": "PBTH_LE_GATT_SERVICE",
                     "sal": [
                         "out",
@@ -241,19 +823,16 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "IncludedServicesBufferActual",
                         "type": "USHORT"
                     },
-                    "name": "IncludedServicesBufferActual",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -266,15 +845,15 @@
             ]
         },
         {
-            "name": "BluetoothGATTGetCharacteristics",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "BluetoothGATTGetCharacteristics",
                 "type": "HRESULT"
             },
+            "name": "BluetoothGATTGetCharacteristics",
             "arguments": [
                 {
                     "name": "hDevice",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -282,7 +861,6 @@
                 },
                 {
                     "name": "Service",
-                    "data_type": "TypeDecl",
                     "type": "PBTH_LE_GATT_SERVICE",
                     "sal": [
                         "in",
@@ -291,7 +869,6 @@
                 },
                 {
                     "name": "CharacteristicsBufferCount",
-                    "data_type": "TypeDecl",
                     "type": "USHORT",
                     "sal": [
                         "in"
@@ -299,7 +876,6 @@
                 },
                 {
                     "name": "CharacteristicsBuffer",
-                    "data_type": "TypeDecl",
                     "type": "PBTH_LE_GATT_CHARACTERISTIC",
                     "sal": [
                         "out",
@@ -307,19 +883,16 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "CharacteristicsBufferActual",
                         "type": "USHORT"
                     },
-                    "name": "CharacteristicsBufferActual",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -332,15 +905,15 @@
             ]
         },
         {
-            "name": "BluetoothGATTGetDescriptors",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "BluetoothGATTGetDescriptors",
                 "type": "HRESULT"
             },
+            "name": "BluetoothGATTGetDescriptors",
             "arguments": [
                 {
                     "name": "hDevice",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -348,7 +921,6 @@
                 },
                 {
                     "name": "Characteristic",
-                    "data_type": "TypeDecl",
                     "type": "PBTH_LE_GATT_CHARACTERISTIC",
                     "sal": [
                         "in"
@@ -356,7 +928,6 @@
                 },
                 {
                     "name": "DescriptorsBufferCount",
-                    "data_type": "TypeDecl",
                     "type": "USHORT",
                     "sal": [
                         "in"
@@ -364,7 +935,6 @@
                 },
                 {
                     "name": "DescriptorsBuffer",
-                    "data_type": "TypeDecl",
                     "type": "PBTH_LE_GATT_DESCRIPTOR",
                     "sal": [
                         "out",
@@ -372,19 +942,16 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "DescriptorsBufferActual",
                         "type": "USHORT"
                     },
-                    "name": "DescriptorsBufferActual",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -397,15 +964,15 @@
             ]
         },
         {
-            "name": "BluetoothGATTGetCharacteristicValue",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "BluetoothGATTGetCharacteristicValue",
                 "type": "HRESULT"
             },
+            "name": "BluetoothGATTGetCharacteristicValue",
             "arguments": [
                 {
                     "name": "hDevice",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -413,7 +980,6 @@
                 },
                 {
                     "name": "Characteristic",
-                    "data_type": "TypeDecl",
                     "type": "PBTH_LE_GATT_CHARACTERISTIC",
                     "sal": [
                         "in"
@@ -421,7 +987,6 @@
                 },
                 {
                     "name": "CharacteristicValueDataSize",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -429,7 +994,6 @@
                 },
                 {
                     "name": "CharacteristicValue",
-                    "data_type": "TypeDecl",
                     "type": "PBTH_LE_GATT_CHARACTERISTIC_VALUE",
                     "sal": [
                         "out",
@@ -437,12 +1001,10 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "CharacteristicValueSizeRequired",
                         "type": "USHORT"
                     },
-                    "name": "CharacteristicValueSizeRequired",
                     "sal": [
                         "out",
                         "optional"
@@ -450,7 +1012,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -463,15 +1024,15 @@
             ]
         },
         {
-            "name": "BluetoothGATTGetDescriptorValue",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "BluetoothGATTGetDescriptorValue",
                 "type": "HRESULT"
             },
+            "name": "BluetoothGATTGetDescriptorValue",
             "arguments": [
                 {
                     "name": "hDevice",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -479,7 +1040,6 @@
                 },
                 {
                     "name": "Descriptor",
-                    "data_type": "TypeDecl",
                     "type": "PBTH_LE_GATT_DESCRIPTOR",
                     "sal": [
                         "in"
@@ -487,7 +1047,6 @@
                 },
                 {
                     "name": "DescriptorValueDataSize",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -495,7 +1054,6 @@
                 },
                 {
                     "name": "DescriptorValue",
-                    "data_type": "TypeDecl",
                     "type": "PBTH_LE_GATT_DESCRIPTOR_VALUE",
                     "sal": [
                         "out",
@@ -503,12 +1061,10 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "DescriptorValueSizeRequired",
                         "type": "USHORT"
                     },
-                    "name": "DescriptorValueSizeRequired",
                     "sal": [
                         "out",
                         "optional"
@@ -516,7 +1072,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -529,15 +1084,15 @@
             ]
         },
         {
-            "name": "BluetoothGATTBeginReliableWrite",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "BluetoothGATTBeginReliableWrite",
                 "type": "HRESULT"
             },
+            "name": "BluetoothGATTBeginReliableWrite",
             "arguments": [
                 {
                     "name": "hDevice",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -545,7 +1100,6 @@
                 },
                 {
                     "name": "ReliableWriteContext",
-                    "data_type": "TypeDecl",
                     "type": "PBTH_LE_GATT_RELIABLE_WRITE_CONTEXT",
                     "sal": [
                         "out"
@@ -553,7 +1107,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -566,15 +1119,15 @@
             ]
         },
         {
-            "name": "BluetoothGATTSetCharacteristicValue",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "BluetoothGATTSetCharacteristicValue",
                 "type": "HRESULT"
             },
+            "name": "BluetoothGATTSetCharacteristicValue",
             "arguments": [
                 {
                     "name": "hDevice",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -582,7 +1135,6 @@
                 },
                 {
                     "name": "Characteristic",
-                    "data_type": "TypeDecl",
                     "type": "PBTH_LE_GATT_CHARACTERISTIC",
                     "sal": [
                         "in"
@@ -590,7 +1142,6 @@
                 },
                 {
                     "name": "CharacteristicValue",
-                    "data_type": "TypeDecl",
                     "type": "PBTH_LE_GATT_CHARACTERISTIC_VALUE",
                     "sal": [
                         "in"
@@ -598,7 +1149,6 @@
                 },
                 {
                     "name": "ReliableWriteContext",
-                    "data_type": "TypeDecl",
                     "type": "BTH_LE_GATT_RELIABLE_WRITE_CONTEXT",
                     "sal": [
                         "in",
@@ -607,7 +1157,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -620,15 +1169,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "BluetoothGATTEndReliableWrite",
+                "type": "HRESULT"
+            },
             "name": "BluetoothGATTEndReliableWrite",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "hDevice",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -636,7 +1185,6 @@
                 },
                 {
                     "name": "ReliableWriteContext",
-                    "data_type": "TypeDecl",
                     "type": "BTH_LE_GATT_RELIABLE_WRITE_CONTEXT",
                     "sal": [
                         "in"
@@ -644,7 +1192,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -657,15 +1204,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "BluetoothGATTAbortReliableWrite",
+                "type": "HRESULT"
+            },
             "name": "BluetoothGATTAbortReliableWrite",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "hDevice",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -673,7 +1220,6 @@
                 },
                 {
                     "name": "ReliableWriteContext",
-                    "data_type": "TypeDecl",
                     "type": "BTH_LE_GATT_RELIABLE_WRITE_CONTEXT",
                     "sal": [
                         "in"
@@ -681,7 +1227,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -694,15 +1239,15 @@
             ]
         },
         {
-            "name": "BluetoothGATTSetDescriptorValue",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "BluetoothGATTSetDescriptorValue",
                 "type": "HRESULT"
             },
+            "name": "BluetoothGATTSetDescriptorValue",
             "arguments": [
                 {
                     "name": "hDevice",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -710,7 +1255,6 @@
                 },
                 {
                     "name": "Descriptor",
-                    "data_type": "TypeDecl",
                     "type": "PBTH_LE_GATT_DESCRIPTOR",
                     "sal": [
                         "in"
@@ -718,7 +1262,6 @@
                 },
                 {
                     "name": "DescriptorValue",
-                    "data_type": "TypeDecl",
                     "type": "PBTH_LE_GATT_DESCRIPTOR_VALUE",
                     "sal": [
                         "in"
@@ -726,7 +1269,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -739,15 +1281,15 @@
             ]
         },
         {
-            "name": "BluetoothGATTRegisterEvent",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "BluetoothGATTRegisterEvent",
                 "type": "HRESULT"
             },
+            "name": "BluetoothGATTRegisterEvent",
             "arguments": [
                 {
                     "name": "hService",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -755,7 +1297,6 @@
                 },
                 {
                     "name": "EventType",
-                    "data_type": "TypeDecl",
                     "type": "BTH_LE_GATT_EVENT_TYPE",
                     "sal": [
                         "in"
@@ -763,7 +1304,6 @@
                 },
                 {
                     "name": "EventParameterIn",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -771,7 +1311,6 @@
                 },
                 {
                     "name": "Callback",
-                    "data_type": "TypeDecl",
                     "type": "PFNBLUETOOTH_GATT_EVENT_CALLBACK",
                     "sal": [
                         "in"
@@ -779,7 +1318,6 @@
                 },
                 {
                     "name": "CallbackContext",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in",
@@ -787,19 +1325,16 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pEventHandle",
                         "type": "BLUETOOTH_GATT_EVENT_HANDLE"
                     },
-                    "name": "pEventHandle",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -812,15 +1347,15 @@
             ]
         },
         {
-            "name": "BluetoothGATTUnregisterEvent",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "BluetoothGATTUnregisterEvent",
                 "type": "HRESULT"
             },
+            "name": "BluetoothGATTUnregisterEvent",
             "arguments": [
                 {
                     "name": "EventHandle",
-                    "data_type": "TypeDecl",
                     "type": "BLUETOOTH_GATT_EVENT_HANDLE",
                     "sal": [
                         "in"
@@ -828,7 +1363,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"

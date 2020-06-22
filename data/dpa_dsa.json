@@ -1,38 +1,245 @@
 {
     "typedefs": [
         {
-            "data_type": "PtrDecl",
+            "data_type": "FuncDeclPtr",
             "type": {
-                "type": "_DSA",
-                "data_type": "TypeDecl"
+                "name": "PFNDAENUMCALLBACK",
+                "type": "int"
             },
-            "name": "HDSA"
+            "name": "PFNDAENUMCALLBACK",
+            "arguments": [
+                {
+                    "type": {
+                        "name": "p",
+                        "type": "void"
+                    }
+                },
+                {
+                    "type": {
+                        "name": "pData",
+                        "type": "void"
+                    }
+                }
+            ]
         },
         {
-            "data_type": "PtrDecl",
+            "data_type": "FuncDeclPtr",
             "type": {
-                "type": "_DPA",
-                "data_type": "TypeDecl"
+                "name": "PFNDAENUMCALLBACKCONST",
+                "type": "int"
             },
-            "name": "HDPA"
+            "name": "PFNDAENUMCALLBACKCONST",
+            "arguments": [
+                {
+                    "type": {
+                        "name": "p",
+                        "type": "void"
+                    }
+                },
+                {
+                    "type": {
+                        "name": "pData",
+                        "type": "void"
+                    }
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PFNDACOMPARE",
+                "type": "int"
+            },
+            "name": "PFNDACOMPARE",
+            "arguments": [
+                {
+                    "type": {
+                        "name": "p1",
+                        "type": "void"
+                    }
+                },
+                {
+                    "type": {
+                        "name": "p2",
+                        "type": "void"
+                    }
+                },
+                {
+                    "name": "lParam",
+                    "type": "LPARAM"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PFNDACOMPARECONST",
+                "type": "int"
+            },
+            "name": "PFNDACOMPARECONST",
+            "arguments": [
+                {
+                    "type": {
+                        "name": "p1",
+                        "type": "void"
+                    }
+                },
+                {
+                    "type": {
+                        "name": "p2",
+                        "type": "void"
+                    }
+                },
+                {
+                    "name": "lParam",
+                    "type": "LPARAM"
+                }
+            ]
+        },
+        {
+            "name": "HDSA",
+            "type": {
+                "data_type": "Struct",
+                "name": "_DSA",
+                "elements": []
+            },
+            "data_type": "Ptr"
+        },
+        {
+            "name": "HDPA",
+            "type": {
+                "data_type": "Struct",
+                "name": "_DPA",
+                "elements": []
+            },
+            "data_type": "Ptr"
         },
         {
             "name": "DPASTREAMINFO",
-            "type": "_DPASTREAMINFO",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_DPASTREAMINFO",
+                "elements": [
+                    {
+                        "name": "iPos",
+                        "type": "int"
+                    },
+                    {
+                        "name": "pvItem",
+                        "type": "void",
+                        "data_type": "Ptr"
+                    }
+                ]
+            }
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PFNDPASTREAM",
+                "type": "HRESULT"
+            },
+            "name": "PFNDPASTREAM",
+            "arguments": [
+                {
+                    "type": {
+                        "name": "pinfo",
+                        "type": "DPASTREAMINFO"
+                    }
+                },
+                {
+                    "type": {
+                        "name": "pstream",
+                        "type": {
+                            "data_type": "Struct",
+                            "name": "IStream",
+                            "elements": []
+                        }
+                    }
+                },
+                {
+                    "type": {
+                        "name": "pvInstData",
+                        "type": "void"
+                    }
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "type": {
+                    "name": "PFNDPAMERGE",
+                    "type": "void"
+                }
+            },
+            "name": "PFNDPAMERGE",
+            "arguments": [
+                {
+                    "name": "uMsg",
+                    "type": "UINT"
+                },
+                {
+                    "type": {
+                        "name": "pvDest",
+                        "type": "void"
+                    }
+                },
+                {
+                    "type": {
+                        "name": "pvSrc",
+                        "type": "void"
+                    }
+                },
+                {
+                    "name": "lParam",
+                    "type": "LPARAM"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "type": {
+                    "name": "PFNDPAMERGECONST",
+                    "type": "void"
+                }
+            },
+            "name": "PFNDPAMERGECONST",
+            "arguments": [
+                {
+                    "name": "uMsg",
+                    "type": "UINT"
+                },
+                {
+                    "type": {
+                        "name": "pvDest",
+                        "type": "void"
+                    }
+                },
+                {
+                    "type": {
+                        "name": "pvSrc",
+                        "type": "void"
+                    }
+                },
+                {
+                    "name": "lParam",
+                    "type": "LPARAM"
+                }
+            ]
         }
     ],
     "funcdefs": [
         {
-            "name": "DSA_Create",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DSA_Create",
                 "type": "HDSA"
             },
+            "name": "DSA_Create",
             "arguments": [
                 {
                     "name": "cbItem",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -40,7 +247,6 @@
                 },
                 {
                     "name": "cItemGrow",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -52,15 +258,15 @@
             ]
         },
         {
-            "name": "DSA_Destroy",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DSA_Destroy",
                 "type": "BOOL"
             },
+            "name": "DSA_Destroy",
             "arguments": [
                 {
                     "name": "hdsa",
-                    "data_type": "TypeDecl",
                     "type": "HDSA",
                     "sal": [
                         "in"
@@ -72,15 +278,15 @@
             ]
         },
         {
-            "name": "DSA_DestroyCallback",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DSA_DestroyCallback",
                 "type": "void"
             },
+            "name": "DSA_DestroyCallback",
             "arguments": [
                 {
                     "name": "hdsa",
-                    "data_type": "TypeDecl",
                     "type": "HDSA",
                     "sal": [
                         "in"
@@ -88,19 +294,16 @@
                 },
                 {
                     "name": "pfnCB",
-                    "data_type": "TypeDecl",
                     "type": "PFNDAENUMCALLBACK",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pData",
                         "type": "void"
                     },
-                    "name": "pData",
                     "sal": [
                         "in"
                     ]
@@ -111,15 +314,15 @@
             ]
         },
         {
-            "name": "DSA_DeleteItem",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DSA_DeleteItem",
                 "type": "BOOL"
             },
+            "name": "DSA_DeleteItem",
             "arguments": [
                 {
                     "name": "hdsa",
-                    "data_type": "TypeDecl",
                     "type": "HDSA",
                     "sal": [
                         "in"
@@ -127,7 +330,6 @@
                 },
                 {
                     "name": "i",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -139,15 +341,15 @@
             ]
         },
         {
-            "name": "DSA_DeleteAllItems",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DSA_DeleteAllItems",
                 "type": "BOOL"
             },
+            "name": "DSA_DeleteAllItems",
             "arguments": [
                 {
                     "name": "hdsa",
-                    "data_type": "TypeDecl",
                     "type": "HDSA",
                     "sal": [
                         "in"
@@ -159,15 +361,15 @@
             ]
         },
         {
-            "name": "DSA_EnumCallback",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DSA_EnumCallback",
                 "type": "void"
             },
+            "name": "DSA_EnumCallback",
             "arguments": [
                 {
                     "name": "hdsa",
-                    "data_type": "TypeDecl",
                     "type": "HDSA",
                     "sal": [
                         "in"
@@ -175,19 +377,16 @@
                 },
                 {
                     "name": "pfnCB",
-                    "data_type": "TypeDecl",
                     "type": "PFNDAENUMCALLBACK",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pData",
                         "type": "void"
                     },
-                    "name": "pData",
                     "sal": [
                         "in"
                     ]
@@ -198,15 +397,15 @@
             ]
         },
         {
-            "name": "DSA_InsertItem",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DSA_InsertItem",
                 "type": "int"
             },
+            "name": "DSA_InsertItem",
             "arguments": [
                 {
                     "name": "hdsa",
-                    "data_type": "TypeDecl",
                     "type": "HDSA",
                     "sal": [
                         "in"
@@ -214,19 +413,16 @@
                 },
                 {
                     "name": "i",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pitem",
                         "type": "void"
                     },
-                    "name": "pitem",
                     "sal": [
                         "in"
                     ]
@@ -237,15 +433,15 @@
             ]
         },
         {
-            "name": "DSA_GetItemPtr",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DSA_GetItemPtr",
                 "type": "PVOID"
             },
+            "name": "DSA_GetItemPtr",
             "arguments": [
                 {
                     "name": "hdsa",
-                    "data_type": "TypeDecl",
                     "type": "HDSA",
                     "sal": [
                         "in"
@@ -253,7 +449,6 @@
                 },
                 {
                     "name": "i",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -265,15 +460,15 @@
             ]
         },
         {
-            "name": "DSA_GetItem",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DSA_GetItem",
                 "type": "BOOL"
             },
+            "name": "DSA_GetItem",
             "arguments": [
                 {
                     "name": "hdsa",
-                    "data_type": "TypeDecl",
                     "type": "HDSA",
                     "sal": [
                         "in"
@@ -281,19 +476,16 @@
                 },
                 {
                     "name": "i",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pitem",
                         "type": "void"
                     },
-                    "name": "pitem",
                     "sal": [
                         "out"
                     ]
@@ -304,15 +496,15 @@
             ]
         },
         {
-            "name": "DSA_SetItem",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DSA_SetItem",
                 "type": "BOOL"
             },
+            "name": "DSA_SetItem",
             "arguments": [
                 {
                     "name": "hdsa",
-                    "data_type": "TypeDecl",
                     "type": "HDSA",
                     "sal": [
                         "in"
@@ -320,19 +512,16 @@
                 },
                 {
                     "name": "i",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pitem",
                         "type": "void"
                     },
-                    "name": "pitem",
                     "sal": [
                         "in"
                     ]
@@ -343,15 +532,15 @@
             ]
         },
         {
-            "name": "DSA_Clone",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DSA_Clone",
                 "type": "HDSA"
             },
+            "name": "DSA_Clone",
             "arguments": [
                 {
                     "name": "hdsa",
-                    "data_type": "TypeDecl",
                     "type": "HDSA",
                     "sal": [
                         "in"
@@ -363,15 +552,15 @@
             ]
         },
         {
-            "name": "DSA_GetSize",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DSA_GetSize",
                 "type": "ULONGLONG"
             },
+            "name": "DSA_GetSize",
             "arguments": [
                 {
                     "name": "hdsa",
-                    "data_type": "TypeDecl",
                     "type": "HDSA",
                     "sal": [
                         "in"
@@ -383,15 +572,15 @@
             ]
         },
         {
-            "name": "DSA_Sort",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DSA_Sort",
                 "type": "BOOL"
             },
+            "name": "DSA_Sort",
             "arguments": [
                 {
                     "name": "pdsa",
-                    "data_type": "TypeDecl",
                     "type": "HDSA",
                     "sal": [
                         "in"
@@ -399,7 +588,6 @@
                 },
                 {
                     "name": "pfnCompare",
-                    "data_type": "TypeDecl",
                     "type": "PFNDACOMPARE",
                     "sal": [
                         "in"
@@ -407,7 +595,6 @@
                 },
                 {
                     "name": "lParam",
-                    "data_type": "TypeDecl",
                     "type": "LPARAM",
                     "sal": [
                         "in"
@@ -419,15 +606,15 @@
             ]
         },
         {
-            "name": "DPA_Create",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DPA_Create",
                 "type": "HDPA"
             },
+            "name": "DPA_Create",
             "arguments": [
                 {
                     "name": "cItemGrow",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": []
                 }
@@ -437,15 +624,15 @@
             ]
         },
         {
-            "name": "DPA_CreateEx",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DPA_CreateEx",
                 "type": "HDPA"
             },
+            "name": "DPA_CreateEx",
             "arguments": [
                 {
                     "name": "cpGrow",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -453,7 +640,6 @@
                 },
                 {
                     "name": "hheap",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in",
@@ -466,15 +652,15 @@
             ]
         },
         {
-            "name": "DPA_Clone",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DPA_Clone",
                 "type": "HDPA"
             },
+            "name": "DPA_Clone",
             "arguments": [
                 {
                     "name": "hdpa",
-                    "data_type": "TypeDecl",
                     "type": "HDPA",
                     "sal": [
                         "in"
@@ -482,7 +668,6 @@
                 },
                 {
                     "name": "hdpaNew",
-                    "data_type": "TypeDecl",
                     "type": "HDPA",
                     "sal": [
                         "in",
@@ -496,15 +681,15 @@
             ]
         },
         {
-            "name": "DPA_Destroy",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DPA_Destroy",
                 "type": "BOOL"
             },
+            "name": "DPA_Destroy",
             "arguments": [
                 {
                     "name": "hdpa",
-                    "data_type": "TypeDecl",
                     "type": "HDPA",
                     "sal": []
                 }
@@ -514,31 +699,28 @@
             ]
         },
         {
-            "name": "DPA_DestroyCallback",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DPA_DestroyCallback",
                 "type": "void"
             },
+            "name": "DPA_DestroyCallback",
             "arguments": [
                 {
                     "name": "hdpa",
-                    "data_type": "TypeDecl",
                     "type": "HDPA",
                     "sal": []
                 },
                 {
                     "name": "pfnCB",
-                    "data_type": "TypeDecl",
                     "type": "PFNDAENUMCALLBACK",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pData",
                         "type": "void"
                     },
-                    "name": "pData",
                     "sal": []
                 }
             ],
@@ -547,21 +729,20 @@
             ]
         },
         {
-            "name": "DPA_DeletePtr",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DPA_DeletePtr",
                 "type": "PVOID"
             },
+            "name": "DPA_DeletePtr",
             "arguments": [
                 {
                     "name": "hdpa",
-                    "data_type": "TypeDecl",
                     "type": "HDPA",
                     "sal": []
                 },
                 {
                     "name": "i",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": []
                 }
@@ -571,15 +752,15 @@
             ]
         },
         {
-            "name": "DPA_DeleteAllPtrs",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DPA_DeleteAllPtrs",
                 "type": "BOOL"
             },
+            "name": "DPA_DeleteAllPtrs",
             "arguments": [
                 {
                     "name": "hdpa",
-                    "data_type": "TypeDecl",
                     "type": "HDPA",
                     "sal": []
                 }
@@ -589,31 +770,28 @@
             ]
         },
         {
-            "name": "DPA_EnumCallback",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DPA_EnumCallback",
                 "type": "void"
             },
+            "name": "DPA_EnumCallback",
             "arguments": [
                 {
                     "name": "hdpa",
-                    "data_type": "TypeDecl",
                     "type": "HDPA",
                     "sal": []
                 },
                 {
                     "name": "pfnCB",
-                    "data_type": "TypeDecl",
                     "type": "PFNDAENUMCALLBACK",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pData",
                         "type": "void"
                     },
-                    "name": "pData",
                     "sal": []
                 }
             ],
@@ -622,15 +800,15 @@
             ]
         },
         {
-            "name": "DPA_Grow",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DPA_Grow",
                 "type": "BOOL"
             },
+            "name": "DPA_Grow",
             "arguments": [
                 {
                     "name": "pdpa",
-                    "data_type": "TypeDecl",
                     "type": "HDPA",
                     "sal": [
                         "in"
@@ -638,7 +816,6 @@
                 },
                 {
                     "name": "cp",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -650,31 +827,28 @@
             ]
         },
         {
-            "name": "DPA_InsertPtr",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DPA_InsertPtr",
                 "type": "int"
             },
+            "name": "DPA_InsertPtr",
             "arguments": [
                 {
                     "name": "hdpa",
-                    "data_type": "TypeDecl",
                     "type": "HDPA",
                     "sal": []
                 },
                 {
                     "name": "i",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "p",
                         "type": "void"
                     },
-                    "name": "p",
                     "sal": []
                 }
             ],
@@ -683,31 +857,28 @@
             ]
         },
         {
-            "name": "DPA_SetPtr",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DPA_SetPtr",
                 "type": "BOOL"
             },
+            "name": "DPA_SetPtr",
             "arguments": [
                 {
                     "name": "hdpa",
-                    "data_type": "TypeDecl",
                     "type": "HDPA",
                     "sal": []
                 },
                 {
                     "name": "i",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "p",
                         "type": "void"
                     },
-                    "name": "p",
                     "sal": []
                 }
             ],
@@ -716,21 +887,20 @@
             ]
         },
         {
-            "name": "DPA_GetPtr",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DPA_GetPtr",
                 "type": "PVOID"
             },
+            "name": "DPA_GetPtr",
             "arguments": [
                 {
                     "name": "hdpa",
-                    "data_type": "TypeDecl",
                     "type": "HDPA",
                     "sal": []
                 },
                 {
                     "name": "i",
-                    "data_type": "TypeDecl",
                     "type": "INT_PTR",
                     "sal": []
                 }
@@ -740,27 +910,25 @@
             ]
         },
         {
-            "name": "DPA_GetPtrIndex",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DPA_GetPtrIndex",
                 "type": "int"
             },
+            "name": "DPA_GetPtrIndex",
             "arguments": [
                 {
                     "name": "hdpa",
-                    "data_type": "TypeDecl",
                     "type": "HDPA",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "p",
                         "type": "void"
                     },
-                    "name": "p",
                     "sal": [
                         "in"
                     ]
@@ -771,15 +939,15 @@
             ]
         },
         {
-            "name": "DPA_GetSize",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DPA_GetSize",
                 "type": "ULONGLONG"
             },
+            "name": "DPA_GetSize",
             "arguments": [
                 {
                     "name": "hdpa",
-                    "data_type": "TypeDecl",
                     "type": "HDPA",
                     "sal": [
                         "in"
@@ -791,27 +959,25 @@
             ]
         },
         {
-            "name": "DPA_Sort",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DPA_Sort",
                 "type": "BOOL"
             },
+            "name": "DPA_Sort",
             "arguments": [
                 {
                     "name": "hdpa",
-                    "data_type": "TypeDecl",
                     "type": "HDPA",
                     "sal": []
                 },
                 {
                     "name": "pfnCompare",
-                    "data_type": "TypeDecl",
                     "type": "PFNDACOMPARE",
                     "sal": []
                 },
                 {
                     "name": "lParam",
-                    "data_type": "TypeDecl",
                     "type": "LPARAM",
                     "sal": []
                 }
@@ -821,49 +987,47 @@
             ]
         },
         {
-            "name": "DPA_LoadStream",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DPA_LoadStream",
                 "type": "HRESULT"
             },
+            "name": "DPA_LoadStream",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "phdpa",
                         "type": "HDPA"
                     },
-                    "name": "phdpa",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "name": "pfn",
-                    "data_type": "TypeDecl",
                     "type": "PFNDPASTREAM",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "type": "IStream",
-                        "data_type": "TypeDecl"
+                        "name": "pstream",
+                        "type": {
+                            "data_type": "Struct",
+                            "name": "IStream",
+                            "elements": []
+                        }
                     },
-                    "name": "pstream",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pvInstData",
                         "type": "void"
                     },
-                    "name": "pvInstData",
                     "sal": [
                         "in"
                     ]
@@ -874,15 +1038,15 @@
             ]
         },
         {
-            "name": "DPA_SaveStream",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DPA_SaveStream",
                 "type": "HRESULT"
             },
+            "name": "DPA_SaveStream",
             "arguments": [
                 {
                     "name": "hdpa",
-                    "data_type": "TypeDecl",
                     "type": "HDPA",
                     "sal": [
                         "in"
@@ -890,30 +1054,29 @@
                 },
                 {
                     "name": "pfn",
-                    "data_type": "TypeDecl",
                     "type": "PFNDPASTREAM",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "type": "IStream",
-                        "data_type": "TypeDecl"
+                        "name": "pstream",
+                        "type": {
+                            "data_type": "Struct",
+                            "name": "IStream",
+                            "elements": []
+                        }
                     },
-                    "name": "pstream",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pvInstData",
                         "type": "void"
                     },
-                    "name": "pvInstData",
                     "sal": [
                         "in"
                     ]
@@ -924,15 +1087,15 @@
             ]
         },
         {
-            "name": "DPA_Merge",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DPA_Merge",
                 "type": "BOOL"
             },
+            "name": "DPA_Merge",
             "arguments": [
                 {
                     "name": "hdpaDest",
-                    "data_type": "TypeDecl",
                     "type": "HDPA",
                     "sal": [
                         "in",
@@ -941,7 +1104,6 @@
                 },
                 {
                     "name": "hdpaSrc",
-                    "data_type": "TypeDecl",
                     "type": "HDPA",
                     "sal": [
                         "in"
@@ -949,7 +1111,6 @@
                 },
                 {
                     "name": "dwFlags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -957,7 +1118,6 @@
                 },
                 {
                     "name": "pfnCompare",
-                    "data_type": "TypeDecl",
                     "type": "PFNDACOMPARE",
                     "sal": [
                         "in"
@@ -965,7 +1125,6 @@
                 },
                 {
                     "name": "pfnMerge",
-                    "data_type": "TypeDecl",
                     "type": "PFNDPAMERGE",
                     "sal": [
                         "in"
@@ -973,7 +1132,6 @@
                 },
                 {
                     "name": "lParam",
-                    "data_type": "TypeDecl",
                     "type": "LPARAM",
                     "sal": [
                         "in"
@@ -985,48 +1143,42 @@
             ]
         },
         {
-            "name": "DPA_Search",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DPA_Search",
                 "type": "int"
             },
+            "name": "DPA_Search",
             "arguments": [
                 {
                     "name": "hdpa",
-                    "data_type": "TypeDecl",
                     "type": "HDPA",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pFind",
                         "type": "void"
                     },
-                    "name": "pFind",
                     "sal": []
                 },
                 {
                     "name": "iStart",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": []
                 },
                 {
                     "name": "pfnCompare",
-                    "data_type": "TypeDecl",
                     "type": "PFNDACOMPARE",
                     "sal": []
                 },
                 {
                     "name": "lParam",
-                    "data_type": "TypeDecl",
                     "type": "LPARAM",
                     "sal": []
                 },
                 {
                     "name": "options",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": []
                 }
@@ -1036,19 +1188,18 @@
             ]
         },
         {
-            "name": "Str_SetPtrW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "Str_SetPtrW",
                 "type": "BOOL"
             },
+            "name": "Str_SetPtrW",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppsz",
                         "type": "LPWSTR"
                     },
-                    "name": "ppsz",
                     "sal": [
                         "in",
                         "out"
@@ -1056,7 +1207,6 @@
                 },
                 {
                     "name": "psz",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": []
                 }

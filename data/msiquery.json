@@ -2,246 +2,2062 @@
     "typedefs": [
         {
             "name": "MSIHANDLE",
-            "data_type": "TypeDecl",
             "type": "unsigned long"
         },
         {
             "name": "INSTALLMESSAGE",
-            "type": "tagINSTALLMESSAGE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "INSTALLMESSAGE_FATALEXIT",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000000L"
+                        }
+                    },
+                    {
+                        "name": "INSTALLMESSAGE_ERROR",
+                        "value": {
+                            "type": "int",
+                            "value": "0x01000000L"
+                        }
+                    },
+                    {
+                        "name": "INSTALLMESSAGE_WARNING",
+                        "value": {
+                            "type": "int",
+                            "value": "0x02000000L"
+                        }
+                    },
+                    {
+                        "name": "INSTALLMESSAGE_USER",
+                        "value": {
+                            "type": "int",
+                            "value": "0x03000000L"
+                        }
+                    },
+                    {
+                        "name": "INSTALLMESSAGE_INFO",
+                        "value": {
+                            "type": "int",
+                            "value": "0x04000000L"
+                        }
+                    },
+                    {
+                        "name": "INSTALLMESSAGE_FILESINUSE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x05000000L"
+                        }
+                    },
+                    {
+                        "name": "INSTALLMESSAGE_RESOLVESOURCE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x06000000L"
+                        }
+                    },
+                    {
+                        "name": "INSTALLMESSAGE_OUTOFDISKSPACE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x07000000L"
+                        }
+                    },
+                    {
+                        "name": "INSTALLMESSAGE_ACTIONSTART",
+                        "value": {
+                            "type": "int",
+                            "value": "0x08000000L"
+                        }
+                    },
+                    {
+                        "name": "INSTALLMESSAGE_ACTIONDATA",
+                        "value": {
+                            "type": "int",
+                            "value": "0x09000000L"
+                        }
+                    },
+                    {
+                        "name": "INSTALLMESSAGE_PROGRESS",
+                        "value": {
+                            "type": "int",
+                            "value": "0x0A000000L"
+                        }
+                    },
+                    {
+                        "name": "INSTALLMESSAGE_COMMONDATA",
+                        "value": {
+                            "type": "int",
+                            "value": "0x0B000000L"
+                        }
+                    },
+                    {
+                        "name": "INSTALLMESSAGE_INITIALIZE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x0C000000L"
+                        }
+                    },
+                    {
+                        "name": "INSTALLMESSAGE_TERMINATE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x0D000000L"
+                        }
+                    },
+                    {
+                        "name": "INSTALLMESSAGE_SHOWDIALOG",
+                        "value": {
+                            "type": "int",
+                            "value": "0x0E000000L"
+                        }
+                    },
+                    {
+                        "name": "INSTALLMESSAGE_PERFORMANCE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x0F000000L"
+                        }
+                    },
+                    {
+                        "name": "INSTALLMESSAGE_RMFILESINUSE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x19000000L"
+                        }
+                    },
+                    {
+                        "name": "INSTALLMESSAGE_INSTALLSTART",
+                        "value": {
+                            "type": "int",
+                            "value": "0x1A000000L"
+                        }
+                    },
+                    {
+                        "name": "INSTALLMESSAGE_INSTALLEND",
+                        "value": {
+                            "type": "int",
+                            "value": "0x1B000000L"
+                        }
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "data_type": "FuncDeclPtr",
             "type": {
-                "data_type": "TypeDecl",
-                "type": "INSTALLUI_HANDLER_RECORD"
+                "name": "INSTALLUI_HANDLERA",
+                "type": "int"
             },
-            "name": "PINSTALLUI_HANDLER_RECORD"
+            "name": "INSTALLUI_HANDLERA",
+            "arguments": [
+                {
+                    "name": "pvContext",
+                    "type": "LPVOID"
+                },
+                {
+                    "name": "iMessageType",
+                    "type": "UINT"
+                },
+                {
+                    "name": "szMessage",
+                    "type": "LPCSTR"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "INSTALLUI_HANDLERW",
+                "type": "int"
+            },
+            "name": "INSTALLUI_HANDLERW",
+            "arguments": [
+                {
+                    "name": "pvContext",
+                    "type": "LPVOID"
+                },
+                {
+                    "name": "iMessageType",
+                    "type": "UINT"
+                },
+                {
+                    "name": "szMessage",
+                    "type": "LPCWSTR"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "INSTALLUI_HANDLER_RECORD",
+                "type": "int"
+            },
+            "name": "INSTALLUI_HANDLER_RECORD",
+            "arguments": [
+                {
+                    "name": "pvContext",
+                    "type": "LPVOID"
+                },
+                {
+                    "name": "iMessageType",
+                    "type": "UINT"
+                },
+                {
+                    "name": "hRecord",
+                    "type": "MSIHANDLE"
+                }
+            ]
+        },
+        {
+            "name": "PINSTALLUI_HANDLER_RECORD",
+            "type": "INSTALLUI_HANDLER_RECORD",
+            "data_type": "Ptr"
         },
         {
             "name": "INSTALLUILEVEL",
-            "type": "tagINSTALLUILEVEL",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "INSTALLUILEVEL_NOCHANGE",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "INSTALLUILEVEL_DEFAULT",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "INSTALLUILEVEL_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "INSTALLUILEVEL_BASIC",
+                        "value": {
+                            "type": "int",
+                            "value": "3"
+                        }
+                    },
+                    {
+                        "name": "INSTALLUILEVEL_REDUCED",
+                        "value": {
+                            "type": "int",
+                            "value": "4"
+                        }
+                    },
+                    {
+                        "name": "INSTALLUILEVEL_FULL",
+                        "value": {
+                            "type": "int",
+                            "value": "5"
+                        }
+                    },
+                    {
+                        "name": "INSTALLUILEVEL_ENDDIALOG",
+                        "value": {
+                            "type": "int",
+                            "value": "0x80"
+                        }
+                    },
+                    {
+                        "name": "INSTALLUILEVEL_PROGRESSONLY",
+                        "value": {
+                            "type": "int",
+                            "value": "0x40"
+                        }
+                    },
+                    {
+                        "name": "INSTALLUILEVEL_HIDECANCEL",
+                        "value": {
+                            "type": "int",
+                            "value": "0x20"
+                        }
+                    },
+                    {
+                        "name": "INSTALLUILEVEL_SOURCERESONLY",
+                        "value": {
+                            "type": "int",
+                            "value": "0x100"
+                        }
+                    },
+                    {
+                        "name": "INSTALLUILEVEL_UACONLY",
+                        "value": {
+                            "type": "int",
+                            "value": "0x200"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "INSTALLSTATE",
-            "type": "tagINSTALLSTATE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "INSTALLSTATE_NOTUSED",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLSTATE_BADCONFIG",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLSTATE_INCOMPLETE",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLSTATE_SOURCEABSENT",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLSTATE_MOREDATA",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLSTATE_INVALIDARG",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLSTATE_UNKNOWN",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLSTATE_BROKEN",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "INSTALLSTATE_ADVERTISED",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "INSTALLSTATE_REMOVED",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "INSTALLSTATE_ABSENT",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "INSTALLSTATE_LOCAL",
+                        "value": {
+                            "type": "int",
+                            "value": "3"
+                        }
+                    },
+                    {
+                        "name": "INSTALLSTATE_SOURCE",
+                        "value": {
+                            "type": "int",
+                            "value": "4"
+                        }
+                    },
+                    {
+                        "name": "INSTALLSTATE_DEFAULT",
+                        "value": {
+                            "type": "int",
+                            "value": "5"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "USERINFOSTATE",
-            "type": "tagUSERINFOSTATE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "USERINFOSTATE_MOREDATA",
+                        "value": {}
+                    },
+                    {
+                        "name": "USERINFOSTATE_INVALIDARG",
+                        "value": {}
+                    },
+                    {
+                        "name": "USERINFOSTATE_UNKNOWN",
+                        "value": {}
+                    },
+                    {
+                        "name": "USERINFOSTATE_ABSENT",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "USERINFOSTATE_PRESENT",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "INSTALLLEVEL",
-            "type": "tagINSTALLLEVEL",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "INSTALLLEVEL_DEFAULT",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "INSTALLLEVEL_MINIMUM",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "INSTALLLEVEL_MAXIMUM",
+                        "value": {
+                            "type": "int",
+                            "value": "0xFFFF"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "REINSTALLMODE",
-            "type": "tagREINSTALLMODE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "REINSTALLMODE_REPAIR",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000001"
+                        }
+                    },
+                    {
+                        "name": "REINSTALLMODE_FILEMISSING",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000002"
+                        }
+                    },
+                    {
+                        "name": "REINSTALLMODE_FILEOLDERVERSION",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000004"
+                        }
+                    },
+                    {
+                        "name": "REINSTALLMODE_FILEEQUALVERSION",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000008"
+                        }
+                    },
+                    {
+                        "name": "REINSTALLMODE_FILEEXACT",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000010"
+                        }
+                    },
+                    {
+                        "name": "REINSTALLMODE_FILEVERIFY",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000020"
+                        }
+                    },
+                    {
+                        "name": "REINSTALLMODE_FILEREPLACE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000040"
+                        }
+                    },
+                    {
+                        "name": "REINSTALLMODE_MACHINEDATA",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000080"
+                        }
+                    },
+                    {
+                        "name": "REINSTALLMODE_USERDATA",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000100"
+                        }
+                    },
+                    {
+                        "name": "REINSTALLMODE_SHORTCUT",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000200"
+                        }
+                    },
+                    {
+                        "name": "REINSTALLMODE_PACKAGE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000400"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "INSTALLLOGMODE",
-            "type": "tagINSTALLOGMODE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "INSTALLLOGMODE_FATALEXIT",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLLOGMODE_ERROR",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLLOGMODE_WARNING",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLLOGMODE_USER",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLLOGMODE_INFO",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLLOGMODE_RESOLVESOURCE",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLLOGMODE_OUTOFDISKSPACE",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLLOGMODE_ACTIONSTART",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLLOGMODE_ACTIONDATA",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLLOGMODE_COMMONDATA",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLLOGMODE_PROPERTYDUMP",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLLOGMODE_VERBOSE",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLLOGMODE_EXTRADEBUG",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLLOGMODE_LOGONLYONERROR",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLLOGMODE_LOGPERFORMANCE",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLLOGMODE_PROGRESS",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLLOGMODE_INITIALIZE",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLLOGMODE_TERMINATE",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLLOGMODE_SHOWDIALOG",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLLOGMODE_FILESINUSE",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLLOGMODE_RMFILESINUSE",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLLOGMODE_INSTALLSTART",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLLOGMODE_INSTALLEND",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
             "name": "INSTALLLOGATTRIBUTES",
-            "type": "tagINSTALLLOGATTRIBUTES",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "INSTALLLOGATTRIBUTES_APPEND",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLLOGATTRIBUTES_FLUSHEACHLINE",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
             "name": "INSTALLFEATUREATTRIBUTE",
-            "type": "tagINSTALLFEATUREATTRIBUTE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "INSTALLFEATUREATTRIBUTE_FAVORLOCAL",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLFEATUREATTRIBUTE_FAVORSOURCE",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLFEATUREATTRIBUTE_FOLLOWPARENT",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLFEATUREATTRIBUTE_FAVORADVERTISE",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLFEATUREATTRIBUTE_DISALLOWADVERTISE",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLFEATUREATTRIBUTE_NOUNSUPPORTEDADVERTISE",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
             "name": "INSTALLMODE",
-            "type": "tagINSTALLMODE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "INSTALLMODE_NODETECTION_ANY",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLMODE_NOSOURCERESOLUTION",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLMODE_NODETECTION",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLMODE_EXISTING",
+                        "value": {}
+                    },
+                    {
+                        "name": "INSTALLMODE_DEFAULT",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "MSIPATCHSTATE",
-            "type": "tagMSIPATCHSTATE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MSIPATCHSTATE_INVALID",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "MSIPATCHSTATE_APPLIED",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "MSIPATCHSTATE_SUPERSEDED",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "MSIPATCHSTATE_OBSOLETED",
+                        "value": {
+                            "type": "int",
+                            "value": "4"
+                        }
+                    },
+                    {
+                        "name": "MSIPATCHSTATE_REGISTERED",
+                        "value": {
+                            "type": "int",
+                            "value": "8"
+                        }
+                    },
+                    {
+                        "name": "MSIPATCHSTATE_ALL",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
             "name": "MSIINSTALLCONTEXT",
-            "type": "tagMSIINSTALLCONTEXT",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MSIINSTALLCONTEXT_FIRSTVISIBLE",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "MSIINSTALLCONTEXT_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "MSIINSTALLCONTEXT_USERMANAGED",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "MSIINSTALLCONTEXT_USERUNMANAGED",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "MSIINSTALLCONTEXT_MACHINE",
+                        "value": {
+                            "type": "int",
+                            "value": "4"
+                        }
+                    },
+                    {
+                        "name": "MSIINSTALLCONTEXT_ALL",
+                        "value": {}
+                    },
+                    {
+                        "name": "MSIINSTALLCONTEXT_ALLUSERMANAGED",
+                        "value": {
+                            "type": "int",
+                            "value": "8"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "MSIPATCHDATATYPE",
-            "type": "tagMSIPATCHDATATYPE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MSIPATCH_DATATYPE_PATCHFILE",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "MSIPATCH_DATATYPE_XMLPATH",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "MSIPATCH_DATATYPE_XMLBLOB",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PMSIPATCHDATATYPE",
             "type": {
-                "type": "tagMSIPATCHDATATYPE",
-                "data_type": "TypeDecl"
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MSIPATCH_DATATYPE_PATCHFILE",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "MSIPATCH_DATATYPE_XMLPATH",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "MSIPATCH_DATATYPE_XMLBLOB",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    }
+                ]
             },
-            "name": "PMSIPATCHDATATYPE"
+            "data_type": "Ptr"
         },
         {
             "name": "MSIPATCHSEQUENCEINFOA",
-            "type": "tagMSIPATCHSEQUENCEINFOA",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "tagMSIPATCHSEQUENCEINFOA",
+                "elements": [
+                    {
+                        "name": "szPatchData",
+                        "type": "LPCSTR"
+                    },
+                    {
+                        "name": "ePatchDataType",
+                        "type": "MSIPATCHDATATYPE"
+                    },
+                    {
+                        "name": "dwOrder",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "uStatus",
+                        "type": "UINT"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PMSIPATCHSEQUENCEINFOA",
             "type": {
-                "type": "tagMSIPATCHSEQUENCEINFOA",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "tagMSIPATCHSEQUENCEINFOA",
+                "elements": [
+                    {
+                        "name": "szPatchData",
+                        "type": "LPCSTR"
+                    },
+                    {
+                        "name": "ePatchDataType",
+                        "type": "MSIPATCHDATATYPE"
+                    },
+                    {
+                        "name": "dwOrder",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "uStatus",
+                        "type": "UINT"
+                    }
+                ]
             },
-            "name": "PMSIPATCHSEQUENCEINFOA"
+            "data_type": "Ptr"
         },
         {
             "name": "MSIPATCHSEQUENCEINFOW",
-            "type": "tagMSIPATCHSEQUENCEINFOW",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "tagMSIPATCHSEQUENCEINFOW",
+                "elements": [
+                    {
+                        "name": "szPatchData",
+                        "type": "LPCWSTR"
+                    },
+                    {
+                        "name": "ePatchDataType",
+                        "type": "MSIPATCHDATATYPE"
+                    },
+                    {
+                        "name": "dwOrder",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "uStatus",
+                        "type": "UINT"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PMSIPATCHSEQUENCEINFOW",
             "type": {
-                "type": "tagMSIPATCHSEQUENCEINFOW",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "tagMSIPATCHSEQUENCEINFOW",
+                "elements": [
+                    {
+                        "name": "szPatchData",
+                        "type": "LPCWSTR"
+                    },
+                    {
+                        "name": "ePatchDataType",
+                        "type": "MSIPATCHDATATYPE"
+                    },
+                    {
+                        "name": "dwOrder",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "uStatus",
+                        "type": "UINT"
+                    }
+                ]
             },
-            "name": "PMSIPATCHSEQUENCEINFOW"
+            "data_type": "Ptr"
         },
         {
             "name": "MSIPATCHSEQUENCEINFO",
-            "data_type": "TypeDecl",
             "type": "MSIPATCHSEQUENCEINFOA"
         },
         {
             "name": "PMSIPATCHSEQUENCEINFO",
-            "data_type": "TypeDecl",
             "type": "PMSIPATCHSEQUENCEINFOA"
         },
         {
             "name": "SCRIPTFLAGS",
-            "type": "tagSCRIPTFLAGS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "SCRIPTFLAGS_CACHEINFO",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000001L"
+                        }
+                    },
+                    {
+                        "name": "SCRIPTFLAGS_SHORTCUTS",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000004L"
+                        }
+                    },
+                    {
+                        "name": "SCRIPTFLAGS_MACHINEASSIGN",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000008L"
+                        }
+                    },
+                    {
+                        "name": "SCRIPTFLAGS_REGDATA_CNFGINFO",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000020L"
+                        }
+                    },
+                    {
+                        "name": "SCRIPTFLAGS_VALIDATE_TRANSFORMS_LIST",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000040L"
+                        }
+                    },
+                    {
+                        "name": "SCRIPTFLAGS_REGDATA_CLASSINFO",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000080L"
+                        }
+                    },
+                    {
+                        "name": "SCRIPTFLAGS_REGDATA_EXTENSIONINFO",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000100L"
+                        }
+                    },
+                    {
+                        "name": "SCRIPTFLAGS_REGDATA_APPINFO",
+                        "value": {}
+                    },
+                    {
+                        "name": "SCRIPTFLAGS_REGDATA",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
             "name": "ADVERTISEFLAGS",
-            "type": "tagADVERTISEFLAGS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "ADVERTISEFLAGS_MACHINEASSIGN",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "ADVERTISEFLAGS_USERASSIGN",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "INSTALLTYPE",
-            "type": "tagINSTALLTYPE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "INSTALLTYPE_DEFAULT",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "INSTALLTYPE_NETWORK_IMAGE",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "INSTALLTYPE_SINGLE_INSTANCE",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "MSIFILEHASHINFO",
-            "type": "_MSIFILEHASHINFO",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_MSIFILEHASHINFO",
+                "elements": [
+                    {
+                        "name": "dwFileHashInfoSize",
+                        "type": "ULONG"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "4"
+                        },
+                        "name": "dwData"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PMSIFILEHASHINFO",
             "type": {
-                "type": "_MSIFILEHASHINFO",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_MSIFILEHASHINFO",
+                "elements": [
+                    {
+                        "name": "dwFileHashInfoSize",
+                        "type": "ULONG"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "4"
+                        },
+                        "name": "dwData"
+                    }
+                ]
             },
-            "name": "PMSIFILEHASHINFO"
+            "data_type": "Ptr"
         },
         {
             "name": "MSIARCHITECTUREFLAGS",
-            "type": "tagMSIARCHITECTUREFLAGS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MSIARCHITECTUREFLAGS_X86",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000001L"
+                        }
+                    },
+                    {
+                        "name": "MSIARCHITECTUREFLAGS_IA64",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000002L"
+                        }
+                    },
+                    {
+                        "name": "MSIARCHITECTUREFLAGS_AMD64",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000004L"
+                        }
+                    },
+                    {
+                        "name": "MSIARCHITECTUREFLAGS_ARM",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000008L"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "MSIOPENPACKAGEFLAGS",
-            "type": "tagMSIOPENPACKAGEFLAGS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MSIOPENPACKAGEFLAGS_IGNOREMACHINESTATE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000001L"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "MSIADVERTISEOPTIONFLAGS",
-            "type": "tagMSIADVERTISEOPTIONFLAGS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MSIADVERTISEOPTIONFLAGS_INSTANCE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000001L"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "MSISOURCETYPE",
-            "type": "tagMSISOURCETYPE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MSISOURCETYPE_UNKNOWN",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000000L"
+                        }
+                    },
+                    {
+                        "name": "MSISOURCETYPE_NETWORK",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000001L"
+                        }
+                    },
+                    {
+                        "name": "MSISOURCETYPE_URL",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000002L"
+                        }
+                    },
+                    {
+                        "name": "MSISOURCETYPE_MEDIA",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000004L"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "MSICODE",
-            "type": "tagMSICODE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MSICODE_PRODUCT",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000000L"
+                        }
+                    },
+                    {
+                        "name": "MSICODE_PATCH",
+                        "value": {
+                            "type": "int",
+                            "value": "0x40000000L"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "MSITRANSACTION",
-            "type": "tagMSITRANSACTION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MSITRANSACTION_CHAIN_EMBEDDEDUI",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000001L"
+                        }
+                    },
+                    {
+                        "name": "MSITRANSACTION_JOIN_EXISTING_EMBEDDEDUI",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000002L"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "MSITRANSACTIONSTATE",
-            "type": "tagMSITRANSACTIONSTATE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MSITRANSACTIONSTATE_ROLLBACK",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000000L"
+                        }
+                    },
+                    {
+                        "name": "MSITRANSACTIONSTATE_COMMIT",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000001L"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "MSIDBSTATE",
-            "type": "tagMSIDBSTATE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MSIDBSTATE_ERROR",
+                        "value": {}
+                    },
+                    {
+                        "name": "MSIDBSTATE_READ",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "MSIDBSTATE_WRITE",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "MSIMODIFY",
-            "type": "tagMSIMODIFY",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MSIMODIFY_SEEK",
+                        "value": {}
+                    },
+                    {
+                        "name": "MSIMODIFY_REFRESH",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "MSIMODIFY_INSERT",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "MSIMODIFY_UPDATE",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "MSIMODIFY_ASSIGN",
+                        "value": {
+                            "type": "int",
+                            "value": "3"
+                        }
+                    },
+                    {
+                        "name": "MSIMODIFY_REPLACE",
+                        "value": {
+                            "type": "int",
+                            "value": "4"
+                        }
+                    },
+                    {
+                        "name": "MSIMODIFY_MERGE",
+                        "value": {
+                            "type": "int",
+                            "value": "5"
+                        }
+                    },
+                    {
+                        "name": "MSIMODIFY_DELETE",
+                        "value": {
+                            "type": "int",
+                            "value": "6"
+                        }
+                    },
+                    {
+                        "name": "MSIMODIFY_INSERT_TEMPORARY",
+                        "value": {
+                            "type": "int",
+                            "value": "7"
+                        }
+                    },
+                    {
+                        "name": "MSIMODIFY_VALIDATE",
+                        "value": {
+                            "type": "int",
+                            "value": "8"
+                        }
+                    },
+                    {
+                        "name": "MSIMODIFY_VALIDATE_NEW",
+                        "value": {
+                            "type": "int",
+                            "value": "9"
+                        }
+                    },
+                    {
+                        "name": "MSIMODIFY_VALIDATE_FIELD",
+                        "value": {
+                            "type": "int",
+                            "value": "10"
+                        }
+                    },
+                    {
+                        "name": "MSIMODIFY_VALIDATE_DELETE",
+                        "value": {
+                            "type": "int",
+                            "value": "11"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "MSICOLINFO",
-            "type": "tagMSICOLINFO",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MSICOLINFO_NAMES",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "MSICOLINFO_TYPES",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "MSICONDITION",
-            "type": "tagMSICONDITION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MSICONDITION_FALSE",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "MSICONDITION_TRUE",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "MSICONDITION_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "MSICONDITION_ERROR",
+                        "value": {
+                            "type": "int",
+                            "value": "3"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "MSICOSTTREE",
-            "type": "tagMSICOSTTREE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MSICOSTTREE_SELFONLY",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "MSICOSTTREE_CHILDREN",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "MSICOSTTREE_PARENTS",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "MSICOSTTREE_RESERVED",
+                        "value": {
+                            "type": "int",
+                            "value": "3"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "MSIDBERROR",
-            "type": "tagMSIDBERROR",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MSIDBERROR_INVALIDARG",
+                        "value": {}
+                    },
+                    {
+                        "name": "MSIDBERROR_MOREDATA",
+                        "value": {}
+                    },
+                    {
+                        "name": "MSIDBERROR_FUNCTIONERROR",
+                        "value": {}
+                    },
+                    {
+                        "name": "MSIDBERROR_NOERROR",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_DUPLICATEKEY",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_REQUIRED",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_BADLINK",
+                        "value": {
+                            "type": "int",
+                            "value": "3"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_OVERFLOW",
+                        "value": {
+                            "type": "int",
+                            "value": "4"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_UNDERFLOW",
+                        "value": {
+                            "type": "int",
+                            "value": "5"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_NOTINSET",
+                        "value": {
+                            "type": "int",
+                            "value": "6"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_BADVERSION",
+                        "value": {
+                            "type": "int",
+                            "value": "7"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_BADCASE",
+                        "value": {
+                            "type": "int",
+                            "value": "8"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_BADGUID",
+                        "value": {
+                            "type": "int",
+                            "value": "9"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_BADWILDCARD",
+                        "value": {
+                            "type": "int",
+                            "value": "10"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_BADIDENTIFIER",
+                        "value": {
+                            "type": "int",
+                            "value": "11"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_BADLANGUAGE",
+                        "value": {
+                            "type": "int",
+                            "value": "12"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_BADFILENAME",
+                        "value": {
+                            "type": "int",
+                            "value": "13"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_BADPATH",
+                        "value": {
+                            "type": "int",
+                            "value": "14"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_BADCONDITION",
+                        "value": {
+                            "type": "int",
+                            "value": "15"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_BADFORMATTED",
+                        "value": {
+                            "type": "int",
+                            "value": "16"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_BADTEMPLATE",
+                        "value": {
+                            "type": "int",
+                            "value": "17"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_BADDEFAULTDIR",
+                        "value": {
+                            "type": "int",
+                            "value": "18"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_BADREGPATH",
+                        "value": {
+                            "type": "int",
+                            "value": "19"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_BADCUSTOMSOURCE",
+                        "value": {
+                            "type": "int",
+                            "value": "20"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_BADPROPERTY",
+                        "value": {
+                            "type": "int",
+                            "value": "21"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_MISSINGDATA",
+                        "value": {
+                            "type": "int",
+                            "value": "22"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_BADCATEGORY",
+                        "value": {
+                            "type": "int",
+                            "value": "23"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_BADKEYTABLE",
+                        "value": {
+                            "type": "int",
+                            "value": "24"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_BADMAXMINVALUES",
+                        "value": {
+                            "type": "int",
+                            "value": "25"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_BADCABINET",
+                        "value": {
+                            "type": "int",
+                            "value": "26"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_BADSHORTCUT",
+                        "value": {
+                            "type": "int",
+                            "value": "27"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_STRINGOVERFLOW",
+                        "value": {
+                            "type": "int",
+                            "value": "28"
+                        }
+                    },
+                    {
+                        "name": "MSIDBERROR_BADLOCALIZEATTRIB",
+                        "value": {
+                            "type": "int",
+                            "value": "29"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "MSIRUNMODE",
-            "type": "tagMSIRUNMODE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MSIRUNMODE_ADMIN",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "MSIRUNMODE_ADVERTISE",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "MSIRUNMODE_MAINTENANCE",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "MSIRUNMODE_ROLLBACKENABLED",
+                        "value": {
+                            "type": "int",
+                            "value": "3"
+                        }
+                    },
+                    {
+                        "name": "MSIRUNMODE_LOGENABLED",
+                        "value": {
+                            "type": "int",
+                            "value": "4"
+                        }
+                    },
+                    {
+                        "name": "MSIRUNMODE_OPERATIONS",
+                        "value": {
+                            "type": "int",
+                            "value": "5"
+                        }
+                    },
+                    {
+                        "name": "MSIRUNMODE_REBOOTATEND",
+                        "value": {
+                            "type": "int",
+                            "value": "6"
+                        }
+                    },
+                    {
+                        "name": "MSIRUNMODE_REBOOTNOW",
+                        "value": {
+                            "type": "int",
+                            "value": "7"
+                        }
+                    },
+                    {
+                        "name": "MSIRUNMODE_CABINET",
+                        "value": {
+                            "type": "int",
+                            "value": "8"
+                        }
+                    },
+                    {
+                        "name": "MSIRUNMODE_SOURCESHORTNAMES",
+                        "value": {
+                            "type": "int",
+                            "value": "9"
+                        }
+                    },
+                    {
+                        "name": "MSIRUNMODE_TARGETSHORTNAMES",
+                        "value": {
+                            "type": "int",
+                            "value": "10"
+                        }
+                    },
+                    {
+                        "name": "MSIRUNMODE_RESERVED11",
+                        "value": {
+                            "type": "int",
+                            "value": "11"
+                        }
+                    },
+                    {
+                        "name": "MSIRUNMODE_WINDOWS9X",
+                        "value": {
+                            "type": "int",
+                            "value": "12"
+                        }
+                    },
+                    {
+                        "name": "MSIRUNMODE_ZAWENABLED",
+                        "value": {
+                            "type": "int",
+                            "value": "13"
+                        }
+                    },
+                    {
+                        "name": "MSIRUNMODE_RESERVED14",
+                        "value": {
+                            "type": "int",
+                            "value": "14"
+                        }
+                    },
+                    {
+                        "name": "MSIRUNMODE_RESERVED15",
+                        "value": {
+                            "type": "int",
+                            "value": "15"
+                        }
+                    },
+                    {
+                        "name": "MSIRUNMODE_SCHEDULED",
+                        "value": {
+                            "type": "int",
+                            "value": "16"
+                        }
+                    },
+                    {
+                        "name": "MSIRUNMODE_ROLLBACK",
+                        "value": {
+                            "type": "int",
+                            "value": "17"
+                        }
+                    },
+                    {
+                        "name": "MSIRUNMODE_COMMIT",
+                        "value": {
+                            "type": "int",
+                            "value": "18"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "MSITRANSFORM_ERROR",
-            "type": "tagMSITRANSFORM_ERROR",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MSITRANSFORM_ERROR_ADDEXISTINGROW",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000001"
+                        }
+                    },
+                    {
+                        "name": "MSITRANSFORM_ERROR_DELMISSINGROW",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000002"
+                        }
+                    },
+                    {
+                        "name": "MSITRANSFORM_ERROR_ADDEXISTINGTABLE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000004"
+                        }
+                    },
+                    {
+                        "name": "MSITRANSFORM_ERROR_DELMISSINGTABLE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000008"
+                        }
+                    },
+                    {
+                        "name": "MSITRANSFORM_ERROR_UPDATEMISSINGROW",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000010"
+                        }
+                    },
+                    {
+                        "name": "MSITRANSFORM_ERROR_CHANGECODEPAGE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000020"
+                        }
+                    },
+                    {
+                        "name": "MSITRANSFORM_ERROR_VIEWTRANSFORM",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000100"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "MSITRANSFORM_VALIDATE",
-            "type": "tagMSITRANSFORM_VALIDATE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "MSITRANSFORM_VALIDATE_LANGUAGE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000001"
+                        }
+                    },
+                    {
+                        "name": "MSITRANSFORM_VALIDATE_PRODUCT",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000002"
+                        }
+                    },
+                    {
+                        "name": "MSITRANSFORM_VALIDATE_PLATFORM",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000004"
+                        }
+                    },
+                    {
+                        "name": "MSITRANSFORM_VALIDATE_MAJORVERSION",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000008"
+                        }
+                    },
+                    {
+                        "name": "MSITRANSFORM_VALIDATE_MINORVERSION",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000010"
+                        }
+                    },
+                    {
+                        "name": "MSITRANSFORM_VALIDATE_UPDATEVERSION",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000020"
+                        }
+                    },
+                    {
+                        "name": "MSITRANSFORM_VALIDATE_NEWLESSBASEVERSION",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000040"
+                        }
+                    },
+                    {
+                        "name": "MSITRANSFORM_VALIDATE_NEWLESSEQUALBASEVERSION",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000080"
+                        }
+                    },
+                    {
+                        "name": "MSITRANSFORM_VALIDATE_NEWEQUALBASEVERSION",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000100"
+                        }
+                    },
+                    {
+                        "name": "MSITRANSFORM_VALIDATE_NEWGREATEREQUALBASEVERSION",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000200"
+                        }
+                    },
+                    {
+                        "name": "MSITRANSFORM_VALIDATE_NEWGREATERBASEVERSION",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000400"
+                        }
+                    },
+                    {
+                        "name": "MSITRANSFORM_VALIDATE_UPGRADECODE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00000800"
+                        }
+                    }
+                ]
+            }
         }
     ],
     "funcdefs": [
         {
-            "name": "MsiDatabaseOpenViewA",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiDatabaseOpenViewA",
                 "type": "UINT"
             },
+            "name": "MsiDatabaseOpenViewA",
             "arguments": [
                 {
                     "name": "hDatabase",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -249,19 +2065,16 @@
                 },
                 {
                     "name": "szQuery",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "phView",
                         "type": "MSIHANDLE"
                     },
-                    "name": "phView",
                     "sal": [
                         "out"
                     ]
@@ -273,15 +2086,15 @@
             ]
         },
         {
-            "name": "MsiDatabaseOpenViewW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiDatabaseOpenViewW",
                 "type": "UINT"
             },
+            "name": "MsiDatabaseOpenViewW",
             "arguments": [
                 {
                     "name": "hDatabase",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -289,19 +2102,16 @@
                 },
                 {
                     "name": "szQuery",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "phView",
                         "type": "MSIHANDLE"
                     },
-                    "name": "phView",
                     "sal": [
                         "out"
                     ]
@@ -313,15 +2123,15 @@
             ]
         },
         {
-            "name": "MsiViewGetErrorA",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiViewGetErrorA",
                 "type": "MSIDBERROR"
             },
+            "name": "MsiViewGetErrorA",
             "arguments": [
                 {
                     "name": "hView",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -329,7 +2139,6 @@
                 },
                 {
                     "name": "szColumnNameBuffer",
-                    "data_type": "TypeDecl",
                     "type": "LPSTR",
                     "sal": [
                         "out"
@@ -337,7 +2146,6 @@
                 },
                 {
                     "name": "pcchBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -350,15 +2158,15 @@
             ]
         },
         {
-            "name": "MsiViewGetErrorW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiViewGetErrorW",
                 "type": "MSIDBERROR"
             },
+            "name": "MsiViewGetErrorW",
             "arguments": [
                 {
                     "name": "hView",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -366,7 +2174,6 @@
                 },
                 {
                     "name": "szColumnNameBuffer",
-                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "out"
@@ -374,7 +2181,6 @@
                 },
                 {
                     "name": "pcchBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -387,15 +2193,15 @@
             ]
         },
         {
-            "name": "MsiViewExecute",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiViewExecute",
                 "type": "UINT"
             },
+            "name": "MsiViewExecute",
             "arguments": [
                 {
                     "name": "hView",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -403,7 +2209,6 @@
                 },
                 {
                     "name": "hRecord",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -416,27 +2221,25 @@
             ]
         },
         {
-            "name": "MsiViewFetch",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiViewFetch",
                 "type": "UINT"
             },
+            "name": "MsiViewFetch",
             "arguments": [
                 {
                     "name": "hView",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "phRecord",
                         "type": "MSIHANDLE"
                     },
-                    "name": "phRecord",
                     "sal": [
                         "out"
                     ]
@@ -448,15 +2251,15 @@
             ]
         },
         {
-            "name": "MsiViewModify",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiViewModify",
                 "type": "UINT"
             },
+            "name": "MsiViewModify",
             "arguments": [
                 {
                     "name": "hView",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -464,7 +2267,6 @@
                 },
                 {
                     "name": "eModifyMode",
-                    "data_type": "TypeDecl",
                     "type": "MSIMODIFY",
                     "sal": [
                         "in"
@@ -472,7 +2274,6 @@
                 },
                 {
                     "name": "hRecord",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -484,15 +2285,15 @@
             ]
         },
         {
-            "name": "MsiViewGetColumnInfo",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiViewGetColumnInfo",
                 "type": "UINT"
             },
+            "name": "MsiViewGetColumnInfo",
             "arguments": [
                 {
                     "name": "hView",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -500,19 +2301,16 @@
                 },
                 {
                     "name": "eColumnInfo",
-                    "data_type": "TypeDecl",
                     "type": "MSICOLINFO",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "phRecord",
                         "type": "MSIHANDLE"
                     },
-                    "name": "phRecord",
                     "sal": [
                         "out"
                     ]
@@ -523,15 +2321,15 @@
             ]
         },
         {
-            "name": "MsiViewClose",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiViewClose",
                 "type": "UINT"
             },
+            "name": "MsiViewClose",
             "arguments": [
                 {
                     "name": "hView",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -543,15 +2341,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiDatabaseGetPrimaryKeysA",
+                "type": "UINT"
+            },
             "name": "MsiDatabaseGetPrimaryKeysA",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hDatabase",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -559,19 +2357,16 @@
                 },
                 {
                     "name": "szTableName",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "phRecord",
                         "type": "MSIHANDLE"
                     },
-                    "name": "phRecord",
                     "sal": [
                         "out"
                     ]
@@ -582,15 +2377,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiDatabaseGetPrimaryKeysW",
+                "type": "UINT"
+            },
             "name": "MsiDatabaseGetPrimaryKeysW",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hDatabase",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -598,19 +2393,16 @@
                 },
                 {
                     "name": "szTableName",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "phRecord",
                         "type": "MSIHANDLE"
                     },
-                    "name": "phRecord",
                     "sal": [
                         "out"
                     ]
@@ -621,15 +2413,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiDatabaseIsTablePersistentA",
+                "type": "MSICONDITION"
+            },
             "name": "MsiDatabaseIsTablePersistentA",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "MSICONDITION"
-            },
             "arguments": [
                 {
                     "name": "hDatabase",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -637,7 +2429,6 @@
                 },
                 {
                     "name": "szTableName",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -650,15 +2441,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiDatabaseIsTablePersistentW",
+                "type": "MSICONDITION"
+            },
             "name": "MsiDatabaseIsTablePersistentW",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "MSICONDITION"
-            },
             "arguments": [
                 {
                     "name": "hDatabase",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -666,7 +2457,6 @@
                 },
                 {
                     "name": "szTableName",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -679,15 +2469,15 @@
             ]
         },
         {
-            "name": "MsiGetSummaryInformationA",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiGetSummaryInformationA",
                 "type": "UINT"
             },
+            "name": "MsiGetSummaryInformationA",
             "arguments": [
                 {
                     "name": "hDatabase",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -695,7 +2485,6 @@
                 },
                 {
                     "name": "szDatabasePath",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -703,19 +2492,16 @@
                 },
                 {
                     "name": "uiUpdateCount",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "phSummaryInfo",
                         "type": "MSIHANDLE"
                     },
-                    "name": "phSummaryInfo",
                     "sal": [
                         "out"
                     ]
@@ -727,15 +2513,15 @@
             ]
         },
         {
-            "name": "MsiGetSummaryInformationW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiGetSummaryInformationW",
                 "type": "UINT"
             },
+            "name": "MsiGetSummaryInformationW",
             "arguments": [
                 {
                     "name": "hDatabase",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -743,7 +2529,6 @@
                 },
                 {
                     "name": "szDatabasePath",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -751,19 +2536,16 @@
                 },
                 {
                     "name": "uiUpdateCount",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "phSummaryInfo",
                         "type": "MSIHANDLE"
                     },
-                    "name": "phSummaryInfo",
                     "sal": [
                         "out"
                     ]
@@ -775,15 +2557,15 @@
             ]
         },
         {
-            "name": "MsiSummaryInfoGetPropertyCount",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiSummaryInfoGetPropertyCount",
                 "type": "UINT"
             },
+            "name": "MsiSummaryInfoGetPropertyCount",
             "arguments": [
                 {
                     "name": "hSummaryInfo",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -791,7 +2573,6 @@
                 },
                 {
                     "name": "puiPropertyCount",
-                    "data_type": "TypeDecl",
                     "type": "PUINT",
                     "sal": [
                         "out"
@@ -803,15 +2584,15 @@
             ]
         },
         {
-            "name": "MsiSummaryInfoSetPropertyA",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiSummaryInfoSetPropertyA",
                 "type": "UINT"
             },
+            "name": "MsiSummaryInfoSetPropertyA",
             "arguments": [
                 {
                     "name": "hSummaryInfo",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -819,7 +2600,6 @@
                 },
                 {
                     "name": "uiProperty",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
@@ -827,7 +2607,6 @@
                 },
                 {
                     "name": "uiDataType",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
@@ -835,26 +2614,22 @@
                 },
                 {
                     "name": "iValue",
-                    "data_type": "TypeDecl",
                     "type": "INT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pftValue",
                         "type": "FILETIME"
                     },
-                    "name": "pftValue",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "szValue",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -866,15 +2641,15 @@
             ]
         },
         {
-            "name": "MsiSummaryInfoSetPropertyW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiSummaryInfoSetPropertyW",
                 "type": "UINT"
             },
+            "name": "MsiSummaryInfoSetPropertyW",
             "arguments": [
                 {
                     "name": "hSummaryInfo",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -882,7 +2657,6 @@
                 },
                 {
                     "name": "uiProperty",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
@@ -890,7 +2664,6 @@
                 },
                 {
                     "name": "uiDataType",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
@@ -898,26 +2671,22 @@
                 },
                 {
                     "name": "iValue",
-                    "data_type": "TypeDecl",
                     "type": "INT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pftValue",
                         "type": "FILETIME"
                     },
-                    "name": "pftValue",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "szValue",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -929,15 +2698,15 @@
             ]
         },
         {
-            "name": "MsiSummaryInfoGetPropertyA",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiSummaryInfoGetPropertyA",
                 "type": "UINT"
             },
+            "name": "MsiSummaryInfoGetPropertyA",
             "arguments": [
                 {
                     "name": "hSummaryInfo",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -945,7 +2714,6 @@
                 },
                 {
                     "name": "uiProperty",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
@@ -953,7 +2721,6 @@
                 },
                 {
                     "name": "puiDataType",
-                    "data_type": "TypeDecl",
                     "type": "PUINT",
                     "sal": [
                         "out"
@@ -961,26 +2728,22 @@
                 },
                 {
                     "name": "piValue",
-                    "data_type": "TypeDecl",
                     "type": "LPINT",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pftValue",
                         "type": "FILETIME"
                     },
-                    "name": "pftValue",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "name": "szValueBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPSTR",
                     "sal": [
                         "out"
@@ -988,7 +2751,6 @@
                 },
                 {
                     "name": "pcchValueBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -1002,15 +2764,15 @@
             ]
         },
         {
-            "name": "MsiSummaryInfoGetPropertyW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiSummaryInfoGetPropertyW",
                 "type": "UINT"
             },
+            "name": "MsiSummaryInfoGetPropertyW",
             "arguments": [
                 {
                     "name": "hSummaryInfo",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1018,7 +2780,6 @@
                 },
                 {
                     "name": "uiProperty",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
@@ -1026,7 +2787,6 @@
                 },
                 {
                     "name": "puiDataType",
-                    "data_type": "TypeDecl",
                     "type": "PUINT",
                     "sal": [
                         "out"
@@ -1034,26 +2794,22 @@
                 },
                 {
                     "name": "piValue",
-                    "data_type": "TypeDecl",
                     "type": "LPINT",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pftValue",
                         "type": "FILETIME"
                     },
-                    "name": "pftValue",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "name": "szValueBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "out"
@@ -1061,7 +2817,6 @@
                 },
                 {
                     "name": "pcchValueBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -1075,15 +2830,15 @@
             ]
         },
         {
-            "name": "MsiSummaryInfoPersist",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiSummaryInfoPersist",
                 "type": "UINT"
             },
+            "name": "MsiSummaryInfoPersist",
             "arguments": [
                 {
                     "name": "hSummaryInfo",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1095,15 +2850,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiOpenDatabaseA",
+                "type": "UINT"
+            },
             "name": "MsiOpenDatabaseA",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "szDatabasePath",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -1111,19 +2866,16 @@
                 },
                 {
                     "name": "szPersist",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "phDatabase",
                         "type": "MSIHANDLE"
                     },
-                    "name": "phDatabase",
                     "sal": [
                         "out"
                     ]
@@ -1135,15 +2887,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiOpenDatabaseW",
+                "type": "UINT"
+            },
             "name": "MsiOpenDatabaseW",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "szDatabasePath",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -1151,19 +2903,16 @@
                 },
                 {
                     "name": "szPersist",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "phDatabase",
                         "type": "MSIHANDLE"
                     },
-                    "name": "phDatabase",
                     "sal": [
                         "out"
                     ]
@@ -1175,15 +2924,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiDatabaseImportA",
+                "type": "UINT"
+            },
             "name": "MsiDatabaseImportA",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hDatabase",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1191,7 +2940,6 @@
                 },
                 {
                     "name": "szFolderPath",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -1199,7 +2947,6 @@
                 },
                 {
                     "name": "szFileName",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -1211,15 +2958,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiDatabaseImportW",
+                "type": "UINT"
+            },
             "name": "MsiDatabaseImportW",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hDatabase",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1227,7 +2974,6 @@
                 },
                 {
                     "name": "szFolderPath",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -1235,7 +2981,6 @@
                 },
                 {
                     "name": "szFileName",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -1247,15 +2992,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiDatabaseExportA",
+                "type": "UINT"
+            },
             "name": "MsiDatabaseExportA",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hDatabase",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1263,7 +3008,6 @@
                 },
                 {
                     "name": "szTableName",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -1271,7 +3015,6 @@
                 },
                 {
                     "name": "szFolderPath",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -1279,7 +3022,6 @@
                 },
                 {
                     "name": "szFileName",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -1291,15 +3033,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiDatabaseExportW",
+                "type": "UINT"
+            },
             "name": "MsiDatabaseExportW",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hDatabase",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1307,7 +3049,6 @@
                 },
                 {
                     "name": "szTableName",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -1315,7 +3056,6 @@
                 },
                 {
                     "name": "szFolderPath",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -1323,7 +3063,6 @@
                 },
                 {
                     "name": "szFileName",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -1335,15 +3074,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiDatabaseMergeA",
+                "type": "UINT"
+            },
             "name": "MsiDatabaseMergeA",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hDatabase",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1351,7 +3090,6 @@
                 },
                 {
                     "name": "hDatabaseMerge",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1359,7 +3097,6 @@
                 },
                 {
                     "name": "szTableName",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -1371,15 +3108,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiDatabaseMergeW",
+                "type": "UINT"
+            },
             "name": "MsiDatabaseMergeW",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hDatabase",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1387,7 +3124,6 @@
                 },
                 {
                     "name": "hDatabaseMerge",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1395,7 +3131,6 @@
                 },
                 {
                     "name": "szTableName",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -1407,15 +3142,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiDatabaseGenerateTransformA",
+                "type": "UINT"
+            },
             "name": "MsiDatabaseGenerateTransformA",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hDatabase",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1423,7 +3158,6 @@
                 },
                 {
                     "name": "hDatabaseReference",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1431,7 +3165,6 @@
                 },
                 {
                     "name": "szTransformFile",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -1439,7 +3172,6 @@
                 },
                 {
                     "name": "iReserved1",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -1447,7 +3179,6 @@
                 },
                 {
                     "name": "iReserved2",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -1459,15 +3190,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiDatabaseGenerateTransformW",
+                "type": "UINT"
+            },
             "name": "MsiDatabaseGenerateTransformW",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hDatabase",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1475,7 +3206,6 @@
                 },
                 {
                     "name": "hDatabaseReference",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1483,7 +3213,6 @@
                 },
                 {
                     "name": "szTransformFile",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -1491,7 +3220,6 @@
                 },
                 {
                     "name": "iReserved1",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -1499,7 +3227,6 @@
                 },
                 {
                     "name": "iReserved2",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -1511,15 +3238,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiDatabaseApplyTransformA",
+                "type": "UINT"
+            },
             "name": "MsiDatabaseApplyTransformA",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hDatabase",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1527,7 +3254,6 @@
                 },
                 {
                     "name": "szTransformFile",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -1535,7 +3261,6 @@
                 },
                 {
                     "name": "iErrorConditions",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -1547,15 +3272,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiDatabaseApplyTransformW",
+                "type": "UINT"
+            },
             "name": "MsiDatabaseApplyTransformW",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hDatabase",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1563,7 +3288,6 @@
                 },
                 {
                     "name": "szTransformFile",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -1571,7 +3295,6 @@
                 },
                 {
                     "name": "iErrorConditions",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -1583,15 +3306,15 @@
             ]
         },
         {
-            "name": "MsiCreateTransformSummaryInfoA",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiCreateTransformSummaryInfoA",
                 "type": "UINT"
             },
+            "name": "MsiCreateTransformSummaryInfoA",
             "arguments": [
                 {
                     "name": "hDatabase",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1599,7 +3322,6 @@
                 },
                 {
                     "name": "hDatabaseReference",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1607,7 +3329,6 @@
                 },
                 {
                     "name": "szTransformFile",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -1615,7 +3336,6 @@
                 },
                 {
                     "name": "iErrorConditions",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -1623,7 +3343,6 @@
                 },
                 {
                     "name": "iValidation",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -1635,15 +3354,15 @@
             ]
         },
         {
-            "name": "MsiCreateTransformSummaryInfoW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiCreateTransformSummaryInfoW",
                 "type": "UINT"
             },
+            "name": "MsiCreateTransformSummaryInfoW",
             "arguments": [
                 {
                     "name": "hDatabase",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1651,7 +3370,6 @@
                 },
                 {
                     "name": "hDatabaseReference",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1659,7 +3377,6 @@
                 },
                 {
                     "name": "szTransformFile",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -1667,7 +3384,6 @@
                 },
                 {
                     "name": "iErrorConditions",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -1675,7 +3391,6 @@
                 },
                 {
                     "name": "iValidation",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -1687,15 +3402,15 @@
             ]
         },
         {
-            "name": "MsiDatabaseCommit",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiDatabaseCommit",
                 "type": "UINT"
             },
+            "name": "MsiDatabaseCommit",
             "arguments": [
                 {
                     "name": "hDatabase",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1707,15 +3422,15 @@
             ]
         },
         {
-            "name": "MsiGetDatabaseState",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiGetDatabaseState",
                 "type": "MSIDBSTATE"
             },
+            "name": "MsiGetDatabaseState",
             "arguments": [
                 {
                     "name": "hDatabase",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1727,15 +3442,15 @@
             ]
         },
         {
-            "name": "MsiCreateRecord",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiCreateRecord",
                 "type": "MSIHANDLE"
             },
+            "name": "MsiCreateRecord",
             "arguments": [
                 {
                     "name": "cParams",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
@@ -1748,15 +3463,15 @@
             ]
         },
         {
-            "name": "MsiRecordIsNull",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiRecordIsNull",
                 "type": "BOOL"
             },
+            "name": "MsiRecordIsNull",
             "arguments": [
                 {
                     "name": "hRecord",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1764,7 +3479,6 @@
                 },
                 {
                     "name": "iField",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
@@ -1777,15 +3491,15 @@
             ]
         },
         {
-            "name": "MsiRecordDataSize",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiRecordDataSize",
                 "type": "UINT"
             },
+            "name": "MsiRecordDataSize",
             "arguments": [
                 {
                     "name": "hRecord",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1793,7 +3507,6 @@
                 },
                 {
                     "name": "iField",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
@@ -1805,15 +3518,15 @@
             ]
         },
         {
-            "name": "MsiRecordSetInteger",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiRecordSetInteger",
                 "type": "UINT"
             },
+            "name": "MsiRecordSetInteger",
             "arguments": [
                 {
                     "name": "hRecord",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1821,7 +3534,6 @@
                 },
                 {
                     "name": "iField",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
@@ -1829,7 +3541,6 @@
                 },
                 {
                     "name": "iValue",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -1842,15 +3553,15 @@
             ]
         },
         {
-            "name": "MsiRecordSetStringA",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiRecordSetStringA",
                 "type": "UINT"
             },
+            "name": "MsiRecordSetStringA",
             "arguments": [
                 {
                     "name": "hRecord",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1858,7 +3569,6 @@
                 },
                 {
                     "name": "iField",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
@@ -1866,7 +3576,6 @@
                 },
                 {
                     "name": "szValue",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -1879,15 +3588,15 @@
             ]
         },
         {
-            "name": "MsiRecordSetStringW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiRecordSetStringW",
                 "type": "UINT"
             },
+            "name": "MsiRecordSetStringW",
             "arguments": [
                 {
                     "name": "hRecord",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1895,7 +3604,6 @@
                 },
                 {
                     "name": "iField",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
@@ -1903,7 +3611,6 @@
                 },
                 {
                     "name": "szValue",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -1916,15 +3623,15 @@
             ]
         },
         {
-            "name": "MsiRecordGetInteger",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiRecordGetInteger",
                 "type": "int"
             },
+            "name": "MsiRecordGetInteger",
             "arguments": [
                 {
                     "name": "hRecord",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1932,7 +3639,6 @@
                 },
                 {
                     "name": "iField",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
@@ -1945,15 +3651,15 @@
             ]
         },
         {
-            "name": "MsiRecordGetStringA",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiRecordGetStringA",
                 "type": "UINT"
             },
+            "name": "MsiRecordGetStringA",
             "arguments": [
                 {
                     "name": "hRecord",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -1961,7 +3667,6 @@
                 },
                 {
                     "name": "iField",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
@@ -1969,7 +3674,6 @@
                 },
                 {
                     "name": "szValueBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPSTR",
                     "sal": [
                         "out"
@@ -1977,7 +3681,6 @@
                 },
                 {
                     "name": "pcchValueBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -1991,15 +3694,15 @@
             ]
         },
         {
-            "name": "MsiRecordGetStringW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiRecordGetStringW",
                 "type": "UINT"
             },
+            "name": "MsiRecordGetStringW",
             "arguments": [
                 {
                     "name": "hRecord",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2007,7 +3710,6 @@
                 },
                 {
                     "name": "iField",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
@@ -2015,7 +3717,6 @@
                 },
                 {
                     "name": "szValueBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "out"
@@ -2023,7 +3724,6 @@
                 },
                 {
                     "name": "pcchValueBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -2037,15 +3737,15 @@
             ]
         },
         {
-            "name": "MsiRecordGetFieldCount",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiRecordGetFieldCount",
                 "type": "UINT"
             },
+            "name": "MsiRecordGetFieldCount",
             "arguments": [
                 {
                     "name": "hRecord",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2058,15 +3758,15 @@
             ]
         },
         {
-            "name": "MsiRecordSetStreamA",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiRecordSetStreamA",
                 "type": "UINT"
             },
+            "name": "MsiRecordSetStreamA",
             "arguments": [
                 {
                     "name": "hRecord",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2074,7 +3774,6 @@
                 },
                 {
                     "name": "iField",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
@@ -2082,7 +3781,6 @@
                 },
                 {
                     "name": "szFilePath",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -2094,15 +3792,15 @@
             ]
         },
         {
-            "name": "MsiRecordSetStreamW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiRecordSetStreamW",
                 "type": "UINT"
             },
+            "name": "MsiRecordSetStreamW",
             "arguments": [
                 {
                     "name": "hRecord",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2110,7 +3808,6 @@
                 },
                 {
                     "name": "iField",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
@@ -2118,7 +3815,6 @@
                 },
                 {
                     "name": "szFilePath",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -2130,15 +3826,15 @@
             ]
         },
         {
-            "name": "MsiRecordReadStream",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiRecordReadStream",
                 "type": "UINT"
             },
+            "name": "MsiRecordReadStream",
             "arguments": [
                 {
                     "name": "hRecord",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2146,26 +3842,22 @@
                 },
                 {
                     "name": "iField",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "szDataBuf",
                         "type": "char"
                     },
-                    "name": "szDataBuf",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "name": "pcbDataBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -2178,15 +3870,15 @@
             ]
         },
         {
-            "name": "MsiRecordClearData",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiRecordClearData",
                 "type": "UINT"
             },
+            "name": "MsiRecordClearData",
             "arguments": [
                 {
                     "name": "hRecord",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2198,15 +3890,15 @@
             ]
         },
         {
-            "name": "MsiGetActiveDatabase",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiGetActiveDatabase",
                 "type": "MSIHANDLE"
             },
+            "name": "MsiGetActiveDatabase",
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2218,15 +3910,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiSetPropertyA",
+                "type": "UINT"
+            },
             "name": "MsiSetPropertyA",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2234,7 +3926,6 @@
                 },
                 {
                     "name": "szName",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -2242,7 +3933,6 @@
                 },
                 {
                     "name": "szValue",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -2254,15 +3944,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiSetPropertyW",
+                "type": "UINT"
+            },
             "name": "MsiSetPropertyW",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2270,7 +3960,6 @@
                 },
                 {
                     "name": "szName",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -2278,7 +3967,6 @@
                 },
                 {
                     "name": "szValue",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -2290,15 +3978,15 @@
             ]
         },
         {
-            "name": "MsiGetPropertyA",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiGetPropertyA",
                 "type": "UINT"
             },
+            "name": "MsiGetPropertyA",
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2306,7 +3994,6 @@
                 },
                 {
                     "name": "szName",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -2314,7 +4001,6 @@
                 },
                 {
                     "name": "szValueBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPSTR",
                     "sal": [
                         "out"
@@ -2322,7 +4008,6 @@
                 },
                 {
                     "name": "pcchValueBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -2335,15 +4020,15 @@
             ]
         },
         {
-            "name": "MsiGetPropertyW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiGetPropertyW",
                 "type": "UINT"
             },
+            "name": "MsiGetPropertyW",
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2351,7 +4036,6 @@
                 },
                 {
                     "name": "szName",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -2359,7 +4043,6 @@
                 },
                 {
                     "name": "szValueBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "out"
@@ -2367,7 +4050,6 @@
                 },
                 {
                     "name": "pcchValueBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -2380,15 +4062,15 @@
             ]
         },
         {
-            "name": "MsiGetLanguage",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiGetLanguage",
                 "type": "LANGID"
             },
+            "name": "MsiGetLanguage",
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2400,15 +4082,15 @@
             ]
         },
         {
-            "name": "MsiGetMode",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiGetMode",
                 "type": "BOOL"
             },
+            "name": "MsiGetMode",
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2416,7 +4098,6 @@
                 },
                 {
                     "name": "eRunMode",
-                    "data_type": "TypeDecl",
                     "type": "MSIRUNMODE",
                     "sal": [
                         "in"
@@ -2428,15 +4109,15 @@
             ]
         },
         {
-            "name": "MsiSetMode",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiSetMode",
                 "type": "UINT"
             },
+            "name": "MsiSetMode",
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2444,7 +4125,6 @@
                 },
                 {
                     "name": "eRunMode",
-                    "data_type": "TypeDecl",
                     "type": "MSIRUNMODE",
                     "sal": [
                         "in"
@@ -2452,7 +4132,6 @@
                 },
                 {
                     "name": "fState",
-                    "data_type": "TypeDecl",
                     "type": "BOOL",
                     "sal": [
                         "in"
@@ -2464,15 +4143,15 @@
             ]
         },
         {
-            "name": "MsiFormatRecordA",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiFormatRecordA",
                 "type": "UINT"
             },
+            "name": "MsiFormatRecordA",
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2480,7 +4159,6 @@
                 },
                 {
                     "name": "hRecord",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2488,7 +4166,6 @@
                 },
                 {
                     "name": "szResultBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPSTR",
                     "sal": [
                         "out"
@@ -2496,7 +4173,6 @@
                 },
                 {
                     "name": "pcchResultBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -2510,15 +4186,15 @@
             ]
         },
         {
-            "name": "MsiFormatRecordW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiFormatRecordW",
                 "type": "UINT"
             },
+            "name": "MsiFormatRecordW",
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2526,7 +4202,6 @@
                 },
                 {
                     "name": "hRecord",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2534,7 +4209,6 @@
                 },
                 {
                     "name": "szResultBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "out"
@@ -2542,7 +4216,6 @@
                 },
                 {
                     "name": "pcchResultBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -2556,15 +4229,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiDoActionA",
+                "type": "UINT"
+            },
             "name": "MsiDoActionA",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2572,7 +4245,6 @@
                 },
                 {
                     "name": "szAction",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -2584,15 +4256,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiDoActionW",
+                "type": "UINT"
+            },
             "name": "MsiDoActionW",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2600,7 +4272,6 @@
                 },
                 {
                     "name": "szAction",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -2612,15 +4283,15 @@
             ]
         },
         {
-            "name": "MsiSequenceA",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiSequenceA",
                 "type": "UINT"
             },
+            "name": "MsiSequenceA",
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2628,7 +4299,6 @@
                 },
                 {
                     "name": "szTable",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -2636,7 +4306,6 @@
                 },
                 {
                     "name": "iSequenceMode",
-                    "data_type": "TypeDecl",
                     "type": "INT",
                     "sal": [
                         "in"
@@ -2648,15 +4317,15 @@
             ]
         },
         {
-            "name": "MsiSequenceW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiSequenceW",
                 "type": "UINT"
             },
+            "name": "MsiSequenceW",
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2664,7 +4333,6 @@
                 },
                 {
                     "name": "szTable",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -2672,7 +4340,6 @@
                 },
                 {
                     "name": "iSequenceMode",
-                    "data_type": "TypeDecl",
                     "type": "INT",
                     "sal": [
                         "in"
@@ -2684,15 +4351,15 @@
             ]
         },
         {
-            "name": "MsiProcessMessage",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiProcessMessage",
                 "type": "int"
             },
+            "name": "MsiProcessMessage",
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2700,7 +4367,6 @@
                 },
                 {
                     "name": "eMessageType",
-                    "data_type": "TypeDecl",
                     "type": "INSTALLMESSAGE",
                     "sal": [
                         "in"
@@ -2708,7 +4374,6 @@
                 },
                 {
                     "name": "hRecord",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2720,15 +4385,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiEvaluateConditionA",
+                "type": "MSICONDITION"
+            },
             "name": "MsiEvaluateConditionA",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "MSICONDITION"
-            },
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2736,7 +4401,6 @@
                 },
                 {
                     "name": "szCondition",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -2748,15 +4412,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiEvaluateConditionW",
+                "type": "MSICONDITION"
+            },
             "name": "MsiEvaluateConditionW",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "MSICONDITION"
-            },
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2764,7 +4428,6 @@
                 },
                 {
                     "name": "szCondition",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -2776,15 +4439,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiGetFeatureStateA",
+                "type": "UINT"
+            },
             "name": "MsiGetFeatureStateA",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2792,30 +4455,25 @@
                 },
                 {
                     "name": "szFeature",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piInstalled",
                         "type": "INSTALLSTATE"
                     },
-                    "name": "piInstalled",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piAction",
                         "type": "INSTALLSTATE"
                     },
-                    "name": "piAction",
                     "sal": [
                         "out"
                     ]
@@ -2826,15 +4484,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiGetFeatureStateW",
+                "type": "UINT"
+            },
             "name": "MsiGetFeatureStateW",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2842,30 +4500,25 @@
                 },
                 {
                     "name": "szFeature",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piInstalled",
                         "type": "INSTALLSTATE"
                     },
-                    "name": "piInstalled",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piAction",
                         "type": "INSTALLSTATE"
                     },
-                    "name": "piAction",
                     "sal": [
                         "out"
                     ]
@@ -2876,15 +4529,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiSetFeatureStateA",
+                "type": "UINT"
+            },
             "name": "MsiSetFeatureStateA",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2892,7 +4545,6 @@
                 },
                 {
                     "name": "szFeature",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -2900,7 +4552,6 @@
                 },
                 {
                     "name": "iState",
-                    "data_type": "TypeDecl",
                     "type": "INSTALLSTATE",
                     "sal": [
                         "in"
@@ -2912,15 +4563,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiSetFeatureStateW",
+                "type": "UINT"
+            },
             "name": "MsiSetFeatureStateW",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2928,7 +4579,6 @@
                 },
                 {
                     "name": "szFeature",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -2936,7 +4586,6 @@
                 },
                 {
                     "name": "iState",
-                    "data_type": "TypeDecl",
                     "type": "INSTALLSTATE",
                     "sal": [
                         "in"
@@ -2948,15 +4597,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiSetFeatureAttributesA",
+                "type": "UINT"
+            },
             "name": "MsiSetFeatureAttributesA",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -2964,7 +4613,6 @@
                 },
                 {
                     "name": "szFeature",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -2972,7 +4620,6 @@
                 },
                 {
                     "name": "dwAttributes",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -2984,15 +4631,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiSetFeatureAttributesW",
+                "type": "UINT"
+            },
             "name": "MsiSetFeatureAttributesW",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -3000,7 +4647,6 @@
                 },
                 {
                     "name": "szFeature",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -3008,7 +4654,6 @@
                 },
                 {
                     "name": "dwAttributes",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -3020,15 +4665,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiGetComponentStateA",
+                "type": "UINT"
+            },
             "name": "MsiGetComponentStateA",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -3036,30 +4681,25 @@
                 },
                 {
                     "name": "szComponent",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piInstalled",
                         "type": "INSTALLSTATE"
                     },
-                    "name": "piInstalled",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piAction",
                         "type": "INSTALLSTATE"
                     },
-                    "name": "piAction",
                     "sal": [
                         "out"
                     ]
@@ -3070,15 +4710,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiGetComponentStateW",
+                "type": "UINT"
+            },
             "name": "MsiGetComponentStateW",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -3086,30 +4726,25 @@
                 },
                 {
                     "name": "szComponent",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piInstalled",
                         "type": "INSTALLSTATE"
                     },
-                    "name": "piInstalled",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piAction",
                         "type": "INSTALLSTATE"
                     },
-                    "name": "piAction",
                     "sal": [
                         "out"
                     ]
@@ -3120,15 +4755,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiSetComponentStateA",
+                "type": "UINT"
+            },
             "name": "MsiSetComponentStateA",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -3136,7 +4771,6 @@
                 },
                 {
                     "name": "szComponent",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -3144,7 +4778,6 @@
                 },
                 {
                     "name": "iState",
-                    "data_type": "TypeDecl",
                     "type": "INSTALLSTATE",
                     "sal": [
                         "in"
@@ -3156,15 +4789,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiSetComponentStateW",
+                "type": "UINT"
+            },
             "name": "MsiSetComponentStateW",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -3172,7 +4805,6 @@
                 },
                 {
                     "name": "szComponent",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -3180,7 +4812,6 @@
                 },
                 {
                     "name": "iState",
-                    "data_type": "TypeDecl",
                     "type": "INSTALLSTATE",
                     "sal": [
                         "in"
@@ -3192,15 +4823,15 @@
             ]
         },
         {
-            "name": "MsiGetFeatureCostA",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiGetFeatureCostA",
                 "type": "UINT"
             },
+            "name": "MsiGetFeatureCostA",
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -3208,7 +4839,6 @@
                 },
                 {
                     "name": "szFeature",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -3216,7 +4846,6 @@
                 },
                 {
                     "name": "iCostTree",
-                    "data_type": "TypeDecl",
                     "type": "MSICOSTTREE",
                     "sal": [
                         "in"
@@ -3224,7 +4853,6 @@
                 },
                 {
                     "name": "iState",
-                    "data_type": "TypeDecl",
                     "type": "INSTALLSTATE",
                     "sal": [
                         "in"
@@ -3232,7 +4860,6 @@
                 },
                 {
                     "name": "piCost",
-                    "data_type": "TypeDecl",
                     "type": "LPINT",
                     "sal": [
                         "out"
@@ -3244,15 +4871,15 @@
             ]
         },
         {
-            "name": "MsiGetFeatureCostW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiGetFeatureCostW",
                 "type": "UINT"
             },
+            "name": "MsiGetFeatureCostW",
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -3260,7 +4887,6 @@
                 },
                 {
                     "name": "szFeature",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -3268,7 +4894,6 @@
                 },
                 {
                     "name": "iCostTree",
-                    "data_type": "TypeDecl",
                     "type": "MSICOSTTREE",
                     "sal": [
                         "in"
@@ -3276,7 +4901,6 @@
                 },
                 {
                     "name": "iState",
-                    "data_type": "TypeDecl",
                     "type": "INSTALLSTATE",
                     "sal": [
                         "in"
@@ -3284,7 +4908,6 @@
                 },
                 {
                     "name": "piCost",
-                    "data_type": "TypeDecl",
                     "type": "LPINT",
                     "sal": [
                         "out"
@@ -3296,15 +4919,15 @@
             ]
         },
         {
-            "name": "MsiEnumComponentCostsA",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiEnumComponentCostsA",
                 "type": "UINT"
             },
+            "name": "MsiEnumComponentCostsA",
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -3312,7 +4935,6 @@
                 },
                 {
                     "name": "szComponent",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -3320,7 +4942,6 @@
                 },
                 {
                     "name": "dwIndex",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -3328,7 +4949,6 @@
                 },
                 {
                     "name": "iState",
-                    "data_type": "TypeDecl",
                     "type": "INSTALLSTATE",
                     "sal": [
                         "in"
@@ -3336,7 +4956,6 @@
                 },
                 {
                     "name": "szDriveBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPSTR",
                     "sal": [
                         "out"
@@ -3344,7 +4963,6 @@
                 },
                 {
                     "name": "pcchDriveBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -3353,7 +4971,6 @@
                 },
                 {
                     "name": "piCost",
-                    "data_type": "TypeDecl",
                     "type": "LPINT",
                     "sal": [
                         "out"
@@ -3361,7 +4978,6 @@
                 },
                 {
                     "name": "piTempCost",
-                    "data_type": "TypeDecl",
                     "type": "LPINT",
                     "sal": [
                         "out"
@@ -3373,15 +4989,15 @@
             ]
         },
         {
-            "name": "MsiEnumComponentCostsW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiEnumComponentCostsW",
                 "type": "UINT"
             },
+            "name": "MsiEnumComponentCostsW",
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -3389,7 +5005,6 @@
                 },
                 {
                     "name": "szComponent",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -3397,7 +5012,6 @@
                 },
                 {
                     "name": "dwIndex",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -3405,7 +5019,6 @@
                 },
                 {
                     "name": "iState",
-                    "data_type": "TypeDecl",
                     "type": "INSTALLSTATE",
                     "sal": [
                         "in"
@@ -3413,7 +5026,6 @@
                 },
                 {
                     "name": "szDriveBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "out"
@@ -3421,7 +5033,6 @@
                 },
                 {
                     "name": "pcchDriveBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -3430,7 +5041,6 @@
                 },
                 {
                     "name": "piCost",
-                    "data_type": "TypeDecl",
                     "type": "LPINT",
                     "sal": [
                         "out"
@@ -3438,7 +5048,6 @@
                 },
                 {
                     "name": "piTempCost",
-                    "data_type": "TypeDecl",
                     "type": "LPINT",
                     "sal": [
                         "out"
@@ -3450,15 +5059,15 @@
             ]
         },
         {
-            "name": "MsiSetInstallLevel",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiSetInstallLevel",
                 "type": "UINT"
             },
+            "name": "MsiSetInstallLevel",
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -3466,7 +5075,6 @@
                 },
                 {
                     "name": "iInstallLevel",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -3478,15 +5086,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiGetFeatureValidStatesA",
+                "type": "UINT"
+            },
             "name": "MsiGetFeatureValidStatesA",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -3494,7 +5102,6 @@
                 },
                 {
                     "name": "szFeature",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -3502,7 +5109,6 @@
                 },
                 {
                     "name": "lpInstallStates",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "out"
@@ -3514,15 +5120,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiGetFeatureValidStatesW",
+                "type": "UINT"
+            },
             "name": "MsiGetFeatureValidStatesW",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -3530,7 +5136,6 @@
                 },
                 {
                     "name": "szFeature",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -3538,7 +5143,6 @@
                 },
                 {
                     "name": "lpInstallStates",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "out"
@@ -3550,15 +5154,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiGetSourcePathA",
+                "type": "UINT"
+            },
             "name": "MsiGetSourcePathA",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -3566,7 +5170,6 @@
                 },
                 {
                     "name": "szFolder",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -3574,7 +5177,6 @@
                 },
                 {
                     "name": "szPathBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPSTR",
                     "sal": [
                         "out"
@@ -3582,7 +5184,6 @@
                 },
                 {
                     "name": "pcchPathBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -3595,15 +5196,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiGetSourcePathW",
+                "type": "UINT"
+            },
             "name": "MsiGetSourcePathW",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -3611,7 +5212,6 @@
                 },
                 {
                     "name": "szFolder",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -3619,7 +5219,6 @@
                 },
                 {
                     "name": "szPathBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "out"
@@ -3627,7 +5226,6 @@
                 },
                 {
                     "name": "pcchPathBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -3640,15 +5238,15 @@
             ]
         },
         {
-            "name": "MsiGetTargetPathA",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiGetTargetPathA",
                 "type": "UINT"
             },
+            "name": "MsiGetTargetPathA",
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -3656,7 +5254,6 @@
                 },
                 {
                     "name": "szFolder",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -3664,7 +5261,6 @@
                 },
                 {
                     "name": "szPathBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPSTR",
                     "sal": [
                         "out"
@@ -3672,7 +5268,6 @@
                 },
                 {
                     "name": "pcchPathBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -3685,15 +5280,15 @@
             ]
         },
         {
-            "name": "MsiGetTargetPathW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiGetTargetPathW",
                 "type": "UINT"
             },
+            "name": "MsiGetTargetPathW",
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -3701,7 +5296,6 @@
                 },
                 {
                     "name": "szFolder",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -3709,7 +5303,6 @@
                 },
                 {
                     "name": "szPathBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "out"
@@ -3717,7 +5310,6 @@
                 },
                 {
                     "name": "pcchPathBuf",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -3730,15 +5322,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiSetTargetPathA",
+                "type": "UINT"
+            },
             "name": "MsiSetTargetPathA",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -3746,7 +5338,6 @@
                 },
                 {
                     "name": "szFolder",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -3754,7 +5345,6 @@
                 },
                 {
                     "name": "szFolderPath",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -3766,15 +5356,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiSetTargetPathW",
+                "type": "UINT"
+            },
             "name": "MsiSetTargetPathW",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -3782,7 +5372,6 @@
                 },
                 {
                     "name": "szFolder",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -3790,7 +5379,6 @@
                 },
                 {
                     "name": "szFolderPath",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -3802,15 +5390,15 @@
             ]
         },
         {
-            "name": "MsiVerifyDiskSpace",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiVerifyDiskSpace",
                 "type": "UINT"
             },
+            "name": "MsiVerifyDiskSpace",
             "arguments": [
                 {
                     "name": "hInstall",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -3822,27 +5410,25 @@
             ]
         },
         {
-            "name": "MsiEnableUIPreview",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiEnableUIPreview",
                 "type": "UINT"
             },
+            "name": "MsiEnableUIPreview",
             "arguments": [
                 {
                     "name": "hDatabase",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "phPreview",
                         "type": "MSIHANDLE"
                     },
-                    "name": "phPreview",
                     "sal": [
                         "out"
                     ]
@@ -3853,15 +5439,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiPreviewDialogA",
+                "type": "UINT"
+            },
             "name": "MsiPreviewDialogA",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hPreview",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -3869,7 +5455,6 @@
                 },
                 {
                     "name": "szDialogName",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -3881,15 +5466,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiPreviewDialogW",
+                "type": "UINT"
+            },
             "name": "MsiPreviewDialogW",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hPreview",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -3897,7 +5482,6 @@
                 },
                 {
                     "name": "szDialogName",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -3909,15 +5493,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiPreviewBillboardA",
+                "type": "UINT"
+            },
             "name": "MsiPreviewBillboardA",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hPreview",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -3925,7 +5509,6 @@
                 },
                 {
                     "name": "szControlName",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -3933,7 +5516,6 @@
                 },
                 {
                     "name": "szBillboard",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -3945,15 +5527,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MsiPreviewBillboardW",
+                "type": "UINT"
+            },
             "name": "MsiPreviewBillboardW",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "UINT"
-            },
             "arguments": [
                 {
                     "name": "hPreview",
-                    "data_type": "TypeDecl",
                     "type": "MSIHANDLE",
                     "sal": [
                         "in"
@@ -3961,7 +5543,6 @@
                 },
                 {
                     "name": "szControlName",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -3969,7 +5550,6 @@
                 },
                 {
                     "name": "szBillboard",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -3981,11 +5561,12 @@
             ]
         },
         {
-            "name": "MsiGetLastErrorRecord",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MsiGetLastErrorRecord",
                 "type": "MSIHANDLE"
             },
+            "name": "MsiGetLastErrorRecord",
             "arguments": [],
             "api_locations": [
                 "Msi.dll"

@@ -1,132 +1,444 @@
 {
     "typedefs": [
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "void"
-            },
-            "name": "SCRIPT_CACHE"
+            "name": "SCRIPT_CACHE",
+            "type": "void",
+            "data_type": "Ptr"
         },
         {
             "name": "SCRIPT_CONTROL",
-            "type": "tag_SCRIPT_CONTROL",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "tag_SCRIPT_CONTROL",
+                "elements": [
+                    {
+                        "name": "uDefaultLanguage",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "fContextDigits",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "fInvertPreBoundDir",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "fInvertPostBoundDir",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "fLinkStringBefore",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "fLinkStringAfter",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "fNeutralOverride",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "fNumericOverride",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "fLegacyBidiClass",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "fMergeNeutralItems",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "fUseStandardBidi",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "fReserved",
+                        "type": "DWORD"
+                    }
+                ]
+            }
         },
         {
             "name": "SCRIPT_STATE",
-            "type": "tag_SCRIPT_STATE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "tag_SCRIPT_STATE",
+                "elements": [
+                    {
+                        "name": "uBidiLevel",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "fOverrideDirection",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "fInhibitSymSwap",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "fCharShape",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "fDigitSubstitute",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "fInhibitLigate",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "fDisplayZWG",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "fArabicNumContext",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "fGcpClusters",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "fReserved",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "fEngineReserved",
+                        "type": "WORD"
+                    }
+                ]
+            }
         },
         {
             "name": "SCRIPT_ANALYSIS",
-            "type": "tag_SCRIPT_ANALYSIS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "tag_SCRIPT_ANALYSIS",
+                "elements": [
+                    {
+                        "name": "eScript",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "fRTL",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "fLayoutRTL",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "fLinkBefore",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "fLinkAfter",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "fLogicalOrder",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "fNoGlyphIndex",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "s",
+                        "type": "SCRIPT_STATE"
+                    }
+                ]
+            }
         },
         {
             "name": "SCRIPT_ITEM",
-            "type": "tag_SCRIPT_ITEM",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "tag_SCRIPT_ITEM",
+                "elements": [
+                    {
+                        "name": "iCharPos",
+                        "type": "int"
+                    },
+                    {
+                        "name": "a",
+                        "type": "SCRIPT_ANALYSIS"
+                    }
+                ]
+            }
         },
         {
             "name": "SCRIPT_JUSTIFY",
-            "type": "tag_SCRIPT_JUSTIFY",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "SCRIPT_JUSTIFY_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "SCRIPT_JUSTIFY_ARABIC_BLANK",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "SCRIPT_JUSTIFY_CHARACTER",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "SCRIPT_JUSTIFY_RESERVED1",
+                        "value": {
+                            "type": "int",
+                            "value": "3"
+                        }
+                    },
+                    {
+                        "name": "SCRIPT_JUSTIFY_BLANK",
+                        "value": {
+                            "type": "int",
+                            "value": "4"
+                        }
+                    },
+                    {
+                        "name": "SCRIPT_JUSTIFY_RESERVED2",
+                        "value": {
+                            "type": "int",
+                            "value": "5"
+                        }
+                    },
+                    {
+                        "name": "SCRIPT_JUSTIFY_RESERVED3",
+                        "value": {
+                            "type": "int",
+                            "value": "6"
+                        }
+                    },
+                    {
+                        "name": "SCRIPT_JUSTIFY_ARABIC_NORMAL",
+                        "value": {
+                            "type": "int",
+                            "value": "7"
+                        }
+                    },
+                    {
+                        "name": "SCRIPT_JUSTIFY_ARABIC_KASHIDA",
+                        "value": {
+                            "type": "int",
+                            "value": "8"
+                        }
+                    },
+                    {
+                        "name": "SCRIPT_JUSTIFY_ARABIC_ALEF",
+                        "value": {
+                            "type": "int",
+                            "value": "9"
+                        }
+                    },
+                    {
+                        "name": "SCRIPT_JUSTIFY_ARABIC_HA",
+                        "value": {
+                            "type": "int",
+                            "value": "10"
+                        }
+                    },
+                    {
+                        "name": "SCRIPT_JUSTIFY_ARABIC_RA",
+                        "value": {
+                            "type": "int",
+                            "value": "11"
+                        }
+                    },
+                    {
+                        "name": "SCRIPT_JUSTIFY_ARABIC_BA",
+                        "value": {
+                            "type": "int",
+                            "value": "12"
+                        }
+                    },
+                    {
+                        "name": "SCRIPT_JUSTIFY_ARABIC_BARA",
+                        "value": {
+                            "type": "int",
+                            "value": "13"
+                        }
+                    },
+                    {
+                        "name": "SCRIPT_JUSTIFY_ARABIC_SEEN",
+                        "value": {
+                            "type": "int",
+                            "value": "14"
+                        }
+                    },
+                    {
+                        "name": "SCRIPT_JUSTIFY_ARABIC_SEEN_M",
+                        "value": {
+                            "type": "int",
+                            "value": "15"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "SCRIPT_VISATTR",
-            "type": "tag_SCRIPT_VISATTR",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "tag_SCRIPT_VISATTR",
+                "elements": [
+                    {
+                        "name": "uJustification",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "fClusterStart",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "fDiacritic",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "fZeroWidth",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "fReserved",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "fShapeReserved",
+                        "type": "WORD"
+                    }
+                ]
+            }
         },
         {
             "name": "GOFFSET",
-            "type": "tagGOFFSET",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "tagGOFFSET",
+                "elements": [
+                    {
+                        "name": "du",
+                        "type": "LONG"
+                    },
+                    {
+                        "name": "dv",
+                        "type": "LONG"
+                    }
+                ]
+            }
         },
         {
             "name": "SCRIPT_LOGATTR",
-            "type": "tag_SCRIPT_LOGATTR",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "tag_SCRIPT_LOGATTR",
+                "elements": [
+                    {
+                        "name": "fSoftBreak",
+                        "type": "BYTE"
+                    },
+                    {
+                        "name": "fWhiteSpace",
+                        "type": "BYTE"
+                    },
+                    {
+                        "name": "fCharStop",
+                        "type": "BYTE"
+                    },
+                    {
+                        "name": "fWordStop",
+                        "type": "BYTE"
+                    },
+                    {
+                        "name": "fInvalid",
+                        "type": "BYTE"
+                    },
+                    {
+                        "name": "fReserved",
+                        "type": "BYTE"
+                    }
+                ]
+            }
         },
         {
             "name": "SCRIPT_PROPERTIES",
-            "data_type": "TypeDecl",
             "type": {
                 "data_type": "Struct",
                 "elements": [
                     {
                         "name": "langid",
-                        "data_type": "TypeDecl",
                         "type": "DWORD"
                     },
                     {
                         "name": "fNumeric",
-                        "data_type": "TypeDecl",
                         "type": "DWORD"
                     },
                     {
                         "name": "fComplex",
-                        "data_type": "TypeDecl",
                         "type": "DWORD"
                     },
                     {
                         "name": "fNeedsWordBreaking",
-                        "data_type": "TypeDecl",
                         "type": "DWORD"
                     },
                     {
                         "name": "fNeedsCaretInfo",
-                        "data_type": "TypeDecl",
                         "type": "DWORD"
                     },
                     {
                         "name": "bCharSet",
-                        "data_type": "TypeDecl",
                         "type": "DWORD"
                     },
                     {
                         "name": "fControl",
-                        "data_type": "TypeDecl",
                         "type": "DWORD"
                     },
                     {
                         "name": "fPrivateUseArea",
-                        "data_type": "TypeDecl",
                         "type": "DWORD"
                     },
                     {
                         "name": "fNeedsCharacterJustify",
-                        "data_type": "TypeDecl",
                         "type": "DWORD"
                     },
                     {
                         "name": "fInvalidGlyph",
-                        "data_type": "TypeDecl",
                         "type": "DWORD"
                     },
                     {
                         "name": "fInvalidLogAttr",
-                        "data_type": "TypeDecl",
                         "type": "DWORD"
                     },
                     {
                         "name": "fCDM",
-                        "data_type": "TypeDecl",
                         "type": "DWORD"
                     },
                     {
                         "name": "fAmbiguousCharSet",
-                        "data_type": "TypeDecl",
                         "type": "DWORD"
                     },
                     {
                         "name": "fClusterSizeVaries",
-                        "data_type": "TypeDecl",
                         "type": "DWORD"
                     },
                     {
                         "name": "fRejectInvalid",
-                        "data_type": "TypeDecl",
                         "type": "DWORD"
                     }
                 ]
@@ -134,38 +446,31 @@
         },
         {
             "name": "SCRIPT_FONTPROPERTIES",
-            "data_type": "TypeDecl",
             "type": {
                 "data_type": "Struct",
                 "elements": [
                     {
                         "name": "cBytes",
-                        "data_type": "TypeDecl",
                         "type": "int"
                     },
                     {
                         "name": "wgBlank",
-                        "data_type": "TypeDecl",
                         "type": "WORD"
                     },
                     {
                         "name": "wgDefault",
-                        "data_type": "TypeDecl",
                         "type": "WORD"
                     },
                     {
                         "name": "wgInvalid",
-                        "data_type": "TypeDecl",
                         "type": "WORD"
                     },
                     {
                         "name": "wgKashida",
-                        "data_type": "TypeDecl",
                         "type": "WORD"
                     },
                     {
                         "name": "iKashidaWidth",
-                        "data_type": "TypeDecl",
                         "type": "int"
                     }
                 ]
@@ -173,63 +478,148 @@
         },
         {
             "name": "SCRIPT_TABDEF",
-            "type": "tag_SCRIPT_TABDEF",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "tag_SCRIPT_TABDEF",
+                "elements": [
+                    {
+                        "name": "cTabStops",
+                        "type": "int"
+                    },
+                    {
+                        "name": "iScale",
+                        "type": "int"
+                    },
+                    {
+                        "name": "pTabStops",
+                        "type": "int",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "iTabOrigin",
+                        "type": "int"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "void"
-            },
-            "name": "SCRIPT_STRING_ANALYSIS"
+            "name": "SCRIPT_STRING_ANALYSIS",
+            "type": "void",
+            "data_type": "Ptr"
         },
         {
             "name": "SCRIPT_DIGITSUBSTITUTE",
-            "type": "tag_SCRIPT_DIGITSUBSTITUTE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "tag_SCRIPT_DIGITSUBSTITUTE",
+                "elements": [
+                    {
+                        "name": "NationalDigitLanguage",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "TraditionalDigitLanguage",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "DigitSubstitute",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwReserved",
+                        "type": "DWORD"
+                    }
+                ]
+            }
         },
         {
             "name": "OPENTYPE_TAG",
-            "data_type": "TypeDecl",
             "type": "ULONG"
         },
         {
             "name": "OPENTYPE_FEATURE_RECORD",
-            "type": "opentype_feature_record",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "opentype_feature_record",
+                "elements": [
+                    {
+                        "name": "tagFeature",
+                        "type": "OPENTYPE_TAG"
+                    },
+                    {
+                        "name": "lParameter",
+                        "type": "LONG"
+                    }
+                ]
+            }
         },
         {
             "name": "TEXTRANGE_PROPERTIES",
-            "type": "textrange_properties",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "textrange_properties",
+                "elements": [
+                    {
+                        "name": "potfRecords",
+                        "type": "OPENTYPE_FEATURE_RECORD",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "cotfRecords",
+                        "type": "int"
+                    }
+                ]
+            }
         },
         {
             "name": "SCRIPT_CHARPROP",
-            "type": "script_charprop",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "script_charprop",
+                "elements": [
+                    {
+                        "name": "fCanGlyphAlone",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "reserved",
+                        "type": "WORD"
+                    }
+                ]
+            }
         },
         {
             "name": "SCRIPT_GLYPHPROP",
-            "type": "script_glyphprop",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "script_glyphprop",
+                "elements": [
+                    {
+                        "name": "sva",
+                        "type": "SCRIPT_VISATTR"
+                    },
+                    {
+                        "name": "reserved",
+                        "type": "WORD"
+                    }
+                ]
+            }
         }
     ],
     "funcdefs": [
         {
-            "name": "ScriptFreeCache",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptFreeCache",
                 "type": "HRESULT"
             },
+            "name": "ScriptFreeCache",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psc",
                         "type": "SCRIPT_CACHE"
                     },
-                    "name": "psc",
                     "sal": [
                         "in",
                         "out"
@@ -244,26 +634,24 @@
             ]
         },
         {
-            "name": "ScriptItemize",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptItemize",
                 "type": "HRESULT"
             },
+            "name": "ScriptItemize",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwcInChars",
                         "type": "WCHAR"
                     },
-                    "name": "pwcInChars",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "cInChars",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -271,54 +659,45 @@
                 },
                 {
                     "name": "cMaxItems",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psControl",
                         "type": "SCRIPT_CONTROL"
                     },
-                    "name": "psControl",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psState",
                         "type": "SCRIPT_STATE"
                     },
-                    "name": "psState",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pItems",
                         "type": "SCRIPT_ITEM"
                     },
-                    "name": "pItems",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcItems",
                         "type": "int"
                     },
-                    "name": "pcItems",
                     "sal": [
                         "out"
                     ]
@@ -332,50 +711,44 @@
             ]
         },
         {
-            "name": "ScriptLayout",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptLayout",
                 "type": "HRESULT"
             },
+            "name": "ScriptLayout",
             "arguments": [
                 {
                     "name": "cRuns",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pbLevel",
                         "type": "BYTE"
                     },
-                    "name": "pbLevel",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piVisualToLogical",
                         "type": "int"
                     },
-                    "name": "piVisualToLogical",
                     "sal": [
                         "out",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piLogicalToVisual",
                         "type": "int"
                     },
-                    "name": "piLogicalToVisual",
                     "sal": [
                         "out",
                         "optional"
@@ -390,46 +763,41 @@
             ]
         },
         {
-            "name": "ScriptShape",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptShape",
                 "type": "HRESULT"
             },
+            "name": "ScriptShape",
             "arguments": [
                 {
                     "name": "hdc",
-                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psc",
                         "type": "SCRIPT_CACHE"
                     },
-                    "name": "psc",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwcChars",
                         "type": "WCHAR"
                     },
-                    "name": "pwcChars",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "cChars",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -437,64 +805,53 @@
                 },
                 {
                     "name": "cMaxGlyphs",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psa",
                         "type": "SCRIPT_ANALYSIS"
                     },
-                    "name": "psa",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwOutGlyphs",
                         "type": "WORD"
                     },
-                    "name": "pwOutGlyphs",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwLogClust",
                         "type": "WORD"
                     },
-                    "name": "pwLogClust",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psva",
                         "type": "SCRIPT_VISATTR"
                     },
-                    "name": "psva",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcGlyphs",
                         "type": "int"
                     },
-                    "name": "pcGlyphs",
                     "sal": [
                         "out"
                     ]
@@ -508,103 +865,88 @@
             ]
         },
         {
-            "name": "ScriptPlace",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptPlace",
                 "type": "HRESULT"
             },
+            "name": "ScriptPlace",
             "arguments": [
                 {
                     "name": "hdc",
-                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psc",
                         "type": "SCRIPT_CACHE"
                     },
-                    "name": "psc",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwGlyphs",
                         "type": "WORD"
                     },
-                    "name": "pwGlyphs",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "cGlyphs",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psva",
                         "type": "SCRIPT_VISATTR"
                     },
-                    "name": "psva",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psa",
                         "type": "SCRIPT_ANALYSIS"
                     },
-                    "name": "psa",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piAdvance",
                         "type": "int"
                     },
-                    "name": "piAdvance",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pGoffset",
                         "type": "GOFFSET"
                     },
-                    "name": "pGoffset",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pABC",
                         "type": "ABC"
                     },
-                    "name": "pABC",
                     "sal": [
                         "out"
                     ]
@@ -618,27 +960,25 @@
             ]
         },
         {
-            "name": "ScriptTextOut",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptTextOut",
                 "type": "HRESULT"
             },
+            "name": "ScriptTextOut",
             "arguments": [
                 {
                     "name": "hdc",
-                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psc",
                         "type": "SCRIPT_CACHE"
                     },
-                    "name": "psc",
                     "sal": [
                         "in",
                         "out"
@@ -646,7 +986,6 @@
                 },
                 {
                     "name": "x",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -654,7 +993,6 @@
                 },
                 {
                     "name": "y",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -662,103 +1000,86 @@
                 },
                 {
                     "name": "fuOptions",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "lprc",
                         "type": "RECT"
                     },
-                    "name": "lprc",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psa",
                         "type": "SCRIPT_ANALYSIS"
                     },
-                    "name": "psa",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwcReserved",
                         "type": "WCHAR"
                     },
-                    "name": "pwcReserved",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "iReserved",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwGlyphs",
                         "type": "WORD"
                     },
-                    "name": "pwGlyphs",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "cGlyphs",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piAdvance",
                         "type": "int"
                     },
-                    "name": "piAdvance",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piJustify",
                         "type": "int"
                     },
-                    "name": "piJustify",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pGoffset",
                         "type": "GOFFSET"
                     },
-                    "name": "pGoffset",
                     "sal": [
                         "in"
                     ]
@@ -772,37 +1093,33 @@
             ]
         },
         {
-            "name": "ScriptJustify",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptJustify",
                 "type": "HRESULT"
             },
+            "name": "ScriptJustify",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psva",
                         "type": "SCRIPT_VISATTR"
                     },
-                    "name": "psva",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piAdvance",
                         "type": "int"
                     },
-                    "name": "piAdvance",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "cGlyphs",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -810,7 +1127,6 @@
                 },
                 {
                     "name": "iDx",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -818,19 +1134,16 @@
                 },
                 {
                     "name": "iMinKashida",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piJustify",
                         "type": "int"
                     },
-                    "name": "piJustify",
                     "sal": [
                         "out"
                     ]
@@ -844,49 +1157,43 @@
             ]
         },
         {
-            "name": "ScriptBreak",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptBreak",
                 "type": "HRESULT"
             },
+            "name": "ScriptBreak",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwcChars",
                         "type": "WCHAR"
                     },
-                    "name": "pwcChars",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "cChars",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psa",
                         "type": "SCRIPT_ANALYSIS"
                     },
-                    "name": "psa",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psla",
                         "type": "SCRIPT_LOGATTR"
                     },
-                    "name": "psla",
                     "sal": [
                         "out"
                     ]
@@ -900,15 +1207,15 @@
             ]
         },
         {
-            "name": "ScriptCPtoX",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptCPtoX",
                 "type": "HRESULT"
             },
+            "name": "ScriptCPtoX",
             "arguments": [
                 {
                     "name": "iCP",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -916,7 +1223,6 @@
                 },
                 {
                     "name": "fTrailing",
-                    "data_type": "TypeDecl",
                     "type": "BOOL",
                     "sal": [
                         "in"
@@ -924,7 +1230,6 @@
                 },
                 {
                     "name": "cChars",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -932,63 +1237,52 @@
                 },
                 {
                     "name": "cGlyphs",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwLogClust",
                         "type": "WORD"
                     },
-                    "name": "pwLogClust",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psva",
                         "type": "SCRIPT_VISATTR"
                     },
-                    "name": "psva",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piAdvance",
                         "type": "int"
                     },
-                    "name": "piAdvance",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psa",
                         "type": "SCRIPT_ANALYSIS"
                     },
-                    "name": "psa",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piX",
                         "type": "int"
                     },
-                    "name": "piX",
                     "sal": [
                         "out"
                     ]
@@ -1002,15 +1296,15 @@
             ]
         },
         {
-            "name": "ScriptXtoCP",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptXtoCP",
                 "type": "HRESULT"
             },
+            "name": "ScriptXtoCP",
             "arguments": [
                 {
                     "name": "iX",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -1018,7 +1312,6 @@
                 },
                 {
                     "name": "cChars",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -1026,74 +1319,61 @@
                 },
                 {
                     "name": "cGlyphs",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwLogClust",
                         "type": "WORD"
                     },
-                    "name": "pwLogClust",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psva",
                         "type": "SCRIPT_VISATTR"
                     },
-                    "name": "psva",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piAdvance",
                         "type": "int"
                     },
-                    "name": "piAdvance",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psa",
                         "type": "SCRIPT_ANALYSIS"
                     },
-                    "name": "psa",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piCP",
                         "type": "int"
                     },
-                    "name": "piCP",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piTrailing",
                         "type": "int"
                     },
-                    "name": "piTrailing",
                     "sal": [
                         "out"
                     ]
@@ -1107,26 +1387,24 @@
             ]
         },
         {
-            "name": "ScriptGetLogicalWidths",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptGetLogicalWidths",
                 "type": "HRESULT"
             },
+            "name": "ScriptGetLogicalWidths",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psa",
                         "type": "SCRIPT_ANALYSIS"
                     },
-                    "name": "psa",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "cChars",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -1134,52 +1412,43 @@
                 },
                 {
                     "name": "cGlyphs",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piGlyphWidth",
                         "type": "int"
                     },
-                    "name": "piGlyphWidth",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwLogClust",
                         "type": "WORD"
                     },
-                    "name": "pwLogClust",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psva",
                         "type": "SCRIPT_VISATTR"
                     },
-                    "name": "psva",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piDx",
                         "type": "int"
                     },
-                    "name": "piDx",
                     "sal": [
                         "out"
                     ]
@@ -1193,26 +1462,24 @@
             ]
         },
         {
-            "name": "ScriptApplyLogicalWidth",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptApplyLogicalWidth",
                 "type": "HRESULT"
             },
+            "name": "ScriptApplyLogicalWidth",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piDx",
                         "type": "int"
                     },
-                    "name": "piDx",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "cChars",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -1220,63 +1487,52 @@
                 },
                 {
                     "name": "cGlyphs",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwLogClust",
                         "type": "WORD"
                     },
-                    "name": "pwLogClust",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psva",
                         "type": "SCRIPT_VISATTR"
                     },
-                    "name": "psva",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piAdvance",
                         "type": "int"
                     },
-                    "name": "piAdvance",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psa",
                         "type": "SCRIPT_ANALYSIS"
                     },
-                    "name": "psa",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pABC",
                         "type": "ABC"
                     },
-                    "name": "pABC",
                     "sal": [
                         "in",
                         "out",
@@ -1284,12 +1540,10 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piJustify",
                         "type": "int"
                     },
-                    "name": "piJustify",
                     "sal": [
                         "out"
                     ]
@@ -1303,46 +1557,41 @@
             ]
         },
         {
-            "name": "ScriptGetCMap",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptGetCMap",
                 "type": "HRESULT"
             },
+            "name": "ScriptGetCMap",
             "arguments": [
                 {
                     "name": "hdc",
-                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psc",
                         "type": "SCRIPT_CACHE"
                     },
-                    "name": "psc",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwcInChars",
                         "type": "WCHAR"
                     },
-                    "name": "pwcInChars",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "cChars",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -1350,19 +1599,16 @@
                 },
                 {
                     "name": "dwFlags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwOutGlyphs",
                         "type": "WORD"
                     },
-                    "name": "pwOutGlyphs",
                     "sal": [
                         "out"
                     ]
@@ -1376,27 +1622,25 @@
             ]
         },
         {
-            "name": "ScriptGetGlyphABCWidth",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptGetGlyphABCWidth",
                 "type": "HRESULT"
             },
+            "name": "ScriptGetGlyphABCWidth",
             "arguments": [
                 {
                     "name": "hdc",
-                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psc",
                         "type": "SCRIPT_CACHE"
                     },
-                    "name": "psc",
                     "sal": [
                         "in",
                         "out"
@@ -1404,19 +1648,16 @@
                 },
                 {
                     "name": "wGlyph",
-                    "data_type": "TypeDecl",
                     "type": "WORD",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pABC",
                         "type": "ABC"
                     },
-                    "name": "pABC",
                     "sal": [
                         "out"
                     ]
@@ -1430,36 +1671,28 @@
             ]
         },
         {
-            "name": "ScriptGetProperties",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptGetProperties",
                 "type": "HRESULT"
             },
+            "name": "ScriptGetProperties",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "PtrDecl",
-                            "type": {
-                                "data_type": "TypeDecl",
-                                "type": "SCRIPT_PROPERTIES"
-                            }
-                        }
+                        "name": "ppSp",
+                        "type": "SCRIPT_PROPERTIES",
+                        "data_type": "PtrPtr"
                     },
-                    "name": "ppSp",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piNumScripts",
                         "type": "int"
                     },
-                    "name": "piNumScripts",
                     "sal": [
                         "out"
                     ]
@@ -1473,39 +1706,35 @@
             ]
         },
         {
-            "name": "ScriptGetFontProperties",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptGetFontProperties",
                 "type": "HRESULT"
             },
+            "name": "ScriptGetFontProperties",
             "arguments": [
                 {
                     "name": "hdc",
-                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psc",
                         "type": "SCRIPT_CACHE"
                     },
-                    "name": "psc",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "sfp",
                         "type": "SCRIPT_FONTPROPERTIES"
                     },
-                    "name": "sfp",
                     "sal": [
                         "out"
                     ]
@@ -1519,39 +1748,35 @@
             ]
         },
         {
-            "name": "ScriptCacheGetHeight",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptCacheGetHeight",
                 "type": "HRESULT"
             },
+            "name": "ScriptCacheGetHeight",
             "arguments": [
                 {
                     "name": "hdc",
-                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psc",
                         "type": "SCRIPT_CACHE"
                     },
-                    "name": "psc",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "tmHeight",
                         "type": "long"
                     },
-                    "name": "tmHeight",
                     "sal": [
                         "out"
                     ]
@@ -1565,34 +1790,31 @@
             ]
         },
         {
-            "name": "ScriptStringAnalyse",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptStringAnalyse",
                 "type": "HRESULT"
             },
+            "name": "ScriptStringAnalyse",
             "arguments": [
                 {
                     "name": "hdc",
-                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pString",
                         "type": "void"
                     },
-                    "name": "pString",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "cString",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -1600,7 +1822,6 @@
                 },
                 {
                     "name": "cGlyphs",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -1608,7 +1829,6 @@
                 },
                 {
                     "name": "iCharset",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -1616,7 +1836,6 @@
                 },
                 {
                     "name": "dwFlags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1624,78 +1843,65 @@
                 },
                 {
                     "name": "iReqWidth",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psControl",
                         "type": "SCRIPT_CONTROL"
                     },
-                    "name": "psControl",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psState",
                         "type": "SCRIPT_STATE"
                     },
-                    "name": "psState",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piDx",
                         "type": "int"
                     },
-                    "name": "piDx",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pTabdef",
                         "type": "SCRIPT_TABDEF"
                     },
-                    "name": "pTabdef",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pbInClass",
                         "type": "BYTE"
                     },
-                    "name": "pbInClass",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pssa",
                         "type": "SCRIPT_STRING_ANALYSIS"
                     },
-                    "name": "pssa",
                     "sal": [
                         "out"
                     ]
@@ -1709,19 +1915,18 @@
             ]
         },
         {
-            "name": "ScriptStringFree",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptStringFree",
                 "type": "HRESULT"
             },
+            "name": "ScriptStringFree",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pssa",
                         "type": "SCRIPT_STRING_ANALYSIS"
                     },
-                    "name": "pssa",
                     "sal": [
                         "in",
                         "out"
@@ -1736,18 +1941,17 @@
             ]
         },
         {
-            "name": "ScriptString_pSize",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "PtrDecl",
                 "type": {
-                    "data_type": "TypeDecl",
+                    "name": "ScriptString_pSize",
                     "type": "SIZE"
                 }
             },
+            "name": "ScriptString_pSize",
             "arguments": [
                 {
                     "name": "ssa",
-                    "data_type": "TypeDecl",
                     "type": "SCRIPT_STRING_ANALYSIS",
                     "sal": [
                         "in"
@@ -1762,18 +1966,17 @@
             ]
         },
         {
-            "name": "ScriptString_pcOutChars",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "PtrDecl",
                 "type": {
-                    "data_type": "TypeDecl",
+                    "name": "ScriptString_pcOutChars",
                     "type": "int"
                 }
             },
+            "name": "ScriptString_pcOutChars",
             "arguments": [
                 {
                     "name": "ssa",
-                    "data_type": "TypeDecl",
                     "type": "SCRIPT_STRING_ANALYSIS",
                     "sal": [
                         "in"
@@ -1788,18 +1991,17 @@
             ]
         },
         {
-            "name": "ScriptString_pLogAttr",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "PtrDecl",
                 "type": {
-                    "data_type": "TypeDecl",
+                    "name": "ScriptString_pLogAttr",
                     "type": "SCRIPT_LOGATTR"
                 }
             },
+            "name": "ScriptString_pLogAttr",
             "arguments": [
                 {
                     "name": "ssa",
-                    "data_type": "TypeDecl",
                     "type": "SCRIPT_STRING_ANALYSIS",
                     "sal": [
                         "in"
@@ -1814,27 +2016,25 @@
             ]
         },
         {
-            "name": "ScriptStringGetOrder",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptStringGetOrder",
                 "type": "HRESULT"
             },
+            "name": "ScriptStringGetOrder",
             "arguments": [
                 {
                     "name": "ssa",
-                    "data_type": "TypeDecl",
                     "type": "SCRIPT_STRING_ANALYSIS",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "puOrder",
                         "type": "UINT"
                     },
-                    "name": "puOrder",
                     "sal": [
                         "out"
                     ]
@@ -1848,15 +2048,15 @@
             ]
         },
         {
-            "name": "ScriptStringCPtoX",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptStringCPtoX",
                 "type": "HRESULT"
             },
+            "name": "ScriptStringCPtoX",
             "arguments": [
                 {
                     "name": "ssa",
-                    "data_type": "TypeDecl",
                     "type": "SCRIPT_STRING_ANALYSIS",
                     "sal": [
                         "in"
@@ -1864,7 +2064,6 @@
                 },
                 {
                     "name": "icp",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -1872,19 +2071,16 @@
                 },
                 {
                     "name": "fTrailing",
-                    "data_type": "TypeDecl",
                     "type": "BOOL",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pX",
                         "type": "int"
                     },
-                    "name": "pX",
                     "sal": [
                         "out"
                     ]
@@ -1898,15 +2094,15 @@
             ]
         },
         {
-            "name": "ScriptStringXtoCP",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptStringXtoCP",
                 "type": "HRESULT"
             },
+            "name": "ScriptStringXtoCP",
             "arguments": [
                 {
                     "name": "ssa",
-                    "data_type": "TypeDecl",
                     "type": "SCRIPT_STRING_ANALYSIS",
                     "sal": [
                         "in"
@@ -1914,30 +2110,25 @@
                 },
                 {
                     "name": "iX",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piCh",
                         "type": "int"
                     },
-                    "name": "piCh",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piTrailing",
                         "type": "int"
                     },
-                    "name": "piTrailing",
                     "sal": [
                         "out"
                     ]
@@ -1951,27 +2142,25 @@
             ]
         },
         {
-            "name": "ScriptStringGetLogicalWidths",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptStringGetLogicalWidths",
                 "type": "HRESULT"
             },
+            "name": "ScriptStringGetLogicalWidths",
             "arguments": [
                 {
                     "name": "ssa",
-                    "data_type": "TypeDecl",
                     "type": "SCRIPT_STRING_ANALYSIS",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piDx",
                         "type": "int"
                     },
-                    "name": "piDx",
                     "sal": [
                         "out"
                     ]
@@ -1985,15 +2174,15 @@
             ]
         },
         {
-            "name": "ScriptStringValidate",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptStringValidate",
                 "type": "HRESULT"
             },
+            "name": "ScriptStringValidate",
             "arguments": [
                 {
                     "name": "ssa",
-                    "data_type": "TypeDecl",
                     "type": "SCRIPT_STRING_ANALYSIS",
                     "sal": [
                         "in"
@@ -2008,15 +2197,15 @@
             ]
         },
         {
-            "name": "ScriptStringOut",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptStringOut",
                 "type": "HRESULT"
             },
+            "name": "ScriptStringOut",
             "arguments": [
                 {
                     "name": "ssa",
-                    "data_type": "TypeDecl",
                     "type": "SCRIPT_STRING_ANALYSIS",
                     "sal": [
                         "in"
@@ -2024,7 +2213,6 @@
                 },
                 {
                     "name": "iX",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -2032,7 +2220,6 @@
                 },
                 {
                     "name": "iY",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -2040,19 +2227,16 @@
                 },
                 {
                     "name": "uOptions",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "prc",
                         "type": "RECT"
                     },
-                    "name": "prc",
                     "sal": [
                         "in",
                         "optional"
@@ -2060,7 +2244,6 @@
                 },
                 {
                     "name": "iMinSel",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -2068,7 +2251,6 @@
                 },
                 {
                     "name": "iMaxSel",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -2076,7 +2258,6 @@
                 },
                 {
                     "name": "fDisabled",
-                    "data_type": "TypeDecl",
                     "type": "BOOL",
                     "sal": [
                         "in"
@@ -2091,26 +2272,24 @@
             ]
         },
         {
-            "name": "ScriptIsComplex",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptIsComplex",
                 "type": "HRESULT"
             },
+            "name": "ScriptIsComplex",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwcInChars",
                         "type": "WCHAR"
                     },
-                    "name": "pwcInChars",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "cInChars",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -2118,7 +2297,6 @@
                 },
                 {
                     "name": "dwFlags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -2133,27 +2311,25 @@
             ]
         },
         {
-            "name": "ScriptRecordDigitSubstitution",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptRecordDigitSubstitution",
                 "type": "HRESULT"
             },
+            "name": "ScriptRecordDigitSubstitution",
             "arguments": [
                 {
                     "name": "Locale",
-                    "data_type": "TypeDecl",
                     "type": "LCID",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psds",
                         "type": "SCRIPT_DIGITSUBSTITUTE"
                     },
-                    "name": "psds",
                     "sal": [
                         "out"
                     ]
@@ -2167,41 +2343,36 @@
             ]
         },
         {
-            "name": "ScriptApplyDigitSubstitution",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptApplyDigitSubstitution",
                 "type": "HRESULT"
             },
+            "name": "ScriptApplyDigitSubstitution",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psds",
                         "type": "SCRIPT_DIGITSUBSTITUTE"
                     },
-                    "name": "psds",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psc",
                         "type": "SCRIPT_CONTROL"
                     },
-                    "name": "psc",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pss",
                         "type": "SCRIPT_STATE"
                     },
-                    "name": "pss",
                     "sal": [
                         "out"
                     ]
@@ -2215,15 +2386,15 @@
             ]
         },
         {
-            "name": "ScriptShapeOpenType",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptShapeOpenType",
                 "type": "HRESULT"
             },
+            "name": "ScriptShapeOpenType",
             "arguments": [
                 {
                     "name": "hdc",
-                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": [
                         "in",
@@ -2231,24 +2402,20 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psc",
                         "type": "SCRIPT_CACHE"
                     },
-                    "name": "psc",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psa",
                         "type": "SCRIPT_ANALYSIS"
                     },
-                    "name": "psa",
                     "sal": [
                         "in",
                         "out"
@@ -2256,7 +2423,6 @@
                 },
                 {
                     "name": "tagScript",
-                    "data_type": "TypeDecl",
                     "type": "OPENTYPE_TAG",
                     "sal": [
                         "in"
@@ -2264,34 +2430,27 @@
                 },
                 {
                     "name": "tagLangSys",
-                    "data_type": "TypeDecl",
                     "type": "OPENTYPE_TAG",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "rcRangeChars",
                         "type": "int"
                     },
-                    "name": "rcRangeChars",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "TEXTRANGE_PROPERTIES"
-                        }
+                        "name": "rpRangeProperties",
+                        "type": "TEXTRANGE_PROPERTIES",
+                        "data_type": "Ptr"
                     },
-                    "name": "rpRangeProperties",
                     "sal": [
                         "in",
                         "optional"
@@ -2299,26 +2458,22 @@
                 },
                 {
                     "name": "cRanges",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwcChars",
                         "type": "WCHAR"
                     },
-                    "name": "pwcChars",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "cChars",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -2326,63 +2481,52 @@
                 },
                 {
                     "name": "cMaxGlyphs",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwLogClust",
                         "type": "WORD"
                     },
-                    "name": "pwLogClust",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pCharProps",
                         "type": "SCRIPT_CHARPROP"
                     },
-                    "name": "pCharProps",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwOutGlyphs",
                         "type": "WORD"
                     },
-                    "name": "pwOutGlyphs",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pOutGlyphProps",
                         "type": "SCRIPT_GLYPHPROP"
                     },
-                    "name": "pOutGlyphProps",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcGlyphs",
                         "type": "int"
                     },
-                    "name": "pcGlyphs",
                     "sal": [
                         "out"
                     ]
@@ -2396,15 +2540,15 @@
             ]
         },
         {
-            "name": "ScriptPlaceOpenType",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptPlaceOpenType",
                 "type": "HRESULT"
             },
+            "name": "ScriptPlaceOpenType",
             "arguments": [
                 {
                     "name": "hdc",
-                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": [
                         "in",
@@ -2412,24 +2556,20 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psc",
                         "type": "SCRIPT_CACHE"
                     },
-                    "name": "psc",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psa",
                         "type": "SCRIPT_ANALYSIS"
                     },
-                    "name": "psa",
                     "sal": [
                         "in",
                         "out"
@@ -2437,7 +2577,6 @@
                 },
                 {
                     "name": "tagScript",
-                    "data_type": "TypeDecl",
                     "type": "OPENTYPE_TAG",
                     "sal": [
                         "in"
@@ -2445,34 +2584,27 @@
                 },
                 {
                     "name": "tagLangSys",
-                    "data_type": "TypeDecl",
                     "type": "OPENTYPE_TAG",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "rcRangeChars",
                         "type": "int"
                     },
-                    "name": "rcRangeChars",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "TEXTRANGE_PROPERTIES"
-                        }
+                        "name": "rpRangeProperties",
+                        "type": "TEXTRANGE_PROPERTIES",
+                        "data_type": "Ptr"
                     },
-                    "name": "rpRangeProperties",
                     "sal": [
                         "in",
                         "optional"
@@ -2480,112 +2612,93 @@
                 },
                 {
                     "name": "cRanges",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwcChars",
                         "type": "WCHAR"
                     },
-                    "name": "pwcChars",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwLogClust",
                         "type": "WORD"
                     },
-                    "name": "pwLogClust",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pCharProps",
                         "type": "SCRIPT_CHARPROP"
                     },
-                    "name": "pCharProps",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "cChars",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwGlyphs",
                         "type": "WORD"
                     },
-                    "name": "pwGlyphs",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pGlyphProps",
                         "type": "SCRIPT_GLYPHPROP"
                     },
-                    "name": "pGlyphProps",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "cGlyphs",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piAdvance",
                         "type": "int"
                     },
-                    "name": "piAdvance",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pGoffset",
                         "type": "GOFFSET"
                     },
-                    "name": "pGoffset",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pABC",
                         "type": "ABC"
                     },
-                    "name": "pABC",
                     "sal": [
                         "out",
                         "optional"
@@ -2600,26 +2713,24 @@
             ]
         },
         {
-            "name": "ScriptItemizeOpenType",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptItemizeOpenType",
                 "type": "HRESULT"
             },
+            "name": "ScriptItemizeOpenType",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwcInChars",
                         "type": "WCHAR"
                     },
-                    "name": "pwcInChars",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "cInChars",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -2627,65 +2738,54 @@
                 },
                 {
                     "name": "cMaxItems",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psControl",
                         "type": "SCRIPT_CONTROL"
                     },
-                    "name": "psControl",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psState",
                         "type": "SCRIPT_STATE"
                     },
-                    "name": "psState",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pItems",
                         "type": "SCRIPT_ITEM"
                     },
-                    "name": "pItems",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pScriptTags",
                         "type": "OPENTYPE_TAG"
                     },
-                    "name": "pScriptTags",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcItems",
                         "type": "int"
                     },
-                    "name": "pcItems",
                     "sal": [
                         "out"
                     ]
@@ -2699,15 +2799,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "ScriptGetFontScriptTags",
+                "type": "HRESULT"
+            },
             "name": "ScriptGetFontScriptTags",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "hdc",
-                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": [
                         "in",
@@ -2715,24 +2815,20 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psc",
                         "type": "SCRIPT_CACHE"
                     },
-                    "name": "psc",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psa",
                         "type": "SCRIPT_ANALYSIS"
                     },
-                    "name": "psa",
                     "sal": [
                         "in",
                         "optional"
@@ -2740,30 +2836,25 @@
                 },
                 {
                     "name": "cMaxTags",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pScriptTags",
                         "type": "OPENTYPE_TAG"
                     },
-                    "name": "pScriptTags",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcTags",
                         "type": "int"
                     },
-                    "name": "pcTags",
                     "sal": [
                         "out"
                     ]
@@ -2777,15 +2868,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "ScriptGetFontLanguageTags",
+                "type": "HRESULT"
+            },
             "name": "ScriptGetFontLanguageTags",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "hdc",
-                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": [
                         "in",
@@ -2793,24 +2884,20 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psc",
                         "type": "SCRIPT_CACHE"
                     },
-                    "name": "psc",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psa",
                         "type": "SCRIPT_ANALYSIS"
                     },
-                    "name": "psa",
                     "sal": [
                         "in",
                         "optional"
@@ -2818,7 +2905,6 @@
                 },
                 {
                     "name": "tagScript",
-                    "data_type": "TypeDecl",
                     "type": "OPENTYPE_TAG",
                     "sal": [
                         "in"
@@ -2826,30 +2912,25 @@
                 },
                 {
                     "name": "cMaxTags",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pLangsysTags",
                         "type": "OPENTYPE_TAG"
                     },
-                    "name": "pLangsysTags",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcTags",
                         "type": "int"
                     },
-                    "name": "pcTags",
                     "sal": [
                         "out"
                     ]
@@ -2863,15 +2944,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "ScriptGetFontFeatureTags",
+                "type": "HRESULT"
+            },
             "name": "ScriptGetFontFeatureTags",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "hdc",
-                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": [
                         "in",
@@ -2879,24 +2960,20 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psc",
                         "type": "SCRIPT_CACHE"
                     },
-                    "name": "psc",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psa",
                         "type": "SCRIPT_ANALYSIS"
                     },
-                    "name": "psa",
                     "sal": [
                         "in",
                         "optional"
@@ -2904,7 +2981,6 @@
                 },
                 {
                     "name": "tagScript",
-                    "data_type": "TypeDecl",
                     "type": "OPENTYPE_TAG",
                     "sal": [
                         "in"
@@ -2912,7 +2988,6 @@
                 },
                 {
                     "name": "tagLangSys",
-                    "data_type": "TypeDecl",
                     "type": "OPENTYPE_TAG",
                     "sal": [
                         "in"
@@ -2920,30 +2995,25 @@
                 },
                 {
                     "name": "cMaxTags",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pFeatureTags",
                         "type": "OPENTYPE_TAG"
                     },
-                    "name": "pFeatureTags",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcTags",
                         "type": "int"
                     },
-                    "name": "pcTags",
                     "sal": [
                         "out"
                     ]
@@ -2957,15 +3027,15 @@
             ]
         },
         {
-            "name": "ScriptGetFontAlternateGlyphs",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptGetFontAlternateGlyphs",
                 "type": "HRESULT"
             },
+            "name": "ScriptGetFontAlternateGlyphs",
             "arguments": [
                 {
                     "name": "hdc",
-                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": [
                         "in",
@@ -2973,24 +3043,20 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psc",
                         "type": "SCRIPT_CACHE"
                     },
-                    "name": "psc",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psa",
                         "type": "SCRIPT_ANALYSIS"
                     },
-                    "name": "psa",
                     "sal": [
                         "in",
                         "optional"
@@ -2998,7 +3064,6 @@
                 },
                 {
                     "name": "tagScript",
-                    "data_type": "TypeDecl",
                     "type": "OPENTYPE_TAG",
                     "sal": [
                         "in"
@@ -3006,7 +3071,6 @@
                 },
                 {
                     "name": "tagLangSys",
-                    "data_type": "TypeDecl",
                     "type": "OPENTYPE_TAG",
                     "sal": [
                         "in"
@@ -3014,7 +3078,6 @@
                 },
                 {
                     "name": "tagFeature",
-                    "data_type": "TypeDecl",
                     "type": "OPENTYPE_TAG",
                     "sal": [
                         "in"
@@ -3022,7 +3085,6 @@
                 },
                 {
                     "name": "wGlyphId",
-                    "data_type": "TypeDecl",
                     "type": "WORD",
                     "sal": [
                         "in"
@@ -3030,30 +3092,25 @@
                 },
                 {
                     "name": "cMaxAlternates",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pAlternateGlyphs",
                         "type": "WORD"
                     },
-                    "name": "pAlternateGlyphs",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcAlternates",
                         "type": "int"
                     },
-                    "name": "pcAlternates",
                     "sal": [
                         "out"
                     ]
@@ -3067,15 +3124,15 @@
             ]
         },
         {
-            "name": "ScriptSubstituteSingleGlyph",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptSubstituteSingleGlyph",
                 "type": "HRESULT"
             },
+            "name": "ScriptSubstituteSingleGlyph",
             "arguments": [
                 {
                     "name": "hdc",
-                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": [
                         "in",
@@ -3083,24 +3140,20 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psc",
                         "type": "SCRIPT_CACHE"
                     },
-                    "name": "psc",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psa",
                         "type": "SCRIPT_ANALYSIS"
                     },
-                    "name": "psa",
                     "sal": [
                         "in",
                         "optional"
@@ -3108,7 +3161,6 @@
                 },
                 {
                     "name": "tagScript",
-                    "data_type": "TypeDecl",
                     "type": "OPENTYPE_TAG",
                     "sal": [
                         "in"
@@ -3116,7 +3168,6 @@
                 },
                 {
                     "name": "tagLangSys",
-                    "data_type": "TypeDecl",
                     "type": "OPENTYPE_TAG",
                     "sal": [
                         "in"
@@ -3124,7 +3175,6 @@
                 },
                 {
                     "name": "tagFeature",
-                    "data_type": "TypeDecl",
                     "type": "OPENTYPE_TAG",
                     "sal": [
                         "in"
@@ -3132,7 +3182,6 @@
                 },
                 {
                     "name": "lParameter",
-                    "data_type": "TypeDecl",
                     "type": "LONG",
                     "sal": [
                         "in"
@@ -3140,19 +3189,16 @@
                 },
                 {
                     "name": "wGlyphId",
-                    "data_type": "TypeDecl",
                     "type": "WORD",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwOutGlyphId",
                         "type": "WORD"
                     },
-                    "name": "pwOutGlyphId",
                     "sal": [
                         "out"
                     ]
@@ -3166,15 +3212,15 @@
             ]
         },
         {
-            "name": "ScriptPositionSingleGlyph",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ScriptPositionSingleGlyph",
                 "type": "HRESULT"
             },
+            "name": "ScriptPositionSingleGlyph",
             "arguments": [
                 {
                     "name": "hdc",
-                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": [
                         "in",
@@ -3182,24 +3228,20 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psc",
                         "type": "SCRIPT_CACHE"
                     },
-                    "name": "psc",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "psa",
                         "type": "SCRIPT_ANALYSIS"
                     },
-                    "name": "psa",
                     "sal": [
                         "in",
                         "optional"
@@ -3207,7 +3249,6 @@
                 },
                 {
                     "name": "tagScript",
-                    "data_type": "TypeDecl",
                     "type": "OPENTYPE_TAG",
                     "sal": [
                         "in"
@@ -3215,7 +3256,6 @@
                 },
                 {
                     "name": "tagLangSys",
-                    "data_type": "TypeDecl",
                     "type": "OPENTYPE_TAG",
                     "sal": [
                         "in"
@@ -3223,7 +3263,6 @@
                 },
                 {
                     "name": "tagFeature",
-                    "data_type": "TypeDecl",
                     "type": "OPENTYPE_TAG",
                     "sal": [
                         "in"
@@ -3231,7 +3270,6 @@
                 },
                 {
                     "name": "lParameter",
-                    "data_type": "TypeDecl",
                     "type": "LONG",
                     "sal": [
                         "in"
@@ -3239,7 +3277,6 @@
                 },
                 {
                     "name": "wGlyphId",
-                    "data_type": "TypeDecl",
                     "type": "WORD",
                     "sal": [
                         "in"
@@ -3247,7 +3284,6 @@
                 },
                 {
                     "name": "iAdvance",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -3255,30 +3291,25 @@
                 },
                 {
                     "name": "GOffset",
-                    "data_type": "TypeDecl",
                     "type": "GOFFSET",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "piOutAdvance",
                         "type": "int"
                     },
-                    "name": "piOutAdvance",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pOutGoffset",
                         "type": "GOFFSET"
                     },
-                    "name": "pOutGoffset",
                     "sal": [
                         "out"
                     ]

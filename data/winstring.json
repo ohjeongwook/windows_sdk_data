@@ -2,102 +2,155 @@
     "typedefs": [
         {
             "name": "HSTRING__",
+            "type": {
+                "data_type": "Struct",
+                "name": "HSTRING__",
+                "elements": [
+                    {
+                        "name": "unused",
+                        "type": "int"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "HSTRING",
+            "type": "HSTRING__",
+            "data_type": "Ptr"
+        },
+        {
+            "name": "HSTRING_HEADER",
+            "type": {
+                "data_type": "Struct",
+                "name": "HSTRING_HEADER",
+                "elements": [
+                    {
+                        "name": "Reserved",
+                        "type": {
+                            "data_type": "Union",
+                            "elements": [
+                                {
+                                    "name": "Reserved1",
+                                    "type": "PVOID"
+                                },
+                                {
+                                    "data_type": "ArrayDecl",
+                                    "dim": {
+                                        "type": "int",
+                                        "value": "24"
+                                    },
+                                    "name": "Reserved2"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
             "data_type": "Struct",
+            "name": "HSTRING_BUFFER__",
             "elements": [
                 {
                     "name": "unused",
-                    "data_type": "TypeDecl",
                     "type": "int"
                 }
             ]
         },
         {
-            "data_type": "PtrDecl",
+            "name": "HSTRING_BUFFER",
             "type": {
-                "data_type": "TypeDecl",
-                "type": "HSTRING__"
+                "data_type": "Struct",
+                "name": "HSTRING_BUFFER__",
+                "elements": []
             },
-            "name": "HSTRING"
+            "data_type": "Ptr"
         },
         {
-            "name": "HSTRING_HEADER",
-            "data_type": "Struct",
-            "elements": [
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PINSPECT_HSTRING_CALLBACK",
+                "type": "HRESULT"
+            },
+            "name": "PINSPECT_HSTRING_CALLBACK",
+            "arguments": [
                 {
-                    "name": "Reserved",
-                    "data_type": "TypeDecl",
                     "type": {
-                        "data_type": "Union",
-                        "elements": [
-                            {
-                                "name": "Reserved1",
-                                "data_type": "TypeDecl",
-                                "type": "PVOID"
-                            },
-                            {
-                                "data_type": "ArrayDecl",
-                                "type": {
-                                    "name": "Reserved2",
-                                    "data_type": "TypeDecl",
-                                    "type": "char"
-                                },
-                                "dim": {
-                                    "type": "int",
-                                    "value": "24"
-                                }
-                            }
-                        ]
+                        "name": "context",
+                        "type": "void"
+                    }
+                },
+                {
+                    "name": "readAddress",
+                    "type": "UINT_PTR"
+                },
+                {
+                    "name": "length",
+                    "type": "UINT32"
+                },
+                {
+                    "type": {
+                        "name": "buffer",
+                        "type": "BYTE"
                     }
                 }
             ]
         },
         {
-            "name": "HSTRING_BUFFER__",
-            "data_type": "Struct",
-            "elements": [
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PINSPECT_HSTRING_CALLBACK2",
+                "type": "HRESULT"
+            },
+            "name": "PINSPECT_HSTRING_CALLBACK2",
+            "arguments": [
                 {
-                    "name": "unused",
-                    "data_type": "TypeDecl",
-                    "type": "int"
+                    "type": {
+                        "name": "context",
+                        "type": "void"
+                    }
+                },
+                {
+                    "name": "readAddress",
+                    "type": "UINT64"
+                },
+                {
+                    "name": "length",
+                    "type": "UINT32"
+                },
+                {
+                    "type": {
+                        "name": "buffer",
+                        "type": "BYTE"
+                    }
                 }
             ]
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "type": "HSTRING_BUFFER__",
-                "data_type": "TypeDecl"
-            },
-            "name": "HSTRING_BUFFER"
         }
     ],
     "funcdefs": [
         {
-            "name": "WindowsCreateString",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WindowsCreateString",
                 "type": "HRESULT"
             },
+            "name": "WindowsCreateString",
             "arguments": [
                 {
                     "name": "sourceString",
-                    "data_type": "TypeDecl",
                     "type": "PCNZWCH",
                     "sal": []
                 },
                 {
                     "name": "length",
-                    "data_type": "TypeDecl",
                     "type": "UINT32",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "string",
                         "type": "HSTRING"
                     },
-                    "name": "string",
                     "sal": []
                 }
             ],
@@ -109,40 +162,35 @@
             ]
         },
         {
-            "name": "WindowsCreateStringReference",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WindowsCreateStringReference",
                 "type": "HRESULT"
             },
+            "name": "WindowsCreateStringReference",
             "arguments": [
                 {
                     "name": "sourceString",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": []
                 },
                 {
                     "name": "length",
-                    "data_type": "TypeDecl",
                     "type": "UINT32",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "hstringHeader",
                         "type": "HSTRING_HEADER"
                     },
-                    "name": "hstringHeader",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "string",
                         "type": "HSTRING"
                     },
-                    "name": "string",
                     "sal": []
                 }
             ],
@@ -154,15 +202,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "WindowsDeleteString",
+                "type": "HRESULT"
+            },
             "name": "WindowsDeleteString",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "string",
-                    "data_type": "TypeDecl",
                     "type": "HSTRING",
                     "sal": []
                 }
@@ -175,25 +223,23 @@
             ]
         },
         {
-            "name": "WindowsDuplicateString",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WindowsDuplicateString",
                 "type": "HRESULT"
             },
+            "name": "WindowsDuplicateString",
             "arguments": [
                 {
                     "name": "string",
-                    "data_type": "TypeDecl",
                     "type": "HSTRING",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "newString",
                         "type": "HSTRING"
                     },
-                    "name": "newString",
                     "sal": []
                 }
             ],
@@ -205,15 +251,15 @@
             ]
         },
         {
-            "name": "WindowsGetStringLen",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WindowsGetStringLen",
                 "type": "UINT32"
             },
+            "name": "WindowsGetStringLen",
             "arguments": [
                 {
                     "name": "string",
-                    "data_type": "TypeDecl",
                     "type": "HSTRING",
                     "sal": []
                 }
@@ -226,25 +272,23 @@
             ]
         },
         {
-            "name": "WindowsGetStringRawBuffer",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WindowsGetStringRawBuffer",
                 "type": "PCWSTR"
             },
+            "name": "WindowsGetStringRawBuffer",
             "arguments": [
                 {
                     "name": "string",
-                    "data_type": "TypeDecl",
                     "type": "HSTRING",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "length",
                         "type": "UINT32"
                     },
-                    "name": "length",
                     "sal": []
                 }
             ],
@@ -256,15 +300,15 @@
             ]
         },
         {
-            "name": "WindowsIsStringEmpty",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WindowsIsStringEmpty",
                 "type": "BOOL"
             },
+            "name": "WindowsIsStringEmpty",
             "arguments": [
                 {
                     "name": "string",
-                    "data_type": "TypeDecl",
                     "type": "HSTRING",
                     "sal": []
                 }
@@ -277,25 +321,23 @@
             ]
         },
         {
-            "name": "WindowsStringHasEmbeddedNull",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WindowsStringHasEmbeddedNull",
                 "type": "HRESULT"
             },
+            "name": "WindowsStringHasEmbeddedNull",
             "arguments": [
                 {
                     "name": "string",
-                    "data_type": "TypeDecl",
                     "type": "HSTRING",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "hasEmbedNull",
                         "type": "BOOL"
                     },
-                    "name": "hasEmbedNull",
                     "sal": []
                 }
             ],
@@ -307,31 +349,28 @@
             ]
         },
         {
-            "name": "WindowsCompareStringOrdinal",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WindowsCompareStringOrdinal",
                 "type": "HRESULT"
             },
+            "name": "WindowsCompareStringOrdinal",
             "arguments": [
                 {
                     "name": "string1",
-                    "data_type": "TypeDecl",
                     "type": "HSTRING",
                     "sal": []
                 },
                 {
                     "name": "string2",
-                    "data_type": "TypeDecl",
                     "type": "HSTRING",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "result",
                         "type": "INT32"
                     },
-                    "name": "result",
                     "sal": []
                 }
             ],
@@ -344,31 +383,28 @@
             ]
         },
         {
-            "name": "WindowsSubstring",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WindowsSubstring",
                 "type": "HRESULT"
             },
+            "name": "WindowsSubstring",
             "arguments": [
                 {
                     "name": "string",
-                    "data_type": "TypeDecl",
                     "type": "HSTRING",
                     "sal": []
                 },
                 {
                     "name": "startIndex",
-                    "data_type": "TypeDecl",
                     "type": "UINT32",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "newString",
                         "type": "HSTRING"
                     },
-                    "name": "newString",
                     "sal": []
                 }
             ],
@@ -380,37 +416,33 @@
             ]
         },
         {
-            "name": "WindowsSubstringWithSpecifiedLength",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WindowsSubstringWithSpecifiedLength",
                 "type": "HRESULT"
             },
+            "name": "WindowsSubstringWithSpecifiedLength",
             "arguments": [
                 {
                     "name": "string",
-                    "data_type": "TypeDecl",
                     "type": "HSTRING",
                     "sal": []
                 },
                 {
                     "name": "startIndex",
-                    "data_type": "TypeDecl",
                     "type": "UINT32",
                     "sal": []
                 },
                 {
                     "name": "length",
-                    "data_type": "TypeDecl",
                     "type": "UINT32",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "newString",
                         "type": "HSTRING"
                     },
-                    "name": "newString",
                     "sal": []
                 }
             ],
@@ -422,31 +454,28 @@
             ]
         },
         {
-            "name": "WindowsConcatString",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WindowsConcatString",
                 "type": "HRESULT"
             },
+            "name": "WindowsConcatString",
             "arguments": [
                 {
                     "name": "string1",
-                    "data_type": "TypeDecl",
                     "type": "HSTRING",
                     "sal": []
                 },
                 {
                     "name": "string2",
-                    "data_type": "TypeDecl",
                     "type": "HSTRING",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "newString",
                         "type": "HSTRING"
                     },
-                    "name": "newString",
                     "sal": []
                 }
             ],
@@ -458,37 +487,33 @@
             ]
         },
         {
-            "name": "WindowsReplaceString",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WindowsReplaceString",
                 "type": "HRESULT"
             },
+            "name": "WindowsReplaceString",
             "arguments": [
                 {
                     "name": "string",
-                    "data_type": "TypeDecl",
                     "type": "HSTRING",
                     "sal": []
                 },
                 {
                     "name": "stringReplaced",
-                    "data_type": "TypeDecl",
                     "type": "HSTRING",
                     "sal": []
                 },
                 {
                     "name": "stringReplaceWith",
-                    "data_type": "TypeDecl",
                     "type": "HSTRING",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "newString",
                         "type": "HSTRING"
                     },
-                    "name": "newString",
                     "sal": []
                 }
             ],
@@ -500,31 +525,28 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "WindowsTrimStringStart",
+                "type": "HRESULT"
+            },
             "name": "WindowsTrimStringStart",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "string",
-                    "data_type": "TypeDecl",
                     "type": "HSTRING",
                     "sal": []
                 },
                 {
                     "name": "trimString",
-                    "data_type": "TypeDecl",
                     "type": "HSTRING",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "newString",
                         "type": "HSTRING"
                     },
-                    "name": "newString",
                     "sal": []
                 }
             ],
@@ -536,31 +558,28 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "WindowsTrimStringEnd",
+                "type": "HRESULT"
+            },
             "name": "WindowsTrimStringEnd",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "string",
-                    "data_type": "TypeDecl",
                     "type": "HSTRING",
                     "sal": []
                 },
                 {
                     "name": "trimString",
-                    "data_type": "TypeDecl",
                     "type": "HSTRING",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "newString",
                         "type": "HSTRING"
                     },
-                    "name": "newString",
                     "sal": []
                 }
             ],
@@ -572,37 +591,31 @@
             ]
         },
         {
-            "name": "WindowsPreallocateStringBuffer",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WindowsPreallocateStringBuffer",
                 "type": "HRESULT"
             },
+            "name": "WindowsPreallocateStringBuffer",
             "arguments": [
                 {
                     "name": "length",
-                    "data_type": "TypeDecl",
                     "type": "UINT32",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "WCHAR"
-                        }
+                        "name": "charBuffer",
+                        "type": "WCHAR",
+                        "data_type": "Ptr"
                     },
-                    "name": "charBuffer",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "bufferHandle",
                         "type": "HSTRING_BUFFER"
                     },
-                    "name": "bufferHandle",
                     "sal": []
                 }
             ],
@@ -613,25 +626,23 @@
             ]
         },
         {
-            "name": "WindowsPromoteStringBuffer",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WindowsPromoteStringBuffer",
                 "type": "HRESULT"
             },
+            "name": "WindowsPromoteStringBuffer",
             "arguments": [
                 {
                     "name": "bufferHandle",
-                    "data_type": "TypeDecl",
                     "type": "HSTRING_BUFFER",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "string",
                         "type": "HSTRING"
                     },
-                    "name": "string",
                     "sal": []
                 }
             ],
@@ -642,15 +653,15 @@
             ]
         },
         {
-            "name": "WindowsDeleteStringBuffer",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WindowsDeleteStringBuffer",
                 "type": "HRESULT"
             },
+            "name": "WindowsDeleteStringBuffer",
             "arguments": [
                 {
                     "name": "bufferHandle",
-                    "data_type": "TypeDecl",
                     "type": "HSTRING_BUFFER",
                     "sal": []
                 }
@@ -662,34 +673,30 @@
             ]
         },
         {
-            "name": "HSTRING_UserSize",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "HSTRING_UserSize",
                 "type": "ULONG"
             },
+            "name": "HSTRING_UserSize",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pFlags",
                         "type": "ULONG"
                     },
-                    "name": "pFlags",
                     "sal": []
                 },
                 {
                     "name": "StartingSize",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppidl",
                         "type": "HSTRING"
                     },
-                    "name": "ppidl",
                     "sal": []
                 }
             ],
@@ -700,40 +707,34 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "type": {
+                    "name": "HSTRING_UserMarshal",
+                    "type": "UCHAR"
+                }
+            },
             "name": "HSTRING_UserMarshal",
-            "type": {
-                "data_type": "PtrDecl",
-                "type": {
-                    "data_type": "TypeDecl",
-                    "type": "UCHAR"
-                }
-            },
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pFlags",
                         "type": "ULONG"
                     },
-                    "name": "pFlags",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pBuffer",
                         "type": "UCHAR"
                     },
-                    "name": "pBuffer",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppidl",
                         "type": "HSTRING"
                     },
-                    "name": "ppidl",
                     "sal": []
                 }
             ],
@@ -744,40 +745,34 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "type": {
+                    "name": "HSTRING_UserUnmarshal",
+                    "type": "UCHAR"
+                }
+            },
             "name": "HSTRING_UserUnmarshal",
-            "type": {
-                "data_type": "PtrDecl",
-                "type": {
-                    "data_type": "TypeDecl",
-                    "type": "UCHAR"
-                }
-            },
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pFlags",
                         "type": "ULONG"
                     },
-                    "name": "pFlags",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pBuffer",
                         "type": "UCHAR"
                     },
-                    "name": "pBuffer",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppidl",
                         "type": "HSTRING"
                     },
-                    "name": "ppidl",
                     "sal": []
                 }
             ],
@@ -788,28 +783,25 @@
             ]
         },
         {
-            "name": "HSTRING_UserFree",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "HSTRING_UserFree",
                 "type": "void"
             },
+            "name": "HSTRING_UserFree",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pFlags",
                         "type": "ULONG"
                     },
-                    "name": "pFlags",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppidl",
                         "type": "HSTRING"
                     },
-                    "name": "ppidl",
                     "sal": []
                 }
             ],
@@ -820,55 +812,47 @@
             ]
         },
         {
-            "name": "WindowsInspectString",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WindowsInspectString",
                 "type": "HRESULT"
             },
+            "name": "WindowsInspectString",
             "arguments": [
                 {
                     "name": "targetHString",
-                    "data_type": "TypeDecl",
                     "type": "UINT_PTR",
                     "sal": []
                 },
                 {
                     "name": "machine",
-                    "data_type": "TypeDecl",
                     "type": "USHORT",
                     "sal": []
                 },
                 {
                     "name": "callback",
-                    "data_type": "TypeDecl",
                     "type": "PINSPECT_HSTRING_CALLBACK",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "context",
                         "type": "void"
                     },
-                    "name": "context",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "length",
                         "type": "UINT32"
                     },
-                    "name": "length",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "targetStringAddress",
                         "type": "UINT_PTR"
                     },
-                    "name": "targetStringAddress",
                     "sal": []
                 }
             ],
@@ -879,55 +863,47 @@
             ]
         },
         {
-            "name": "WindowsInspectString2",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WindowsInspectString2",
                 "type": "HRESULT"
             },
+            "name": "WindowsInspectString2",
             "arguments": [
                 {
                     "name": "targetHString",
-                    "data_type": "TypeDecl",
                     "type": "UINT64",
                     "sal": []
                 },
                 {
                     "name": "machine",
-                    "data_type": "TypeDecl",
                     "type": "USHORT",
                     "sal": []
                 },
                 {
                     "name": "callback",
-                    "data_type": "TypeDecl",
                     "type": "PINSPECT_HSTRING_CALLBACK2",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "context",
                         "type": "void"
                     },
-                    "name": "context",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "length",
                         "type": "UINT32"
                     },
-                    "name": "length",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "targetStringAddress",
                         "type": "UINT64"
                     },
-                    "name": "targetStringAddress",
                     "sal": []
                 }
             ],

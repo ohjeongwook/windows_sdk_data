@@ -2,183 +2,969 @@
     "typedefs": [
         {
             "name": "MODULEINFO",
-            "type": "_MODULEINFO",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_MODULEINFO",
+                "elements": [
+                    {
+                        "name": "lpBaseOfDll",
+                        "type": "LPVOID"
+                    },
+                    {
+                        "name": "SizeOfImage",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "EntryPoint",
+                        "type": "LPVOID"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "LPMODULEINFO",
             "type": {
-                "type": "_MODULEINFO",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_MODULEINFO",
+                "elements": [
+                    {
+                        "name": "lpBaseOfDll",
+                        "type": "LPVOID"
+                    },
+                    {
+                        "name": "SizeOfImage",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "EntryPoint",
+                        "type": "LPVOID"
+                    }
+                ]
             },
-            "name": "LPMODULEINFO"
+            "data_type": "Ptr"
         },
         {
             "name": "PSAPI_WORKING_SET_BLOCK",
-            "type": "_PSAPI_WORKING_SET_BLOCK",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Union",
+                "name": "_PSAPI_WORKING_SET_BLOCK",
+                "elements": [
+                    {
+                        "name": "Flags",
+                        "type": "ULONG_PTR"
+                    },
+                    {
+                        "data_type": "Struct",
+                        "elements": [
+                            {
+                                "name": "Protection",
+                                "type": "ULONG_PTR"
+                            },
+                            {
+                                "name": "ShareCount",
+                                "type": "ULONG_PTR"
+                            },
+                            {
+                                "name": "Shared",
+                                "type": "ULONG_PTR"
+                            },
+                            {
+                                "name": "Reserved",
+                                "type": "ULONG_PTR"
+                            },
+                            {
+                                "name": "VirtualPage",
+                                "type": "ULONG_PTR"
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PPSAPI_WORKING_SET_BLOCK",
             "type": {
-                "type": "_PSAPI_WORKING_SET_BLOCK",
-                "data_type": "TypeDecl"
+                "data_type": "Union",
+                "name": "_PSAPI_WORKING_SET_BLOCK",
+                "elements": [
+                    {
+                        "name": "Flags",
+                        "type": "ULONG_PTR"
+                    },
+                    {
+                        "data_type": "Struct",
+                        "elements": [
+                            {
+                                "name": "Protection",
+                                "type": "ULONG_PTR"
+                            },
+                            {
+                                "name": "ShareCount",
+                                "type": "ULONG_PTR"
+                            },
+                            {
+                                "name": "Shared",
+                                "type": "ULONG_PTR"
+                            },
+                            {
+                                "name": "Reserved",
+                                "type": "ULONG_PTR"
+                            },
+                            {
+                                "name": "VirtualPage",
+                                "type": "ULONG_PTR"
+                            }
+                        ]
+                    }
+                ]
             },
-            "name": "PPSAPI_WORKING_SET_BLOCK"
+            "data_type": "Ptr"
         },
         {
             "name": "PSAPI_WORKING_SET_INFORMATION",
-            "type": "_PSAPI_WORKING_SET_INFORMATION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_PSAPI_WORKING_SET_INFORMATION",
+                "elements": [
+                    {
+                        "name": "NumberOfEntries",
+                        "type": "ULONG_PTR"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "1"
+                        },
+                        "name": "WorkingSetInfo"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PPSAPI_WORKING_SET_INFORMATION",
             "type": {
-                "type": "_PSAPI_WORKING_SET_INFORMATION",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_PSAPI_WORKING_SET_INFORMATION",
+                "elements": [
+                    {
+                        "name": "NumberOfEntries",
+                        "type": "ULONG_PTR"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "1"
+                        },
+                        "name": "WorkingSetInfo"
+                    }
+                ]
             },
-            "name": "PPSAPI_WORKING_SET_INFORMATION"
+            "data_type": "Ptr"
         },
         {
             "name": "PSAPI_WORKING_SET_EX_BLOCK",
-            "type": "_PSAPI_WORKING_SET_EX_BLOCK",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Union",
+                "name": "_PSAPI_WORKING_SET_EX_BLOCK",
+                "elements": [
+                    {
+                        "name": "Flags",
+                        "type": "ULONG_PTR"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "data_type": "Struct",
+                                "elements": [
+                                    {
+                                        "name": "Valid",
+                                        "type": "ULONG_PTR"
+                                    },
+                                    {
+                                        "name": "ShareCount",
+                                        "type": "ULONG_PTR"
+                                    },
+                                    {
+                                        "name": "Win32Protection",
+                                        "type": "ULONG_PTR"
+                                    },
+                                    {
+                                        "name": "Shared",
+                                        "type": "ULONG_PTR"
+                                    },
+                                    {
+                                        "name": "Node",
+                                        "type": "ULONG_PTR"
+                                    },
+                                    {
+                                        "name": "Locked",
+                                        "type": "ULONG_PTR"
+                                    },
+                                    {
+                                        "name": "LargePage",
+                                        "type": "ULONG_PTR"
+                                    },
+                                    {
+                                        "name": "Reserved",
+                                        "type": "ULONG_PTR"
+                                    },
+                                    {
+                                        "name": "Bad",
+                                        "type": "ULONG_PTR"
+                                    },
+                                    {
+                                        "name": "ReservedUlong",
+                                        "type": "ULONG_PTR"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Invalid",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "Valid",
+                                            "type": "ULONG_PTR"
+                                        },
+                                        {
+                                            "name": "Reserved0",
+                                            "type": "ULONG_PTR"
+                                        },
+                                        {
+                                            "name": "Shared",
+                                            "type": "ULONG_PTR"
+                                        },
+                                        {
+                                            "name": "Reserved1",
+                                            "type": "ULONG_PTR"
+                                        },
+                                        {
+                                            "name": "Bad",
+                                            "type": "ULONG_PTR"
+                                        },
+                                        {
+                                            "name": "ReservedUlong",
+                                            "type": "ULONG_PTR"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PPSAPI_WORKING_SET_EX_BLOCK",
             "type": {
-                "type": "_PSAPI_WORKING_SET_EX_BLOCK",
-                "data_type": "TypeDecl"
+                "data_type": "Union",
+                "name": "_PSAPI_WORKING_SET_EX_BLOCK",
+                "elements": [
+                    {
+                        "name": "Flags",
+                        "type": "ULONG_PTR"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "data_type": "Struct",
+                                "elements": [
+                                    {
+                                        "name": "Valid",
+                                        "type": "ULONG_PTR"
+                                    },
+                                    {
+                                        "name": "ShareCount",
+                                        "type": "ULONG_PTR"
+                                    },
+                                    {
+                                        "name": "Win32Protection",
+                                        "type": "ULONG_PTR"
+                                    },
+                                    {
+                                        "name": "Shared",
+                                        "type": "ULONG_PTR"
+                                    },
+                                    {
+                                        "name": "Node",
+                                        "type": "ULONG_PTR"
+                                    },
+                                    {
+                                        "name": "Locked",
+                                        "type": "ULONG_PTR"
+                                    },
+                                    {
+                                        "name": "LargePage",
+                                        "type": "ULONG_PTR"
+                                    },
+                                    {
+                                        "name": "Reserved",
+                                        "type": "ULONG_PTR"
+                                    },
+                                    {
+                                        "name": "Bad",
+                                        "type": "ULONG_PTR"
+                                    },
+                                    {
+                                        "name": "ReservedUlong",
+                                        "type": "ULONG_PTR"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Invalid",
+                                "type": {
+                                    "data_type": "Struct",
+                                    "elements": [
+                                        {
+                                            "name": "Valid",
+                                            "type": "ULONG_PTR"
+                                        },
+                                        {
+                                            "name": "Reserved0",
+                                            "type": "ULONG_PTR"
+                                        },
+                                        {
+                                            "name": "Shared",
+                                            "type": "ULONG_PTR"
+                                        },
+                                        {
+                                            "name": "Reserved1",
+                                            "type": "ULONG_PTR"
+                                        },
+                                        {
+                                            "name": "Bad",
+                                            "type": "ULONG_PTR"
+                                        },
+                                        {
+                                            "name": "ReservedUlong",
+                                            "type": "ULONG_PTR"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
             },
-            "name": "PPSAPI_WORKING_SET_EX_BLOCK"
+            "data_type": "Ptr"
         },
         {
             "name": "PSAPI_WORKING_SET_EX_INFORMATION",
-            "type": "_PSAPI_WORKING_SET_EX_INFORMATION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_PSAPI_WORKING_SET_EX_INFORMATION",
+                "elements": [
+                    {
+                        "name": "VirtualAddress",
+                        "type": "PVOID"
+                    },
+                    {
+                        "name": "VirtualAttributes",
+                        "type": "PSAPI_WORKING_SET_EX_BLOCK"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PPSAPI_WORKING_SET_EX_INFORMATION",
             "type": {
-                "type": "_PSAPI_WORKING_SET_EX_INFORMATION",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_PSAPI_WORKING_SET_EX_INFORMATION",
+                "elements": [
+                    {
+                        "name": "VirtualAddress",
+                        "type": "PVOID"
+                    },
+                    {
+                        "name": "VirtualAttributes",
+                        "type": "PSAPI_WORKING_SET_EX_BLOCK"
+                    }
+                ]
             },
-            "name": "PPSAPI_WORKING_SET_EX_INFORMATION"
+            "data_type": "Ptr"
         },
         {
             "name": "PSAPI_WS_WATCH_INFORMATION",
-            "type": "_PSAPI_WS_WATCH_INFORMATION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_PSAPI_WS_WATCH_INFORMATION",
+                "elements": [
+                    {
+                        "name": "FaultingPc",
+                        "type": "LPVOID"
+                    },
+                    {
+                        "name": "FaultingVa",
+                        "type": "LPVOID"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PPSAPI_WS_WATCH_INFORMATION",
             "type": {
-                "type": "_PSAPI_WS_WATCH_INFORMATION",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_PSAPI_WS_WATCH_INFORMATION",
+                "elements": [
+                    {
+                        "name": "FaultingPc",
+                        "type": "LPVOID"
+                    },
+                    {
+                        "name": "FaultingVa",
+                        "type": "LPVOID"
+                    }
+                ]
             },
-            "name": "PPSAPI_WS_WATCH_INFORMATION"
+            "data_type": "Ptr"
         },
         {
             "name": "PSAPI_WS_WATCH_INFORMATION_EX",
-            "type": "_PSAPI_WS_WATCH_INFORMATION_EX",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_PSAPI_WS_WATCH_INFORMATION_EX",
+                "elements": [
+                    {
+                        "name": "BasicInfo",
+                        "type": "PSAPI_WS_WATCH_INFORMATION"
+                    },
+                    {
+                        "name": "FaultingThreadId",
+                        "type": "ULONG_PTR"
+                    },
+                    {
+                        "name": "Flags",
+                        "type": "ULONG_PTR"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PPSAPI_WS_WATCH_INFORMATION_EX",
             "type": {
-                "type": "_PSAPI_WS_WATCH_INFORMATION_EX",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_PSAPI_WS_WATCH_INFORMATION_EX",
+                "elements": [
+                    {
+                        "name": "BasicInfo",
+                        "type": "PSAPI_WS_WATCH_INFORMATION"
+                    },
+                    {
+                        "name": "FaultingThreadId",
+                        "type": "ULONG_PTR"
+                    },
+                    {
+                        "name": "Flags",
+                        "type": "ULONG_PTR"
+                    }
+                ]
             },
-            "name": "PPSAPI_WS_WATCH_INFORMATION_EX"
+            "data_type": "Ptr"
         },
         {
             "name": "PROCESS_MEMORY_COUNTERS",
-            "type": "_PROCESS_MEMORY_COUNTERS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_PROCESS_MEMORY_COUNTERS",
+                "elements": [
+                    {
+                        "name": "cb",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "PageFaultCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "PeakWorkingSetSize",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "WorkingSetSize",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "QuotaPeakPagedPoolUsage",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "QuotaPagedPoolUsage",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "QuotaPeakNonPagedPoolUsage",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "QuotaNonPagedPoolUsage",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "PagefileUsage",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "PeakPagefileUsage",
+                        "type": "SIZE_T"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "PROCESS_MEMORY_COUNTERS"
-            },
-            "name": "PPROCESS_MEMORY_COUNTERS"
+            "name": "PPROCESS_MEMORY_COUNTERS",
+            "type": "PROCESS_MEMORY_COUNTERS",
+            "data_type": "Ptr"
         },
         {
             "name": "PROCESS_MEMORY_COUNTERS_EX",
-            "type": "_PROCESS_MEMORY_COUNTERS_EX",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_PROCESS_MEMORY_COUNTERS_EX",
+                "elements": [
+                    {
+                        "name": "cb",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "PageFaultCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "PeakWorkingSetSize",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "WorkingSetSize",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "QuotaPeakPagedPoolUsage",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "QuotaPagedPoolUsage",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "QuotaPeakNonPagedPoolUsage",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "QuotaNonPagedPoolUsage",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "PagefileUsage",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "PeakPagefileUsage",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "PrivateUsage",
+                        "type": "SIZE_T"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "PROCESS_MEMORY_COUNTERS_EX"
-            },
-            "name": "PPROCESS_MEMORY_COUNTERS_EX"
+            "name": "PPROCESS_MEMORY_COUNTERS_EX",
+            "type": "PROCESS_MEMORY_COUNTERS_EX",
+            "data_type": "Ptr"
         },
         {
             "name": "PERFORMANCE_INFORMATION",
-            "type": "_PERFORMANCE_INFORMATION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_PERFORMANCE_INFORMATION",
+                "elements": [
+                    {
+                        "name": "cb",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "CommitTotal",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "CommitLimit",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "CommitPeak",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "PhysicalTotal",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "PhysicalAvailable",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "SystemCache",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "KernelTotal",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "KernelPaged",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "KernelNonpaged",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "PageSize",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "HandleCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "ProcessCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "ThreadCount",
+                        "type": "DWORD"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PPERFORMANCE_INFORMATION",
             "type": {
-                "type": "_PERFORMANCE_INFORMATION",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_PERFORMANCE_INFORMATION",
+                "elements": [
+                    {
+                        "name": "cb",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "CommitTotal",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "CommitLimit",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "CommitPeak",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "PhysicalTotal",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "PhysicalAvailable",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "SystemCache",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "KernelTotal",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "KernelPaged",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "KernelNonpaged",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "PageSize",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "HandleCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "ProcessCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "ThreadCount",
+                        "type": "DWORD"
+                    }
+                ]
             },
-            "name": "PPERFORMANCE_INFORMATION"
+            "data_type": "Ptr"
         },
         {
             "name": "PERFORMACE_INFORMATION",
-            "type": "_PERFORMANCE_INFORMATION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_PERFORMANCE_INFORMATION",
+                "elements": [
+                    {
+                        "name": "cb",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "CommitTotal",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "CommitLimit",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "CommitPeak",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "PhysicalTotal",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "PhysicalAvailable",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "SystemCache",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "KernelTotal",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "KernelPaged",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "KernelNonpaged",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "PageSize",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "HandleCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "ProcessCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "ThreadCount",
+                        "type": "DWORD"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PPERFORMACE_INFORMATION",
             "type": {
-                "type": "_PERFORMANCE_INFORMATION",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_PERFORMANCE_INFORMATION",
+                "elements": [
+                    {
+                        "name": "cb",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "CommitTotal",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "CommitLimit",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "CommitPeak",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "PhysicalTotal",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "PhysicalAvailable",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "SystemCache",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "KernelTotal",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "KernelPaged",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "KernelNonpaged",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "PageSize",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "HandleCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "ProcessCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "ThreadCount",
+                        "type": "DWORD"
+                    }
+                ]
             },
-            "name": "PPERFORMACE_INFORMATION"
+            "data_type": "Ptr"
         },
         {
             "name": "ENUM_PAGE_FILE_INFORMATION",
-            "type": "_ENUM_PAGE_FILE_INFORMATION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_ENUM_PAGE_FILE_INFORMATION",
+                "elements": [
+                    {
+                        "name": "cb",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "Reserved",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "TotalSize",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "TotalInUse",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "PeakUsage",
+                        "type": "SIZE_T"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PENUM_PAGE_FILE_INFORMATION",
             "type": {
-                "type": "_ENUM_PAGE_FILE_INFORMATION",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_ENUM_PAGE_FILE_INFORMATION",
+                "elements": [
+                    {
+                        "name": "cb",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "Reserved",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "TotalSize",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "TotalInUse",
+                        "type": "SIZE_T"
+                    },
+                    {
+                        "name": "PeakUsage",
+                        "type": "SIZE_T"
+                    }
+                ]
             },
-            "name": "PENUM_PAGE_FILE_INFORMATION"
+            "data_type": "Ptr"
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PENUM_PAGE_FILE_CALLBACKW",
+                "type": "BOOL"
+            },
+            "name": "PENUM_PAGE_FILE_CALLBACKW",
+            "arguments": [
+                {
+                    "name": "pContext",
+                    "type": "LPVOID"
+                },
+                {
+                    "name": "pPageFileInfo",
+                    "type": "PENUM_PAGE_FILE_INFORMATION"
+                },
+                {
+                    "name": "lpFilename",
+                    "type": "LPCWSTR"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PENUM_PAGE_FILE_CALLBACKA",
+                "type": "BOOL"
+            },
+            "name": "PENUM_PAGE_FILE_CALLBACKA",
+            "arguments": [
+                {
+                    "name": "pContext",
+                    "type": "LPVOID"
+                },
+                {
+                    "name": "pPageFileInfo",
+                    "type": "PENUM_PAGE_FILE_INFORMATION"
+                },
+                {
+                    "name": "lpFilename",
+                    "type": "LPCSTR"
+                }
+            ]
         }
     ],
     "funcdefs": [
         {
-            "name": "K32EnumProcesses",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "K32EnumProcesses",
                 "type": "BOOL"
             },
+            "name": "K32EnumProcesses",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "lpidProcess",
                         "type": "DWORD"
                     },
-                    "name": "lpidProcess",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "name": "cb",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -186,7 +972,6 @@
                 },
                 {
                     "name": "lpcbNeeded",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "out"
@@ -202,34 +987,31 @@
             ]
         },
         {
-            "name": "K32EnumProcessModules",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "K32EnumProcessModules",
                 "type": "BOOL"
             },
+            "name": "K32EnumProcessModules",
             "arguments": [
                 {
                     "name": "hProcess",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "lphModule",
                         "type": "HMODULE"
                     },
-                    "name": "lphModule",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "name": "cb",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -237,7 +1019,6 @@
                 },
                 {
                     "name": "lpcbNeeded",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "out"
@@ -254,34 +1035,31 @@
             ]
         },
         {
-            "name": "K32EnumProcessModulesEx",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "K32EnumProcessModulesEx",
                 "type": "BOOL"
             },
+            "name": "K32EnumProcessModulesEx",
             "arguments": [
                 {
                     "name": "hProcess",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "lphModule",
                         "type": "HMODULE"
                     },
-                    "name": "lphModule",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "name": "cb",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -289,7 +1067,6 @@
                 },
                 {
                     "name": "lpcbNeeded",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "out"
@@ -297,7 +1074,6 @@
                 },
                 {
                     "name": "dwFilterFlag",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -314,15 +1090,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "K32GetModuleBaseNameA",
+                "type": "DWORD"
+            },
             "name": "K32GetModuleBaseNameA",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "DWORD"
-            },
             "arguments": [
                 {
                     "name": "hProcess",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -330,7 +1106,6 @@
                 },
                 {
                     "name": "hModule",
-                    "data_type": "TypeDecl",
                     "type": "HMODULE",
                     "sal": [
                         "in",
@@ -339,7 +1114,6 @@
                 },
                 {
                     "name": "lpBaseName",
-                    "data_type": "TypeDecl",
                     "type": "LPSTR",
                     "sal": [
                         "out"
@@ -347,7 +1121,6 @@
                 },
                 {
                     "name": "nSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -365,15 +1138,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "K32GetModuleBaseNameW",
+                "type": "DWORD"
+            },
             "name": "K32GetModuleBaseNameW",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "DWORD"
-            },
             "arguments": [
                 {
                     "name": "hProcess",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -381,7 +1154,6 @@
                 },
                 {
                     "name": "hModule",
-                    "data_type": "TypeDecl",
                     "type": "HMODULE",
                     "sal": [
                         "in",
@@ -390,7 +1162,6 @@
                 },
                 {
                     "name": "lpBaseName",
-                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "out"
@@ -398,7 +1169,6 @@
                 },
                 {
                     "name": "nSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -416,15 +1186,15 @@
             ]
         },
         {
-            "name": "K32GetModuleFileNameExA",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "K32GetModuleFileNameExA",
                 "type": "DWORD"
             },
+            "name": "K32GetModuleFileNameExA",
             "arguments": [
                 {
                     "name": "hProcess",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -432,7 +1202,6 @@
                 },
                 {
                     "name": "hModule",
-                    "data_type": "TypeDecl",
                     "type": "HMODULE",
                     "sal": [
                         "in",
@@ -441,7 +1210,6 @@
                 },
                 {
                     "name": "lpFilename",
-                    "data_type": "TypeDecl",
                     "type": "LPSTR",
                     "sal": [
                         "out"
@@ -449,7 +1217,6 @@
                 },
                 {
                     "name": "nSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -467,15 +1234,15 @@
             ]
         },
         {
-            "name": "K32GetModuleFileNameExW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "K32GetModuleFileNameExW",
                 "type": "DWORD"
             },
+            "name": "K32GetModuleFileNameExW",
             "arguments": [
                 {
                     "name": "hProcess",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -483,7 +1250,6 @@
                 },
                 {
                     "name": "hModule",
-                    "data_type": "TypeDecl",
                     "type": "HMODULE",
                     "sal": [
                         "in",
@@ -492,7 +1258,6 @@
                 },
                 {
                     "name": "lpFilename",
-                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "out"
@@ -500,7 +1265,6 @@
                 },
                 {
                     "name": "nSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -518,15 +1282,15 @@
             ]
         },
         {
-            "name": "K32GetModuleInformation",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "K32GetModuleInformation",
                 "type": "BOOL"
             },
+            "name": "K32GetModuleInformation",
             "arguments": [
                 {
                     "name": "hProcess",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -534,7 +1298,6 @@
                 },
                 {
                     "name": "hModule",
-                    "data_type": "TypeDecl",
                     "type": "HMODULE",
                     "sal": [
                         "in"
@@ -542,7 +1305,6 @@
                 },
                 {
                     "name": "lpmodinfo",
-                    "data_type": "TypeDecl",
                     "type": "LPMODULEINFO",
                     "sal": [
                         "out"
@@ -550,7 +1312,6 @@
                 },
                 {
                     "name": "cb",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -567,15 +1328,15 @@
             ]
         },
         {
-            "name": "K32EmptyWorkingSet",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "K32EmptyWorkingSet",
                 "type": "BOOL"
             },
+            "name": "K32EmptyWorkingSet",
             "arguments": [
                 {
                     "name": "hProcess",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -591,15 +1352,15 @@
             ]
         },
         {
-            "name": "K32QueryWorkingSet",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "K32QueryWorkingSet",
                 "type": "BOOL"
             },
+            "name": "K32QueryWorkingSet",
             "arguments": [
                 {
                     "name": "hProcess",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -607,7 +1368,6 @@
                 },
                 {
                     "name": "pv",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "out"
@@ -615,7 +1375,6 @@
                 },
                 {
                     "name": "cb",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -631,15 +1390,15 @@
             ]
         },
         {
-            "name": "K32QueryWorkingSetEx",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "K32QueryWorkingSetEx",
                 "type": "BOOL"
             },
+            "name": "K32QueryWorkingSetEx",
             "arguments": [
                 {
                     "name": "hProcess",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -647,7 +1406,6 @@
                 },
                 {
                     "name": "pv",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in",
@@ -656,7 +1414,6 @@
                 },
                 {
                     "name": "cb",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -672,15 +1429,15 @@
             ]
         },
         {
-            "name": "K32InitializeProcessForWsWatch",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "K32InitializeProcessForWsWatch",
                 "type": "BOOL"
             },
+            "name": "K32InitializeProcessForWsWatch",
             "arguments": [
                 {
                     "name": "hProcess",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -696,15 +1453,15 @@
             ]
         },
         {
-            "name": "K32GetWsChanges",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "K32GetWsChanges",
                 "type": "BOOL"
             },
+            "name": "K32GetWsChanges",
             "arguments": [
                 {
                     "name": "hProcess",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -712,7 +1469,6 @@
                 },
                 {
                     "name": "lpWatchInfo",
-                    "data_type": "TypeDecl",
                     "type": "PPSAPI_WS_WATCH_INFORMATION",
                     "sal": [
                         "out"
@@ -720,7 +1476,6 @@
                 },
                 {
                     "name": "cb",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -736,15 +1491,15 @@
             ]
         },
         {
-            "name": "K32GetWsChangesEx",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "K32GetWsChangesEx",
                 "type": "BOOL"
             },
+            "name": "K32GetWsChangesEx",
             "arguments": [
                 {
                     "name": "hProcess",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -752,7 +1507,6 @@
                 },
                 {
                     "name": "lpWatchInfoEx",
-                    "data_type": "TypeDecl",
                     "type": "PPSAPI_WS_WATCH_INFORMATION_EX",
                     "sal": [
                         "out"
@@ -760,7 +1514,6 @@
                 },
                 {
                     "name": "cb",
-                    "data_type": "TypeDecl",
                     "type": "PDWORD",
                     "sal": [
                         "in",
@@ -777,15 +1530,15 @@
             ]
         },
         {
-            "name": "K32GetMappedFileNameW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "K32GetMappedFileNameW",
                 "type": "DWORD"
             },
+            "name": "K32GetMappedFileNameW",
             "arguments": [
                 {
                     "name": "hProcess",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -793,7 +1546,6 @@
                 },
                 {
                     "name": "lpv",
-                    "data_type": "TypeDecl",
                     "type": "LPVOID",
                     "sal": [
                         "in"
@@ -801,7 +1553,6 @@
                 },
                 {
                     "name": "lpFilename",
-                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "out"
@@ -809,7 +1560,6 @@
                 },
                 {
                     "name": "nSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -826,15 +1576,15 @@
             ]
         },
         {
-            "name": "K32GetMappedFileNameA",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "K32GetMappedFileNameA",
                 "type": "DWORD"
             },
+            "name": "K32GetMappedFileNameA",
             "arguments": [
                 {
                     "name": "hProcess",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -842,7 +1592,6 @@
                 },
                 {
                     "name": "lpv",
-                    "data_type": "TypeDecl",
                     "type": "LPVOID",
                     "sal": [
                         "in"
@@ -850,7 +1599,6 @@
                 },
                 {
                     "name": "lpFilename",
-                    "data_type": "TypeDecl",
                     "type": "LPSTR",
                     "sal": [
                         "out"
@@ -858,7 +1606,6 @@
                 },
                 {
                     "name": "nSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -875,26 +1622,24 @@
             ]
         },
         {
-            "name": "K32EnumDeviceDrivers",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "K32EnumDeviceDrivers",
                 "type": "BOOL"
             },
+            "name": "K32EnumDeviceDrivers",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "lpImageBase",
                         "type": "LPVOID"
                     },
-                    "name": "lpImageBase",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "name": "cb",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -902,7 +1647,6 @@
                 },
                 {
                     "name": "lpcbNeeded",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "out"
@@ -918,15 +1662,15 @@
             ]
         },
         {
-            "name": "K32GetDeviceDriverBaseNameA",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "K32GetDeviceDriverBaseNameA",
                 "type": "DWORD"
             },
+            "name": "K32GetDeviceDriverBaseNameA",
             "arguments": [
                 {
                     "name": "ImageBase",
-                    "data_type": "TypeDecl",
                     "type": "LPVOID",
                     "sal": [
                         "in"
@@ -934,7 +1678,6 @@
                 },
                 {
                     "name": "lpFilename",
-                    "data_type": "TypeDecl",
                     "type": "LPSTR",
                     "sal": [
                         "in"
@@ -942,7 +1685,6 @@
                 },
                 {
                     "name": "nSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD"
                 }
             ],
@@ -956,15 +1698,15 @@
             ]
         },
         {
-            "name": "K32GetDeviceDriverBaseNameW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "K32GetDeviceDriverBaseNameW",
                 "type": "DWORD"
             },
+            "name": "K32GetDeviceDriverBaseNameW",
             "arguments": [
                 {
                     "name": "ImageBase",
-                    "data_type": "TypeDecl",
                     "type": "LPVOID",
                     "sal": [
                         "in"
@@ -972,7 +1714,6 @@
                 },
                 {
                     "name": "lpBaseName",
-                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "in"
@@ -980,7 +1721,6 @@
                 },
                 {
                     "name": "nSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD"
                 }
             ],
@@ -994,15 +1734,15 @@
             ]
         },
         {
-            "name": "K32GetDeviceDriverFileNameA",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "K32GetDeviceDriverFileNameA",
                 "type": "DWORD"
             },
+            "name": "K32GetDeviceDriverFileNameA",
             "arguments": [
                 {
                     "name": "ImageBase",
-                    "data_type": "TypeDecl",
                     "type": "LPVOID",
                     "sal": [
                         "in"
@@ -1010,7 +1750,6 @@
                 },
                 {
                     "name": "lpFilename",
-                    "data_type": "TypeDecl",
                     "type": "LPSTR",
                     "sal": [
                         "out"
@@ -1018,7 +1757,6 @@
                 },
                 {
                     "name": "nSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1035,15 +1773,15 @@
             ]
         },
         {
-            "name": "K32GetDeviceDriverFileNameW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "K32GetDeviceDriverFileNameW",
                 "type": "DWORD"
             },
+            "name": "K32GetDeviceDriverFileNameW",
             "arguments": [
                 {
                     "name": "ImageBase",
-                    "data_type": "TypeDecl",
                     "type": "LPVOID",
                     "sal": [
                         "in"
@@ -1051,7 +1789,6 @@
                 },
                 {
                     "name": "lpFilename",
-                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "out"
@@ -1059,7 +1796,6 @@
                 },
                 {
                     "name": "nSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1076,15 +1812,15 @@
             ]
         },
         {
-            "name": "K32GetProcessMemoryInfo",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "K32GetProcessMemoryInfo",
                 "type": "BOOL"
             },
+            "name": "K32GetProcessMemoryInfo",
             "arguments": [
                 {
                     "name": "Process",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -1092,7 +1828,6 @@
                 },
                 {
                     "name": "ppsmemCounters",
-                    "data_type": "TypeDecl",
                     "type": "PPROCESS_MEMORY_COUNTERS",
                     "sal": [
                         "out"
@@ -1100,7 +1835,6 @@
                 },
                 {
                     "name": "cb",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1116,15 +1850,15 @@
             ]
         },
         {
-            "name": "K32GetPerformanceInfo",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "K32GetPerformanceInfo",
                 "type": "BOOL"
             },
+            "name": "K32GetPerformanceInfo",
             "arguments": [
                 {
                     "name": "pPerformanceInformation",
-                    "data_type": "TypeDecl",
                     "type": "PPERFORMANCE_INFORMATION",
                     "sal": [
                         "out"
@@ -1132,7 +1866,6 @@
                 },
                 {
                     "name": "cb",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1148,15 +1881,15 @@
             ]
         },
         {
-            "name": "K32EnumPageFilesW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "K32EnumPageFilesW",
                 "type": "BOOL"
             },
+            "name": "K32EnumPageFilesW",
             "arguments": [
                 {
                     "name": "pCallBackRoutine",
-                    "data_type": "TypeDecl",
                     "type": "PENUM_PAGE_FILE_CALLBACKW",
                     "sal": [
                         "out"
@@ -1164,7 +1897,6 @@
                 },
                 {
                     "name": "pContext",
-                    "data_type": "TypeDecl",
                     "type": "LPVOID",
                     "sal": [
                         "in"
@@ -1181,15 +1913,15 @@
             ]
         },
         {
-            "name": "K32EnumPageFilesA",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "K32EnumPageFilesA",
                 "type": "BOOL"
             },
+            "name": "K32EnumPageFilesA",
             "arguments": [
                 {
                     "name": "pCallBackRoutine",
-                    "data_type": "TypeDecl",
                     "type": "PENUM_PAGE_FILE_CALLBACKA",
                     "sal": [
                         "out"
@@ -1197,7 +1929,6 @@
                 },
                 {
                     "name": "pContext",
-                    "data_type": "TypeDecl",
                     "type": "LPVOID",
                     "sal": [
                         "in"

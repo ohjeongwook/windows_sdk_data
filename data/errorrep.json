@@ -2,21 +2,113 @@
     "typedefs": [
         {
             "name": "EFaultRepRetVal",
-            "type": "tagEFaultRepRetVal",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "frrvOk",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "frrvOkManifest",
+                        "value": {}
+                    },
+                    {
+                        "name": "frrvOkQueued",
+                        "value": {}
+                    },
+                    {
+                        "name": "frrvErr",
+                        "value": {}
+                    },
+                    {
+                        "name": "frrvErrNoDW",
+                        "value": {}
+                    },
+                    {
+                        "name": "frrvErrTimeout",
+                        "value": {}
+                    },
+                    {
+                        "name": "frrvLaunchDebugger",
+                        "value": {}
+                    },
+                    {
+                        "name": "frrvOkHeadless",
+                        "value": {}
+                    },
+                    {
+                        "name": "frrvErrAnotherInstance",
+                        "value": {}
+                    },
+                    {
+                        "name": "frrvErrNoMemory",
+                        "value": {}
+                    },
+                    {
+                        "name": "frrvErrDoubleFault",
+                        "value": {}
+                    }
+                ]
+            }
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "pfn_REPORTFAULT",
+                "type": "EFaultRepRetVal"
+            },
+            "name": "pfn_REPORTFAULT",
+            "arguments": [
+                {
+                    "type": "LPEXCEPTION_POINTERS"
+                },
+                {
+                    "type": "DWORD"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "pfn_ADDEREXCLUDEDAPPLICATIONA",
+                "type": "EFaultRepRetVal"
+            },
+            "name": "pfn_ADDEREXCLUDEDAPPLICATIONA",
+            "arguments": [
+                {
+                    "type": "LPCSTR"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "pfn_ADDEREXCLUDEDAPPLICATIONW",
+                "type": "EFaultRepRetVal"
+            },
+            "name": "pfn_ADDEREXCLUDEDAPPLICATIONW",
+            "arguments": [
+                {
+                    "type": "LPCWSTR"
+                }
+            ]
         }
     ],
     "funcdefs": [
         {
-            "name": "ReportFault",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "ReportFault",
                 "type": "EFaultRepRetVal"
             },
+            "name": "ReportFault",
             "arguments": [
                 {
                     "name": "pep",
-                    "data_type": "TypeDecl",
                     "type": "LPEXCEPTION_POINTERS",
                     "sal": [
                         "in"
@@ -24,7 +116,6 @@
                 },
                 {
                     "name": "dwOpt",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -36,15 +127,15 @@
             ]
         },
         {
-            "name": "AddERExcludedApplicationA",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "AddERExcludedApplicationA",
                 "type": "BOOL"
             },
+            "name": "AddERExcludedApplicationA",
             "arguments": [
                 {
                     "name": "szApplication",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": []
                 }
@@ -54,15 +145,15 @@
             ]
         },
         {
-            "name": "AddERExcludedApplicationW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "AddERExcludedApplicationW",
                 "type": "BOOL"
             },
+            "name": "AddERExcludedApplicationW",
             "arguments": [
                 {
                     "name": "wszApplication",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": []
                 }
@@ -72,15 +163,15 @@
             ]
         },
         {
-            "name": "WerReportHang",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WerReportHang",
                 "type": "HRESULT"
             },
+            "name": "WerReportHang",
             "arguments": [
                 {
                     "name": "hwndHungApp",
-                    "data_type": "TypeDecl",
                     "type": "HWND",
                     "sal": [
                         "in"
@@ -88,7 +179,6 @@
                 },
                 {
                     "name": "pwzHungApplicationName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in",

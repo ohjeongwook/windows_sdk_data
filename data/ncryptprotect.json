@@ -1,93 +1,155 @@
 {
     "typedefs": [
         {
+            "data_type": "Struct",
             "name": "NCRYPT_DESCRIPTOR_HANDLE__",
-            "data_type": "Struct",
             "elements": [
                 {
                     "name": "unused",
-                    "data_type": "TypeDecl",
                     "type": "int"
                 }
             ]
         },
         {
-            "data_type": "PtrDecl",
+            "name": "NCRYPT_DESCRIPTOR_HANDLE",
             "type": {
-                "type": "NCRYPT_DESCRIPTOR_HANDLE__",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "NCRYPT_DESCRIPTOR_HANDLE__",
+                "elements": []
             },
-            "name": "NCRYPT_DESCRIPTOR_HANDLE"
+            "data_type": "Ptr"
         },
         {
+            "data_type": "Struct",
             "name": "NCRYPT_STREAM_HANDLE__",
-            "data_type": "Struct",
             "elements": [
                 {
                     "name": "unused",
-                    "data_type": "TypeDecl",
                     "type": "int"
                 }
             ]
         },
         {
-            "data_type": "PtrDecl",
+            "name": "NCRYPT_STREAM_HANDLE",
             "type": {
-                "type": "NCRYPT_STREAM_HANDLE__",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "NCRYPT_STREAM_HANDLE__",
+                "elements": []
             },
-            "name": "NCRYPT_STREAM_HANDLE"
+            "data_type": "Ptr"
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PFNCryptStreamOutputCallback",
+                "type": "SECURITY_STATUS"
+            },
+            "name": "PFNCryptStreamOutputCallback",
+            "arguments": [
+                {
+                    "type": {
+                        "name": "pvCallbackCtxt",
+                        "type": "void"
+                    }
+                },
+                {
+                    "type": {
+                        "name": "pbData",
+                        "type": "BYTE"
+                    }
+                },
+                {
+                    "name": "cbData",
+                    "type": "SIZE_T"
+                },
+                {
+                    "name": "fFinal",
+                    "type": "BOOL"
+                }
+            ]
         },
         {
             "name": "NCRYPT_PROTECT_STREAM_INFO",
-            "data_type": "Struct",
-            "elements": [
+            "type": {
+                "data_type": "Struct",
+                "name": "NCRYPT_PROTECT_STREAM_INFO",
+                "elements": [
+                    {
+                        "name": "pfnStreamOutput",
+                        "type": "PFNCryptStreamOutputCallback"
+                    },
+                    {
+                        "name": "pvCallbackCtxt",
+                        "type": "void",
+                        "data_type": "Ptr"
+                    }
+                ]
+            }
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PFNCryptStreamOutputCallbackEx",
+                "type": "SECURITY_STATUS"
+            },
+            "name": "PFNCryptStreamOutputCallbackEx",
+            "arguments": [
                 {
-                    "name": "pfnStreamOutput",
-                    "data_type": "TypeDecl",
-                    "type": "PFNCryptStreamOutputCallback"
+                    "type": {
+                        "name": "pvCallbackCtxt",
+                        "type": "void"
+                    }
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
-                        "type": "void"
-                    },
-                    "name": "pvCallbackCtxt"
+                        "name": "pbData",
+                        "type": "BYTE"
+                    }
+                },
+                {
+                    "name": "cbData",
+                    "type": "SIZE_T"
+                },
+                {
+                    "name": "hDescriptor",
+                    "type": "NCRYPT_DESCRIPTOR_HANDLE"
+                },
+                {
+                    "name": "fFinal",
+                    "type": "BOOL"
                 }
             ]
         },
         {
             "name": "NCRYPT_PROTECT_STREAM_INFO_EX",
-            "data_type": "Struct",
-            "elements": [
-                {
-                    "name": "pfnStreamOutput",
-                    "data_type": "TypeDecl",
-                    "type": "PFNCryptStreamOutputCallbackEx"
-                },
-                {
-                    "data_type": "PtrDecl",
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "type": "void"
+            "type": {
+                "data_type": "Struct",
+                "name": "NCRYPT_PROTECT_STREAM_INFO_EX",
+                "elements": [
+                    {
+                        "name": "pfnStreamOutput",
+                        "type": "PFNCryptStreamOutputCallbackEx"
                     },
-                    "name": "pvCallbackCtxt"
-                }
-            ]
+                    {
+                        "name": "pvCallbackCtxt",
+                        "type": "void",
+                        "data_type": "Ptr"
+                    }
+                ]
+            }
         }
     ],
     "funcdefs": [
         {
-            "name": "NCryptRegisterProtectionDescriptorName",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NCryptRegisterProtectionDescriptorName",
                 "type": "SECURITY_STATUS"
             },
+            "name": "NCryptRegisterProtectionDescriptorName",
             "arguments": [
                 {
                     "name": "pwszName",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -95,7 +157,6 @@
                 },
                 {
                     "name": "pwszDescriptorString",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in",
@@ -104,7 +165,6 @@
                 },
                 {
                     "name": "dwFlags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 }
@@ -114,15 +174,15 @@
             ]
         },
         {
-            "name": "NCryptQueryProtectionDescriptorName",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NCryptQueryProtectionDescriptorName",
                 "type": "SECURITY_STATUS"
             },
+            "name": "NCryptQueryProtectionDescriptorName",
             "arguments": [
                 {
                     "name": "pwszName",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -130,19 +190,16 @@
                 },
                 {
                     "name": "pwszDescriptorString",
-                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcDescriptorString",
                         "type": "SIZE_T"
                     },
-                    "name": "pcDescriptorString",
                     "sal": [
                         "in",
                         "out"
@@ -150,7 +207,6 @@
                 },
                 {
                     "name": "dwFlags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 }
@@ -160,15 +216,15 @@
             ]
         },
         {
-            "name": "NCryptCreateProtectionDescriptor",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NCryptCreateProtectionDescriptor",
                 "type": "SECURITY_STATUS"
             },
+            "name": "NCryptCreateProtectionDescriptor",
             "arguments": [
                 {
                     "name": "pwszDescriptorString",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -176,19 +232,16 @@
                 },
                 {
                     "name": "dwFlags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "phDescriptor",
                         "type": "NCRYPT_DESCRIPTOR_HANDLE"
                     },
-                    "name": "phDescriptor",
                     "sal": [
                         "out"
                     ]
@@ -199,15 +252,15 @@
             ]
         },
         {
-            "name": "NCryptCloseProtectionDescriptor",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NCryptCloseProtectionDescriptor",
                 "type": "SECURITY_STATUS"
             },
+            "name": "NCryptCloseProtectionDescriptor",
             "arguments": [
                 {
                     "name": "hDescriptor",
-                    "data_type": "TypeDecl",
                     "type": "NCRYPT_DESCRIPTOR_HANDLE",
                     "sal": [
                         "in"
@@ -219,27 +272,25 @@
             ]
         },
         {
-            "name": "NCryptGetProtectionDescriptorInfo",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NCryptGetProtectionDescriptorInfo",
                 "type": "SECURITY_STATUS"
             },
+            "name": "NCryptGetProtectionDescriptorInfo",
             "arguments": [
                 {
                     "name": "hDescriptor",
-                    "data_type": "TypeDecl",
                     "type": "NCRYPT_DESCRIPTOR_HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pMemPara",
                         "type": "NCRYPT_ALLOC_PARA"
                     },
-                    "name": "pMemPara",
                     "sal": [
                         "in",
                         "optional"
@@ -247,20 +298,15 @@
                 },
                 {
                     "name": "dwInfoType",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "void"
-                        }
+                        "name": "ppvInfo",
+                        "type": "void",
+                        "data_type": "Ptr"
                     },
-                    "name": "ppvInfo",
                     "sal": [
                         "out"
                     ]
@@ -271,15 +317,15 @@
             ]
         },
         {
-            "name": "NCryptProtectSecret",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NCryptProtectSecret",
                 "type": "SECURITY_STATUS"
             },
+            "name": "NCryptProtectSecret",
             "arguments": [
                 {
                     "name": "hDescriptor",
-                    "data_type": "TypeDecl",
                     "type": "NCRYPT_DESCRIPTOR_HANDLE",
                     "sal": [
                         "in"
@@ -287,38 +333,32 @@
                 },
                 {
                     "name": "dwFlags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pbData",
                         "type": "BYTE"
                     },
-                    "name": "pbData",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "cbData",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pMemPara",
                         "type": "NCRYPT_ALLOC_PARA"
                     },
-                    "name": "pMemPara",
                     "sal": [
                         "in",
                         "optional"
@@ -326,7 +366,6 @@
                 },
                 {
                     "name": "hWnd",
-                    "data_type": "TypeDecl",
                     "type": "HWND",
                     "sal": [
                         "in",
@@ -334,26 +373,20 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "BYTE"
-                        }
+                        "name": "ppbProtectedBlob",
+                        "type": "BYTE",
+                        "data_type": "Ptr"
                     },
-                    "name": "ppbProtectedBlob",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcbProtectedBlob",
                         "type": "ULONG"
                     },
-                    "name": "pcbProtectedBlob",
                     "sal": [
                         "out"
                     ]
@@ -364,19 +397,18 @@
             ]
         },
         {
-            "name": "NCryptUnprotectSecret",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NCryptUnprotectSecret",
                 "type": "SECURITY_STATUS"
             },
+            "name": "NCryptUnprotectSecret",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "phDescriptor",
                         "type": "NCRYPT_DESCRIPTOR_HANDLE"
                     },
-                    "name": "phDescriptor",
                     "sal": [
                         "out",
                         "optional"
@@ -384,36 +416,30 @@
                 },
                 {
                     "name": "dwFlags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pbProtectedBlob",
                         "type": "BYTE"
                     },
-                    "name": "pbProtectedBlob",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "cbProtectedBlob",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pMemPara",
                         "type": "NCRYPT_ALLOC_PARA"
                     },
-                    "name": "pMemPara",
                     "sal": [
                         "in",
                         "optional"
@@ -421,7 +447,6 @@
                 },
                 {
                     "name": "hWnd",
-                    "data_type": "TypeDecl",
                     "type": "HWND",
                     "sal": [
                         "in",
@@ -429,26 +454,20 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "BYTE"
-                        }
+                        "name": "ppbData",
+                        "type": "BYTE",
+                        "data_type": "Ptr"
                     },
-                    "name": "ppbData",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcbData",
                         "type": "ULONG"
                     },
-                    "name": "pcbData",
                     "sal": [
                         "out"
                     ]
@@ -459,15 +478,15 @@
             ]
         },
         {
-            "name": "NCryptStreamOpenToProtect",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NCryptStreamOpenToProtect",
                 "type": "SECURITY_STATUS"
             },
+            "name": "NCryptStreamOpenToProtect",
             "arguments": [
                 {
                     "name": "hDescriptor",
-                    "data_type": "TypeDecl",
                     "type": "NCRYPT_DESCRIPTOR_HANDLE",
                     "sal": [
                         "in"
@@ -475,13 +494,11 @@
                 },
                 {
                     "name": "dwFlags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
                     "name": "hWnd",
-                    "data_type": "TypeDecl",
                     "type": "HWND",
                     "sal": [
                         "in",
@@ -489,23 +506,19 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pStreamInfo",
                         "type": "NCRYPT_PROTECT_STREAM_INFO"
                     },
-                    "name": "pStreamInfo",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "phStream",
                         "type": "NCRYPT_STREAM_HANDLE"
                     },
-                    "name": "phStream",
                     "sal": [
                         "out"
                     ]
@@ -516,32 +529,29 @@
             ]
         },
         {
-            "name": "NCryptStreamOpenToUnprotect",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NCryptStreamOpenToUnprotect",
                 "type": "SECURITY_STATUS"
             },
+            "name": "NCryptStreamOpenToUnprotect",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pStreamInfo",
                         "type": "NCRYPT_PROTECT_STREAM_INFO"
                     },
-                    "name": "pStreamInfo",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "dwFlags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
                     "name": "hWnd",
-                    "data_type": "TypeDecl",
                     "type": "HWND",
                     "sal": [
                         "in",
@@ -549,12 +559,10 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "phStream",
                         "type": "NCRYPT_STREAM_HANDLE"
                     },
-                    "name": "phStream",
                     "sal": [
                         "out"
                     ]
@@ -565,32 +573,29 @@
             ]
         },
         {
-            "name": "NCryptStreamOpenToUnprotectEx",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NCryptStreamOpenToUnprotectEx",
                 "type": "SECURITY_STATUS"
             },
+            "name": "NCryptStreamOpenToUnprotectEx",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pStreamInfo",
                         "type": "NCRYPT_PROTECT_STREAM_INFO_EX"
                     },
-                    "name": "pStreamInfo",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "dwFlags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
                     "name": "hWnd",
-                    "data_type": "TypeDecl",
                     "type": "HWND",
                     "sal": [
                         "in",
@@ -598,12 +603,10 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "phStream",
                         "type": "NCRYPT_STREAM_HANDLE"
                     },
-                    "name": "phStream",
                     "sal": [
                         "out"
                     ]
@@ -614,40 +617,36 @@
             ]
         },
         {
-            "name": "NCryptStreamUpdate",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NCryptStreamUpdate",
                 "type": "SECURITY_STATUS"
             },
+            "name": "NCryptStreamUpdate",
             "arguments": [
                 {
                     "name": "hStream",
-                    "data_type": "TypeDecl",
                     "type": "NCRYPT_STREAM_HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pbData",
                         "type": "BYTE"
                     },
-                    "name": "pbData",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "cbData",
-                    "data_type": "TypeDecl",
                     "type": "SIZE_T",
                     "sal": []
                 },
                 {
                     "name": "fFinal",
-                    "data_type": "TypeDecl",
                     "type": "BOOL",
                     "sal": []
                 }
@@ -657,15 +656,15 @@
             ]
         },
         {
-            "name": "NCryptStreamClose",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NCryptStreamClose",
                 "type": "SECURITY_STATUS"
             },
+            "name": "NCryptStreamClose",
             "arguments": [
                 {
                     "name": "hStream",
-                    "data_type": "TypeDecl",
                     "type": "NCRYPT_STREAM_HANDLE",
                     "sal": [
                         "in"

@@ -1,79 +1,253 @@
 {
     "typedefs": [
         {
-            "name": "WIM_ENTRY_INFO",
-            "type": "_WIM_ENTRY_INFO",
-            "data_type": "TypeDecl"
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "WofEnumEntryProc",
+                "type": "BOOL"
+            },
+            "name": "WofEnumEntryProc",
+            "arguments": [
+                {
+                    "name": "EntryInfo",
+                    "type": "PVOID"
+                },
+                {
+                    "name": "UserData",
+                    "type": "PVOID"
+                }
+            ]
         },
         {
-            "data_type": "PtrDecl",
+            "data_type": "FuncDeclPtr",
             "type": {
-                "type": "_WIM_ENTRY_INFO",
-                "data_type": "TypeDecl"
+                "name": "WofEnumFilesProc",
+                "type": "BOOL"
             },
-            "name": "PWIM_ENTRY_INFO"
+            "name": "WofEnumFilesProc",
+            "arguments": [
+                {
+                    "name": "FilePath",
+                    "type": "PCWSTR"
+                },
+                {
+                    "name": "ExternalFileInfo",
+                    "type": "PVOID"
+                },
+                {
+                    "name": "UserData",
+                    "type": "PVOID"
+                }
+            ]
+        },
+        {
+            "name": "WIM_ENTRY_INFO",
+            "type": {
+                "data_type": "Struct",
+                "name": "_WIM_ENTRY_INFO",
+                "elements": [
+                    {
+                        "name": "WimEntryInfoSize",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "WimType",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "DataSourceId",
+                        "type": "LARGE_INTEGER"
+                    },
+                    {
+                        "name": "WimGuid",
+                        "type": "GUID"
+                    },
+                    {
+                        "name": "WimPath",
+                        "type": "PCWSTR"
+                    },
+                    {
+                        "name": "WimIndex",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "Flags",
+                        "type": "DWORD"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PWIM_ENTRY_INFO",
+            "type": {
+                "data_type": "Struct",
+                "name": "_WIM_ENTRY_INFO",
+                "elements": [
+                    {
+                        "name": "WimEntryInfoSize",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "WimType",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "DataSourceId",
+                        "type": "LARGE_INTEGER"
+                    },
+                    {
+                        "name": "WimGuid",
+                        "type": "GUID"
+                    },
+                    {
+                        "name": "WimPath",
+                        "type": "PCWSTR"
+                    },
+                    {
+                        "name": "WimIndex",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "Flags",
+                        "type": "DWORD"
+                    }
+                ]
+            },
+            "data_type": "Ptr"
         },
         {
             "name": "WIM_EXTERNAL_FILE_INFO",
-            "type": "_WIM_EXTERNAL_FILE_INFO",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_WIM_EXTERNAL_FILE_INFO",
+                "elements": [
+                    {
+                        "name": "DataSourceId",
+                        "type": "LARGE_INTEGER"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "20"
+                        },
+                        "name": "ResourceHash"
+                    },
+                    {
+                        "name": "Flags",
+                        "type": "ULONG"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PWIM_EXTERNAL_FILE_INFO",
             "type": {
-                "type": "_WIM_EXTERNAL_FILE_INFO",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_WIM_EXTERNAL_FILE_INFO",
+                "elements": [
+                    {
+                        "name": "DataSourceId",
+                        "type": "LARGE_INTEGER"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "20"
+                        },
+                        "name": "ResourceHash"
+                    },
+                    {
+                        "name": "Flags",
+                        "type": "ULONG"
+                    }
+                ]
             },
-            "name": "PWIM_EXTERNAL_FILE_INFO"
+            "data_type": "Ptr"
         },
         {
             "name": "WOF_FILE_COMPRESSION_INFO_V0",
-            "type": "_WOF_FILE_COMPRESSION_INFO_V0",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_WOF_FILE_COMPRESSION_INFO_V0",
+                "elements": [
+                    {
+                        "name": "Algorithm",
+                        "type": "ULONG"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PWOF_FILE_COMPRESSION_INFO_V0",
             "type": {
-                "type": "_WOF_FILE_COMPRESSION_INFO_V0",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_WOF_FILE_COMPRESSION_INFO_V0",
+                "elements": [
+                    {
+                        "name": "Algorithm",
+                        "type": "ULONG"
+                    }
+                ]
             },
-            "name": "PWOF_FILE_COMPRESSION_INFO_V0"
+            "data_type": "Ptr"
         },
         {
             "name": "WOF_FILE_COMPRESSION_INFO_V1",
-            "type": "_WOF_FILE_COMPRESSION_INFO_V1",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_WOF_FILE_COMPRESSION_INFO_V1",
+                "elements": [
+                    {
+                        "name": "Algorithm",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Flags",
+                        "type": "ULONG"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PWOF_FILE_COMPRESSION_INFO_V1",
             "type": {
-                "type": "_WOF_FILE_COMPRESSION_INFO_V1",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_WOF_FILE_COMPRESSION_INFO_V1",
+                "elements": [
+                    {
+                        "name": "Algorithm",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Flags",
+                        "type": "ULONG"
+                    }
+                ]
             },
-            "name": "PWOF_FILE_COMPRESSION_INFO_V1"
+            "data_type": "Ptr"
         },
         {
             "name": "WOF_FILE_COMPRESSION_INFO",
-            "data_type": "TypeDecl",
             "type": "WOF_FILE_COMPRESSION_INFO_V1"
         },
         {
             "name": "PWOF_FILE_COMPRESSION_INFO",
-            "data_type": "TypeDecl",
             "type": "PWOF_FILE_COMPRESSION_INFO_V1"
         }
     ],
     "funcdefs": [
         {
-            "name": "WofShouldCompressBinaries",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WofShouldCompressBinaries",
                 "type": "BOOL"
             },
+            "name": "WofShouldCompressBinaries",
             "arguments": [
                 {
                     "name": "Volume",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -81,7 +255,6 @@
                 },
                 {
                     "name": "Algorithm",
-                    "data_type": "TypeDecl",
                     "type": "PULONG",
                     "sal": [
                         "out"
@@ -93,15 +266,15 @@
             ]
         },
         {
-            "name": "WofGetDriverVersion",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WofGetDriverVersion",
                 "type": "HRESULT"
             },
+            "name": "WofGetDriverVersion",
             "arguments": [
                 {
                     "name": "FileOrVolumeHandle",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -109,7 +282,6 @@
                 },
                 {
                     "name": "Provider",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -117,7 +289,6 @@
                 },
                 {
                     "name": "WofVersion",
-                    "data_type": "TypeDecl",
                     "type": "PULONG",
                     "sal": [
                         "out"
@@ -129,15 +300,15 @@
             ]
         },
         {
-            "name": "WofSetFileDataLocation",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WofSetFileDataLocation",
                 "type": "HRESULT"
             },
+            "name": "WofSetFileDataLocation",
             "arguments": [
                 {
                     "name": "FileHandle",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -145,7 +316,6 @@
                 },
                 {
                     "name": "Provider",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -153,7 +323,6 @@
                 },
                 {
                     "name": "ExternalFileInfo",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -161,7 +330,6 @@
                 },
                 {
                     "name": "Length",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -173,15 +341,15 @@
             ]
         },
         {
-            "name": "WofIsExternalFile",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WofIsExternalFile",
                 "type": "HRESULT"
             },
+            "name": "WofIsExternalFile",
             "arguments": [
                 {
                     "name": "FilePath",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -189,7 +357,6 @@
                 },
                 {
                     "name": "IsExternalFile",
-                    "data_type": "TypeDecl",
                     "type": "PBOOL",
                     "sal": [
                         "out",
@@ -198,7 +365,6 @@
                 },
                 {
                     "name": "Provider",
-                    "data_type": "TypeDecl",
                     "type": "PULONG",
                     "sal": [
                         "out",
@@ -207,7 +373,6 @@
                 },
                 {
                     "name": "ExternalFileInfo",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "out",
@@ -216,7 +381,6 @@
                 },
                 {
                     "name": "BufferLength",
-                    "data_type": "TypeDecl",
                     "type": "PULONG",
                     "sal": [
                         "in",
@@ -230,15 +394,15 @@
             ]
         },
         {
-            "name": "WofEnumEntries",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WofEnumEntries",
                 "type": "HRESULT"
             },
+            "name": "WofEnumEntries",
             "arguments": [
                 {
                     "name": "VolumeName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -246,7 +410,6 @@
                 },
                 {
                     "name": "Provider",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -254,7 +417,6 @@
                 },
                 {
                     "name": "EnumProc",
-                    "data_type": "TypeDecl",
                     "type": "WofEnumEntryProc",
                     "sal": [
                         "in"
@@ -262,7 +424,6 @@
                 },
                 {
                     "name": "UserData",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in",
@@ -275,15 +436,15 @@
             ]
         },
         {
-            "name": "WofWimAddEntry",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WofWimAddEntry",
                 "type": "HRESULT"
             },
+            "name": "WofWimAddEntry",
             "arguments": [
                 {
                     "name": "VolumeName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -291,7 +452,6 @@
                 },
                 {
                     "name": "WimPath",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -299,7 +459,6 @@
                 },
                 {
                     "name": "WimType",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -307,7 +466,6 @@
                 },
                 {
                     "name": "WimIndex",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -315,7 +473,6 @@
                 },
                 {
                     "name": "DataSourceId",
-                    "data_type": "TypeDecl",
                     "type": "PLARGE_INTEGER",
                     "sal": [
                         "out"
@@ -327,15 +484,15 @@
             ]
         },
         {
-            "name": "WofWimEnumFiles",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WofWimEnumFiles",
                 "type": "HRESULT"
             },
+            "name": "WofWimEnumFiles",
             "arguments": [
                 {
                     "name": "VolumeName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -343,7 +500,6 @@
                 },
                 {
                     "name": "DataSourceId",
-                    "data_type": "TypeDecl",
                     "type": "LARGE_INTEGER",
                     "sal": [
                         "in"
@@ -351,7 +507,6 @@
                 },
                 {
                     "name": "EnumProc",
-                    "data_type": "TypeDecl",
                     "type": "WofEnumFilesProc",
                     "sal": [
                         "in"
@@ -359,7 +514,6 @@
                 },
                 {
                     "name": "UserData",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in",
@@ -372,15 +526,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "WofWimSuspendEntry",
+                "type": "HRESULT"
+            },
             "name": "WofWimSuspendEntry",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "VolumeName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -388,7 +542,6 @@
                 },
                 {
                     "name": "DataSourceId",
-                    "data_type": "TypeDecl",
                     "type": "LARGE_INTEGER",
                     "sal": [
                         "in"
@@ -400,15 +553,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "WofWimRemoveEntry",
+                "type": "HRESULT"
+            },
             "name": "WofWimRemoveEntry",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "VolumeName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -416,7 +569,6 @@
                 },
                 {
                     "name": "DataSourceId",
-                    "data_type": "TypeDecl",
                     "type": "LARGE_INTEGER",
                     "sal": [
                         "in"
@@ -428,15 +580,15 @@
             ]
         },
         {
-            "name": "WofWimUpdateEntry",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WofWimUpdateEntry",
                 "type": "HRESULT"
             },
+            "name": "WofWimUpdateEntry",
             "arguments": [
                 {
                     "name": "VolumeName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -444,7 +596,6 @@
                 },
                 {
                     "name": "DataSourceId",
-                    "data_type": "TypeDecl",
                     "type": "LARGE_INTEGER",
                     "sal": [
                         "in"
@@ -452,7 +603,6 @@
                 },
                 {
                     "name": "NewWimPath",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -464,15 +614,15 @@
             ]
         },
         {
-            "name": "WofFileEnumFiles",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WofFileEnumFiles",
                 "type": "HRESULT"
             },
+            "name": "WofFileEnumFiles",
             "arguments": [
                 {
                     "name": "VolumeName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -480,7 +630,6 @@
                 },
                 {
                     "name": "Algorithm",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -488,7 +637,6 @@
                 },
                 {
                     "name": "EnumProc",
-                    "data_type": "TypeDecl",
                     "type": "WofEnumFilesProc",
                     "sal": [
                         "in"
@@ -496,7 +644,6 @@
                 },
                 {
                     "name": "UserData",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in",

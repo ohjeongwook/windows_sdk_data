@@ -1,39 +1,81 @@
 {
     "typedefs": [
         {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "ONDEMAND_NOTIFICATION_CALLBACK",
+                "type": "void"
+            },
+            "name": "ONDEMAND_NOTIFICATION_CALLBACK",
+            "arguments": [
+                {
+                    "type": {
+                        "type": "void"
+                    }
+                }
+            ]
+        },
+        {
             "name": "NET_INTERFACE_CONTEXT",
-            "type": "_NET_INTERFACE_CONTEXT",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_NET_INTERFACE_CONTEXT",
+                "elements": [
+                    {
+                        "name": "InterfaceIndex",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "ConfigurationName",
+                        "type": "LPWSTR"
+                    }
+                ]
+            }
         },
         {
             "name": "NET_INTERFACE_CONTEXT_TABLE",
-            "type": "_NET_INTERFACE_CONTEXT_TABLE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_NET_INTERFACE_CONTEXT_TABLE",
+                "elements": [
+                    {
+                        "name": "InterfaceContextHandle",
+                        "type": "HANDLE"
+                    },
+                    {
+                        "name": "NumberOfEntries",
+                        "type": "UINT"
+                    },
+                    {
+                        "name": "InterfaceContextArray",
+                        "type": "NET_INTERFACE_CONTEXT",
+                        "data_type": "Ptr"
+                    }
+                ]
+            }
         }
     ],
     "funcdefs": [
         {
-            "name": "OnDemandGetRoutingHint",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "OnDemandGetRoutingHint",
                 "type": "HRESULT"
             },
+            "name": "OnDemandGetRoutingHint",
             "arguments": [
                 {
                     "name": "destinationHostName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "interfaceIndex",
                         "type": "DWORD"
                     },
-                    "name": "interfaceIndex",
                     "sal": [
                         "out"
                     ]
@@ -44,39 +86,35 @@
             ]
         },
         {
-            "name": "OnDemandRegisterNotification",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "OnDemandRegisterNotification",
                 "type": "HRESULT"
             },
+            "name": "OnDemandRegisterNotification",
             "arguments": [
                 {
                     "name": "callback",
-                    "data_type": "TypeDecl",
                     "type": "ONDEMAND_NOTIFICATION_CALLBACK",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "callbackContext",
                         "type": "void"
                     },
-                    "name": "callbackContext",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "registrationHandle",
                         "type": "HANDLE"
                     },
-                    "name": "registrationHandle",
                     "sal": [
                         "out"
                     ]
@@ -87,15 +125,15 @@
             ]
         },
         {
-            "name": "GetInterfaceContextTableForHostName",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "GetInterfaceContextTableForHostName",
                 "type": "HRESULT"
             },
+            "name": "GetInterfaceContextTableForHostName",
             "arguments": [
                 {
                     "name": "HostName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in",
@@ -104,7 +142,6 @@
                 },
                 {
                     "name": "ProxyName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in",
@@ -113,19 +150,16 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ConnectionProfileFilterRawData",
                         "type": "BYTE"
                     },
-                    "name": "ConnectionProfileFilterRawData",
                     "sal": [
                         "in",
                         "optional"
@@ -133,22 +167,17 @@
                 },
                 {
                     "name": "ConnectionProfileFilterRawDataSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "NET_INTERFACE_CONTEXT_TABLE"
-                        }
+                        "name": "InterfaceContextTable",
+                        "type": "NET_INTERFACE_CONTEXT_TABLE",
+                        "data_type": "Ptr"
                     },
-                    "name": "InterfaceContextTable",
                     "sal": [
                         "out"
                     ]
@@ -160,19 +189,18 @@
             ]
         },
         {
-            "name": "FreeInterfaceContextTable",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "FreeInterfaceContextTable",
                 "type": "void"
             },
+            "name": "FreeInterfaceContextTable",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "InterfaceContextTable",
                         "type": "NET_INTERFACE_CONTEXT_TABLE"
                     },
-                    "name": "InterfaceContextTable",
                     "sal": [
                         "in"
                     ]

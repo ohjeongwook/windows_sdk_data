@@ -1,82 +1,746 @@
 {
     "typedefs": [
         {
-            "name": "MAPPING_SERVICE_INFO",
-            "type": "_MAPPING_SERVICE_INFO",
-            "data_type": "TypeDecl"
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PFN_MAPPINGCALLBACKPROC",
+                "type": "void"
+            },
+            "name": "PFN_MAPPINGCALLBACKPROC",
+            "arguments": [
+                {
+                    "type": {
+                        "name": "pBag",
+                        "type": {
+                            "data_type": "Struct",
+                            "name": "_MAPPING_PROPERTY_BAG",
+                            "elements": []
+                        }
+                    }
+                },
+                {
+                    "name": "data",
+                    "type": "LPVOID"
+                },
+                {
+                    "name": "dwDataSize",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "Result",
+                    "type": "HRESULT"
+                }
+            ]
         },
         {
-            "data_type": "PtrDecl",
+            "name": "MAPPING_SERVICE_INFO",
             "type": {
-                "type": "_MAPPING_SERVICE_INFO",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_MAPPING_SERVICE_INFO",
+                "elements": [
+                    {
+                        "name": "Size",
+                        "type": "size_t"
+                    },
+                    {
+                        "name": "pszCopyright",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "wMajorVersion",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "wMinorVersion",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "wBuildVersion",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "wStepVersion",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "dwInputContentTypesCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "prgInputContentTypes",
+                        "type": "LPWSTR",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "dwOutputContentTypesCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "prgOutputContentTypes",
+                        "type": "LPWSTR",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "dwInputLanguagesCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "prgInputLanguages",
+                        "type": "LPWSTR",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "dwOutputLanguagesCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "prgOutputLanguages",
+                        "type": "LPWSTR",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "dwInputScriptsCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "prgInputScripts",
+                        "type": "LPWSTR",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "dwOutputScriptsCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "prgOutputScripts",
+                        "type": "LPWSTR",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "guid",
+                        "type": "GUID"
+                    },
+                    {
+                        "name": "pszCategory",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszDescription",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "dwPrivateDataSize",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "pPrivateData",
+                        "type": "LPVOID"
+                    },
+                    {
+                        "name": "pContext",
+                        "type": "LPVOID"
+                    },
+                    {
+                        "name": "IsOneToOneLanguageMapping",
+                        "type": "unsigned"
+                    },
+                    {
+                        "name": "HasSubservices",
+                        "type": "unsigned"
+                    },
+                    {
+                        "name": "OnlineOnly",
+                        "type": "unsigned"
+                    },
+                    {
+                        "name": "ServiceType",
+                        "type": "unsigned"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PMAPPING_SERVICE_INFO",
+            "type": {
+                "data_type": "Struct",
+                "name": "_MAPPING_SERVICE_INFO",
+                "elements": [
+                    {
+                        "name": "Size",
+                        "type": "size_t"
+                    },
+                    {
+                        "name": "pszCopyright",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "wMajorVersion",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "wMinorVersion",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "wBuildVersion",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "wStepVersion",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "dwInputContentTypesCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "prgInputContentTypes",
+                        "type": "LPWSTR",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "dwOutputContentTypesCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "prgOutputContentTypes",
+                        "type": "LPWSTR",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "dwInputLanguagesCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "prgInputLanguages",
+                        "type": "LPWSTR",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "dwOutputLanguagesCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "prgOutputLanguages",
+                        "type": "LPWSTR",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "dwInputScriptsCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "prgInputScripts",
+                        "type": "LPWSTR",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "dwOutputScriptsCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "prgOutputScripts",
+                        "type": "LPWSTR",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "guid",
+                        "type": "GUID"
+                    },
+                    {
+                        "name": "pszCategory",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszDescription",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "dwPrivateDataSize",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "pPrivateData",
+                        "type": "LPVOID"
+                    },
+                    {
+                        "name": "pContext",
+                        "type": "LPVOID"
+                    },
+                    {
+                        "name": "IsOneToOneLanguageMapping",
+                        "type": "unsigned"
+                    },
+                    {
+                        "name": "HasSubservices",
+                        "type": "unsigned"
+                    },
+                    {
+                        "name": "OnlineOnly",
+                        "type": "unsigned"
+                    },
+                    {
+                        "name": "ServiceType",
+                        "type": "unsigned"
+                    }
+                ]
             },
-            "name": "PMAPPING_SERVICE_INFO"
+            "data_type": "Ptr"
         },
         {
             "name": "MAPPING_ENUM_OPTIONS",
-            "type": "_MAPPING_ENUM_OPTIONS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_MAPPING_ENUM_OPTIONS",
+                "elements": [
+                    {
+                        "name": "Size",
+                        "type": "size_t"
+                    },
+                    {
+                        "name": "pszCategory",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszInputLanguage",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszOutputLanguage",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszInputScript",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszOutputScript",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszInputContentType",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszOutputContentType",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pGuid",
+                        "type": "GUID",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "OnlineService",
+                        "type": "unsigned"
+                    },
+                    {
+                        "name": "ServiceType",
+                        "type": "unsigned"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PMAPPING_ENUM_OPTIONS",
             "type": {
-                "type": "_MAPPING_ENUM_OPTIONS",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_MAPPING_ENUM_OPTIONS",
+                "elements": [
+                    {
+                        "name": "Size",
+                        "type": "size_t"
+                    },
+                    {
+                        "name": "pszCategory",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszInputLanguage",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszOutputLanguage",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszInputScript",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszOutputScript",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszInputContentType",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszOutputContentType",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pGuid",
+                        "type": "GUID",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "OnlineService",
+                        "type": "unsigned"
+                    },
+                    {
+                        "name": "ServiceType",
+                        "type": "unsigned"
+                    }
+                ]
             },
-            "name": "PMAPPING_ENUM_OPTIONS"
+            "data_type": "Ptr"
         },
         {
             "name": "MAPPING_OPTIONS",
-            "type": "_MAPPING_OPTIONS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_MAPPING_OPTIONS",
+                "elements": [
+                    {
+                        "name": "Size",
+                        "type": "size_t"
+                    },
+                    {
+                        "name": "pszInputLanguage",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszOutputLanguage",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszInputScript",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszOutputScript",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszInputContentType",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszOutputContentType",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszUILanguage",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pfnRecognizeCallback",
+                        "type": "PFN_MAPPINGCALLBACKPROC"
+                    },
+                    {
+                        "name": "pRecognizeCallerData",
+                        "type": "LPVOID"
+                    },
+                    {
+                        "name": "dwRecognizeCallerDataSize",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "pfnActionCallback",
+                        "type": "PFN_MAPPINGCALLBACKPROC"
+                    },
+                    {
+                        "name": "pActionCallerData",
+                        "type": "LPVOID"
+                    },
+                    {
+                        "name": "dwActionCallerDataSize",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwServiceFlag",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "GetActionDisplayName",
+                        "type": "unsigned"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PMAPPING_OPTIONS",
             "type": {
-                "type": "_MAPPING_OPTIONS",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_MAPPING_OPTIONS",
+                "elements": [
+                    {
+                        "name": "Size",
+                        "type": "size_t"
+                    },
+                    {
+                        "name": "pszInputLanguage",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszOutputLanguage",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszInputScript",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszOutputScript",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszInputContentType",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszOutputContentType",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszUILanguage",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pfnRecognizeCallback",
+                        "type": "PFN_MAPPINGCALLBACKPROC"
+                    },
+                    {
+                        "name": "pRecognizeCallerData",
+                        "type": "LPVOID"
+                    },
+                    {
+                        "name": "dwRecognizeCallerDataSize",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "pfnActionCallback",
+                        "type": "PFN_MAPPINGCALLBACKPROC"
+                    },
+                    {
+                        "name": "pActionCallerData",
+                        "type": "LPVOID"
+                    },
+                    {
+                        "name": "dwActionCallerDataSize",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwServiceFlag",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "GetActionDisplayName",
+                        "type": "unsigned"
+                    }
+                ]
             },
-            "name": "PMAPPING_OPTIONS"
+            "data_type": "Ptr"
         },
         {
             "name": "MAPPING_DATA_RANGE",
-            "type": "_MAPPING_DATA_RANGE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_MAPPING_DATA_RANGE",
+                "elements": [
+                    {
+                        "name": "dwStartIndex",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwEndIndex",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "pszDescription",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "dwDescriptionLength",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "pData",
+                        "type": "LPVOID"
+                    },
+                    {
+                        "name": "dwDataSize",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "pszContentType",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "prgActionIds",
+                        "type": "LPWSTR",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "dwActionsCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "prgActionDisplayNames",
+                        "type": "LPWSTR",
+                        "data_type": "Ptr"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PMAPPING_DATA_RANGE",
             "type": {
-                "type": "_MAPPING_DATA_RANGE",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_MAPPING_DATA_RANGE",
+                "elements": [
+                    {
+                        "name": "dwStartIndex",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwEndIndex",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "pszDescription",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "dwDescriptionLength",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "pData",
+                        "type": "LPVOID"
+                    },
+                    {
+                        "name": "dwDataSize",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "pszContentType",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "prgActionIds",
+                        "type": "LPWSTR",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "dwActionsCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "prgActionDisplayNames",
+                        "type": "LPWSTR",
+                        "data_type": "Ptr"
+                    }
+                ]
             },
-            "name": "PMAPPING_DATA_RANGE"
+            "data_type": "Ptr"
         },
         {
             "name": "MAPPING_PROPERTY_BAG",
-            "type": "_MAPPING_PROPERTY_BAG",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_MAPPING_PROPERTY_BAG",
+                "elements": [
+                    {
+                        "name": "Size",
+                        "type": "size_t"
+                    },
+                    {
+                        "name": "prgResultRanges",
+                        "type": "PMAPPING_DATA_RANGE"
+                    },
+                    {
+                        "name": "dwRangesCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "pServiceData",
+                        "type": "LPVOID"
+                    },
+                    {
+                        "name": "dwServiceDataSize",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "pCallerData",
+                        "type": "LPVOID"
+                    },
+                    {
+                        "name": "dwCallerDataSize",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "pContext",
+                        "type": "LPVOID"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PMAPPING_PROPERTY_BAG",
             "type": {
-                "type": "_MAPPING_PROPERTY_BAG",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_MAPPING_PROPERTY_BAG",
+                "elements": [
+                    {
+                        "name": "Size",
+                        "type": "size_t"
+                    },
+                    {
+                        "name": "prgResultRanges",
+                        "type": "PMAPPING_DATA_RANGE"
+                    },
+                    {
+                        "name": "dwRangesCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "pServiceData",
+                        "type": "LPVOID"
+                    },
+                    {
+                        "name": "dwServiceDataSize",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "pCallerData",
+                        "type": "LPVOID"
+                    },
+                    {
+                        "name": "dwCallerDataSize",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "pContext",
+                        "type": "LPVOID"
+                    }
+                ]
             },
-            "name": "PMAPPING_PROPERTY_BAG"
+            "data_type": "Ptr"
         }
     ],
     "funcdefs": [
         {
-            "name": "MappingGetServices",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MappingGetServices",
                 "type": "HRESULT"
             },
+            "name": "MappingGetServices",
             "arguments": [
                 {
                     "name": "pOptions",
-                    "data_type": "TypeDecl",
                     "type": "PMAPPING_ENUM_OPTIONS",
                     "sal": [
                         "in",
@@ -84,23 +748,19 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "prgServices",
                         "type": "PMAPPING_SERVICE_INFO"
                     },
-                    "name": "prgServices",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pdwServicesCount",
                         "type": "DWORD"
                     },
-                    "name": "pdwServicesCount",
                     "sal": [
                         "out"
                     ]
@@ -112,15 +772,15 @@
             ]
         },
         {
-            "name": "MappingFreeServices",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MappingFreeServices",
                 "type": "HRESULT"
             },
+            "name": "MappingFreeServices",
             "arguments": [
                 {
                     "name": "pServiceInfo",
-                    "data_type": "TypeDecl",
                     "type": "PMAPPING_SERVICE_INFO",
                     "sal": [
                         "in"
@@ -133,15 +793,15 @@
             ]
         },
         {
-            "name": "MappingRecognizeText",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MappingRecognizeText",
                 "type": "HRESULT"
             },
+            "name": "MappingRecognizeText",
             "arguments": [
                 {
                     "name": "pServiceInfo",
-                    "data_type": "TypeDecl",
                     "type": "PMAPPING_SERVICE_INFO",
                     "sal": [
                         "in"
@@ -149,7 +809,6 @@
                 },
                 {
                     "name": "pszText",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -157,7 +816,6 @@
                 },
                 {
                     "name": "dwLength",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -165,7 +823,6 @@
                 },
                 {
                     "name": "dwIndex",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -173,7 +830,6 @@
                 },
                 {
                     "name": "pOptions",
-                    "data_type": "TypeDecl",
                     "type": "PMAPPING_OPTIONS",
                     "sal": [
                         "in",
@@ -182,7 +838,6 @@
                 },
                 {
                     "name": "pbag",
-                    "data_type": "TypeDecl",
                     "type": "PMAPPING_PROPERTY_BAG",
                     "sal": [
                         "in",
@@ -196,15 +851,15 @@
             ]
         },
         {
-            "name": "MappingDoAction",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MappingDoAction",
                 "type": "HRESULT"
             },
+            "name": "MappingDoAction",
             "arguments": [
                 {
                     "name": "pBag",
-                    "data_type": "TypeDecl",
                     "type": "PMAPPING_PROPERTY_BAG",
                     "sal": [
                         "in",
@@ -213,7 +868,6 @@
                 },
                 {
                     "name": "dwRangeIndex",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -221,7 +875,6 @@
                 },
                 {
                     "name": "pszActionId",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -233,15 +886,15 @@
             ]
         },
         {
-            "name": "MappingFreePropertyBag",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MappingFreePropertyBag",
                 "type": "HRESULT"
             },
+            "name": "MappingFreePropertyBag",
             "arguments": [
                 {
                     "name": "pBag",
-                    "data_type": "TypeDecl",
                     "type": "PMAPPING_PROPERTY_BAG",
                     "sal": [
                         "in"

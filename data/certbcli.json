@@ -2,49 +2,56 @@
     "typedefs": [
         {
             "name": "CSBFT",
-            "data_type": "TypeDecl",
             "type": "WCHAR"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "void"
-            },
-            "name": "HCSBC"
+            "name": "HCSBC",
+            "type": "void",
+            "data_type": "Ptr"
         },
         {
             "name": "CSEDB_RSTMAPW",
-            "type": "tagCSEDB_RSTMAPW",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "tagCSEDB_RSTMAPW",
+                "elements": [
+                    {
+                        "name": "pwszDatabaseName",
+                        "type": "WCHAR",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "pwszNewDatabaseName",
+                        "type": "WCHAR",
+                        "data_type": "Ptr"
+                    }
+                ]
+            }
         }
     ],
     "funcdefs": [
         {
-            "name": "CertSrvIsServerOnlineW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CertSrvIsServerOnlineW",
                 "type": "HRESULT"
             },
+            "name": "CertSrvIsServerOnlineW",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwszServerName",
                         "type": "WCHAR"
                     },
-                    "name": "pwszServerName",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pfServerOnline",
                         "type": "BOOL"
                     },
-                    "name": "pfServerOnline",
                     "sal": [
                         "out"
                     ]
@@ -55,38 +62,34 @@
             ]
         },
         {
-            "name": "CertSrvBackupGetDynamicFileListW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CertSrvBackupGetDynamicFileListW",
                 "type": "HRESULT"
             },
+            "name": "CertSrvBackupGetDynamicFileListW",
             "arguments": [
                 {
                     "name": "hbc",
-                    "data_type": "TypeDecl",
                     "type": "HCSBC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppwszzFileList",
                         "type": "PWSTR"
                     },
-                    "name": "ppwszzFileList",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcbSize",
                         "type": "DWORD"
                     },
-                    "name": "pcbSize",
                     "sal": [
                         "out"
                     ]
@@ -97,26 +100,24 @@
             ]
         },
         {
-            "name": "CertSrvBackupPrepareW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CertSrvBackupPrepareW",
                 "type": "HRESULT"
             },
+            "name": "CertSrvBackupPrepareW",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwszServerName",
                         "type": "WCHAR"
                     },
-                    "name": "pwszServerName",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "grbitJet",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -124,19 +125,16 @@
                 },
                 {
                     "name": "dwBackupFlags",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "phbc",
                         "type": "HCSBC"
                     },
-                    "name": "phbc",
                     "sal": [
                         "out"
                     ]
@@ -147,38 +145,34 @@
             ]
         },
         {
-            "name": "CertSrvBackupGetDatabaseNamesW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CertSrvBackupGetDatabaseNamesW",
                 "type": "HRESULT"
             },
+            "name": "CertSrvBackupGetDatabaseNamesW",
             "arguments": [
                 {
                     "name": "hbc",
-                    "data_type": "TypeDecl",
                     "type": "HCSBC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppwszzAttachmentInformation",
                         "type": "PWSTR"
                     },
-                    "name": "ppwszzAttachmentInformation",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcbSize",
                         "type": "DWORD"
                     },
-                    "name": "pcbSize",
                     "sal": [
                         "out"
                     ]
@@ -189,46 +183,41 @@
             ]
         },
         {
-            "name": "CertSrvBackupOpenFileW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CertSrvBackupOpenFileW",
                 "type": "HRESULT"
             },
+            "name": "CertSrvBackupOpenFileW",
             "arguments": [
                 {
                     "name": "hbc",
-                    "data_type": "TypeDecl",
                     "type": "HCSBC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwszAttachmentName",
                         "type": "WCHAR"
                     },
-                    "name": "pwszAttachmentName",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "cbReadHintSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pliFileSize",
                         "type": "LARGE_INTEGER"
                     },
-                    "name": "pliFileSize",
                     "sal": [
                         "out"
                     ]
@@ -239,46 +228,41 @@
             ]
         },
         {
-            "name": "CertSrvBackupRead",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CertSrvBackupRead",
                 "type": "HRESULT"
             },
+            "name": "CertSrvBackupRead",
             "arguments": [
                 {
                     "name": "hbc",
-                    "data_type": "TypeDecl",
                     "type": "HCSBC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pvBuffer",
                         "type": "void"
                     },
-                    "name": "pvBuffer",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "name": "cbBuffer",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcbRead",
                         "type": "DWORD"
                     },
-                    "name": "pcbRead",
                     "sal": [
                         "out"
                     ]
@@ -289,15 +273,15 @@
             ]
         },
         {
-            "name": "CertSrvBackupClose",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CertSrvBackupClose",
                 "type": "HRESULT"
             },
+            "name": "CertSrvBackupClose",
             "arguments": [
                 {
                     "name": "hbc",
-                    "data_type": "TypeDecl",
                     "type": "HCSBC",
                     "sal": [
                         "in"
@@ -309,38 +293,34 @@
             ]
         },
         {
-            "name": "CertSrvBackupGetBackupLogsW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CertSrvBackupGetBackupLogsW",
                 "type": "HRESULT"
             },
+            "name": "CertSrvBackupGetBackupLogsW",
             "arguments": [
                 {
                     "name": "hbc",
-                    "data_type": "TypeDecl",
                     "type": "HCSBC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppwszzBackupLogFiles",
                         "type": "PWSTR"
                     },
-                    "name": "ppwszzBackupLogFiles",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcbSize",
                         "type": "DWORD"
                     },
-                    "name": "pcbSize",
                     "sal": [
                         "out"
                     ]
@@ -351,15 +331,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "CertSrvBackupTruncateLogs",
+                "type": "HRESULT"
+            },
             "name": "CertSrvBackupTruncateLogs",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "hbc",
-                    "data_type": "TypeDecl",
                     "type": "HCSBC",
                     "sal": [
                         "in"
@@ -371,15 +351,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "CertSrvBackupEnd",
+                "type": "HRESULT"
+            },
             "name": "CertSrvBackupEnd",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "hbc",
-                    "data_type": "TypeDecl",
                     "type": "HCSBC",
                     "sal": [
                         "in"
@@ -391,19 +371,18 @@
             ]
         },
         {
-            "name": "CertSrvBackupFree",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CertSrvBackupFree",
                 "type": "void"
             },
+            "name": "CertSrvBackupFree",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pv",
                         "type": "void"
                     },
-                    "name": "pv",
                     "sal": [
                         "in"
                     ]
@@ -414,38 +393,34 @@
             ]
         },
         {
-            "name": "CertSrvRestoreGetDatabaseLocationsW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CertSrvRestoreGetDatabaseLocationsW",
                 "type": "HRESULT"
             },
+            "name": "CertSrvRestoreGetDatabaseLocationsW",
             "arguments": [
                 {
                     "name": "hbc",
-                    "data_type": "TypeDecl",
                     "type": "HCSBC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppwszzDatabaseLocationList",
                         "type": "PWSTR"
                     },
-                    "name": "ppwszzDatabaseLocationList",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcbSize",
                         "type": "DWORD"
                     },
-                    "name": "pcbSize",
                     "sal": [
                         "out"
                     ]
@@ -456,38 +431,34 @@
             ]
         },
         {
-            "name": "CertSrvRestorePrepareW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CertSrvRestorePrepareW",
                 "type": "HRESULT"
             },
+            "name": "CertSrvRestorePrepareW",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwszServerName",
                         "type": "WCHAR"
                     },
-                    "name": "pwszServerName",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "dwRestoreFlags",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "phbc",
                         "type": "HCSBC"
                     },
-                    "name": "phbc",
                     "sal": [
                         "out"
                     ]
@@ -498,76 +469,65 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "CertSrvRestoreRegisterW",
+                "type": "HRESULT"
+            },
             "name": "CertSrvRestoreRegisterW",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "hbc",
-                    "data_type": "TypeDecl",
                     "type": "HCSBC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwszCheckPointFilePath",
                         "type": "WCHAR"
                     },
-                    "name": "pwszCheckPointFilePath",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwszLogPath",
                         "type": "WCHAR"
                     },
-                    "name": "pwszLogPath",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "ArrayDecl",
                     "type": {
                         "name": "rgrstmap",
-                        "data_type": "TypeDecl",
                         "type": "CSEDB_RSTMAPW"
                     },
-                    "dim": {},
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "crstmap",
-                    "data_type": "TypeDecl",
                     "type": "LONG",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwszBackupLogPath",
                         "type": "WCHAR"
                     },
-                    "name": "pwszBackupLogPath",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "genLow",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -575,7 +535,6 @@
                 },
                 {
                     "name": "genHigh",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -587,52 +546,45 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "CertSrvRestoreRegisterThroughFile",
+                "type": "HRESULT"
+            },
             "name": "CertSrvRestoreRegisterThroughFile",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "hbc",
-                    "data_type": "TypeDecl",
                     "type": "HCSBC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwszCheckPointFilePath",
                         "type": "WCHAR"
                     },
-                    "name": "pwszCheckPointFilePath",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwszLogPath",
                         "type": "WCHAR"
                     },
-                    "name": "pwszLogPath",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "ArrayDecl",
                     "type": {
                         "name": "rgrstmap",
-                        "data_type": "TypeDecl",
                         "type": "CSEDB_RSTMAPW"
                     },
-                    "dim": {},
                     "sal": [
                         "in",
                         "optional"
@@ -640,19 +592,16 @@
                 },
                 {
                     "name": "crstmap",
-                    "data_type": "TypeDecl",
                     "type": "LONG",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwszBackupLogPath",
                         "type": "WCHAR"
                     },
-                    "name": "pwszBackupLogPath",
                     "sal": [
                         "in",
                         "optional"
@@ -660,7 +609,6 @@
                 },
                 {
                     "name": "genLow",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -668,7 +616,6 @@
                 },
                 {
                     "name": "genHigh",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -680,15 +627,15 @@
             ]
         },
         {
-            "name": "CertSrvRestoreRegisterComplete",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CertSrvRestoreRegisterComplete",
                 "type": "HRESULT"
             },
+            "name": "CertSrvRestoreRegisterComplete",
             "arguments": [
                 {
                     "name": "hbc",
-                    "data_type": "TypeDecl",
                     "type": "HCSBC",
                     "sal": [
                         "in"
@@ -696,7 +643,6 @@
                 },
                 {
                     "name": "hrRestoreState",
-                    "data_type": "TypeDecl",
                     "type": "HRESULT",
                     "sal": [
                         "in"
@@ -708,15 +654,15 @@
             ]
         },
         {
-            "name": "CertSrvRestoreEnd",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CertSrvRestoreEnd",
                 "type": "HRESULT"
             },
+            "name": "CertSrvRestoreEnd",
             "arguments": [
                 {
                     "name": "hbc",
-                    "data_type": "TypeDecl",
                     "type": "HCSBC",
                     "sal": [
                         "in"
@@ -728,52 +674,44 @@
             ]
         },
         {
-            "name": "CertSrvServerControlW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CertSrvServerControlW",
                 "type": "HRESULT"
             },
+            "name": "CertSrvServerControlW",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pwszServerName",
                         "type": "WCHAR"
                     },
-                    "name": "pwszServerName",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "dwControlFlags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcbOut",
                         "type": "DWORD"
                     },
-                    "name": "pcbOut",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "BYTE"
-                        }
+                        "name": "ppbOut",
+                        "type": "BYTE",
+                        "data_type": "Ptr"
                     },
-                    "name": "ppbOut",
                     "sal": [
                         "out"
                     ]

@@ -2,47 +2,133 @@
     "typedefs": [
         {
             "name": "SCHEDULE_HEADER",
-            "type": "_SCHEDULE_HEADER",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_SCHEDULE_HEADER",
+                "elements": [
+                    {
+                        "name": "Type",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Offset",
+                        "type": "ULONG"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PSCHEDULE_HEADER",
             "type": {
-                "type": "_SCHEDULE_HEADER",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_SCHEDULE_HEADER",
+                "elements": [
+                    {
+                        "name": "Type",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Offset",
+                        "type": "ULONG"
+                    }
+                ]
             },
-            "name": "PSCHEDULE_HEADER"
+            "data_type": "Ptr"
         },
         {
             "name": "SCHEDULE",
-            "type": "_SCHEDULE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_SCHEDULE",
+                "elements": [
+                    {
+                        "name": "Size",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Bandwidth",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "NumberOfSchedules",
+                        "type": "ULONG"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "1"
+                        },
+                        "name": "Schedules"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PSCHEDULE",
             "type": {
-                "type": "_SCHEDULE",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_SCHEDULE",
+                "elements": [
+                    {
+                        "name": "Size",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Bandwidth",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "NumberOfSchedules",
+                        "type": "ULONG"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "1"
+                        },
+                        "name": "Schedules"
+                    }
+                ]
             },
-            "name": "PSCHEDULE"
+            "data_type": "Ptr"
         },
         {
             "name": "DS_MANGLE_FOR",
-            "type": "_DS_MANGLE_FOR",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "DS_MANGLE_UNKNOWN",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "DS_MANGLE_OBJECT_RDN_FOR_DELETION",
+                        "value": {}
+                    },
+                    {
+                        "name": "DS_MANGLE_OBJECT_RDN_FOR_NAME_CONFLICT",
+                        "value": {}
+                    }
+                ]
+            }
         }
     ],
     "funcdefs": [
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "DsMakeSpnW",
+                "type": "DWORD"
+            },
             "name": "DsMakeSpnW",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "DWORD"
-            },
             "arguments": [
                 {
                     "name": "ServiceClass",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -50,7 +136,6 @@
                 },
                 {
                     "name": "ServiceName",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -58,7 +143,6 @@
                 },
                 {
                     "name": "InstanceName",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in",
@@ -67,7 +151,6 @@
                 },
                 {
                     "name": "InstancePort",
-                    "data_type": "TypeDecl",
                     "type": "USHORT",
                     "sal": [
                         "in"
@@ -75,7 +158,6 @@
                 },
                 {
                     "name": "Referrer",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in",
@@ -83,12 +165,10 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcSpnLength",
                         "type": "DWORD"
                     },
-                    "name": "pcSpnLength",
                     "sal": [
                         "in",
                         "out"
@@ -96,7 +176,6 @@
                 },
                 {
                     "name": "pszSpn",
-                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "out"
@@ -108,15 +187,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "DsMakeSpnA",
+                "type": "DWORD"
+            },
             "name": "DsMakeSpnA",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "DWORD"
-            },
             "arguments": [
                 {
                     "name": "ServiceClass",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -124,7 +203,6 @@
                 },
                 {
                     "name": "ServiceName",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -132,7 +210,6 @@
                 },
                 {
                     "name": "InstanceName",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in",
@@ -141,7 +218,6 @@
                 },
                 {
                     "name": "InstancePort",
-                    "data_type": "TypeDecl",
                     "type": "USHORT",
                     "sal": [
                         "in"
@@ -149,7 +225,6 @@
                 },
                 {
                     "name": "Referrer",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in",
@@ -157,12 +232,10 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcSpnLength",
                         "type": "DWORD"
                     },
-                    "name": "pcSpnLength",
                     "sal": [
                         "in",
                         "out"
@@ -170,7 +243,6 @@
                 },
                 {
                     "name": "pszSpn",
-                    "data_type": "TypeDecl",
                     "type": "LPSTR",
                     "sal": [
                         "out"
@@ -182,15 +254,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "DsCrackSpnA",
+                "type": "DWORD"
+            },
             "name": "DsCrackSpnA",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "DWORD"
-            },
             "arguments": [
                 {
                     "name": "pszSpn",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -198,7 +270,6 @@
                 },
                 {
                     "name": "pcServiceClass",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -208,7 +279,6 @@
                 },
                 {
                     "name": "ServiceClass",
-                    "data_type": "TypeDecl",
                     "type": "LPSTR",
                     "sal": [
                         "out",
@@ -217,7 +287,6 @@
                 },
                 {
                     "name": "pcServiceName",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -227,7 +296,6 @@
                 },
                 {
                     "name": "ServiceName",
-                    "data_type": "TypeDecl",
                     "type": "LPSTR",
                     "sal": [
                         "out",
@@ -236,7 +304,6 @@
                 },
                 {
                     "name": "pcInstanceName",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -246,7 +313,6 @@
                 },
                 {
                     "name": "InstanceName",
-                    "data_type": "TypeDecl",
                     "type": "LPSTR",
                     "sal": [
                         "out",
@@ -254,12 +320,10 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pInstancePort",
                         "type": "USHORT"
                     },
-                    "name": "pInstancePort",
                     "sal": [
                         "out",
                         "optional"
@@ -271,27 +335,25 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "DsCrackSpnW",
+                "type": "DWORD"
+            },
             "name": "DsCrackSpnW",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "DWORD"
-            },
             "arguments": [
                 {
                     "name": "pszSpn",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcServiceClass",
                         "type": "DWORD"
                     },
-                    "name": "pcServiceClass",
                     "sal": [
                         "in",
                         "out",
@@ -300,7 +362,6 @@
                 },
                 {
                     "name": "ServiceClass",
-                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "out",
@@ -308,12 +369,10 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcServiceName",
                         "type": "DWORD"
                     },
-                    "name": "pcServiceName",
                     "sal": [
                         "in",
                         "out",
@@ -322,7 +381,6 @@
                 },
                 {
                     "name": "ServiceName",
-                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "out",
@@ -330,12 +388,10 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcInstanceName",
                         "type": "DWORD"
                     },
-                    "name": "pcInstanceName",
                     "sal": [
                         "in",
                         "out",
@@ -344,7 +400,6 @@
                 },
                 {
                     "name": "InstanceName",
-                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "out",
@@ -352,12 +407,10 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pInstancePort",
                         "type": "USHORT"
                     },
-                    "name": "pInstancePort",
                     "sal": [
                         "out",
                         "optional"
@@ -369,15 +422,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "DsQuoteRdnValueW",
+                "type": "DWORD"
+            },
             "name": "DsQuoteRdnValueW",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "DWORD"
-            },
             "arguments": [
                 {
                     "name": "cUnquotedRdnValueLength",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -385,19 +438,16 @@
                 },
                 {
                     "name": "psUnquotedRdnValue",
-                    "data_type": "TypeDecl",
                     "type": "LPCWCH",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcQuotedRdnValueLength",
                         "type": "DWORD"
                     },
-                    "name": "pcQuotedRdnValueLength",
                     "sal": [
                         "in",
                         "out"
@@ -405,7 +455,6 @@
                 },
                 {
                     "name": "psQuotedRdnValue",
-                    "data_type": "TypeDecl",
                     "type": "LPWCH",
                     "sal": [
                         "out"
@@ -417,15 +466,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "DsQuoteRdnValueA",
+                "type": "DWORD"
+            },
             "name": "DsQuoteRdnValueA",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "DWORD"
-            },
             "arguments": [
                 {
                     "name": "cUnquotedRdnValueLength",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -433,19 +482,16 @@
                 },
                 {
                     "name": "psUnquotedRdnValue",
-                    "data_type": "TypeDecl",
                     "type": "LPCCH",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcQuotedRdnValueLength",
                         "type": "DWORD"
                     },
-                    "name": "pcQuotedRdnValueLength",
                     "sal": [
                         "in",
                         "out"
@@ -453,7 +499,6 @@
                 },
                 {
                     "name": "psQuotedRdnValue",
-                    "data_type": "TypeDecl",
                     "type": "LPCH",
                     "sal": [
                         "out"
@@ -465,15 +510,15 @@
             ]
         },
         {
-            "name": "DsUnquoteRdnValueW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DsUnquoteRdnValueW",
                 "type": "DWORD"
             },
+            "name": "DsUnquoteRdnValueW",
             "arguments": [
                 {
                     "name": "cQuotedRdnValueLength",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -481,19 +526,16 @@
                 },
                 {
                     "name": "psQuotedRdnValue",
-                    "data_type": "TypeDecl",
                     "type": "LPCWCH",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcUnquotedRdnValueLength",
                         "type": "DWORD"
                     },
-                    "name": "pcUnquotedRdnValueLength",
                     "sal": [
                         "in",
                         "out"
@@ -501,7 +543,6 @@
                 },
                 {
                     "name": "psUnquotedRdnValue",
-                    "data_type": "TypeDecl",
                     "type": "LPWCH",
                     "sal": [
                         "out"
@@ -513,15 +554,15 @@
             ]
         },
         {
-            "name": "DsUnquoteRdnValueA",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DsUnquoteRdnValueA",
                 "type": "DWORD"
             },
+            "name": "DsUnquoteRdnValueA",
             "arguments": [
                 {
                     "name": "cQuotedRdnValueLength",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -529,19 +570,16 @@
                 },
                 {
                     "name": "psQuotedRdnValue",
-                    "data_type": "TypeDecl",
                     "type": "LPCCH",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcUnquotedRdnValueLength",
                         "type": "DWORD"
                     },
-                    "name": "pcUnquotedRdnValueLength",
                     "sal": [
                         "in",
                         "out"
@@ -549,7 +587,6 @@
                 },
                 {
                     "name": "psUnquotedRdnValue",
-                    "data_type": "TypeDecl",
                     "type": "LPCH",
                     "sal": [
                         "out"
@@ -561,76 +598,65 @@
             ]
         },
         {
-            "name": "DsGetRdnW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DsGetRdnW",
                 "type": "DWORD"
             },
+            "name": "DsGetRdnW",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppDN",
                         "type": "LPCWCH"
                     },
-                    "name": "ppDN",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcDN",
                         "type": "DWORD"
                     },
-                    "name": "pcDN",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppKey",
                         "type": "LPCWCH"
                     },
-                    "name": "ppKey",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcKey",
                         "type": "DWORD"
                     },
-                    "name": "pcKey",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppVal",
                         "type": "LPCWCH"
                     },
-                    "name": "ppVal",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcVal",
                         "type": "DWORD"
                     },
-                    "name": "pcVal",
                     "sal": [
                         "out"
                     ]
@@ -641,15 +667,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "DsCrackUnquotedMangledRdnW",
+                "type": "BOOL"
+            },
             "name": "DsCrackUnquotedMangledRdnW",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "BOOL"
-            },
             "arguments": [
                 {
                     "name": "pszRDN",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -657,31 +683,26 @@
                 },
                 {
                     "name": "cchRDN",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pGuid",
                         "type": "GUID"
                     },
-                    "name": "pGuid",
                     "sal": [
                         "out",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "peDsMangleFor",
                         "type": "DS_MANGLE_FOR"
                     },
-                    "name": "peDsMangleFor",
                     "sal": [
                         "out",
                         "optional"
@@ -693,15 +714,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "DsCrackUnquotedMangledRdnA",
+                "type": "BOOL"
+            },
             "name": "DsCrackUnquotedMangledRdnA",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "BOOL"
-            },
             "arguments": [
                 {
                     "name": "pszRDN",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -709,31 +730,26 @@
                 },
                 {
                     "name": "cchRDN",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pGuid",
                         "type": "GUID"
                     },
-                    "name": "pGuid",
                     "sal": [
                         "out",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "peDsMangleFor",
                         "type": "DS_MANGLE_FOR"
                     },
-                    "name": "peDsMangleFor",
                     "sal": [
                         "out",
                         "optional"
@@ -745,15 +761,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "DsIsMangledRdnValueW",
+                "type": "BOOL"
+            },
             "name": "DsIsMangledRdnValueW",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "BOOL"
-            },
             "arguments": [
                 {
                     "name": "pszRdn",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -761,7 +777,6 @@
                 },
                 {
                     "name": "cRdn",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -769,7 +784,6 @@
                 },
                 {
                     "name": "eDsMangleForDesired",
-                    "data_type": "TypeDecl",
                     "type": "DS_MANGLE_FOR",
                     "sal": [
                         "in"
@@ -781,15 +795,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "DsIsMangledRdnValueA",
+                "type": "BOOL"
+            },
             "name": "DsIsMangledRdnValueA",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "BOOL"
-            },
             "arguments": [
                 {
                     "name": "pszRdn",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -797,7 +811,6 @@
                 },
                 {
                     "name": "cRdn",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -805,7 +818,6 @@
                 },
                 {
                     "name": "eDsMangleForDesired",
-                    "data_type": "TypeDecl",
                     "type": "DS_MANGLE_FOR",
                     "sal": [
                         "in"
@@ -817,15 +829,15 @@
             ]
         },
         {
-            "name": "DsIsMangledDnA",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DsIsMangledDnA",
                 "type": "BOOL"
             },
+            "name": "DsIsMangledDnA",
             "arguments": [
                 {
                     "name": "pszDn",
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": [
                         "in"
@@ -833,7 +845,6 @@
                 },
                 {
                     "name": "eDsMangleFor",
-                    "data_type": "TypeDecl",
                     "type": "DS_MANGLE_FOR",
                     "sal": [
                         "in"
@@ -845,15 +856,15 @@
             ]
         },
         {
-            "name": "DsIsMangledDnW",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DsIsMangledDnW",
                 "type": "BOOL"
             },
+            "name": "DsIsMangledDnW",
             "arguments": [
                 {
                     "name": "pszDn",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -861,7 +872,6 @@
                 },
                 {
                     "name": "eDsMangleFor",
-                    "data_type": "TypeDecl",
                     "type": "DS_MANGLE_FOR",
                     "sal": [
                         "in"

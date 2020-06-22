@@ -2,103 +2,439 @@
     "typedefs": [
         {
             "name": "NETISO_FLAG",
-            "data_type": "Enum",
-            "enumerators": [
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "NETISO_FLAG_FORCE_COMPUTE_BINARIES",
+                        "value": {
+                            "type": "int",
+                            "value": "0x1"
+                        }
+                    },
+                    {
+                        "name": "NETISO_FLAG_MAX",
+                        "value": {
+                            "type": "int",
+                            "value": "0x2"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "INET_FIREWALL_AC_CREATION_TYPE",
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "INET_FIREWALL_AC_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00"
+                        }
+                    },
+                    {
+                        "name": "INET_FIREWALL_AC_PACKAGE_ID_ONLY",
+                        "value": {
+                            "type": "int",
+                            "value": "0x01"
+                        }
+                    },
+                    {
+                        "name": "INET_FIREWALL_AC_BINARY",
+                        "value": {
+                            "type": "int",
+                            "value": "0x02"
+                        }
+                    },
+                    {
+                        "name": "INET_FIREWALL_AC_MAX",
+                        "value": {
+                            "type": "int",
+                            "value": "0x04"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "INET_FIREWALL_AC_CHANGE_TYPE",
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "INET_FIREWALL_AC_CHANGE_INVALID",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "INET_FIREWALL_AC_CHANGE_CREATE",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "INET_FIREWALL_AC_CHANGE_DELETE",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "INET_FIREWALL_AC_CHANGE_MAX",
+                        "value": {
+                            "type": "int",
+                            "value": "3"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "INET_FIREWALL_AC_CAPABILITIES",
+            "type": {
+                "data_type": "Struct",
+                "name": "_INET_FIREWALL_AC_CAPABILITIES",
+                "elements": [
+                    {
+                        "name": "count",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "capabilities",
+                        "type": "SID_AND_ATTRIBUTES",
+                        "data_type": "Ptr"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PINET_FIREWALL_AC_CAPABILITIES",
+            "type": {
+                "data_type": "Struct",
+                "name": "_INET_FIREWALL_AC_CAPABILITIES",
+                "elements": [
+                    {
+                        "name": "count",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "capabilities",
+                        "type": "SID_AND_ATTRIBUTES",
+                        "data_type": "Ptr"
+                    }
+                ]
+            },
+            "data_type": "Ptr"
+        },
+        {
+            "name": "INET_FIREWALL_AC_BINARIES",
+            "type": {
+                "data_type": "Struct",
+                "name": "_INET_FIREWALL_AC_BINARIES",
+                "elements": [
+                    {
+                        "name": "count",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "binaries",
+                        "type": "LPWSTR",
+                        "data_type": "Ptr"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PINET_FIREWALL_AC_BINARIES",
+            "type": {
+                "data_type": "Struct",
+                "name": "_INET_FIREWALL_AC_BINARIES",
+                "elements": [
+                    {
+                        "name": "count",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "binaries",
+                        "type": "LPWSTR",
+                        "data_type": "Ptr"
+                    }
+                ]
+            },
+            "data_type": "Ptr"
+        },
+        {
+            "name": "INET_FIREWALL_AC_CHANGE",
+            "type": {
+                "data_type": "Struct",
+                "name": "_INET_FIREWALL_AC_CHANGE",
+                "elements": [
+                    {
+                        "name": "changeType",
+                        "type": "INET_FIREWALL_AC_CHANGE_TYPE"
+                    },
+                    {
+                        "name": "createType",
+                        "type": "INET_FIREWALL_AC_CREATION_TYPE"
+                    },
+                    {
+                        "name": "appContainerSid",
+                        "type": "SID",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "userSid",
+                        "type": "SID",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "displayName",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "u",
+                        "type": {
+                            "data_type": "Union",
+                            "elements": [
+                                {
+                                    "name": "capabilities",
+                                    "type": "INET_FIREWALL_AC_CAPABILITIES"
+                                },
+                                {
+                                    "name": "binaries",
+                                    "type": "INET_FIREWALL_AC_BINARIES"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PINET_FIREWALL_AC_CHANGE",
+            "type": {
+                "data_type": "Struct",
+                "name": "_INET_FIREWALL_AC_CHANGE",
+                "elements": [
+                    {
+                        "name": "changeType",
+                        "type": "INET_FIREWALL_AC_CHANGE_TYPE"
+                    },
+                    {
+                        "name": "createType",
+                        "type": "INET_FIREWALL_AC_CREATION_TYPE"
+                    },
+                    {
+                        "name": "appContainerSid",
+                        "type": "SID",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "userSid",
+                        "type": "SID",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "displayName",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "u",
+                        "type": {
+                            "data_type": "Union",
+                            "elements": [
+                                {
+                                    "name": "capabilities",
+                                    "type": "INET_FIREWALL_AC_CAPABILITIES"
+                                },
+                                {
+                                    "name": "binaries",
+                                    "type": "INET_FIREWALL_AC_BINARIES"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "data_type": "Ptr"
+        },
+        {
+            "name": "INET_FIREWALL_APP_CONTAINER",
+            "type": {
+                "data_type": "Struct",
+                "name": "_INET_FIREWALL_APP_CONTAINER",
+                "elements": [
+                    {
+                        "name": "appContainerSid",
+                        "type": "SID",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "userSid",
+                        "type": "SID",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "appContainerName",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "displayName",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "description",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "capabilities",
+                        "type": "INET_FIREWALL_AC_CAPABILITIES"
+                    },
+                    {
+                        "name": "binaries",
+                        "type": "INET_FIREWALL_AC_BINARIES"
+                    },
+                    {
+                        "name": "workingDirectory",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "packageFullName",
+                        "type": "LPWSTR"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "PINET_FIREWALL_APP_CONTAINER",
+            "type": {
+                "data_type": "Struct",
+                "name": "_INET_FIREWALL_APP_CONTAINER",
+                "elements": [
+                    {
+                        "name": "appContainerSid",
+                        "type": "SID",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "userSid",
+                        "type": "SID",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "appContainerName",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "displayName",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "description",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "capabilities",
+                        "type": "INET_FIREWALL_AC_CAPABILITIES"
+                    },
+                    {
+                        "name": "binaries",
+                        "type": "INET_FIREWALL_AC_BINARIES"
+                    },
+                    {
+                        "name": "workingDirectory",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "packageFullName",
+                        "type": "LPWSTR"
+                    }
+                ]
+            },
+            "data_type": "Ptr"
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PAC_CHANGES_CALLBACK_FN",
+                "type": "void"
+            },
+            "name": "PAC_CHANGES_CALLBACK_FN",
+            "arguments": [
                 {
-                    "name": "NETISO_FLAG_FORCE_COMPUTE_BINARIES",
-                    "value": {
-                        "type": "int",
-                        "value": "0x1"
+                    "type": {
+                        "name": "context",
+                        "type": "void"
                     }
                 },
                 {
-                    "name": "NETISO_FLAG_MAX",
-                    "value": {
-                        "type": "int",
-                        "value": "0x2"
+                    "type": {
+                        "name": "pChange",
+                        "type": "INET_FIREWALL_AC_CHANGE"
                     }
                 }
             ]
         },
         {
-            "name": "INET_FIREWALL_AC_CREATION_TYPE",
-            "type": "_INET_FIREWALL_AC_CREATION_TYPE",
-            "data_type": "TypeDecl"
-        },
-        {
-            "name": "INET_FIREWALL_AC_CHANGE_TYPE",
-            "type": "_INET_FIREWALL_AC_CHANGE_TYPE",
-            "data_type": "TypeDecl"
-        },
-        {
-            "name": "INET_FIREWALL_AC_CAPABILITIES",
-            "type": "_INET_FIREWALL_AC_CAPABILITIES",
-            "data_type": "TypeDecl"
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "type": "_INET_FIREWALL_AC_CAPABILITIES",
-                "data_type": "TypeDecl"
-            },
-            "name": "PINET_FIREWALL_AC_CAPABILITIES"
-        },
-        {
-            "name": "INET_FIREWALL_AC_BINARIES",
-            "type": "_INET_FIREWALL_AC_BINARIES",
-            "data_type": "TypeDecl"
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "type": "_INET_FIREWALL_AC_BINARIES",
-                "data_type": "TypeDecl"
-            },
-            "name": "PINET_FIREWALL_AC_BINARIES"
-        },
-        {
-            "name": "INET_FIREWALL_AC_CHANGE",
-            "type": "_INET_FIREWALL_AC_CHANGE",
-            "data_type": "TypeDecl"
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "type": "_INET_FIREWALL_AC_CHANGE",
-                "data_type": "TypeDecl"
-            },
-            "name": "PINET_FIREWALL_AC_CHANGE"
-        },
-        {
-            "name": "INET_FIREWALL_APP_CONTAINER",
-            "type": "_INET_FIREWALL_APP_CONTAINER",
-            "data_type": "TypeDecl"
-        },
-        {
-            "data_type": "PtrDecl",
-            "type": {
-                "type": "_INET_FIREWALL_APP_CONTAINER",
-                "data_type": "TypeDecl"
-            },
-            "name": "PINET_FIREWALL_APP_CONTAINER"
-        },
-        {
             "name": "NETISO_ERROR_TYPE",
-            "type": "_NETISO_ERROR_TYPE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "NETISO_ERROR_TYPE_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x00"
+                        }
+                    },
+                    {
+                        "name": "NETISO_ERROR_TYPE_PRIVATE_NETWORK",
+                        "value": {
+                            "type": "int",
+                            "value": "0x01"
+                        }
+                    },
+                    {
+                        "name": "NETISO_ERROR_TYPE_INTERNET_CLIENT",
+                        "value": {
+                            "type": "int",
+                            "value": "0x02"
+                        }
+                    },
+                    {
+                        "name": "NETISO_ERROR_TYPE_INTERNET_CLIENT_SERVER",
+                        "value": {
+                            "type": "int",
+                            "value": "0x03"
+                        }
+                    },
+                    {
+                        "name": "NETISO_ERROR_TYPE_MAX",
+                        "value": {
+                            "type": "int",
+                            "value": "0x04"
+                        }
+                    }
+                ]
+            }
         }
     ],
     "funcdefs": [
         {
-            "name": "NetworkIsolationSetupAppContainerBinaries",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NetworkIsolationSetupAppContainerBinaries",
                 "type": "HRESULT"
             },
+            "name": "NetworkIsolationSetupAppContainerBinaries",
             "arguments": [
                 {
                     "name": "applicationContainerSid",
-                    "data_type": "TypeDecl",
                     "type": "PSID",
                     "sal": [
                         "in"
@@ -106,7 +442,6 @@
                 },
                 {
                     "name": "packageFullName",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -114,7 +449,6 @@
                 },
                 {
                     "name": "packageFolder",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -122,7 +456,6 @@
                 },
                 {
                     "name": "displayName",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -130,26 +463,22 @@
                 },
                 {
                     "name": "bBinariesFullyComputed",
-                    "data_type": "TypeDecl",
                     "type": "BOOL",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "binaries",
                         "type": "LPCWSTR"
                     },
-                    "name": "binaries",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "binariesCount",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -164,15 +493,15 @@
             ]
         },
         {
-            "name": "NetworkIsolationRegisterForAppContainerChanges",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NetworkIsolationRegisterForAppContainerChanges",
                 "type": "DWORD"
             },
+            "name": "NetworkIsolationRegisterForAppContainerChanges",
             "arguments": [
                 {
                     "name": "flags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -180,7 +509,6 @@
                 },
                 {
                     "name": "callback",
-                    "data_type": "TypeDecl",
                     "type": "PAC_CHANGES_CALLBACK_FN",
                     "sal": [
                         "in"
@@ -188,7 +516,6 @@
                 },
                 {
                     "name": "context",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in",
@@ -196,12 +523,10 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "registrationObject",
                         "type": "HANDLE"
                     },
-                    "name": "registrationObject",
                     "sal": [
                         "out"
                     ]
@@ -215,15 +540,15 @@
             ]
         },
         {
-            "name": "NetworkIsolationUnregisterForAppContainerChanges",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NetworkIsolationUnregisterForAppContainerChanges",
                 "type": "DWORD"
             },
+            "name": "NetworkIsolationUnregisterForAppContainerChanges",
             "arguments": [
                 {
                     "name": "registrationObject",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -238,15 +563,15 @@
             ]
         },
         {
-            "name": "NetworkIsolationFreeAppContainers",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NetworkIsolationFreeAppContainers",
                 "type": "DWORD"
             },
+            "name": "NetworkIsolationFreeAppContainers",
             "arguments": [
                 {
                     "name": "pPublicAppCs",
-                    "data_type": "TypeDecl",
                     "type": "PINET_FIREWALL_APP_CONTAINER",
                     "sal": [
                         "in"
@@ -261,38 +586,34 @@
             ]
         },
         {
-            "name": "NetworkIsolationEnumAppContainers",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NetworkIsolationEnumAppContainers",
                 "type": "DWORD"
             },
+            "name": "NetworkIsolationEnumAppContainers",
             "arguments": [
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pdwNumPublicAppCs",
                         "type": "DWORD"
                     },
-                    "name": "pdwNumPublicAppCs",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppPublicAppCs",
                         "type": "PINET_FIREWALL_APP_CONTAINER"
                     },
-                    "name": "ppPublicAppCs",
                     "sal": [
                         "out"
                     ]
@@ -306,30 +627,27 @@
             ]
         },
         {
-            "name": "NetworkIsolationGetAppContainerConfig",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NetworkIsolationGetAppContainerConfig",
                 "type": "DWORD"
             },
+            "name": "NetworkIsolationGetAppContainerConfig",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pdwNumPublicAppCs",
                         "type": "DWORD"
                     },
-                    "name": "pdwNumPublicAppCs",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "appContainerSids",
                         "type": "PSID_AND_ATTRIBUTES"
                     },
-                    "name": "appContainerSids",
                     "sal": [
                         "out"
                     ]
@@ -343,15 +661,15 @@
             ]
         },
         {
-            "name": "NetworkIsolationSetAppContainerConfig",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NetworkIsolationSetAppContainerConfig",
                 "type": "DWORD"
             },
+            "name": "NetworkIsolationSetAppContainerConfig",
             "arguments": [
                 {
                     "name": "dwNumPublicAppCs",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -359,7 +677,6 @@
                 },
                 {
                     "name": "appContainerSids",
-                    "data_type": "TypeDecl",
                     "type": "PSID_AND_ATTRIBUTES",
                     "sal": [
                         "in"
@@ -374,27 +691,25 @@
             ]
         },
         {
-            "name": "NetworkIsolationDiagnoseConnectFailureAndGetInfo",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NetworkIsolationDiagnoseConnectFailureAndGetInfo",
                 "type": "DWORD"
             },
+            "name": "NetworkIsolationDiagnoseConnectFailureAndGetInfo",
             "arguments": [
                 {
                     "name": "wszServerName",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "netIsoError",
                         "type": "NETISO_ERROR_TYPE"
                     },
-                    "name": "netIsoError",
                     "sal": [
                         "out"
                     ]

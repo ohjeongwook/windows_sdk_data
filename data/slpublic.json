@@ -2,57 +2,236 @@
     "typedefs": [
         {
             "name": "SLID",
-            "data_type": "TypeDecl",
             "type": "GUID"
         },
         {
             "name": "HSLC",
-            "data_type": "TypeDecl",
             "type": "PVOID"
         },
         {
             "name": "HSLP",
-            "data_type": "TypeDecl",
             "type": "PVOID"
         },
         {
             "name": "SLDATATYPE",
-            "type": "_tagSLDATATYPE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "SL_DATA_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0ul"
+                        }
+                    },
+                    {
+                        "name": "SL_DATA_SZ",
+                        "value": {
+                            "type": "int",
+                            "value": "1ul"
+                        }
+                    },
+                    {
+                        "name": "SL_DATA_DWORD",
+                        "value": {
+                            "type": "int",
+                            "value": "4ul"
+                        }
+                    },
+                    {
+                        "name": "SL_DATA_BINARY",
+                        "value": {
+                            "type": "int",
+                            "value": "3ul"
+                        }
+                    },
+                    {
+                        "name": "SL_DATA_MULTI_SZ",
+                        "value": {
+                            "type": "int",
+                            "value": "7ul"
+                        }
+                    },
+                    {
+                        "name": "SL_DATA_SUM",
+                        "value": {
+                            "type": "int",
+                            "value": "100"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "SLIDTYPE",
-            "type": "_tagSLIDTYPE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "SL_ID_APPLICATION",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "SL_ID_PRODUCT_SKU",
+                        "value": {}
+                    },
+                    {
+                        "name": "SL_ID_LICENSE_FILE",
+                        "value": {}
+                    },
+                    {
+                        "name": "SL_ID_LICENSE",
+                        "value": {}
+                    },
+                    {
+                        "name": "SL_ID_PKEY",
+                        "value": {}
+                    },
+                    {
+                        "name": "SL_ID_ALL_LICENSES",
+                        "value": {}
+                    },
+                    {
+                        "name": "SL_ID_ALL_LICENSE_FILES",
+                        "value": {}
+                    },
+                    {
+                        "name": "SL_ID_STORE_TOKEN",
+                        "value": {}
+                    },
+                    {
+                        "name": "SL_ID_LAST",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
             "name": "SLLICENSINGSTATUS",
-            "type": "_tagSLLICENSINGSTATUS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "SL_LICENSING_STATUS_UNLICENSED",
+                        "value": {}
+                    },
+                    {
+                        "name": "SL_LICENSING_STATUS_LICENSED",
+                        "value": {}
+                    },
+                    {
+                        "name": "SL_LICENSING_STATUS_IN_GRACE_PERIOD",
+                        "value": {}
+                    },
+                    {
+                        "name": "SL_LICENSING_STATUS_NOTIFICATION",
+                        "value": {}
+                    },
+                    {
+                        "name": "SL_LICENSING_STATUS_LAST",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
             "name": "SL_LICENSING_STATUS",
-            "type": "_tagSL_LICENSING_STATUS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_tagSL_LICENSING_STATUS",
+                "elements": [
+                    {
+                        "name": "SkuId",
+                        "type": "SLID"
+                    },
+                    {
+                        "name": "eStatus",
+                        "type": "SLLICENSINGSTATUS"
+                    },
+                    {
+                        "name": "dwGraceTime",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwTotalGraceDays",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "hrReason",
+                        "type": "HRESULT"
+                    },
+                    {
+                        "name": "qwValidityExpiration",
+                        "type": "UINT64"
+                    }
+                ]
+            }
         },
         {
             "name": "SL_ACTIVATION_TYPE",
-            "type": "_tagSL_ACTIVATION_TYPE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "SL_ACTIVATION_TYPE_DEFAULT",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "SL_ACTIVATION_TYPE_ACTIVE_DIRECTORY",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "SL_ACTIVATION_INFO_HEADER",
-            "type": "_tagSL_ACTIVATION_INFO_HEADER",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_tagSL_ACTIVATION_INFO_HEADER",
+                "elements": [
+                    {
+                        "name": "cbSize",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "type",
+                        "type": "SL_ACTIVATION_TYPE"
+                    }
+                ]
+            }
         },
         {
             "name": "SL_AD_ACTIVATION_INFO",
-            "type": "_tagSL_AD_ACTIVATION_INFO",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_tagSL_AD_ACTIVATION_INFO",
+                "elements": [
+                    {
+                        "name": "header",
+                        "type": "SL_ACTIVATION_INFO_HEADER"
+                    },
+                    {
+                        "name": "pwszProductKey",
+                        "type": "PCWSTR"
+                    },
+                    {
+                        "name": "pwszActivationObjectName",
+                        "type": "PCWSTR"
+                    }
+                ]
+            }
         },
         {
             "name": "SLREFERRALTYPE",
-            "data_type": "TypeDecl",
             "type": {
                 "data_type": "Enum",
                 "enumerators": [
@@ -84,43 +263,123 @@
         },
         {
             "name": "SL_GENUINE_STATE",
-            "type": "_SL_GENUINE_STATE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "SL_GEN_STATE_IS_GENUINE",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "SL_GEN_STATE_INVALID_LICENSE",
+                        "value": {}
+                    },
+                    {
+                        "name": "SL_GEN_STATE_TAMPERED",
+                        "value": {}
+                    },
+                    {
+                        "name": "SL_GEN_STATE_OFFLINE",
+                        "value": {}
+                    },
+                    {
+                        "name": "SL_GEN_STATE_LAST",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
             "name": "SL_NONGENUINE_UI_OPTIONS",
-            "type": "_tagSL_NONGENUINE_UI_OPTIONS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_tagSL_NONGENUINE_UI_OPTIONS",
+                "elements": [
+                    {
+                        "name": "cbSize",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "pComponentId",
+                        "type": "SLID",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "hResultUI",
+                        "type": "HRESULT"
+                    }
+                ]
+            }
         },
         {
             "name": "SL_SYSTEM_POLICY_INFORMATION",
-            "type": "_SL_SYSTEM_POLICY_INFORMATION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_SL_SYSTEM_POLICY_INFORMATION",
+                "elements": [
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "2"
+                        },
+                        "name": "Reserved1"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "3"
+                        },
+                        "name": "Reserved2"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PSL_SYSTEM_POLICY_INFORMATION",
             "type": {
-                "type": "_SL_SYSTEM_POLICY_INFORMATION",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_SL_SYSTEM_POLICY_INFORMATION",
+                "elements": [
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "2"
+                        },
+                        "name": "Reserved1"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "3"
+                        },
+                        "name": "Reserved2"
+                    }
+                ]
             },
-            "name": "PSL_SYSTEM_POLICY_INFORMATION"
+            "data_type": "Ptr"
         }
     ],
     "funcdefs": [
         {
-            "name": "SLOpen",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLOpen",
                 "type": "HRESULT"
             },
+            "name": "SLOpen",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "phSLC",
                         "type": "HSLC"
                     },
-                    "name": "phSLC",
                     "sal": [
                         "out"
                     ]
@@ -131,15 +390,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "SLClose",
+                "type": "HRESULT"
+            },
             "name": "SLClose",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
@@ -151,15 +410,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "SLInstallProofOfPurchase",
+                "type": "HRESULT"
+            },
             "name": "SLInstallProofOfPurchase",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
@@ -167,7 +426,6 @@
                 },
                 {
                     "name": "pwszPKeyAlgorithm",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -175,7 +433,6 @@
                 },
                 {
                     "name": "pwszPKeyString",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -183,7 +440,6 @@
                 },
                 {
                     "name": "cbPKeySpecificData",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
@@ -191,7 +447,6 @@
                 },
                 {
                     "name": "pbPKeySpecificData",
-                    "data_type": "TypeDecl",
                     "type": "PBYTE",
                     "sal": [
                         "in",
@@ -199,12 +454,10 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pPkeyId",
                         "type": "SLID"
                     },
-                    "name": "pPkeyId",
                     "sal": [
                         "out"
                     ]
@@ -215,38 +468,34 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "SLInstallProofOfPurchaseEx",
+                "type": "HRESULT"
+            },
             "name": "SLInstallProofOfPurchaseEx",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pApplicationId",
                         "type": "SLID"
                     },
-                    "name": "pApplicationId",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pProductSkuId",
                         "type": "SLID"
                     },
-                    "name": "pProductSkuId",
                     "sal": [
                         "in",
                         "optional"
@@ -254,7 +503,6 @@
                 },
                 {
                     "name": "pwszPKeyAlgorithm",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -262,7 +510,6 @@
                 },
                 {
                     "name": "pwszPKeyString",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -270,7 +517,6 @@
                 },
                 {
                     "name": "cbPKeySpecificData",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
@@ -278,7 +524,6 @@
                 },
                 {
                     "name": "pbPKeySpecificData",
-                    "data_type": "TypeDecl",
                     "type": "PBYTE",
                     "sal": [
                         "in",
@@ -286,12 +531,10 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pPkeyId",
                         "type": "SLID"
                     },
-                    "name": "pPkeyId",
                     "sal": [
                         "out"
                     ]
@@ -302,27 +545,25 @@
             ]
         },
         {
-            "name": "SLUninstallProofOfPurchase",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLUninstallProofOfPurchase",
                 "type": "HRESULT"
             },
+            "name": "SLUninstallProofOfPurchase",
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pPKeyId",
                         "type": "SLID"
                     },
-                    "name": "pPKeyId",
                     "sal": [
                         "in"
                     ]
@@ -333,15 +574,15 @@
             ]
         },
         {
-            "name": "SLInstallLicense",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLInstallLicense",
                 "type": "HRESULT"
             },
+            "name": "SLInstallLicense",
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
@@ -349,30 +590,25 @@
                 },
                 {
                     "name": "cbLicenseBlob",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pbLicenseBlob",
                         "type": "BYTE"
                     },
-                    "name": "pbLicenseBlob",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pLicenseFileId",
                         "type": "SLID"
                     },
-                    "name": "pLicenseFileId",
                     "sal": [
                         "out"
                     ]
@@ -383,27 +619,25 @@
             ]
         },
         {
-            "name": "SLUninstallLicense",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLUninstallLicense",
                 "type": "HRESULT"
             },
+            "name": "SLUninstallLicense",
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pLicenseFileId",
                         "type": "SLID"
                     },
-                    "name": "pLicenseFileId",
                     "sal": [
                         "in"
                     ]
@@ -414,38 +648,34 @@
             ]
         },
         {
-            "name": "SLConsumeRight",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLConsumeRight",
                 "type": "HRESULT"
             },
+            "name": "SLConsumeRight",
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pAppId",
                         "type": "SLID"
                     },
-                    "name": "pAppId",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pProductSkuId",
                         "type": "SLID"
                     },
-                    "name": "pProductSkuId",
                     "sal": [
                         "in",
                         "optional"
@@ -453,7 +683,6 @@
                 },
                 {
                     "name": "pwszRightName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in",
@@ -462,7 +691,6 @@
                 },
                 {
                     "name": "pvReserved",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": []
                 }
@@ -472,69 +700,60 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "SLGetProductSkuInformation",
+                "type": "HRESULT"
+            },
             "name": "SLGetProductSkuInformation",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pProductSkuId",
                         "type": "SLID"
                     },
-                    "name": "pProductSkuId",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "pwszValueName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "peDataType",
                         "type": "SLDATATYPE"
                     },
-                    "name": "peDataType",
                     "sal": [
                         "out",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcbValue",
                         "type": "UINT"
                     },
-                    "name": "pcbValue",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppbValue",
                         "type": "PBYTE"
                     },
-                    "name": "ppbValue",
                     "sal": [
                         "out"
                     ]
@@ -545,69 +764,60 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "SLGetPKeyInformation",
+                "type": "HRESULT"
+            },
             "name": "SLGetPKeyInformation",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pPKeyId",
                         "type": "SLID"
                     },
-                    "name": "pPKeyId",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "pwszValueName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "peDataType",
                         "type": "SLDATATYPE"
                     },
-                    "name": "peDataType",
                     "sal": [
                         "out",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcbValue",
                         "type": "UINT"
                     },
-                    "name": "pcbValue",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppbValue",
                         "type": "PBYTE"
                     },
-                    "name": "ppbValue",
                     "sal": [
                         "out"
                     ]
@@ -618,69 +828,60 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "SLGetLicenseInformation",
+                "type": "HRESULT"
+            },
             "name": "SLGetLicenseInformation",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pSLLicenseId",
                         "type": "SLID"
                     },
-                    "name": "pSLLicenseId",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "pwszValueName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "peDataType",
                         "type": "SLDATATYPE"
                     },
-                    "name": "peDataType",
                     "sal": [
                         "out",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcbValue",
                         "type": "UINT"
                     },
-                    "name": "pcbValue",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppbValue",
                         "type": "PBYTE"
                     },
-                    "name": "ppbValue",
                     "sal": [
                         "out"
                     ]
@@ -691,39 +892,35 @@
             ]
         },
         {
-            "name": "SLGetLicensingStatusInformation",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLGetLicensingStatusInformation",
                 "type": "HRESULT"
             },
+            "name": "SLGetLicensingStatusInformation",
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pAppID",
                         "type": "SLID"
                     },
-                    "name": "pAppID",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pProductSkuId",
                         "type": "SLID"
                     },
-                    "name": "pProductSkuId",
                     "sal": [
                         "in",
                         "optional"
@@ -731,7 +928,6 @@
                 },
                 {
                     "name": "pwszRightName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in",
@@ -739,26 +935,20 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pnStatusCount",
                         "type": "UINT"
                     },
-                    "name": "pnStatusCount",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "SL_LICENSING_STATUS"
-                        }
+                        "name": "ppLicensingStatus",
+                        "type": "SL_LICENSING_STATUS",
+                        "data_type": "Ptr"
                     },
-                    "name": "ppLicensingStatus",
                     "sal": [
                         "out"
                     ]
@@ -769,15 +959,15 @@
             ]
         },
         {
-            "name": "SLGetPolicyInformation",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLGetPolicyInformation",
                 "type": "HRESULT"
             },
+            "name": "SLGetPolicyInformation",
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
@@ -785,42 +975,35 @@
                 },
                 {
                     "name": "pwszValueName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "peDataType",
                         "type": "SLDATATYPE"
                     },
-                    "name": "peDataType",
                     "sal": [
                         "out",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcbValue",
                         "type": "UINT"
                     },
-                    "name": "pcbValue",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppbValue",
                         "type": "PBYTE"
                     },
-                    "name": "ppbValue",
                     "sal": [
                         "out"
                     ]
@@ -831,15 +1014,15 @@
             ]
         },
         {
-            "name": "SLGetPolicyInformationDWORD",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLGetPolicyInformationDWORD",
                 "type": "HRESULT"
             },
+            "name": "SLGetPolicyInformationDWORD",
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
@@ -847,19 +1030,16 @@
                 },
                 {
                     "name": "pwszValueName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pdwValue",
                         "type": "DWORD"
                     },
-                    "name": "pdwValue",
                     "sal": [
                         "out"
                     ]
@@ -870,15 +1050,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "SLGetServiceInformation",
+                "type": "HRESULT"
+            },
             "name": "SLGetServiceInformation",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
@@ -886,42 +1066,35 @@
                 },
                 {
                     "name": "pwszValueName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "peDataType",
                         "type": "SLDATATYPE"
                     },
-                    "name": "peDataType",
                     "sal": [
                         "out",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcbValue",
                         "type": "UINT"
                     },
-                    "name": "pcbValue",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppbValue",
                         "type": "PBYTE"
                     },
-                    "name": "ppbValue",
                     "sal": [
                         "out"
                     ]
@@ -932,69 +1105,60 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "SLGetApplicationInformation",
+                "type": "HRESULT"
+            },
             "name": "SLGetApplicationInformation",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pApplicationId",
                         "type": "SLID"
                     },
-                    "name": "pApplicationId",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "pwszValueName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "peDataType",
                         "type": "SLDATATYPE"
                     },
-                    "name": "peDataType",
                     "sal": [
                         "out",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcbValue",
                         "type": "UINT"
                     },
-                    "name": "pcbValue",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppbValue",
                         "type": "PBYTE"
                     },
-                    "name": "ppbValue",
                     "sal": [
                         "out"
                     ]
@@ -1005,34 +1169,31 @@
             ]
         },
         {
-            "name": "SLActivateProduct",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLActivateProduct",
                 "type": "HRESULT"
             },
+            "name": "SLActivateProduct",
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pProductSkuId",
                         "type": "SLID"
                     },
-                    "name": "pProductSkuId",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "cbAppSpecificData",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in",
@@ -1041,7 +1202,6 @@
                 },
                 {
                     "name": "pvAppSpecificData",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in",
@@ -1049,12 +1209,10 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pActivationInfo",
                         "type": "SL_ACTIVATION_INFO_HEADER"
                     },
-                    "name": "pActivationInfo",
                     "sal": [
                         "in",
                         "optional"
@@ -1062,7 +1220,6 @@
                 },
                 {
                     "name": "pwszProxyServer",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in",
@@ -1071,7 +1228,6 @@
                 },
                 {
                     "name": "wProxyPort",
-                    "data_type": "TypeDecl",
                     "type": "WORD",
                     "sal": [
                         "in",
@@ -1084,15 +1240,15 @@
             ]
         },
         {
-            "name": "SLGetServerStatus",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLGetServerStatus",
                 "type": "HRESULT"
             },
+            "name": "SLGetServerStatus",
             "arguments": [
                 {
                     "name": "pwszServerURL",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -1100,7 +1256,6 @@
                 },
                 {
                     "name": "pwszAcquisitionType",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -1108,7 +1263,6 @@
                 },
                 {
                     "name": "pwszProxyServer",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in",
@@ -1117,7 +1271,6 @@
                 },
                 {
                     "name": "wProxyPort",
-                    "data_type": "TypeDecl",
                     "type": "WORD",
                     "sal": [
                         "in",
@@ -1125,12 +1278,10 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "phrStatus",
                         "type": "HRESULT"
                     },
-                    "name": "phrStatus",
                     "sal": [
                         "out"
                     ]
@@ -1141,38 +1292,34 @@
             ]
         },
         {
-            "name": "SLReArm",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLReArm",
                 "type": "HRESULT"
             },
+            "name": "SLReArm",
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pApplicationId",
                         "type": "SLID"
                     },
-                    "name": "pApplicationId",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pProductSkuId",
                         "type": "SLID"
                     },
-                    "name": "pProductSkuId",
                     "sal": [
                         "in",
                         "optional"
@@ -1180,7 +1327,6 @@
                 },
                 {
                     "name": "dwFlags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1192,38 +1338,34 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "SLGenerateOfflineInstallationId",
+                "type": "HRESULT"
+            },
             "name": "SLGenerateOfflineInstallationId",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pProductSkuId",
                         "type": "SLID"
                     },
-                    "name": "pProductSkuId",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppwszInstallationId",
                         "type": "PWSTR"
                     },
-                    "name": "ppwszInstallationId",
                     "sal": [
                         "out"
                     ]
@@ -1234,51 +1376,45 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "SLGenerateOfflineInstallationIdEx",
+                "type": "HRESULT"
+            },
             "name": "SLGenerateOfflineInstallationIdEx",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pProductSkuId",
                         "type": "SLID"
                     },
-                    "name": "pProductSkuId",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pActivationInfo",
                         "type": "SL_ACTIVATION_INFO_HEADER"
                     },
-                    "name": "pActivationInfo",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppwszInstallationId",
                         "type": "PWSTR"
                     },
-                    "name": "ppwszInstallationId",
                     "sal": [
                         "out"
                     ]
@@ -1289,34 +1425,31 @@
             ]
         },
         {
-            "name": "SLDepositOfflineConfirmationId",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLDepositOfflineConfirmationId",
                 "type": "HRESULT"
             },
+            "name": "SLDepositOfflineConfirmationId",
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pProductSkuId",
                         "type": "SLID"
                     },
-                    "name": "pProductSkuId",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "pwszInstallationId",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -1324,7 +1457,6 @@
                 },
                 {
                     "name": "pwszConfirmationId",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -1336,39 +1468,35 @@
             ]
         },
         {
-            "name": "SLDepositOfflineConfirmationIdEx",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLDepositOfflineConfirmationIdEx",
                 "type": "HRESULT"
             },
+            "name": "SLDepositOfflineConfirmationIdEx",
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pProductSkuId",
                         "type": "SLID"
                     },
-                    "name": "pProductSkuId",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pActivationInfo",
                         "type": "SL_ACTIVATION_INFO_HEADER"
                     },
-                    "name": "pActivationInfo",
                     "sal": [
                         "in",
                         "optional"
@@ -1376,7 +1504,6 @@
                 },
                 {
                     "name": "pwszInstallationId",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -1384,7 +1511,6 @@
                 },
                 {
                     "name": "pwszConfirmationId",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -1396,15 +1522,15 @@
             ]
         },
         {
-            "name": "SLGetPKeyId",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLGetPKeyId",
                 "type": "HRESULT"
             },
+            "name": "SLGetPKeyId",
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
@@ -1412,7 +1538,6 @@
                 },
                 {
                     "name": "pwszPKeyAlgorithm",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -1420,7 +1545,6 @@
                 },
                 {
                     "name": "pwszPKeyString",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -1428,30 +1552,25 @@
                 },
                 {
                     "name": "cbPKeySpecificData",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pbPKeySpecificData",
                         "type": "BYTE"
                     },
-                    "name": "pbPKeySpecificData",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pPKeyId",
                         "type": "SLID"
                     },
-                    "name": "pPKeyId",
                     "sal": [
                         "out"
                     ]
@@ -1462,52 +1581,44 @@
             ]
         },
         {
-            "name": "SLGetInstalledProductKeyIds",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLGetInstalledProductKeyIds",
                 "type": "HRESULT"
             },
+            "name": "SLGetInstalledProductKeyIds",
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pProductSkuId",
                         "type": "SLID"
                     },
-                    "name": "pProductSkuId",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pnProductKeyIds",
                         "type": "UINT"
                     },
-                    "name": "pnProductKeyIds",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "SLID"
-                        }
+                        "name": "ppProductKeyIds",
+                        "type": "SLID",
+                        "data_type": "Ptr"
                     },
-                    "name": "ppProductKeyIds",
                     "sal": [
                         "out"
                     ]
@@ -1518,38 +1629,34 @@
             ]
         },
         {
-            "name": "SLSetCurrentProductKey",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLSetCurrentProductKey",
                 "type": "HRESULT"
             },
+            "name": "SLSetCurrentProductKey",
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pProductSkuId",
                         "type": "SLID"
                     },
-                    "name": "pProductSkuId",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pProductKeyId",
                         "type": "SLID"
                     },
-                    "name": "pProductKeyId",
                     "sal": [
                         "in"
                     ]
@@ -1560,15 +1667,15 @@
             ]
         },
         {
-            "name": "SLGetSLIDList",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLGetSLIDList",
                 "type": "HRESULT"
             },
+            "name": "SLGetSLIDList",
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
@@ -1576,19 +1683,16 @@
                 },
                 {
                     "name": "eQueryIdType",
-                    "data_type": "TypeDecl",
                     "type": "SLIDTYPE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pQueryId",
                         "type": "SLID"
                     },
-                    "name": "pQueryId",
                     "sal": [
                         "in",
                         "optional"
@@ -1596,33 +1700,26 @@
                 },
                 {
                     "name": "eReturnIdType",
-                    "data_type": "TypeDecl",
                     "type": "SLIDTYPE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pnReturnIds",
                         "type": "UINT"
                     },
-                    "name": "pnReturnIds",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "SLID"
-                        }
+                        "name": "ppReturnIds",
+                        "type": "SLID",
+                        "data_type": "Ptr"
                     },
-                    "name": "ppReturnIds",
                     "sal": [
                         "out"
                     ]
@@ -1633,15 +1730,15 @@
             ]
         },
         {
-            "name": "SLGetLicenseFileId",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLGetLicenseFileId",
                 "type": "HRESULT"
             },
+            "name": "SLGetLicenseFileId",
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
@@ -1649,30 +1746,25 @@
                 },
                 {
                     "name": "cbLicenseBlob",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pbLicenseBlob",
                         "type": "BYTE"
                     },
-                    "name": "pbLicenseBlob",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pLicenseFileId",
                         "type": "SLID"
                     },
-                    "name": "pLicenseFileId",
                     "sal": [
                         "out"
                     ]
@@ -1683,49 +1775,43 @@
             ]
         },
         {
-            "name": "SLGetLicense",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLGetLicense",
                 "type": "HRESULT"
             },
+            "name": "SLGetLicense",
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pLicenseFileId",
                         "type": "SLID"
                     },
-                    "name": "pLicenseFileId",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcbLicenseFile",
                         "type": "UINT"
                     },
-                    "name": "pcbLicenseFile",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppbLicenseFile",
                         "type": "PBYTE"
                     },
-                    "name": "ppbLicenseFile",
                     "sal": [
                         "out"
                     ]
@@ -1736,15 +1822,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "SLFireEvent",
+                "type": "HRESULT"
+            },
             "name": "SLFireEvent",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
@@ -1752,19 +1838,16 @@
                 },
                 {
                     "name": "pwszEventId",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pApplicationId",
                         "type": "SLID"
                     },
-                    "name": "pApplicationId",
                     "sal": [
                         "in"
                     ]
@@ -1775,15 +1858,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "SLRegisterEvent",
+                "type": "HRESULT"
+            },
             "name": "SLRegisterEvent",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in",
@@ -1792,26 +1875,22 @@
                 },
                 {
                     "name": "pwszEventId",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pApplicationId",
                         "type": "SLID"
                     },
-                    "name": "pApplicationId",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "hEvent",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -1823,15 +1902,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "SLUnregisterEvent",
+                "type": "HRESULT"
+            },
             "name": "SLUnregisterEvent",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in",
@@ -1840,26 +1919,22 @@
                 },
                 {
                     "name": "pwszEventId",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pApplicationId",
                         "type": "SLID"
                     },
-                    "name": "pApplicationId",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "hEvent",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -1871,50 +1946,44 @@
             ]
         },
         {
-            "name": "SLGetWindowsInformation",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLGetWindowsInformation",
                 "type": "HRESULT"
             },
+            "name": "SLGetWindowsInformation",
             "arguments": [
                 {
                     "name": "pwszValueName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "peDataType",
                         "type": "SLDATATYPE"
                     },
-                    "name": "peDataType",
                     "sal": [
                         "out",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcbValue",
                         "type": "UINT"
                     },
-                    "name": "pcbValue",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppbValue",
                         "type": "PBYTE"
                     },
-                    "name": "ppbValue",
                     "sal": [
                         "out"
                     ]
@@ -1925,27 +1994,25 @@
             ]
         },
         {
-            "name": "SLGetWindowsInformationDWORD",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLGetWindowsInformationDWORD",
                 "type": "HRESULT"
             },
+            "name": "SLGetWindowsInformationDWORD",
             "arguments": [
                 {
                     "name": "pwszValueName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pdwValue",
                         "type": "DWORD"
                     },
-                    "name": "pdwValue",
                     "sal": [
                         "out"
                     ]
@@ -1956,41 +2023,36 @@
             ]
         },
         {
-            "name": "SLIsGenuineLocal",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLIsGenuineLocal",
                 "type": "HRESULT"
             },
+            "name": "SLIsGenuineLocal",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pAppId",
                         "type": "SLID"
                     },
-                    "name": "pAppId",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pGenuineState",
                         "type": "SL_GENUINE_STATE"
                     },
-                    "name": "pGenuineState",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pUIOptions",
                         "type": "SL_NONGENUINE_UI_OPTIONS"
                     },
-                    "name": "pUIOptions",
                     "sal": [
                         "in",
                         "out",
@@ -2003,42 +2065,37 @@
             ]
         },
         {
-            "name": "SLIsGenuineLocalEx",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLIsGenuineLocalEx",
                 "type": "HRESULT"
             },
+            "name": "SLIsGenuineLocalEx",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pAppId",
                         "type": "SLID"
                     },
-                    "name": "pAppId",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pSkuId",
                         "type": "SLID"
                     },
-                    "name": "pSkuId",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pGenuineState",
                         "type": "SL_GENUINE_STATE"
                     },
-                    "name": "pGenuineState",
                     "sal": [
                         "out"
                     ]
@@ -2049,40 +2106,34 @@
             ]
         },
         {
-            "name": "SLAcquireGenuineTicket",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLAcquireGenuineTicket",
                 "type": "HRESULT"
             },
+            "name": "SLAcquireGenuineTicket",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "void"
-                        }
+                        "name": "ppTicketBlob",
+                        "type": "void",
+                        "data_type": "Ptr"
                     },
-                    "name": "ppTicketBlob",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcbTicketBlob",
                         "type": "UINT"
                     },
-                    "name": "pcbTicketBlob",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "name": "pwszTemplateId",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -2090,7 +2141,6 @@
                 },
                 {
                     "name": "pwszServerUrl",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -2098,7 +2148,6 @@
                 },
                 {
                     "name": "pwszClientToken",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in",
@@ -2111,26 +2160,24 @@
             ]
         },
         {
-            "name": "SLSetGenuineInformation",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLSetGenuineInformation",
                 "type": "HRESULT"
             },
+            "name": "SLSetGenuineInformation",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pQueryId",
                         "type": "SLID"
                     },
-                    "name": "pQueryId",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "pwszValueName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -2138,7 +2185,6 @@
                 },
                 {
                     "name": "eDataType",
-                    "data_type": "TypeDecl",
                     "type": "SLDATATYPE",
                     "sal": [
                         "in"
@@ -2146,7 +2192,6 @@
                 },
                 {
                     "name": "cbValue",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in",
@@ -2154,12 +2199,10 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pbValue",
                         "type": "BYTE"
                     },
-                    "name": "pbValue",
                     "sal": [
                         "in",
                         "optional"
@@ -2171,15 +2214,15 @@
             ]
         },
         {
-            "name": "SLGetReferralInformation",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLGetReferralInformation",
                 "type": "HRESULT"
             },
+            "name": "SLGetReferralInformation",
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
@@ -2187,38 +2230,32 @@
                 },
                 {
                     "name": "eReferralType",
-                    "data_type": "TypeDecl",
                     "type": "SLREFERRALTYPE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pSkuOrAppId",
                         "type": "SLID"
                     },
-                    "name": "pSkuOrAppId",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "pwszValueName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppwszValue",
                         "type": "PWSTR"
                     },
-                    "name": "ppwszValue",
                     "sal": [
                         "out"
                     ]
@@ -2229,57 +2266,50 @@
             ]
         },
         {
-            "name": "SLPersistRTSPayloadOverride",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLPersistRTSPayloadOverride",
                 "type": "HRESULT"
             },
+            "name": "SLPersistRTSPayloadOverride",
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pApplicationId",
                         "type": "SLID"
                     },
-                    "name": "pApplicationId",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pProductSkuId",
                         "type": "SLID"
                     },
-                    "name": "pProductSkuId",
                     "sal": [
                         "in",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pbData",
                         "type": "BYTE"
                     },
-                    "name": "pbData",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "cbData",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -2291,30 +2321,27 @@
             ]
         },
         {
-            "name": "SLPersistApplicationPolicies",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLPersistApplicationPolicies",
                 "type": "HRESULT"
             },
+            "name": "SLPersistApplicationPolicies",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pApplicationId",
                         "type": "SLID"
                     },
-                    "name": "pApplicationId",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pProductSkuId",
                         "type": "SLID"
                     },
-                    "name": "pProductSkuId",
                     "sal": [
                         "in",
                         "optional"
@@ -2322,7 +2349,6 @@
                 },
                 {
                     "name": "dwFlags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -2334,15 +2360,15 @@
             ]
         },
         {
-            "name": "SLGetApplicationPolicy",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLGetApplicationPolicy",
                 "type": "HRESULT"
             },
+            "name": "SLGetApplicationPolicy",
             "arguments": [
                 {
                     "name": "hPolicyContext",
-                    "data_type": "TypeDecl",
                     "type": "HSLP",
                     "sal": [
                         "in"
@@ -2350,42 +2376,35 @@
                 },
                 {
                     "name": "pwszValueName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "peDataType",
                         "type": "SLDATATYPE"
                     },
-                    "name": "peDataType",
                     "sal": [
                         "out",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcbValue",
                         "type": "UINT"
                     },
-                    "name": "pcbValue",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppbValue",
                         "type": "PBYTE"
                     },
-                    "name": "ppbValue",
                     "sal": [
                         "out"
                     ]
@@ -2396,30 +2415,27 @@
             ]
         },
         {
-            "name": "SLLoadApplicationPolicies",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLLoadApplicationPolicies",
                 "type": "HRESULT"
             },
+            "name": "SLLoadApplicationPolicies",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pApplicationId",
                         "type": "SLID"
                     },
-                    "name": "pApplicationId",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pProductSkuId",
                         "type": "SLID"
                     },
-                    "name": "pProductSkuId",
                     "sal": [
                         "in",
                         "optional"
@@ -2427,19 +2443,16 @@
                 },
                 {
                     "name": "dwFlags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "phPolicyContext",
                         "type": "HSLP"
                     },
-                    "name": "phPolicyContext",
                     "sal": [
                         "out"
                     ]
@@ -2450,15 +2463,15 @@
             ]
         },
         {
-            "name": "SLUnloadApplicationPolicies",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLUnloadApplicationPolicies",
                 "type": "HRESULT"
             },
+            "name": "SLUnloadApplicationPolicies",
             "arguments": [
                 {
                     "name": "hPolicyContext",
-                    "data_type": "TypeDecl",
                     "type": "HSLP",
                     "sal": [
                         "in"
@@ -2466,7 +2479,6 @@
                 },
                 {
                     "name": "dwFlags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -2478,38 +2490,34 @@
             ]
         },
         {
-            "name": "SLGetAuthenticationResult",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLGetAuthenticationResult",
                 "type": "HRESULT"
             },
+            "name": "SLGetAuthenticationResult",
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcbValue",
                         "type": "UINT"
                     },
-                    "name": "pcbValue",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppbValue",
                         "type": "PBYTE"
                     },
-                    "name": "ppbValue",
                     "sal": [
                         "out"
                     ]
@@ -2520,15 +2528,15 @@
             ]
         },
         {
-            "name": "SLSetAuthenticationData",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLSetAuthenticationData",
                 "type": "HRESULT"
             },
+            "name": "SLSetAuthenticationData",
             "arguments": [
                 {
                     "name": "hSLC",
-                    "data_type": "TypeDecl",
                     "type": "HSLC",
                     "sal": [
                         "in"
@@ -2536,7 +2544,6 @@
                 },
                 {
                     "name": "cbValue",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in",
@@ -2544,12 +2551,10 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pbValue",
                         "type": "BYTE"
                     },
-                    "name": "pbValue",
                     "sal": [
                         "in",
                         "optional"
@@ -2561,64 +2566,54 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "SLGetGenuineInformation",
+                "type": "HRESULT"
+            },
             "name": "SLGetGenuineInformation",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pQueryId",
                         "type": "SLID"
                     },
-                    "name": "pQueryId",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "pwszValueName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "peDataType",
                         "type": "SLDATATYPE"
                     },
-                    "name": "peDataType",
                     "sal": [
                         "out",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcbValue",
                         "type": "UINT"
                     },
-                    "name": "pcbValue",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "BYTE"
-                        }
+                        "name": "ppbValue",
+                        "type": "BYTE",
+                        "data_type": "Ptr"
                     },
-                    "name": "ppbValue",
                     "sal": [
                         "out"
                     ]
@@ -2629,64 +2624,54 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "SLGetGenuineInformationEx",
+                "type": "HRESULT"
+            },
             "name": "SLGetGenuineInformationEx",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pAppId",
                         "type": "SLID"
                     },
-                    "name": "pAppId",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "pwszValueName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "peDataType",
                         "type": "SLDATATYPE"
                     },
-                    "name": "peDataType",
                     "sal": [
                         "out",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcbValue",
                         "type": "UINT"
                     },
-                    "name": "pcbValue",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "BYTE"
-                        }
+                        "name": "ppbValue",
+                        "type": "BYTE",
+                        "data_type": "Ptr"
                     },
-                    "name": "ppbValue",
                     "sal": [
                         "out"
                     ]
@@ -2697,15 +2682,15 @@
             ]
         },
         {
-            "name": "SLGatherMigrationBlob",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLGatherMigrationBlob",
                 "type": "HRESULT"
             },
+            "name": "SLGatherMigrationBlob",
             "arguments": [
                 {
                     "name": "bMigratableOnly",
-                    "data_type": "TypeDecl",
                     "type": "BOOL",
                     "sal": [
                         "in"
@@ -2713,7 +2698,6 @@
                 },
                 {
                     "name": "pwszEncryptorUri",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in",
@@ -2722,7 +2706,6 @@
                 },
                 {
                     "name": "hFile",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -2734,15 +2717,15 @@
             ]
         },
         {
-            "name": "SLDepositMigrationBlob",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLDepositMigrationBlob",
                 "type": "HRESULT"
             },
+            "name": "SLDepositMigrationBlob",
             "arguments": [
                 {
                     "name": "hFile",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -2754,27 +2737,25 @@
             ]
         },
         {
-            "name": "SLQueryLicenseValueFromApp",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SLQueryLicenseValueFromApp",
                 "type": "HRESULT"
             },
+            "name": "SLQueryLicenseValueFromApp",
             "arguments": [
                 {
                     "name": "valueName",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "valueType",
                         "type": "ULONG"
                     },
-                    "name": "valueType",
                     "sal": [
                         "out",
                         "optional"
@@ -2782,7 +2763,6 @@
                 },
                 {
                     "name": "dataBuffer",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "out",
@@ -2791,19 +2771,16 @@
                 },
                 {
                     "name": "dataSize",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "resultDataSize",
                         "type": "ULONG"
                     },
-                    "name": "resultDataSize",
                     "sal": [
                         "out"
                     ]

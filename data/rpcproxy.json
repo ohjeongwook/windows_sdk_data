@@ -1,100 +1,315 @@
 {
     "typedefs": [
         {
-            "data_type": "PtrDecl",
+            "name": "PCInterfaceStubVtblList",
             "type": {
-                "type": "tagCInterfaceStubVtbl",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "tagCInterfaceStubVtbl",
+                "elements": []
             },
-            "name": "PCInterfaceStubVtblList"
+            "data_type": "Ptr"
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PCInterfaceProxyVtblList",
             "type": {
-                "type": "tagCInterfaceProxyVtbl",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "tagCInterfaceProxyVtbl",
+                "elements": []
             },
-            "name": "PCInterfaceProxyVtblList"
+            "data_type": "Ptr"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "char"
-            },
-            "name": "PCInterfaceName"
+            "name": "PCInterfaceName",
+            "type": "char",
+            "data_type": "Ptr"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "IIDLookupRtn"
-            },
-            "name": "PIIDLookup"
+            "name": "PIIDLookup",
+            "type": "IIDLookupRtn",
+            "data_type": "Ptr"
         },
         {
             "name": "ProxyFileInfo",
-            "type": "tagProxyFileInfo",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "tagProxyFileInfo",
+                "elements": [
+                    {
+                        "name": "pProxyVtblList",
+                        "type": "PCInterfaceProxyVtblList",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "pStubVtblList",
+                        "type": "PCInterfaceStubVtblList",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "pNamesArray",
+                        "type": "PCInterfaceName",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "pDelegatedIIDs",
+                        "type": "IID",
+                        "data_type": "PtrPtr"
+                    },
+                    {
+                        "name": "pIIDLookupRtn",
+                        "type": "PIIDLookup"
+                    },
+                    {
+                        "name": "TableSize",
+                        "type": "unsigned short"
+                    },
+                    {
+                        "name": "TableVersion",
+                        "type": "unsigned short"
+                    },
+                    {
+                        "name": "pAsyncIIDLookup",
+                        "type": "IID",
+                        "data_type": "PtrPtr"
+                    },
+                    {
+                        "name": "Filler2",
+                        "type": "LONG_PTR"
+                    },
+                    {
+                        "name": "Filler3",
+                        "type": "LONG_PTR"
+                    },
+                    {
+                        "name": "Filler4",
+                        "type": "LONG_PTR"
+                    }
+                ]
+            }
         },
         {
             "name": "ExtendedProxyFileInfo",
-            "data_type": "TypeDecl",
             "type": "ProxyFileInfo"
         },
         {
             "name": "CInterfaceProxyHeader",
-            "type": "tagCInterfaceProxyHeader",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "tagCInterfaceProxyHeader",
+                "elements": [
+                    {
+                        "name": "piid",
+                        "type": "IID",
+                        "data_type": "Ptr"
+                    }
+                ]
+            }
         },
         {
             "name": "CInterfaceProxyVtbl",
-            "type": "tagCInterfaceProxyVtbl",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "tagCInterfaceProxyVtbl",
+                "elements": [
+                    {
+                        "name": "header",
+                        "type": "CInterfaceProxyHeader"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {},
+                        "name": "Vtbl"
+                    }
+                ]
+            }
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PRPC_STUB_FUNCTION",
+                "type": "void"
+            },
+            "name": "PRPC_STUB_FUNCTION",
+            "arguments": [
+                {
+                    "type": {
+                        "name": "This",
+                        "type": "IRpcStubBuffer"
+                    }
+                },
+                {
+                    "type": {
+                        "name": "_pRpcChannelBuffer",
+                        "type": "IRpcChannelBuffer"
+                    }
+                },
+                {
+                    "name": "_pRpcMessage",
+                    "type": "PRPC_MESSAGE"
+                },
+                {
+                    "type": {
+                        "name": "pdwStubPhase",
+                        "type": "DWORD"
+                    }
+                }
+            ]
         },
         {
             "name": "CInterfaceStubHeader",
-            "type": "tagCInterfaceStubHeader",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "tagCInterfaceStubHeader",
+                "elements": [
+                    {
+                        "name": "piid",
+                        "type": "IID",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "pServerInfo",
+                        "type": "MIDL_SERVER_INFO",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "DispatchTableCount",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "pDispatchTable",
+                        "type": "PRPC_STUB_FUNCTION",
+                        "data_type": "Ptr"
+                    }
+                ]
+            }
         },
         {
             "name": "CInterfaceStubVtbl",
-            "type": "tagCInterfaceStubVtbl",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "tagCInterfaceStubVtbl",
+                "elements": [
+                    {
+                        "name": "header",
+                        "type": "CInterfaceStubHeader"
+                    },
+                    {
+                        "name": "Vtbl",
+                        "type": "IRpcStubBufferVtbl"
+                    }
+                ]
+            }
         },
         {
             "name": "CStdStubBuffer",
-            "type": "tagCStdStubBuffer",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "tagCStdStubBuffer",
+                "elements": [
+                    {
+                        "name": "lpVtbl",
+                        "type": {
+                            "data_type": "Struct",
+                            "name": "IRpcStubBufferVtbl",
+                            "elements": []
+                        },
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "RefCount",
+                        "type": "LONG"
+                    },
+                    {
+                        "name": "pvServerObject",
+                        "type": {
+                            "data_type": "Struct",
+                            "name": "IUnknown",
+                            "elements": []
+                        },
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "pCallFactoryVtbl",
+                        "type": {
+                            "data_type": "Struct",
+                            "name": "ICallFactoryVtbl",
+                            "elements": []
+                        },
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "pAsyncIID",
+                        "type": "IID",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "pPSFactory",
+                        "type": {
+                            "data_type": "Struct",
+                            "name": "IPSFactoryBuffer",
+                            "elements": []
+                        },
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "pRMBVtbl",
+                        "type": {
+                            "data_type": "Struct",
+                            "name": "IReleaseMarshalBuffersVtbl",
+                            "elements": []
+                        },
+                        "data_type": "Ptr"
+                    }
+                ]
+            }
         },
         {
             "name": "CStdPSFactoryBuffer",
-            "type": "tagCStdPSFactoryBuffer",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "tagCStdPSFactoryBuffer",
+                "elements": [
+                    {
+                        "name": "lpVtbl",
+                        "type": "IPSFactoryBufferVtbl",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "RefCount",
+                        "type": "LONG"
+                    },
+                    {
+                        "name": "pProxyFileList",
+                        "type": "ProxyFileInfo",
+                        "data_type": "PtrPtr"
+                    },
+                    {
+                        "name": "Filler1",
+                        "type": "LONG"
+                    }
+                ]
+            }
         }
     ],
     "funcdefs": [
         {
-            "name": "NdrProxyInitialize",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NdrProxyInitialize",
                 "type": "void"
             },
+            "name": "NdrProxyInitialize",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "This",
                         "type": "void"
                     },
-                    "name": "This",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "pRpcMsg",
-                    "data_type": "TypeDecl",
                     "type": "PRPC_MESSAGE",
                     "sal": [
                         "in"
@@ -102,7 +317,6 @@
                 },
                 {
                     "name": "pStubMsg",
-                    "data_type": "TypeDecl",
                     "type": "PMIDL_STUB_MESSAGE",
                     "sal": [
                         "in",
@@ -111,7 +325,6 @@
                 },
                 {
                     "name": "pStubDescriptor",
-                    "data_type": "TypeDecl",
                     "type": "PMIDL_STUB_DESC",
                     "sal": [
                         "in"
@@ -119,7 +332,6 @@
                 },
                 {
                     "name": "ProcNum",
-                    "data_type": "TypeDecl",
                     "type": "unsigned int",
                     "sal": [
                         "in"
@@ -131,26 +343,24 @@
             ]
         },
         {
-            "name": "NdrProxyGetBuffer",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NdrProxyGetBuffer",
                 "type": "void"
             },
+            "name": "NdrProxyGetBuffer",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "This",
                         "type": "void"
                     },
-                    "name": "This",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "pStubMsg",
-                    "data_type": "TypeDecl",
                     "type": "PMIDL_STUB_MESSAGE",
                     "sal": [
                         "in",
@@ -163,30 +373,27 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "NdrProxySendReceive",
+                "type": "void"
+            },
             "name": "NdrProxySendReceive",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "void"
-            },
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "This",
                         "type": "void"
                     },
-                    "name": "This",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pStubMsg",
                         "type": "MIDL_STUB_MESSAGE"
                     },
-                    "name": "pStubMsg",
                     "sal": [
                         "in",
                         "out"
@@ -198,30 +405,27 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "NdrProxyFreeBuffer",
+                "type": "void"
+            },
             "name": "NdrProxyFreeBuffer",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "void"
-            },
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "This",
                         "type": "void"
                     },
-                    "name": "This",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pStubMsg",
                         "type": "MIDL_STUB_MESSAGE"
                     },
-                    "name": "pStubMsg",
                     "sal": [
                         "in",
                         "out"
@@ -233,15 +437,15 @@
             ]
         },
         {
-            "name": "NdrProxyErrorHandler",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NdrProxyErrorHandler",
                 "type": "HRESULT"
             },
+            "name": "NdrProxyErrorHandler",
             "arguments": [
                 {
                     "name": "dwExceptionCode",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -253,15 +457,15 @@
             ]
         },
         {
-            "name": "NdrStubInitialize",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NdrStubInitialize",
                 "type": "void"
             },
+            "name": "NdrStubInitialize",
             "arguments": [
                 {
                     "name": "pRpcMsg",
-                    "data_type": "TypeDecl",
                     "type": "PRPC_MESSAGE",
                     "sal": [
                         "in"
@@ -269,7 +473,6 @@
                 },
                 {
                     "name": "pStubMsg",
-                    "data_type": "TypeDecl",
                     "type": "PMIDL_STUB_MESSAGE",
                     "sal": [
                         "in",
@@ -278,19 +481,16 @@
                 },
                 {
                     "name": "pStubDescriptor",
-                    "data_type": "TypeDecl",
                     "type": "PMIDL_STUB_DESC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pRpcChannelBuffer",
                         "type": "IRpcChannelBuffer"
                     },
-                    "name": "pRpcChannelBuffer",
                     "sal": [
                         "in"
                     ]
@@ -301,37 +501,33 @@
             ]
         },
         {
-            "name": "NdrStubForwardingFunction",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NdrStubForwardingFunction",
                 "type": "void"
             },
+            "name": "NdrStubForwardingFunction",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "This",
                         "type": "IRpcStubBuffer"
                     },
-                    "name": "This",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pChannel",
                         "type": "IRpcChannelBuffer"
                     },
-                    "name": "pChannel",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "pmsg",
-                    "data_type": "TypeDecl",
                     "type": "PRPC_MESSAGE",
                     "sal": [
                         "in",
@@ -339,12 +535,10 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pdwStubPhase",
                         "type": "DWORD"
                     },
-                    "name": "pdwStubPhase",
                     "sal": [
                         "out"
                     ]
@@ -355,37 +549,33 @@
             ]
         },
         {
-            "name": "NdrStubGetBuffer",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NdrStubGetBuffer",
                 "type": "void"
             },
+            "name": "NdrStubGetBuffer",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "This",
                         "type": "IRpcStubBuffer"
                     },
-                    "name": "This",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pRpcChannelBuffer",
                         "type": "IRpcChannelBuffer"
                     },
-                    "name": "pRpcChannelBuffer",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "pStubMsg",
-                    "data_type": "TypeDecl",
                     "type": "PMIDL_STUB_MESSAGE",
                     "sal": [
                         "in",
@@ -398,44 +588,37 @@
             ]
         },
         {
-            "name": "CStdStubBuffer_QueryInterface",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CStdStubBuffer_QueryInterface",
                 "type": "HRESULT"
             },
+            "name": "CStdStubBuffer_QueryInterface",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "This",
                         "type": "IRpcStubBuffer"
                     },
-                    "name": "This",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "riid",
                         "type": "IID"
                     },
-                    "name": "riid",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "void"
-                        }
+                        "name": "ppvObject",
+                        "type": "void",
+                        "data_type": "Ptr"
                     },
-                    "name": "ppvObject",
                     "sal": [
                         "out"
                     ]
@@ -446,19 +629,18 @@
             ]
         },
         {
-            "name": "CStdStubBuffer_AddRef",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CStdStubBuffer_AddRef",
                 "type": "ULONG"
             },
+            "name": "CStdStubBuffer_AddRef",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "This",
                         "type": "IRpcStubBuffer"
                     },
-                    "name": "This",
                     "sal": [
                         "in"
                     ]
@@ -469,30 +651,27 @@
             ]
         },
         {
-            "name": "NdrCStdStubBuffer_Release",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NdrCStdStubBuffer_Release",
                 "type": "ULONG"
             },
+            "name": "NdrCStdStubBuffer_Release",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "This",
                         "type": "IRpcStubBuffer"
                     },
-                    "name": "This",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pPSF",
                         "type": "IPSFactoryBuffer"
                     },
-                    "name": "pPSF",
                     "sal": [
                         "in"
                     ]
@@ -503,30 +682,27 @@
             ]
         },
         {
-            "name": "CStdStubBuffer_Connect",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CStdStubBuffer_Connect",
                 "type": "HRESULT"
             },
+            "name": "CStdStubBuffer_Connect",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "This",
                         "type": "IRpcStubBuffer"
                     },
-                    "name": "This",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pUnkServer",
                         "type": "IUnknown"
                     },
-                    "name": "pUnkServer",
                     "sal": [
                         "in"
                     ]
@@ -537,19 +713,18 @@
             ]
         },
         {
-            "name": "CStdStubBuffer_Disconnect",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CStdStubBuffer_Disconnect",
                 "type": "void"
             },
+            "name": "CStdStubBuffer_Disconnect",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "This",
                         "type": "IRpcStubBuffer"
                     },
-                    "name": "This",
                     "sal": [
                         "in"
                     ]
@@ -560,41 +735,36 @@
             ]
         },
         {
-            "name": "CStdStubBuffer_Invoke",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CStdStubBuffer_Invoke",
                 "type": "HRESULT"
             },
+            "name": "CStdStubBuffer_Invoke",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "This",
                         "type": "IRpcStubBuffer"
                     },
-                    "name": "This",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pRpcMsg",
                         "type": "RPCOLEMESSAGE"
                     },
-                    "name": "pRpcMsg",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pRpcChannelBuffer",
                         "type": "IRpcChannelBuffer"
                     },
-                    "name": "pRpcChannelBuffer",
                     "sal": [
                         "in"
                     ]
@@ -605,33 +775,29 @@
             ]
         },
         {
-            "name": "CStdStubBuffer_IsIIDSupported",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "PtrDecl",
                 "type": {
-                    "data_type": "TypeDecl",
+                    "name": "CStdStubBuffer_IsIIDSupported",
                     "type": "IRpcStubBuffer"
                 }
             },
+            "name": "CStdStubBuffer_IsIIDSupported",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "This",
                         "type": "IRpcStubBuffer"
                     },
-                    "name": "This",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "riid",
                         "type": "IID"
                     },
-                    "name": "riid",
                     "sal": [
                         "in"
                     ]
@@ -642,19 +808,18 @@
             ]
         },
         {
-            "name": "CStdStubBuffer_CountRefs",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CStdStubBuffer_CountRefs",
                 "type": "ULONG"
             },
+            "name": "CStdStubBuffer_CountRefs",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "This",
                         "type": "IRpcStubBuffer"
                     },
-                    "name": "This",
                     "sal": [
                         "in"
                     ]
@@ -665,33 +830,28 @@
             ]
         },
         {
-            "name": "CStdStubBuffer_DebugServerQueryInterface",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CStdStubBuffer_DebugServerQueryInterface",
                 "type": "HRESULT"
             },
+            "name": "CStdStubBuffer_DebugServerQueryInterface",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "This",
                         "type": "IRpcStubBuffer"
                     },
-                    "name": "This",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "void"
-                        }
+                        "name": "ppv",
+                        "type": "void",
+                        "data_type": "Ptr"
                     },
-                    "name": "ppv",
                     "sal": [
                         "out"
                     ]
@@ -702,30 +862,27 @@
             ]
         },
         {
-            "name": "CStdStubBuffer_DebugServerRelease",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CStdStubBuffer_DebugServerRelease",
                 "type": "void"
             },
+            "name": "CStdStubBuffer_DebugServerRelease",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "This",
                         "type": "IRpcStubBuffer"
                     },
-                    "name": "This",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pv",
                         "type": "void"
                     },
-                    "name": "pv",
                     "sal": [
                         "in"
                     ]
@@ -736,44 +893,37 @@
             ]
         },
         {
-            "name": "CStdStubBuffer2_QueryInterface",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CStdStubBuffer2_QueryInterface",
                 "type": "HRESULT"
             },
+            "name": "CStdStubBuffer2_QueryInterface",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "This",
                         "type": "IRpcStubBuffer"
                     },
-                    "name": "This",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "riid",
                         "type": "IID"
                     },
-                    "name": "riid",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "void"
-                        }
+                        "name": "ppvObject",
+                        "type": "void",
+                        "data_type": "Ptr"
                     },
-                    "name": "ppvObject",
                     "sal": [
                         "out"
                     ]
@@ -786,30 +936,27 @@
             ]
         },
         {
-            "name": "CStdStubBuffer2_Connect",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CStdStubBuffer2_Connect",
                 "type": "HRESULT"
             },
+            "name": "CStdStubBuffer2_Connect",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pthis",
                         "type": "IRpcStubBuffer"
                     },
-                    "name": "pthis",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pUnkServer",
                         "type": "IUnknown"
                     },
-                    "name": "pUnkServer",
                     "sal": [
                         "in"
                     ]
@@ -822,19 +969,18 @@
             ]
         },
         {
-            "name": "CStdStubBuffer2_Disconnect",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CStdStubBuffer2_Disconnect",
                 "type": "void"
             },
+            "name": "CStdStubBuffer2_Disconnect",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pthis",
                         "type": "IRpcStubBuffer"
                     },
-                    "name": "pthis",
                     "sal": [
                         "in"
                     ]
@@ -847,19 +993,18 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "CStdStubBuffer2_CountRefs",
+                "type": "ULONG"
+            },
             "name": "CStdStubBuffer2_CountRefs",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "ULONG"
-            },
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pthis",
                         "type": "IRpcStubBuffer"
                     },
-                    "name": "pthis",
                     "sal": [
                         "in"
                     ]
@@ -872,30 +1017,27 @@
             ]
         },
         {
-            "name": "NdrCStdStubBuffer2_Release",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NdrCStdStubBuffer2_Release",
                 "type": "ULONG"
             },
+            "name": "NdrCStdStubBuffer2_Release",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "This",
                         "type": "IRpcStubBuffer"
                     },
-                    "name": "This",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pPSF",
                         "type": "IPSFactoryBuffer"
                     },
-                    "name": "pPSF",
                     "sal": [
                         "in"
                     ]
@@ -906,44 +1048,37 @@
             ]
         },
         {
-            "name": "CStdAsyncStubBuffer_QueryInterface",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CStdAsyncStubBuffer_QueryInterface",
                 "type": "HRESULT"
             },
+            "name": "CStdAsyncStubBuffer_QueryInterface",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pthis",
                         "type": "IRpcStubBuffer"
                     },
-                    "name": "pthis",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "riid",
                         "type": "IID"
                     },
-                    "name": "riid",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "void"
-                        }
+                        "name": "ppvObject",
+                        "type": "void",
+                        "data_type": "Ptr"
                     },
-                    "name": "ppvObject",
                     "sal": [
                         "out"
                     ]
@@ -956,19 +1091,18 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "CStdAsyncStubBuffer_AddRef",
+                "type": "ULONG"
+            },
             "name": "CStdAsyncStubBuffer_AddRef",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "ULONG"
-            },
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pthis",
                         "type": "IRpcStubBuffer"
                     },
-                    "name": "pthis",
                     "sal": [
                         "in"
                     ]
@@ -981,19 +1115,18 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "CStdAsyncStubBuffer_Release",
+                "type": "ULONG"
+            },
             "name": "CStdAsyncStubBuffer_Release",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "ULONG"
-            },
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pthis",
                         "type": "IRpcStubBuffer"
                     },
-                    "name": "pthis",
                     "sal": [
                         "in"
                     ]
@@ -1006,30 +1139,27 @@
             ]
         },
         {
-            "name": "CStdAsyncStubBuffer_Connect",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CStdAsyncStubBuffer_Connect",
                 "type": "HRESULT"
             },
+            "name": "CStdAsyncStubBuffer_Connect",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pthis",
                         "type": "IRpcStubBuffer"
                     },
-                    "name": "pthis",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pUnkServer",
                         "type": "IUnknown"
                     },
-                    "name": "pUnkServer",
                     "sal": [
                         "in"
                     ]
@@ -1042,19 +1172,18 @@
             ]
         },
         {
-            "name": "CStdAsyncStubBuffer_Disconnect",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CStdAsyncStubBuffer_Disconnect",
                 "type": "void"
             },
+            "name": "CStdAsyncStubBuffer_Disconnect",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pthis",
                         "type": "IRpcStubBuffer"
                     },
-                    "name": "pthis",
                     "sal": [
                         "in"
                     ]
@@ -1067,41 +1196,36 @@
             ]
         },
         {
-            "name": "CStdAsyncStubBuffer_Invoke",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CStdAsyncStubBuffer_Invoke",
                 "type": "HRESULT"
             },
+            "name": "CStdAsyncStubBuffer_Invoke",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pthis",
                         "type": "IRpcStubBuffer"
                     },
-                    "name": "pthis",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "_prpcmsg",
                         "type": "RPCOLEMESSAGE"
                     },
-                    "name": "_prpcmsg",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "_pRpcChannelBuffer",
                         "type": "IRpcChannelBuffer"
                     },
-                    "name": "_pRpcChannelBuffer",
                     "sal": [
                         "in"
                     ]
@@ -1114,19 +1238,18 @@
             ]
         },
         {
-            "name": "CStdAsyncStubBuffer2_Release",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CStdAsyncStubBuffer2_Release",
                 "type": "ULONG"
             },
+            "name": "CStdAsyncStubBuffer2_Release",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pthis",
                         "type": "IRpcStubBuffer"
                     },
-                    "name": "pthis",
                     "sal": [
                         "in"
                     ]
@@ -1139,30 +1262,27 @@
             ]
         },
         {
-            "name": "CStdAsyncStubBuffer2_Connect",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CStdAsyncStubBuffer2_Connect",
                 "type": "HRESULT"
             },
+            "name": "CStdAsyncStubBuffer2_Connect",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pthis",
                         "type": "IRpcStubBuffer"
                     },
-                    "name": "pthis",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pUnkServer",
                         "type": "IUnknown"
                     },
-                    "name": "pUnkServer",
                     "sal": [
                         "in"
                     ]
@@ -1175,19 +1295,18 @@
             ]
         },
         {
-            "name": "CStdAsyncStubBuffer2_Disconnect",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "CStdAsyncStubBuffer2_Disconnect",
                 "type": "void"
             },
+            "name": "CStdAsyncStubBuffer2_Disconnect",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pthis",
                         "type": "IRpcStubBuffer"
                     },
-                    "name": "pthis",
                     "sal": [
                         "in"
                     ]
@@ -1200,80 +1319,65 @@
             ]
         },
         {
-            "name": "NdrDllGetClassObject",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NdrDllGetClassObject",
                 "type": "HRESULT"
             },
+            "name": "NdrDllGetClassObject",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "rclsid",
                         "type": "IID"
                     },
-                    "name": "rclsid",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "riid",
                         "type": "IID"
                     },
-                    "name": "riid",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "void"
-                        }
+                        "name": "ppv",
+                        "type": "void",
+                        "data_type": "Ptr"
                     },
-                    "name": "ppv",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "ProxyFileInfo"
-                        }
+                        "name": "pProxyFileList",
+                        "type": "ProxyFileInfo",
+                        "data_type": "Ptr"
                     },
-                    "name": "pProxyFileList",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pclsid",
                         "type": "CLSID"
                     },
-                    "name": "pclsid",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pPSFactoryBuffer",
                         "type": "CStdPSFactoryBuffer"
                     },
-                    "name": "pPSFactoryBuffer",
                     "sal": [
                         "in"
                     ]
@@ -1284,19 +1388,18 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "NdrDllCanUnloadNow",
+                "type": "HRESULT"
+            },
             "name": "NdrDllCanUnloadNow",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pPSFactoryBuffer",
                         "type": "CStdPSFactoryBuffer"
                     },
-                    "name": "pPSFactoryBuffer",
                     "sal": [
                         "in"
                     ]
@@ -1307,41 +1410,35 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "NdrDllRegisterProxy",
+                "type": "HRESULT"
+            },
             "name": "NdrDllRegisterProxy",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "hDll",
-                    "data_type": "TypeDecl",
                     "type": "HMODULE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "ProxyFileInfo"
-                        }
+                        "name": "pProxyFileList",
+                        "type": "ProxyFileInfo",
+                        "data_type": "Ptr"
                     },
-                    "name": "pProxyFileList",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pclsid",
                         "type": "CLSID"
                     },
-                    "name": "pclsid",
                     "sal": [
                         "in"
                     ]
@@ -1352,41 +1449,35 @@
             ]
         },
         {
-            "name": "NdrDllUnregisterProxy",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NdrDllUnregisterProxy",
                 "type": "HRESULT"
             },
+            "name": "NdrDllUnregisterProxy",
             "arguments": [
                 {
                     "name": "hDll",
-                    "data_type": "TypeDecl",
                     "type": "HMODULE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "ProxyFileInfo"
-                        }
+                        "name": "pProxyFileList",
+                        "type": "ProxyFileInfo",
+                        "data_type": "Ptr"
                     },
-                    "name": "pProxyFileList",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pclsid",
                         "type": "CLSID"
                     },
-                    "name": "pclsid",
                     "sal": [
                         "in"
                     ]

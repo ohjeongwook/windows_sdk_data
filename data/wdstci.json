@@ -2,67 +2,451 @@
     "typedefs": [
         {
             "name": "TRANSPORTCLIENT_CALLBACK_ID",
-            "type": "_TRANSPORTCLIENT_CALLBACK_ID",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "WDS_TRANSPORTCLIENT_SESSION_START",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "WDS_TRANSPORTCLIENT_RECEIVE_CONTENTS",
+                        "value": {}
+                    },
+                    {
+                        "name": "WDS_TRANSPORTCLIENT_SESSION_COMPLETE",
+                        "value": {}
+                    },
+                    {
+                        "name": "WDS_TRANSPORTCLIENT_RECEIVE_METADATA",
+                        "value": {}
+                    },
+                    {
+                        "name": "WDS_TRANSPORTCLIENT_SESSION_STARTEX",
+                        "value": {}
+                    },
+                    {
+                        "name": "WDS_TRANSPORTCLIENT_SESSION_NEGOTIATE",
+                        "value": {}
+                    },
+                    {
+                        "name": "WDS_TRANSPORTCLIENT_MAX_CALLBACKS",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PTRANSPORTCLIENT_CALLBACK_ID",
             "type": {
-                "type": "_TRANSPORTCLIENT_CALLBACK_ID",
-                "data_type": "TypeDecl"
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "WDS_TRANSPORTCLIENT_SESSION_START",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "WDS_TRANSPORTCLIENT_RECEIVE_CONTENTS",
+                        "value": {}
+                    },
+                    {
+                        "name": "WDS_TRANSPORTCLIENT_SESSION_COMPLETE",
+                        "value": {}
+                    },
+                    {
+                        "name": "WDS_TRANSPORTCLIENT_RECEIVE_METADATA",
+                        "value": {}
+                    },
+                    {
+                        "name": "WDS_TRANSPORTCLIENT_SESSION_STARTEX",
+                        "value": {}
+                    },
+                    {
+                        "name": "WDS_TRANSPORTCLIENT_SESSION_NEGOTIATE",
+                        "value": {}
+                    },
+                    {
+                        "name": "WDS_TRANSPORTCLIENT_MAX_CALLBACKS",
+                        "value": {}
+                    }
+                ]
             },
-            "name": "PTRANSPORTCLIENT_CALLBACK_ID"
+            "data_type": "Ptr"
         },
         {
             "name": "TRANSPORTCLIENT_SESSION_INFO",
-            "type": "_TRANSPORTCLIENT_SESSION_INFO",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_TRANSPORTCLIENT_SESSION_INFO",
+                "elements": [
+                    {
+                        "name": "ulStructureLength",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "ullFileSize",
+                        "type": "ULARGE_INTEGER"
+                    },
+                    {
+                        "name": "ulBlockSize",
+                        "type": "ULONG"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PTRANSPORTCLIENT_SESSION_INFO",
             "type": {
-                "type": "_TRANSPORTCLIENT_SESSION_INFO",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_TRANSPORTCLIENT_SESSION_INFO",
+                "elements": [
+                    {
+                        "name": "ulStructureLength",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "ullFileSize",
+                        "type": "ULARGE_INTEGER"
+                    },
+                    {
+                        "name": "ulBlockSize",
+                        "type": "ULONG"
+                    }
+                ]
             },
-            "name": "PTRANSPORTCLIENT_SESSION_INFO"
+            "data_type": "Ptr"
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PFN_WdsTransportClientSessionStart",
+                "type": "void"
+            },
+            "name": "PFN_WdsTransportClientSessionStart",
+            "arguments": [
+                {
+                    "name": "hSessionKey",
+                    "type": "HANDLE"
+                },
+                {
+                    "name": "pCallerData",
+                    "type": "PVOID"
+                },
+                {
+                    "name": "ullFileSize",
+                    "type": "PULARGE_INTEGER"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PFN_WdsTransportClientSessionStartEx",
+                "type": "void"
+            },
+            "name": "PFN_WdsTransportClientSessionStartEx",
+            "arguments": [
+                {
+                    "name": "hSessionKey",
+                    "type": "HANDLE"
+                },
+                {
+                    "name": "pCallerData",
+                    "type": "PVOID"
+                },
+                {
+                    "name": "Info",
+                    "type": "PTRANSPORTCLIENT_SESSION_INFO"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PFN_WdsTransportClientReceiveMetadata",
+                "type": "void"
+            },
+            "name": "PFN_WdsTransportClientReceiveMetadata",
+            "arguments": [
+                {
+                    "name": "hSessionKey",
+                    "type": "HANDLE"
+                },
+                {
+                    "name": "pCallerData",
+                    "type": "PVOID"
+                },
+                {
+                    "name": "pMetadata",
+                    "type": "PVOID"
+                },
+                {
+                    "name": "ulSize",
+                    "type": "ULONG"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PFN_WdsTransportClientReceiveContents",
+                "type": "void"
+            },
+            "name": "PFN_WdsTransportClientReceiveContents",
+            "arguments": [
+                {
+                    "name": "hSessionKey",
+                    "type": "HANDLE"
+                },
+                {
+                    "name": "pCallerData",
+                    "type": "PVOID"
+                },
+                {
+                    "name": "pContents",
+                    "type": "PVOID"
+                },
+                {
+                    "name": "ulSize",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "pullContentOffset",
+                    "type": "PULARGE_INTEGER"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PFN_WdsTransportClientSessionComplete",
+                "type": "void"
+            },
+            "name": "PFN_WdsTransportClientSessionComplete",
+            "arguments": [
+                {
+                    "name": "hSessionKey",
+                    "type": "HANDLE"
+                },
+                {
+                    "name": "pCallerData",
+                    "type": "PVOID"
+                },
+                {
+                    "name": "dwError",
+                    "type": "DWORD"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PFN_WdsTransportClientSessionNegotiate",
+                "type": "void"
+            },
+            "name": "PFN_WdsTransportClientSessionNegotiate",
+            "arguments": [
+                {
+                    "name": "hSessionKey",
+                    "type": "HANDLE"
+                },
+                {
+                    "name": "pCallerData",
+                    "type": "PVOID"
+                },
+                {
+                    "name": "pInfo",
+                    "type": "PTRANSPORTCLIENT_SESSION_INFO"
+                },
+                {
+                    "name": "hNegotiateKey",
+                    "type": "HANDLE"
+                }
+            ]
         },
         {
             "name": "WDS_TRANSPORTCLIENT_REQUEST",
-            "type": "_WDS_TRANSPORTCLIENT_REQUEST",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_WDS_TRANSPORTCLIENT_REQUEST",
+                "elements": [
+                    {
+                        "name": "ulLength",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "ulApiVersion",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "ulAuthLevel",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "pwszServer",
+                        "type": "LPCWSTR"
+                    },
+                    {
+                        "name": "pwszNamespace",
+                        "type": "LPCWSTR"
+                    },
+                    {
+                        "name": "pwszObjectName",
+                        "type": "LPCWSTR"
+                    },
+                    {
+                        "name": "ulCacheSize",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "ulProtocol",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "pvProtocolData",
+                        "type": "PVOID"
+                    },
+                    {
+                        "name": "ulProtocolDataLength",
+                        "type": "ULONG"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PWDS_TRANSPORTCLIENT_REQUEST",
             "type": {
-                "type": "_WDS_TRANSPORTCLIENT_REQUEST",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_WDS_TRANSPORTCLIENT_REQUEST",
+                "elements": [
+                    {
+                        "name": "ulLength",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "ulApiVersion",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "ulAuthLevel",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "pwszServer",
+                        "type": "LPCWSTR"
+                    },
+                    {
+                        "name": "pwszNamespace",
+                        "type": "LPCWSTR"
+                    },
+                    {
+                        "name": "pwszObjectName",
+                        "type": "LPCWSTR"
+                    },
+                    {
+                        "name": "ulCacheSize",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "ulProtocol",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "pvProtocolData",
+                        "type": "PVOID"
+                    },
+                    {
+                        "name": "ulProtocolDataLength",
+                        "type": "ULONG"
+                    }
+                ]
             },
-            "name": "PWDS_TRANSPORTCLIENT_REQUEST"
+            "data_type": "Ptr"
         },
         {
             "name": "WDS_TRANSPORTCLIENT_CALLBACKS",
-            "type": "_WDS_TRANSPORTCLIENT_CALLBACKS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_WDS_TRANSPORTCLIENT_CALLBACKS",
+                "elements": [
+                    {
+                        "name": "SessionStart",
+                        "type": "PFN_WdsTransportClientSessionStart"
+                    },
+                    {
+                        "name": "SessionStartEx",
+                        "type": "PFN_WdsTransportClientSessionStartEx"
+                    },
+                    {
+                        "name": "ReceiveContents",
+                        "type": "PFN_WdsTransportClientReceiveContents"
+                    },
+                    {
+                        "name": "ReceiveMetadata",
+                        "type": "PFN_WdsTransportClientReceiveMetadata"
+                    },
+                    {
+                        "name": "SessionComplete",
+                        "type": "PFN_WdsTransportClientSessionComplete"
+                    },
+                    {
+                        "name": "SessionNegotiate",
+                        "type": "PFN_WdsTransportClientSessionNegotiate"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PWDS_TRANSPORTCLIENT_CALLBACKS",
             "type": {
-                "type": "_WDS_TRANSPORTCLIENT_CALLBACKS",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_WDS_TRANSPORTCLIENT_CALLBACKS",
+                "elements": [
+                    {
+                        "name": "SessionStart",
+                        "type": "PFN_WdsTransportClientSessionStart"
+                    },
+                    {
+                        "name": "SessionStartEx",
+                        "type": "PFN_WdsTransportClientSessionStartEx"
+                    },
+                    {
+                        "name": "ReceiveContents",
+                        "type": "PFN_WdsTransportClientReceiveContents"
+                    },
+                    {
+                        "name": "ReceiveMetadata",
+                        "type": "PFN_WdsTransportClientReceiveMetadata"
+                    },
+                    {
+                        "name": "SessionComplete",
+                        "type": "PFN_WdsTransportClientSessionComplete"
+                    },
+                    {
+                        "name": "SessionNegotiate",
+                        "type": "PFN_WdsTransportClientSessionNegotiate"
+                    }
+                ]
             },
-            "name": "PWDS_TRANSPORTCLIENT_CALLBACKS"
+            "data_type": "Ptr"
         }
     ],
     "funcdefs": [
         {
-            "name": "WdsTransportClientInitialize",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WdsTransportClientInitialize",
                 "type": "DWORD"
             },
+            "name": "WdsTransportClientInitialize",
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "type": "void"
                 }
             ],
@@ -71,15 +455,15 @@
             ]
         },
         {
-            "name": "WdsTransportClientInitializeSession",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WdsTransportClientInitializeSession",
                 "type": "DWORD"
             },
+            "name": "WdsTransportClientInitializeSession",
             "arguments": [
                 {
                     "name": "pSessionRequest",
-                    "data_type": "TypeDecl",
                     "type": "PWDS_TRANSPORTCLIENT_REQUEST",
                     "sal": [
                         "in"
@@ -87,7 +471,6 @@
                 },
                 {
                     "name": "pCallerData",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -95,7 +478,6 @@
                 },
                 {
                     "name": "hSessionKey",
-                    "data_type": "TypeDecl",
                     "type": "PHANDLE",
                     "sal": [
                         "out"
@@ -107,15 +489,15 @@
             ]
         },
         {
-            "name": "WdsTransportClientRegisterCallback",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WdsTransportClientRegisterCallback",
                 "type": "DWORD"
             },
+            "name": "WdsTransportClientRegisterCallback",
             "arguments": [
                 {
                     "name": "hSessionKey",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -123,7 +505,6 @@
                 },
                 {
                     "name": "CallbackId",
-                    "data_type": "TypeDecl",
                     "type": "TRANSPORTCLIENT_CALLBACK_ID",
                     "sal": [
                         "in"
@@ -131,7 +512,6 @@
                 },
                 {
                     "name": "pfnCallback",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -143,15 +523,15 @@
             ]
         },
         {
-            "name": "WdsTransportClientStartSession",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WdsTransportClientStartSession",
                 "type": "DWORD"
             },
+            "name": "WdsTransportClientStartSession",
             "arguments": [
                 {
                     "name": "hSessionKey",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -163,15 +543,15 @@
             ]
         },
         {
-            "name": "WdsTransportClientCompleteReceive",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WdsTransportClientCompleteReceive",
                 "type": "DWORD"
             },
+            "name": "WdsTransportClientCompleteReceive",
             "arguments": [
                 {
                     "name": "hSessionKey",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -179,7 +559,6 @@
                 },
                 {
                     "name": "ulSize",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -187,7 +566,6 @@
                 },
                 {
                     "name": "pullOffset",
-                    "data_type": "TypeDecl",
                     "type": "PULARGE_INTEGER",
                     "sal": [
                         "in"
@@ -199,15 +577,15 @@
             ]
         },
         {
-            "name": "WdsTransportClientCancelSession",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WdsTransportClientCancelSession",
                 "type": "DWORD"
             },
+            "name": "WdsTransportClientCancelSession",
             "arguments": [
                 {
                     "name": "hSessionKey",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -219,15 +597,15 @@
             ]
         },
         {
-            "name": "WdsTransportClientWaitForCompletion",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WdsTransportClientWaitForCompletion",
                 "type": "DWORD"
             },
+            "name": "WdsTransportClientWaitForCompletion",
             "arguments": [
                 {
                     "name": "hSessionKey",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -235,7 +613,6 @@
                 },
                 {
                     "name": "uTimeout",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -247,15 +624,15 @@
             ]
         },
         {
-            "name": "WdsTransportClientQueryStatus",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WdsTransportClientQueryStatus",
                 "type": "DWORD"
             },
+            "name": "WdsTransportClientQueryStatus",
             "arguments": [
                 {
                     "name": "hSessionKey",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -263,7 +640,6 @@
                 },
                 {
                     "name": "puStatus",
-                    "data_type": "TypeDecl",
                     "type": "PULONG",
                     "sal": [
                         "out"
@@ -271,7 +647,6 @@
                 },
                 {
                     "name": "puErrorCode",
-                    "data_type": "TypeDecl",
                     "type": "PULONG",
                     "sal": [
                         "out"
@@ -283,15 +658,15 @@
             ]
         },
         {
-            "name": "WdsTransportClientCloseSession",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WdsTransportClientCloseSession",
                 "type": "DWORD"
             },
+            "name": "WdsTransportClientCloseSession",
             "arguments": [
                 {
                     "name": "hSessionKey",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -303,15 +678,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "WdsTransportClientAddRefBuffer",
+                "type": "DWORD"
+            },
             "name": "WdsTransportClientAddRefBuffer",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "DWORD"
-            },
             "arguments": [
                 {
                     "name": "pvBuffer",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -323,15 +698,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "WdsTransportClientReleaseBuffer",
+                "type": "DWORD"
+            },
             "name": "WdsTransportClientReleaseBuffer",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "DWORD"
-            },
             "arguments": [
                 {
                     "name": "pvBuffer",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -343,14 +718,14 @@
             ]
         },
         {
-            "name": "WdsTransportClientShutdown",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "WdsTransportClientShutdown",
                 "type": "DWORD"
             },
+            "name": "WdsTransportClientShutdown",
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "type": "void"
                 }
             ],

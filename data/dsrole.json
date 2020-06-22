@@ -2,83 +2,270 @@
     "typedefs": [
         {
             "name": "DSROLE_MACHINE_ROLE",
-            "type": "_DSROLE_MACHINE_ROLE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "DsRole_RoleStandaloneWorkstation",
+                        "value": {}
+                    },
+                    {
+                        "name": "DsRole_RoleMemberWorkstation",
+                        "value": {}
+                    },
+                    {
+                        "name": "DsRole_RoleStandaloneServer",
+                        "value": {}
+                    },
+                    {
+                        "name": "DsRole_RoleMemberServer",
+                        "value": {}
+                    },
+                    {
+                        "name": "DsRole_RoleBackupDomainController",
+                        "value": {}
+                    },
+                    {
+                        "name": "DsRole_RolePrimaryDomainController",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
             "name": "DSROLE_SERVER_STATE",
-            "type": "_DSROLE_SERVER_STATE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "DsRoleServerUnknown",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "DsRoleServerPrimary",
+                        "value": {}
+                    },
+                    {
+                        "name": "DsRoleServerBackup",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PDSROLE_SERVER_STATE",
             "type": {
-                "type": "_DSROLE_SERVER_STATE",
-                "data_type": "TypeDecl"
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "DsRoleServerUnknown",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "DsRoleServerPrimary",
+                        "value": {}
+                    },
+                    {
+                        "name": "DsRoleServerBackup",
+                        "value": {}
+                    }
+                ]
             },
-            "name": "PDSROLE_SERVER_STATE"
+            "data_type": "Ptr"
         },
         {
             "name": "DSROLE_PRIMARY_DOMAIN_INFO_LEVEL",
-            "type": "_DSROLE_PRIMARY_DOMAIN_INFO_LEVEL",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "DsRolePrimaryDomainInfoBasic",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "DsRoleUpgradeStatus",
+                        "value": {}
+                    },
+                    {
+                        "name": "DsRoleOperationState",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
             "name": "DSROLE_PRIMARY_DOMAIN_INFO_BASIC",
-            "type": "_DSROLE_PRIMARY_DOMAIN_INFO_BASIC",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_DSROLE_PRIMARY_DOMAIN_INFO_BASIC",
+                "elements": [
+                    {
+                        "name": "MachineRole",
+                        "type": "DSROLE_MACHINE_ROLE"
+                    },
+                    {
+                        "name": "Flags",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "DomainNameFlat",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "DomainNameDns",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "DomainForestName",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "DomainGuid",
+                        "type": "GUID"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PDSROLE_PRIMARY_DOMAIN_INFO_BASIC",
             "type": {
-                "type": "_DSROLE_PRIMARY_DOMAIN_INFO_BASIC",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_DSROLE_PRIMARY_DOMAIN_INFO_BASIC",
+                "elements": [
+                    {
+                        "name": "MachineRole",
+                        "type": "DSROLE_MACHINE_ROLE"
+                    },
+                    {
+                        "name": "Flags",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "DomainNameFlat",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "DomainNameDns",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "DomainForestName",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "DomainGuid",
+                        "type": "GUID"
+                    }
+                ]
             },
-            "name": "PDSROLE_PRIMARY_DOMAIN_INFO_BASIC"
+            "data_type": "Ptr"
         },
         {
             "name": "DSROLE_UPGRADE_STATUS_INFO",
-            "type": "_DSROLE_UPGRADE_STATUS_INFO",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_DSROLE_UPGRADE_STATUS_INFO",
+                "elements": [
+                    {
+                        "name": "OperationState",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "PreviousServerState",
+                        "type": "DSROLE_SERVER_STATE"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PDSROLE_UPGRADE_STATUS_INFO",
             "type": {
-                "type": "_DSROLE_UPGRADE_STATUS_INFO",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_DSROLE_UPGRADE_STATUS_INFO",
+                "elements": [
+                    {
+                        "name": "OperationState",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "PreviousServerState",
+                        "type": "DSROLE_SERVER_STATE"
+                    }
+                ]
             },
-            "name": "PDSROLE_UPGRADE_STATUS_INFO"
+            "data_type": "Ptr"
         },
         {
             "name": "DSROLE_OPERATION_STATE",
-            "type": "_DSROLE_OPERATION_STATE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "DsRoleOperationIdle",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "DsRoleOperationActive",
+                        "value": {}
+                    },
+                    {
+                        "name": "DsRoleOperationNeedReboot",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
             "name": "DSROLE_OPERATION_STATE_INFO",
-            "type": "_DSROLE_OPERATION_STATE_INFO",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_DSROLE_OPERATION_STATE_INFO",
+                "elements": [
+                    {
+                        "name": "OperationState",
+                        "type": "DSROLE_OPERATION_STATE"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PDSROLE_OPERATION_STATE_INFO",
             "type": {
-                "type": "_DSROLE_OPERATION_STATE_INFO",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_DSROLE_OPERATION_STATE_INFO",
+                "elements": [
+                    {
+                        "name": "OperationState",
+                        "type": "DSROLE_OPERATION_STATE"
+                    }
+                ]
             },
-            "name": "PDSROLE_OPERATION_STATE_INFO"
+            "data_type": "Ptr"
         }
     ],
     "funcdefs": [
         {
-            "name": "DsRoleGetPrimaryDomainInformation",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DsRoleGetPrimaryDomainInformation",
                 "type": "DWORD"
             },
+            "name": "DsRoleGetPrimaryDomainInformation",
             "arguments": [
                 {
                     "name": "lpServer",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -86,19 +273,16 @@
                 },
                 {
                     "name": "InfoLevel",
-                    "data_type": "TypeDecl",
                     "type": "DSROLE_PRIMARY_DOMAIN_INFO_LEVEL",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "Buffer",
                         "type": "PBYTE"
                     },
-                    "name": "Buffer",
                     "sal": [
                         "out"
                     ]
@@ -109,15 +293,15 @@
             ]
         },
         {
-            "name": "DsRoleFreeMemory",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DsRoleFreeMemory",
                 "type": "void"
             },
+            "name": "DsRoleFreeMemory",
             "arguments": [
                 {
                     "name": "Buffer",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"

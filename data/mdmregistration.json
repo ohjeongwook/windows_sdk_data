@@ -2,67 +2,151 @@
     "typedefs": [
         {
             "name": "MANAGEMENT_SERVICE_INFO",
-            "type": "_MANAGEMENT_SERVICE_INFO",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_MANAGEMENT_SERVICE_INFO",
+                "elements": [
+                    {
+                        "name": "pszMDMServiceUri",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszAuthenticationUri",
+                        "type": "LPWSTR"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PMANAGEMENT_SERVICE_INFO",
             "type": {
-                "type": "_MANAGEMENT_SERVICE_INFO",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_MANAGEMENT_SERVICE_INFO",
+                "elements": [
+                    {
+                        "name": "pszMDMServiceUri",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszAuthenticationUri",
+                        "type": "LPWSTR"
+                    }
+                ]
             },
-            "name": "PMANAGEMENT_SERVICE_INFO"
+            "data_type": "Ptr"
         },
         {
             "name": "MANAGEMENT_REGISTRATION_INFO",
-            "type": "_MANAGEMENT_REGISTRATION_INFO",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_MANAGEMENT_REGISTRATION_INFO",
+                "elements": [
+                    {
+                        "name": "fDeviceRegisteredWithManagement",
+                        "type": "BOOL"
+                    },
+                    {
+                        "name": "dwDeviceRegistionKind",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "pszUPN",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszMDMServiceUri",
+                        "type": "LPWSTR"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PMANAGEMENT_REGISTRATION_INFO",
             "type": {
-                "type": "_MANAGEMENT_REGISTRATION_INFO",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_MANAGEMENT_REGISTRATION_INFO",
+                "elements": [
+                    {
+                        "name": "fDeviceRegisteredWithManagement",
+                        "type": "BOOL"
+                    },
+                    {
+                        "name": "dwDeviceRegistionKind",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "pszUPN",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pszMDMServiceUri",
+                        "type": "LPWSTR"
+                    }
+                ]
             },
-            "name": "PMANAGEMENT_REGISTRATION_INFO"
+            "data_type": "Ptr"
         },
         {
             "name": "REGISTRATION_INFORMATION_CLASS",
-            "type": "_REGISTRATION_INFORMATION_CLASS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "DeviceRegistrationBasicInfo",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "MaxDeviceInfoClass",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PREGISTRATION_INFORMATION_CLASS",
             "type": {
-                "type": "_REGISTRATION_INFORMATION_CLASS",
-                "data_type": "TypeDecl"
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "DeviceRegistrationBasicInfo",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "MaxDeviceInfoClass",
+                        "value": {}
+                    }
+                ]
             },
-            "name": "PREGISTRATION_INFORMATION_CLASS"
+            "data_type": "Ptr"
         }
     ],
     "funcdefs": [
         {
-            "name": "GetDeviceRegistrationInfo",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "GetDeviceRegistrationInfo",
                 "type": "HRESULT"
             },
+            "name": "GetDeviceRegistrationInfo",
             "arguments": [
                 {
                     "name": "DeviceInformationClass",
-                    "data_type": "TypeDecl",
                     "type": "REGISTRATION_INFORMATION_CLASS",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppDeviceRegistrationInfo",
                         "type": "PVOID"
                     },
-                    "name": "ppDeviceRegistrationInfo",
                     "sal": [
                         "out"
                     ]
@@ -73,26 +157,24 @@
             ]
         },
         {
-            "name": "IsDeviceRegisteredWithManagement",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "IsDeviceRegisteredWithManagement",
                 "type": "HRESULT"
             },
+            "name": "IsDeviceRegisteredWithManagement",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pfIsDeviceRegisteredWithManagement",
                         "type": "BOOL"
                     },
-                    "name": "pfIsDeviceRegisteredWithManagement",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "name": "cchUPN",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in",
@@ -101,7 +183,6 @@
                 },
                 {
                     "name": "pszUPN",
-                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "out",
@@ -115,19 +196,18 @@
             ]
         },
         {
-            "name": "IsManagementRegistrationAllowed",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "IsManagementRegistrationAllowed",
                 "type": "HRESULT"
             },
+            "name": "IsManagementRegistrationAllowed",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pfIsManagementRegistrationAllowed",
                         "type": "BOOL"
                     },
-                    "name": "pfIsManagementRegistrationAllowed",
                     "sal": [
                         "out"
                     ]
@@ -138,15 +218,15 @@
             ]
         },
         {
-            "name": "SetManagedExternally",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SetManagedExternally",
                 "type": "HRESULT"
             },
+            "name": "SetManagedExternally",
             "arguments": [
                 {
                     "name": "IsManagedExternally",
-                    "data_type": "TypeDecl",
                     "type": "BOOL",
                     "sal": [
                         "in"
@@ -158,27 +238,25 @@
             ]
         },
         {
-            "name": "DiscoverManagementService",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DiscoverManagementService",
                 "type": "HRESULT"
             },
+            "name": "DiscoverManagementService",
             "arguments": [
                 {
                     "name": "pszUPN",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppMgmtInfo",
                         "type": "PMANAGEMENT_SERVICE_INFO"
                     },
-                    "name": "ppMgmtInfo",
                     "sal": [
                         "out"
                     ]
@@ -189,15 +267,15 @@
             ]
         },
         {
-            "name": "RegisterDeviceWithManagementUsingAADCredentials",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "RegisterDeviceWithManagementUsingAADCredentials",
                 "type": "HRESULT"
             },
+            "name": "RegisterDeviceWithManagementUsingAADCredentials",
             "arguments": [
                 {
                     "name": "UserToken",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -209,26 +287,27 @@
             ]
         },
         {
-            "name": "RegisterDeviceWithManagementUsingAADDeviceCredentials",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "RegisterDeviceWithManagementUsingAADDeviceCredentials",
                 "type": "HRESULT"
             },
+            "name": "RegisterDeviceWithManagementUsingAADDeviceCredentials",
             "arguments": [],
             "api_locations": [
                 "MDMRegistration.dll"
             ]
         },
         {
-            "name": "RegisterDeviceWithManagement",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "RegisterDeviceWithManagement",
                 "type": "HRESULT"
             },
+            "name": "RegisterDeviceWithManagement",
             "arguments": [
                 {
                     "name": "pszUPN",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -236,7 +315,6 @@
                 },
                 {
                     "name": "ppszMDMServiceUri",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -244,7 +322,6 @@
                 },
                 {
                     "name": "ppzsAccessToken",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -256,15 +333,15 @@
             ]
         },
         {
-            "name": "UnregisterDeviceWithManagement",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "UnregisterDeviceWithManagement",
                 "type": "HRESULT"
             },
+            "name": "UnregisterDeviceWithManagement",
             "arguments": [
                 {
                     "name": "enrollmentID",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -276,15 +353,15 @@
             ]
         },
         {
-            "name": "GetManagementAppHyperlink",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "GetManagementAppHyperlink",
                 "type": "HRESULT"
             },
+            "name": "GetManagementAppHyperlink",
             "arguments": [
                 {
                     "name": "cchHyperlink",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -292,7 +369,6 @@
                 },
                 {
                     "name": "pszHyperlink",
-                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": []
                 }
@@ -302,15 +378,15 @@
             ]
         },
         {
-            "name": "DiscoverManagementServiceEx",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DiscoverManagementServiceEx",
                 "type": "HRESULT"
             },
+            "name": "DiscoverManagementServiceEx",
             "arguments": [
                 {
                     "name": "pszUPN",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -318,19 +394,16 @@
                 },
                 {
                     "name": "pszDiscoveryServiceCandidate",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppMgmtInfo",
                         "type": "PMANAGEMENT_SERVICE_INFO"
                     },
-                    "name": "ppMgmtInfo",
                     "sal": [
                         "out"
                     ]

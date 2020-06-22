@@ -2,26 +2,20 @@
     "typedefs": [
         {
             "name": "AsnOctetString",
-            "data_type": "TypeDecl",
             "type": {
                 "data_type": "Struct",
                 "elements": [
                     {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "BYTE"
-                        },
-                        "name": "stream"
+                        "name": "stream",
+                        "type": "BYTE",
+                        "data_type": "Ptr"
                     },
                     {
                         "name": "length",
-                        "data_type": "TypeDecl",
                         "type": "UINT"
                     },
                     {
                         "name": "dynamic",
-                        "data_type": "TypeDecl",
                         "type": "BOOL"
                     }
                 ]
@@ -29,166 +23,133 @@
         },
         {
             "name": "AsnObjectIdentifier",
-            "data_type": "TypeDecl",
             "type": {
                 "data_type": "Struct",
                 "elements": [
                     {
                         "name": "idLength",
-                        "data_type": "TypeDecl",
                         "type": "UINT"
                     },
                     {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "UINT"
-                        },
-                        "name": "ids"
+                        "name": "ids",
+                        "type": "UINT",
+                        "data_type": "Ptr"
                     }
                 ]
             }
         },
         {
             "name": "AsnInteger32",
-            "data_type": "TypeDecl",
             "type": "LONG"
         },
         {
             "name": "AsnUnsigned32",
-            "data_type": "TypeDecl",
             "type": "ULONG"
         },
         {
             "name": "AsnCounter64",
-            "data_type": "TypeDecl",
             "type": "ULARGE_INTEGER"
         },
         {
             "name": "AsnCounter32",
-            "data_type": "TypeDecl",
             "type": "AsnUnsigned32"
         },
         {
             "name": "AsnGauge32",
-            "data_type": "TypeDecl",
             "type": "AsnUnsigned32"
         },
         {
             "name": "AsnTimeticks",
-            "data_type": "TypeDecl",
             "type": "AsnUnsigned32"
         },
         {
             "name": "AsnBits",
-            "data_type": "TypeDecl",
             "type": "AsnOctetString"
         },
         {
             "name": "AsnSequence",
-            "data_type": "TypeDecl",
             "type": "AsnOctetString"
         },
         {
             "name": "AsnImplicitSequence",
-            "data_type": "TypeDecl",
             "type": "AsnOctetString"
         },
         {
             "name": "AsnIPAddress",
-            "data_type": "TypeDecl",
             "type": "AsnOctetString"
         },
         {
             "name": "AsnNetworkAddress",
-            "data_type": "TypeDecl",
             "type": "AsnOctetString"
         },
         {
             "name": "AsnDisplayString",
-            "data_type": "TypeDecl",
             "type": "AsnOctetString"
         },
         {
             "name": "AsnOpaque",
-            "data_type": "TypeDecl",
             "type": "AsnOctetString"
         },
         {
             "name": "AsnAny",
-            "data_type": "TypeDecl",
             "type": {
                 "data_type": "Struct",
                 "elements": [
                     {
                         "name": "asnType",
-                        "data_type": "TypeDecl",
                         "type": "BYTE"
                     },
                     {
                         "name": "asnValue",
-                        "data_type": "TypeDecl",
                         "type": {
                             "data_type": "Union",
                             "elements": [
                                 {
                                     "name": "number",
-                                    "data_type": "TypeDecl",
                                     "type": "AsnInteger32"
                                 },
                                 {
                                     "name": "unsigned32",
-                                    "data_type": "TypeDecl",
                                     "type": "AsnUnsigned32"
                                 },
                                 {
                                     "name": "counter64",
-                                    "data_type": "TypeDecl",
                                     "type": "AsnCounter64"
                                 },
                                 {
                                     "name": "string",
-                                    "data_type": "TypeDecl",
                                     "type": "AsnOctetString"
                                 },
                                 {
                                     "name": "bits",
-                                    "data_type": "TypeDecl",
                                     "type": "AsnBits"
                                 },
                                 {
                                     "name": "object",
-                                    "data_type": "TypeDecl",
                                     "type": "AsnObjectIdentifier"
                                 },
                                 {
                                     "name": "sequence",
-                                    "data_type": "TypeDecl",
                                     "type": "AsnSequence"
                                 },
                                 {
                                     "name": "address",
-                                    "data_type": "TypeDecl",
                                     "type": "AsnIPAddress"
                                 },
                                 {
                                     "name": "counter",
-                                    "data_type": "TypeDecl",
                                     "type": "AsnCounter32"
                                 },
                                 {
                                     "name": "gauge",
-                                    "data_type": "TypeDecl",
                                     "type": "AsnGauge32"
                                 },
                                 {
                                     "name": "ticks",
-                                    "data_type": "TypeDecl",
                                     "type": "AsnTimeticks"
                                 },
                                 {
                                     "name": "arbitrary",
-                                    "data_type": "TypeDecl",
                                     "type": "AsnOpaque"
                                 }
                             ]
@@ -199,28 +160,23 @@
         },
         {
             "name": "AsnObjectName",
-            "data_type": "TypeDecl",
             "type": "AsnObjectIdentifier"
         },
         {
             "name": "AsnObjectSyntax",
-            "data_type": "TypeDecl",
             "type": "AsnAny"
         },
         {
             "name": "SnmpVarBind",
-            "data_type": "TypeDecl",
             "type": {
                 "data_type": "Struct",
                 "elements": [
                     {
                         "name": "name",
-                        "data_type": "TypeDecl",
                         "type": "AsnObjectName"
                     },
                     {
                         "name": "value",
-                        "data_type": "TypeDecl",
                         "type": "AsnObjectSyntax"
                     }
                 ]
@@ -228,43 +184,216 @@
         },
         {
             "name": "SnmpVarBindList",
-            "data_type": "TypeDecl",
             "type": {
                 "data_type": "Struct",
                 "elements": [
                     {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "SnmpVarBind"
-                        },
-                        "name": "list"
+                        "name": "list",
+                        "type": "SnmpVarBind",
+                        "data_type": "Ptr"
                     },
                     {
                         "name": "len",
-                        "data_type": "TypeDecl",
                         "type": "UINT"
                     }
                 ]
             }
         },
         {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PFNSNMPEXTENSIONINIT",
+                "type": "BOOL"
+            },
+            "name": "PFNSNMPEXTENSIONINIT",
+            "arguments": [
+                {
+                    "name": "dwUpTimeReference",
+                    "type": "DWORD"
+                },
+                {
+                    "type": {
+                        "name": "phSubagentTrapEvent",
+                        "type": "HANDLE"
+                    }
+                },
+                {
+                    "type": {
+                        "name": "pFirstSupportedRegion",
+                        "type": "AsnObjectIdentifier"
+                    }
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PFNSNMPEXTENSIONINITEX",
+                "type": "BOOL"
+            },
+            "name": "PFNSNMPEXTENSIONINITEX",
+            "arguments": [
+                {
+                    "type": {
+                        "name": "pNextSupportedRegion",
+                        "type": "AsnObjectIdentifier"
+                    }
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PFNSNMPEXTENSIONMONITOR",
+                "type": "BOOL"
+            },
+            "name": "PFNSNMPEXTENSIONMONITOR",
+            "arguments": [
+                {
+                    "name": "pAgentMgmtData",
+                    "type": "LPVOID"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PFNSNMPEXTENSIONQUERY",
+                "type": "BOOL"
+            },
+            "name": "PFNSNMPEXTENSIONQUERY",
+            "arguments": [
+                {
+                    "name": "bPduType",
+                    "type": "BYTE"
+                },
+                {
+                    "type": {
+                        "name": "pVarBindList",
+                        "type": "SnmpVarBindList"
+                    }
+                },
+                {
+                    "type": {
+                        "name": "pErrorStatus",
+                        "type": "AsnInteger32"
+                    }
+                },
+                {
+                    "type": {
+                        "name": "pErrorIndex",
+                        "type": "AsnInteger32"
+                    }
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PFNSNMPEXTENSIONQUERYEX",
+                "type": "BOOL"
+            },
+            "name": "PFNSNMPEXTENSIONQUERYEX",
+            "arguments": [
+                {
+                    "name": "nRequestType",
+                    "type": "UINT"
+                },
+                {
+                    "name": "nTransactionId",
+                    "type": "UINT"
+                },
+                {
+                    "type": {
+                        "name": "pVarBindList",
+                        "type": "SnmpVarBindList"
+                    }
+                },
+                {
+                    "type": {
+                        "name": "pContextInfo",
+                        "type": "AsnOctetString"
+                    }
+                },
+                {
+                    "type": {
+                        "name": "pErrorStatus",
+                        "type": "AsnInteger32"
+                    }
+                },
+                {
+                    "type": {
+                        "name": "pErrorIndex",
+                        "type": "AsnInteger32"
+                    }
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PFNSNMPEXTENSIONTRAP",
+                "type": "BOOL"
+            },
+            "name": "PFNSNMPEXTENSIONTRAP",
+            "arguments": [
+                {
+                    "type": {
+                        "name": "pEnterpriseOid",
+                        "type": "AsnObjectIdentifier"
+                    }
+                },
+                {
+                    "type": {
+                        "name": "pGenericTrapId",
+                        "type": "AsnInteger32"
+                    }
+                },
+                {
+                    "type": {
+                        "name": "pSpecificTrapId",
+                        "type": "AsnInteger32"
+                    }
+                },
+                {
+                    "type": {
+                        "name": "pTimeStamp",
+                        "type": "AsnTimeticks"
+                    }
+                },
+                {
+                    "type": {
+                        "name": "pVarBindList",
+                        "type": "SnmpVarBindList"
+                    }
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PFNSNMPEXTENSIONCLOSE",
+                "type": "void"
+            },
+            "name": "PFNSNMPEXTENSIONCLOSE",
+            "arguments": []
+        },
+        {
             "name": "LPSNMP_MGR_SESSION",
-            "data_type": "TypeDecl",
             "type": "PVOID"
         }
     ],
     "funcdefs": [
         {
-            "name": "SnmpMgrOpen",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SnmpMgrOpen",
                 "type": "LPSNMP_MGR_SESSION"
             },
+            "name": "SnmpMgrOpen",
             "arguments": [
                 {
                     "name": "lpAgentAddress",
-                    "data_type": "TypeDecl",
                     "type": "LPSTR",
                     "sal": [
                         "in"
@@ -272,7 +401,6 @@
                 },
                 {
                     "name": "lpAgentCommunity",
-                    "data_type": "TypeDecl",
                     "type": "LPSTR",
                     "sal": [
                         "in"
@@ -280,7 +408,6 @@
                 },
                 {
                     "name": "nTimeOut",
-                    "data_type": "TypeDecl",
                     "type": "INT",
                     "sal": [
                         "in"
@@ -288,7 +415,6 @@
                 },
                 {
                     "name": "nRetries",
-                    "data_type": "TypeDecl",
                     "type": "INT",
                     "sal": [
                         "in"
@@ -300,15 +426,15 @@
             ]
         },
         {
-            "name": "SnmpMgrCtl",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SnmpMgrCtl",
                 "type": "BOOL"
             },
+            "name": "SnmpMgrCtl",
             "arguments": [
                 {
                     "name": "session",
-                    "data_type": "TypeDecl",
                     "type": "LPSNMP_MGR_SESSION",
                     "sal": [
                         "in"
@@ -316,7 +442,6 @@
                 },
                 {
                     "name": "dwCtlCode",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -324,7 +449,6 @@
                 },
                 {
                     "name": "lpvInBuffer",
-                    "data_type": "TypeDecl",
                     "type": "LPVOID",
                     "sal": [
                         "in"
@@ -332,7 +456,6 @@
                 },
                 {
                     "name": "cbInBuffer",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -340,7 +463,6 @@
                 },
                 {
                     "name": "lpvOUTBuffer",
-                    "data_type": "TypeDecl",
                     "type": "LPVOID",
                     "sal": [
                         "out"
@@ -348,7 +470,6 @@
                 },
                 {
                     "name": "cbOUTBuffer",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "out"
@@ -356,7 +477,6 @@
                 },
                 {
                     "name": "lpcbBytesReturned",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "out"
@@ -368,15 +488,15 @@
             ]
         },
         {
-            "name": "SnmpMgrClose",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SnmpMgrClose",
                 "type": "BOOL"
             },
+            "name": "SnmpMgrClose",
             "arguments": [
                 {
                     "name": "session",
-                    "data_type": "TypeDecl",
                     "type": "LPSNMP_MGR_SESSION",
                     "sal": [
                         "in"
@@ -388,15 +508,15 @@
             ]
         },
         {
-            "name": "SnmpMgrRequest",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SnmpMgrRequest",
                 "type": "INT"
             },
+            "name": "SnmpMgrRequest",
             "arguments": [
                 {
                     "name": "session",
-                    "data_type": "TypeDecl",
                     "type": "LPSNMP_MGR_SESSION",
                     "sal": [
                         "in"
@@ -404,42 +524,35 @@
                 },
                 {
                     "name": "requestType",
-                    "data_type": "TypeDecl",
                     "type": "BYTE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "variableBindings",
                         "type": "SnmpVarBindList"
                     },
-                    "name": "variableBindings",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "errorStatus",
                         "type": "AsnInteger32"
                     },
-                    "name": "errorStatus",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "errorIndex",
                         "type": "AsnInteger32"
                     },
-                    "name": "errorIndex",
                     "sal": [
                         "out"
                     ]
@@ -450,27 +563,25 @@
             ]
         },
         {
-            "name": "SnmpMgrStrToOid",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SnmpMgrStrToOid",
                 "type": "BOOL"
             },
+            "name": "SnmpMgrStrToOid",
             "arguments": [
                 {
                     "name": "string",
-                    "data_type": "TypeDecl",
                     "type": "LPSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "oid",
                         "type": "AsnObjectIdentifier"
                     },
-                    "name": "oid",
                     "sal": [
                         "out"
                     ]
@@ -481,30 +592,27 @@
             ]
         },
         {
-            "name": "SnmpMgrOidToStr",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SnmpMgrOidToStr",
                 "type": "BOOL"
             },
+            "name": "SnmpMgrOidToStr",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "oid",
                         "type": "AsnObjectIdentifier"
                     },
-                    "name": "oid",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "string",
                         "type": "LPSTR"
                     },
-                    "name": "string",
                     "sal": [
                         "out"
                     ]
@@ -515,19 +623,18 @@
             ]
         },
         {
-            "name": "SnmpMgrTrapListen",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SnmpMgrTrapListen",
                 "type": "BOOL"
             },
+            "name": "SnmpMgrTrapListen",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "phTrapAvailable",
                         "type": "HANDLE"
                     },
-                    "name": "phTrapAvailable",
                     "sal": [
                         "out"
                     ]
@@ -538,74 +645,63 @@
             ]
         },
         {
-            "name": "SnmpMgrGetTrap",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SnmpMgrGetTrap",
                 "type": "BOOL"
             },
+            "name": "SnmpMgrGetTrap",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "enterprise",
                         "type": "AsnObjectIdentifier"
                     },
-                    "name": "enterprise",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "IPAddress",
                         "type": "AsnNetworkAddress"
                     },
-                    "name": "IPAddress",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "genericTrap",
                         "type": "AsnInteger32"
                     },
-                    "name": "genericTrap",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "specificTrap",
                         "type": "AsnInteger32"
                     },
-                    "name": "specificTrap",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "timeStamp",
                         "type": "AsnTimeticks"
                     },
-                    "name": "timeStamp",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "variableBindings",
                         "type": "SnmpVarBindList"
                     },
-                    "name": "variableBindings",
                     "sal": [
                         "out"
                     ]
@@ -616,96 +712,81 @@
             ]
         },
         {
-            "name": "SnmpMgrGetTrapEx",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "SnmpMgrGetTrapEx",
                 "type": "BOOL"
             },
+            "name": "SnmpMgrGetTrapEx",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "enterprise",
                         "type": "AsnObjectIdentifier"
                     },
-                    "name": "enterprise",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "agentAddress",
                         "type": "AsnNetworkAddress"
                     },
-                    "name": "agentAddress",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "sourceAddress",
                         "type": "AsnNetworkAddress"
                     },
-                    "name": "sourceAddress",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "genericTrap",
                         "type": "AsnInteger32"
                     },
-                    "name": "genericTrap",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "specificTrap",
                         "type": "AsnInteger32"
                     },
-                    "name": "specificTrap",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "community",
                         "type": "AsnOctetString"
                     },
-                    "name": "community",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "timeStamp",
                         "type": "AsnTimeticks"
                     },
-                    "name": "timeStamp",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "variableBindings",
                         "type": "SnmpVarBindList"
                     },
-                    "name": "variableBindings",
                     "sal": [
                         "out"
                     ]

@@ -2,46 +2,151 @@
     "typedefs": [
         {
             "name": "DAV_CALLBACK_AUTH_BLOB",
-            "type": "_DAV_CALLBACK_AUTH_BLOB",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_DAV_CALLBACK_AUTH_BLOB",
+                "elements": [
+                    {
+                        "name": "pBuffer",
+                        "type": "PVOID"
+                    },
+                    {
+                        "name": "ulSize",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "ulType",
+                        "type": "ULONG"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PDAV_CALLBACK_AUTH_BLOB",
             "type": {
-                "type": "_DAV_CALLBACK_AUTH_BLOB",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_DAV_CALLBACK_AUTH_BLOB",
+                "elements": [
+                    {
+                        "name": "pBuffer",
+                        "type": "PVOID"
+                    },
+                    {
+                        "name": "ulSize",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "ulType",
+                        "type": "ULONG"
+                    }
+                ]
             },
-            "name": "PDAV_CALLBACK_AUTH_BLOB"
+            "data_type": "Ptr"
         },
         {
             "name": "DAV_CALLBACK_AUTH_UNP",
-            "type": "_DAV_CALLBACK_AUTH_UNP",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_DAV_CALLBACK_AUTH_UNP",
+                "elements": [
+                    {
+                        "name": "pszUserName",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "ulUserNameLength",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "pszPassword",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "ulPasswordLength",
+                        "type": "ULONG"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PDAV_CALLBACK_AUTH_UNP",
             "type": {
-                "type": "_DAV_CALLBACK_AUTH_UNP",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_DAV_CALLBACK_AUTH_UNP",
+                "elements": [
+                    {
+                        "name": "pszUserName",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "ulUserNameLength",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "pszPassword",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "ulPasswordLength",
+                        "type": "ULONG"
+                    }
+                ]
             },
-            "name": "PDAV_CALLBACK_AUTH_UNP"
+            "data_type": "Ptr"
         },
         {
             "name": "DAV_CALLBACK_CRED",
-            "type": "_DAV_CALLBACK_CRED",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_DAV_CALLBACK_CRED",
+                "elements": [
+                    {
+                        "name": "AuthBlob",
+                        "type": "DAV_CALLBACK_AUTH_BLOB"
+                    },
+                    {
+                        "name": "UNPBlob",
+                        "type": "DAV_CALLBACK_AUTH_UNP"
+                    },
+                    {
+                        "name": "bAuthBlobValid",
+                        "type": "BOOL"
+                    },
+                    {
+                        "name": "bSave",
+                        "type": "BOOL"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PDAV_CALLBACK_CRED",
             "type": {
-                "type": "_DAV_CALLBACK_CRED",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_DAV_CALLBACK_CRED",
+                "elements": [
+                    {
+                        "name": "AuthBlob",
+                        "type": "DAV_CALLBACK_AUTH_BLOB"
+                    },
+                    {
+                        "name": "UNPBlob",
+                        "type": "DAV_CALLBACK_AUTH_UNP"
+                    },
+                    {
+                        "name": "bAuthBlobValid",
+                        "type": "BOOL"
+                    },
+                    {
+                        "name": "bSave",
+                        "type": "BOOL"
+                    }
+                ]
             },
-            "name": "PDAV_CALLBACK_CRED"
+            "data_type": "Ptr"
         },
         {
             "name": "AUTHNEXTSTEP",
-            "data_type": "TypeDecl",
             "type": {
                 "data_type": "Enum",
                 "enumerators": [
@@ -59,23 +164,78 @@
                     }
                 ]
             }
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PFNDAVAUTHCALLBACK_FREECRED",
+                "type": "DWORD"
+            },
+            "name": "PFNDAVAUTHCALLBACK_FREECRED",
+            "arguments": [
+                {
+                    "name": "pbuffer",
+                    "type": "PVOID"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PFNDAVAUTHCALLBACK",
+                "type": "DWORD"
+            },
+            "name": "PFNDAVAUTHCALLBACK",
+            "arguments": [
+                {
+                    "name": "lpwzServerName",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "lpwzRemoteName",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "dwAuthScheme",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "dwFlags",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "pCallbackCred",
+                    "type": "PDAV_CALLBACK_CRED"
+                },
+                {
+                    "type": {
+                        "name": "NextStep",
+                        "type": "AUTHNEXTSTEP"
+                    }
+                },
+                {
+                    "type": {
+                        "name": "pFreeCred",
+                        "type": "PFNDAVAUTHCALLBACK_FREECRED"
+                    }
+                }
+            ]
         }
     ],
     "funcdefs": [
         {
-            "name": "DavAddConnection",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DavAddConnection",
                 "type": "DWORD"
             },
+            "name": "DavAddConnection",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ConnectionHandle",
                         "type": "HANDLE"
                     },
-                    "name": "ConnectionHandle",
                     "sal": [
                         "in",
                         "out"
@@ -83,7 +243,6 @@
                 },
                 {
                     "name": "RemoteName",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -91,7 +250,6 @@
                 },
                 {
                     "name": "UserName",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in",
@@ -100,7 +258,6 @@
                 },
                 {
                     "name": "Password",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in",
@@ -109,7 +266,6 @@
                 },
                 {
                     "name": "ClientCert",
-                    "data_type": "TypeDecl",
                     "type": "PBYTE",
                     "sal": [
                         "in"
@@ -117,7 +273,6 @@
                 },
                 {
                     "name": "CertSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -131,15 +286,15 @@
             ]
         },
         {
-            "name": "DavDeleteConnection",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DavDeleteConnection",
                 "type": "DWORD"
             },
+            "name": "DavDeleteConnection",
             "arguments": [
                 {
                     "name": "ConnectionHandle",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -153,15 +308,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "DavGetUNCFromHTTPPath",
+                "type": "DWORD"
+            },
             "name": "DavGetUNCFromHTTPPath",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "DWORD"
-            },
             "arguments": [
                 {
                     "name": "Url",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -169,7 +324,6 @@
                 },
                 {
                     "name": "UncPath",
-                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "out"
@@ -177,7 +331,6 @@
                 },
                 {
                     "name": "lpSize",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -192,15 +345,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "DavGetHTTPFromUNCPath",
+                "type": "DWORD"
+            },
             "name": "DavGetHTTPFromUNCPath",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "DWORD"
-            },
             "arguments": [
                 {
                     "name": "UncPath",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -208,7 +361,6 @@
                 },
                 {
                     "name": "Url",
-                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "out"
@@ -216,7 +368,6 @@
                 },
                 {
                     "name": "lpSize",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "in",
@@ -231,15 +382,15 @@
             ]
         },
         {
-            "name": "DavGetTheLockOwnerOfTheFile",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DavGetTheLockOwnerOfTheFile",
                 "type": "DWORD"
             },
+            "name": "DavGetTheLockOwnerOfTheFile",
             "arguments": [
                 {
                     "name": "FileName",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -247,7 +398,6 @@
                 },
                 {
                     "name": "LockOwnerName",
-                    "data_type": "TypeDecl",
                     "type": "PWSTR",
                     "sal": [
                         "out",
@@ -256,7 +406,6 @@
                 },
                 {
                     "name": "LockOwnerNameLengthInBytes",
-                    "data_type": "TypeDecl",
                     "type": "PULONG",
                     "sal": [
                         "in",
@@ -269,46 +418,41 @@
             ]
         },
         {
-            "name": "DavGetExtendedError",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DavGetExtendedError",
                 "type": "DWORD"
             },
+            "name": "DavGetExtendedError",
             "arguments": [
                 {
                     "name": "hFile",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ExtError",
                         "type": "DWORD"
                     },
-                    "name": "ExtError",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "name": "ExtErrorString",
-                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "cChSize",
                         "type": "DWORD"
                     },
-                    "name": "cChSize",
                     "sal": [
                         "in",
                         "out"
@@ -322,15 +466,15 @@
             ]
         },
         {
-            "name": "DavFlushFile",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DavFlushFile",
                 "type": "DWORD"
             },
+            "name": "DavFlushFile",
             "arguments": [
                 {
                     "name": "hFile",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -344,15 +488,15 @@
             ]
         },
         {
-            "name": "DavInvalidateCache",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DavInvalidateCache",
                 "type": "DWORD"
             },
+            "name": "DavInvalidateCache",
             "arguments": [
                 {
                     "name": "URLName",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -364,15 +508,15 @@
             ]
         },
         {
-            "name": "DavCancelConnectionsToServer",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DavCancelConnectionsToServer",
                 "type": "DWORD"
             },
+            "name": "DavCancelConnectionsToServer",
             "arguments": [
                 {
                     "name": "lpName",
-                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "in"
@@ -380,7 +524,6 @@
                 },
                 {
                     "name": "fForce",
-                    "data_type": "TypeDecl",
                     "type": "BOOL",
                     "sal": []
                 }
@@ -390,15 +533,15 @@
             ]
         },
         {
-            "name": "DavRegisterAuthCallback",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DavRegisterAuthCallback",
                 "type": "DWORD"
             },
+            "name": "DavRegisterAuthCallback",
             "arguments": [
                 {
                     "name": "CallBack",
-                    "data_type": "TypeDecl",
                     "type": "PFNDAVAUTHCALLBACK",
                     "sal": [
                         "in"
@@ -406,7 +549,6 @@
                 },
                 {
                     "name": "Version",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -418,15 +560,15 @@
             ]
         },
         {
-            "name": "DavUnregisterAuthCallback",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DavUnregisterAuthCallback",
                 "type": "void"
             },
+            "name": "DavUnregisterAuthCallback",
             "arguments": [
                 {
                     "name": "hCallback",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"

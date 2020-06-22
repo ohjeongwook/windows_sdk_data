@@ -2,171 +2,172 @@
     "typedefs": [
         {
             "name": "TOKENBINDING_TYPE",
-            "data_type": "Enum",
-            "enumerators": [
-                {
-                    "name": "TOKENBINDING_TYPE_PROVIDED",
-                    "value": {
-                        "type": "int",
-                        "value": "0"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "TOKENBINDING_TYPE_PROVIDED",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "TOKENBINDING_TYPE_REFERRED",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
                     }
-                },
-                {
-                    "name": "TOKENBINDING_TYPE_REFERRED",
-                    "value": {
-                        "type": "int",
-                        "value": "1"
-                    }
-                }
-            ]
+                ]
+            }
         },
         {
             "name": "TOKENBINDING_EXTENSION_FORMAT",
-            "data_type": "Enum",
-            "enumerators": [
-                {
-                    "name": "TOKENBINDING_EXTENSION_FORMAT_UNDEFINED",
-                    "value": {
-                        "type": "int",
-                        "value": "0"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "TOKENBINDING_EXTENSION_FORMAT_UNDEFINED",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
                     }
-                }
-            ]
+                ]
+            }
         },
         {
             "name": "TOKENBINDING_KEY_PARAMETERS_TYPE",
-            "data_type": "Enum",
-            "enumerators": [
-                {
-                    "name": "TOKENBINDING_KEY_PARAMETERS_TYPE_RSA2048_PKCS",
-                    "value": {
-                        "type": "int",
-                        "value": "0"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "TOKENBINDING_KEY_PARAMETERS_TYPE_RSA2048_PKCS",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "TOKENBINDING_KEY_PARAMETERS_TYPE_RSA2048_PSS",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "TOKENBINDING_KEY_PARAMETERS_TYPE_ECDSAP256",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "TOKENBINDING_KEY_PARAMETERS_TYPE_ANYEXISTING",
+                        "value": {
+                            "type": "int",
+                            "value": "255"
+                        }
                     }
-                },
-                {
-                    "name": "TOKENBINDING_KEY_PARAMETERS_TYPE_RSA2048_PSS",
-                    "value": {
-                        "type": "int",
-                        "value": "1"
-                    }
-                },
-                {
-                    "name": "TOKENBINDING_KEY_PARAMETERS_TYPE_ECDSAP256",
-                    "value": {
-                        "type": "int",
-                        "value": "2"
-                    }
-                },
-                {
-                    "name": "TOKENBINDING_KEY_PARAMETERS_TYPE_ANYEXISTING",
-                    "value": {
-                        "type": "int",
-                        "value": "255"
-                    }
-                }
-            ]
+                ]
+            }
         },
         {
             "name": "TOKENBINDING_IDENTIFIER",
-            "data_type": "Struct",
-            "elements": [
-                {
-                    "name": "keyType",
-                    "data_type": "TypeDecl",
-                    "type": "BYTE"
-                }
-            ]
+            "type": {
+                "data_type": "Struct",
+                "name": "TOKENBINDING_IDENTIFIER",
+                "elements": [
+                    {
+                        "name": "keyType",
+                        "type": "BYTE"
+                    }
+                ]
+            }
         },
         {
             "name": "TOKENBINDING_RESULT_DATA",
-            "data_type": "Struct",
-            "elements": [
-                {
-                    "name": "bindingType",
-                    "data_type": "TypeDecl",
-                    "type": "TOKENBINDING_TYPE"
-                },
-                {
-                    "name": "identifierSize",
-                    "data_type": "TypeDecl",
-                    "type": "DWORD"
-                },
-                {
-                    "data_type": "PtrDecl",
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "type": "TOKENBINDING_IDENTIFIER"
+            "type": {
+                "data_type": "Struct",
+                "name": "TOKENBINDING_RESULT_DATA",
+                "elements": [
+                    {
+                        "name": "bindingType",
+                        "type": "TOKENBINDING_TYPE"
                     },
-                    "name": "identifierData"
-                },
-                {
-                    "name": "extensionFormat",
-                    "data_type": "TypeDecl",
-                    "type": "TOKENBINDING_EXTENSION_FORMAT"
-                },
-                {
-                    "name": "extensionSize",
-                    "data_type": "TypeDecl",
-                    "type": "DWORD"
-                },
-                {
-                    "name": "extensionData",
-                    "data_type": "TypeDecl",
-                    "type": "PVOID"
-                }
-            ]
+                    {
+                        "name": "identifierSize",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "identifierData",
+                        "type": "TOKENBINDING_IDENTIFIER",
+                        "data_type": "Ptr"
+                    },
+                    {
+                        "name": "extensionFormat",
+                        "type": "TOKENBINDING_EXTENSION_FORMAT"
+                    },
+                    {
+                        "name": "extensionSize",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "extensionData",
+                        "type": "PVOID"
+                    }
+                ]
+            }
         },
         {
             "name": "TOKENBINDING_RESULT_LIST",
-            "data_type": "Struct",
-            "elements": [
-                {
-                    "name": "resultCount",
-                    "data_type": "TypeDecl",
-                    "type": "DWORD"
-                },
-                {
-                    "data_type": "PtrDecl",
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "type": "TOKENBINDING_RESULT_DATA"
+            "type": {
+                "data_type": "Struct",
+                "name": "TOKENBINDING_RESULT_LIST",
+                "elements": [
+                    {
+                        "name": "resultCount",
+                        "type": "DWORD"
                     },
-                    "name": "resultData"
-                }
-            ]
+                    {
+                        "name": "resultData",
+                        "type": "TOKENBINDING_RESULT_DATA",
+                        "data_type": "Ptr"
+                    }
+                ]
+            }
         },
         {
             "name": "TOKENBINDING_KEY_TYPES",
-            "data_type": "Struct",
-            "elements": [
-                {
-                    "name": "keyCount",
-                    "data_type": "TypeDecl",
-                    "type": "DWORD"
-                },
-                {
-                    "data_type": "PtrDecl",
-                    "type": {
-                        "data_type": "TypeDecl",
-                        "type": "TOKENBINDING_KEY_PARAMETERS_TYPE"
+            "type": {
+                "data_type": "Struct",
+                "name": "TOKENBINDING_KEY_TYPES",
+                "elements": [
+                    {
+                        "name": "keyCount",
+                        "type": "DWORD"
                     },
-                    "name": "keyType"
-                }
-            ]
+                    {
+                        "name": "keyType",
+                        "type": "TOKENBINDING_KEY_PARAMETERS_TYPE",
+                        "data_type": "Ptr"
+                    }
+                ]
+            }
         }
     ],
     "funcdefs": [
         {
-            "name": "TokenBindingGenerateBinding",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "TokenBindingGenerateBinding",
                 "type": "SECURITY_STATUS"
             },
+            "name": "TokenBindingGenerateBinding",
             "arguments": [
                 {
                     "name": "keyType",
-                    "data_type": "TypeDecl",
                     "type": "TOKENBINDING_KEY_PARAMETERS_TYPE",
                     "sal": [
                         "in"
@@ -174,7 +175,6 @@
                 },
                 {
                     "name": "targetURL",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -182,26 +182,22 @@
                 },
                 {
                     "name": "bindingType",
-                    "data_type": "TypeDecl",
                     "type": "TOKENBINDING_TYPE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "tlsEKM",
                         "type": "void"
                     },
-                    "name": "tlsEKM",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "tlsEKMSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -209,58 +205,45 @@
                 },
                 {
                     "name": "extensionFormat",
-                    "data_type": "TypeDecl",
                     "type": "TOKENBINDING_EXTENSION_FORMAT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "extensionData",
                         "type": "void"
                     },
-                    "name": "extensionData",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "void"
-                        }
+                        "name": "tokenBinding",
+                        "type": "void",
+                        "data_type": "Ptr"
                     },
-                    "name": "tokenBinding",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "tokenBindingSize",
                         "type": "DWORD"
                     },
-                    "name": "tokenBindingSize",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "TOKENBINDING_RESULT_DATA"
-                        }
+                        "name": "resultData",
+                        "type": "TOKENBINDING_RESULT_DATA",
+                        "data_type": "Ptr"
                     },
-                    "name": "resultData",
                     "sal": [
                         "out",
                         "optional"
@@ -272,68 +255,54 @@
             ]
         },
         {
-            "name": "TokenBindingGenerateMessage",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "TokenBindingGenerateMessage",
                 "type": "SECURITY_STATUS"
             },
+            "name": "TokenBindingGenerateMessage",
             "arguments": [
                 {
-                    "data_type": "ArrayDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "void"
-                        },
-                        "name": "tokenBindings"
+                        "name": "tokenBindings",
+                        "type": "void",
+                        "data_type": "Ptr"
                     },
-                    "dim": {},
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "ArrayDecl",
                     "type": {
                         "name": "tokenBindingsSize",
-                        "data_type": "TypeDecl",
                         "type": "DWORD"
                     },
-                    "dim": {},
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "tokenBindingsCount",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "void"
-                        }
+                        "name": "tokenBindingMessage",
+                        "type": "void",
+                        "data_type": "Ptr"
                     },
-                    "name": "tokenBindingMessage",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "tokenBindingMessageSize",
                         "type": "DWORD"
                     },
-                    "name": "tokenBindingMessageSize",
                     "sal": [
                         "out"
                     ]
@@ -344,26 +313,24 @@
             ]
         },
         {
-            "name": "TokenBindingVerifyMessage",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "TokenBindingVerifyMessage",
                 "type": "SECURITY_STATUS"
             },
+            "name": "TokenBindingVerifyMessage",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "tokenBindingMessage",
                         "type": "void"
                     },
-                    "name": "tokenBindingMessage",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "tokenBindingMessageSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -371,41 +338,33 @@
                 },
                 {
                     "name": "keyType",
-                    "data_type": "TypeDecl",
                     "type": "TOKENBINDING_KEY_PARAMETERS_TYPE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "tlsEKM",
                         "type": "void"
                     },
-                    "name": "tlsEKM",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "tlsEKMSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "TOKENBINDING_RESULT_LIST"
-                        }
+                        "name": "resultList",
+                        "type": "TOKENBINDING_RESULT_LIST",
+                        "data_type": "Ptr"
                     },
-                    "name": "resultList",
                     "sal": [
                         "out"
                     ]
@@ -417,22 +376,19 @@
             ]
         },
         {
-            "name": "TokenBindingGetKeyTypesClient",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "TokenBindingGetKeyTypesClient",
                 "type": "SECURITY_STATUS"
             },
+            "name": "TokenBindingGetKeyTypesClient",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "TOKENBINDING_KEY_TYPES"
-                        }
+                        "name": "keyTypes",
+                        "type": "TOKENBINDING_KEY_TYPES",
+                        "data_type": "Ptr"
                     },
-                    "name": "keyTypes",
                     "sal": [
                         "out"
                     ]
@@ -443,22 +399,19 @@
             ]
         },
         {
-            "name": "TokenBindingGetKeyTypesServer",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "TokenBindingGetKeyTypesServer",
                 "type": "SECURITY_STATUS"
             },
+            "name": "TokenBindingGetKeyTypesServer",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "TOKENBINDING_KEY_TYPES"
-                        }
+                        "name": "keyTypes",
+                        "type": "TOKENBINDING_KEY_TYPES",
+                        "data_type": "Ptr"
                     },
-                    "name": "keyTypes",
                     "sal": [
                         "out"
                     ]
@@ -470,15 +423,15 @@
             ]
         },
         {
-            "name": "TokenBindingDeleteBinding",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "TokenBindingDeleteBinding",
                 "type": "SECURITY_STATUS"
             },
+            "name": "TokenBindingDeleteBinding",
             "arguments": [
                 {
                     "name": "targetURL",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -490,60 +443,54 @@
             ]
         },
         {
-            "name": "TokenBindingDeleteAllBindings",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "TokenBindingDeleteAllBindings",
                 "type": "SECURITY_STATUS"
             },
+            "name": "TokenBindingDeleteAllBindings",
             "arguments": [],
             "api_locations": [
                 "tokenbinding.dll"
             ]
         },
         {
-            "name": "TokenBindingGenerateID",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "TokenBindingGenerateID",
                 "type": "SECURITY_STATUS"
             },
+            "name": "TokenBindingGenerateID",
             "arguments": [
                 {
                     "name": "keyType",
-                    "data_type": "TypeDecl",
                     "type": "TOKENBINDING_KEY_PARAMETERS_TYPE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "publicKey",
                         "type": "void"
                     },
-                    "name": "publicKey",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "publicKeySize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "TOKENBINDING_RESULT_DATA"
-                        }
+                        "name": "resultData",
+                        "type": "TOKENBINDING_RESULT_DATA",
+                        "data_type": "Ptr"
                     },
-                    "name": "resultData",
                     "sal": [
                         "out"
                     ]

@@ -2,83 +2,83 @@
     "typedefs": [
         {
             "name": "PATHCCH_OPTIONS",
-            "data_type": "Enum",
-            "enumerators": [
-                {
-                    "name": "PATHCCH_NONE",
-                    "value": {
-                        "type": "int",
-                        "value": "0x0"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "PATHCCH_NONE",
+                        "value": {
+                            "type": "int",
+                            "value": "0x0"
+                        }
+                    },
+                    {
+                        "name": "PATHCCH_ALLOW_LONG_PATHS",
+                        "value": {
+                            "type": "int",
+                            "value": "0x01"
+                        }
+                    },
+                    {
+                        "name": "PATHCCH_FORCE_ENABLE_LONG_NAME_PROCESS",
+                        "value": {
+                            "type": "int",
+                            "value": "0x02"
+                        }
+                    },
+                    {
+                        "name": "PATHCCH_FORCE_DISABLE_LONG_NAME_PROCESS",
+                        "value": {
+                            "type": "int",
+                            "value": "0x04"
+                        }
+                    },
+                    {
+                        "name": "PATHCCH_DO_NOT_NORMALIZE_SEGMENTS",
+                        "value": {
+                            "type": "int",
+                            "value": "0x08"
+                        }
+                    },
+                    {
+                        "name": "PATHCCH_ENSURE_IS_EXTENDED_LENGTH_PATH",
+                        "value": {
+                            "type": "int",
+                            "value": "0x10"
+                        }
+                    },
+                    {
+                        "name": "PATHCCH_ENSURE_TRAILING_SLASH",
+                        "value": {
+                            "type": "int",
+                            "value": "0x020"
+                        }
                     }
-                },
-                {
-                    "name": "PATHCCH_ALLOW_LONG_PATHS",
-                    "value": {
-                        "type": "int",
-                        "value": "0x01"
-                    }
-                },
-                {
-                    "name": "PATHCCH_FORCE_ENABLE_LONG_NAME_PROCESS",
-                    "value": {
-                        "type": "int",
-                        "value": "0x02"
-                    }
-                },
-                {
-                    "name": "PATHCCH_FORCE_DISABLE_LONG_NAME_PROCESS",
-                    "value": {
-                        "type": "int",
-                        "value": "0x04"
-                    }
-                },
-                {
-                    "name": "PATHCCH_DO_NOT_NORMALIZE_SEGMENTS",
-                    "value": {
-                        "type": "int",
-                        "value": "0x08"
-                    }
-                },
-                {
-                    "name": "PATHCCH_ENSURE_IS_EXTENDED_LENGTH_PATH",
-                    "value": {
-                        "type": "int",
-                        "value": "0x10"
-                    }
-                },
-                {
-                    "name": "PATHCCH_ENSURE_TRAILING_SLASH",
-                    "value": {
-                        "type": "int",
-                        "value": "0x020"
-                    }
-                }
-            ]
+                ]
+            }
         }
     ],
     "funcdefs": [
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "PathIsUNCEx",
+                "type": "BOOL"
+            },
             "name": "PathIsUNCEx",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "BOOL"
-            },
             "arguments": [
                 {
                     "name": "pszPath",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppszServer",
                         "type": "PCWSTR"
                     },
-                    "name": "ppszServer",
                     "sal": [
                         "out",
                         "optional"
@@ -92,15 +92,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "PathCchIsRoot",
+                "type": "BOOL"
+            },
             "name": "PathCchIsRoot",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "BOOL"
-            },
             "arguments": [
                 {
                     "name": "pszPath",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in",
@@ -115,15 +115,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "PathCchAddBackslashEx",
+                "type": "HRESULT"
+            },
             "name": "PathCchAddBackslashEx",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "pszPath",
-                    "data_type": "TypeDecl",
                     "type": "PWSTR",
                     "sal": [
                         "in",
@@ -132,31 +132,26 @@
                 },
                 {
                     "name": "cchPath",
-                    "data_type": "TypeDecl",
                     "type": "size_t",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppszEnd",
                         "type": "PWSTR"
                     },
-                    "name": "ppszEnd",
                     "sal": [
                         "out",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcchRemaining",
                         "type": "size_t"
                     },
-                    "name": "pcchRemaining",
                     "sal": [
                         "out",
                         "optional"
@@ -170,15 +165,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "PathCchAddBackslash",
+                "type": "HRESULT"
+            },
             "name": "PathCchAddBackslash",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "pszPath",
-                    "data_type": "TypeDecl",
                     "type": "PWSTR",
                     "sal": [
                         "in",
@@ -187,7 +182,6 @@
                 },
                 {
                     "name": "cchPath",
-                    "data_type": "TypeDecl",
                     "type": "size_t",
                     "sal": [
                         "in"
@@ -201,15 +195,15 @@
             ]
         },
         {
-            "name": "PathCchRemoveBackslashEx",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PathCchRemoveBackslashEx",
                 "type": "HRESULT"
             },
+            "name": "PathCchRemoveBackslashEx",
             "arguments": [
                 {
                     "name": "pszPath",
-                    "data_type": "TypeDecl",
                     "type": "PWSTR",
                     "sal": [
                         "in",
@@ -218,31 +212,26 @@
                 },
                 {
                     "name": "cchPath",
-                    "data_type": "TypeDecl",
                     "type": "size_t",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppszEnd",
                         "type": "PWSTR"
                     },
-                    "name": "ppszEnd",
                     "sal": [
                         "out",
                         "optional"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pcchRemaining",
                         "type": "size_t"
                     },
-                    "name": "pcchRemaining",
                     "sal": [
                         "out",
                         "optional"
@@ -256,15 +245,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "PathCchRemoveBackslash",
+                "type": "HRESULT"
+            },
             "name": "PathCchRemoveBackslash",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "pszPath",
-                    "data_type": "TypeDecl",
                     "type": "PWSTR",
                     "sal": [
                         "in",
@@ -273,7 +262,6 @@
                 },
                 {
                     "name": "cchPath",
-                    "data_type": "TypeDecl",
                     "type": "size_t",
                     "sal": [
                         "in"
@@ -287,27 +275,25 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "PathCchSkipRoot",
+                "type": "HRESULT"
+            },
             "name": "PathCchSkipRoot",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "pszPath",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppszRootEnd",
                         "type": "PCWSTR"
                     },
-                    "name": "ppszRootEnd",
                     "sal": [
                         "out"
                     ]
@@ -320,15 +306,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "PathCchStripToRoot",
+                "type": "HRESULT"
+            },
             "name": "PathCchStripToRoot",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "pszPath",
-                    "data_type": "TypeDecl",
                     "type": "PWSTR",
                     "sal": [
                         "in",
@@ -337,7 +323,6 @@
                 },
                 {
                     "name": "cchPath",
-                    "data_type": "TypeDecl",
                     "type": "size_t",
                     "sal": [
                         "in"
@@ -351,15 +336,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "PathCchRemoveFileSpec",
+                "type": "HRESULT"
+            },
             "name": "PathCchRemoveFileSpec",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "pszPath",
-                    "data_type": "TypeDecl",
                     "type": "PWSTR",
                     "sal": [
                         "in",
@@ -368,7 +353,6 @@
                 },
                 {
                     "name": "cchPath",
-                    "data_type": "TypeDecl",
                     "type": "size_t",
                     "sal": [
                         "in"
@@ -382,15 +366,15 @@
             ]
         },
         {
-            "name": "PathCchFindExtension",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PathCchFindExtension",
                 "type": "HRESULT"
             },
+            "name": "PathCchFindExtension",
             "arguments": [
                 {
                     "name": "pszPath",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -398,19 +382,16 @@
                 },
                 {
                     "name": "cchPath",
-                    "data_type": "TypeDecl",
                     "type": "size_t",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppszExt",
                         "type": "PCWSTR"
                     },
-                    "name": "ppszExt",
                     "sal": [
                         "out"
                     ]
@@ -423,15 +404,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "PathCchAddExtension",
+                "type": "HRESULT"
+            },
             "name": "PathCchAddExtension",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "pszPath",
-                    "data_type": "TypeDecl",
                     "type": "PWSTR",
                     "sal": [
                         "in",
@@ -440,7 +421,6 @@
                 },
                 {
                     "name": "cchPath",
-                    "data_type": "TypeDecl",
                     "type": "size_t",
                     "sal": [
                         "in"
@@ -448,7 +428,6 @@
                 },
                 {
                     "name": "pszExt",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -462,15 +441,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "PathCchRenameExtension",
+                "type": "HRESULT"
+            },
             "name": "PathCchRenameExtension",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "pszPath",
-                    "data_type": "TypeDecl",
                     "type": "PWSTR",
                     "sal": [
                         "in",
@@ -479,7 +458,6 @@
                 },
                 {
                     "name": "cchPath",
-                    "data_type": "TypeDecl",
                     "type": "size_t",
                     "sal": [
                         "in"
@@ -487,7 +465,6 @@
                 },
                 {
                     "name": "pszExt",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -501,15 +478,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "PathCchRemoveExtension",
+                "type": "HRESULT"
+            },
             "name": "PathCchRemoveExtension",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "pszPath",
-                    "data_type": "TypeDecl",
                     "type": "PWSTR",
                     "sal": [
                         "in",
@@ -518,7 +495,6 @@
                 },
                 {
                     "name": "cchPath",
-                    "data_type": "TypeDecl",
                     "type": "size_t",
                     "sal": [
                         "in"
@@ -532,15 +508,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "PathCchCanonicalizeEx",
+                "type": "HRESULT"
+            },
             "name": "PathCchCanonicalizeEx",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "pszPathOut",
-                    "data_type": "TypeDecl",
                     "type": "PWSTR",
                     "sal": [
                         "out"
@@ -548,7 +524,6 @@
                 },
                 {
                     "name": "cchPathOut",
-                    "data_type": "TypeDecl",
                     "type": "size_t",
                     "sal": [
                         "in"
@@ -556,7 +531,6 @@
                 },
                 {
                     "name": "pszPathIn",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -564,7 +538,6 @@
                 },
                 {
                     "name": "dwFlags",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -578,15 +551,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "PathCchCanonicalize",
+                "type": "HRESULT"
+            },
             "name": "PathCchCanonicalize",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "pszPathOut",
-                    "data_type": "TypeDecl",
                     "type": "PWSTR",
                     "sal": [
                         "out"
@@ -594,7 +567,6 @@
                 },
                 {
                     "name": "cchPathOut",
-                    "data_type": "TypeDecl",
                     "type": "size_t",
                     "sal": [
                         "in"
@@ -602,7 +574,6 @@
                 },
                 {
                     "name": "pszPathIn",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -616,15 +587,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "PathCchCombineEx",
+                "type": "HRESULT"
+            },
             "name": "PathCchCombineEx",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "pszPathOut",
-                    "data_type": "TypeDecl",
                     "type": "PWSTR",
                     "sal": [
                         "out"
@@ -632,7 +603,6 @@
                 },
                 {
                     "name": "cchPathOut",
-                    "data_type": "TypeDecl",
                     "type": "size_t",
                     "sal": [
                         "in"
@@ -640,7 +610,6 @@
                 },
                 {
                     "name": "pszPathIn",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in",
@@ -649,7 +618,6 @@
                 },
                 {
                     "name": "pszMore",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in",
@@ -658,7 +626,6 @@
                 },
                 {
                     "name": "dwFlags",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -672,15 +639,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "PathCchCombine",
+                "type": "HRESULT"
+            },
             "name": "PathCchCombine",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "pszPathOut",
-                    "data_type": "TypeDecl",
                     "type": "PWSTR",
                     "sal": [
                         "out"
@@ -688,7 +655,6 @@
                 },
                 {
                     "name": "cchPathOut",
-                    "data_type": "TypeDecl",
                     "type": "size_t",
                     "sal": [
                         "in"
@@ -696,7 +662,6 @@
                 },
                 {
                     "name": "pszPathIn",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in",
@@ -705,7 +670,6 @@
                 },
                 {
                     "name": "pszMore",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in",
@@ -720,15 +684,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "PathCchAppendEx",
+                "type": "HRESULT"
+            },
             "name": "PathCchAppendEx",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "pszPath",
-                    "data_type": "TypeDecl",
                     "type": "PWSTR",
                     "sal": [
                         "in",
@@ -737,7 +701,6 @@
                 },
                 {
                     "name": "cchPath",
-                    "data_type": "TypeDecl",
                     "type": "size_t",
                     "sal": [
                         "in"
@@ -745,7 +708,6 @@
                 },
                 {
                     "name": "pszMore",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in",
@@ -754,7 +716,6 @@
                 },
                 {
                     "name": "dwFlags",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -768,15 +729,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "PathCchAppend",
+                "type": "HRESULT"
+            },
             "name": "PathCchAppend",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HRESULT"
-            },
             "arguments": [
                 {
                     "name": "pszPath",
-                    "data_type": "TypeDecl",
                     "type": "PWSTR",
                     "sal": [
                         "in",
@@ -785,7 +746,6 @@
                 },
                 {
                     "name": "cchPath",
-                    "data_type": "TypeDecl",
                     "type": "size_t",
                     "sal": [
                         "in"
@@ -793,7 +753,6 @@
                 },
                 {
                     "name": "pszMore",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in",
@@ -808,15 +767,15 @@
             ]
         },
         {
-            "name": "PathCchStripPrefix",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PathCchStripPrefix",
                 "type": "HRESULT"
             },
+            "name": "PathCchStripPrefix",
             "arguments": [
                 {
                     "name": "pszPath",
-                    "data_type": "TypeDecl",
                     "type": "PWSTR",
                     "sal": [
                         "in",
@@ -825,7 +784,6 @@
                 },
                 {
                     "name": "cchPath",
-                    "data_type": "TypeDecl",
                     "type": "size_t",
                     "sal": [
                         "in"
@@ -839,15 +797,15 @@
             ]
         },
         {
-            "name": "PathAllocCombine",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PathAllocCombine",
                 "type": "HRESULT"
             },
+            "name": "PathAllocCombine",
             "arguments": [
                 {
                     "name": "pszPathIn",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -855,7 +813,6 @@
                 },
                 {
                     "name": "pszMore",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -863,19 +820,16 @@
                 },
                 {
                     "name": "dwFlags",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppszPathOut",
                         "type": "PWSTR"
                     },
-                    "name": "ppszPathOut",
                     "sal": [
                         "out"
                     ]
@@ -888,15 +842,15 @@
             ]
         },
         {
-            "name": "PathAllocCanonicalize",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PathAllocCanonicalize",
                 "type": "HRESULT"
             },
+            "name": "PathAllocCanonicalize",
             "arguments": [
                 {
                     "name": "pszPathIn",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -904,19 +858,16 @@
                 },
                 {
                     "name": "dwFlags",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppszPathOut",
                         "type": "PWSTR"
                     },
-                    "name": "ppszPathOut",
                     "sal": [
                         "out"
                     ]

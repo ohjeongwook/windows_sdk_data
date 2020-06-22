@@ -2,133 +2,561 @@
     "typedefs": [
         {
             "name": "REGHANDLE",
-            "data_type": "TypeDecl",
             "type": "ULONGLONG"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "ULONGLONG"
-            },
-            "name": "PREGHANDLE"
+            "name": "PREGHANDLE",
+            "type": "ULONGLONG",
+            "data_type": "Ptr"
         },
         {
             "name": "EVENT_DATA_DESCRIPTOR",
-            "type": "_EVENT_DATA_DESCRIPTOR",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_EVENT_DATA_DESCRIPTOR",
+                "elements": [
+                    {
+                        "name": "Ptr",
+                        "type": "ULONGLONG"
+                    },
+                    {
+                        "name": "Size",
+                        "type": "ULONG"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Reserved",
+                                "type": "ULONG"
+                            },
+                            {
+                                "data_type": "Struct",
+                                "elements": [
+                                    {
+                                        "name": "Type",
+                                        "type": "UCHAR"
+                                    },
+                                    {
+                                        "name": "Reserved1",
+                                        "type": "UCHAR"
+                                    },
+                                    {
+                                        "name": "Reserved2",
+                                        "type": "USHORT"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PEVENT_DATA_DESCRIPTOR",
             "type": {
-                "type": "_EVENT_DATA_DESCRIPTOR",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_EVENT_DATA_DESCRIPTOR",
+                "elements": [
+                    {
+                        "name": "Ptr",
+                        "type": "ULONGLONG"
+                    },
+                    {
+                        "name": "Size",
+                        "type": "ULONG"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "Reserved",
+                                "type": "ULONG"
+                            },
+                            {
+                                "data_type": "Struct",
+                                "elements": [
+                                    {
+                                        "name": "Type",
+                                        "type": "UCHAR"
+                                    },
+                                    {
+                                        "name": "Reserved1",
+                                        "type": "UCHAR"
+                                    },
+                                    {
+                                        "name": "Reserved2",
+                                        "type": "USHORT"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             },
-            "name": "PEVENT_DATA_DESCRIPTOR"
+            "data_type": "Ptr"
         },
         {
             "name": "EVENT_DESCRIPTOR",
-            "type": "_EVENT_DESCRIPTOR",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_EVENT_DESCRIPTOR",
+                "elements": [
+                    {
+                        "name": "Id",
+                        "type": "USHORT"
+                    },
+                    {
+                        "name": "Version",
+                        "type": "UCHAR"
+                    },
+                    {
+                        "name": "Channel",
+                        "type": "UCHAR"
+                    },
+                    {
+                        "name": "Level",
+                        "type": "UCHAR"
+                    },
+                    {
+                        "name": "Opcode",
+                        "type": "UCHAR"
+                    },
+                    {
+                        "name": "Task",
+                        "type": "USHORT"
+                    },
+                    {
+                        "name": "Keyword",
+                        "type": "ULONGLONG"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PEVENT_DESCRIPTOR",
             "type": {
-                "type": "_EVENT_DESCRIPTOR",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_EVENT_DESCRIPTOR",
+                "elements": [
+                    {
+                        "name": "Id",
+                        "type": "USHORT"
+                    },
+                    {
+                        "name": "Version",
+                        "type": "UCHAR"
+                    },
+                    {
+                        "name": "Channel",
+                        "type": "UCHAR"
+                    },
+                    {
+                        "name": "Level",
+                        "type": "UCHAR"
+                    },
+                    {
+                        "name": "Opcode",
+                        "type": "UCHAR"
+                    },
+                    {
+                        "name": "Task",
+                        "type": "USHORT"
+                    },
+                    {
+                        "name": "Keyword",
+                        "type": "ULONGLONG"
+                    }
+                ]
             },
-            "name": "PEVENT_DESCRIPTOR"
+            "data_type": "Ptr"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "EVENT_DESCRIPTOR"
-            },
-            "name": "PCEVENT_DESCRIPTOR"
+            "name": "PCEVENT_DESCRIPTOR",
+            "type": "EVENT_DESCRIPTOR",
+            "data_type": "Ptr"
         },
         {
             "name": "EVENT_FILTER_DESCRIPTOR",
-            "type": "_EVENT_FILTER_DESCRIPTOR",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_EVENT_FILTER_DESCRIPTOR",
+                "elements": [
+                    {
+                        "name": "Ptr",
+                        "type": "ULONGLONG"
+                    },
+                    {
+                        "name": "Size",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Type",
+                        "type": "ULONG"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PEVENT_FILTER_DESCRIPTOR",
             "type": {
-                "type": "_EVENT_FILTER_DESCRIPTOR",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_EVENT_FILTER_DESCRIPTOR",
+                "elements": [
+                    {
+                        "name": "Ptr",
+                        "type": "ULONGLONG"
+                    },
+                    {
+                        "name": "Size",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "Type",
+                        "type": "ULONG"
+                    }
+                ]
             },
-            "name": "PEVENT_FILTER_DESCRIPTOR"
+            "data_type": "Ptr"
         },
         {
             "name": "EVENT_FILTER_HEADER",
-            "type": "_EVENT_FILTER_HEADER",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_EVENT_FILTER_HEADER",
+                "elements": [
+                    {
+                        "name": "Id",
+                        "type": "USHORT"
+                    },
+                    {
+                        "name": "Version",
+                        "type": "UCHAR"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "5"
+                        },
+                        "name": "Reserved"
+                    },
+                    {
+                        "name": "InstanceId",
+                        "type": "ULONGLONG"
+                    },
+                    {
+                        "name": "Size",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "NextOffset",
+                        "type": "ULONG"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PEVENT_FILTER_HEADER",
             "type": {
-                "type": "_EVENT_FILTER_HEADER",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_EVENT_FILTER_HEADER",
+                "elements": [
+                    {
+                        "name": "Id",
+                        "type": "USHORT"
+                    },
+                    {
+                        "name": "Version",
+                        "type": "UCHAR"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "5"
+                        },
+                        "name": "Reserved"
+                    },
+                    {
+                        "name": "InstanceId",
+                        "type": "ULONGLONG"
+                    },
+                    {
+                        "name": "Size",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "NextOffset",
+                        "type": "ULONG"
+                    }
+                ]
             },
-            "name": "PEVENT_FILTER_HEADER"
+            "data_type": "Ptr"
         },
         {
             "name": "EVENT_FILTER_EVENT_ID",
-            "type": "_EVENT_FILTER_EVENT_ID",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_EVENT_FILTER_EVENT_ID",
+                "elements": [
+                    {
+                        "name": "FilterIn",
+                        "type": "BOOLEAN"
+                    },
+                    {
+                        "name": "Reserved",
+                        "type": "UCHAR"
+                    },
+                    {
+                        "name": "Count",
+                        "type": "USHORT"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "1"
+                        },
+                        "name": "Events"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PEVENT_FILTER_EVENT_ID",
             "type": {
-                "type": "_EVENT_FILTER_EVENT_ID",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_EVENT_FILTER_EVENT_ID",
+                "elements": [
+                    {
+                        "name": "FilterIn",
+                        "type": "BOOLEAN"
+                    },
+                    {
+                        "name": "Reserved",
+                        "type": "UCHAR"
+                    },
+                    {
+                        "name": "Count",
+                        "type": "USHORT"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "1"
+                        },
+                        "name": "Events"
+                    }
+                ]
             },
-            "name": "PEVENT_FILTER_EVENT_ID"
+            "data_type": "Ptr"
         },
         {
             "name": "EVENT_FILTER_EVENT_NAME",
-            "type": "_EVENT_FILTER_EVENT_NAME",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_EVENT_FILTER_EVENT_NAME",
+                "elements": [
+                    {
+                        "name": "MatchAnyKeyword",
+                        "type": "ULONGLONG"
+                    },
+                    {
+                        "name": "MatchAllKeyword",
+                        "type": "ULONGLONG"
+                    },
+                    {
+                        "name": "Level",
+                        "type": "UCHAR"
+                    },
+                    {
+                        "name": "FilterIn",
+                        "type": "BOOLEAN"
+                    },
+                    {
+                        "name": "NameCount",
+                        "type": "USHORT"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "1"
+                        },
+                        "name": "Names"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PEVENT_FILTER_EVENT_NAME",
             "type": {
-                "type": "_EVENT_FILTER_EVENT_NAME",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_EVENT_FILTER_EVENT_NAME",
+                "elements": [
+                    {
+                        "name": "MatchAnyKeyword",
+                        "type": "ULONGLONG"
+                    },
+                    {
+                        "name": "MatchAllKeyword",
+                        "type": "ULONGLONG"
+                    },
+                    {
+                        "name": "Level",
+                        "type": "UCHAR"
+                    },
+                    {
+                        "name": "FilterIn",
+                        "type": "BOOLEAN"
+                    },
+                    {
+                        "name": "NameCount",
+                        "type": "USHORT"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "1"
+                        },
+                        "name": "Names"
+                    }
+                ]
             },
-            "name": "PEVENT_FILTER_EVENT_NAME"
+            "data_type": "Ptr"
         },
         {
             "name": "EVENT_FILTER_LEVEL_KW",
-            "type": "_EVENT_FILTER_LEVEL_KW",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_EVENT_FILTER_LEVEL_KW",
+                "elements": [
+                    {
+                        "name": "MatchAnyKeyword",
+                        "type": "ULONGLONG"
+                    },
+                    {
+                        "name": "MatchAllKeyword",
+                        "type": "ULONGLONG"
+                    },
+                    {
+                        "name": "Level",
+                        "type": "UCHAR"
+                    },
+                    {
+                        "name": "FilterIn",
+                        "type": "BOOLEAN"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PEVENT_FILTER_LEVEL_KW",
             "type": {
-                "type": "_EVENT_FILTER_LEVEL_KW",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_EVENT_FILTER_LEVEL_KW",
+                "elements": [
+                    {
+                        "name": "MatchAnyKeyword",
+                        "type": "ULONGLONG"
+                    },
+                    {
+                        "name": "MatchAllKeyword",
+                        "type": "ULONGLONG"
+                    },
+                    {
+                        "name": "Level",
+                        "type": "UCHAR"
+                    },
+                    {
+                        "name": "FilterIn",
+                        "type": "BOOLEAN"
+                    }
+                ]
             },
-            "name": "PEVENT_FILTER_LEVEL_KW"
+            "data_type": "Ptr"
         },
         {
             "name": "EVENT_INFO_CLASS",
-            "type": "_EVENT_INFO_CLASS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "EventProviderBinaryTrackInfo",
+                        "value": {}
+                    },
+                    {
+                        "name": "EventProviderSetReserved1",
+                        "value": {}
+                    },
+                    {
+                        "name": "EventProviderSetTraits",
+                        "value": {}
+                    },
+                    {
+                        "name": "EventProviderUseDescriptorType",
+                        "value": {}
+                    },
+                    {
+                        "name": "MaxEventInfo",
+                        "value": {}
+                    }
+                ]
+            }
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "PENABLECALLBACK",
+                "type": "void"
+            },
+            "name": "PENABLECALLBACK",
+            "arguments": [
+                {
+                    "name": "SourceId",
+                    "type": "LPCGUID"
+                },
+                {
+                    "name": "IsEnabled",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "Level",
+                    "type": "UCHAR"
+                },
+                {
+                    "name": "MatchAnyKeyword",
+                    "type": "ULONGLONG"
+                },
+                {
+                    "name": "MatchAllKeyword",
+                    "type": "ULONGLONG"
+                },
+                {
+                    "name": "FilterData",
+                    "type": "PEVENT_FILTER_DESCRIPTOR"
+                },
+                {
+                    "name": "CallbackContext",
+                    "type": "PVOID"
+                }
+            ]
         }
     ],
     "funcdefs": [
         {
-            "name": "EventRegister",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EventRegister",
                 "type": "ULONG"
             },
+            "name": "EventRegister",
             "arguments": [
                 {
                     "name": "ProviderId",
-                    "data_type": "TypeDecl",
                     "type": "LPCGUID",
                     "sal": [
                         "in"
@@ -136,7 +564,6 @@
                 },
                 {
                     "name": "EnableCallback",
-                    "data_type": "TypeDecl",
                     "type": "PENABLECALLBACK",
                     "sal": [
                         "in",
@@ -145,7 +572,6 @@
                 },
                 {
                     "name": "CallbackContext",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in",
@@ -154,7 +580,6 @@
                 },
                 {
                     "name": "RegHandle",
-                    "data_type": "TypeDecl",
                     "type": "PREGHANDLE",
                     "sal": [
                         "out"
@@ -173,15 +598,15 @@
             ]
         },
         {
-            "name": "EventUnregister",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EventUnregister",
                 "type": "ULONG"
             },
+            "name": "EventUnregister",
             "arguments": [
                 {
                     "name": "RegHandle",
-                    "data_type": "TypeDecl",
                     "type": "REGHANDLE",
                     "sal": [
                         "in"
@@ -200,15 +625,15 @@
             ]
         },
         {
-            "name": "EventSetInformation",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EventSetInformation",
                 "type": "ULONG"
             },
+            "name": "EventSetInformation",
             "arguments": [
                 {
                     "name": "RegHandle",
-                    "data_type": "TypeDecl",
                     "type": "REGHANDLE",
                     "sal": [
                         "in"
@@ -216,7 +641,6 @@
                 },
                 {
                     "name": "InformationClass",
-                    "data_type": "TypeDecl",
                     "type": "EVENT_INFO_CLASS",
                     "sal": [
                         "in"
@@ -224,7 +648,6 @@
                 },
                 {
                     "name": "EventInformation",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -232,7 +655,6 @@
                 },
                 {
                     "name": "InformationLength",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -247,15 +669,15 @@
             ]
         },
         {
-            "name": "EventEnabled",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EventEnabled",
                 "type": "BOOLEAN"
             },
+            "name": "EventEnabled",
             "arguments": [
                 {
                     "name": "RegHandle",
-                    "data_type": "TypeDecl",
                     "type": "REGHANDLE",
                     "sal": [
                         "in"
@@ -263,7 +685,6 @@
                 },
                 {
                     "name": "EventDescriptor",
-                    "data_type": "TypeDecl",
                     "type": "PCEVENT_DESCRIPTOR",
                     "sal": [
                         "in"
@@ -281,15 +702,15 @@
             ]
         },
         {
-            "name": "EventProviderEnabled",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EventProviderEnabled",
                 "type": "BOOLEAN"
             },
+            "name": "EventProviderEnabled",
             "arguments": [
                 {
                     "name": "RegHandle",
-                    "data_type": "TypeDecl",
                     "type": "REGHANDLE",
                     "sal": [
                         "in"
@@ -297,7 +718,6 @@
                 },
                 {
                     "name": "Level",
-                    "data_type": "TypeDecl",
                     "type": "UCHAR",
                     "sal": [
                         "in"
@@ -305,7 +725,6 @@
                 },
                 {
                     "name": "Keyword",
-                    "data_type": "TypeDecl",
                     "type": "ULONGLONG",
                     "sal": [
                         "in"
@@ -322,15 +741,15 @@
             ]
         },
         {
-            "name": "EventWrite",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EventWrite",
                 "type": "ULONG"
             },
+            "name": "EventWrite",
             "arguments": [
                 {
                     "name": "RegHandle",
-                    "data_type": "TypeDecl",
                     "type": "REGHANDLE",
                     "sal": [
                         "in"
@@ -338,7 +757,6 @@
                 },
                 {
                     "name": "EventDescriptor",
-                    "data_type": "TypeDecl",
                     "type": "PCEVENT_DESCRIPTOR",
                     "sal": [
                         "in"
@@ -346,7 +764,6 @@
                 },
                 {
                     "name": "UserDataCount",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -354,7 +771,6 @@
                 },
                 {
                     "name": "UserData",
-                    "data_type": "TypeDecl",
                     "type": "PEVENT_DATA_DESCRIPTOR",
                     "sal": [
                         "in",
@@ -373,15 +789,15 @@
             ]
         },
         {
-            "name": "EventWriteTransfer",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EventWriteTransfer",
                 "type": "ULONG"
             },
+            "name": "EventWriteTransfer",
             "arguments": [
                 {
                     "name": "RegHandle",
-                    "data_type": "TypeDecl",
                     "type": "REGHANDLE",
                     "sal": [
                         "in"
@@ -389,7 +805,6 @@
                 },
                 {
                     "name": "EventDescriptor",
-                    "data_type": "TypeDecl",
                     "type": "PCEVENT_DESCRIPTOR",
                     "sal": [
                         "in"
@@ -397,7 +812,6 @@
                 },
                 {
                     "name": "ActivityId",
-                    "data_type": "TypeDecl",
                     "type": "LPCGUID",
                     "sal": [
                         "in",
@@ -406,7 +820,6 @@
                 },
                 {
                     "name": "RelatedActivityId",
-                    "data_type": "TypeDecl",
                     "type": "LPCGUID",
                     "sal": [
                         "in",
@@ -415,7 +828,6 @@
                 },
                 {
                     "name": "UserDataCount",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -423,7 +835,6 @@
                 },
                 {
                     "name": "UserData",
-                    "data_type": "TypeDecl",
                     "type": "PEVENT_DATA_DESCRIPTOR",
                     "sal": [
                         "in",
@@ -441,15 +852,15 @@
             ]
         },
         {
-            "name": "EventWriteEx",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EventWriteEx",
                 "type": "ULONG"
             },
+            "name": "EventWriteEx",
             "arguments": [
                 {
                     "name": "RegHandle",
-                    "data_type": "TypeDecl",
                     "type": "REGHANDLE",
                     "sal": [
                         "in"
@@ -457,7 +868,6 @@
                 },
                 {
                     "name": "EventDescriptor",
-                    "data_type": "TypeDecl",
                     "type": "PCEVENT_DESCRIPTOR",
                     "sal": [
                         "in"
@@ -465,7 +875,6 @@
                 },
                 {
                     "name": "Filter",
-                    "data_type": "TypeDecl",
                     "type": "ULONG64",
                     "sal": [
                         "in"
@@ -473,7 +882,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -481,7 +889,6 @@
                 },
                 {
                     "name": "ActivityId",
-                    "data_type": "TypeDecl",
                     "type": "LPCGUID",
                     "sal": [
                         "in",
@@ -490,7 +897,6 @@
                 },
                 {
                     "name": "RelatedActivityId",
-                    "data_type": "TypeDecl",
                     "type": "LPCGUID",
                     "sal": [
                         "in",
@@ -499,7 +905,6 @@
                 },
                 {
                     "name": "UserDataCount",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -507,7 +912,6 @@
                 },
                 {
                     "name": "UserData",
-                    "data_type": "TypeDecl",
                     "type": "PEVENT_DATA_DESCRIPTOR",
                     "sal": [
                         "in",
@@ -524,15 +928,15 @@
             ]
         },
         {
-            "name": "EventWriteString",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EventWriteString",
                 "type": "ULONG"
             },
+            "name": "EventWriteString",
             "arguments": [
                 {
                     "name": "RegHandle",
-                    "data_type": "TypeDecl",
                     "type": "REGHANDLE",
                     "sal": [
                         "in"
@@ -540,7 +944,6 @@
                 },
                 {
                     "name": "Level",
-                    "data_type": "TypeDecl",
                     "type": "UCHAR",
                     "sal": [
                         "in"
@@ -548,7 +951,6 @@
                 },
                 {
                     "name": "Keyword",
-                    "data_type": "TypeDecl",
                     "type": "ULONGLONG",
                     "sal": [
                         "in"
@@ -556,7 +958,6 @@
                 },
                 {
                     "name": "String",
-                    "data_type": "TypeDecl",
                     "type": "PCWSTR",
                     "sal": [
                         "in"
@@ -573,15 +974,15 @@
             ]
         },
         {
-            "name": "EventActivityIdControl",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EventActivityIdControl",
                 "type": "ULONG"
             },
+            "name": "EventActivityIdControl",
             "arguments": [
                 {
                     "name": "ControlCode",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -589,7 +990,6 @@
                 },
                 {
                     "name": "ActivityId",
-                    "data_type": "TypeDecl",
                     "type": "LPGUID",
                     "sal": [
                         "in",

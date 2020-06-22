@@ -2,20 +2,56 @@
     "typedefs": [
         {
             "name": "OLETARGETDEVICE",
-            "type": "_OLETARGETDEVICE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_OLETARGETDEVICE",
+                "elements": [
+                    {
+                        "name": "otdDeviceNameOffset",
+                        "type": "USHORT"
+                    },
+                    {
+                        "name": "otdDriverNameOffset",
+                        "type": "USHORT"
+                    },
+                    {
+                        "name": "otdPortNameOffset",
+                        "type": "USHORT"
+                    },
+                    {
+                        "name": "otdExtDevmodeOffset",
+                        "type": "USHORT"
+                    },
+                    {
+                        "name": "otdExtDevmodeSize",
+                        "type": "USHORT"
+                    },
+                    {
+                        "name": "otdEnvironmentOffset",
+                        "type": "USHORT"
+                    },
+                    {
+                        "name": "otdEnvironmentSize",
+                        "type": "USHORT"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "1"
+                        },
+                        "name": "otdData"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "OLETARGETDEVICE"
-            },
-            "name": "LPOLETARGETDEVICE"
+            "name": "LPOLETARGETDEVICE",
+            "type": "OLETARGETDEVICE",
+            "data_type": "Ptr"
         },
         {
             "name": "OLESTATUS",
-            "data_type": "TypeDecl",
             "type": {
                 "data_type": "Enum",
                 "enumerators": [
@@ -259,7 +295,6 @@
         },
         {
             "name": "OLE_NOTIFICATION",
-            "data_type": "TypeDecl",
             "type": {
                 "data_type": "Enum",
                 "enumerators": [
@@ -296,7 +331,6 @@
         },
         {
             "name": "OLE_RELEASE_METHOD",
-            "data_type": "TypeDecl",
             "type": {
                 "data_type": "Enum",
                 "enumerators": [
@@ -393,7 +427,6 @@
         },
         {
             "name": "OLEOPT_RENDER",
-            "data_type": "TypeDecl",
             "type": {
                 "data_type": "Enum",
                 "enumerators": [
@@ -414,12 +447,10 @@
         },
         {
             "name": "OLECLIPFORMAT",
-            "data_type": "TypeDecl",
             "type": "WORD"
         },
         {
             "name": "OLEOPT_UPDATE",
-            "data_type": "TypeDecl",
             "type": {
                 "data_type": "Enum",
                 "enumerators": [
@@ -440,71 +471,808 @@
         },
         {
             "name": "HOBJECT",
-            "data_type": "TypeDecl",
             "type": "HANDLE"
         },
         {
             "name": "LHSERVER",
-            "data_type": "TypeDecl",
             "type": "LONG_PTR"
         },
         {
             "name": "LHCLIENTDOC",
-            "data_type": "TypeDecl",
             "type": "LONG_PTR"
         },
         {
             "name": "LHSERVERDOC",
-            "data_type": "TypeDecl",
             "type": "LONG_PTR"
         },
         {
-            "data_type": "PtrDecl",
+            "name": "LPOLECLIENT",
             "type": {
-                "type": "_OLECLIENT",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_OLECLIENT",
+                "elements": []
             },
-            "name": "LPOLECLIENT"
+            "data_type": "Ptr"
         },
         {
             "name": "OLEOBJECTVTBL",
-            "type": "_OLEOBJECTVTBL",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_OLEOBJECTVTBL",
+                "elements": [
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "type": {
+                                "name": "QueryProtocol",
+                                "type": "void"
+                            }
+                        },
+                        "name": "QueryProtocol",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            },
+                            {
+                                "type": "LPCSTR"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "Release",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "Release",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "Show",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "Show",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            },
+                            {
+                                "type": "BOOL"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "DoVerb",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "DoVerb",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            },
+                            {
+                                "type": "UINT"
+                            },
+                            {
+                                "type": "BOOL"
+                            },
+                            {
+                                "type": "BOOL"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "GetData",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "GetData",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            },
+                            {
+                                "type": "OLECLIPFORMAT"
+                            },
+                            {
+                                "type": {
+                                    "type": "HANDLE"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "SetData",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "SetData",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            },
+                            {
+                                "type": "OLECLIPFORMAT"
+                            },
+                            {
+                                "type": "HANDLE"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "SetTargetDevice",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "SetTargetDevice",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            },
+                            {
+                                "type": "HANDLE"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "SetBounds",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "SetBounds",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            },
+                            {
+                                "type": {
+                                    "type": "RECT"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "EnumFormats",
+                            "type": "OLECLIPFORMAT"
+                        },
+                        "name": "EnumFormats",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            },
+                            {
+                                "type": "OLECLIPFORMAT"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "SetColorScheme",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "SetColorScheme",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            },
+                            {
+                                "type": {
+                                    "type": "LOGPALETTE"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "Delete",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "Delete",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "SetHostNames",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "SetHostNames",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            },
+                            {
+                                "type": "LPCSTR"
+                            },
+                            {
+                                "type": "LPCSTR"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "SaveToStream",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "SaveToStream",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            },
+                            {
+                                "type": "LPOLESTREAM"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "Clone",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "Clone",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            },
+                            {
+                                "type": "LPOLECLIENT"
+                            },
+                            {
+                                "type": "LHCLIENTDOC"
+                            },
+                            {
+                                "type": "LPCSTR"
+                            },
+                            {
+                                "type": {
+                                    "type": "LPOLEOBJECT"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "CopyFromLink",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "CopyFromLink",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            },
+                            {
+                                "type": "LPOLECLIENT"
+                            },
+                            {
+                                "type": "LHCLIENTDOC"
+                            },
+                            {
+                                "type": "LPCSTR"
+                            },
+                            {
+                                "type": {
+                                    "type": "LPOLEOBJECT"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "Equal",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "Equal",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            },
+                            {
+                                "type": "LPOLEOBJECT"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "CopyToClipboard",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "CopyToClipboard",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "Draw",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "Draw",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            },
+                            {
+                                "type": "HDC"
+                            },
+                            {
+                                "type": {
+                                    "type": "RECT"
+                                }
+                            },
+                            {
+                                "type": {
+                                    "type": "RECT"
+                                }
+                            },
+                            {
+                                "type": "HDC"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "Activate",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "Activate",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            },
+                            {
+                                "type": "UINT"
+                            },
+                            {
+                                "type": "BOOL"
+                            },
+                            {
+                                "type": "BOOL"
+                            },
+                            {
+                                "type": "HWND"
+                            },
+                            {
+                                "type": {
+                                    "type": "RECT"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "Execute",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "Execute",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            },
+                            {
+                                "type": "HANDLE"
+                            },
+                            {
+                                "type": "UINT"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "Close",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "Close",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "Update",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "Update",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "Reconnect",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "Reconnect",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "ObjectConvert",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "ObjectConvert",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            },
+                            {
+                                "type": "LPCSTR"
+                            },
+                            {
+                                "type": "LPOLECLIENT"
+                            },
+                            {
+                                "type": "LHCLIENTDOC"
+                            },
+                            {
+                                "type": "LPCSTR"
+                            },
+                            {
+                                "type": {
+                                    "type": "LPOLEOBJECT"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "GetLinkUpdateOptions",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "GetLinkUpdateOptions",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            },
+                            {
+                                "type": {
+                                    "type": "OLEOPT_UPDATE"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "SetLinkUpdateOptions",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "SetLinkUpdateOptions",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            },
+                            {
+                                "type": "OLEOPT_UPDATE"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "Rename",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "Rename",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            },
+                            {
+                                "type": "LPCSTR"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "QueryName",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "QueryName",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            },
+                            {
+                                "type": "LPSTR"
+                            },
+                            {
+                                "type": {
+                                    "type": "UINT"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "QueryType",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "QueryType",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            },
+                            {
+                                "type": {
+                                    "type": "LONG"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "QueryBounds",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "QueryBounds",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            },
+                            {
+                                "type": {
+                                    "type": "RECT"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "QuerySize",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "QuerySize",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            },
+                            {
+                                "type": {
+                                    "type": "DWORD"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "QueryOpen",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "QueryOpen",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "QueryOutOfDate",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "QueryOutOfDate",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "QueryReleaseStatus",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "QueryReleaseStatus",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "QueryReleaseError",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "QueryReleaseError",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "QueryReleaseMethod",
+                            "type": "OLE_RELEASE_METHOD"
+                        },
+                        "name": "QueryReleaseMethod",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "RequestData",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "RequestData",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            },
+                            {
+                                "type": "OLECLIPFORMAT"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "ObjectLong",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "ObjectLong",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            },
+                            {
+                                "type": "UINT"
+                            },
+                            {
+                                "type": {
+                                    "type": "LONG"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "ChangeData",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "ChangeData",
+                        "arguments": [
+                            {
+                                "type": "LPOLEOBJECT"
+                            },
+                            {
+                                "type": "HANDLE"
+                            },
+                            {
+                                "type": "LPOLECLIENT"
+                            },
+                            {
+                                "type": "BOOL"
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "OLEOBJECTVTBL"
-            },
-            "name": "LPOLEOBJECTVTBL"
+            "name": "LPOLEOBJECTVTBL",
+            "type": "OLEOBJECTVTBL",
+            "data_type": "Ptr"
         },
         {
             "name": "OLEOBJECT",
-            "type": "_OLEOBJECT",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_OLEOBJECT",
+                "elements": [
+                    {
+                        "name": "lpvtbl",
+                        "type": "LPOLEOBJECTVTBL"
+                    }
+                ]
+            }
         },
         {
             "name": "OLECLIENTVTBL",
-            "type": "_OLECLIENTVTBL",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_OLECLIENTVTBL",
+                "elements": [
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "CallBack",
+                            "type": "int"
+                        },
+                        "name": "CallBack",
+                        "arguments": [
+                            {
+                                "type": "LPOLECLIENT"
+                            },
+                            {
+                                "type": "OLE_NOTIFICATION"
+                            },
+                            {
+                                "type": "LPOLEOBJECT"
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "OLECLIENTVTBL"
-            },
-            "name": "LPOLECLIENTVTBL"
+            "name": "LPOLECLIENTVTBL",
+            "type": "OLECLIENTVTBL",
+            "data_type": "Ptr"
         },
         {
             "name": "OLECLIENT",
-            "type": "_OLECLIENT",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_OLECLIENT",
+                "elements": [
+                    {
+                        "name": "lpvtbl",
+                        "type": "LPOLECLIENTVTBL"
+                    }
+                ]
+            }
         },
         {
             "name": "OLE_SERVER_USE",
-            "data_type": "TypeDecl",
             "type": {
                 "data_type": "Enum",
                 "enumerators": [
@@ -520,115 +1288,410 @@
             }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "LPOLESERVER",
             "type": {
-                "type": "_OLESERVER",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_OLESERVER",
+                "elements": []
             },
-            "name": "LPOLESERVER"
+            "data_type": "Ptr"
         },
         {
-            "data_type": "PtrDecl",
+            "name": "LPOLESERVERDOC",
             "type": {
-                "type": "_OLESERVERDOC",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_OLESERVERDOC",
+                "elements": []
             },
-            "name": "LPOLESERVERDOC"
+            "data_type": "Ptr"
         },
         {
             "name": "OLESERVERVTBL",
-            "type": "_OLESERVERVTBL",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_OLESERVERVTBL",
+                "elements": [
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "Open",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "Open",
+                        "arguments": [
+                            {
+                                "type": "LPOLESERVER"
+                            },
+                            {
+                                "type": "LHSERVERDOC"
+                            },
+                            {
+                                "type": "LPCSTR"
+                            },
+                            {
+                                "type": {
+                                    "type": "LPOLESERVERDOC"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "Create",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "Create",
+                        "arguments": [
+                            {
+                                "type": "LPOLESERVER"
+                            },
+                            {
+                                "type": "LHSERVERDOC"
+                            },
+                            {
+                                "type": "LPCSTR"
+                            },
+                            {
+                                "type": "LPCSTR"
+                            },
+                            {
+                                "type": {
+                                    "type": "LPOLESERVERDOC"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "CreateFromTemplate",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "CreateFromTemplate",
+                        "arguments": [
+                            {
+                                "type": "LPOLESERVER"
+                            },
+                            {
+                                "type": "LHSERVERDOC"
+                            },
+                            {
+                                "type": "LPCSTR"
+                            },
+                            {
+                                "type": "LPCSTR"
+                            },
+                            {
+                                "type": "LPCSTR"
+                            },
+                            {
+                                "type": {
+                                    "type": "LPOLESERVERDOC"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "Edit",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "Edit",
+                        "arguments": [
+                            {
+                                "type": "LPOLESERVER"
+                            },
+                            {
+                                "type": "LHSERVERDOC"
+                            },
+                            {
+                                "type": "LPCSTR"
+                            },
+                            {
+                                "type": "LPCSTR"
+                            },
+                            {
+                                "type": {
+                                    "type": "LPOLESERVERDOC"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "Exit",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "Exit",
+                        "arguments": [
+                            {
+                                "type": "LPOLESERVER"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "Release",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "Release",
+                        "arguments": [
+                            {
+                                "type": "LPOLESERVER"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "Execute",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "Execute",
+                        "arguments": [
+                            {
+                                "type": "LPOLESERVER"
+                            },
+                            {
+                                "type": "HANDLE"
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "OLESERVERVTBL"
-            },
-            "name": "LPOLESERVERVTBL"
+            "name": "LPOLESERVERVTBL",
+            "type": "OLESERVERVTBL",
+            "data_type": "Ptr"
         },
         {
             "name": "OLESERVER",
-            "type": "_OLESERVER",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_OLESERVER",
+                "elements": [
+                    {
+                        "name": "lpvtbl",
+                        "type": "LPOLESERVERVTBL"
+                    }
+                ]
+            }
         },
         {
             "name": "OLESERVERDOCVTBL",
-            "type": "_OLESERVERDOCVTBL",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_OLESERVERDOCVTBL",
+                "elements": [
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "Save",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "Save",
+                        "arguments": [
+                            {
+                                "type": "LPOLESERVERDOC"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "Close",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "Close",
+                        "arguments": [
+                            {
+                                "type": "LPOLESERVERDOC"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "SetHostNames",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "SetHostNames",
+                        "arguments": [
+                            {
+                                "type": "LPOLESERVERDOC"
+                            },
+                            {
+                                "type": "LPCSTR"
+                            },
+                            {
+                                "type": "LPCSTR"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "SetDocDimensions",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "SetDocDimensions",
+                        "arguments": [
+                            {
+                                "type": "LPOLESERVERDOC"
+                            },
+                            {
+                                "type": {
+                                    "type": "RECT"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "GetObjectA",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "GetObjectA",
+                        "arguments": [
+                            {
+                                "type": "LPOLESERVERDOC"
+                            },
+                            {
+                                "type": "LPCSTR"
+                            },
+                            {
+                                "type": {
+                                    "type": "LPOLEOBJECT"
+                                }
+                            },
+                            {
+                                "type": "LPOLECLIENT"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "Release",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "Release",
+                        "arguments": [
+                            {
+                                "type": "LPOLESERVERDOC"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "SetColorScheme",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "SetColorScheme",
+                        "arguments": [
+                            {
+                                "type": "LPOLESERVERDOC"
+                            },
+                            {
+                                "type": {
+                                    "type": "LOGPALETTE"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "Execute",
+                            "type": "OLESTATUS"
+                        },
+                        "name": "Execute",
+                        "arguments": [
+                            {
+                                "type": "LPOLESERVERDOC"
+                            },
+                            {
+                                "type": "HANDLE"
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "OLESERVERDOCVTBL"
-            },
-            "name": "LPOLESERVERDOCVTBL"
+            "name": "LPOLESERVERDOCVTBL",
+            "type": "OLESERVERDOCVTBL",
+            "data_type": "Ptr"
         },
         {
             "name": "OLESERVERDOC",
-            "type": "_OLESERVERDOC",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_OLESERVERDOC",
+                "elements": [
+                    {
+                        "name": "lpvtbl",
+                        "type": "LPOLESERVERDOCVTBL"
+                    }
+                ]
+            }
         }
     ],
     "funcdefs": [
         {
-            "name": "OleCreate",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "OleCreate",
                 "type": "HRESULT"
             },
+            "name": "OleCreate",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "rclsid",
                         "type": "IID"
                     },
-                    "name": "rclsid",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "riid",
                         "type": "IID"
                     },
-                    "name": "riid",
                     "sal": []
                 },
                 {
                     "name": "renderopt",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
                     "name": "pFormatEtc",
-                    "data_type": "TypeDecl",
                     "type": "LPFORMATETC",
                     "sal": []
                 },
                 {
                     "name": "pClientSite",
-                    "data_type": "TypeDecl",
                     "type": "LPOLECLIENTSITE",
                     "sal": []
                 },
                 {
                     "name": "pStg",
-                    "data_type": "TypeDecl",
                     "type": "LPSTORAGE",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppvObj",
                         "type": "LPVOID"
                     },
-                    "name": "ppvObj",
                     "sal": []
                 }
             ],
@@ -637,67 +1700,57 @@
             ]
         },
         {
-            "name": "OleCreateFromFile",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "OleCreateFromFile",
                 "type": "HRESULT"
             },
+            "name": "OleCreateFromFile",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "rclsid",
                         "type": "IID"
                     },
-                    "name": "rclsid",
                     "sal": []
                 },
                 {
                     "name": "lpszFileName",
-                    "data_type": "TypeDecl",
                     "type": "LPCOLESTR",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "riid",
                         "type": "IID"
                     },
-                    "name": "riid",
                     "sal": []
                 },
                 {
                     "name": "renderopt",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
                     "name": "lpFormatEtc",
-                    "data_type": "TypeDecl",
                     "type": "LPFORMATETC",
                     "sal": []
                 },
                 {
                     "name": "pClientSite",
-                    "data_type": "TypeDecl",
                     "type": "LPOLECLIENTSITE",
                     "sal": []
                 },
                 {
                     "name": "pStg",
-                    "data_type": "TypeDecl",
                     "type": "LPSTORAGE",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppvObj",
                         "type": "LPVOID"
                     },
-                    "name": "ppvObj",
                     "sal": []
                 }
             ],
@@ -706,34 +1759,30 @@
             ]
         },
         {
-            "name": "OleLoadFromStream",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "OleLoadFromStream",
                 "type": "HRESULT"
             },
+            "name": "OleLoadFromStream",
             "arguments": [
                 {
                     "name": "pStm",
-                    "data_type": "TypeDecl",
                     "type": "LPSTREAM",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "iidInterface",
                         "type": "IID"
                     },
-                    "name": "iidInterface",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppvObj",
                         "type": "LPVOID"
                     },
-                    "name": "ppvObj",
                     "sal": []
                 }
             ],
@@ -743,21 +1792,20 @@
             ]
         },
         {
-            "name": "OleSaveToStream",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "OleSaveToStream",
                 "type": "HRESULT"
             },
+            "name": "OleSaveToStream",
             "arguments": [
                 {
                     "name": "pPStm",
-                    "data_type": "TypeDecl",
                     "type": "LPPERSISTSTREAM",
                     "sal": []
                 },
                 {
                     "name": "pStm",
-                    "data_type": "TypeDecl",
                     "type": "LPSTREAM",
                     "sal": []
                 }
@@ -772,33 +1820,30 @@
             ]
         },
         {
-            "name": "OleDraw",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "OleDraw",
                 "type": "HRESULT"
             },
+            "name": "OleDraw",
             "arguments": [
                 {
                     "name": "pUnknown",
-                    "data_type": "TypeDecl",
                     "type": "LPUNKNOWN",
                     "sal": []
                 },
                 {
                     "name": "dwAspect",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
                     "name": "hdcDraw",
-                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": []
                 },
                 {
                     "name": "lprcBounds",
-                    "data_type": "TypeDecl",
                     "type": "LPCRECT",
                     "sal": []
                 }
@@ -810,19 +1855,18 @@
             ]
         },
         {
-            "name": "OleSaveToStream",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "OleSaveToStream",
                 "type": "OLESTATUS"
             },
+            "name": "OleSaveToStream",
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "type": "LPOLEOBJECT",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "type": "LPOLESTREAM",
                     "sal": []
                 }
@@ -837,40 +1881,34 @@
             ]
         },
         {
-            "name": "OleDraw",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "OleDraw",
                 "type": "OLESTATUS"
             },
+            "name": "OleDraw",
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "type": "LPOLEOBJECT",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
                         "type": "RECT"
                     },
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
                         "type": "RECT"
                     },
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": []
                 }
@@ -882,57 +1920,48 @@
             ]
         },
         {
-            "name": "OleCreateFromFile",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "OleCreateFromFile",
                 "type": "OLESTATUS"
             },
+            "name": "OleCreateFromFile",
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "type": "LPOLECLIENT",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "type": "LHCLIENTDOC",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
                         "type": "LPOLEOBJECT"
                     },
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "type": "OLEOPT_RENDER",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "type": "OLECLIPFORMAT",
                     "sal": []
                 }
@@ -942,41 +1971,35 @@
             ]
         },
         {
-            "name": "OleLoadFromStream",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "OleLoadFromStream",
                 "type": "OLESTATUS"
             },
+            "name": "OleLoadFromStream",
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "type": "LPOLESTREAM",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "type": "LPOLECLIENT",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "type": "LHCLIENTDOC",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
                         "type": "LPOLEOBJECT"
                     },
                     "sal": []
@@ -988,52 +2011,44 @@
             ]
         },
         {
-            "name": "OleCreate",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "OleCreate",
                 "type": "OLESTATUS"
             },
+            "name": "OleCreate",
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "type": "LPOLECLIENT",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "type": "LHCLIENTDOC",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "type": "LPCSTR",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
                         "type": "LPOLEOBJECT"
                     },
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "type": "OLEOPT_RENDER",
                     "sal": []
                 },
                 {
-                    "data_type": "TypeDecl",
                     "type": "OLECLIPFORMAT",
                     "sal": []
                 }

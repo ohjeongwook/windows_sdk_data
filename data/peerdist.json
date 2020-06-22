@@ -2,7 +2,6 @@
     "typedefs": [
         {
             "name": "PEERDIST_STATUS",
-            "data_type": "TypeDecl",
             "type": {
                 "data_type": "Enum",
                 "enumerators": [
@@ -23,178 +22,310 @@
         },
         {
             "name": "PEERDIST_PUBLICATION_OPTIONS",
-            "type": "peerdist_publication_options_tag",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "peerdist_publication_options_tag",
+                "elements": [
+                    {
+                        "name": "dwVersion",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwFlags",
+                        "type": "DWORD"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PPEERDIST_PUBLICATION_OPTIONS",
             "type": {
-                "type": "peerdist_publication_options_tag",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "peerdist_publication_options_tag",
+                "elements": [
+                    {
+                        "name": "dwVersion",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwFlags",
+                        "type": "DWORD"
+                    }
+                ]
             },
-            "name": "PPEERDIST_PUBLICATION_OPTIONS"
+            "data_type": "Ptr"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "PEERDIST_PUBLICATION_OPTIONS"
-            },
-            "name": "PCPEERDIST_PUBLICATION_OPTIONS"
+            "name": "PCPEERDIST_PUBLICATION_OPTIONS",
+            "type": "PEERDIST_PUBLICATION_OPTIONS",
+            "data_type": "Ptr"
         },
         {
             "name": "PEERDIST_CONTENT_TAG",
-            "type": "peerdist_content_tag_tag",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "peerdist_content_tag_tag",
+                "elements": [
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "16"
+                        },
+                        "name": "Data"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PPEERDIST_CONTENT_TAG",
             "type": {
-                "type": "peerdist_content_tag_tag",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "peerdist_content_tag_tag",
+                "elements": [
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "16"
+                        },
+                        "name": "Data"
+                    }
+                ]
             },
-            "name": "PPEERDIST_CONTENT_TAG"
+            "data_type": "Ptr"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "PEERDIST_CONTENT_TAG"
-            },
-            "name": "PCPEERDIST_CONTENT_TAG"
+            "name": "PCPEERDIST_CONTENT_TAG",
+            "type": "PEERDIST_CONTENT_TAG",
+            "data_type": "Ptr"
         },
         {
             "name": "PEERDIST_INSTANCE_HANDLE",
-            "data_type": "TypeDecl",
             "type": "HANDLE"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "PEERDIST_INSTANCE_HANDLE"
-            },
-            "name": "PPEERDIST_INSTANCE_HANDLE"
+            "name": "PPEERDIST_INSTANCE_HANDLE",
+            "type": "PEERDIST_INSTANCE_HANDLE",
+            "data_type": "Ptr"
         },
         {
             "name": "PEERDIST_CONTENT_HANDLE",
-            "data_type": "TypeDecl",
             "type": "HANDLE"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "PEERDIST_CONTENT_HANDLE"
-            },
-            "name": "PPEERDIST_CONTENT_HANDLE"
+            "name": "PPEERDIST_CONTENT_HANDLE",
+            "type": "PEERDIST_CONTENT_HANDLE",
+            "data_type": "Ptr"
         },
         {
             "name": "PEERDIST_CONTENTINFO_HANDLE",
-            "data_type": "TypeDecl",
             "type": "HANDLE"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "PEERDIST_CONTENTINFO_HANDLE"
-            },
-            "name": "PPEERDIST_CONTENTINFO_HANDLE"
+            "name": "PPEERDIST_CONTENTINFO_HANDLE",
+            "type": "PEERDIST_CONTENTINFO_HANDLE",
+            "data_type": "Ptr"
         },
         {
             "name": "PEERDIST_STREAM_HANDLE",
-            "data_type": "TypeDecl",
             "type": "HANDLE"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "PEERDIST_STREAM_HANDLE"
-            },
-            "name": "PPEERDIST_STREAM_HANDLE"
+            "name": "PPEERDIST_STREAM_HANDLE",
+            "type": "PEERDIST_STREAM_HANDLE",
+            "data_type": "Ptr"
         },
         {
             "name": "PEERDIST_RETRIEVAL_OPTIONS",
-            "type": "peerdist_retrieval_options_tag",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "peerdist_retrieval_options_tag",
+                "elements": [
+                    {
+                        "name": "cbSize",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwContentInfoMinVersion",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwContentInfoMaxVersion",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwReserved",
+                        "type": "DWORD"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PPEERDIST_RETRIEVAL_OPTIONS",
             "type": {
-                "type": "peerdist_retrieval_options_tag",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "peerdist_retrieval_options_tag",
+                "elements": [
+                    {
+                        "name": "cbSize",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwContentInfoMinVersion",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwContentInfoMaxVersion",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwReserved",
+                        "type": "DWORD"
+                    }
+                ]
             },
-            "name": "PPEERDIST_RETRIEVAL_OPTIONS"
+            "data_type": "Ptr"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "PEERDIST_RETRIEVAL_OPTIONS"
-            },
-            "name": "PCPEERDIST_RETRIEVAL_OPTIONS"
+            "name": "PCPEERDIST_RETRIEVAL_OPTIONS",
+            "type": "PEERDIST_RETRIEVAL_OPTIONS",
+            "data_type": "Ptr"
         },
         {
             "name": "PEERDIST_STATUS_INFO",
-            "type": "peerdist_status_info_tag",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "peerdist_status_info_tag",
+                "elements": [
+                    {
+                        "name": "cbSize",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "status",
+                        "type": "PEERDIST_STATUS"
+                    },
+                    {
+                        "name": "dwMinVer",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwMaxVer",
+                        "type": "DWORD"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PPEERDIST_STATUS_INFO",
             "type": {
-                "type": "peerdist_status_info_tag",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "peerdist_status_info_tag",
+                "elements": [
+                    {
+                        "name": "cbSize",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "status",
+                        "type": "PEERDIST_STATUS"
+                    },
+                    {
+                        "name": "dwMinVer",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwMaxVer",
+                        "type": "DWORD"
+                    }
+                ]
             },
-            "name": "PPEERDIST_STATUS_INFO"
+            "data_type": "Ptr"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "PEERDIST_STATUS_INFO"
-            },
-            "name": "PCPEERDIST_STATUS_INFO"
+            "name": "PCPEERDIST_STATUS_INFO",
+            "type": "PEERDIST_STATUS_INFO",
+            "data_type": "Ptr"
         },
         {
             "name": "PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS",
-            "type": "_PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "PeerDistClientBasicInfo",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "MaximumPeerDistClientInfoByHandlesClass",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PPEERDIST_CLIENT_INFO_BY_HANDLE_CLASS",
             "type": {
-                "type": "_PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS",
-                "data_type": "TypeDecl"
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "PeerDistClientBasicInfo",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "MaximumPeerDistClientInfoByHandlesClass",
+                        "value": {}
+                    }
+                ]
             },
-            "name": "PPEERDIST_CLIENT_INFO_BY_HANDLE_CLASS"
+            "data_type": "Ptr"
         },
         {
             "name": "PEERDIST_CLIENT_BASIC_INFO",
-            "type": "_PEERDIST_CLIENT_BASIC_INFO",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_PEERDIST_CLIENT_BASIC_INFO",
+                "elements": [
+                    {
+                        "name": "fFlashCrowd",
+                        "type": "BOOL"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PPEERDIST_CLIENT_BASIC_INFO",
             "type": {
-                "type": "_PEERDIST_CLIENT_BASIC_INFO",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_PEERDIST_CLIENT_BASIC_INFO",
+                "elements": [
+                    {
+                        "name": "fFlashCrowd",
+                        "type": "BOOL"
+                    }
+                ]
             },
-            "name": "PPEERDIST_CLIENT_BASIC_INFO"
+            "data_type": "Ptr"
         }
     ],
     "funcdefs": [
         {
-            "name": "PeerDistStartup",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PeerDistStartup",
                 "type": "DWORD"
             },
+            "name": "PeerDistStartup",
             "arguments": [
                 {
                     "name": "dwVersionRequested",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -202,7 +333,6 @@
                 },
                 {
                     "name": "phPeerDist",
-                    "data_type": "TypeDecl",
                     "type": "PPEERDIST_INSTANCE_HANDLE",
                     "sal": [
                         "out"
@@ -210,7 +340,6 @@
                 },
                 {
                     "name": "pdwSupportedVersion",
-                    "data_type": "TypeDecl",
                     "type": "PDWORD",
                     "sal": [
                         "out",
@@ -223,15 +352,15 @@
             ]
         },
         {
-            "name": "PeerDistShutdown",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PeerDistShutdown",
                 "type": "DWORD"
             },
+            "name": "PeerDistShutdown",
             "arguments": [
                 {
                     "name": "hPeerDist",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_INSTANCE_HANDLE",
                     "sal": [
                         "in"
@@ -243,27 +372,25 @@
             ]
         },
         {
-            "name": "PeerDistGetStatus",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PeerDistGetStatus",
                 "type": "DWORD"
             },
+            "name": "PeerDistGetStatus",
             "arguments": [
                 {
                     "name": "hPeerDist",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_INSTANCE_HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pPeerDistStatus",
                         "type": "PEERDIST_STATUS"
                     },
-                    "name": "pPeerDistStatus",
                     "sal": [
                         "out"
                     ]
@@ -274,15 +401,15 @@
             ]
         },
         {
-            "name": "PeerDistRegisterForStatusChangeNotification",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PeerDistRegisterForStatusChangeNotification",
                 "type": "DWORD"
             },
+            "name": "PeerDistRegisterForStatusChangeNotification",
             "arguments": [
                 {
                     "name": "hPeerDist",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_INSTANCE_HANDLE",
                     "sal": [
                         "in"
@@ -290,7 +417,6 @@
                 },
                 {
                     "name": "hCompletionPort",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in",
@@ -299,7 +425,6 @@
                 },
                 {
                     "name": "ulCompletionKey",
-                    "data_type": "TypeDecl",
                     "type": "ULONG_PTR",
                     "sal": [
                         "in",
@@ -308,19 +433,16 @@
                 },
                 {
                     "name": "lpOverlapped",
-                    "data_type": "TypeDecl",
                     "type": "LPOVERLAPPED",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pPeerDistStatus",
                         "type": "PEERDIST_STATUS"
                     },
-                    "name": "pPeerDistStatus",
                     "sal": [
                         "out"
                     ]
@@ -331,15 +453,15 @@
             ]
         },
         {
-            "name": "PeerDistUnregisterForStatusChangeNotification",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PeerDistUnregisterForStatusChangeNotification",
                 "type": "DWORD"
             },
+            "name": "PeerDistUnregisterForStatusChangeNotification",
             "arguments": [
                 {
                     "name": "hPeerDist",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_INSTANCE_HANDLE",
                     "sal": [
                         "in"
@@ -351,15 +473,15 @@
             ]
         },
         {
-            "name": "PeerDistServerPublishStream",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PeerDistServerPublishStream",
                 "type": "DWORD"
             },
+            "name": "PeerDistServerPublishStream",
             "arguments": [
                 {
                     "name": "hPeerDist",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_INSTANCE_HANDLE",
                     "sal": [
                         "in"
@@ -367,13 +489,11 @@
                 },
                 {
                     "name": "cbContentIdentifier",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
                     "name": "pContentIdentifier",
-                    "data_type": "TypeDecl",
                     "type": "PBYTE",
                     "sal": [
                         "in"
@@ -381,13 +501,11 @@
                 },
                 {
                     "name": "cbContentLength",
-                    "data_type": "TypeDecl",
                     "type": "ULONGLONG",
                     "sal": []
                 },
                 {
                     "name": "pPublishOptions",
-                    "data_type": "TypeDecl",
                     "type": "PCPEERDIST_PUBLICATION_OPTIONS",
                     "sal": [
                         "in",
@@ -396,7 +514,6 @@
                 },
                 {
                     "name": "hCompletionPort",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in",
@@ -405,7 +522,6 @@
                 },
                 {
                     "name": "ulCompletionKey",
-                    "data_type": "TypeDecl",
                     "type": "ULONG_PTR",
                     "sal": [
                         "in",
@@ -414,7 +530,6 @@
                 },
                 {
                     "name": "phStream",
-                    "data_type": "TypeDecl",
                     "type": "PPEERDIST_STREAM_HANDLE",
                     "sal": [
                         "out"
@@ -426,15 +541,15 @@
             ]
         },
         {
-            "name": "PeerDistServerPublishAddToStream",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PeerDistServerPublishAddToStream",
                 "type": "DWORD"
             },
+            "name": "PeerDistServerPublishAddToStream",
             "arguments": [
                 {
                     "name": "hPeerDist",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_INSTANCE_HANDLE",
                     "sal": [
                         "in"
@@ -442,7 +557,6 @@
                 },
                 {
                     "name": "hStream",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_STREAM_HANDLE",
                     "sal": [
                         "in"
@@ -450,7 +564,6 @@
                 },
                 {
                     "name": "cbNumberOfBytes",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -458,7 +571,6 @@
                 },
                 {
                     "name": "pBuffer",
-                    "data_type": "TypeDecl",
                     "type": "PBYTE",
                     "sal": [
                         "in"
@@ -466,7 +578,6 @@
                 },
                 {
                     "name": "lpOverlapped",
-                    "data_type": "TypeDecl",
                     "type": "LPOVERLAPPED",
                     "sal": [
                         "in"
@@ -478,15 +589,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "PeerDistServerPublishCompleteStream",
+                "type": "DWORD"
+            },
             "name": "PeerDistServerPublishCompleteStream",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "DWORD"
-            },
             "arguments": [
                 {
                     "name": "hPeerDist",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_INSTANCE_HANDLE",
                     "sal": [
                         "in"
@@ -494,7 +605,6 @@
                 },
                 {
                     "name": "hStream",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_STREAM_HANDLE",
                     "sal": [
                         "in"
@@ -502,7 +612,6 @@
                 },
                 {
                     "name": "lpOverlapped",
-                    "data_type": "TypeDecl",
                     "type": "LPOVERLAPPED",
                     "sal": [
                         "in"
@@ -514,15 +623,15 @@
             ]
         },
         {
-            "name": "PeerDistServerCloseStreamHandle",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PeerDistServerCloseStreamHandle",
                 "type": "DWORD"
             },
+            "name": "PeerDistServerCloseStreamHandle",
             "arguments": [
                 {
                     "name": "hPeerDist",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_INSTANCE_HANDLE",
                     "sal": [
                         "in"
@@ -530,7 +639,6 @@
                 },
                 {
                     "name": "hStream",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_STREAM_HANDLE",
                     "sal": [
                         "in"
@@ -542,15 +650,15 @@
             ]
         },
         {
-            "name": "PeerDistServerUnpublish",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PeerDistServerUnpublish",
                 "type": "DWORD"
             },
+            "name": "PeerDistServerUnpublish",
             "arguments": [
                 {
                     "name": "hPeerDist",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_INSTANCE_HANDLE",
                     "sal": [
                         "in"
@@ -558,13 +666,11 @@
                 },
                 {
                     "name": "cbContentIdentifier",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
                     "name": "pContentIdentifier",
-                    "data_type": "TypeDecl",
                     "type": "PBYTE",
                     "sal": [
                         "in"
@@ -576,15 +682,15 @@
             ]
         },
         {
-            "name": "PeerDistServerOpenContentInformation",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PeerDistServerOpenContentInformation",
                 "type": "DWORD"
             },
+            "name": "PeerDistServerOpenContentInformation",
             "arguments": [
                 {
                     "name": "hPeerDist",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_INSTANCE_HANDLE",
                     "sal": [
                         "in"
@@ -592,13 +698,11 @@
                 },
                 {
                     "name": "cbContentIdentifier",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
                     "name": "pContentIdentifier",
-                    "data_type": "TypeDecl",
                     "type": "PBYTE",
                     "sal": [
                         "in"
@@ -606,19 +710,16 @@
                 },
                 {
                     "name": "ullContentOffset",
-                    "data_type": "TypeDecl",
                     "type": "ULONGLONG",
                     "sal": []
                 },
                 {
                     "name": "cbContentLength",
-                    "data_type": "TypeDecl",
                     "type": "ULONGLONG",
                     "sal": []
                 },
                 {
                     "name": "hCompletionPort",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in",
@@ -627,7 +728,6 @@
                 },
                 {
                     "name": "ulCompletionKey",
-                    "data_type": "TypeDecl",
                     "type": "ULONG_PTR",
                     "sal": [
                         "in",
@@ -636,7 +736,6 @@
                 },
                 {
                     "name": "phContentInfo",
-                    "data_type": "TypeDecl",
                     "type": "PPEERDIST_CONTENTINFO_HANDLE",
                     "sal": [
                         "out"
@@ -648,15 +747,15 @@
             ]
         },
         {
-            "name": "PeerDistServerRetrieveContentInformation",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PeerDistServerRetrieveContentInformation",
                 "type": "DWORD"
             },
+            "name": "PeerDistServerRetrieveContentInformation",
             "arguments": [
                 {
                     "name": "hPeerDist",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_INSTANCE_HANDLE",
                     "sal": [
                         "in"
@@ -664,7 +763,6 @@
                 },
                 {
                     "name": "hContentInfo",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_CONTENTINFO_HANDLE",
                     "sal": [
                         "in"
@@ -672,13 +770,11 @@
                 },
                 {
                     "name": "cbMaxNumberOfBytes",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
                     "name": "pBuffer",
-                    "data_type": "TypeDecl",
                     "type": "PBYTE",
                     "sal": [
                         "in",
@@ -687,7 +783,6 @@
                 },
                 {
                     "name": "lpOverlapped",
-                    "data_type": "TypeDecl",
                     "type": "LPOVERLAPPED",
                     "sal": [
                         "in"
@@ -699,15 +794,15 @@
             ]
         },
         {
-            "name": "PeerDistServerCloseContentInformation",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PeerDistServerCloseContentInformation",
                 "type": "DWORD"
             },
+            "name": "PeerDistServerCloseContentInformation",
             "arguments": [
                 {
                     "name": "hPeerDist",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_INSTANCE_HANDLE",
                     "sal": [
                         "in"
@@ -715,7 +810,6 @@
                 },
                 {
                     "name": "hContentInfo",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_CONTENTINFO_HANDLE",
                     "sal": [
                         "in"
@@ -727,15 +821,15 @@
             ]
         },
         {
-            "name": "PeerDistServerCancelAsyncOperation",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PeerDistServerCancelAsyncOperation",
                 "type": "DWORD"
             },
+            "name": "PeerDistServerCancelAsyncOperation",
             "arguments": [
                 {
                     "name": "hPeerDist",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_INSTANCE_HANDLE",
                     "sal": [
                         "in"
@@ -743,13 +837,11 @@
                 },
                 {
                     "name": "cbContentIdentifier",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
                     "name": "pContentIdentifier",
-                    "data_type": "TypeDecl",
                     "type": "PBYTE",
                     "sal": [
                         "in"
@@ -757,7 +849,6 @@
                 },
                 {
                     "name": "pOverlapped",
-                    "data_type": "TypeDecl",
                     "type": "LPOVERLAPPED",
                     "sal": [
                         "in"
@@ -769,15 +860,15 @@
             ]
         },
         {
-            "name": "PeerDistClientOpenContent",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PeerDistClientOpenContent",
                 "type": "DWORD"
             },
+            "name": "PeerDistClientOpenContent",
             "arguments": [
                 {
                     "name": "hPeerDist",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_INSTANCE_HANDLE",
                     "sal": [
                         "in"
@@ -785,7 +876,6 @@
                 },
                 {
                     "name": "pContentTag",
-                    "data_type": "TypeDecl",
                     "type": "PCPEERDIST_CONTENT_TAG",
                     "sal": [
                         "in"
@@ -793,7 +883,6 @@
                 },
                 {
                     "name": "hCompletionPort",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in",
@@ -802,7 +891,6 @@
                 },
                 {
                     "name": "ulCompletionKey",
-                    "data_type": "TypeDecl",
                     "type": "ULONG_PTR",
                     "sal": [
                         "in",
@@ -811,7 +899,6 @@
                 },
                 {
                     "name": "phContentHandle",
-                    "data_type": "TypeDecl",
                     "type": "PPEERDIST_CONTENT_HANDLE",
                     "sal": [
                         "out"
@@ -823,15 +910,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "PeerDistClientCloseContent",
+                "type": "DWORD"
+            },
             "name": "PeerDistClientCloseContent",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "DWORD"
-            },
             "arguments": [
                 {
                     "name": "hPeerDist",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_INSTANCE_HANDLE",
                     "sal": [
                         "in"
@@ -839,7 +926,6 @@
                 },
                 {
                     "name": "hContentHandle",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_CONTENT_HANDLE",
                     "sal": [
                         "in"
@@ -851,15 +937,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "PeerDistClientAddContentInformation",
+                "type": "DWORD"
+            },
             "name": "PeerDistClientAddContentInformation",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "DWORD"
-            },
             "arguments": [
                 {
                     "name": "hPeerDist",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_INSTANCE_HANDLE",
                     "sal": [
                         "in"
@@ -867,7 +953,6 @@
                 },
                 {
                     "name": "hContentHandle",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_CONTENT_HANDLE",
                     "sal": [
                         "in"
@@ -875,13 +960,11 @@
                 },
                 {
                     "name": "cbNumberOfBytes",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
                     "name": "pBuffer",
-                    "data_type": "TypeDecl",
                     "type": "PBYTE",
                     "sal": [
                         "in"
@@ -889,7 +972,6 @@
                 },
                 {
                     "name": "lpOverlapped",
-                    "data_type": "TypeDecl",
                     "type": "LPOVERLAPPED",
                     "sal": [
                         "in"
@@ -901,15 +983,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "PeerDistClientCompleteContentInformation",
+                "type": "DWORD"
+            },
             "name": "PeerDistClientCompleteContentInformation",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "DWORD"
-            },
             "arguments": [
                 {
                     "name": "hPeerDist",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_INSTANCE_HANDLE",
                     "sal": [
                         "in"
@@ -917,7 +999,6 @@
                 },
                 {
                     "name": "hContentHandle",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_CONTENT_HANDLE",
                     "sal": [
                         "in"
@@ -925,7 +1006,6 @@
                 },
                 {
                     "name": "lpOverlapped",
-                    "data_type": "TypeDecl",
                     "type": "LPOVERLAPPED",
                     "sal": [
                         "in"
@@ -937,15 +1017,15 @@
             ]
         },
         {
-            "name": "PeerDistClientAddData",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PeerDistClientAddData",
                 "type": "DWORD"
             },
+            "name": "PeerDistClientAddData",
             "arguments": [
                 {
                     "name": "hPeerDist",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_INSTANCE_HANDLE",
                     "sal": [
                         "in"
@@ -953,7 +1033,6 @@
                 },
                 {
                     "name": "hContentHandle",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_CONTENT_HANDLE",
                     "sal": [
                         "in"
@@ -961,13 +1040,11 @@
                 },
                 {
                     "name": "cbNumberOfBytes",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
                     "name": "pBuffer",
-                    "data_type": "TypeDecl",
                     "type": "PBYTE",
                     "sal": [
                         "in"
@@ -975,7 +1052,6 @@
                 },
                 {
                     "name": "lpOverlapped",
-                    "data_type": "TypeDecl",
                     "type": "LPOVERLAPPED",
                     "sal": [
                         "in"
@@ -987,15 +1063,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "PeerDistClientBlockRead",
+                "type": "DWORD"
+            },
             "name": "PeerDistClientBlockRead",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "DWORD"
-            },
             "arguments": [
                 {
                     "name": "hPeerDist",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_INSTANCE_HANDLE",
                     "sal": [
                         "in"
@@ -1003,7 +1079,6 @@
                 },
                 {
                     "name": "hContentHandle",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_CONTENT_HANDLE",
                     "sal": [
                         "in"
@@ -1011,13 +1086,11 @@
                 },
                 {
                     "name": "cbMaxNumberOfBytes",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
                     "name": "pBuffer",
-                    "data_type": "TypeDecl",
                     "type": "PBYTE",
                     "sal": [
                         "in",
@@ -1027,13 +1100,11 @@
                 },
                 {
                     "name": "dwTimeoutInMilliseconds",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
                     "name": "lpOverlapped",
-                    "data_type": "TypeDecl",
                     "type": "LPOVERLAPPED",
                     "sal": [
                         "in"
@@ -1045,15 +1116,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "PeerDistClientStreamRead",
+                "type": "DWORD"
+            },
             "name": "PeerDistClientStreamRead",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "DWORD"
-            },
             "arguments": [
                 {
                     "name": "hPeerDist",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_INSTANCE_HANDLE",
                     "sal": [
                         "in"
@@ -1061,7 +1132,6 @@
                 },
                 {
                     "name": "hContentHandle",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_CONTENT_HANDLE",
                     "sal": [
                         "in"
@@ -1069,13 +1139,11 @@
                 },
                 {
                     "name": "cbMaxNumberOfBytes",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
                     "name": "pBuffer",
-                    "data_type": "TypeDecl",
                     "type": "PBYTE",
                     "sal": [
                         "in",
@@ -1085,13 +1153,11 @@
                 },
                 {
                     "name": "dwTimeoutInMilliseconds",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
                     "name": "lpOverlapped",
-                    "data_type": "TypeDecl",
                     "type": "LPOVERLAPPED",
                     "sal": [
                         "in"
@@ -1103,15 +1169,15 @@
             ]
         },
         {
-            "name": "PeerDistClientFlushContent",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PeerDistClientFlushContent",
                 "type": "DWORD"
             },
+            "name": "PeerDistClientFlushContent",
             "arguments": [
                 {
                     "name": "hPeerDist",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_INSTANCE_HANDLE",
                     "sal": [
                         "in"
@@ -1119,7 +1185,6 @@
                 },
                 {
                     "name": "pContentTag",
-                    "data_type": "TypeDecl",
                     "type": "PCPEERDIST_CONTENT_TAG",
                     "sal": [
                         "in"
@@ -1127,7 +1192,6 @@
                 },
                 {
                     "name": "hCompletionPort",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in",
@@ -1136,7 +1200,6 @@
                 },
                 {
                     "name": "ulCompletionKey",
-                    "data_type": "TypeDecl",
                     "type": "ULONG_PTR",
                     "sal": [
                         "in",
@@ -1145,7 +1208,6 @@
                 },
                 {
                     "name": "lpOverlapped",
-                    "data_type": "TypeDecl",
                     "type": "LPOVERLAPPED",
                     "sal": [
                         "in"
@@ -1157,15 +1219,15 @@
             ]
         },
         {
-            "name": "PeerDistClientCancelAsyncOperation",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PeerDistClientCancelAsyncOperation",
                 "type": "DWORD"
             },
+            "name": "PeerDistClientCancelAsyncOperation",
             "arguments": [
                 {
                     "name": "hPeerDist",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_INSTANCE_HANDLE",
                     "sal": [
                         "in"
@@ -1173,7 +1235,6 @@
                 },
                 {
                     "name": "hContentHandle",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_CONTENT_HANDLE",
                     "sal": [
                         "in"
@@ -1181,7 +1242,6 @@
                 },
                 {
                     "name": "pOverlapped",
-                    "data_type": "TypeDecl",
                     "type": "LPOVERLAPPED",
                     "sal": [
                         "in",
@@ -1194,15 +1254,15 @@
             ]
         },
         {
-            "name": "PeerDistClientGetInformationByHandle",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PeerDistClientGetInformationByHandle",
                 "type": "DWORD"
             },
+            "name": "PeerDistClientGetInformationByHandle",
             "arguments": [
                 {
                     "name": "hPeerDist",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_INSTANCE_HANDLE",
                     "sal": [
                         "in"
@@ -1210,7 +1270,6 @@
                 },
                 {
                     "name": "hContentHandle",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_CONTENT_HANDLE",
                     "sal": [
                         "in"
@@ -1218,7 +1277,6 @@
                 },
                 {
                     "name": "PeerDistClientInfoClass",
-                    "data_type": "TypeDecl",
                     "type": "PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS",
                     "sal": [
                         "in"
@@ -1226,13 +1284,11 @@
                 },
                 {
                     "name": "dwBufferSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
                     "name": "lpInformation",
-                    "data_type": "TypeDecl",
                     "type": "LPVOID",
                     "sal": [
                         "out"

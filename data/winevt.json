@@ -2,172 +2,1572 @@
     "typedefs": [
         {
             "name": "EVT_HANDLE",
-            "data_type": "TypeDecl",
             "type": "HANDLE"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "HANDLE"
-            },
-            "name": "PEVT_HANDLE"
+            "name": "PEVT_HANDLE",
+            "type": "HANDLE",
+            "data_type": "Ptr"
         },
         {
             "name": "EVT_VARIANT_TYPE",
-            "type": "_EVT_VARIANT_TYPE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "EvtVarTypeNull",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "EvtVarTypeString",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "EvtVarTypeAnsiString",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "EvtVarTypeSByte",
+                        "value": {
+                            "type": "int",
+                            "value": "3"
+                        }
+                    },
+                    {
+                        "name": "EvtVarTypeByte",
+                        "value": {
+                            "type": "int",
+                            "value": "4"
+                        }
+                    },
+                    {
+                        "name": "EvtVarTypeInt16",
+                        "value": {
+                            "type": "int",
+                            "value": "5"
+                        }
+                    },
+                    {
+                        "name": "EvtVarTypeUInt16",
+                        "value": {
+                            "type": "int",
+                            "value": "6"
+                        }
+                    },
+                    {
+                        "name": "EvtVarTypeInt32",
+                        "value": {
+                            "type": "int",
+                            "value": "7"
+                        }
+                    },
+                    {
+                        "name": "EvtVarTypeUInt32",
+                        "value": {
+                            "type": "int",
+                            "value": "8"
+                        }
+                    },
+                    {
+                        "name": "EvtVarTypeInt64",
+                        "value": {
+                            "type": "int",
+                            "value": "9"
+                        }
+                    },
+                    {
+                        "name": "EvtVarTypeUInt64",
+                        "value": {
+                            "type": "int",
+                            "value": "10"
+                        }
+                    },
+                    {
+                        "name": "EvtVarTypeSingle",
+                        "value": {
+                            "type": "int",
+                            "value": "11"
+                        }
+                    },
+                    {
+                        "name": "EvtVarTypeDouble",
+                        "value": {
+                            "type": "int",
+                            "value": "12"
+                        }
+                    },
+                    {
+                        "name": "EvtVarTypeBoolean",
+                        "value": {
+                            "type": "int",
+                            "value": "13"
+                        }
+                    },
+                    {
+                        "name": "EvtVarTypeBinary",
+                        "value": {
+                            "type": "int",
+                            "value": "14"
+                        }
+                    },
+                    {
+                        "name": "EvtVarTypeGuid",
+                        "value": {
+                            "type": "int",
+                            "value": "15"
+                        }
+                    },
+                    {
+                        "name": "EvtVarTypeSizeT",
+                        "value": {
+                            "type": "int",
+                            "value": "16"
+                        }
+                    },
+                    {
+                        "name": "EvtVarTypeFileTime",
+                        "value": {
+                            "type": "int",
+                            "value": "17"
+                        }
+                    },
+                    {
+                        "name": "EvtVarTypeSysTime",
+                        "value": {
+                            "type": "int",
+                            "value": "18"
+                        }
+                    },
+                    {
+                        "name": "EvtVarTypeSid",
+                        "value": {
+                            "type": "int",
+                            "value": "19"
+                        }
+                    },
+                    {
+                        "name": "EvtVarTypeHexInt32",
+                        "value": {
+                            "type": "int",
+                            "value": "20"
+                        }
+                    },
+                    {
+                        "name": "EvtVarTypeHexInt64",
+                        "value": {
+                            "type": "int",
+                            "value": "21"
+                        }
+                    },
+                    {
+                        "name": "EvtVarTypeEvtHandle",
+                        "value": {
+                            "type": "int",
+                            "value": "32"
+                        }
+                    },
+                    {
+                        "name": "EvtVarTypeEvtXml",
+                        "value": {
+                            "type": "int",
+                            "value": "35"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "EVT_VARIANT",
-            "type": "_EVT_VARIANT",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_EVT_VARIANT",
+                "elements": [
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "BooleanVal",
+                                "type": "BOOL"
+                            },
+                            {
+                                "name": "SByteVal",
+                                "type": "INT8"
+                            },
+                            {
+                                "name": "Int16Val",
+                                "type": "INT16"
+                            },
+                            {
+                                "name": "Int32Val",
+                                "type": "INT32"
+                            },
+                            {
+                                "name": "Int64Val",
+                                "type": "INT64"
+                            },
+                            {
+                                "name": "ByteVal",
+                                "type": "UINT8"
+                            },
+                            {
+                                "name": "UInt16Val",
+                                "type": "UINT16"
+                            },
+                            {
+                                "name": "UInt32Val",
+                                "type": "UINT32"
+                            },
+                            {
+                                "name": "UInt64Val",
+                                "type": "UINT64"
+                            },
+                            {
+                                "name": "SingleVal",
+                                "type": "float"
+                            },
+                            {
+                                "name": "DoubleVal",
+                                "type": "double"
+                            },
+                            {
+                                "name": "FileTimeVal",
+                                "type": "ULONGLONG"
+                            },
+                            {
+                                "name": "SysTimeVal",
+                                "type": "SYSTEMTIME",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "GuidVal",
+                                "type": "GUID",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "StringVal",
+                                "type": "LPCWSTR"
+                            },
+                            {
+                                "name": "AnsiStringVal",
+                                "type": "LPCSTR"
+                            },
+                            {
+                                "name": "BinaryVal",
+                                "type": "PBYTE"
+                            },
+                            {
+                                "name": "SidVal",
+                                "type": "PSID"
+                            },
+                            {
+                                "name": "SizeTVal",
+                                "type": "size_t"
+                            },
+                            {
+                                "name": "BooleanArr",
+                                "type": "BOOL",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "SByteArr",
+                                "type": "INT8",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "Int16Arr",
+                                "type": "INT16",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "Int32Arr",
+                                "type": "INT32",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "Int64Arr",
+                                "type": "INT64",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "ByteArr",
+                                "type": "UINT8",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "UInt16Arr",
+                                "type": "UINT16",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "UInt32Arr",
+                                "type": "UINT32",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "UInt64Arr",
+                                "type": "UINT64",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "SingleArr",
+                                "type": "float",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "DoubleArr",
+                                "type": "double",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "FileTimeArr",
+                                "type": "FILETIME",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "SysTimeArr",
+                                "type": "SYSTEMTIME",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "GuidArr",
+                                "type": "GUID",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "StringArr",
+                                "type": "LPWSTR",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "AnsiStringArr",
+                                "type": "LPSTR",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "SidArr",
+                                "type": "PSID",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "SizeTArr",
+                                "type": "size_t",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "EvtHandleVal",
+                                "type": "EVT_HANDLE"
+                            },
+                            {
+                                "name": "XmlVal",
+                                "type": "LPCWSTR"
+                            },
+                            {
+                                "name": "XmlValArr",
+                                "type": "LPCWSTR",
+                                "data_type": "Ptr"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Count",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "Type",
+                        "type": "DWORD"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PEVT_VARIANT",
             "type": {
-                "type": "_EVT_VARIANT",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_EVT_VARIANT",
+                "elements": [
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "BooleanVal",
+                                "type": "BOOL"
+                            },
+                            {
+                                "name": "SByteVal",
+                                "type": "INT8"
+                            },
+                            {
+                                "name": "Int16Val",
+                                "type": "INT16"
+                            },
+                            {
+                                "name": "Int32Val",
+                                "type": "INT32"
+                            },
+                            {
+                                "name": "Int64Val",
+                                "type": "INT64"
+                            },
+                            {
+                                "name": "ByteVal",
+                                "type": "UINT8"
+                            },
+                            {
+                                "name": "UInt16Val",
+                                "type": "UINT16"
+                            },
+                            {
+                                "name": "UInt32Val",
+                                "type": "UINT32"
+                            },
+                            {
+                                "name": "UInt64Val",
+                                "type": "UINT64"
+                            },
+                            {
+                                "name": "SingleVal",
+                                "type": "float"
+                            },
+                            {
+                                "name": "DoubleVal",
+                                "type": "double"
+                            },
+                            {
+                                "name": "FileTimeVal",
+                                "type": "ULONGLONG"
+                            },
+                            {
+                                "name": "SysTimeVal",
+                                "type": "SYSTEMTIME",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "GuidVal",
+                                "type": "GUID",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "StringVal",
+                                "type": "LPCWSTR"
+                            },
+                            {
+                                "name": "AnsiStringVal",
+                                "type": "LPCSTR"
+                            },
+                            {
+                                "name": "BinaryVal",
+                                "type": "PBYTE"
+                            },
+                            {
+                                "name": "SidVal",
+                                "type": "PSID"
+                            },
+                            {
+                                "name": "SizeTVal",
+                                "type": "size_t"
+                            },
+                            {
+                                "name": "BooleanArr",
+                                "type": "BOOL",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "SByteArr",
+                                "type": "INT8",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "Int16Arr",
+                                "type": "INT16",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "Int32Arr",
+                                "type": "INT32",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "Int64Arr",
+                                "type": "INT64",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "ByteArr",
+                                "type": "UINT8",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "UInt16Arr",
+                                "type": "UINT16",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "UInt32Arr",
+                                "type": "UINT32",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "UInt64Arr",
+                                "type": "UINT64",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "SingleArr",
+                                "type": "float",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "DoubleArr",
+                                "type": "double",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "FileTimeArr",
+                                "type": "FILETIME",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "SysTimeArr",
+                                "type": "SYSTEMTIME",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "GuidArr",
+                                "type": "GUID",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "StringArr",
+                                "type": "LPWSTR",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "AnsiStringArr",
+                                "type": "LPSTR",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "SidArr",
+                                "type": "PSID",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "SizeTArr",
+                                "type": "size_t",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "EvtHandleVal",
+                                "type": "EVT_HANDLE"
+                            },
+                            {
+                                "name": "XmlVal",
+                                "type": "LPCWSTR"
+                            },
+                            {
+                                "name": "XmlValArr",
+                                "type": "LPCWSTR",
+                                "data_type": "Ptr"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Count",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "Type",
+                        "type": "DWORD"
+                    }
+                ]
             },
-            "name": "PEVT_VARIANT"
+            "data_type": "Ptr"
         },
         {
             "name": "EVT_LOGIN_CLASS",
-            "type": "_EVT_LOGIN_CLASS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "EvtRpcLogin",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "EVT_RPC_LOGIN_FLAGS",
-            "type": "_EVT_RPC_LOGIN_FLAGS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "EvtRpcLoginAuthDefault",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "EvtRpcLoginAuthNegotiate",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtRpcLoginAuthKerberos",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtRpcLoginAuthNTLM",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
             "name": "EVT_RPC_LOGIN",
-            "type": "_EVT_RPC_LOGIN",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_EVT_RPC_LOGIN",
+                "elements": [
+                    {
+                        "name": "Server",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "User",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "Domain",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "Password",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "Flags",
+                        "type": "DWORD"
+                    }
+                ]
+            }
         },
         {
             "name": "EVT_QUERY_FLAGS",
-            "type": "_EVT_QUERY_FLAGS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "EvtQueryChannelPath",
+                        "value": {
+                            "type": "int",
+                            "value": "0x1"
+                        }
+                    },
+                    {
+                        "name": "EvtQueryFilePath",
+                        "value": {
+                            "type": "int",
+                            "value": "0x2"
+                        }
+                    },
+                    {
+                        "name": "EvtQueryForwardDirection",
+                        "value": {
+                            "type": "int",
+                            "value": "0x100"
+                        }
+                    },
+                    {
+                        "name": "EvtQueryReverseDirection",
+                        "value": {
+                            "type": "int",
+                            "value": "0x200"
+                        }
+                    },
+                    {
+                        "name": "EvtQueryTolerateQueryErrors",
+                        "value": {
+                            "type": "int",
+                            "value": "0x1000"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "EVT_SEEK_FLAGS",
-            "type": "_EVT_SEEK_FLAGS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "EvtSeekRelativeToFirst",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "EvtSeekRelativeToLast",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "EvtSeekRelativeToCurrent",
+                        "value": {
+                            "type": "int",
+                            "value": "3"
+                        }
+                    },
+                    {
+                        "name": "EvtSeekRelativeToBookmark",
+                        "value": {
+                            "type": "int",
+                            "value": "4"
+                        }
+                    },
+                    {
+                        "name": "EvtSeekOriginMask",
+                        "value": {
+                            "type": "int",
+                            "value": "7"
+                        }
+                    },
+                    {
+                        "name": "EvtSeekStrict",
+                        "value": {
+                            "type": "int",
+                            "value": "0x10000"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "EVT_SUBSCRIBE_FLAGS",
-            "type": "_EVT_SUBSCRIBE_FLAGS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "EvtSubscribeToFutureEvents",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "EvtSubscribeStartAtOldestRecord",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "EvtSubscribeStartAfterBookmark",
+                        "value": {
+                            "type": "int",
+                            "value": "3"
+                        }
+                    },
+                    {
+                        "name": "EvtSubscribeOriginMask",
+                        "value": {
+                            "type": "int",
+                            "value": "3"
+                        }
+                    },
+                    {
+                        "name": "EvtSubscribeTolerateQueryErrors",
+                        "value": {
+                            "type": "int",
+                            "value": "0x1000"
+                        }
+                    },
+                    {
+                        "name": "EvtSubscribeStrict",
+                        "value": {
+                            "type": "int",
+                            "value": "0x10000"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "EVT_SUBSCRIBE_NOTIFY_ACTION",
-            "type": "_EVT_SUBSCRIBE_NOTIFY_ACTION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "EvtSubscribeActionError",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "EvtSubscribeActionDeliver",
+                        "value": {}
+                    }
+                ]
+            }
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "EVT_SUBSCRIBE_CALLBACK",
+                "type": "DWORD"
+            },
+            "name": "EVT_SUBSCRIBE_CALLBACK",
+            "arguments": [
+                {
+                    "name": "Action",
+                    "type": "EVT_SUBSCRIBE_NOTIFY_ACTION"
+                },
+                {
+                    "name": "UserContext",
+                    "type": "PVOID"
+                },
+                {
+                    "name": "Event",
+                    "type": "EVT_HANDLE"
+                }
+            ]
         },
         {
             "name": "EVT_SYSTEM_PROPERTY_ID",
-            "type": "_EVT_SYSTEM_PROPERTY_ID",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "EvtSystemProviderName",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "EvtSystemProviderGuid",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtSystemEventID",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtSystemQualifiers",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtSystemLevel",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtSystemTask",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtSystemOpcode",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtSystemKeywords",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtSystemTimeCreated",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtSystemEventRecordId",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtSystemActivityID",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtSystemRelatedActivityID",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtSystemProcessID",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtSystemThreadID",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtSystemChannel",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtSystemComputer",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtSystemUserID",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtSystemVersion",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtSystemPropertyIdEND",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
             "name": "EVT_RENDER_CONTEXT_FLAGS",
-            "type": "_EVT_RENDER_CONTEXT_FLAGS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "EvtRenderContextValues",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "EvtRenderContextSystem",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtRenderContextUser",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
             "name": "EVT_RENDER_FLAGS",
-            "type": "_EVT_RENDER_FLAGS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "EvtRenderEventValues",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "EvtRenderEventXml",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtRenderBookmark",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
             "name": "EVT_FORMAT_MESSAGE_FLAGS",
-            "type": "_EVT_FORMAT_MESSAGE_FLAGS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "EvtFormatMessageEvent",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "EvtFormatMessageLevel",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtFormatMessageTask",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtFormatMessageOpcode",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtFormatMessageKeyword",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtFormatMessageChannel",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtFormatMessageProvider",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtFormatMessageId",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtFormatMessageXml",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
             "name": "EVT_OPEN_LOG_FLAGS",
-            "type": "_EVT_OPEN_LOG_FLAGS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "EvtOpenChannelPath",
+                        "value": {
+                            "type": "int",
+                            "value": "0x1"
+                        }
+                    },
+                    {
+                        "name": "EvtOpenFilePath",
+                        "value": {
+                            "type": "int",
+                            "value": "0x2"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "EVT_LOG_PROPERTY_ID",
-            "type": "_EVT_LOG_PROPERTY_ID",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "EvtLogCreationTime",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "EvtLogLastAccessTime",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtLogLastWriteTime",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtLogFileSize",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtLogAttributes",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtLogNumberOfLogRecords",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtLogOldestRecordNumber",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtLogFull",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
             "name": "EVT_EXPORTLOG_FLAGS",
-            "type": "_EVT_EXPORTLOG_FLAGS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "EvtExportLogChannelPath",
+                        "value": {
+                            "type": "int",
+                            "value": "0x1"
+                        }
+                    },
+                    {
+                        "name": "EvtExportLogFilePath",
+                        "value": {
+                            "type": "int",
+                            "value": "0x2"
+                        }
+                    },
+                    {
+                        "name": "EvtExportLogTolerateQueryErrors",
+                        "value": {
+                            "type": "int",
+                            "value": "0x1000"
+                        }
+                    },
+                    {
+                        "name": "EvtExportLogOverwrite",
+                        "value": {
+                            "type": "int",
+                            "value": "0x2000"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "EVT_CHANNEL_CONFIG_PROPERTY_ID",
-            "type": "_EVT_CHANNEL_CONFIG_PROPERTY_ID",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "EvtChannelConfigEnabled",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "EvtChannelConfigIsolation",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtChannelConfigType",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtChannelConfigOwningPublisher",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtChannelConfigClassicEventlog",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtChannelConfigAccess",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtChannelLoggingConfigRetention",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtChannelLoggingConfigAutoBackup",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtChannelLoggingConfigMaxSize",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtChannelLoggingConfigLogFilePath",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtChannelPublishingConfigLevel",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtChannelPublishingConfigKeywords",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtChannelPublishingConfigControlGuid",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtChannelPublishingConfigBufferSize",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtChannelPublishingConfigMinBuffers",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtChannelPublishingConfigMaxBuffers",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtChannelPublishingConfigLatency",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtChannelPublishingConfigClockType",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtChannelPublishingConfigSidType",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtChannelPublisherList",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtChannelPublishingConfigFileMax",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtChannelConfigPropertyIdEND",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
             "name": "EVT_CHANNEL_TYPE",
-            "type": "_EVT_CHANNEL_TYPE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "EvtChannelTypeAdmin",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "EvtChannelTypeOperational",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtChannelTypeAnalytic",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtChannelTypeDebug",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
             "name": "EVT_CHANNEL_ISOLATION_TYPE",
-            "type": "_EVT_CHANNEL_ISOLATION_TYPE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "EvtChannelIsolationTypeApplication",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "EvtChannelIsolationTypeSystem",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtChannelIsolationTypeCustom",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
             "name": "EVT_CHANNEL_CLOCK_TYPE",
-            "type": "_EVT_CHANNEL_CLOCK_TYPE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "EvtChannelClockTypeSystemTime",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "EvtChannelClockTypeQPC",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
             "name": "EVT_CHANNEL_SID_TYPE",
-            "type": "_EVT_CHANNEL_SID_TYPE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "EvtChannelSidTypeNone",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "EvtChannelSidTypePublishing",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
             "name": "EVT_CHANNEL_REFERENCE_FLAGS",
-            "type": "_EVT_CHANNEL_REFERENCE_FLAGS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "EvtChannelReferenceImported",
+                        "value": {
+                            "type": "int",
+                            "value": "0x1"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "EVT_PUBLISHER_METADATA_PROPERTY_ID",
-            "type": "_EVT_PUBLISHER_METADATA_PROPERTY_ID",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "EvtPublisherMetadataPublisherGuid",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "EvtPublisherMetadataResourceFilePath",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtPublisherMetadataParameterFilePath",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtPublisherMetadataMessageFilePath",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtPublisherMetadataHelpLink",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtPublisherMetadataPublisherMessageID",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtPublisherMetadataChannelReferences",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtPublisherMetadataChannelReferencePath",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtPublisherMetadataChannelReferenceIndex",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtPublisherMetadataChannelReferenceID",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtPublisherMetadataChannelReferenceFlags",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtPublisherMetadataChannelReferenceMessageID",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtPublisherMetadataLevels",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtPublisherMetadataLevelName",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtPublisherMetadataLevelValue",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtPublisherMetadataLevelMessageID",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtPublisherMetadataTasks",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtPublisherMetadataTaskName",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtPublisherMetadataTaskEventGuid",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtPublisherMetadataTaskValue",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtPublisherMetadataTaskMessageID",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtPublisherMetadataOpcodes",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtPublisherMetadataOpcodeName",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtPublisherMetadataOpcodeValue",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtPublisherMetadataOpcodeMessageID",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtPublisherMetadataKeywords",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtPublisherMetadataKeywordName",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtPublisherMetadataKeywordValue",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtPublisherMetadataKeywordMessageID",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtPublisherMetadataPropertyIdEND",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
             "name": "EVT_EVENT_METADATA_PROPERTY_ID",
-            "type": "_EVT_EVENT_METADATA_PROPERTY_ID",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "EventMetadataEventID",
+                        "value": {}
+                    },
+                    {
+                        "name": "EventMetadataEventVersion",
+                        "value": {}
+                    },
+                    {
+                        "name": "EventMetadataEventChannel",
+                        "value": {}
+                    },
+                    {
+                        "name": "EventMetadataEventLevel",
+                        "value": {}
+                    },
+                    {
+                        "name": "EventMetadataEventOpcode",
+                        "value": {}
+                    },
+                    {
+                        "name": "EventMetadataEventTask",
+                        "value": {}
+                    },
+                    {
+                        "name": "EventMetadataEventKeyword",
+                        "value": {}
+                    },
+                    {
+                        "name": "EventMetadataEventMessageID",
+                        "value": {}
+                    },
+                    {
+                        "name": "EventMetadataEventTemplate",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtEventMetadataPropertyIdEND",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
             "name": "EVT_OBJECT_ARRAY_PROPERTY_HANDLE",
-            "data_type": "TypeDecl",
             "type": "HANDLE"
         },
         {
             "name": "EVT_QUERY_PROPERTY_ID",
-            "type": "_EVT_QUERY_PROPERTY_ID",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "EvtQueryNames",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtQueryStatuses",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtQueryPropertyIdEND",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
             "name": "EVT_EVENT_PROPERTY_ID",
-            "type": "_EVT_EVENT_PROPERTY_ID",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "EvtEventQueryIDs",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "EvtEventPath",
+                        "value": {}
+                    },
+                    {
+                        "name": "EvtEventPropertyIdEND",
+                        "value": {}
+                    }
+                ]
+            }
         }
     ],
     "funcdefs": [
         {
-            "name": "EvtOpenSession",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtOpenSession",
                 "type": "EVT_HANDLE"
             },
+            "name": "EvtOpenSession",
             "arguments": [
                 {
                     "name": "LoginClass",
-                    "data_type": "TypeDecl",
                     "type": "EVT_LOGIN_CLASS",
                     "sal": [
                         "in"
@@ -175,7 +1575,6 @@
                 },
                 {
                     "name": "Login",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -183,7 +1582,6 @@
                 },
                 {
                     "name": "Timeout",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -191,7 +1589,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -205,15 +1602,15 @@
             ]
         },
         {
-            "name": "EvtClose",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtClose",
                 "type": "BOOL"
             },
+            "name": "EvtClose",
             "arguments": [
                 {
                     "name": "Object",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -228,15 +1625,15 @@
             ]
         },
         {
-            "name": "EvtCancel",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtCancel",
                 "type": "BOOL"
             },
+            "name": "EvtCancel",
             "arguments": [
                 {
                     "name": "Object",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": []
                 }
@@ -246,15 +1643,15 @@
             ]
         },
         {
-            "name": "EvtGetExtendedStatus",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtGetExtendedStatus",
                 "type": "DWORD"
             },
+            "name": "EvtGetExtendedStatus",
             "arguments": [
                 {
                     "name": "BufferSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -262,7 +1659,6 @@
                 },
                 {
                     "name": "Buffer",
-                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "in"
@@ -270,7 +1666,6 @@
                 },
                 {
                     "name": "BufferUsed",
-                    "data_type": "TypeDecl",
                     "type": "PDWORD",
                     "sal": [
                         "out"
@@ -282,15 +1677,15 @@
             ]
         },
         {
-            "name": "EvtQuery",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtQuery",
                 "type": "EVT_HANDLE"
             },
+            "name": "EvtQuery",
             "arguments": [
                 {
                     "name": "Session",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -298,7 +1693,6 @@
                 },
                 {
                     "name": "Path",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -306,7 +1700,6 @@
                 },
                 {
                     "name": "Query",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -314,7 +1707,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -327,15 +1719,15 @@
             ]
         },
         {
-            "name": "EvtNext",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtNext",
                 "type": "BOOL"
             },
+            "name": "EvtNext",
             "arguments": [
                 {
                     "name": "ResultSet",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -343,7 +1735,6 @@
                 },
                 {
                     "name": "EventsSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -351,7 +1742,6 @@
                 },
                 {
                     "name": "Events",
-                    "data_type": "TypeDecl",
                     "type": "PEVT_HANDLE",
                     "sal": [
                         "in"
@@ -359,7 +1749,6 @@
                 },
                 {
                     "name": "Timeout",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -367,7 +1756,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -375,7 +1763,6 @@
                 },
                 {
                     "name": "Returned",
-                    "data_type": "TypeDecl",
                     "type": "PDWORD",
                     "sal": [
                         "out"
@@ -388,15 +1775,15 @@
             ]
         },
         {
-            "name": "EvtSeek",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtSeek",
                 "type": "BOOL"
             },
+            "name": "EvtSeek",
             "arguments": [
                 {
                     "name": "ResultSet",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -404,7 +1791,6 @@
                 },
                 {
                     "name": "Position",
-                    "data_type": "TypeDecl",
                     "type": "LONGLONG",
                     "sal": [
                         "in"
@@ -412,7 +1798,6 @@
                 },
                 {
                     "name": "Bookmark",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -420,7 +1805,6 @@
                 },
                 {
                     "name": "Timeout",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -428,7 +1812,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -440,15 +1823,15 @@
             ]
         },
         {
-            "name": "EvtSubscribe",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtSubscribe",
                 "type": "EVT_HANDLE"
             },
+            "name": "EvtSubscribe",
             "arguments": [
                 {
                     "name": "Session",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -456,7 +1839,6 @@
                 },
                 {
                     "name": "SignalEvent",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -464,7 +1846,6 @@
                 },
                 {
                     "name": "ChannelPath",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -472,7 +1853,6 @@
                 },
                 {
                     "name": "Query",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -480,7 +1860,6 @@
                 },
                 {
                     "name": "Bookmark",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -488,7 +1867,6 @@
                 },
                 {
                     "name": "Context",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -496,7 +1874,6 @@
                 },
                 {
                     "name": "Callback",
-                    "data_type": "TypeDecl",
                     "type": "EVT_SUBSCRIBE_CALLBACK",
                     "sal": [
                         "in"
@@ -504,7 +1881,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -519,34 +1895,31 @@
             ]
         },
         {
-            "name": "EvtCreateRenderContext",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtCreateRenderContext",
                 "type": "EVT_HANDLE"
             },
+            "name": "EvtCreateRenderContext",
             "arguments": [
                 {
                     "name": "ValuePathsCount",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ValuePaths",
                         "type": "LPCWSTR"
                     },
-                    "name": "ValuePaths",
                     "sal": [
                         "in"
                     ]
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -561,15 +1934,15 @@
             ]
         },
         {
-            "name": "EvtRender",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtRender",
                 "type": "BOOL"
             },
+            "name": "EvtRender",
             "arguments": [
                 {
                     "name": "Context",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -577,7 +1950,6 @@
                 },
                 {
                     "name": "Fragment",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -585,7 +1957,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -593,7 +1964,6 @@
                 },
                 {
                     "name": "BufferSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -601,7 +1971,6 @@
                 },
                 {
                     "name": "Buffer",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -609,7 +1978,6 @@
                 },
                 {
                     "name": "BufferUsed",
-                    "data_type": "TypeDecl",
                     "type": "PDWORD",
                     "sal": [
                         "out"
@@ -617,7 +1985,6 @@
                 },
                 {
                     "name": "PropertyCount",
-                    "data_type": "TypeDecl",
                     "type": "PDWORD",
                     "sal": [
                         "out"
@@ -632,15 +1999,15 @@
             ]
         },
         {
-            "name": "EvtFormatMessage",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtFormatMessage",
                 "type": "BOOL"
             },
+            "name": "EvtFormatMessage",
             "arguments": [
                 {
                     "name": "PublisherMetadata",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -648,7 +2015,6 @@
                 },
                 {
                     "name": "Event",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -656,7 +2022,6 @@
                 },
                 {
                     "name": "MessageId",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -664,7 +2029,6 @@
                 },
                 {
                     "name": "ValueCount",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -672,7 +2036,6 @@
                 },
                 {
                     "name": "Values",
-                    "data_type": "TypeDecl",
                     "type": "PEVT_VARIANT",
                     "sal": [
                         "in"
@@ -680,7 +2043,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -688,7 +2050,6 @@
                 },
                 {
                     "name": "BufferSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -696,7 +2057,6 @@
                 },
                 {
                     "name": "Buffer",
-                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "in"
@@ -704,7 +2064,6 @@
                 },
                 {
                     "name": "BufferUsed",
-                    "data_type": "TypeDecl",
                     "type": "PDWORD",
                     "sal": [
                         "out"
@@ -717,15 +2076,15 @@
             ]
         },
         {
-            "name": "EvtOpenLog",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtOpenLog",
                 "type": "EVT_HANDLE"
             },
+            "name": "EvtOpenLog",
             "arguments": [
                 {
                     "name": "Session",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -733,7 +2092,6 @@
                 },
                 {
                     "name": "Path",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -741,7 +2099,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -753,15 +2110,15 @@
             ]
         },
         {
-            "name": "EvtGetLogInfo",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtGetLogInfo",
                 "type": "BOOL"
             },
+            "name": "EvtGetLogInfo",
             "arguments": [
                 {
                     "name": "Log",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -769,7 +2126,6 @@
                 },
                 {
                     "name": "PropertyId",
-                    "data_type": "TypeDecl",
                     "type": "EVT_LOG_PROPERTY_ID",
                     "sal": [
                         "in"
@@ -777,7 +2133,6 @@
                 },
                 {
                     "name": "PropertyValueBufferSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -785,7 +2140,6 @@
                 },
                 {
                     "name": "PropertyValueBuffer",
-                    "data_type": "TypeDecl",
                     "type": "PEVT_VARIANT",
                     "sal": [
                         "in"
@@ -793,7 +2147,6 @@
                 },
                 {
                     "name": "PropertyValueBufferUsed",
-                    "data_type": "TypeDecl",
                     "type": "PDWORD",
                     "sal": [
                         "out"
@@ -805,15 +2158,15 @@
             ]
         },
         {
-            "name": "EvtClearLog",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtClearLog",
                 "type": "BOOL"
             },
+            "name": "EvtClearLog",
             "arguments": [
                 {
                     "name": "Session",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in",
@@ -822,7 +2175,6 @@
                 },
                 {
                     "name": "ChannelPath",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -830,7 +2182,6 @@
                 },
                 {
                     "name": "TargetFilePath",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in",
@@ -839,7 +2190,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -851,15 +2201,15 @@
             ]
         },
         {
-            "name": "EvtExportLog",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtExportLog",
                 "type": "BOOL"
             },
+            "name": "EvtExportLog",
             "arguments": [
                 {
                     "name": "Session",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in",
@@ -868,7 +2218,6 @@
                 },
                 {
                     "name": "Path",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -876,7 +2225,6 @@
                 },
                 {
                     "name": "Query",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -884,7 +2232,6 @@
                 },
                 {
                     "name": "TargetFilePath",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -892,7 +2239,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -907,15 +2253,15 @@
             ]
         },
         {
-            "name": "EvtArchiveExportedLog",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtArchiveExportedLog",
                 "type": "BOOL"
             },
+            "name": "EvtArchiveExportedLog",
             "arguments": [
                 {
                     "name": "Session",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -923,7 +2269,6 @@
                 },
                 {
                     "name": "LogFilePath",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -931,7 +2276,6 @@
                 },
                 {
                     "name": "Locale",
-                    "data_type": "TypeDecl",
                     "type": "LCID",
                     "sal": [
                         "in"
@@ -939,7 +2283,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -951,15 +2294,15 @@
             ]
         },
         {
-            "name": "EvtOpenChannelEnum",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtOpenChannelEnum",
                 "type": "EVT_HANDLE"
             },
+            "name": "EvtOpenChannelEnum",
             "arguments": [
                 {
                     "name": "Session",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -967,7 +2310,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -979,15 +2321,15 @@
             ]
         },
         {
-            "name": "EvtNextChannelPath",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtNextChannelPath",
                 "type": "BOOL"
             },
+            "name": "EvtNextChannelPath",
             "arguments": [
                 {
                     "name": "ChannelEnum",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -995,7 +2337,6 @@
                 },
                 {
                     "name": "ChannelPathBufferSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1003,7 +2344,6 @@
                 },
                 {
                     "name": "ChannelPathBuffer",
-                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "in"
@@ -1011,7 +2351,6 @@
                 },
                 {
                     "name": "ChannelPathBufferUsed",
-                    "data_type": "TypeDecl",
                     "type": "PDWORD",
                     "sal": [
                         "out"
@@ -1023,15 +2362,15 @@
             ]
         },
         {
-            "name": "EvtOpenChannelConfig",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtOpenChannelConfig",
                 "type": "EVT_HANDLE"
             },
+            "name": "EvtOpenChannelConfig",
             "arguments": [
                 {
                     "name": "Session",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -1039,7 +2378,6 @@
                 },
                 {
                     "name": "ChannelPath",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -1047,7 +2385,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1062,15 +2399,15 @@
             ]
         },
         {
-            "name": "EvtSaveChannelConfig",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtSaveChannelConfig",
                 "type": "BOOL"
             },
+            "name": "EvtSaveChannelConfig",
             "arguments": [
                 {
                     "name": "ChannelConfig",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -1078,7 +2415,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1091,15 +2427,15 @@
             ]
         },
         {
-            "name": "EvtSetChannelConfigProperty",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtSetChannelConfigProperty",
                 "type": "BOOL"
             },
+            "name": "EvtSetChannelConfigProperty",
             "arguments": [
                 {
                     "name": "ChannelConfig",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -1107,7 +2443,6 @@
                 },
                 {
                     "name": "PropertyId",
-                    "data_type": "TypeDecl",
                     "type": "EVT_CHANNEL_CONFIG_PROPERTY_ID",
                     "sal": [
                         "in"
@@ -1115,7 +2450,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1123,7 +2457,6 @@
                 },
                 {
                     "name": "PropertyValue",
-                    "data_type": "TypeDecl",
                     "type": "PEVT_VARIANT",
                     "sal": [
                         "in"
@@ -1136,15 +2469,15 @@
             ]
         },
         {
-            "name": "EvtGetChannelConfigProperty",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtGetChannelConfigProperty",
                 "type": "BOOL"
             },
+            "name": "EvtGetChannelConfigProperty",
             "arguments": [
                 {
                     "name": "ChannelConfig",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -1152,7 +2485,6 @@
                 },
                 {
                     "name": "PropertyId",
-                    "data_type": "TypeDecl",
                     "type": "EVT_CHANNEL_CONFIG_PROPERTY_ID",
                     "sal": [
                         "in"
@@ -1160,7 +2492,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1168,7 +2499,6 @@
                 },
                 {
                     "name": "PropertyValueBufferSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1176,7 +2506,6 @@
                 },
                 {
                     "name": "PropertyValueBuffer",
-                    "data_type": "TypeDecl",
                     "type": "PEVT_VARIANT",
                     "sal": [
                         "in"
@@ -1184,7 +2513,6 @@
                 },
                 {
                     "name": "PropertyValueBufferUsed",
-                    "data_type": "TypeDecl",
                     "type": "PDWORD",
                     "sal": [
                         "out"
@@ -1199,15 +2527,15 @@
             ]
         },
         {
-            "name": "EvtOpenPublisherEnum",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtOpenPublisherEnum",
                 "type": "EVT_HANDLE"
             },
+            "name": "EvtOpenPublisherEnum",
             "arguments": [
                 {
                     "name": "Session",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -1215,7 +2543,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1227,15 +2554,15 @@
             ]
         },
         {
-            "name": "EvtNextPublisherId",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtNextPublisherId",
                 "type": "BOOL"
             },
+            "name": "EvtNextPublisherId",
             "arguments": [
                 {
                     "name": "PublisherEnum",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -1243,7 +2570,6 @@
                 },
                 {
                     "name": "PublisherIdBufferSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1251,7 +2577,6 @@
                 },
                 {
                     "name": "PublisherIdBuffer",
-                    "data_type": "TypeDecl",
                     "type": "LPWSTR",
                     "sal": [
                         "in"
@@ -1259,7 +2584,6 @@
                 },
                 {
                     "name": "PublisherIdBufferUsed",
-                    "data_type": "TypeDecl",
                     "type": "PDWORD",
                     "sal": [
                         "out"
@@ -1271,15 +2595,15 @@
             ]
         },
         {
-            "name": "EvtOpenPublisherMetadata",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtOpenPublisherMetadata",
                 "type": "EVT_HANDLE"
             },
+            "name": "EvtOpenPublisherMetadata",
             "arguments": [
                 {
                     "name": "Session",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in",
@@ -1288,7 +2612,6 @@
                 },
                 {
                     "name": "PublisherId",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -1296,7 +2619,6 @@
                 },
                 {
                     "name": "LogFilePath",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in",
@@ -1305,7 +2627,6 @@
                 },
                 {
                     "name": "Locale",
-                    "data_type": "TypeDecl",
                     "type": "LCID",
                     "sal": [
                         "in"
@@ -1313,7 +2634,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1326,15 +2646,15 @@
             ]
         },
         {
-            "name": "EvtGetPublisherMetadataProperty",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtGetPublisherMetadataProperty",
                 "type": "BOOL"
             },
+            "name": "EvtGetPublisherMetadataProperty",
             "arguments": [
                 {
                     "name": "PublisherMetadata",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -1342,7 +2662,6 @@
                 },
                 {
                     "name": "PropertyId",
-                    "data_type": "TypeDecl",
                     "type": "EVT_PUBLISHER_METADATA_PROPERTY_ID",
                     "sal": [
                         "in"
@@ -1350,7 +2669,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1358,7 +2676,6 @@
                 },
                 {
                     "name": "PublisherMetadataPropertyBufferSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1366,7 +2683,6 @@
                 },
                 {
                     "name": "PublisherMetadataPropertyBuffer",
-                    "data_type": "TypeDecl",
                     "type": "PEVT_VARIANT",
                     "sal": [
                         "in"
@@ -1374,7 +2690,6 @@
                 },
                 {
                     "name": "PublisherMetadataPropertyBufferUsed",
-                    "data_type": "TypeDecl",
                     "type": "PDWORD",
                     "sal": [
                         "out"
@@ -1386,15 +2701,15 @@
             ]
         },
         {
-            "name": "EvtOpenEventMetadataEnum",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtOpenEventMetadataEnum",
                 "type": "EVT_HANDLE"
             },
+            "name": "EvtOpenEventMetadataEnum",
             "arguments": [
                 {
                     "name": "PublisherMetadata",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -1402,7 +2717,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1414,15 +2728,15 @@
             ]
         },
         {
-            "name": "EvtNextEventMetadata",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtNextEventMetadata",
                 "type": "EVT_HANDLE"
             },
+            "name": "EvtNextEventMetadata",
             "arguments": [
                 {
                     "name": "EventMetadataEnum",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -1430,7 +2744,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1442,15 +2755,15 @@
             ]
         },
         {
-            "name": "EvtGetEventMetadataProperty",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtGetEventMetadataProperty",
                 "type": "BOOL"
             },
+            "name": "EvtGetEventMetadataProperty",
             "arguments": [
                 {
                     "name": "EventMetadata",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -1458,7 +2771,6 @@
                 },
                 {
                     "name": "PropertyId",
-                    "data_type": "TypeDecl",
                     "type": "EVT_EVENT_METADATA_PROPERTY_ID",
                     "sal": [
                         "in"
@@ -1466,7 +2778,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1474,7 +2785,6 @@
                 },
                 {
                     "name": "EventMetadataPropertyBufferSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1482,7 +2792,6 @@
                 },
                 {
                     "name": "EventMetadataPropertyBuffer",
-                    "data_type": "TypeDecl",
                     "type": "PEVT_VARIANT",
                     "sal": [
                         "in"
@@ -1490,7 +2799,6 @@
                 },
                 {
                     "name": "EventMetadataPropertyBufferUsed",
-                    "data_type": "TypeDecl",
                     "type": "PDWORD",
                     "sal": [
                         "out"
@@ -1502,15 +2810,15 @@
             ]
         },
         {
-            "name": "EvtGetObjectArraySize",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtGetObjectArraySize",
                 "type": "BOOL"
             },
+            "name": "EvtGetObjectArraySize",
             "arguments": [
                 {
                     "name": "ObjectArray",
-                    "data_type": "TypeDecl",
                     "type": "EVT_OBJECT_ARRAY_PROPERTY_HANDLE",
                     "sal": [
                         "in"
@@ -1518,7 +2826,6 @@
                 },
                 {
                     "name": "ObjectArraySize",
-                    "data_type": "TypeDecl",
                     "type": "PDWORD",
                     "sal": [
                         "out"
@@ -1530,15 +2837,15 @@
             ]
         },
         {
-            "name": "EvtGetObjectArrayProperty",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtGetObjectArrayProperty",
                 "type": "BOOL"
             },
+            "name": "EvtGetObjectArrayProperty",
             "arguments": [
                 {
                     "name": "ObjectArray",
-                    "data_type": "TypeDecl",
                     "type": "EVT_OBJECT_ARRAY_PROPERTY_HANDLE",
                     "sal": [
                         "in"
@@ -1546,7 +2853,6 @@
                 },
                 {
                     "name": "PropertyId",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1554,7 +2860,6 @@
                 },
                 {
                     "name": "ArrayIndex",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1562,7 +2867,6 @@
                 },
                 {
                     "name": "Flags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1570,7 +2874,6 @@
                 },
                 {
                     "name": "PropertyValueBufferSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1578,7 +2881,6 @@
                 },
                 {
                     "name": "PropertyValueBuffer",
-                    "data_type": "TypeDecl",
                     "type": "PEVT_VARIANT",
                     "sal": [
                         "in"
@@ -1586,7 +2888,6 @@
                 },
                 {
                     "name": "PropertyValueBufferUsed",
-                    "data_type": "TypeDecl",
                     "type": "PDWORD",
                     "sal": [
                         "out"
@@ -1598,15 +2899,15 @@
             ]
         },
         {
-            "name": "EvtGetQueryInfo",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtGetQueryInfo",
                 "type": "BOOL"
             },
+            "name": "EvtGetQueryInfo",
             "arguments": [
                 {
                     "name": "QueryOrSubscription",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -1614,7 +2915,6 @@
                 },
                 {
                     "name": "PropertyId",
-                    "data_type": "TypeDecl",
                     "type": "EVT_QUERY_PROPERTY_ID",
                     "sal": [
                         "in"
@@ -1622,7 +2922,6 @@
                 },
                 {
                     "name": "PropertyValueBufferSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1630,7 +2929,6 @@
                 },
                 {
                     "name": "PropertyValueBuffer",
-                    "data_type": "TypeDecl",
                     "type": "PEVT_VARIANT",
                     "sal": [
                         "in"
@@ -1638,7 +2936,6 @@
                 },
                 {
                     "name": "PropertyValueBufferUsed",
-                    "data_type": "TypeDecl",
                     "type": "PDWORD",
                     "sal": [
                         "out"
@@ -1650,15 +2947,15 @@
             ]
         },
         {
-            "name": "EvtCreateBookmark",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtCreateBookmark",
                 "type": "EVT_HANDLE"
             },
+            "name": "EvtCreateBookmark",
             "arguments": [
                 {
                     "name": "BookmarkXml",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in",
@@ -1671,15 +2968,15 @@
             ]
         },
         {
-            "name": "EvtUpdateBookmark",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtUpdateBookmark",
                 "type": "BOOL"
             },
+            "name": "EvtUpdateBookmark",
             "arguments": [
                 {
                     "name": "Bookmark",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -1687,7 +2984,6 @@
                 },
                 {
                     "name": "Event",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -1699,15 +2995,15 @@
             ]
         },
         {
-            "name": "EvtGetEventInfo",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "EvtGetEventInfo",
                 "type": "BOOL"
             },
+            "name": "EvtGetEventInfo",
             "arguments": [
                 {
                     "name": "Event",
-                    "data_type": "TypeDecl",
                     "type": "EVT_HANDLE",
                     "sal": [
                         "in"
@@ -1715,7 +3011,6 @@
                 },
                 {
                     "name": "PropertyId",
-                    "data_type": "TypeDecl",
                     "type": "EVT_EVENT_PROPERTY_ID",
                     "sal": [
                         "in"
@@ -1723,7 +3018,6 @@
                 },
                 {
                     "name": "PropertyValueBufferSize",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1731,7 +3025,6 @@
                 },
                 {
                     "name": "PropertyValueBuffer",
-                    "data_type": "TypeDecl",
                     "type": "PEVT_VARIANT",
                     "sal": [
                         "in"
@@ -1739,7 +3032,6 @@
                 },
                 {
                     "name": "PropertyValueBufferUsed",
-                    "data_type": "TypeDecl",
                     "type": "PDWORD",
                     "sal": [
                         "out"

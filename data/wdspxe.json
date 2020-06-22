@@ -2,163 +2,719 @@
     "typedefs": [
         {
             "name": "PXE_DHCP_OPTION",
-            "type": "tagPXE_DHCP_OPTION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "tagPXE_DHCP_OPTION",
+                "elements": [
+                    {
+                        "name": "OptionType",
+                        "type": "BYTE"
+                    },
+                    {
+                        "name": "OptionLength",
+                        "type": "BYTE"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "1"
+                        },
+                        "name": "OptionValue"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PPXE_DHCP_OPTION",
             "type": {
-                "type": "tagPXE_DHCP_OPTION",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "tagPXE_DHCP_OPTION",
+                "elements": [
+                    {
+                        "name": "OptionType",
+                        "type": "BYTE"
+                    },
+                    {
+                        "name": "OptionLength",
+                        "type": "BYTE"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "1"
+                        },
+                        "name": "OptionValue"
+                    }
+                ]
             },
-            "name": "PPXE_DHCP_OPTION"
+            "data_type": "Ptr"
         },
         {
             "name": "PXE_DHCP_MESSAGE",
-            "type": "tagPXE_DHCP_MESSAGE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "tagPXE_DHCP_MESSAGE",
+                "elements": [
+                    {
+                        "name": "Operation",
+                        "type": "BYTE"
+                    },
+                    {
+                        "name": "HardwareAddressType",
+                        "type": "BYTE"
+                    },
+                    {
+                        "name": "HardwareAddressLength",
+                        "type": "BYTE"
+                    },
+                    {
+                        "name": "HopCount",
+                        "type": "BYTE"
+                    },
+                    {
+                        "name": "TransactionID",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "SecondsSinceBoot",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "Reserved",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "ClientIpAddress",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "YourIpAddress",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "BootstrapServerAddress",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "RelayAgentIpAddress",
+                        "type": "ULONG"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "16"
+                        },
+                        "name": "HardwareAddress"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "64"
+                        },
+                        "name": "HostName"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "128"
+                        },
+                        "name": "BootFileName"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "data_type": "ArrayDecl",
+                                "dim": {
+                                    "type": "int",
+                                    "value": "4"
+                                },
+                                "name": "bMagicCookie"
+                            },
+                            {
+                                "name": "uMagicCookie",
+                                "type": "ULONG"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Option",
+                        "type": "PXE_DHCP_OPTION"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PPXE_DHCP_MESSAGE",
             "type": {
-                "type": "tagPXE_DHCP_MESSAGE",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "tagPXE_DHCP_MESSAGE",
+                "elements": [
+                    {
+                        "name": "Operation",
+                        "type": "BYTE"
+                    },
+                    {
+                        "name": "HardwareAddressType",
+                        "type": "BYTE"
+                    },
+                    {
+                        "name": "HardwareAddressLength",
+                        "type": "BYTE"
+                    },
+                    {
+                        "name": "HopCount",
+                        "type": "BYTE"
+                    },
+                    {
+                        "name": "TransactionID",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "SecondsSinceBoot",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "Reserved",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "ClientIpAddress",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "YourIpAddress",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "BootstrapServerAddress",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "RelayAgentIpAddress",
+                        "type": "ULONG"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "16"
+                        },
+                        "name": "HardwareAddress"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "64"
+                        },
+                        "name": "HostName"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "128"
+                        },
+                        "name": "BootFileName"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "data_type": "ArrayDecl",
+                                "dim": {
+                                    "type": "int",
+                                    "value": "4"
+                                },
+                                "name": "bMagicCookie"
+                            },
+                            {
+                                "name": "uMagicCookie",
+                                "type": "ULONG"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Option",
+                        "type": "PXE_DHCP_OPTION"
+                    }
+                ]
             },
-            "name": "PPXE_DHCP_MESSAGE"
+            "data_type": "Ptr"
         },
         {
             "name": "PXE_DHCPV6_OPTION",
-            "type": "tagPXE_DHCPV6_OPTION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "tagPXE_DHCPV6_OPTION",
+                "elements": [
+                    {
+                        "name": "OptionCode",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "DataLength",
+                        "type": "WORD"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "1"
+                        },
+                        "name": "Data"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PPXE_DHCPV6_OPTION",
             "type": {
-                "type": "tagPXE_DHCPV6_OPTION",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "tagPXE_DHCPV6_OPTION",
+                "elements": [
+                    {
+                        "name": "OptionCode",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "DataLength",
+                        "type": "WORD"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "1"
+                        },
+                        "name": "Data"
+                    }
+                ]
             },
-            "name": "PPXE_DHCPV6_OPTION"
+            "data_type": "Ptr"
         },
         {
             "name": "PXE_DHCPV6_MESSAGE_HEADER",
-            "type": "tagPXE_DHCPV6_MESSAGE_HEADER",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "tagPXE_DHCPV6_MESSAGE_HEADER",
+                "elements": [
+                    {
+                        "name": "MessageType",
+                        "type": "BYTE"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "1"
+                        },
+                        "name": "Message"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PPXE_DHCPV6_MESSAGE_HEADER",
             "type": {
-                "type": "tagPXE_DHCPV6_MESSAGE_HEADER",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "tagPXE_DHCPV6_MESSAGE_HEADER",
+                "elements": [
+                    {
+                        "name": "MessageType",
+                        "type": "BYTE"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "1"
+                        },
+                        "name": "Message"
+                    }
+                ]
             },
-            "name": "PPXE_DHCPV6_MESSAGE_HEADER"
+            "data_type": "Ptr"
         },
         {
             "name": "PXE_DHCPV6_MESSAGE",
-            "type": "tagPXE_DHCPV6_MESSAGE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "tagPXE_DHCPV6_MESSAGE",
+                "elements": [
+                    {
+                        "name": "MessageType",
+                        "type": "BYTE"
+                    },
+                    {
+                        "name": "TransactionIDByte1",
+                        "type": "BYTE"
+                    },
+                    {
+                        "name": "TransactionIDByte2",
+                        "type": "BYTE"
+                    },
+                    {
+                        "name": "TransactionIDByte3",
+                        "type": "BYTE"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "1"
+                        },
+                        "name": "Options"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PPXE_DHCPV6_MESSAGE",
             "type": {
-                "type": "tagPXE_DHCPV6_MESSAGE",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "tagPXE_DHCPV6_MESSAGE",
+                "elements": [
+                    {
+                        "name": "MessageType",
+                        "type": "BYTE"
+                    },
+                    {
+                        "name": "TransactionIDByte1",
+                        "type": "BYTE"
+                    },
+                    {
+                        "name": "TransactionIDByte2",
+                        "type": "BYTE"
+                    },
+                    {
+                        "name": "TransactionIDByte3",
+                        "type": "BYTE"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "1"
+                        },
+                        "name": "Options"
+                    }
+                ]
             },
-            "name": "PPXE_DHCPV6_MESSAGE"
+            "data_type": "Ptr"
         },
         {
             "name": "PXE_DHCPV6_RELAY_MESSAGE",
-            "type": "tagPXE_DHCPV6_RELAY_MESSAGE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "tagPXE_DHCPV6_RELAY_MESSAGE",
+                "elements": [
+                    {
+                        "name": "MessageType",
+                        "type": "BYTE"
+                    },
+                    {
+                        "name": "HopCount",
+                        "type": "BYTE"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "16"
+                        },
+                        "name": "LinkAddress"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "16"
+                        },
+                        "name": "PeerAddress"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "1"
+                        },
+                        "name": "Options"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PPXE_DHCPV6_RELAY_MESSAGE",
             "type": {
-                "type": "tagPXE_DHCPV6_RELAY_MESSAGE",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "tagPXE_DHCPV6_RELAY_MESSAGE",
+                "elements": [
+                    {
+                        "name": "MessageType",
+                        "type": "BYTE"
+                    },
+                    {
+                        "name": "HopCount",
+                        "type": "BYTE"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "16"
+                        },
+                        "name": "LinkAddress"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "16"
+                        },
+                        "name": "PeerAddress"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "1"
+                        },
+                        "name": "Options"
+                    }
+                ]
             },
-            "name": "PPXE_DHCPV6_RELAY_MESSAGE"
+            "data_type": "Ptr"
         },
         {
             "name": "PXE_REG_INDEX",
-            "data_type": "TypeDecl",
             "type": "ULONG"
         },
         {
             "name": "PXE_PROVIDER",
-            "type": "tagPXE_PROVIDER",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "tagPXE_PROVIDER",
+                "elements": [
+                    {
+                        "name": "uSizeOfStruct",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "pwszName",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pwszFilePath",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "bIsCritical",
+                        "type": "BOOL"
+                    },
+                    {
+                        "name": "uIndex",
+                        "type": "ULONG"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PPXE_PROVIDER",
             "type": {
-                "type": "tagPXE_PROVIDER",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "tagPXE_PROVIDER",
+                "elements": [
+                    {
+                        "name": "uSizeOfStruct",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "pwszName",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "pwszFilePath",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "bIsCritical",
+                        "type": "BOOL"
+                    },
+                    {
+                        "name": "uIndex",
+                        "type": "ULONG"
+                    }
+                ]
             },
-            "name": "PPXE_PROVIDER"
+            "data_type": "Ptr"
         },
         {
             "name": "PXE_CALLBACK_TYPE",
-            "data_type": "TypeDecl",
             "type": "ULONG"
         },
         {
             "name": "PXE_GSI_TYPE",
-            "data_type": "TypeDecl",
             "type": "ULONG"
         },
         {
             "name": "PXE_ADDRESS",
-            "type": "tagPXE_ADDRESS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "tagPXE_ADDRESS",
+                "elements": [
+                    {
+                        "name": "uFlags",
+                        "type": "ULONG"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "data_type": "ArrayDecl",
+                                "dim": {
+                                    "type": "int",
+                                    "value": "16"
+                                },
+                                "name": "bAddress"
+                            },
+                            {
+                                "name": "uIpAddress",
+                                "type": "ULONG"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "uAddrLen",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "uPort",
+                        "type": "USHORT"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PPXE_ADDRESS",
             "type": {
-                "type": "tagPXE_ADDRESS",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "tagPXE_ADDRESS",
+                "elements": [
+                    {
+                        "name": "uFlags",
+                        "type": "ULONG"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "data_type": "ArrayDecl",
+                                "dim": {
+                                    "type": "int",
+                                    "value": "16"
+                                },
+                                "name": "bAddress"
+                            },
+                            {
+                                "name": "uIpAddress",
+                                "type": "ULONG"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "uAddrLen",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "uPort",
+                        "type": "USHORT"
+                    }
+                ]
             },
-            "name": "PPXE_ADDRESS"
+            "data_type": "Ptr"
         },
         {
             "name": "PXE_DHCPV6_NESTED_RELAY_MESSAGE",
-            "type": "tagPXE_DHCPV6_NESTED_RELAY_MESSAGE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "tagPXE_DHCPV6_NESTED_RELAY_MESSAGE",
+                "elements": [
+                    {
+                        "name": "pRelayMessage",
+                        "type": "PPXE_DHCPV6_RELAY_MESSAGE"
+                    },
+                    {
+                        "name": "cbRelayMessage",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "pInterfaceIdOption",
+                        "type": "PVOID"
+                    },
+                    {
+                        "name": "cbInterfaceIdOption",
+                        "type": "WORD"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PPXE_DHCPV6_NESTED_RELAY_MESSAGE",
             "type": {
-                "type": "tagPXE_DHCPV6_NESTED_RELAY_MESSAGE",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "tagPXE_DHCPV6_NESTED_RELAY_MESSAGE",
+                "elements": [
+                    {
+                        "name": "pRelayMessage",
+                        "type": "PPXE_DHCPV6_RELAY_MESSAGE"
+                    },
+                    {
+                        "name": "cbRelayMessage",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "pInterfaceIdOption",
+                        "type": "PVOID"
+                    },
+                    {
+                        "name": "cbInterfaceIdOption",
+                        "type": "WORD"
+                    }
+                ]
             },
-            "name": "PPXE_DHCPV6_NESTED_RELAY_MESSAGE"
+            "data_type": "Ptr"
         },
         {
             "name": "PXE_BOOT_ACTION",
-            "data_type": "TypeDecl",
             "type": "ULONG"
         },
         {
             "name": "PXE_SEVERITY",
-            "data_type": "TypeDecl",
             "type": "ULONG"
         },
         {
             "name": "PXE_PROVIDER_ATTRIBUTE",
-            "data_type": "TypeDecl",
             "type": "ULONG"
         }
     ],
     "funcdefs": [
         {
-            "name": "PxeProviderRegister",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PxeProviderRegister",
                 "type": "DWORD"
             },
+            "name": "PxeProviderRegister",
             "arguments": [
                 {
                     "name": "pszProviderName",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -166,7 +722,6 @@
                 },
                 {
                     "name": "pszModulePath",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -174,7 +729,6 @@
                 },
                 {
                     "name": "Index",
-                    "data_type": "TypeDecl",
                     "type": "PXE_REG_INDEX",
                     "sal": [
                         "in"
@@ -182,7 +736,6 @@
                 },
                 {
                     "name": "bIsCritical",
-                    "data_type": "TypeDecl",
                     "type": "BOOL",
                     "sal": [
                         "in"
@@ -190,7 +743,6 @@
                 },
                 {
                     "name": "phProviderKey",
-                    "data_type": "TypeDecl",
                     "type": "PHKEY",
                     "sal": [
                         "out"
@@ -202,15 +754,15 @@
             ]
         },
         {
-            "name": "PxeProviderUnRegister",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PxeProviderUnRegister",
                 "type": "DWORD"
             },
+            "name": "PxeProviderUnRegister",
             "arguments": [
                 {
                     "name": "pszProviderName",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -222,15 +774,15 @@
             ]
         },
         {
-            "name": "PxeProviderQueryIndex",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PxeProviderQueryIndex",
                 "type": "DWORD"
             },
+            "name": "PxeProviderQueryIndex",
             "arguments": [
                 {
                     "name": "pszProviderName",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -238,7 +790,6 @@
                 },
                 {
                     "name": "puIndex",
-                    "data_type": "TypeDecl",
                     "type": "PULONG",
                     "sal": [
                         "out"
@@ -250,19 +801,18 @@
             ]
         },
         {
-            "name": "PxeProviderEnumFirst",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PxeProviderEnumFirst",
                 "type": "DWORD"
             },
+            "name": "PxeProviderEnumFirst",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "phEnum",
                         "type": "HANDLE"
                     },
-                    "name": "phEnum",
                     "sal": [
                         "out"
                     ]
@@ -273,27 +823,25 @@
             ]
         },
         {
-            "name": "PxeProviderEnumNext",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PxeProviderEnumNext",
                 "type": "DWORD"
             },
+            "name": "PxeProviderEnumNext",
             "arguments": [
                 {
                     "name": "hEnum",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppProvider",
                         "type": "PPXE_PROVIDER"
                     },
-                    "name": "ppProvider",
                     "sal": [
                         "out"
                     ]
@@ -304,15 +852,15 @@
             ]
         },
         {
-            "name": "PxeProviderEnumClose",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PxeProviderEnumClose",
                 "type": "DWORD"
             },
+            "name": "PxeProviderEnumClose",
             "arguments": [
                 {
                     "name": "hEnum",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -324,15 +872,15 @@
             ]
         },
         {
-            "name": "PxeProviderFreeInfo",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PxeProviderFreeInfo",
                 "type": "DWORD"
             },
+            "name": "PxeProviderFreeInfo",
             "arguments": [
                 {
                     "name": "pProvider",
-                    "data_type": "TypeDecl",
                     "type": "PPXE_PROVIDER",
                     "sal": [
                         "in"
@@ -344,15 +892,15 @@
             ]
         },
         {
-            "name": "PxeRegisterCallback",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PxeRegisterCallback",
                 "type": "DWORD"
             },
+            "name": "PxeRegisterCallback",
             "arguments": [
                 {
                     "name": "hProvider",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -360,7 +908,6 @@
                 },
                 {
                     "name": "CallbackType",
-                    "data_type": "TypeDecl",
                     "type": "PXE_CALLBACK_TYPE",
                     "sal": [
                         "in"
@@ -368,7 +915,6 @@
                 },
                 {
                     "name": "pCallbackFunction",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -376,7 +922,6 @@
                 },
                 {
                     "name": "pContext",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -388,15 +933,15 @@
             ]
         },
         {
-            "name": "PxeSendReply",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PxeSendReply",
                 "type": "DWORD"
             },
+            "name": "PxeSendReply",
             "arguments": [
                 {
                     "name": "hClientRequest",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -404,7 +949,6 @@
                 },
                 {
                     "name": "pPacket",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -412,19 +956,16 @@
                 },
                 {
                     "name": "uPacketLen",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pAddress",
                         "type": "PXE_ADDRESS"
                     },
-                    "name": "pAddress",
                     "sal": [
                         "in"
                     ]
@@ -435,15 +976,15 @@
             ]
         },
         {
-            "name": "PxeAsyncRecvDone",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PxeAsyncRecvDone",
                 "type": "DWORD"
             },
+            "name": "PxeAsyncRecvDone",
             "arguments": [
                 {
                     "name": "hClientRequest",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -451,7 +992,6 @@
                 },
                 {
                     "name": "Action",
-                    "data_type": "TypeDecl",
                     "type": "PXE_BOOT_ACTION",
                     "sal": [
                         "in"
@@ -463,15 +1003,15 @@
             ]
         },
         {
-            "name": "PxeTrace",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PxeTrace",
                 "type": "DWORD"
             },
+            "name": "PxeTrace",
             "arguments": [
                 {
                     "name": "hProvider",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -479,7 +1019,6 @@
                 },
                 {
                     "name": "Severity",
-                    "data_type": "TypeDecl",
                     "type": "PXE_SEVERITY",
                     "sal": [
                         "in"
@@ -487,7 +1026,6 @@
                 },
                 {
                     "name": "pszFormat",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in"
@@ -499,15 +1037,15 @@
             ]
         },
         {
-            "name": "PxePacketAllocate",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PxePacketAllocate",
                 "type": "PVOID"
             },
+            "name": "PxePacketAllocate",
             "arguments": [
                 {
                     "name": "hProvider",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -515,7 +1053,6 @@
                 },
                 {
                     "name": "hClientRequest",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -523,7 +1060,6 @@
                 },
                 {
                     "name": "uSize",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -535,15 +1071,15 @@
             ]
         },
         {
-            "name": "PxePacketFree",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PxePacketFree",
                 "type": "DWORD"
             },
+            "name": "PxePacketFree",
             "arguments": [
                 {
                     "name": "hProvider",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -551,7 +1087,6 @@
                 },
                 {
                     "name": "hClientRequest",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -559,7 +1094,6 @@
                 },
                 {
                     "name": "pPacket",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -571,15 +1105,15 @@
             ]
         },
         {
-            "name": "PxeProviderSetAttribute",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PxeProviderSetAttribute",
                 "type": "DWORD"
             },
+            "name": "PxeProviderSetAttribute",
             "arguments": [
                 {
                     "name": "hProvider",
-                    "data_type": "TypeDecl",
                     "type": "HANDLE",
                     "sal": [
                         "in"
@@ -587,7 +1121,6 @@
                 },
                 {
                     "name": "Attribute",
-                    "data_type": "TypeDecl",
                     "type": "PXE_PROVIDER_ATTRIBUTE",
                     "sal": [
                         "in"
@@ -595,7 +1128,6 @@
                 },
                 {
                     "name": "pParameterBuffer",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -603,7 +1135,6 @@
                 },
                 {
                     "name": "uParamLen",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -615,15 +1146,15 @@
             ]
         },
         {
-            "name": "PxeDhcpInitialize",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PxeDhcpInitialize",
                 "type": "DWORD"
             },
+            "name": "PxeDhcpInitialize",
             "arguments": [
                 {
                     "name": "pRecvPacket",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -631,7 +1162,6 @@
                 },
                 {
                     "name": "uRecvPacketLen",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -639,7 +1169,6 @@
                 },
                 {
                     "name": "pReplyPacket",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in",
@@ -648,7 +1177,6 @@
                 },
                 {
                     "name": "uMaxReplyPacketLen",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -656,7 +1184,6 @@
                 },
                 {
                     "name": "puReplyPacketLen",
-                    "data_type": "TypeDecl",
                     "type": "PULONG",
                     "sal": [
                         "out"
@@ -668,15 +1195,15 @@
             ]
         },
         {
-            "name": "PxeDhcpv6Initialize",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PxeDhcpv6Initialize",
                 "type": "DWORD"
             },
+            "name": "PxeDhcpv6Initialize",
             "arguments": [
                 {
                     "name": "pRequest",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -684,7 +1211,6 @@
                 },
                 {
                     "name": "cbRequest",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -692,7 +1218,6 @@
                 },
                 {
                     "name": "pReply",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in",
@@ -701,7 +1226,6 @@
                 },
                 {
                     "name": "cbReply",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -709,7 +1233,6 @@
                 },
                 {
                     "name": "pcbReplyUsed",
-                    "data_type": "TypeDecl",
                     "type": "PULONG",
                     "sal": [
                         "out"
@@ -721,15 +1244,15 @@
             ]
         },
         {
-            "name": "PxeDhcpAppendOption",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PxeDhcpAppendOption",
                 "type": "DWORD"
             },
+            "name": "PxeDhcpAppendOption",
             "arguments": [
                 {
                     "name": "pReplyPacket",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in",
@@ -738,7 +1261,6 @@
                 },
                 {
                     "name": "uMaxReplyPacketLen",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -746,7 +1268,6 @@
                 },
                 {
                     "name": "puReplyPacketLen",
-                    "data_type": "TypeDecl",
                     "type": "PULONG",
                     "sal": [
                         "in",
@@ -755,7 +1276,6 @@
                 },
                 {
                     "name": "bOption",
-                    "data_type": "TypeDecl",
                     "type": "BYTE",
                     "sal": [
                         "in"
@@ -763,7 +1283,6 @@
                 },
                 {
                     "name": "bOptionLen",
-                    "data_type": "TypeDecl",
                     "type": "BYTE",
                     "sal": [
                         "in"
@@ -771,7 +1290,6 @@
                 },
                 {
                     "name": "pValue",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -783,15 +1301,15 @@
             ]
         },
         {
-            "name": "PxeDhcpv6AppendOption",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PxeDhcpv6AppendOption",
                 "type": "DWORD"
             },
+            "name": "PxeDhcpv6AppendOption",
             "arguments": [
                 {
                     "name": "pReply",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in",
@@ -800,7 +1318,6 @@
                 },
                 {
                     "name": "cbReply",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -808,7 +1325,6 @@
                 },
                 {
                     "name": "pcbReplyUsed",
-                    "data_type": "TypeDecl",
                     "type": "PULONG",
                     "sal": [
                         "in",
@@ -817,7 +1333,6 @@
                 },
                 {
                     "name": "wOptionType",
-                    "data_type": "TypeDecl",
                     "type": "WORD",
                     "sal": [
                         "in"
@@ -825,7 +1340,6 @@
                 },
                 {
                     "name": "cbOption",
-                    "data_type": "TypeDecl",
                     "type": "WORD",
                     "sal": [
                         "in"
@@ -833,7 +1347,6 @@
                 },
                 {
                     "name": "pOption",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -845,15 +1358,15 @@
             ]
         },
         {
-            "name": "PxeDhcpAppendOptionRaw",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PxeDhcpAppendOptionRaw",
                 "type": "DWORD"
             },
+            "name": "PxeDhcpAppendOptionRaw",
             "arguments": [
                 {
                     "name": "pReplyPacket",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in",
@@ -862,7 +1375,6 @@
                 },
                 {
                     "name": "uMaxReplyPacketLen",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -870,7 +1382,6 @@
                 },
                 {
                     "name": "puReplyPacketLen",
-                    "data_type": "TypeDecl",
                     "type": "PULONG",
                     "sal": [
                         "in",
@@ -879,7 +1390,6 @@
                 },
                 {
                     "name": "uBufferLen",
-                    "data_type": "TypeDecl",
                     "type": "USHORT",
                     "sal": [
                         "in"
@@ -887,7 +1397,6 @@
                 },
                 {
                     "name": "pBuffer",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -899,15 +1408,15 @@
             ]
         },
         {
-            "name": "PxeDhcpv6AppendOptionRaw",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PxeDhcpv6AppendOptionRaw",
                 "type": "DWORD"
             },
+            "name": "PxeDhcpv6AppendOptionRaw",
             "arguments": [
                 {
                     "name": "pReply",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in",
@@ -916,7 +1425,6 @@
                 },
                 {
                     "name": "cbReply",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -924,7 +1432,6 @@
                 },
                 {
                     "name": "pcbReplyUsed",
-                    "data_type": "TypeDecl",
                     "type": "PULONG",
                     "sal": [
                         "in",
@@ -933,7 +1440,6 @@
                 },
                 {
                     "name": "cbBuffer",
-                    "data_type": "TypeDecl",
                     "type": "USHORT",
                     "sal": [
                         "in"
@@ -941,7 +1447,6 @@
                 },
                 {
                     "name": "pBuffer",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -953,15 +1458,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "PxeDhcpIsValid",
+                "type": "DWORD"
+            },
             "name": "PxeDhcpIsValid",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "DWORD"
-            },
             "arguments": [
                 {
                     "name": "pPacket",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -969,7 +1474,6 @@
                 },
                 {
                     "name": "uPacketLen",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -977,7 +1481,6 @@
                 },
                 {
                     "name": "bRequestPacket",
-                    "data_type": "TypeDecl",
                     "type": "BOOL",
                     "sal": [
                         "in"
@@ -985,7 +1488,6 @@
                 },
                 {
                     "name": "pbPxeOptionPresent",
-                    "data_type": "TypeDecl",
                     "type": "PBOOL",
                     "sal": [
                         "out"
@@ -997,15 +1499,15 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "PxeDhcpv6IsValid",
+                "type": "DWORD"
+            },
             "name": "PxeDhcpv6IsValid",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "DWORD"
-            },
             "arguments": [
                 {
                     "name": "pPacket",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -1013,7 +1515,6 @@
                 },
                 {
                     "name": "uPacketLen",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -1021,7 +1522,6 @@
                 },
                 {
                     "name": "bRequestPacket",
-                    "data_type": "TypeDecl",
                     "type": "BOOL",
                     "sal": [
                         "in"
@@ -1029,7 +1529,6 @@
                 },
                 {
                     "name": "pbPxeOptionPresent",
-                    "data_type": "TypeDecl",
                     "type": "PBOOL",
                     "sal": [
                         "out"
@@ -1041,15 +1540,15 @@
             ]
         },
         {
-            "name": "PxeDhcpGetOptionValue",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PxeDhcpGetOptionValue",
                 "type": "DWORD"
             },
+            "name": "PxeDhcpGetOptionValue",
             "arguments": [
                 {
                     "name": "pPacket",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -1057,7 +1556,6 @@
                 },
                 {
                     "name": "uPacketLen",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -1065,7 +1563,6 @@
                 },
                 {
                     "name": "uInstance",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -1073,7 +1570,6 @@
                 },
                 {
                     "name": "bOption",
-                    "data_type": "TypeDecl",
                     "type": "BYTE",
                     "sal": [
                         "in"
@@ -1081,7 +1577,6 @@
                 },
                 {
                     "name": "pbOptionLen",
-                    "data_type": "TypeDecl",
                     "type": "PBYTE",
                     "sal": [
                         "out",
@@ -1089,12 +1584,10 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppOptionValue",
                         "type": "PVOID"
                     },
-                    "name": "ppOptionValue",
                     "sal": [
                         "out",
                         "optional"
@@ -1106,15 +1599,15 @@
             ]
         },
         {
-            "name": "PxeDhcpv6GetOptionValue",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PxeDhcpv6GetOptionValue",
                 "type": "DWORD"
             },
+            "name": "PxeDhcpv6GetOptionValue",
             "arguments": [
                 {
                     "name": "pPacket",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -1122,7 +1615,6 @@
                 },
                 {
                     "name": "uPacketLen",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -1130,7 +1622,6 @@
                 },
                 {
                     "name": "uInstance",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -1138,7 +1629,6 @@
                 },
                 {
                     "name": "wOption",
-                    "data_type": "TypeDecl",
                     "type": "WORD",
                     "sal": [
                         "in"
@@ -1146,7 +1636,6 @@
                 },
                 {
                     "name": "pwOptionLen",
-                    "data_type": "TypeDecl",
                     "type": "PWORD",
                     "sal": [
                         "out",
@@ -1154,12 +1643,10 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppOptionValue",
                         "type": "PVOID"
                     },
-                    "name": "ppOptionValue",
                     "sal": [
                         "out",
                         "optional"
@@ -1171,15 +1658,15 @@
             ]
         },
         {
-            "name": "PxeDhcpGetVendorOptionValue",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PxeDhcpGetVendorOptionValue",
                 "type": "DWORD"
             },
+            "name": "PxeDhcpGetVendorOptionValue",
             "arguments": [
                 {
                     "name": "pPacket",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -1187,7 +1674,6 @@
                 },
                 {
                     "name": "uPacketLen",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -1195,7 +1681,6 @@
                 },
                 {
                     "name": "bOption",
-                    "data_type": "TypeDecl",
                     "type": "BYTE",
                     "sal": [
                         "in"
@@ -1203,7 +1688,6 @@
                 },
                 {
                     "name": "uInstance",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -1211,7 +1695,6 @@
                 },
                 {
                     "name": "pbOptionLen",
-                    "data_type": "TypeDecl",
                     "type": "PBYTE",
                     "sal": [
                         "out",
@@ -1219,12 +1702,10 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppOptionValue",
                         "type": "PVOID"
                     },
-                    "name": "ppOptionValue",
                     "sal": [
                         "out",
                         "optional"
@@ -1236,15 +1717,15 @@
             ]
         },
         {
-            "name": "PxeDhcpv6GetVendorOptionValue",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PxeDhcpv6GetVendorOptionValue",
                 "type": "DWORD"
             },
+            "name": "PxeDhcpv6GetVendorOptionValue",
             "arguments": [
                 {
                     "name": "pPacket",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -1252,7 +1733,6 @@
                 },
                 {
                     "name": "uPacketLen",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -1260,7 +1740,6 @@
                 },
                 {
                     "name": "dwEnterpriseNumber",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -1268,7 +1747,6 @@
                 },
                 {
                     "name": "wOption",
-                    "data_type": "TypeDecl",
                     "type": "WORD",
                     "sal": [
                         "in"
@@ -1276,7 +1754,6 @@
                 },
                 {
                     "name": "uInstance",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -1284,7 +1761,6 @@
                 },
                 {
                     "name": "pwOptionLen",
-                    "data_type": "TypeDecl",
                     "type": "PWORD",
                     "sal": [
                         "out",
@@ -1292,12 +1768,10 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppOptionValue",
                         "type": "PVOID"
                     },
-                    "name": "ppOptionValue",
                     "sal": [
                         "out",
                         "optional"
@@ -1309,15 +1783,15 @@
             ]
         },
         {
-            "name": "PxeDhcpv6ParseRelayForw",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PxeDhcpv6ParseRelayForw",
                 "type": "DWORD"
             },
+            "name": "PxeDhcpv6ParseRelayForw",
             "arguments": [
                 {
                     "name": "pRelayForwPacket",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "in"
@@ -1325,7 +1799,6 @@
                 },
                 {
                     "name": "uRelayForwPacketLen",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -1333,7 +1806,6 @@
                 },
                 {
                     "name": "pRelayMessages",
-                    "data_type": "TypeDecl",
                     "type": "PPXE_DHCPV6_NESTED_RELAY_MESSAGE",
                     "sal": [
                         "out"
@@ -1341,7 +1813,6 @@
                 },
                 {
                     "name": "nRelayMessages",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -1349,26 +1820,22 @@
                 },
                 {
                     "name": "pnRelayMessages",
-                    "data_type": "TypeDecl",
                     "type": "PULONG",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "ppInnerPacket",
                         "type": "PBYTE"
                     },
-                    "name": "ppInnerPacket",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "name": "pcbInnerPacket",
-                    "data_type": "TypeDecl",
                     "type": "PULONG",
                     "sal": [
                         "out"
@@ -1380,15 +1847,15 @@
             ]
         },
         {
-            "name": "PxeDhcpv6CreateRelayRepl",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PxeDhcpv6CreateRelayRepl",
                 "type": "DWORD"
             },
+            "name": "PxeDhcpv6CreateRelayRepl",
             "arguments": [
                 {
                     "name": "pRelayMessages",
-                    "data_type": "TypeDecl",
                     "type": "PPXE_DHCPV6_NESTED_RELAY_MESSAGE",
                     "sal": [
                         "in"
@@ -1396,7 +1863,6 @@
                 },
                 {
                     "name": "nRelayMessages",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -1404,7 +1870,6 @@
                 },
                 {
                     "name": "pInnerPacket",
-                    "data_type": "TypeDecl",
                     "type": "PBYTE",
                     "sal": [
                         "in"
@@ -1412,7 +1877,6 @@
                 },
                 {
                     "name": "cbInnerPacket",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -1420,7 +1884,6 @@
                 },
                 {
                     "name": "pReplyBuffer",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "out"
@@ -1428,7 +1891,6 @@
                 },
                 {
                     "name": "cbReplyBuffer",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -1436,7 +1898,6 @@
                 },
                 {
                     "name": "pcbReplyBuffer",
-                    "data_type": "TypeDecl",
                     "type": "PULONG",
                     "sal": [
                         "out"
@@ -1448,15 +1909,15 @@
             ]
         },
         {
-            "name": "PxeGetServerInfo",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PxeGetServerInfo",
                 "type": "DWORD"
             },
+            "name": "PxeGetServerInfo",
             "arguments": [
                 {
                     "name": "uInfoType",
-                    "data_type": "TypeDecl",
                     "type": "PXE_GSI_TYPE",
                     "sal": [
                         "in"
@@ -1464,7 +1925,6 @@
                 },
                 {
                     "name": "pBuffer",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "out"
@@ -1472,7 +1932,6 @@
                 },
                 {
                     "name": "uBufferLen",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -1484,15 +1943,15 @@
             ]
         },
         {
-            "name": "PxeGetServerInfoEx",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "PxeGetServerInfoEx",
                 "type": "DWORD"
             },
+            "name": "PxeGetServerInfoEx",
             "arguments": [
                 {
                     "name": "uInfoType",
-                    "data_type": "TypeDecl",
                     "type": "PXE_GSI_TYPE",
                     "sal": [
                         "in"
@@ -1500,7 +1959,6 @@
                 },
                 {
                     "name": "pBuffer",
-                    "data_type": "TypeDecl",
                     "type": "PVOID",
                     "sal": [
                         "out"
@@ -1508,7 +1966,6 @@
                 },
                 {
                     "name": "uBufferLen",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -1516,7 +1973,6 @@
                 },
                 {
                     "name": "puBufferUsed",
-                    "data_type": "TypeDecl",
                     "type": "PULONG",
                     "sal": [
                         "out"

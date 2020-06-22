@@ -2,107 +2,494 @@
     "typedefs": [
         {
             "name": "RM_APP_TYPE",
-            "type": "_RM_APP_TYPE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "RmUnknownApp",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "RmMainWindow",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "RmOtherWindow",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "RmService",
+                        "value": {
+                            "type": "int",
+                            "value": "3"
+                        }
+                    },
+                    {
+                        "name": "RmExplorer",
+                        "value": {
+                            "type": "int",
+                            "value": "4"
+                        }
+                    },
+                    {
+                        "name": "RmConsole",
+                        "value": {
+                            "type": "int",
+                            "value": "5"
+                        }
+                    },
+                    {
+                        "name": "RmCritical",
+                        "value": {
+                            "type": "int",
+                            "value": "1000"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "RM_SHUTDOWN_TYPE",
-            "type": "_RM_SHUTDOWN_TYPE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "RmForceShutdown",
+                        "value": {
+                            "type": "int",
+                            "value": "0x1"
+                        }
+                    },
+                    {
+                        "name": "RmShutdownOnlyRegistered",
+                        "value": {
+                            "type": "int",
+                            "value": "0x10"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "RM_APP_STATUS",
-            "type": "_RM_APP_STATUS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "RmStatusUnknown",
+                        "value": {
+                            "type": "int",
+                            "value": "0x0"
+                        }
+                    },
+                    {
+                        "name": "RmStatusRunning",
+                        "value": {
+                            "type": "int",
+                            "value": "0x1"
+                        }
+                    },
+                    {
+                        "name": "RmStatusStopped",
+                        "value": {
+                            "type": "int",
+                            "value": "0x2"
+                        }
+                    },
+                    {
+                        "name": "RmStatusStoppedOther",
+                        "value": {
+                            "type": "int",
+                            "value": "0x4"
+                        }
+                    },
+                    {
+                        "name": "RmStatusRestarted",
+                        "value": {
+                            "type": "int",
+                            "value": "0x8"
+                        }
+                    },
+                    {
+                        "name": "RmStatusErrorOnStop",
+                        "value": {
+                            "type": "int",
+                            "value": "0x10"
+                        }
+                    },
+                    {
+                        "name": "RmStatusErrorOnRestart",
+                        "value": {
+                            "type": "int",
+                            "value": "0x20"
+                        }
+                    },
+                    {
+                        "name": "RmStatusShutdownMasked",
+                        "value": {
+                            "type": "int",
+                            "value": "0x40"
+                        }
+                    },
+                    {
+                        "name": "RmStatusRestartMasked",
+                        "value": {
+                            "type": "int",
+                            "value": "0x80"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "RM_REBOOT_REASON",
-            "type": "_RM_REBOOT_REASON",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "RmRebootReasonNone",
+                        "value": {
+                            "type": "int",
+                            "value": "0x0"
+                        }
+                    },
+                    {
+                        "name": "RmRebootReasonPermissionDenied",
+                        "value": {
+                            "type": "int",
+                            "value": "0x1"
+                        }
+                    },
+                    {
+                        "name": "RmRebootReasonSessionMismatch",
+                        "value": {
+                            "type": "int",
+                            "value": "0x2"
+                        }
+                    },
+                    {
+                        "name": "RmRebootReasonCriticalProcess",
+                        "value": {
+                            "type": "int",
+                            "value": "0x4"
+                        }
+                    },
+                    {
+                        "name": "RmRebootReasonCriticalService",
+                        "value": {
+                            "type": "int",
+                            "value": "0x8"
+                        }
+                    },
+                    {
+                        "name": "RmRebootReasonDetectedSelf",
+                        "value": {
+                            "type": "int",
+                            "value": "0x10"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "RM_UNIQUE_PROCESS",
-            "type": "_RM_UNIQUE_PROCESS",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_RM_UNIQUE_PROCESS",
+                "elements": [
+                    {
+                        "name": "dwProcessId",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "ProcessStartTime",
+                        "type": "FILETIME"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PRM_UNIQUE_PROCESS",
             "type": {
-                "type": "_RM_UNIQUE_PROCESS",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_RM_UNIQUE_PROCESS",
+                "elements": [
+                    {
+                        "name": "dwProcessId",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "ProcessStartTime",
+                        "type": "FILETIME"
+                    }
+                ]
             },
-            "name": "PRM_UNIQUE_PROCESS"
+            "data_type": "Ptr"
         },
         {
             "name": "RM_PROCESS_INFO",
-            "type": "_RM_PROCESS_INFO",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_RM_PROCESS_INFO",
+                "elements": [
+                    {
+                        "name": "Process",
+                        "type": "RM_UNIQUE_PROCESS"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {},
+                        "name": "strAppName"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {},
+                        "name": "strServiceShortName"
+                    },
+                    {
+                        "name": "ApplicationType",
+                        "type": "RM_APP_TYPE"
+                    },
+                    {
+                        "name": "AppStatus",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "TSSessionId",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "bRestartable",
+                        "type": "BOOL"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PRM_PROCESS_INFO",
             "type": {
-                "type": "_RM_PROCESS_INFO",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_RM_PROCESS_INFO",
+                "elements": [
+                    {
+                        "name": "Process",
+                        "type": "RM_UNIQUE_PROCESS"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {},
+                        "name": "strAppName"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {},
+                        "name": "strServiceShortName"
+                    },
+                    {
+                        "name": "ApplicationType",
+                        "type": "RM_APP_TYPE"
+                    },
+                    {
+                        "name": "AppStatus",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "TSSessionId",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "bRestartable",
+                        "type": "BOOL"
+                    }
+                ]
             },
-            "name": "PRM_PROCESS_INFO"
+            "data_type": "Ptr"
         },
         {
             "name": "RM_FILTER_TRIGGER",
-            "type": "_RM_FILTER_TRIGGER",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "RmFilterTriggerInvalid",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "RmFilterTriggerFile",
+                        "value": {}
+                    },
+                    {
+                        "name": "RmFilterTriggerProcess",
+                        "value": {}
+                    },
+                    {
+                        "name": "RmFilterTriggerService",
+                        "value": {}
+                    }
+                ]
+            }
         },
         {
             "name": "RM_FILTER_ACTION",
-            "type": "_RM_FILTER_ACTION",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "RmInvalidFilterAction",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "RmNoRestart",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "RmNoShutdown",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "RM_FILTER_INFO",
-            "type": "_RM_FILTER_INFO",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_RM_FILTER_INFO",
+                "elements": [
+                    {
+                        "name": "FilterAction",
+                        "type": "RM_FILTER_ACTION"
+                    },
+                    {
+                        "name": "FilterTrigger",
+                        "type": "RM_FILTER_TRIGGER"
+                    },
+                    {
+                        "name": "cbNextOffset",
+                        "type": "DWORD"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "strFilename",
+                                "type": "LPWSTR"
+                            },
+                            {
+                                "name": "Process",
+                                "type": "RM_UNIQUE_PROCESS"
+                            },
+                            {
+                                "name": "strServiceShortName",
+                                "type": "LPWSTR"
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PRM_FILTER_INFO",
             "type": {
-                "type": "_RM_FILTER_INFO",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_RM_FILTER_INFO",
+                "elements": [
+                    {
+                        "name": "FilterAction",
+                        "type": "RM_FILTER_ACTION"
+                    },
+                    {
+                        "name": "FilterTrigger",
+                        "type": "RM_FILTER_TRIGGER"
+                    },
+                    {
+                        "name": "cbNextOffset",
+                        "type": "DWORD"
+                    },
+                    {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "strFilename",
+                                "type": "LPWSTR"
+                            },
+                            {
+                                "name": "Process",
+                                "type": "RM_UNIQUE_PROCESS"
+                            },
+                            {
+                                "name": "strServiceShortName",
+                                "type": "LPWSTR"
+                            }
+                        ]
+                    }
+                ]
             },
-            "name": "PRM_FILTER_INFO"
+            "data_type": "Ptr"
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "RM_WRITE_STATUS_CALLBACK",
+                "type": "void"
+            },
+            "name": "RM_WRITE_STATUS_CALLBACK",
+            "arguments": [
+                {
+                    "name": "nPercentComplete",
+                    "type": "UINT"
+                }
+            ]
         }
     ],
     "funcdefs": [
         {
-            "name": "RmStartSession",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "RmStartSession",
                 "type": "DWORD"
             },
+            "name": "RmStartSession",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pSessionHandle",
                         "type": "DWORD"
                     },
-                    "name": "pSessionHandle",
                     "sal": [
                         "out"
                     ]
                 },
                 {
                     "name": "dwSessionFlags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
-                    "data_type": "ArrayDecl",
                     "type": {
                         "name": "strSessionKey",
-                        "data_type": "TypeDecl",
                         "type": "WCHAR"
                     },
-                    "dim": {},
                     "sal": [
                         "out"
                     ]
@@ -113,31 +500,27 @@
             ]
         },
         {
-            "name": "RmJoinSession",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "RmJoinSession",
                 "type": "DWORD"
             },
+            "name": "RmJoinSession",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pSessionHandle",
                         "type": "DWORD"
                     },
-                    "name": "pSessionHandle",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "ArrayDecl",
                     "type": {
                         "name": "strSessionKey",
-                        "data_type": "TypeDecl",
                         "type": "WCHAR"
                     },
-                    "dim": {},
                     "sal": [
                         "in"
                     ]
@@ -148,15 +531,15 @@
             ]
         },
         {
-            "name": "RmEndSession",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "RmEndSession",
                 "type": "DWORD"
             },
+            "name": "RmEndSession",
             "arguments": [
                 {
                     "name": "dwSessionHandle",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -168,15 +551,15 @@
             ]
         },
         {
-            "name": "RmRegisterResources",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "RmRegisterResources",
                 "type": "DWORD"
             },
+            "name": "RmRegisterResources",
             "arguments": [
                 {
                     "name": "dwSessionHandle",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -184,20 +567,16 @@
                 },
                 {
                     "name": "nFiles",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "ArrayDecl",
                     "type": {
                         "name": "rgsFileNames",
-                        "data_type": "TypeDecl",
                         "type": "LPCWSTR"
                     },
-                    "dim": {},
                     "sal": [
                         "in",
                         "optional"
@@ -205,20 +584,16 @@
                 },
                 {
                     "name": "nApplications",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "ArrayDecl",
                     "type": {
                         "name": "rgApplications",
-                        "data_type": "TypeDecl",
                         "type": "RM_UNIQUE_PROCESS"
                     },
-                    "dim": {},
                     "sal": [
                         "in",
                         "optional"
@@ -226,20 +601,16 @@
                 },
                 {
                     "name": "nServices",
-                    "data_type": "TypeDecl",
                     "type": "UINT",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "ArrayDecl",
                     "type": {
                         "name": "rgsServiceNames",
-                        "data_type": "TypeDecl",
                         "type": "LPCWSTR"
                     },
-                    "dim": {},
                     "sal": [
                         "in",
                         "optional"
@@ -251,51 +622,44 @@
             ]
         },
         {
-            "name": "RmGetList",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "RmGetList",
                 "type": "DWORD"
             },
+            "name": "RmGetList",
             "arguments": [
                 {
                     "name": "dwSessionHandle",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pnProcInfoNeeded",
                         "type": "UINT"
                     },
-                    "name": "pnProcInfoNeeded",
                     "sal": [
                         "out"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pnProcInfo",
                         "type": "UINT"
                     },
-                    "name": "pnProcInfo",
                     "sal": [
                         "in",
                         "out"
                     ]
                 },
                 {
-                    "data_type": "ArrayDecl",
                     "type": {
                         "name": "rgAffectedApps",
-                        "data_type": "TypeDecl",
                         "type": "RM_PROCESS_INFO"
                     },
-                    "dim": {},
                     "sal": [
                         "in",
                         "out",
@@ -304,7 +668,6 @@
                 },
                 {
                     "name": "lpdwRebootReasons",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "out"
@@ -316,15 +679,15 @@
             ]
         },
         {
-            "name": "RmShutdown",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "RmShutdown",
                 "type": "DWORD"
             },
+            "name": "RmShutdown",
             "arguments": [
                 {
                     "name": "dwSessionHandle",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -332,7 +695,6 @@
                 },
                 {
                     "name": "lActionFlags",
-                    "data_type": "TypeDecl",
                     "type": "ULONG",
                     "sal": [
                         "in"
@@ -340,7 +702,6 @@
                 },
                 {
                     "name": "fnStatus",
-                    "data_type": "TypeDecl",
                     "type": "RM_WRITE_STATUS_CALLBACK",
                     "sal": [
                         "in",
@@ -353,15 +714,15 @@
             ]
         },
         {
-            "name": "RmRestart",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "RmRestart",
                 "type": "DWORD"
             },
+            "name": "RmRestart",
             "arguments": [
                 {
                     "name": "dwSessionHandle",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -369,13 +730,11 @@
                 },
                 {
                     "name": "dwRestartFlags",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": []
                 },
                 {
                     "name": "fnStatus",
-                    "data_type": "TypeDecl",
                     "type": "RM_WRITE_STATUS_CALLBACK",
                     "sal": [
                         "in",
@@ -388,15 +747,15 @@
             ]
         },
         {
-            "name": "RmCancelCurrentTask",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "RmCancelCurrentTask",
                 "type": "DWORD"
             },
+            "name": "RmCancelCurrentTask",
             "arguments": [
                 {
                     "name": "dwSessionHandle",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -408,15 +767,15 @@
             ]
         },
         {
-            "name": "RmAddFilter",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "RmAddFilter",
                 "type": "DWORD"
             },
+            "name": "RmAddFilter",
             "arguments": [
                 {
                     "name": "dwSessionHandle",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -424,7 +783,6 @@
                 },
                 {
                     "name": "strModuleName",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in",
@@ -432,12 +790,10 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pProcess",
                         "type": "RM_UNIQUE_PROCESS"
                     },
-                    "name": "pProcess",
                     "sal": [
                         "in",
                         "optional"
@@ -445,7 +801,6 @@
                 },
                 {
                     "name": "strServiceShortName",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in",
@@ -454,7 +809,6 @@
                 },
                 {
                     "name": "FilterAction",
-                    "data_type": "TypeDecl",
                     "type": "RM_FILTER_ACTION",
                     "sal": [
                         "in"
@@ -466,15 +820,15 @@
             ]
         },
         {
-            "name": "RmRemoveFilter",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "RmRemoveFilter",
                 "type": "DWORD"
             },
+            "name": "RmRemoveFilter",
             "arguments": [
                 {
                     "name": "dwSessionHandle",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -482,7 +836,6 @@
                 },
                 {
                     "name": "strModuleName",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in",
@@ -490,12 +843,10 @@
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pProcess",
                         "type": "RM_UNIQUE_PROCESS"
                     },
-                    "name": "pProcess",
                     "sal": [
                         "in",
                         "optional"
@@ -503,7 +854,6 @@
                 },
                 {
                     "name": "strServiceShortName",
-                    "data_type": "TypeDecl",
                     "type": "LPCWSTR",
                     "sal": [
                         "in",
@@ -516,15 +866,15 @@
             ]
         },
         {
-            "name": "RmGetFilterList",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "RmGetFilterList",
                 "type": "DWORD"
             },
+            "name": "RmGetFilterList",
             "arguments": [
                 {
                     "name": "dwSessionHandle",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -532,7 +882,6 @@
                 },
                 {
                     "name": "pbFilterBuf",
-                    "data_type": "TypeDecl",
                     "type": "PBYTE",
                     "sal": [
                         "out",
@@ -541,7 +890,6 @@
                 },
                 {
                     "name": "cbFilterBuf",
-                    "data_type": "TypeDecl",
                     "type": "DWORD",
                     "sal": [
                         "in"
@@ -549,7 +897,6 @@
                 },
                 {
                     "name": "cbFilterBufNeeded",
-                    "data_type": "TypeDecl",
                     "type": "LPDWORD",
                     "sal": [
                         "out"

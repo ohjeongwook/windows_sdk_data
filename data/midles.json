@@ -2,7 +2,6 @@
     "typedefs": [
         {
             "name": "MIDL_ES_CODE",
-            "data_type": "TypeDecl",
             "type": {
                 "data_type": "Enum",
                 "enumerators": [
@@ -23,7 +22,6 @@
         },
         {
             "name": "MIDL_ES_HANDLE_STYLE",
-            "data_type": "TypeDecl",
             "type": {
                 "data_type": "Enum",
                 "enumerators": [
@@ -43,60 +41,176 @@
             }
         },
         {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "MIDL_ES_ALLOC",
+                "type": "void"
+            },
+            "name": "MIDL_ES_ALLOC",
+            "arguments": [
+                {
+                    "type": {
+                        "name": "state",
+                        "type": "void"
+                    }
+                },
+                {
+                    "type": {
+                        "name": "pbuffer",
+                        "type": "char",
+                        "data_type": "Ptr"
+                    }
+                },
+                {
+                    "type": {
+                        "name": "psize",
+                        "type": "unsigned int"
+                    }
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "MIDL_ES_WRITE",
+                "type": "void"
+            },
+            "name": "MIDL_ES_WRITE",
+            "arguments": [
+                {
+                    "type": {
+                        "name": "state",
+                        "type": "void"
+                    }
+                },
+                {
+                    "type": {
+                        "name": "buffer",
+                        "type": "char"
+                    }
+                },
+                {
+                    "name": "size",
+                    "type": "unsigned int"
+                }
+            ]
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "MIDL_ES_READ",
+                "type": "void"
+            },
+            "name": "MIDL_ES_READ",
+            "arguments": [
+                {
+                    "type": {
+                        "name": "state",
+                        "type": "void"
+                    }
+                },
+                {
+                    "type": {
+                        "name": "pbuffer",
+                        "type": "char",
+                        "data_type": "Ptr"
+                    }
+                },
+                {
+                    "type": {
+                        "name": "psize",
+                        "type": "unsigned int"
+                    }
+                }
+            ]
+        },
+        {
             "name": "MIDL_ES_HANDLE",
-            "data_type": "TypeDecl",
             "type": "handle_t"
         },
         {
             "name": "MIDL_TYPE_PICKLING_INFO",
-            "type": "_MIDL_TYPE_PICKLING_INFO",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_MIDL_TYPE_PICKLING_INFO",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "unsigned long"
+                    },
+                    {
+                        "name": "Flags",
+                        "type": "unsigned long"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "3"
+                        },
+                        "name": "Reserved"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "PMIDL_TYPE_PICKLING_INFO",
             "type": {
-                "type": "_MIDL_TYPE_PICKLING_INFO",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_MIDL_TYPE_PICKLING_INFO",
+                "elements": [
+                    {
+                        "name": "Version",
+                        "type": "unsigned long"
+                    },
+                    {
+                        "name": "Flags",
+                        "type": "unsigned long"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "3"
+                        },
+                        "name": "Reserved"
+                    }
+                ]
             },
-            "name": "PMIDL_TYPE_PICKLING_INFO"
+            "data_type": "Ptr"
         }
     ],
     "funcdefs": [
         {
-            "name": "MesEncodeIncrementalHandleCreate",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MesEncodeIncrementalHandleCreate",
                 "type": "RPC_STATUS"
             },
+            "name": "MesEncodeIncrementalHandleCreate",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "UserState",
                         "type": "void"
                     },
-                    "name": "UserState",
                     "sal": []
                 },
                 {
                     "name": "AllocFn",
-                    "data_type": "TypeDecl",
                     "type": "MIDL_ES_ALLOC",
                     "sal": []
                 },
                 {
                     "name": "WriteFn",
-                    "data_type": "TypeDecl",
                     "type": "MIDL_ES_WRITE",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pHandle",
                         "type": "handle_t"
                     },
-                    "name": "pHandle",
                     "sal": []
                 }
             ],
@@ -105,34 +219,30 @@
             ]
         },
         {
-            "name": "MesDecodeIncrementalHandleCreate",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MesDecodeIncrementalHandleCreate",
                 "type": "RPC_STATUS"
             },
+            "name": "MesDecodeIncrementalHandleCreate",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "UserState",
                         "type": "void"
                     },
-                    "name": "UserState",
                     "sal": []
                 },
                 {
                     "name": "ReadFn",
-                    "data_type": "TypeDecl",
                     "type": "MIDL_ES_READ",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pHandle",
                         "type": "handle_t"
                     },
-                    "name": "pHandle",
                     "sal": []
                 }
             ],
@@ -141,48 +251,42 @@
             ]
         },
         {
-            "name": "MesIncrementalHandleReset",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MesIncrementalHandleReset",
                 "type": "RPC_STATUS"
             },
+            "name": "MesIncrementalHandleReset",
             "arguments": [
                 {
                     "name": "Handle",
-                    "data_type": "TypeDecl",
                     "type": "handle_t",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "UserState",
                         "type": "void"
                     },
-                    "name": "UserState",
                     "sal": []
                 },
                 {
                     "name": "AllocFn",
-                    "data_type": "TypeDecl",
                     "type": "MIDL_ES_ALLOC",
                     "sal": []
                 },
                 {
                     "name": "WriteFn",
-                    "data_type": "TypeDecl",
                     "type": "MIDL_ES_WRITE",
                     "sal": []
                 },
                 {
                     "name": "ReadFn",
-                    "data_type": "TypeDecl",
                     "type": "MIDL_ES_READ",
                     "sal": []
                 },
                 {
                     "name": "Operation",
-                    "data_type": "TypeDecl",
                     "type": "MIDL_ES_CODE",
                     "sal": []
                 }
@@ -192,43 +296,37 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MesEncodeFixedBufferHandleCreate",
+                "type": "RPC_STATUS"
+            },
             "name": "MesEncodeFixedBufferHandleCreate",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "RPC_STATUS"
-            },
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pBuffer",
                         "type": "char"
                     },
-                    "name": "pBuffer",
                     "sal": []
                 },
                 {
                     "name": "BufferSize",
-                    "data_type": "TypeDecl",
                     "type": "unsigned long",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pEncodedSize",
                         "type": "unsigned long"
                     },
-                    "name": "pEncodedSize",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pHandle",
                         "type": "handle_t"
                     },
-                    "name": "pHandle",
                     "sal": []
                 }
             ],
@@ -237,40 +335,33 @@
             ]
         },
         {
+            "data_type": "FuncDecl",
+            "type": {
+                "name": "MesEncodeDynBufferHandleCreate",
+                "type": "RPC_STATUS"
+            },
             "name": "MesEncodeDynBufferHandleCreate",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "RPC_STATUS"
-            },
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "char"
-                        }
+                        "name": "pBuffer",
+                        "type": "char",
+                        "data_type": "Ptr"
                     },
-                    "name": "pBuffer",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pEncodedSize",
                         "type": "unsigned long"
                     },
-                    "name": "pEncodedSize",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pHandle",
                         "type": "handle_t"
                     },
-                    "name": "pHandle",
                     "sal": []
                 }
             ],
@@ -279,34 +370,30 @@
             ]
         },
         {
-            "name": "MesDecodeBufferHandleCreate",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MesDecodeBufferHandleCreate",
                 "type": "RPC_STATUS"
             },
+            "name": "MesDecodeBufferHandleCreate",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "Buffer",
                         "type": "char"
                     },
-                    "name": "Buffer",
                     "sal": []
                 },
                 {
                     "name": "BufferSize",
-                    "data_type": "TypeDecl",
                     "type": "unsigned long",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pHandle",
                         "type": "handle_t"
                     },
-                    "name": "pHandle",
                     "sal": []
                 }
             ],
@@ -315,55 +402,46 @@
             ]
         },
         {
-            "name": "MesBufferHandleReset",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MesBufferHandleReset",
                 "type": "RPC_STATUS"
             },
+            "name": "MesBufferHandleReset",
             "arguments": [
                 {
                     "name": "Handle",
-                    "data_type": "TypeDecl",
                     "type": "handle_t",
                     "sal": []
                 },
                 {
                     "name": "HandleStyle",
-                    "data_type": "TypeDecl",
                     "type": "unsigned long",
                     "sal": []
                 },
                 {
                     "name": "Operation",
-                    "data_type": "TypeDecl",
                     "type": "MIDL_ES_CODE",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "PtrDecl",
-                        "type": {
-                            "data_type": "TypeDecl",
-                            "type": "char"
-                        }
+                        "name": "pBuffer",
+                        "type": "char",
+                        "data_type": "Ptr"
                     },
-                    "name": "pBuffer",
                     "sal": []
                 },
                 {
                     "name": "BufferSize",
-                    "data_type": "TypeDecl",
                     "type": "unsigned long",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pEncodedSize",
                         "type": "unsigned long"
                     },
-                    "name": "pEncodedSize",
                     "sal": []
                 }
             ],
@@ -372,15 +450,15 @@
             ]
         },
         {
-            "name": "MesHandleFree",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MesHandleFree",
                 "type": "RPC_STATUS"
             },
+            "name": "MesHandleFree",
             "arguments": [
                 {
                     "name": "Handle",
-                    "data_type": "TypeDecl",
                     "type": "handle_t",
                     "sal": []
                 }
@@ -390,31 +468,28 @@
             ]
         },
         {
-            "name": "MesInqProcEncodingId",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "MesInqProcEncodingId",
                 "type": "RPC_STATUS"
             },
+            "name": "MesInqProcEncodingId",
             "arguments": [
                 {
                     "name": "Handle",
-                    "data_type": "TypeDecl",
                     "type": "handle_t",
                     "sal": []
                 },
                 {
                     "name": "pInterfaceId",
-                    "data_type": "TypeDecl",
                     "type": "PRPC_SYNTAX_IDENTIFIER",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pProcNum",
                         "type": "unsigned long"
                     },
-                    "name": "pProcNum",
                     "sal": []
                 }
             ],
@@ -423,30 +498,27 @@
             ]
         },
         {
-            "name": "NdrMesProcEncodeDecode2",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "NdrMesProcEncodeDecode2",
                 "type": "CLIENT_CALL_RETURN"
             },
+            "name": "NdrMesProcEncodeDecode2",
             "arguments": [
                 {
                     "name": "Handle",
-                    "data_type": "TypeDecl",
                     "type": "handle_t",
                     "sal": []
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pStubDesc",
                         "type": "MIDL_STUB_DESC"
                     },
-                    "name": "pStubDesc",
                     "sal": []
                 },
                 {
                     "name": "pFormatString",
-                    "data_type": "TypeDecl",
                     "type": "PFORMAT_STRING",
                     "sal": []
                 }

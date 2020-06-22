@@ -2,122 +2,683 @@
     "typedefs": [
         {
             "name": "DCIRVAL",
-            "data_type": "TypeDecl",
             "type": "int"
         },
         {
             "name": "DCICMD",
-            "type": "_DCICMD",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_DCICMD",
+                "elements": [
+                    {
+                        "name": "dwCommand",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwParam1",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwParam2",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwVersion",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwReserved",
+                        "type": "DWORD"
+                    }
+                ]
+            }
         },
         {
             "name": "DCICREATEINPUT",
-            "type": "_DCICREATEINPUT",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_DCICREATEINPUT",
+                "elements": [
+                    {
+                        "name": "cmd",
+                        "type": "DCICMD"
+                    },
+                    {
+                        "name": "dwCompression",
+                        "type": "DWORD"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "3"
+                        },
+                        "name": "dwMask"
+                    },
+                    {
+                        "name": "dwWidth",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwHeight",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwDCICaps",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwBitCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "lpSurface",
+                        "type": "LPVOID"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "LPDCICREATEINPUT",
             "type": {
-                "type": "_DCICREATEINPUT",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_DCICREATEINPUT",
+                "elements": [
+                    {
+                        "name": "cmd",
+                        "type": "DCICMD"
+                    },
+                    {
+                        "name": "dwCompression",
+                        "type": "DWORD"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "3"
+                        },
+                        "name": "dwMask"
+                    },
+                    {
+                        "name": "dwWidth",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwHeight",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwDCICaps",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwBitCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "lpSurface",
+                        "type": "LPVOID"
+                    }
+                ]
             },
-            "name": "LPDCICREATEINPUT"
+            "data_type": "Ptr"
         },
         {
             "name": "DCISURFACEINFO",
-            "type": "_DCISURFACEINFO",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_DCISURFACEINFO",
+                "elements": [
+                    {
+                        "name": "dwSize",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwDCICaps",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwCompression",
+                        "type": "DWORD"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "3"
+                        },
+                        "name": "dwMask"
+                    },
+                    {
+                        "name": "dwWidth",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwHeight",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "lStride",
+                        "type": "LONG"
+                    },
+                    {
+                        "name": "dwBitCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwOffSurface",
+                        "type": "ULONG_PTR"
+                    },
+                    {
+                        "name": "wSelSurface",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "wReserved",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "dwReserved1",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwReserved2",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwReserved3",
+                        "type": "DWORD"
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "BeginAccess",
+                            "type": "DCIRVAL"
+                        },
+                        "name": "BeginAccess",
+                        "arguments": [
+                            {
+                                "type": "LPVOID"
+                            },
+                            {
+                                "type": "LPRECT"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "EndAccess",
+                            "type": "void"
+                        },
+                        "name": "EndAccess",
+                        "arguments": [
+                            {
+                                "type": "LPVOID"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "DestroySurface",
+                            "type": "void"
+                        },
+                        "name": "DestroySurface",
+                        "arguments": [
+                            {
+                                "type": "LPVOID"
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "LPDCISURFACEINFO",
             "type": {
-                "type": "_DCISURFACEINFO",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_DCISURFACEINFO",
+                "elements": [
+                    {
+                        "name": "dwSize",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwDCICaps",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwCompression",
+                        "type": "DWORD"
+                    },
+                    {
+                        "data_type": "ArrayDecl",
+                        "dim": {
+                            "type": "int",
+                            "value": "3"
+                        },
+                        "name": "dwMask"
+                    },
+                    {
+                        "name": "dwWidth",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwHeight",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "lStride",
+                        "type": "LONG"
+                    },
+                    {
+                        "name": "dwBitCount",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwOffSurface",
+                        "type": "ULONG_PTR"
+                    },
+                    {
+                        "name": "wSelSurface",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "wReserved",
+                        "type": "WORD"
+                    },
+                    {
+                        "name": "dwReserved1",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwReserved2",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwReserved3",
+                        "type": "DWORD"
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "BeginAccess",
+                            "type": "DCIRVAL"
+                        },
+                        "name": "BeginAccess",
+                        "arguments": [
+                            {
+                                "type": "LPVOID"
+                            },
+                            {
+                                "type": "LPRECT"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "EndAccess",
+                            "type": "void"
+                        },
+                        "name": "EndAccess",
+                        "arguments": [
+                            {
+                                "type": "LPVOID"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "DestroySurface",
+                            "type": "void"
+                        },
+                        "name": "DestroySurface",
+                        "arguments": [
+                            {
+                                "type": "LPVOID"
+                            }
+                        ]
+                    }
+                ]
             },
-            "name": "LPDCISURFACEINFO"
+            "data_type": "Ptr"
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "ENUM_CALLBACK",
+                "type": "void"
+            },
+            "name": "ENUM_CALLBACK",
+            "arguments": [
+                {
+                    "name": "lpSurfaceInfo",
+                    "type": "LPDCISURFACEINFO"
+                },
+                {
+                    "name": "lpContext",
+                    "type": "LPVOID"
+                }
+            ]
         },
         {
             "name": "DCIENUMINPUT",
-            "type": "_DCIENUMINPUT",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_DCIENUMINPUT",
+                "elements": [
+                    {
+                        "name": "cmd",
+                        "type": "DCICMD"
+                    },
+                    {
+                        "name": "rSrc",
+                        "type": "RECT"
+                    },
+                    {
+                        "name": "rDst",
+                        "type": "RECT"
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "EnumCallback",
+                            "type": "void"
+                        },
+                        "name": "EnumCallback",
+                        "arguments": [
+                            {
+                                "type": "LPDCISURFACEINFO"
+                            },
+                            {
+                                "type": "LPVOID"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "lpContext",
+                        "type": "LPVOID"
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "LPDCIENUMINPUT",
             "type": {
-                "type": "_DCIENUMINPUT",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_DCIENUMINPUT",
+                "elements": [
+                    {
+                        "name": "cmd",
+                        "type": "DCICMD"
+                    },
+                    {
+                        "name": "rSrc",
+                        "type": "RECT"
+                    },
+                    {
+                        "name": "rDst",
+                        "type": "RECT"
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "EnumCallback",
+                            "type": "void"
+                        },
+                        "name": "EnumCallback",
+                        "arguments": [
+                            {
+                                "type": "LPDCISURFACEINFO"
+                            },
+                            {
+                                "type": "LPVOID"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "lpContext",
+                        "type": "LPVOID"
+                    }
+                ]
             },
-            "name": "LPDCIENUMINPUT"
+            "data_type": "Ptr"
         },
         {
             "name": "DCIPRIMARY",
-            "data_type": "TypeDecl",
             "type": "DCISURFACEINFO"
         },
         {
-            "data_type": "PtrDecl",
-            "type": {
-                "data_type": "TypeDecl",
-                "type": "DCISURFACEINFO"
-            },
-            "name": "LPDCIPRIMARY"
+            "name": "LPDCIPRIMARY",
+            "type": "DCISURFACEINFO",
+            "data_type": "Ptr"
         },
         {
             "name": "DCIOFFSCREEN",
-            "type": "_DCIOFFSCREEN",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_DCIOFFSCREEN",
+                "elements": [
+                    {
+                        "name": "dciInfo",
+                        "type": "DCISURFACEINFO"
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "Draw",
+                            "type": "DCIRVAL"
+                        },
+                        "name": "Draw",
+                        "arguments": [
+                            {
+                                "type": "LPVOID"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "SetClipList",
+                            "type": "DCIRVAL"
+                        },
+                        "name": "SetClipList",
+                        "arguments": [
+                            {
+                                "type": "LPVOID"
+                            },
+                            {
+                                "type": "LPRGNDATA"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "SetDestination",
+                            "type": "DCIRVAL"
+                        },
+                        "name": "SetDestination",
+                        "arguments": [
+                            {
+                                "type": "LPVOID"
+                            },
+                            {
+                                "type": "LPRECT"
+                            },
+                            {
+                                "type": "LPRECT"
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         {
-            "data_type": "PtrDecl",
+            "name": "LPDCIOFFSCREEN",
             "type": {
-                "type": "_DCIOFFSCREEN",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "_DCIOFFSCREEN",
+                "elements": [
+                    {
+                        "name": "dciInfo",
+                        "type": "DCISURFACEINFO"
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "Draw",
+                            "type": "DCIRVAL"
+                        },
+                        "name": "Draw",
+                        "arguments": [
+                            {
+                                "type": "LPVOID"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "SetClipList",
+                            "type": "DCIRVAL"
+                        },
+                        "name": "SetClipList",
+                        "arguments": [
+                            {
+                                "type": "LPVOID"
+                            },
+                            {
+                                "type": "LPRGNDATA"
+                            }
+                        ]
+                    },
+                    {
+                        "data_type": "FuncDeclPtr",
+                        "type": {
+                            "name": "SetDestination",
+                            "type": "DCIRVAL"
+                        },
+                        "name": "SetDestination",
+                        "arguments": [
+                            {
+                                "type": "LPVOID"
+                            },
+                            {
+                                "type": "LPRECT"
+                            },
+                            {
+                                "type": "LPRECT"
+                            }
+                        ]
+                    }
+                ]
             },
-            "name": "LPDCIOFFSCREEN"
+            "data_type": "Ptr"
         },
         {
             "name": "DCIOVERLAY",
-            "type": "_DCIOVERLAY",
-            "data_type": "TypeDecl"
-        },
-        {
-            "data_type": "PtrDecl",
             "type": {
-                "type": "_DCIOVERLAY",
-                "data_type": "TypeDecl"
-            },
-            "name": "LPDCIOVERLAY"
+                "data_type": "Struct",
+                "name": "_DCIOVERLAY",
+                "elements": [
+                    {
+                        "name": "dciInfo",
+                        "type": "DCISURFACEINFO"
+                    },
+                    {
+                        "name": "dwChromakeyValue",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwChromakeyMask",
+                        "type": "DWORD"
+                    }
+                ]
+            }
         },
         {
-            "name": "HWINWATCH__",
+            "name": "LPDCIOVERLAY",
+            "type": {
+                "data_type": "Struct",
+                "name": "_DCIOVERLAY",
+                "elements": [
+                    {
+                        "name": "dciInfo",
+                        "type": "DCISURFACEINFO"
+                    },
+                    {
+                        "name": "dwChromakeyValue",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "dwChromakeyMask",
+                        "type": "DWORD"
+                    }
+                ]
+            },
+            "data_type": "Ptr"
+        },
+        {
             "data_type": "Struct",
+            "name": "HWINWATCH__",
             "elements": [
                 {
                     "name": "unused",
-                    "data_type": "TypeDecl",
                     "type": "int"
                 }
             ]
         },
         {
-            "data_type": "PtrDecl",
+            "name": "HWINWATCH",
             "type": {
-                "type": "HWINWATCH__",
-                "data_type": "TypeDecl"
+                "data_type": "Struct",
+                "name": "HWINWATCH__",
+                "elements": []
             },
-            "name": "HWINWATCH"
+            "data_type": "Ptr"
+        },
+        {
+            "data_type": "FuncDeclPtr",
+            "type": {
+                "name": "WINWATCHNOTIFYPROC",
+                "type": "void"
+            },
+            "name": "WINWATCHNOTIFYPROC",
+            "arguments": [
+                {
+                    "name": "hww",
+                    "type": "HWINWATCH"
+                },
+                {
+                    "name": "hwnd",
+                    "type": "HWND"
+                },
+                {
+                    "name": "code",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "lParam",
+                    "type": "LPARAM"
+                }
+            ]
         }
     ],
     "funcdefs": [
         {
-            "name": "DCIOpenProvider",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DCIOpenProvider",
                 "type": "HDC"
             },
+            "name": "DCIOpenProvider",
             "arguments": [
                 {
-                    "data_type": "TypeDecl",
                     "type": "void"
                 }
             ],
@@ -126,15 +687,15 @@
             ]
         },
         {
-            "name": "DCICloseProvider",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DCICloseProvider",
                 "type": "void"
             },
+            "name": "DCICloseProvider",
             "arguments": [
                 {
                     "name": "hdc",
-                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": [
                         "in"
@@ -146,27 +707,25 @@
             ]
         },
         {
-            "name": "DCICreatePrimary",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DCICreatePrimary",
                 "type": "int"
             },
+            "name": "DCICreatePrimary",
             "arguments": [
                 {
                     "name": "hdc",
-                    "data_type": "TypeDecl",
                     "type": "HDC",
                     "sal": [
                         "in"
                     ]
                 },
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "lplpSurface",
                         "type": "LPDCISURFACEINFO"
                     },
-                    "name": "lplpSurface",
                     "sal": [
                         "out"
                     ]
@@ -177,15 +736,15 @@
             ]
         },
         {
-            "name": "DCIEndAccess",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DCIEndAccess",
                 "type": "void"
             },
+            "name": "DCIEndAccess",
             "arguments": [
                 {
                     "name": "pdci",
-                    "data_type": "TypeDecl",
                     "type": "LPDCISURFACEINFO",
                     "sal": [
                         "in"
@@ -197,15 +756,15 @@
             ]
         },
         {
-            "name": "DCIBeginAccess",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DCIBeginAccess",
                 "type": "DCIRVAL"
             },
+            "name": "DCIBeginAccess",
             "arguments": [
                 {
                     "name": "pdci",
-                    "data_type": "TypeDecl",
                     "type": "LPDCISURFACEINFO",
                     "sal": [
                         "in"
@@ -213,7 +772,6 @@
                 },
                 {
                     "name": "x",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -221,7 +779,6 @@
                 },
                 {
                     "name": "y",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -229,7 +786,6 @@
                 },
                 {
                     "name": "dx",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -237,7 +793,6 @@
                 },
                 {
                     "name": "dy",
-                    "data_type": "TypeDecl",
                     "type": "int",
                     "sal": [
                         "in"
@@ -249,15 +804,15 @@
             ]
         },
         {
-            "name": "DCIDestroy",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DCIDestroy",
                 "type": "void"
             },
+            "name": "DCIDestroy",
             "arguments": [
                 {
                     "name": "pdci",
-                    "data_type": "TypeDecl",
                     "type": "LPDCISURFACEINFO",
                     "sal": [
                         "in"

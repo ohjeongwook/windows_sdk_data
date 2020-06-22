@@ -2,45 +2,174 @@
     "typedefs": [
         {
             "name": "WSB_OB_STATUS_ENTRY_PAIR_TYPE",
-            "type": "_WSB_OB_STATUS_ENTRY_PAIR_TYPE",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Enum",
+                "enumerators": [
+                    {
+                        "name": "WSB_OB_ET_UNDEFINED",
+                        "value": {
+                            "type": "int",
+                            "value": "0"
+                        }
+                    },
+                    {
+                        "name": "WSB_OB_ET_STRING",
+                        "value": {
+                            "type": "int",
+                            "value": "1"
+                        }
+                    },
+                    {
+                        "name": "WSB_OB_ET_NUMBER",
+                        "value": {
+                            "type": "int",
+                            "value": "2"
+                        }
+                    },
+                    {
+                        "name": "WSB_OB_ET_DATETIME",
+                        "value": {
+                            "type": "int",
+                            "value": "3"
+                        }
+                    },
+                    {
+                        "name": "WSB_OB_ET_TIME",
+                        "value": {
+                            "type": "int",
+                            "value": "4"
+                        }
+                    },
+                    {
+                        "name": "WSB_OB_ET_SIZE",
+                        "value": {
+                            "type": "int",
+                            "value": "5"
+                        }
+                    },
+                    {
+                        "name": "WSB_OB_ET_MAX",
+                        "value": {
+                            "type": "int",
+                            "value": "6"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR",
-            "type": "_WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR",
+                "elements": [
+                    {
+                        "name": "m_wszObStatusEntryPairValue",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "m_ObStatusEntryPairType",
+                        "type": "WSB_OB_STATUS_ENTRY_PAIR_TYPE"
+                    }
+                ]
+            }
         },
         {
             "name": "WSB_OB_STATUS_ENTRY",
-            "type": "_WSB_OB_STATUS_ENTRY",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_WSB_OB_STATUS_ENTRY",
+                "elements": [
+                    {
+                        "name": "m_dwIcon",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "m_dwStatusEntryName",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "m_dwStatusEntryValue",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "m_cValueTypePair",
+                        "type": "ULONG"
+                    },
+                    {
+                        "name": "m_rgValueTypePair",
+                        "type": "WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR",
+                        "data_type": "Ptr"
+                    }
+                ]
+            }
         },
         {
             "name": "WSB_OB_STATUS_INFO",
-            "type": "_WSB_OB_STATUS_INFO",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_WSB_OB_STATUS_INFO",
+                "elements": [
+                    {
+                        "name": "m_guidSnapinId",
+                        "type": "GUID"
+                    },
+                    {
+                        "name": "m_cStatusEntry",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "m_rgStatusEntry",
+                        "type": "WSB_OB_STATUS_ENTRY",
+                        "data_type": "Ptr"
+                    }
+                ]
+            }
         },
         {
             "name": "WSB_OB_REGISTRATION_INFO",
-            "type": "_WSB_OB_REGISTRATION_INFO",
-            "data_type": "TypeDecl"
+            "type": {
+                "data_type": "Struct",
+                "name": "_WSB_OB_REGISTRATION_INFO",
+                "elements": [
+                    {
+                        "name": "m_wszResourceDLL",
+                        "type": "LPWSTR"
+                    },
+                    {
+                        "name": "m_guidSnapinId",
+                        "type": "GUID"
+                    },
+                    {
+                        "name": "m_dwProviderName",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "m_dwProviderIcon",
+                        "type": "DWORD"
+                    },
+                    {
+                        "name": "m_bSupportsRemoting",
+                        "type": "BOOLEAN"
+                    }
+                ]
+            }
         }
     ],
     "funcdefs": [
         {
-            "name": "RegisterOnlineBackupWithWindowsServerBackup",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "RegisterOnlineBackupWithWindowsServerBackup",
                 "type": "HRESULT"
             },
+            "name": "RegisterOnlineBackupWithWindowsServerBackup",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pOBRegistrationInfo",
                         "type": "WSB_OB_REGISTRATION_INFO"
                     },
-                    "name": "pOBRegistrationInfo",
                     "sal": [
                         "in"
                     ]
@@ -51,15 +180,15 @@
             ]
         },
         {
-            "name": "DeregisterOnlineBackupFromWindowsServerBackup",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "DeregisterOnlineBackupFromWindowsServerBackup",
                 "type": "HRESULT"
             },
+            "name": "DeregisterOnlineBackupFromWindowsServerBackup",
             "arguments": [
                 {
                     "name": "guidSnapinId",
-                    "data_type": "TypeDecl",
                     "type": "GUID",
                     "sal": [
                         "in"
@@ -71,19 +200,18 @@
             ]
         },
         {
-            "name": "UpdateOBStatusInWindowsServerBackup",
+            "data_type": "FuncDecl",
             "type": {
-                "data_type": "TypeDecl",
+                "name": "UpdateOBStatusInWindowsServerBackup",
                 "type": "HRESULT"
             },
+            "name": "UpdateOBStatusInWindowsServerBackup",
             "arguments": [
                 {
-                    "data_type": "PtrDecl",
                     "type": {
-                        "data_type": "TypeDecl",
+                        "name": "pOBRegistrationInfo",
                         "type": "WSB_OB_STATUS_INFO"
                     },
-                    "name": "pOBRegistrationInfo",
                     "sal": [
                         "in"
                     ]
