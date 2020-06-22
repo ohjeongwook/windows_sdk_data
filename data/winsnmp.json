@@ -1,2049 +1,2045 @@
-{
-    "typedefs": [
-        {
-            "name": "HSNMP_SESSION",
-            "type": "HANDLE"
-        },
-        {
-            "name": "LPHSNMP_SESSION",
-            "type": "HANDLE",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "HSNMP_ENTITY",
-            "type": "HANDLE"
-        },
-        {
-            "name": "LPHSNMP_ENTITY",
-            "type": "HANDLE",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "HSNMP_CONTEXT",
-            "type": "HANDLE"
-        },
-        {
-            "name": "LPHSNMP_CONTEXT",
-            "type": "HANDLE",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "HSNMP_PDU",
-            "type": "HANDLE"
-        },
-        {
-            "name": "LPHSNMP_PDU",
-            "type": "HANDLE",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "HSNMP_VBL",
-            "type": "HANDLE"
-        },
-        {
-            "name": "LPHSNMP_VBL",
-            "type": "HANDLE",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "smiBYTE",
-            "type": "unsigned char"
-        },
-        {
-            "name": "smiLPBYTE",
-            "type": "unsigned char",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "smiINT",
-            "type": "signed long"
-        },
-        {
-            "name": "smiLPINT",
-            "type": "signed long",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "smiINT32",
-            "type": "smiINT"
-        },
-        {
-            "name": "smiLPINT32",
-            "type": "smiINT",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "smiUINT32",
-            "type": "unsigned long"
-        },
-        {
-            "name": "smiLPUINT32",
-            "type": "unsigned long",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "smiOCTETS",
-            "type": {
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "len",
-                        "type": "smiUINT32"
-                    },
-                    {
-                        "name": "ptr",
-                        "type": "smiLPBYTE"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "smiLPOCTETS",
-            "type": {
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "len",
-                        "type": "smiUINT32"
-                    },
-                    {
-                        "name": "ptr",
-                        "type": "smiLPBYTE"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "smiLPCOCTETS",
-            "type": "smiOCTETS",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "smiBITS",
-            "type": "smiOCTETS"
-        },
-        {
-            "name": "smiLPBITS",
-            "type": "smiOCTETS",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "smiOID",
-            "type": {
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "len",
-                        "type": "smiUINT32"
-                    },
-                    {
-                        "name": "ptr",
-                        "type": "smiLPUINT32"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "smiLPOID",
-            "type": {
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "len",
-                        "type": "smiUINT32"
-                    },
-                    {
-                        "name": "ptr",
-                        "type": "smiLPUINT32"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "smiLPCOID",
-            "type": "smiOID",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "smiIPADDR",
-            "type": "smiOCTETS"
-        },
-        {
-            "name": "smiLPIPADDR",
-            "type": "smiOCTETS",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "smiCNTR32",
-            "type": "smiUINT32"
-        },
-        {
-            "name": "smiLPCNTR32",
-            "type": "smiUINT32",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "smiGAUGE32",
-            "type": "smiUINT32"
-        },
-        {
-            "name": "smiLPGAUGE32",
-            "type": "smiUINT32",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "smiTIMETICKS",
-            "type": "smiUINT32"
-        },
-        {
-            "name": "smiLPTIMETICKS",
-            "type": "smiUINT32",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "smiOPAQUE",
-            "type": "smiOCTETS"
-        },
-        {
-            "name": "smiLPOPAQUE",
-            "type": "smiOCTETS",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "smiNSAPADDR",
-            "type": "smiOCTETS"
-        },
-        {
-            "name": "smiLPNSAPADDR",
-            "type": "smiOCTETS",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "smiCNTR64",
-            "type": {
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "hipart",
-                        "type": "smiUINT32"
-                    },
-                    {
-                        "name": "lopart",
-                        "type": "smiUINT32"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "smiLPCNTR64",
-            "type": {
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "hipart",
-                        "type": "smiUINT32"
-                    },
-                    {
-                        "name": "lopart",
-                        "type": "smiUINT32"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "smiVALUE",
-            "type": {
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "syntax",
-                        "type": "smiUINT32"
-                    },
-                    {
-                        "name": "value",
-                        "type": {
-                            "data_type": "Union",
-                            "elements": [
-                                {
-                                    "name": "sNumber",
-                                    "type": "smiINT"
-                                },
-                                {
-                                    "name": "uNumber",
-                                    "type": "smiUINT32"
-                                },
-                                {
-                                    "name": "hNumber",
-                                    "type": "smiCNTR64"
-                                },
-                                {
-                                    "name": "string",
-                                    "type": "smiOCTETS"
-                                },
-                                {
-                                    "name": "oid",
-                                    "type": "smiOID"
-                                },
-                                {
-                                    "name": "empty",
-                                    "type": "smiBYTE"
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "smiLPVALUE",
-            "type": {
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "syntax",
-                        "type": "smiUINT32"
-                    },
-                    {
-                        "name": "value",
-                        "type": {
-                            "data_type": "Union",
-                            "elements": [
-                                {
-                                    "name": "sNumber",
-                                    "type": "smiINT"
-                                },
-                                {
-                                    "name": "uNumber",
-                                    "type": "smiUINT32"
-                                },
-                                {
-                                    "name": "hNumber",
-                                    "type": "smiCNTR64"
-                                },
-                                {
-                                    "name": "string",
-                                    "type": "smiOCTETS"
-                                },
-                                {
-                                    "name": "oid",
-                                    "type": "smiOID"
-                                },
-                                {
-                                    "name": "empty",
-                                    "type": "smiBYTE"
-                                }
-                            ]
-                        }
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "smiLPCVALUE",
-            "type": "smiVALUE",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "SNMPAPI_STATUS",
-            "type": "smiUINT32"
-        },
-        {
-            "name": "smiVENDORINFO",
-            "type": {
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {},
-                        "name": "vendorName"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {},
-                        "name": "vendorContact"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "32"
-                        },
-                        "name": "vendorVersionId"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "32"
-                        },
-                        "name": "vendorVersionDate"
-                    },
-                    {
-                        "name": "vendorEnterprise",
-                        "type": "smiUINT32"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "smiLPVENDORINFO",
-            "type": {
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {},
-                        "name": "vendorName"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {},
-                        "name": "vendorContact"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "32"
-                        },
-                        "name": "vendorVersionId"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "32"
-                        },
-                        "name": "vendorVersionDate"
-                    },
-                    {
-                        "name": "vendorEnterprise",
-                        "type": "smiUINT32"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "SNMPAPI_CALLBACK",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SNMPAPI_CALLBACK",
-            "arguments": [
+[
+    {
+        "name": "HSNMP_SESSION",
+        "type": "HANDLE"
+    },
+    {
+        "name": "LPHSNMP_SESSION",
+        "type": "HANDLE",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "HSNMP_ENTITY",
+        "type": "HANDLE"
+    },
+    {
+        "name": "LPHSNMP_ENTITY",
+        "type": "HANDLE",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "HSNMP_CONTEXT",
+        "type": "HANDLE"
+    },
+    {
+        "name": "LPHSNMP_CONTEXT",
+        "type": "HANDLE",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "HSNMP_PDU",
+        "type": "HANDLE"
+    },
+    {
+        "name": "LPHSNMP_PDU",
+        "type": "HANDLE",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "HSNMP_VBL",
+        "type": "HANDLE"
+    },
+    {
+        "name": "LPHSNMP_VBL",
+        "type": "HANDLE",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "smiBYTE",
+        "type": "unsigned char"
+    },
+    {
+        "name": "smiLPBYTE",
+        "type": "unsigned char",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "smiINT",
+        "type": "signed long"
+    },
+    {
+        "name": "smiLPINT",
+        "type": "signed long",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "smiINT32",
+        "type": "smiINT"
+    },
+    {
+        "name": "smiLPINT32",
+        "type": "smiINT",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "smiUINT32",
+        "type": "unsigned long"
+    },
+    {
+        "name": "smiLPUINT32",
+        "type": "unsigned long",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "smiOCTETS",
+        "type": {
+            "data_type": "Struct",
+            "elements": [
                 {
-                    "name": "hSession",
-                    "type": "HSNMP_SESSION"
+                    "name": "len",
+                    "type": "smiUINT32"
                 },
                 {
-                    "name": "hWnd",
-                    "type": "HWND"
-                },
-                {
-                    "name": "wMsg",
-                    "type": "UINT"
-                },
-                {
-                    "name": "wParam",
-                    "type": "WPARAM"
-                },
-                {
-                    "name": "lParam",
-                    "type": "LPARAM"
-                },
-                {
-                    "name": "lpClientData",
-                    "type": "LPVOID"
-                }
-            ]
-        },
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "PFNSNMPSTARTUPEX",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "PFNSNMPSTARTUPEX",
-            "arguments": [
-                {
-                    "type": "smiLPUINT32"
-                },
-                {
-                    "type": "smiLPUINT32"
-                },
-                {
-                    "type": "smiLPUINT32"
-                },
-                {
-                    "type": "smiLPUINT32"
-                },
-                {
-                    "type": "smiLPUINT32"
-                }
-            ]
-        },
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "PFNSNMPCLEANUPEX",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "PFNSNMPCLEANUPEX",
-            "arguments": [
-                {
-                    "type": "void"
+                    "name": "ptr",
+                    "type": "smiLPBYTE"
                 }
             ]
         }
-    ],
-    "funcdefs": [
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpGetTranslateMode",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpGetTranslateMode",
-            "arguments": [
+    },
+    {
+        "name": "smiLPOCTETS",
+        "type": {
+            "data_type": "Struct",
+            "elements": [
                 {
-                    "name": "nTranslateMode",
-                    "type": "smiLPUINT32",
-                    "sal": [
-                        "out"
-                    ]
+                    "name": "len",
+                    "type": "smiUINT32"
+                },
+                {
+                    "name": "ptr",
+                    "type": "smiLPBYTE"
                 }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
             ]
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpSetTranslateMode",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpSetTranslateMode",
-            "arguments": [
+        "data_type": "Ptr"
+    },
+    {
+        "name": "smiLPCOCTETS",
+        "type": "smiOCTETS",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "smiBITS",
+        "type": "smiOCTETS"
+    },
+    {
+        "name": "smiLPBITS",
+        "type": "smiOCTETS",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "smiOID",
+        "type": {
+            "data_type": "Struct",
+            "elements": [
                 {
-                    "name": "nTranslateMode",
-                    "type": "smiUINT32",
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "len",
+                    "type": "smiUINT32"
+                },
+                {
+                    "name": "ptr",
+                    "type": "smiLPUINT32"
                 }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
+            ]
+        }
+    },
+    {
+        "name": "smiLPOID",
+        "type": {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "name": "len",
+                    "type": "smiUINT32"
+                },
+                {
+                    "name": "ptr",
+                    "type": "smiLPUINT32"
+                }
             ]
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpGetRetransmitMode",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpGetRetransmitMode",
-            "arguments": [
+        "data_type": "Ptr"
+    },
+    {
+        "name": "smiLPCOID",
+        "type": "smiOID",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "smiIPADDR",
+        "type": "smiOCTETS"
+    },
+    {
+        "name": "smiLPIPADDR",
+        "type": "smiOCTETS",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "smiCNTR32",
+        "type": "smiUINT32"
+    },
+    {
+        "name": "smiLPCNTR32",
+        "type": "smiUINT32",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "smiGAUGE32",
+        "type": "smiUINT32"
+    },
+    {
+        "name": "smiLPGAUGE32",
+        "type": "smiUINT32",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "smiTIMETICKS",
+        "type": "smiUINT32"
+    },
+    {
+        "name": "smiLPTIMETICKS",
+        "type": "smiUINT32",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "smiOPAQUE",
+        "type": "smiOCTETS"
+    },
+    {
+        "name": "smiLPOPAQUE",
+        "type": "smiOCTETS",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "smiNSAPADDR",
+        "type": "smiOCTETS"
+    },
+    {
+        "name": "smiLPNSAPADDR",
+        "type": "smiOCTETS",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "smiCNTR64",
+        "type": {
+            "data_type": "Struct",
+            "elements": [
                 {
-                    "name": "nRetransmitMode",
-                    "type": "smiLPUINT32",
-                    "sal": [
-                        "out"
-                    ]
+                    "name": "hipart",
+                    "type": "smiUINT32"
+                },
+                {
+                    "name": "lopart",
+                    "type": "smiUINT32"
                 }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
+            ]
+        }
+    },
+    {
+        "name": "smiLPCNTR64",
+        "type": {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "name": "hipart",
+                    "type": "smiUINT32"
+                },
+                {
+                    "name": "lopart",
+                    "type": "smiUINT32"
+                }
             ]
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpSetRetransmitMode",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpSetRetransmitMode",
-            "arguments": [
-                {
-                    "name": "nRetransmitMode",
-                    "type": "smiUINT32",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpGetTimeout",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpGetTimeout",
-            "arguments": [
-                {
-                    "name": "hEntity",
-                    "type": "HSNMP_ENTITY",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "nPolicyTimeout",
-                    "type": "smiLPTIMETICKS",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "nActualTimeout",
-                    "type": "smiLPTIMETICKS",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpSetTimeout",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpSetTimeout",
-            "arguments": [
-                {
-                    "name": "hEntity",
-                    "type": "HSNMP_ENTITY",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "nPolicyTimeout",
-                    "type": "smiTIMETICKS",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpGetRetry",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpGetRetry",
-            "arguments": [
-                {
-                    "name": "hEntity",
-                    "type": "HSNMP_ENTITY",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "nPolicyRetry",
-                    "type": "smiLPUINT32",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "nActualRetry",
-                    "type": "smiLPUINT32",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpSetRetry",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpSetRetry",
-            "arguments": [
-                {
-                    "name": "hEntity",
-                    "type": "HSNMP_ENTITY",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "nPolicyRetry",
-                    "type": "smiUINT32",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpGetVendorInfo",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpGetVendorInfo",
-            "arguments": [
-                {
-                    "name": "vendorInfo",
-                    "type": "smiLPVENDORINFO",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpStartup",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpStartup",
-            "arguments": [
-                {
-                    "name": "nMajorVersion",
-                    "type": "smiLPUINT32",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "nMinorVersion",
-                    "type": "smiLPUINT32",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "nLevel",
-                    "type": "smiLPUINT32",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "nTranslateMode",
-                    "type": "smiLPUINT32",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "nRetransmitMode",
-                    "type": "smiLPUINT32",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpCleanup",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpCleanup",
-            "arguments": [
-                {
-                    "type": "void"
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpOpen",
-                "type": "HSNMP_SESSION"
-            },
-            "name": "SnmpOpen",
-            "arguments": [
-                {
-                    "name": "hWnd",
-                    "type": "HWND",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "wMsg",
-                    "type": "UINT",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpClose",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpClose",
-            "arguments": [
-                {
-                    "name": "session",
-                    "type": "HSNMP_SESSION",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpSendMsg",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpSendMsg",
-            "arguments": [
-                {
-                    "name": "session",
-                    "type": "HSNMP_SESSION",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "srcEntity",
-                    "type": "HSNMP_ENTITY",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "dstEntity",
-                    "type": "HSNMP_ENTITY",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "context",
-                    "type": "HSNMP_CONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PDU",
-                    "type": "HSNMP_PDU",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpRecvMsg",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpRecvMsg",
-            "arguments": [
-                {
-                    "name": "session",
-                    "type": "HSNMP_SESSION",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "srcEntity",
-                    "type": "LPHSNMP_ENTITY",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "dstEntity",
-                    "type": "LPHSNMP_ENTITY",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "context",
-                    "type": "LPHSNMP_CONTEXT",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "PDU",
-                    "type": "LPHSNMP_PDU",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpRegister",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpRegister",
-            "arguments": [
-                {
-                    "name": "session",
-                    "type": "HSNMP_SESSION",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "srcEntity",
-                    "type": "HSNMP_ENTITY",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "dstEntity",
-                    "type": "HSNMP_ENTITY",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "context",
-                    "type": "HSNMP_CONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "notification",
-                    "type": "smiLPCOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "state",
-                    "type": "smiUINT32",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpCreateSession",
-                "type": "HSNMP_SESSION"
-            },
-            "name": "SnmpCreateSession",
-            "arguments": [
-                {
-                    "name": "hWnd",
-                    "type": "HWND",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "wMsg",
-                    "type": "UINT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "fCallBack",
-                    "type": "SNMPAPI_CALLBACK",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "lpClientData",
-                    "type": "LPVOID",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpListen",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpListen",
-            "arguments": [
-                {
-                    "name": "hEntity",
-                    "type": "HSNMP_ENTITY",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "lStatus",
-                    "type": "SNMPAPI_STATUS",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpCancelMsg",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpCancelMsg",
-            "arguments": [
-                {
-                    "name": "session",
-                    "type": "HSNMP_SESSION",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "reqId",
-                    "type": "smiINT32",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpStartupEx",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpStartupEx",
-            "arguments": [
-                {
-                    "name": "nMajorVersion",
-                    "type": "smiLPUINT32",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "nMinorVersion",
-                    "type": "smiLPUINT32",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "nLevel",
-                    "type": "smiLPUINT32",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "nTranslateMode",
-                    "type": "smiLPUINT32",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "nRetransmitMode",
-                    "type": "smiLPUINT32",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpCleanupEx",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpCleanupEx",
-            "arguments": [
-                {
-                    "type": "void"
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpStrToEntity",
-                "type": "HSNMP_ENTITY"
-            },
-            "name": "SnmpStrToEntity",
-            "arguments": [
-                {
-                    "name": "session",
-                    "type": "HSNMP_SESSION",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "string",
-                    "type": "LPCSTR",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpEntityToStr",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpEntityToStr",
-            "arguments": [
-                {
-                    "name": "entity",
-                    "type": "HSNMP_ENTITY",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "size",
-                    "type": "smiUINT32",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "string",
-                    "type": "LPSTR",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpFreeEntity",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpFreeEntity",
-            "arguments": [
-                {
-                    "name": "entity",
-                    "type": "HSNMP_ENTITY",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpStrToContext",
-                "type": "HSNMP_CONTEXT"
-            },
-            "name": "SnmpStrToContext",
-            "arguments": [
-                {
-                    "name": "session",
-                    "type": "HSNMP_SESSION",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "string",
-                    "type": "smiLPCOCTETS",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpContextToStr",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpContextToStr",
-            "arguments": [
-                {
-                    "name": "context",
-                    "type": "HSNMP_CONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "string",
-                    "type": "smiLPOCTETS",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpFreeContext",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpFreeContext",
-            "arguments": [
-                {
-                    "name": "context",
-                    "type": "HSNMP_CONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpSetPort",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpSetPort",
-            "arguments": [
-                {
-                    "name": "hEntity",
-                    "type": "HSNMP_ENTITY",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "nPort",
-                    "type": "UINT",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpCreatePdu",
-                "type": "HSNMP_PDU"
-            },
-            "name": "SnmpCreatePdu",
-            "arguments": [
-                {
-                    "name": "session",
-                    "type": "HSNMP_SESSION",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PDU_type",
-                    "type": "smiINT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "request_id",
-                    "type": "smiINT32",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "error_status",
-                    "type": "smiINT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "error_index",
-                    "type": "smiINT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "varbindlist",
-                    "type": "HSNMP_VBL",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpGetPduData",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpGetPduData",
-            "arguments": [
-                {
-                    "name": "PDU",
-                    "type": "HSNMP_PDU",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PDU_type",
-                    "type": "smiLPINT",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "request_id",
-                    "type": "smiLPINT32",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "error_status",
-                    "type": "smiLPINT",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "error_index",
-                    "type": "smiLPINT",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "varbindlist",
-                    "type": "LPHSNMP_VBL",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpSetPduData",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpSetPduData",
-            "arguments": [
-                {
-                    "name": "PDU",
-                    "type": "HSNMP_PDU",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "PDU_type",
-                        "type": "smiINT"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "request_id",
-                        "type": "smiINT32"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "non_repeaters",
-                        "type": "smiINT"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "max_repetitions",
-                        "type": "smiINT"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "varbindlist",
-                        "type": "HSNMP_VBL"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpDuplicatePdu",
-                "type": "HSNMP_PDU"
-            },
-            "name": "SnmpDuplicatePdu",
-            "arguments": [
-                {
-                    "name": "session",
-                    "type": "HSNMP_SESSION",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PDU",
-                    "type": "HSNMP_PDU",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpFreePdu",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpFreePdu",
-            "arguments": [
-                {
-                    "name": "PDU",
-                    "type": "HSNMP_PDU",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpCreateVbl",
-                "type": "HSNMP_VBL"
-            },
-            "name": "SnmpCreateVbl",
-            "arguments": [
-                {
-                    "name": "session",
-                    "type": "HSNMP_SESSION",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "name",
-                    "type": "smiLPCOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "value",
-                    "type": "smiLPCVALUE",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpDuplicateVbl",
-                "type": "HSNMP_VBL"
-            },
-            "name": "SnmpDuplicateVbl",
-            "arguments": [
-                {
-                    "name": "session",
-                    "type": "HSNMP_SESSION",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "vbl",
-                    "type": "HSNMP_VBL",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpFreeVbl",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpFreeVbl",
-            "arguments": [
-                {
-                    "name": "vbl",
-                    "type": "HSNMP_VBL",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpCountVbl",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpCountVbl",
-            "arguments": [
-                {
-                    "name": "vbl",
-                    "type": "HSNMP_VBL",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpGetVb",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpGetVb",
-            "arguments": [
-                {
-                    "name": "vbl",
-                    "type": "HSNMP_VBL",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "index",
-                    "type": "smiUINT32",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "name",
-                    "type": "smiLPOID",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "value",
-                    "type": "smiLPVALUE",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpSetVb",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpSetVb",
-            "arguments": [
-                {
-                    "name": "vbl",
-                    "type": "HSNMP_VBL",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "index",
-                    "type": "smiUINT32",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "name",
-                    "type": "smiLPCOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "value",
-                    "type": "smiLPCVALUE",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpDeleteVb",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpDeleteVb",
-            "arguments": [
-                {
-                    "name": "vbl",
-                    "type": "HSNMP_VBL",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "index",
-                    "type": "smiUINT32",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpGetLastError",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpGetLastError",
-            "arguments": [
-                {
-                    "name": "session",
-                    "type": "HSNMP_SESSION",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpStrToOid",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpStrToOid",
-            "arguments": [
-                {
-                    "name": "string",
-                    "type": "LPCSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "dstOID",
-                    "type": "smiLPOID",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpOidToStr",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpOidToStr",
-            "arguments": [
-                {
-                    "name": "srcOID",
-                    "type": "smiLPCOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "size",
-                    "type": "smiUINT32",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "string",
-                    "type": "LPSTR",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpOidCopy",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpOidCopy",
-            "arguments": [
-                {
-                    "name": "srcOID",
-                    "type": "smiLPCOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "dstOID",
-                    "type": "smiLPOID",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpOidCompare",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpOidCompare",
-            "arguments": [
-                {
-                    "name": "xOID",
-                    "type": "smiLPCOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "yOID",
-                    "type": "smiLPCOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "maxlen",
-                    "type": "smiUINT32",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "result",
-                    "type": "smiLPINT",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpEncodeMsg",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpEncodeMsg",
-            "arguments": [
-                {
-                    "name": "session",
-                    "type": "HSNMP_SESSION",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "srcEntity",
-                    "type": "HSNMP_ENTITY",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "dstEntity",
-                    "type": "HSNMP_ENTITY",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "context",
-                    "type": "HSNMP_CONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pdu",
-                    "type": "HSNMP_PDU",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "msgBufDesc",
-                    "type": "smiLPOCTETS",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpDecodeMsg",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpDecodeMsg",
-            "arguments": [
-                {
-                    "name": "session",
-                    "type": "HSNMP_SESSION",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "srcEntity",
-                    "type": "LPHSNMP_ENTITY",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "dstEntity",
-                    "type": "LPHSNMP_ENTITY",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "context",
-                    "type": "LPHSNMP_CONTEXT",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "pdu",
-                    "type": "LPHSNMP_PDU",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "msgBufDesc",
-                    "type": "smiLPCOCTETS",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpFreeDescriptor",
-                "type": "SNMPAPI_STATUS"
-            },
-            "name": "SnmpFreeDescriptor",
-            "arguments": [
+        "data_type": "Ptr"
+    },
+    {
+        "name": "smiVALUE",
+        "type": {
+            "data_type": "Struct",
+            "elements": [
                 {
                     "name": "syntax",
-                    "type": "smiUINT32",
-                    "sal": [
-                        "in"
-                    ]
+                    "type": "smiUINT32"
                 },
                 {
-                    "name": "descriptor",
-                    "type": "smiLPOPAQUE",
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "value",
+                    "type": {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "sNumber",
+                                "type": "smiINT"
+                            },
+                            {
+                                "name": "uNumber",
+                                "type": "smiUINT32"
+                            },
+                            {
+                                "name": "hNumber",
+                                "type": "smiCNTR64"
+                            },
+                            {
+                                "name": "string",
+                                "type": "smiOCTETS"
+                            },
+                            {
+                                "name": "oid",
+                                "type": "smiOID"
+                            },
+                            {
+                                "name": "empty",
+                                "type": "smiBYTE"
+                            }
+                        ]
+                    }
                 }
-            ],
-            "api_locations": [
-                "Wsnmp32.dll"
             ]
         }
-    ]
-}
+    },
+    {
+        "name": "smiLPVALUE",
+        "type": {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "name": "syntax",
+                    "type": "smiUINT32"
+                },
+                {
+                    "name": "value",
+                    "type": {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "sNumber",
+                                "type": "smiINT"
+                            },
+                            {
+                                "name": "uNumber",
+                                "type": "smiUINT32"
+                            },
+                            {
+                                "name": "hNumber",
+                                "type": "smiCNTR64"
+                            },
+                            {
+                                "name": "string",
+                                "type": "smiOCTETS"
+                            },
+                            {
+                                "name": "oid",
+                                "type": "smiOID"
+                            },
+                            {
+                                "name": "empty",
+                                "type": "smiBYTE"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "smiLPCVALUE",
+        "type": "smiVALUE",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "SNMPAPI_STATUS",
+        "type": "smiUINT32"
+    },
+    {
+        "name": "smiVENDORINFO",
+        "type": {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {},
+                    "name": "vendorName"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {},
+                    "name": "vendorContact"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "32"
+                    },
+                    "name": "vendorVersionId"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "32"
+                    },
+                    "name": "vendorVersionDate"
+                },
+                {
+                    "name": "vendorEnterprise",
+                    "type": "smiUINT32"
+                }
+            ]
+        }
+    },
+    {
+        "name": "smiLPVENDORINFO",
+        "type": {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {},
+                    "name": "vendorName"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {},
+                    "name": "vendorContact"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "32"
+                    },
+                    "name": "vendorVersionId"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "32"
+                    },
+                    "name": "vendorVersionDate"
+                },
+                {
+                    "name": "vendorEnterprise",
+                    "type": "smiUINT32"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
+            "name": "SNMPAPI_CALLBACK",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SNMPAPI_CALLBACK",
+        "arguments": [
+            {
+                "name": "hSession",
+                "type": "HSNMP_SESSION"
+            },
+            {
+                "name": "hWnd",
+                "type": "HWND"
+            },
+            {
+                "name": "wMsg",
+                "type": "UINT"
+            },
+            {
+                "name": "wParam",
+                "type": "WPARAM"
+            },
+            {
+                "name": "lParam",
+                "type": "LPARAM"
+            },
+            {
+                "name": "lpClientData",
+                "type": "LPVOID"
+            }
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpGetTranslateMode",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpGetTranslateMode",
+        "arguments": [
+            {
+                "name": "nTranslateMode",
+                "type": "smiLPUINT32",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpSetTranslateMode",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpSetTranslateMode",
+        "arguments": [
+            {
+                "name": "nTranslateMode",
+                "type": "smiUINT32",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpGetRetransmitMode",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpGetRetransmitMode",
+        "arguments": [
+            {
+                "name": "nRetransmitMode",
+                "type": "smiLPUINT32",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpSetRetransmitMode",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpSetRetransmitMode",
+        "arguments": [
+            {
+                "name": "nRetransmitMode",
+                "type": "smiUINT32",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpGetTimeout",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpGetTimeout",
+        "arguments": [
+            {
+                "name": "hEntity",
+                "type": "HSNMP_ENTITY",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "nPolicyTimeout",
+                "type": "smiLPTIMETICKS",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "nActualTimeout",
+                "type": "smiLPTIMETICKS",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpSetTimeout",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpSetTimeout",
+        "arguments": [
+            {
+                "name": "hEntity",
+                "type": "HSNMP_ENTITY",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "nPolicyTimeout",
+                "type": "smiTIMETICKS",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpGetRetry",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpGetRetry",
+        "arguments": [
+            {
+                "name": "hEntity",
+                "type": "HSNMP_ENTITY",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "nPolicyRetry",
+                "type": "smiLPUINT32",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "nActualRetry",
+                "type": "smiLPUINT32",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpSetRetry",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpSetRetry",
+        "arguments": [
+            {
+                "name": "hEntity",
+                "type": "HSNMP_ENTITY",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "nPolicyRetry",
+                "type": "smiUINT32",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpGetVendorInfo",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpGetVendorInfo",
+        "arguments": [
+            {
+                "name": "vendorInfo",
+                "type": "smiLPVENDORINFO",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpStartup",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpStartup",
+        "arguments": [
+            {
+                "name": "nMajorVersion",
+                "type": "smiLPUINT32",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "nMinorVersion",
+                "type": "smiLPUINT32",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "nLevel",
+                "type": "smiLPUINT32",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "nTranslateMode",
+                "type": "smiLPUINT32",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "nRetransmitMode",
+                "type": "smiLPUINT32",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpCleanup",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpCleanup",
+        "arguments": [
+            {
+                "type": "void"
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpOpen",
+            "type": "HSNMP_SESSION"
+        },
+        "name": "SnmpOpen",
+        "arguments": [
+            {
+                "name": "hWnd",
+                "type": "HWND",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "wMsg",
+                "type": "UINT",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpClose",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpClose",
+        "arguments": [
+            {
+                "name": "session",
+                "type": "HSNMP_SESSION",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpSendMsg",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpSendMsg",
+        "arguments": [
+            {
+                "name": "session",
+                "type": "HSNMP_SESSION",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "srcEntity",
+                "type": "HSNMP_ENTITY",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "dstEntity",
+                "type": "HSNMP_ENTITY",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "context",
+                "type": "HSNMP_CONTEXT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PDU",
+                "type": "HSNMP_PDU",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpRecvMsg",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpRecvMsg",
+        "arguments": [
+            {
+                "name": "session",
+                "type": "HSNMP_SESSION",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "srcEntity",
+                "type": "LPHSNMP_ENTITY",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "dstEntity",
+                "type": "LPHSNMP_ENTITY",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "context",
+                "type": "LPHSNMP_CONTEXT",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "PDU",
+                "type": "LPHSNMP_PDU",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpRegister",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpRegister",
+        "arguments": [
+            {
+                "name": "session",
+                "type": "HSNMP_SESSION",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "srcEntity",
+                "type": "HSNMP_ENTITY",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "dstEntity",
+                "type": "HSNMP_ENTITY",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "context",
+                "type": "HSNMP_CONTEXT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "notification",
+                "type": "smiLPCOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "state",
+                "type": "smiUINT32",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpCreateSession",
+            "type": "HSNMP_SESSION"
+        },
+        "name": "SnmpCreateSession",
+        "arguments": [
+            {
+                "name": "hWnd",
+                "type": "HWND",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "wMsg",
+                "type": "UINT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "fCallBack",
+                "type": "SNMPAPI_CALLBACK",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "lpClientData",
+                "type": "LPVOID",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpListen",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpListen",
+        "arguments": [
+            {
+                "name": "hEntity",
+                "type": "HSNMP_ENTITY",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "lStatus",
+                "type": "SNMPAPI_STATUS",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpCancelMsg",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpCancelMsg",
+        "arguments": [
+            {
+                "name": "session",
+                "type": "HSNMP_SESSION",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "reqId",
+                "type": "smiINT32",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpStartupEx",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpStartupEx",
+        "arguments": [
+            {
+                "name": "nMajorVersion",
+                "type": "smiLPUINT32",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "nMinorVersion",
+                "type": "smiLPUINT32",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "nLevel",
+                "type": "smiLPUINT32",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "nTranslateMode",
+                "type": "smiLPUINT32",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "nRetransmitMode",
+                "type": "smiLPUINT32",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
+            "name": "PFNSNMPSTARTUPEX",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "PFNSNMPSTARTUPEX",
+        "arguments": [
+            {
+                "type": "smiLPUINT32"
+            },
+            {
+                "type": "smiLPUINT32"
+            },
+            {
+                "type": "smiLPUINT32"
+            },
+            {
+                "type": "smiLPUINT32"
+            },
+            {
+                "type": "smiLPUINT32"
+            }
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpCleanupEx",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpCleanupEx",
+        "arguments": [
+            {
+                "type": "void"
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
+            "name": "PFNSNMPCLEANUPEX",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "PFNSNMPCLEANUPEX",
+        "arguments": [
+            {
+                "type": "void"
+            }
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpStrToEntity",
+            "type": "HSNMP_ENTITY"
+        },
+        "name": "SnmpStrToEntity",
+        "arguments": [
+            {
+                "name": "session",
+                "type": "HSNMP_SESSION",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "string",
+                "type": "LPCSTR",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpEntityToStr",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpEntityToStr",
+        "arguments": [
+            {
+                "name": "entity",
+                "type": "HSNMP_ENTITY",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "size",
+                "type": "smiUINT32",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "string",
+                "type": "LPSTR",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpFreeEntity",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpFreeEntity",
+        "arguments": [
+            {
+                "name": "entity",
+                "type": "HSNMP_ENTITY",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpStrToContext",
+            "type": "HSNMP_CONTEXT"
+        },
+        "name": "SnmpStrToContext",
+        "arguments": [
+            {
+                "name": "session",
+                "type": "HSNMP_SESSION",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "string",
+                "type": "smiLPCOCTETS",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpContextToStr",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpContextToStr",
+        "arguments": [
+            {
+                "name": "context",
+                "type": "HSNMP_CONTEXT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "string",
+                "type": "smiLPOCTETS",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpFreeContext",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpFreeContext",
+        "arguments": [
+            {
+                "name": "context",
+                "type": "HSNMP_CONTEXT",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpSetPort",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpSetPort",
+        "arguments": [
+            {
+                "name": "hEntity",
+                "type": "HSNMP_ENTITY",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "nPort",
+                "type": "UINT",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpCreatePdu",
+            "type": "HSNMP_PDU"
+        },
+        "name": "SnmpCreatePdu",
+        "arguments": [
+            {
+                "name": "session",
+                "type": "HSNMP_SESSION",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PDU_type",
+                "type": "smiINT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "request_id",
+                "type": "smiINT32",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "error_status",
+                "type": "smiINT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "error_index",
+                "type": "smiINT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "varbindlist",
+                "type": "HSNMP_VBL",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpGetPduData",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpGetPduData",
+        "arguments": [
+            {
+                "name": "PDU",
+                "type": "HSNMP_PDU",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PDU_type",
+                "type": "smiLPINT",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "request_id",
+                "type": "smiLPINT32",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "error_status",
+                "type": "smiLPINT",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "error_index",
+                "type": "smiLPINT",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "varbindlist",
+                "type": "LPHSNMP_VBL",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpSetPduData",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpSetPduData",
+        "arguments": [
+            {
+                "name": "PDU",
+                "type": "HSNMP_PDU",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "PDU_type",
+                    "type": "smiINT"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "request_id",
+                    "type": "smiINT32"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "non_repeaters",
+                    "type": "smiINT"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "max_repetitions",
+                    "type": "smiINT"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "varbindlist",
+                    "type": "HSNMP_VBL"
+                },
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpDuplicatePdu",
+            "type": "HSNMP_PDU"
+        },
+        "name": "SnmpDuplicatePdu",
+        "arguments": [
+            {
+                "name": "session",
+                "type": "HSNMP_SESSION",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PDU",
+                "type": "HSNMP_PDU",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpFreePdu",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpFreePdu",
+        "arguments": [
+            {
+                "name": "PDU",
+                "type": "HSNMP_PDU",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpCreateVbl",
+            "type": "HSNMP_VBL"
+        },
+        "name": "SnmpCreateVbl",
+        "arguments": [
+            {
+                "name": "session",
+                "type": "HSNMP_SESSION",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "name",
+                "type": "smiLPCOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "value",
+                "type": "smiLPCVALUE",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpDuplicateVbl",
+            "type": "HSNMP_VBL"
+        },
+        "name": "SnmpDuplicateVbl",
+        "arguments": [
+            {
+                "name": "session",
+                "type": "HSNMP_SESSION",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "vbl",
+                "type": "HSNMP_VBL",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpFreeVbl",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpFreeVbl",
+        "arguments": [
+            {
+                "name": "vbl",
+                "type": "HSNMP_VBL",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpCountVbl",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpCountVbl",
+        "arguments": [
+            {
+                "name": "vbl",
+                "type": "HSNMP_VBL",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpGetVb",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpGetVb",
+        "arguments": [
+            {
+                "name": "vbl",
+                "type": "HSNMP_VBL",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "index",
+                "type": "smiUINT32",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "name",
+                "type": "smiLPOID",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "value",
+                "type": "smiLPVALUE",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpSetVb",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpSetVb",
+        "arguments": [
+            {
+                "name": "vbl",
+                "type": "HSNMP_VBL",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "index",
+                "type": "smiUINT32",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "name",
+                "type": "smiLPCOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "value",
+                "type": "smiLPCVALUE",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpDeleteVb",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpDeleteVb",
+        "arguments": [
+            {
+                "name": "vbl",
+                "type": "HSNMP_VBL",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "index",
+                "type": "smiUINT32",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpGetLastError",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpGetLastError",
+        "arguments": [
+            {
+                "name": "session",
+                "type": "HSNMP_SESSION",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpStrToOid",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpStrToOid",
+        "arguments": [
+            {
+                "name": "string",
+                "type": "LPCSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "dstOID",
+                "type": "smiLPOID",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpOidToStr",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpOidToStr",
+        "arguments": [
+            {
+                "name": "srcOID",
+                "type": "smiLPCOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "size",
+                "type": "smiUINT32",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "string",
+                "type": "LPSTR",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpOidCopy",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpOidCopy",
+        "arguments": [
+            {
+                "name": "srcOID",
+                "type": "smiLPCOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "dstOID",
+                "type": "smiLPOID",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpOidCompare",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpOidCompare",
+        "arguments": [
+            {
+                "name": "xOID",
+                "type": "smiLPCOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "yOID",
+                "type": "smiLPCOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "maxlen",
+                "type": "smiUINT32",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "result",
+                "type": "smiLPINT",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpEncodeMsg",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpEncodeMsg",
+        "arguments": [
+            {
+                "name": "session",
+                "type": "HSNMP_SESSION",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "srcEntity",
+                "type": "HSNMP_ENTITY",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "dstEntity",
+                "type": "HSNMP_ENTITY",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "context",
+                "type": "HSNMP_CONTEXT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pdu",
+                "type": "HSNMP_PDU",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "msgBufDesc",
+                "type": "smiLPOCTETS",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpDecodeMsg",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpDecodeMsg",
+        "arguments": [
+            {
+                "name": "session",
+                "type": "HSNMP_SESSION",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "srcEntity",
+                "type": "LPHSNMP_ENTITY",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "dstEntity",
+                "type": "LPHSNMP_ENTITY",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "context",
+                "type": "LPHSNMP_CONTEXT",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "pdu",
+                "type": "LPHSNMP_PDU",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "msgBufDesc",
+                "type": "smiLPCOCTETS",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpFreeDescriptor",
+            "type": "SNMPAPI_STATUS"
+        },
+        "name": "SnmpFreeDescriptor",
+        "arguments": [
+            {
+                "name": "syntax",
+                "type": "smiUINT32",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "descriptor",
+                "type": "smiLPOPAQUE",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wsnmp32.dll"
+        ]
+    }
+]

@@ -1,846 +1,842 @@
-{
-    "typedefs": [
-        {
-            "name": "DEVPROPTYPE",
-            "type": "ULONG"
-        },
-        {
-            "name": "PDEVPROPTYPE",
-            "type": "ULONG",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "DEVPROP_BOOLEAN",
-            "type": "CHAR"
-        },
-        {
-            "name": "PDEVPROP_BOOLEAN",
-            "type": "CHAR",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "DEVPROPGUID",
-            "type": "GUID"
-        },
-        {
-            "name": "PDEVPROPGUID",
-            "type": "GUID",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "DEVPROPID",
-            "type": "ULONG"
-        },
-        {
-            "name": "PDEVPROPID",
-            "type": "ULONG",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "DEVPROPKEY",
-            "type": {
-                "data_type": "Struct",
-                "name": "_DEVPROPKEY",
-                "elements": [
-                    {
-                        "name": "fmtid",
-                        "type": "DEVPROPGUID"
-                    },
-                    {
-                        "name": "pid",
-                        "type": "DEVPROPID"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PDEVPROPKEY",
-            "type": {
-                "data_type": "Struct",
-                "name": "_DEVPROPKEY",
-                "elements": [
-                    {
-                        "name": "fmtid",
-                        "type": "DEVPROPGUID"
-                    },
-                    {
-                        "name": "pid",
-                        "type": "DEVPROPID"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "DEVPROPSTORE",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "DEVPROP_STORE_SYSTEM",
-                        "value": {}
-                    },
-                    {
-                        "name": "DEVPROP_STORE_USER",
-                        "value": {}
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PDEVPROPSTORE",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "DEVPROP_STORE_SYSTEM",
-                        "value": {}
-                    },
-                    {
-                        "name": "DEVPROP_STORE_USER",
-                        "value": {}
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "DEVPROPCOMPKEY",
-            "type": {
-                "data_type": "Struct",
-                "name": "_DEVPROPCOMPKEY",
-                "elements": [
-                    {
-                        "name": "Key",
-                        "type": "DEVPROPKEY"
-                    },
-                    {
-                        "name": "Store",
-                        "type": "DEVPROPSTORE"
-                    },
-                    {
-                        "name": "LocaleName",
-                        "type": "PCWSTR"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PDEVPROPCOMPKEY",
-            "type": {
-                "data_type": "Struct",
-                "name": "_DEVPROPCOMPKEY",
-                "elements": [
-                    {
-                        "name": "Key",
-                        "type": "DEVPROPKEY"
-                    },
-                    {
-                        "name": "Store",
-                        "type": "DEVPROPSTORE"
-                    },
-                    {
-                        "name": "LocaleName",
-                        "type": "PCWSTR"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "DEVPROPERTY",
-            "type": {
-                "data_type": "Struct",
-                "name": "_DEVPROPERTY",
-                "elements": [
-                    {
-                        "name": "CompKey",
-                        "type": "DEVPROPCOMPKEY"
-                    },
-                    {
-                        "name": "Type",
-                        "type": "DEVPROPTYPE"
-                    },
-                    {
-                        "name": "BufferSize",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "Buffer",
-                        "type": "PVOID"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PDEVPROPERTY",
-            "type": {
-                "data_type": "Struct",
-                "name": "_DEVPROPERTY",
-                "elements": [
-                    {
-                        "name": "CompKey",
-                        "type": "DEVPROPCOMPKEY"
-                    },
-                    {
-                        "name": "Type",
-                        "type": "DEVPROPTYPE"
-                    },
-                    {
-                        "name": "BufferSize",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "Buffer",
-                        "type": "PVOID"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "SW_DEVICE_CAPABILITIES",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "SWDeviceCapabilitiesNone",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000000"
-                        }
-                    },
-                    {
-                        "name": "SWDeviceCapabilitiesRemovable",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000001"
-                        }
-                    },
-                    {
-                        "name": "SWDeviceCapabilitiesSilentInstall",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000002"
-                        }
-                    },
-                    {
-                        "name": "SWDeviceCapabilitiesNoDisplayInUI",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000004"
-                        }
-                    },
-                    {
-                        "name": "SWDeviceCapabilitiesDriverRequired",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000008"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PSW_DEVICE_CAPABILITIES",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "SWDeviceCapabilitiesNone",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000000"
-                        }
-                    },
-                    {
-                        "name": "SWDeviceCapabilitiesRemovable",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000001"
-                        }
-                    },
-                    {
-                        "name": "SWDeviceCapabilitiesSilentInstall",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000002"
-                        }
-                    },
-                    {
-                        "name": "SWDeviceCapabilitiesNoDisplayInUI",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000004"
-                        }
-                    },
-                    {
-                        "name": "SWDeviceCapabilitiesDriverRequired",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000008"
-                        }
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "SW_DEVICE_CREATE_INFO",
-            "type": {
-                "data_type": "Struct",
-                "name": "_SW_DEVICE_CREATE_INFO",
-                "elements": [
-                    {
-                        "name": "cbSize",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "pszInstanceId",
-                        "type": "PCWSTR"
-                    },
-                    {
-                        "name": "pszzHardwareIds",
-                        "type": "PCZZWSTR"
-                    },
-                    {
-                        "name": "pszzCompatibleIds",
-                        "type": "PCZZWSTR"
-                    },
-                    {
-                        "name": "pContainerId",
-                        "type": "GUID",
-                        "data_type": "Ptr"
-                    },
-                    {
-                        "name": "CapabilityFlags",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "pszDeviceDescription",
-                        "type": "PCWSTR"
-                    },
-                    {
-                        "name": "pszDeviceLocation",
-                        "type": "PCWSTR"
-                    },
-                    {
-                        "name": "pSecurityDescriptor",
-                        "type": "SECURITY_DESCRIPTOR",
-                        "data_type": "Ptr"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PSW_DEVICE_CREATE_INFO",
-            "type": {
-                "data_type": "Struct",
-                "name": "_SW_DEVICE_CREATE_INFO",
-                "elements": [
-                    {
-                        "name": "cbSize",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "pszInstanceId",
-                        "type": "PCWSTR"
-                    },
-                    {
-                        "name": "pszzHardwareIds",
-                        "type": "PCZZWSTR"
-                    },
-                    {
-                        "name": "pszzCompatibleIds",
-                        "type": "PCZZWSTR"
-                    },
-                    {
-                        "name": "pContainerId",
-                        "type": "GUID",
-                        "data_type": "Ptr"
-                    },
-                    {
-                        "name": "CapabilityFlags",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "pszDeviceDescription",
-                        "type": "PCWSTR"
-                    },
-                    {
-                        "name": "pszDeviceLocation",
-                        "type": "PCWSTR"
-                    },
-                    {
-                        "name": "pSecurityDescriptor",
-                        "type": "SECURITY_DESCRIPTOR",
-                        "data_type": "Ptr"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "SW_DEVICE_LIFETIME",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "SWDeviceLifetimeHandle",
-                        "value": {}
-                    },
-                    {
-                        "name": "SWDeviceLifetimeParentPresent",
-                        "value": {}
-                    },
-                    {
-                        "name": "SWDeviceLifetimeMax",
-                        "value": {}
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PSW_DEVICE_LIFETIME",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "SWDeviceLifetimeHandle",
-                        "value": {}
-                    },
-                    {
-                        "name": "SWDeviceLifetimeParentPresent",
-                        "value": {}
-                    },
-                    {
-                        "name": "SWDeviceLifetimeMax",
-                        "value": {}
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
+[
+    {
+        "name": "DEVPROPTYPE",
+        "type": "ULONG"
+    },
+    {
+        "name": "PDEVPROPTYPE",
+        "type": "ULONG",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "DEVPROP_BOOLEAN",
+        "type": "CHAR"
+    },
+    {
+        "name": "PDEVPROP_BOOLEAN",
+        "type": "CHAR",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "DEVPROPGUID",
+        "type": "GUID"
+    },
+    {
+        "name": "PDEVPROPGUID",
+        "type": "GUID",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "DEVPROPID",
+        "type": "ULONG"
+    },
+    {
+        "name": "PDEVPROPID",
+        "type": "ULONG",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "DEVPROPKEY",
+        "type": {
             "data_type": "Struct",
-            "name": "HSWDEVICE__",
+            "name": "_DEVPROPKEY",
             "elements": [
                 {
-                    "name": "unused",
-                    "type": "int"
+                    "name": "fmtid",
+                    "type": "DEVPROPGUID"
+                },
+                {
+                    "name": "pid",
+                    "type": "DEVPROPID"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PDEVPROPKEY",
+        "type": {
+            "data_type": "Struct",
+            "name": "_DEVPROPKEY",
+            "elements": [
+                {
+                    "name": "fmtid",
+                    "type": "DEVPROPGUID"
+                },
+                {
+                    "name": "pid",
+                    "type": "DEVPROPID"
                 }
             ]
         },
-        {
-            "name": "HSWDEVICE",
-            "type": {
-                "data_type": "Struct",
-                "name": "HSWDEVICE__",
-                "elements": []
-            },
-            "data_type": "Ptr"
+        "data_type": "Ptr"
+    },
+    {
+        "name": "DEVPROPSTORE",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "DEVPROP_STORE_SYSTEM",
+                    "value": {}
+                },
+                {
+                    "name": "DEVPROP_STORE_USER",
+                    "value": {}
+                }
+            ]
+        }
+    },
+    {
+        "name": "PDEVPROPSTORE",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "DEVPROP_STORE_SYSTEM",
+                    "value": {}
+                },
+                {
+                    "name": "DEVPROP_STORE_USER",
+                    "value": {}
+                }
+            ]
         },
-        {
-            "name": "PHSWDEVICE",
-            "type": "HSWDEVICE",
-            "data_type": "Ptr"
-        },
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "SW_DEVICE_CREATE_CALLBACK",
-                "type": "void"
-            },
-            "name": "SW_DEVICE_CREATE_CALLBACK",
-            "arguments": [
+        "data_type": "Ptr"
+    },
+    {
+        "name": "DEVPROPCOMPKEY",
+        "type": {
+            "data_type": "Struct",
+            "name": "_DEVPROPCOMPKEY",
+            "elements": [
                 {
-                    "name": "hSwDevice",
-                    "type": "HSWDEVICE"
+                    "name": "Key",
+                    "type": "DEVPROPKEY"
                 },
                 {
-                    "name": "CreateResult",
-                    "type": "HRESULT"
+                    "name": "Store",
+                    "type": "DEVPROPSTORE"
                 },
                 {
-                    "name": "pContext",
-                    "type": "PVOID"
-                },
-                {
-                    "name": "pszDeviceInstanceId",
+                    "name": "LocaleName",
                     "type": "PCWSTR"
                 }
             ]
         }
-    ],
-    "funcdefs": [
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SwDeviceCreate",
-                "type": "HRESULT"
-            },
-            "name": "SwDeviceCreate",
-            "arguments": [
+    },
+    {
+        "name": "PDEVPROPCOMPKEY",
+        "type": {
+            "data_type": "Struct",
+            "name": "_DEVPROPCOMPKEY",
+            "elements": [
                 {
-                    "name": "pszEnumeratorName",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "Key",
+                    "type": "DEVPROPKEY"
                 },
                 {
-                    "name": "pszParentDeviceInstance",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "Store",
+                    "type": "DEVPROPSTORE"
                 },
                 {
-                    "type": {
-                        "name": "pCreateInfo",
-                        "type": "SW_DEVICE_CREATE_INFO"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cPropertyCount",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pProperties",
-                        "type": "DEVPROPERTY"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "pCallback",
-                    "type": "SW_DEVICE_CREATE_CALLBACK",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pContext",
-                    "type": "PVOID",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "phSwDevice",
-                    "type": "PHSWDEVICE",
-                    "sal": [
-                        "out"
-                    ]
+                    "name": "LocaleName",
+                    "type": "PCWSTR"
                 }
-            ],
-            "api_locations": [
-                "Cfgmgr32.dll",
-                "API-MS-Win-devices-swdevice-l1-1-0.dll",
-                "API-MS-Win-devices-swdevice-l1-1-1.dll"
             ]
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SwDeviceClose",
-                "type": "void"
-            },
-            "name": "SwDeviceClose",
-            "arguments": [
+        "data_type": "Ptr"
+    },
+    {
+        "name": "DEVPROPERTY",
+        "type": {
+            "data_type": "Struct",
+            "name": "_DEVPROPERTY",
+            "elements": [
                 {
-                    "name": "hSwDevice",
-                    "type": "HSWDEVICE",
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "CompKey",
+                    "type": "DEVPROPCOMPKEY"
+                },
+                {
+                    "name": "Type",
+                    "type": "DEVPROPTYPE"
+                },
+                {
+                    "name": "BufferSize",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "Buffer",
+                    "type": "PVOID"
                 }
-            ],
-            "api_locations": [
-                "Cfgmgr32.dll",
-                "API-MS-Win-devices-swdevice-l1-1-0.dll",
-                "API-MS-Win-devices-swdevice-l1-1-1.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SwDeviceSetLifetime",
-                "type": "HRESULT"
-            },
-            "name": "SwDeviceSetLifetime",
-            "arguments": [
-                {
-                    "name": "hSwDevice",
-                    "type": "HSWDEVICE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Lifetime",
-                    "type": "SW_DEVICE_LIFETIME",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Cfgmgr32.dll",
-                "API-MS-Win-devices-swdevice-l1-1-1.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SwDeviceGetLifetime",
-                "type": "HRESULT"
-            },
-            "name": "SwDeviceGetLifetime",
-            "arguments": [
-                {
-                    "name": "hSwDevice",
-                    "type": "HSWDEVICE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pLifetime",
-                    "type": "PSW_DEVICE_LIFETIME",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Cfgmgr32.dll",
-                "API-MS-Win-devices-swdevice-l1-1-1.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SwDevicePropertySet",
-                "type": "HRESULT"
-            },
-            "name": "SwDevicePropertySet",
-            "arguments": [
-                {
-                    "name": "hSwDevice",
-                    "type": "HSWDEVICE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cPropertyCount",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pProperties",
-                        "type": "DEVPROPERTY"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Cfgmgr32.dll",
-                "API-MS-Win-devices-swdevice-l1-1-0.dll",
-                "API-MS-Win-devices-swdevice-l1-1-1.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SwDeviceInterfaceRegister",
-                "type": "HRESULT"
-            },
-            "name": "SwDeviceInterfaceRegister",
-            "arguments": [
-                {
-                    "name": "hSwDevice",
-                    "type": "HSWDEVICE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pInterfaceClassGuid",
-                        "type": "GUID"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pszReferenceString",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "cPropertyCount",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pProperties",
-                        "type": "DEVPROPERTY"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "fEnabled",
-                    "type": "BOOL",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "ppszDeviceInterfaceId",
-                        "type": "PWSTR"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Cfgmgr32.dll",
-                "API-MS-Win-devices-swdevice-l1-1-0.dll",
-                "API-MS-Win-devices-swdevice-l1-1-1.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SwMemFree",
-                "type": "void"
-            },
-            "name": "SwMemFree",
-            "arguments": [
-                {
-                    "name": "pMem",
-                    "type": "PVOID",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Cfgmgr32.dll",
-                "API-MS-Win-devices-swdevice-l1-1-0.dll",
-                "API-MS-Win-devices-swdevice-l1-1-1.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SwDeviceInterfaceSetState",
-                "type": "HRESULT"
-            },
-            "name": "SwDeviceInterfaceSetState",
-            "arguments": [
-                {
-                    "name": "hSwDevice",
-                    "type": "HSWDEVICE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pszDeviceInterfaceId",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "fEnabled",
-                    "type": "BOOL",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Cfgmgr32.dll",
-                "API-MS-Win-devices-swdevice-l1-1-0.dll",
-                "API-MS-Win-devices-swdevice-l1-1-1.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SwDeviceInterfacePropertySet",
-                "type": "HRESULT"
-            },
-            "name": "SwDeviceInterfacePropertySet",
-            "arguments": [
-                {
-                    "name": "hSwDevice",
-                    "type": "HSWDEVICE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pszDeviceInterfaceId",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cPropertyCount",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pProperties",
-                        "type": "DEVPROPERTY"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Cfgmgr32.dll",
-                "API-MS-Win-devices-swdevice-l1-1-0.dll",
-                "API-MS-Win-devices-swdevice-l1-1-1.dll"
             ]
         }
-    ]
-}
+    },
+    {
+        "name": "PDEVPROPERTY",
+        "type": {
+            "data_type": "Struct",
+            "name": "_DEVPROPERTY",
+            "elements": [
+                {
+                    "name": "CompKey",
+                    "type": "DEVPROPCOMPKEY"
+                },
+                {
+                    "name": "Type",
+                    "type": "DEVPROPTYPE"
+                },
+                {
+                    "name": "BufferSize",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "Buffer",
+                    "type": "PVOID"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "SW_DEVICE_CAPABILITIES",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "SWDeviceCapabilitiesNone",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000000"
+                    }
+                },
+                {
+                    "name": "SWDeviceCapabilitiesRemovable",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000001"
+                    }
+                },
+                {
+                    "name": "SWDeviceCapabilitiesSilentInstall",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000002"
+                    }
+                },
+                {
+                    "name": "SWDeviceCapabilitiesNoDisplayInUI",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000004"
+                    }
+                },
+                {
+                    "name": "SWDeviceCapabilitiesDriverRequired",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000008"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "PSW_DEVICE_CAPABILITIES",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "SWDeviceCapabilitiesNone",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000000"
+                    }
+                },
+                {
+                    "name": "SWDeviceCapabilitiesRemovable",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000001"
+                    }
+                },
+                {
+                    "name": "SWDeviceCapabilitiesSilentInstall",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000002"
+                    }
+                },
+                {
+                    "name": "SWDeviceCapabilitiesNoDisplayInUI",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000004"
+                    }
+                },
+                {
+                    "name": "SWDeviceCapabilitiesDriverRequired",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000008"
+                    }
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "SW_DEVICE_CREATE_INFO",
+        "type": {
+            "data_type": "Struct",
+            "name": "_SW_DEVICE_CREATE_INFO",
+            "elements": [
+                {
+                    "name": "cbSize",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "pszInstanceId",
+                    "type": "PCWSTR"
+                },
+                {
+                    "name": "pszzHardwareIds",
+                    "type": "PCZZWSTR"
+                },
+                {
+                    "name": "pszzCompatibleIds",
+                    "type": "PCZZWSTR"
+                },
+                {
+                    "name": "pContainerId",
+                    "type": "GUID",
+                    "data_type": "Ptr"
+                },
+                {
+                    "name": "CapabilityFlags",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "pszDeviceDescription",
+                    "type": "PCWSTR"
+                },
+                {
+                    "name": "pszDeviceLocation",
+                    "type": "PCWSTR"
+                },
+                {
+                    "name": "pSecurityDescriptor",
+                    "type": "SECURITY_DESCRIPTOR",
+                    "data_type": "Ptr"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PSW_DEVICE_CREATE_INFO",
+        "type": {
+            "data_type": "Struct",
+            "name": "_SW_DEVICE_CREATE_INFO",
+            "elements": [
+                {
+                    "name": "cbSize",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "pszInstanceId",
+                    "type": "PCWSTR"
+                },
+                {
+                    "name": "pszzHardwareIds",
+                    "type": "PCZZWSTR"
+                },
+                {
+                    "name": "pszzCompatibleIds",
+                    "type": "PCZZWSTR"
+                },
+                {
+                    "name": "pContainerId",
+                    "type": "GUID",
+                    "data_type": "Ptr"
+                },
+                {
+                    "name": "CapabilityFlags",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "pszDeviceDescription",
+                    "type": "PCWSTR"
+                },
+                {
+                    "name": "pszDeviceLocation",
+                    "type": "PCWSTR"
+                },
+                {
+                    "name": "pSecurityDescriptor",
+                    "type": "SECURITY_DESCRIPTOR",
+                    "data_type": "Ptr"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "SW_DEVICE_LIFETIME",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "SWDeviceLifetimeHandle",
+                    "value": {}
+                },
+                {
+                    "name": "SWDeviceLifetimeParentPresent",
+                    "value": {}
+                },
+                {
+                    "name": "SWDeviceLifetimeMax",
+                    "value": {}
+                }
+            ]
+        }
+    },
+    {
+        "name": "PSW_DEVICE_LIFETIME",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "SWDeviceLifetimeHandle",
+                    "value": {}
+                },
+                {
+                    "name": "SWDeviceLifetimeParentPresent",
+                    "value": {}
+                },
+                {
+                    "name": "SWDeviceLifetimeMax",
+                    "value": {}
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "data_type": "Struct",
+        "name": "HSWDEVICE__",
+        "elements": [
+            {
+                "name": "unused",
+                "type": "int"
+            }
+        ]
+    },
+    {
+        "name": "HSWDEVICE",
+        "type": {
+            "data_type": "Struct",
+            "name": "HSWDEVICE__",
+            "elements": []
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "PHSWDEVICE",
+        "type": "HSWDEVICE",
+        "data_type": "Ptr"
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
+            "name": "SW_DEVICE_CREATE_CALLBACK",
+            "type": "void"
+        },
+        "name": "SW_DEVICE_CREATE_CALLBACK",
+        "arguments": [
+            {
+                "name": "hSwDevice",
+                "type": "HSWDEVICE"
+            },
+            {
+                "name": "CreateResult",
+                "type": "HRESULT"
+            },
+            {
+                "name": "pContext",
+                "type": "PVOID"
+            },
+            {
+                "name": "pszDeviceInstanceId",
+                "type": "PCWSTR"
+            }
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SwDeviceCreate",
+            "type": "HRESULT"
+        },
+        "name": "SwDeviceCreate",
+        "arguments": [
+            {
+                "name": "pszEnumeratorName",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pszParentDeviceInstance",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pCreateInfo",
+                    "type": "SW_DEVICE_CREATE_INFO"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cPropertyCount",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pProperties",
+                    "type": "DEVPROPERTY"
+                },
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "pCallback",
+                "type": "SW_DEVICE_CREATE_CALLBACK",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pContext",
+                "type": "PVOID",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "phSwDevice",
+                "type": "PHSWDEVICE",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Cfgmgr32.dll",
+            "API-MS-Win-devices-swdevice-l1-1-0.dll",
+            "API-MS-Win-devices-swdevice-l1-1-1.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SwDeviceClose",
+            "type": "void"
+        },
+        "name": "SwDeviceClose",
+        "arguments": [
+            {
+                "name": "hSwDevice",
+                "type": "HSWDEVICE",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Cfgmgr32.dll",
+            "API-MS-Win-devices-swdevice-l1-1-0.dll",
+            "API-MS-Win-devices-swdevice-l1-1-1.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SwDeviceSetLifetime",
+            "type": "HRESULT"
+        },
+        "name": "SwDeviceSetLifetime",
+        "arguments": [
+            {
+                "name": "hSwDevice",
+                "type": "HSWDEVICE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Lifetime",
+                "type": "SW_DEVICE_LIFETIME",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Cfgmgr32.dll",
+            "API-MS-Win-devices-swdevice-l1-1-1.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SwDeviceGetLifetime",
+            "type": "HRESULT"
+        },
+        "name": "SwDeviceGetLifetime",
+        "arguments": [
+            {
+                "name": "hSwDevice",
+                "type": "HSWDEVICE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pLifetime",
+                "type": "PSW_DEVICE_LIFETIME",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Cfgmgr32.dll",
+            "API-MS-Win-devices-swdevice-l1-1-1.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SwDevicePropertySet",
+            "type": "HRESULT"
+        },
+        "name": "SwDevicePropertySet",
+        "arguments": [
+            {
+                "name": "hSwDevice",
+                "type": "HSWDEVICE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cPropertyCount",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pProperties",
+                    "type": "DEVPROPERTY"
+                },
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Cfgmgr32.dll",
+            "API-MS-Win-devices-swdevice-l1-1-0.dll",
+            "API-MS-Win-devices-swdevice-l1-1-1.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SwDeviceInterfaceRegister",
+            "type": "HRESULT"
+        },
+        "name": "SwDeviceInterfaceRegister",
+        "arguments": [
+            {
+                "name": "hSwDevice",
+                "type": "HSWDEVICE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pInterfaceClassGuid",
+                    "type": "GUID"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pszReferenceString",
+                "type": "PCWSTR",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "cPropertyCount",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pProperties",
+                    "type": "DEVPROPERTY"
+                },
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "fEnabled",
+                "type": "BOOL",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "ppszDeviceInterfaceId",
+                    "type": "PWSTR"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Cfgmgr32.dll",
+            "API-MS-Win-devices-swdevice-l1-1-0.dll",
+            "API-MS-Win-devices-swdevice-l1-1-1.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SwMemFree",
+            "type": "void"
+        },
+        "name": "SwMemFree",
+        "arguments": [
+            {
+                "name": "pMem",
+                "type": "PVOID",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Cfgmgr32.dll",
+            "API-MS-Win-devices-swdevice-l1-1-0.dll",
+            "API-MS-Win-devices-swdevice-l1-1-1.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SwDeviceInterfaceSetState",
+            "type": "HRESULT"
+        },
+        "name": "SwDeviceInterfaceSetState",
+        "arguments": [
+            {
+                "name": "hSwDevice",
+                "type": "HSWDEVICE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pszDeviceInterfaceId",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "fEnabled",
+                "type": "BOOL",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Cfgmgr32.dll",
+            "API-MS-Win-devices-swdevice-l1-1-0.dll",
+            "API-MS-Win-devices-swdevice-l1-1-1.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SwDeviceInterfacePropertySet",
+            "type": "HRESULT"
+        },
+        "name": "SwDeviceInterfacePropertySet",
+        "arguments": [
+            {
+                "name": "hSwDevice",
+                "type": "HSWDEVICE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pszDeviceInterfaceId",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cPropertyCount",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pProperties",
+                    "type": "DEVPROPERTY"
+                },
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Cfgmgr32.dll",
+            "API-MS-Win-devices-swdevice-l1-1-0.dll",
+            "API-MS-Win-devices-swdevice-l1-1-1.dll"
+        ]
+    }
+]

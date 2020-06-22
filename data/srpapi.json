@@ -1,764 +1,760 @@
-{
-    "typedefs": [
-        {
+[
+    {
+        "name": "HTHREAD_NETWORK_CONTEXT",
+        "type": {
+            "data_type": "Struct",
             "name": "HTHREAD_NETWORK_CONTEXT",
-            "type": {
-                "data_type": "Struct",
-                "name": "HTHREAD_NETWORK_CONTEXT",
-                "elements": [
-                    {
-                        "name": "ThreadId",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "ThreadContext",
-                        "type": "HANDLE"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "ENTERPRISE_DATA_POLICIES",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "ENTERPRISE_POLICY_NONE",
-                        "value": {
-                            "type": "int",
-                            "value": "0x0"
-                        }
-                    },
-                    {
-                        "name": "ENTERPRISE_POLICY_ALLOWED",
-                        "value": {
-                            "type": "int",
-                            "value": "0x1"
-                        }
-                    },
-                    {
-                        "name": "ENTERPRISE_POLICY_ENLIGHTENED",
-                        "value": {
-                            "type": "int",
-                            "value": "0x2"
-                        }
-                    },
-                    {
-                        "name": "ENTERPRISE_POLICY_EXEMPT",
-                        "value": {
-                            "type": "int",
-                            "value": "0x4"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PACKAGE_VERSION",
-            "type": {
-                "data_type": "Struct",
-                "name": "PACKAGE_VERSION",
-                "elements": [
-                    {
-                        "data_type": "Union",
-                        "elements": [
-                            {
-                                "name": "Version",
-                                "type": "UINT64"
-                            },
-                            {
-                                "data_type": "Struct",
-                                "elements": [
-                                    {
-                                        "name": "Revision",
-                                        "type": "USHORT"
-                                    },
-                                    {
-                                        "name": "Build",
-                                        "type": "USHORT"
-                                    },
-                                    {
-                                        "name": "Minor",
-                                        "type": "USHORT"
-                                    },
-                                    {
-                                        "name": "Major",
-                                        "type": "USHORT"
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PACKAGE_ID",
-            "type": {
-                "data_type": "Struct",
-                "name": "PACKAGE_ID",
-                "elements": [
-                    {
-                        "name": "reserved",
-                        "type": "UINT32"
-                    },
-                    {
-                        "name": "processorArchitecture",
-                        "type": "UINT32"
-                    },
-                    {
-                        "name": "version",
-                        "type": "PACKAGE_VERSION"
-                    },
-                    {
-                        "name": "name",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "publisher",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "resourceId",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "publisherId",
-                        "type": "PWSTR"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PackagePathType",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "PackagePathType_Install",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "PackagePathType_Mutable",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    },
-                    {
-                        "name": "PackagePathType_Effective",
-                        "value": {
-                            "type": "int",
-                            "value": "2"
-                        }
-                    },
-                    {
-                        "name": "PackagePathType_MachineExternal",
-                        "value": {
-                            "type": "int",
-                            "value": "3"
-                        }
-                    },
-                    {
-                        "name": "PackagePathType_UserExternal",
-                        "value": {
-                            "type": "int",
-                            "value": "4"
-                        }
-                    },
-                    {
-                        "name": "PackagePathType_EffectiveExternal",
-                        "value": {
-                            "type": "int",
-                            "value": "5"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PackageOrigin",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "PackageOrigin_Unknown",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "PackageOrigin_Unsigned",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    },
-                    {
-                        "name": "PackageOrigin_Inbox",
-                        "value": {
-                            "type": "int",
-                            "value": "2"
-                        }
-                    },
-                    {
-                        "name": "PackageOrigin_Store",
-                        "value": {
-                            "type": "int",
-                            "value": "3"
-                        }
-                    },
-                    {
-                        "name": "PackageOrigin_DeveloperUnsigned",
-                        "value": {
-                            "type": "int",
-                            "value": "4"
-                        }
-                    },
-                    {
-                        "name": "PackageOrigin_DeveloperSigned",
-                        "value": {
-                            "type": "int",
-                            "value": "5"
-                        }
-                    },
-                    {
-                        "name": "PackageOrigin_LineOfBusiness",
-                        "value": {
-                            "type": "int",
-                            "value": "6"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PACKAGE_INFO_REFERENCE",
-            "type": {
-                "data_type": "Struct",
-                "name": "_PACKAGE_INFO_REFERENCE",
-                "elements": [
-                    {
-                        "name": "reserved",
-                        "type": "void",
-                        "data_type": "Ptr"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "PACKAGE_INFO",
-            "type": {
-                "data_type": "Struct",
-                "name": "PACKAGE_INFO",
-                "elements": [
-                    {
-                        "name": "reserved",
-                        "type": "UINT32"
-                    },
-                    {
-                        "name": "flags",
-                        "type": "UINT32"
-                    },
-                    {
-                        "name": "path",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "packageFullName",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "packageFamilyName",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "packageId",
-                        "type": "PACKAGE_ID"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "AppPolicyLifecycleManagement",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AppPolicyLifecycleManagement_Unmanaged",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyLifecycleManagement_Managed",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "AppPolicyWindowingModel",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AppPolicyWindowingModel_None",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyWindowingModel_Universal",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyWindowingModel_ClassicDesktop",
-                        "value": {
-                            "type": "int",
-                            "value": "2"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyWindowingModel_ClassicPhone",
-                        "value": {
-                            "type": "int",
-                            "value": "3"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "AppPolicyMediaFoundationCodecLoading",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AppPolicyMediaFoundationCodecLoading_All",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyMediaFoundationCodecLoading_InboxOnly",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "AppPolicyClrCompat",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AppPolicyClrCompat_Other",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyClrCompat_ClassicDesktop",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyClrCompat_Universal",
-                        "value": {
-                            "type": "int",
-                            "value": "2"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyClrCompat_PackagedDesktop",
-                        "value": {
-                            "type": "int",
-                            "value": "3"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "AppPolicyThreadInitializationType",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AppPolicyThreadInitializationType_None",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyThreadInitializationType_InitializeWinRT",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "AppPolicyShowDeveloperDiagnostic",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AppPolicyShowDeveloperDiagnostic_None",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyShowDeveloperDiagnostic_ShowUI",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "AppPolicyProcessTerminationMethod",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AppPolicyProcessTerminationMethod_ExitProcess",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyProcessTerminationMethod_TerminateProcess",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "AppPolicyCreateFileAccess",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AppPolicyCreateFileAccess_Full",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyCreateFileAccess_Limited",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    }
-                ]
-            }
+            "elements": [
+                {
+                    "name": "ThreadId",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "ThreadContext",
+                    "type": "HANDLE"
+                }
+            ]
         }
-    ],
-    "funcdefs": [
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SrpCreateThreadNetworkContext",
-                "type": "HRESULT"
-            },
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "SrpCreateThreadNetworkContext",
-            "arguments": [
-                {
-                    "name": "enterpriseId",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "threadNetworkContext",
-                        "type": "HTHREAD_NETWORK_CONTEXT"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "srpapi.dll",
-                "Ext-MS-Win-Security-Srp-L1-1-0.dll",
-                "Ext-MS-Win-Security-Srp-L1-1-1.dll"
-            ]
+            "type": "HRESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SrpCloseThreadNetworkContext",
-                "type": "HRESULT"
+        "name": "SrpCreateThreadNetworkContext",
+        "arguments": [
+            {
+                "name": "enterpriseId",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "type": {
+                    "name": "threadNetworkContext",
+                    "type": "HTHREAD_NETWORK_CONTEXT"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "srpapi.dll",
+            "Ext-MS-Win-Security-Srp-L1-1-0.dll",
+            "Ext-MS-Win-Security-Srp-L1-1-1.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "SrpCloseThreadNetworkContext",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "threadNetworkContext",
-                        "type": "HTHREAD_NETWORK_CONTEXT"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "srpapi.dll",
-                "Ext-MS-Win-Security-Srp-L1-1-0.dll",
-                "Ext-MS-Win-Security-Srp-L1-1-1.dll"
-            ]
+            "type": "HRESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SrpSetTokenEnterpriseId",
-                "type": "HRESULT"
-            },
+        "name": "SrpCloseThreadNetworkContext",
+        "arguments": [
+            {
+                "type": {
+                    "name": "threadNetworkContext",
+                    "type": "HTHREAD_NETWORK_CONTEXT"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "srpapi.dll",
+            "Ext-MS-Win-Security-Srp-L1-1-0.dll",
+            "Ext-MS-Win-Security-Srp-L1-1-1.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "SrpSetTokenEnterpriseId",
-            "arguments": [
-                {
-                    "name": "tokenHandle",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "enterpriseId",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "srpapi.dll",
-                "Ext-MS-Win-Security-Srp-L1-1-0.dll",
-                "Ext-MS-Win-Security-Srp-L1-1-1.dll"
-            ]
+            "type": "HRESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SrpGetEnterpriseIds",
-                "type": "HRESULT"
+        "name": "SrpSetTokenEnterpriseId",
+        "arguments": [
+            {
+                "name": "tokenHandle",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "enterpriseId",
+                "type": "PCWSTR",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "srpapi.dll",
+            "Ext-MS-Win-Security-Srp-L1-1-0.dll",
+            "Ext-MS-Win-Security-Srp-L1-1-1.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "SrpGetEnterpriseIds",
-            "arguments": [
-                {
-                    "name": "tokenHandle",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "numberOfBytes",
-                    "type": "PULONG",
-                    "sal": [
-                        "in",
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "enterpriseIds",
-                        "type": "PCWSTR"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "enterpriseIdCount",
-                    "type": "PULONG",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "srpapi.dll",
-                "Ext-MS-Win-Security-Srp-L1-1-0.dll",
-                "Ext-MS-Win-Security-Srp-L1-1-1.dll"
-            ]
+            "type": "HRESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SrpEnablePermissiveModeFileEncryption",
-                "type": "HRESULT"
+        "name": "SrpGetEnterpriseIds",
+        "arguments": [
+            {
+                "name": "tokenHandle",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "numberOfBytes",
+                "type": "PULONG",
+                "sal": [
+                    "in",
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "enterpriseIds",
+                    "type": "PCWSTR"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "name": "enterpriseIdCount",
+                "type": "PULONG",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "srpapi.dll",
+            "Ext-MS-Win-Security-Srp-L1-1-0.dll",
+            "Ext-MS-Win-Security-Srp-L1-1-1.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "SrpEnablePermissiveModeFileEncryption",
-            "arguments": [
-                {
-                    "name": "enterpriseId",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "srpapi.dll",
-                "Ext-MS-Win-Security-Srp-L1-1-0.dll",
-                "Ext-MS-Win-Security-Srp-L1-1-1.dll"
-            ]
+            "type": "HRESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SrpDisablePermissiveModeFileEncryption",
-                "type": "HRESULT"
-            },
+        "name": "SrpEnablePermissiveModeFileEncryption",
+        "arguments": [
+            {
+                "name": "enterpriseId",
+                "type": "PCWSTR",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "srpapi.dll",
+            "Ext-MS-Win-Security-Srp-L1-1-0.dll",
+            "Ext-MS-Win-Security-Srp-L1-1-1.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "SrpDisablePermissiveModeFileEncryption",
-            "arguments": [
-                {
-                    "type": "void"
-                }
-            ],
-            "api_locations": [
-                "srpapi.dll",
-                "Ext-MS-Win-Security-Srp-L1-1-0.dll",
-                "Ext-MS-Win-Security-Srp-L1-1-1.dll"
-            ]
+            "type": "HRESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SrpGetEnterprisePolicy",
-                "type": "HRESULT"
-            },
-            "name": "SrpGetEnterprisePolicy",
-            "arguments": [
+        "name": "SrpDisablePermissiveModeFileEncryption",
+        "arguments": [
+            {
+                "type": "void"
+            }
+        ],
+        "api_locations": [
+            "srpapi.dll",
+            "Ext-MS-Win-Security-Srp-L1-1-0.dll",
+            "Ext-MS-Win-Security-Srp-L1-1-1.dll"
+        ]
+    },
+    {
+        "name": "ENTERPRISE_DATA_POLICIES",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
                 {
-                    "name": "tokenHandle",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "ENTERPRISE_POLICY_NONE",
+                    "value": {
+                        "type": "int",
+                        "value": "0x0"
+                    }
                 },
                 {
-                    "type": {
-                        "name": "policyFlags",
-                        "type": "ENTERPRISE_DATA_POLICIES"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "srpapi.dll",
-                "Ext-MS-Win-Security-Srp-L1-1-0.dll",
-                "Ext-MS-Win-Security-Srp-L1-1-1.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SrpIsTokenService",
-                "type": "NTSTATUS"
-            },
-            "name": "SrpIsTokenService",
-            "arguments": [
-                {
-                    "name": "TokenHandle",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "ENTERPRISE_POLICY_ALLOWED",
+                    "value": {
+                        "type": "int",
+                        "value": "0x1"
+                    }
                 },
                 {
-                    "type": {
-                        "name": "IsTokenService",
-                        "type": "BOOLEAN"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "srpapi.dll",
-                "Ext-MS-Win-Security-Srp-L1-1-0.dll",
-                "Ext-MS-Win-Security-Srp-L1-1-1.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SrpDoesPolicyAllowAppExecution",
-                "type": "HRESULT"
-            },
-            "name": "SrpDoesPolicyAllowAppExecution",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "packageId",
-                        "type": "PACKAGE_ID"
-                    },
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "ENTERPRISE_POLICY_ENLIGHTENED",
+                    "value": {
+                        "type": "int",
+                        "value": "0x2"
+                    }
                 },
                 {
-                    "type": {
-                        "name": "isAllowed",
-                        "type": "BOOL"
-                    },
-                    "sal": [
-                        "out"
-                    ]
+                    "name": "ENTERPRISE_POLICY_EXEMPT",
+                    "value": {
+                        "type": "int",
+                        "value": "0x4"
+                    }
                 }
-            ],
-            "api_locations": [
-                "srpapi.dll",
-                "Ext-MS-Win-Security-Srp-L1-1-0.dll",
-                "Ext-MS-Win-Security-Srp-L1-1-1.dll"
             ]
         }
-    ]
-}
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SrpGetEnterprisePolicy",
+            "type": "HRESULT"
+        },
+        "name": "SrpGetEnterprisePolicy",
+        "arguments": [
+            {
+                "name": "tokenHandle",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "policyFlags",
+                    "type": "ENTERPRISE_DATA_POLICIES"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "srpapi.dll",
+            "Ext-MS-Win-Security-Srp-L1-1-0.dll",
+            "Ext-MS-Win-Security-Srp-L1-1-1.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SrpIsTokenService",
+            "type": "NTSTATUS"
+        },
+        "name": "SrpIsTokenService",
+        "arguments": [
+            {
+                "name": "TokenHandle",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "IsTokenService",
+                    "type": "BOOLEAN"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "srpapi.dll",
+            "Ext-MS-Win-Security-Srp-L1-1-0.dll",
+            "Ext-MS-Win-Security-Srp-L1-1-1.dll"
+        ]
+    },
+    {
+        "name": "PACKAGE_VERSION",
+        "type": {
+            "data_type": "Struct",
+            "name": "PACKAGE_VERSION",
+            "elements": [
+                {
+                    "data_type": "Union",
+                    "elements": [
+                        {
+                            "name": "Version",
+                            "type": "UINT64"
+                        },
+                        {
+                            "data_type": "Struct",
+                            "elements": [
+                                {
+                                    "name": "Revision",
+                                    "type": "USHORT"
+                                },
+                                {
+                                    "name": "Build",
+                                    "type": "USHORT"
+                                },
+                                {
+                                    "name": "Minor",
+                                    "type": "USHORT"
+                                },
+                                {
+                                    "name": "Major",
+                                    "type": "USHORT"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "name": "PACKAGE_ID",
+        "type": {
+            "data_type": "Struct",
+            "name": "PACKAGE_ID",
+            "elements": [
+                {
+                    "name": "reserved",
+                    "type": "UINT32"
+                },
+                {
+                    "name": "processorArchitecture",
+                    "type": "UINT32"
+                },
+                {
+                    "name": "version",
+                    "type": "PACKAGE_VERSION"
+                },
+                {
+                    "name": "name",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "publisher",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "resourceId",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "publisherId",
+                    "type": "PWSTR"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PackagePathType",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "PackagePathType_Install",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "PackagePathType_Mutable",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                },
+                {
+                    "name": "PackagePathType_Effective",
+                    "value": {
+                        "type": "int",
+                        "value": "2"
+                    }
+                },
+                {
+                    "name": "PackagePathType_MachineExternal",
+                    "value": {
+                        "type": "int",
+                        "value": "3"
+                    }
+                },
+                {
+                    "name": "PackagePathType_UserExternal",
+                    "value": {
+                        "type": "int",
+                        "value": "4"
+                    }
+                },
+                {
+                    "name": "PackagePathType_EffectiveExternal",
+                    "value": {
+                        "type": "int",
+                        "value": "5"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "PackageOrigin",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "PackageOrigin_Unknown",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "PackageOrigin_Unsigned",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                },
+                {
+                    "name": "PackageOrigin_Inbox",
+                    "value": {
+                        "type": "int",
+                        "value": "2"
+                    }
+                },
+                {
+                    "name": "PackageOrigin_Store",
+                    "value": {
+                        "type": "int",
+                        "value": "3"
+                    }
+                },
+                {
+                    "name": "PackageOrigin_DeveloperUnsigned",
+                    "value": {
+                        "type": "int",
+                        "value": "4"
+                    }
+                },
+                {
+                    "name": "PackageOrigin_DeveloperSigned",
+                    "value": {
+                        "type": "int",
+                        "value": "5"
+                    }
+                },
+                {
+                    "name": "PackageOrigin_LineOfBusiness",
+                    "value": {
+                        "type": "int",
+                        "value": "6"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "PACKAGE_INFO_REFERENCE",
+        "type": {
+            "data_type": "Struct",
+            "name": "_PACKAGE_INFO_REFERENCE",
+            "elements": [
+                {
+                    "name": "reserved",
+                    "type": "void",
+                    "data_type": "Ptr"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "PACKAGE_INFO",
+        "type": {
+            "data_type": "Struct",
+            "name": "PACKAGE_INFO",
+            "elements": [
+                {
+                    "name": "reserved",
+                    "type": "UINT32"
+                },
+                {
+                    "name": "flags",
+                    "type": "UINT32"
+                },
+                {
+                    "name": "path",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "packageFullName",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "packageFamilyName",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "packageId",
+                    "type": "PACKAGE_ID"
+                }
+            ]
+        }
+    },
+    {
+        "name": "AppPolicyLifecycleManagement",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AppPolicyLifecycleManagement_Unmanaged",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "AppPolicyLifecycleManagement_Managed",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "AppPolicyWindowingModel",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AppPolicyWindowingModel_None",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "AppPolicyWindowingModel_Universal",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                },
+                {
+                    "name": "AppPolicyWindowingModel_ClassicDesktop",
+                    "value": {
+                        "type": "int",
+                        "value": "2"
+                    }
+                },
+                {
+                    "name": "AppPolicyWindowingModel_ClassicPhone",
+                    "value": {
+                        "type": "int",
+                        "value": "3"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "AppPolicyMediaFoundationCodecLoading",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AppPolicyMediaFoundationCodecLoading_All",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "AppPolicyMediaFoundationCodecLoading_InboxOnly",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "AppPolicyClrCompat",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AppPolicyClrCompat_Other",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "AppPolicyClrCompat_ClassicDesktop",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                },
+                {
+                    "name": "AppPolicyClrCompat_Universal",
+                    "value": {
+                        "type": "int",
+                        "value": "2"
+                    }
+                },
+                {
+                    "name": "AppPolicyClrCompat_PackagedDesktop",
+                    "value": {
+                        "type": "int",
+                        "value": "3"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "AppPolicyThreadInitializationType",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AppPolicyThreadInitializationType_None",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "AppPolicyThreadInitializationType_InitializeWinRT",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "AppPolicyShowDeveloperDiagnostic",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AppPolicyShowDeveloperDiagnostic_None",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "AppPolicyShowDeveloperDiagnostic_ShowUI",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "AppPolicyProcessTerminationMethod",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AppPolicyProcessTerminationMethod_ExitProcess",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "AppPolicyProcessTerminationMethod_TerminateProcess",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "AppPolicyCreateFileAccess",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AppPolicyCreateFileAccess_Full",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "AppPolicyCreateFileAccess_Limited",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SrpDoesPolicyAllowAppExecution",
+            "type": "HRESULT"
+        },
+        "name": "SrpDoesPolicyAllowAppExecution",
+        "arguments": [
+            {
+                "type": {
+                    "name": "packageId",
+                    "type": "PACKAGE_ID"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "isAllowed",
+                    "type": "BOOL"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "srpapi.dll",
+            "Ext-MS-Win-Security-Srp-L1-1-0.dll",
+            "Ext-MS-Win-Security-Srp-L1-1-1.dll"
+        ]
+    }
+]

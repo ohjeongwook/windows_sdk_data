@@ -1,886 +1,882 @@
-{
-    "typedefs": [
-        {
-            "name": "SCHEDULE_HEADER",
-            "type": {
-                "data_type": "Struct",
-                "name": "_SCHEDULE_HEADER",
-                "elements": [
-                    {
-                        "name": "Type",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "Offset",
-                        "type": "ULONG"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PSCHEDULE_HEADER",
-            "type": {
-                "data_type": "Struct",
-                "name": "_SCHEDULE_HEADER",
-                "elements": [
-                    {
-                        "name": "Type",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "Offset",
-                        "type": "ULONG"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "SCHEDULE",
-            "type": {
-                "data_type": "Struct",
-                "name": "_SCHEDULE",
-                "elements": [
-                    {
-                        "name": "Size",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "Bandwidth",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "NumberOfSchedules",
-                        "type": "ULONG"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "1"
-                        },
-                        "name": "Schedules"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PSCHEDULE",
-            "type": {
-                "data_type": "Struct",
-                "name": "_SCHEDULE",
-                "elements": [
-                    {
-                        "name": "Size",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "Bandwidth",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "NumberOfSchedules",
-                        "type": "ULONG"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "1"
-                        },
-                        "name": "Schedules"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "DS_MANGLE_FOR",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "DS_MANGLE_UNKNOWN",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "DS_MANGLE_OBJECT_RDN_FOR_DELETION",
-                        "value": {}
-                    },
-                    {
-                        "name": "DS_MANGLE_OBJECT_RDN_FOR_NAME_CONFLICT",
-                        "value": {}
-                    }
-                ]
-            }
+[
+    {
+        "name": "SCHEDULE_HEADER",
+        "type": {
+            "data_type": "Struct",
+            "name": "_SCHEDULE_HEADER",
+            "elements": [
+                {
+                    "name": "Type",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "Offset",
+                    "type": "ULONG"
+                }
+            ]
         }
-    ],
-    "funcdefs": [
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "DsMakeSpnW",
-                "type": "DWORD"
-            },
+    },
+    {
+        "name": "PSCHEDULE_HEADER",
+        "type": {
+            "data_type": "Struct",
+            "name": "_SCHEDULE_HEADER",
+            "elements": [
+                {
+                    "name": "Type",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "Offset",
+                    "type": "ULONG"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "SCHEDULE",
+        "type": {
+            "data_type": "Struct",
+            "name": "_SCHEDULE",
+            "elements": [
+                {
+                    "name": "Size",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "Bandwidth",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "NumberOfSchedules",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "1"
+                    },
+                    "name": "Schedules"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PSCHEDULE",
+        "type": {
+            "data_type": "Struct",
+            "name": "_SCHEDULE",
+            "elements": [
+                {
+                    "name": "Size",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "Bandwidth",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "NumberOfSchedules",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "1"
+                    },
+                    "name": "Schedules"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "DS_MANGLE_FOR",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "DS_MANGLE_UNKNOWN",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "DS_MANGLE_OBJECT_RDN_FOR_DELETION",
+                    "value": {}
+                },
+                {
+                    "name": "DS_MANGLE_OBJECT_RDN_FOR_NAME_CONFLICT",
+                    "value": {}
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "DsMakeSpnW",
-            "arguments": [
-                {
-                    "name": "ServiceClass",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "ServiceName",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "InstanceName",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "InstancePort",
-                    "type": "USHORT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Referrer",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pcSpnLength",
-                        "type": "DWORD"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "pszSpn",
-                    "type": "LPWSTR",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Ntdsapi.dll"
-            ]
+            "type": "DWORD"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "DsMakeSpnA",
-                "type": "DWORD"
+        "name": "DsMakeSpnW",
+        "arguments": [
+            {
+                "name": "ServiceClass",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "ServiceName",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "InstanceName",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "InstancePort",
+                "type": "USHORT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Referrer",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pcSpnLength",
+                    "type": "DWORD"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "pszSpn",
+                "type": "LPWSTR",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Ntdsapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "DsMakeSpnA",
-            "arguments": [
-                {
-                    "name": "ServiceClass",
-                    "type": "LPCSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "ServiceName",
-                    "type": "LPCSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "InstanceName",
-                    "type": "LPCSTR",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "InstancePort",
-                    "type": "USHORT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Referrer",
-                    "type": "LPCSTR",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pcSpnLength",
-                        "type": "DWORD"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "pszSpn",
-                    "type": "LPSTR",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Ntdsapi.dll"
-            ]
+            "type": "DWORD"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "DsCrackSpnA",
-                "type": "DWORD"
+        "name": "DsMakeSpnA",
+        "arguments": [
+            {
+                "name": "ServiceClass",
+                "type": "LPCSTR",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "ServiceName",
+                "type": "LPCSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "InstanceName",
+                "type": "LPCSTR",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "InstancePort",
+                "type": "USHORT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Referrer",
+                "type": "LPCSTR",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pcSpnLength",
+                    "type": "DWORD"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "pszSpn",
+                "type": "LPSTR",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Ntdsapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "DsCrackSpnA",
-            "arguments": [
-                {
-                    "name": "pszSpn",
-                    "type": "LPCSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pcServiceClass",
-                    "type": "LPDWORD",
-                    "sal": [
-                        "in",
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "ServiceClass",
-                    "type": "LPSTR",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "pcServiceName",
-                    "type": "LPDWORD",
-                    "sal": [
-                        "in",
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "ServiceName",
-                    "type": "LPSTR",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "pcInstanceName",
-                    "type": "LPDWORD",
-                    "sal": [
-                        "in",
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "InstanceName",
-                    "type": "LPSTR",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pInstancePort",
-                        "type": "USHORT"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Ntdsapi.dll"
-            ]
+            "type": "DWORD"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "DsCrackSpnW",
-                "type": "DWORD"
+        "name": "DsCrackSpnA",
+        "arguments": [
+            {
+                "name": "pszSpn",
+                "type": "LPCSTR",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "pcServiceClass",
+                "type": "LPDWORD",
+                "sal": [
+                    "in",
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "name": "ServiceClass",
+                "type": "LPSTR",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "name": "pcServiceName",
+                "type": "LPDWORD",
+                "sal": [
+                    "in",
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "name": "ServiceName",
+                "type": "LPSTR",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "name": "pcInstanceName",
+                "type": "LPDWORD",
+                "sal": [
+                    "in",
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "name": "InstanceName",
+                "type": "LPSTR",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pInstancePort",
+                    "type": "USHORT"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Ntdsapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "DsCrackSpnW",
-            "arguments": [
-                {
-                    "name": "pszSpn",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pcServiceClass",
-                        "type": "DWORD"
-                    },
-                    "sal": [
-                        "in",
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "ServiceClass",
-                    "type": "LPWSTR",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pcServiceName",
-                        "type": "DWORD"
-                    },
-                    "sal": [
-                        "in",
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "ServiceName",
-                    "type": "LPWSTR",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pcInstanceName",
-                        "type": "DWORD"
-                    },
-                    "sal": [
-                        "in",
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "InstanceName",
-                    "type": "LPWSTR",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pInstancePort",
-                        "type": "USHORT"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Ntdsapi.dll"
-            ]
+            "type": "DWORD"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "DsQuoteRdnValueW",
-                "type": "DWORD"
+        "name": "DsCrackSpnW",
+        "arguments": [
+            {
+                "name": "pszSpn",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "type": {
+                    "name": "pcServiceClass",
+                    "type": "DWORD"
+                },
+                "sal": [
+                    "in",
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "name": "ServiceClass",
+                "type": "LPWSTR",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pcServiceName",
+                    "type": "DWORD"
+                },
+                "sal": [
+                    "in",
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "name": "ServiceName",
+                "type": "LPWSTR",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pcInstanceName",
+                    "type": "DWORD"
+                },
+                "sal": [
+                    "in",
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "name": "InstanceName",
+                "type": "LPWSTR",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pInstancePort",
+                    "type": "USHORT"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Ntdsapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "DsQuoteRdnValueW",
-            "arguments": [
-                {
-                    "name": "cUnquotedRdnValueLength",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "psUnquotedRdnValue",
-                    "type": "LPCWCH",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pcQuotedRdnValueLength",
-                        "type": "DWORD"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "psQuotedRdnValue",
-                    "type": "LPWCH",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Ntdsapi.dll"
-            ]
+            "type": "DWORD"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "DsQuoteRdnValueA",
-                "type": "DWORD"
+        "name": "DsQuoteRdnValueW",
+        "arguments": [
+            {
+                "name": "cUnquotedRdnValueLength",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "psUnquotedRdnValue",
+                "type": "LPCWCH",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pcQuotedRdnValueLength",
+                    "type": "DWORD"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "psQuotedRdnValue",
+                "type": "LPWCH",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Ntdsapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "DsQuoteRdnValueA",
-            "arguments": [
-                {
-                    "name": "cUnquotedRdnValueLength",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "psUnquotedRdnValue",
-                    "type": "LPCCH",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pcQuotedRdnValueLength",
-                        "type": "DWORD"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "psQuotedRdnValue",
-                    "type": "LPCH",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Ntdsapi.dll"
-            ]
+            "type": "DWORD"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "DsUnquoteRdnValueW",
-                "type": "DWORD"
+        "name": "DsQuoteRdnValueA",
+        "arguments": [
+            {
+                "name": "cUnquotedRdnValueLength",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "psUnquotedRdnValue",
+                "type": "LPCCH",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pcQuotedRdnValueLength",
+                    "type": "DWORD"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "psQuotedRdnValue",
+                "type": "LPCH",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Ntdsapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "DsUnquoteRdnValueW",
-            "arguments": [
-                {
-                    "name": "cQuotedRdnValueLength",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "psQuotedRdnValue",
-                    "type": "LPCWCH",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pcUnquotedRdnValueLength",
-                        "type": "DWORD"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "psUnquotedRdnValue",
-                    "type": "LPWCH",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Ntdsapi.dll"
-            ]
+            "type": "DWORD"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "DsUnquoteRdnValueA",
-                "type": "DWORD"
+        "name": "DsUnquoteRdnValueW",
+        "arguments": [
+            {
+                "name": "cQuotedRdnValueLength",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "psQuotedRdnValue",
+                "type": "LPCWCH",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pcUnquotedRdnValueLength",
+                    "type": "DWORD"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "psUnquotedRdnValue",
+                "type": "LPWCH",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Ntdsapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "DsUnquoteRdnValueA",
-            "arguments": [
-                {
-                    "name": "cQuotedRdnValueLength",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "psQuotedRdnValue",
-                    "type": "LPCCH",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pcUnquotedRdnValueLength",
-                        "type": "DWORD"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "psUnquotedRdnValue",
-                    "type": "LPCH",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Ntdsapi.dll"
-            ]
+            "type": "DWORD"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "DsGetRdnW",
-                "type": "DWORD"
+        "name": "DsUnquoteRdnValueA",
+        "arguments": [
+            {
+                "name": "cQuotedRdnValueLength",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "psQuotedRdnValue",
+                "type": "LPCCH",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pcUnquotedRdnValueLength",
+                    "type": "DWORD"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "psUnquotedRdnValue",
+                "type": "LPCH",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Ntdsapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "DsGetRdnW",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "ppDN",
-                        "type": "LPCWCH"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pcDN",
-                        "type": "DWORD"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "ppKey",
-                        "type": "LPCWCH"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pcKey",
-                        "type": "DWORD"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "ppVal",
-                        "type": "LPCWCH"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pcVal",
-                        "type": "DWORD"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Ntdsapi.dll"
-            ]
+            "type": "DWORD"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "DsCrackUnquotedMangledRdnW",
-                "type": "BOOL"
+        "name": "DsGetRdnW",
+        "arguments": [
+            {
+                "type": {
+                    "name": "ppDN",
+                    "type": "LPCWCH"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
             },
+            {
+                "type": {
+                    "name": "pcDN",
+                    "type": "DWORD"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "ppKey",
+                    "type": "LPCWCH"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pcKey",
+                    "type": "DWORD"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "ppVal",
+                    "type": "LPCWCH"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pcVal",
+                    "type": "DWORD"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Ntdsapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "DsCrackUnquotedMangledRdnW",
-            "arguments": [
-                {
-                    "name": "pszRDN",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cchRDN",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pGuid",
-                        "type": "GUID"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "peDsMangleFor",
-                        "type": "DS_MANGLE_FOR"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Ntdsapi.dll"
-            ]
+            "type": "BOOL"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "DsCrackUnquotedMangledRdnA",
-                "type": "BOOL"
+        "name": "DsCrackUnquotedMangledRdnW",
+        "arguments": [
+            {
+                "name": "pszRDN",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "cchRDN",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pGuid",
+                    "type": "GUID"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "peDsMangleFor",
+                    "type": "DS_MANGLE_FOR"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Ntdsapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "DsCrackUnquotedMangledRdnA",
-            "arguments": [
-                {
-                    "name": "pszRDN",
-                    "type": "LPCSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cchRDN",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pGuid",
-                        "type": "GUID"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "peDsMangleFor",
-                        "type": "DS_MANGLE_FOR"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Ntdsapi.dll"
-            ]
+            "type": "BOOL"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "DsIsMangledRdnValueW",
-                "type": "BOOL"
+        "name": "DsCrackUnquotedMangledRdnA",
+        "arguments": [
+            {
+                "name": "pszRDN",
+                "type": "LPCSTR",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "cchRDN",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pGuid",
+                    "type": "GUID"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "peDsMangleFor",
+                    "type": "DS_MANGLE_FOR"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Ntdsapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "DsIsMangledRdnValueW",
-            "arguments": [
-                {
-                    "name": "pszRdn",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cRdn",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "eDsMangleForDesired",
-                    "type": "DS_MANGLE_FOR",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Ntdsapi.dll"
-            ]
+            "type": "BOOL"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "DsIsMangledRdnValueA",
-                "type": "BOOL"
+        "name": "DsIsMangledRdnValueW",
+        "arguments": [
+            {
+                "name": "pszRdn",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "cRdn",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "eDsMangleForDesired",
+                "type": "DS_MANGLE_FOR",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Ntdsapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "DsIsMangledRdnValueA",
-            "arguments": [
-                {
-                    "name": "pszRdn",
-                    "type": "LPCSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cRdn",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "eDsMangleForDesired",
-                    "type": "DS_MANGLE_FOR",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Ntdsapi.dll"
-            ]
+            "type": "BOOL"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "DsIsMangledDnA",
-                "type": "BOOL"
+        "name": "DsIsMangledRdnValueA",
+        "arguments": [
+            {
+                "name": "pszRdn",
+                "type": "LPCSTR",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "cRdn",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "eDsMangleForDesired",
+                "type": "DS_MANGLE_FOR",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Ntdsapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "DsIsMangledDnA",
-            "arguments": [
-                {
-                    "name": "pszDn",
-                    "type": "LPCSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "eDsMangleFor",
-                    "type": "DS_MANGLE_FOR",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Ntdsapi.dll"
-            ]
+            "type": "BOOL"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "DsIsMangledDnW",
-                "type": "BOOL"
+        "name": "DsIsMangledDnA",
+        "arguments": [
+            {
+                "name": "pszDn",
+                "type": "LPCSTR",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "eDsMangleFor",
+                "type": "DS_MANGLE_FOR",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Ntdsapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "DsIsMangledDnW",
-            "arguments": [
-                {
-                    "name": "pszDn",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "eDsMangleFor",
-                    "type": "DS_MANGLE_FOR",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Ntdsapi.dll"
-            ]
-        }
-    ]
-}
+            "type": "BOOL"
+        },
+        "name": "DsIsMangledDnW",
+        "arguments": [
+            {
+                "name": "pszDn",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "eDsMangleFor",
+                "type": "DS_MANGLE_FOR",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Ntdsapi.dll"
+        ]
+    }
+]

@@ -1,141 +1,137 @@
-{
-    "typedefs": [
-        {
-            "name": "PROTECTED_FILE_DATA",
-            "type": {
-                "data_type": "Struct",
-                "name": "_PROTECTED_FILE_DATA",
-                "elements": [
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "260"
-                        },
-                        "name": "FileName"
+[
+    {
+        "name": "PROTECTED_FILE_DATA",
+        "type": {
+            "data_type": "Struct",
+            "name": "_PROTECTED_FILE_DATA",
+            "elements": [
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "260"
                     },
-                    {
-                        "name": "FileNumber",
-                        "type": "DWORD"
-                    }
+                    "name": "FileName"
+                },
+                {
+                    "name": "FileNumber",
+                    "type": "DWORD"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PPROTECTED_FILE_DATA",
+        "type": {
+            "data_type": "Struct",
+            "name": "_PROTECTED_FILE_DATA",
+            "elements": [
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "260"
+                    },
+                    "name": "FileName"
+                },
+                {
+                    "name": "FileNumber",
+                    "type": "DWORD"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SfcGetNextProtectedFile",
+            "type": "BOOL"
+        },
+        "name": "SfcGetNextProtectedFile",
+        "arguments": [
+            {
+                "name": "RpcHandle",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "ProtFileData",
+                "type": "PPROTECTED_FILE_DATA",
+                "sal": [
+                    "in",
+                    "out"
                 ]
             }
+        ],
+        "api_locations": [
+            "Sfc.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SfcIsFileProtected",
+            "type": "BOOL"
         },
-        {
-            "name": "PPROTECTED_FILE_DATA",
-            "type": {
-                "data_type": "Struct",
-                "name": "_PROTECTED_FILE_DATA",
-                "elements": [
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "260"
-                        },
-                        "name": "FileName"
-                    },
-                    {
-                        "name": "FileNumber",
-                        "type": "DWORD"
-                    }
+        "name": "SfcIsFileProtected",
+        "arguments": [
+            {
+                "name": "RpcHandle",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
                 ]
             },
-            "data_type": "Ptr"
-        }
-    ],
-    "funcdefs": [
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SfcGetNextProtectedFile",
-                "type": "BOOL"
-            },
-            "name": "SfcGetNextProtectedFile",
-            "arguments": [
-                {
-                    "name": "RpcHandle",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "ProtFileData",
-                    "type": "PPROTECTED_FILE_DATA",
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Sfc.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SfcIsFileProtected",
-                "type": "BOOL"
-            },
-            "name": "SfcIsFileProtected",
-            "arguments": [
-                {
-                    "name": "RpcHandle",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "ProtFileName",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Sfc.dll",
-                "Ext-MS-Win-Wrp-Sfc-L1-1-0.dll",
-                "sfc_os.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SfcIsKeyProtected",
-                "type": "BOOL"
-            },
+            {
+                "name": "ProtFileName",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Sfc.dll",
+            "Ext-MS-Win-Wrp-Sfc-L1-1-0.dll",
+            "sfc_os.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "SfcIsKeyProtected",
-            "arguments": [
-                {
-                    "name": "KeyHandle",
-                    "type": "HKEY",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "SubKeyName",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "KeySam",
-                    "type": "REGSAM",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Sfc.dll"
-            ]
-        }
-    ]
-}
+            "type": "BOOL"
+        },
+        "name": "SfcIsKeyProtected",
+        "arguments": [
+            {
+                "name": "KeyHandle",
+                "type": "HKEY",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "SubKeyName",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "KeySam",
+                "type": "REGSAM",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Sfc.dll"
+        ]
+    }
+]

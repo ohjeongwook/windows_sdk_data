@@ -1,487 +1,483 @@
-{
-    "typedefs": [
-        {
-            "name": "WCT_OBJECT_TYPE",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "WctCriticalSectionType",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    },
-                    {
-                        "name": "WctSendMessageType",
-                        "value": {}
-                    },
-                    {
-                        "name": "WctMutexType",
-                        "value": {}
-                    },
-                    {
-                        "name": "WctAlpcType",
-                        "value": {}
-                    },
-                    {
-                        "name": "WctComType",
-                        "value": {}
-                    },
-                    {
-                        "name": "WctThreadWaitType",
-                        "value": {}
-                    },
-                    {
-                        "name": "WctProcessWaitType",
-                        "value": {}
-                    },
-                    {
-                        "name": "WctThreadType",
-                        "value": {}
-                    },
-                    {
-                        "name": "WctComActivationType",
-                        "value": {}
-                    },
-                    {
-                        "name": "WctUnknownType",
-                        "value": {}
-                    },
-                    {
-                        "name": "WctSocketIoType",
-                        "value": {}
-                    },
-                    {
-                        "name": "WctSmbIoType",
-                        "value": {}
-                    },
-                    {
-                        "name": "WctMaxType",
-                        "value": {}
+[
+    {
+        "name": "WCT_OBJECT_TYPE",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "WctCriticalSectionType",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
                     }
-                ]
-            }
-        },
-        {
-            "name": "WCT_OBJECT_STATUS",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "WctStatusNoAccess",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    },
-                    {
-                        "name": "WctStatusRunning",
-                        "value": {}
-                    },
-                    {
-                        "name": "WctStatusBlocked",
-                        "value": {}
-                    },
-                    {
-                        "name": "WctStatusPidOnly",
-                        "value": {}
-                    },
-                    {
-                        "name": "WctStatusPidOnlyRpcss",
-                        "value": {}
-                    },
-                    {
-                        "name": "WctStatusOwned",
-                        "value": {}
-                    },
-                    {
-                        "name": "WctStatusNotOwned",
-                        "value": {}
-                    },
-                    {
-                        "name": "WctStatusAbandoned",
-                        "value": {}
-                    },
-                    {
-                        "name": "WctStatusUnknown",
-                        "value": {}
-                    },
-                    {
-                        "name": "WctStatusError",
-                        "value": {}
-                    },
-                    {
-                        "name": "WctStatusMax",
-                        "value": {}
-                    }
-                ]
-            }
-        },
-        {
-            "name": "WAITCHAIN_NODE_INFO",
-            "type": {
-                "data_type": "Struct",
-                "name": "_WAITCHAIN_NODE_INFO",
-                "elements": [
-                    {
-                        "name": "ObjectType",
-                        "type": "WCT_OBJECT_TYPE"
-                    },
-                    {
-                        "name": "ObjectStatus",
-                        "type": "WCT_OBJECT_STATUS"
-                    },
-                    {
-                        "data_type": "Union",
-                        "elements": [
-                            {
-                                "name": "LockObject",
-                                "type": {
-                                    "data_type": "Struct",
-                                    "elements": [
-                                        {
-                                            "data_type": "ArrayDecl",
-                                            "dim": {
-                                                "type": "int",
-                                                "value": "128"
-                                            },
-                                            "name": "ObjectName"
-                                        },
-                                        {
-                                            "name": "Timeout",
-                                            "type": "LARGE_INTEGER"
-                                        },
-                                        {
-                                            "name": "Alertable",
-                                            "type": "BOOL"
-                                        }
-                                    ]
-                                }
-                            },
-                            {
-                                "name": "ThreadObject",
-                                "type": {
-                                    "data_type": "Struct",
-                                    "elements": [
-                                        {
-                                            "name": "ProcessId",
-                                            "type": "DWORD"
-                                        },
-                                        {
-                                            "name": "ThreadId",
-                                            "type": "DWORD"
-                                        },
-                                        {
-                                            "name": "WaitTime",
-                                            "type": "DWORD"
-                                        },
-                                        {
-                                            "name": "ContextSwitches",
-                                            "type": "DWORD"
-                                        }
-                                    ]
-                                }
-                            }
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PWAITCHAIN_NODE_INFO",
-            "type": {
-                "data_type": "Struct",
-                "name": "_WAITCHAIN_NODE_INFO",
-                "elements": [
-                    {
-                        "name": "ObjectType",
-                        "type": "WCT_OBJECT_TYPE"
-                    },
-                    {
-                        "name": "ObjectStatus",
-                        "type": "WCT_OBJECT_STATUS"
-                    },
-                    {
-                        "data_type": "Union",
-                        "elements": [
-                            {
-                                "name": "LockObject",
-                                "type": {
-                                    "data_type": "Struct",
-                                    "elements": [
-                                        {
-                                            "data_type": "ArrayDecl",
-                                            "dim": {
-                                                "type": "int",
-                                                "value": "128"
-                                            },
-                                            "name": "ObjectName"
-                                        },
-                                        {
-                                            "name": "Timeout",
-                                            "type": "LARGE_INTEGER"
-                                        },
-                                        {
-                                            "name": "Alertable",
-                                            "type": "BOOL"
-                                        }
-                                    ]
-                                }
-                            },
-                            {
-                                "name": "ThreadObject",
-                                "type": {
-                                    "data_type": "Struct",
-                                    "elements": [
-                                        {
-                                            "name": "ProcessId",
-                                            "type": "DWORD"
-                                        },
-                                        {
-                                            "name": "ThreadId",
-                                            "type": "DWORD"
-                                        },
-                                        {
-                                            "name": "WaitTime",
-                                            "type": "DWORD"
-                                        },
-                                        {
-                                            "name": "ContextSwitches",
-                                            "type": "DWORD"
-                                        }
-                                    ]
-                                }
-                            }
-                        ]
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "HWCT",
-            "type": "LPVOID"
-        },
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "PWAITCHAINCALLBACK",
-                "type": "void"
-            },
-            "name": "PWAITCHAINCALLBACK",
-            "arguments": [
-                {
-                    "name": "WctHandle",
-                    "type": "HWCT"
                 },
                 {
-                    "name": "Context",
-                    "type": "DWORD_PTR"
+                    "name": "WctSendMessageType",
+                    "value": {}
                 },
                 {
-                    "name": "CallbackStatus",
-                    "type": "DWORD"
+                    "name": "WctMutexType",
+                    "value": {}
                 },
                 {
-                    "name": "NodeCount",
-                    "type": "LPDWORD"
+                    "name": "WctAlpcType",
+                    "value": {}
                 },
                 {
-                    "name": "NodeInfoArray",
-                    "type": "PWAITCHAIN_NODE_INFO"
+                    "name": "WctComType",
+                    "value": {}
                 },
                 {
-                    "name": "IsCycle",
-                    "type": "LPBOOL"
-                }
-            ]
-        },
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "PCOGETCALLSTATE",
-                "type": "HRESULT"
-            },
-            "name": "PCOGETCALLSTATE",
-            "arguments": [
-                {
-                    "type": "int"
+                    "name": "WctThreadWaitType",
+                    "value": {}
                 },
                 {
-                    "type": "PULONG"
-                }
-            ]
-        },
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "PCOGETACTIVATIONSTATE",
-                "type": "HRESULT"
-            },
-            "name": "PCOGETACTIVATIONSTATE",
-            "arguments": [
-                {
-                    "type": "GUID"
+                    "name": "WctProcessWaitType",
+                    "value": {}
                 },
                 {
-                    "type": "DWORD"
+                    "name": "WctThreadType",
+                    "value": {}
                 },
                 {
-                    "type": {
-                        "type": "DWORD"
-                    }
+                    "name": "WctComActivationType",
+                    "value": {}
+                },
+                {
+                    "name": "WctUnknownType",
+                    "value": {}
+                },
+                {
+                    "name": "WctSocketIoType",
+                    "value": {}
+                },
+                {
+                    "name": "WctSmbIoType",
+                    "value": {}
+                },
+                {
+                    "name": "WctMaxType",
+                    "value": {}
                 }
             ]
         }
-    ],
-    "funcdefs": [
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "OpenThreadWaitChainSession",
+    },
+    {
+        "name": "WCT_OBJECT_STATUS",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "WctStatusNoAccess",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                },
+                {
+                    "name": "WctStatusRunning",
+                    "value": {}
+                },
+                {
+                    "name": "WctStatusBlocked",
+                    "value": {}
+                },
+                {
+                    "name": "WctStatusPidOnly",
+                    "value": {}
+                },
+                {
+                    "name": "WctStatusPidOnlyRpcss",
+                    "value": {}
+                },
+                {
+                    "name": "WctStatusOwned",
+                    "value": {}
+                },
+                {
+                    "name": "WctStatusNotOwned",
+                    "value": {}
+                },
+                {
+                    "name": "WctStatusAbandoned",
+                    "value": {}
+                },
+                {
+                    "name": "WctStatusUnknown",
+                    "value": {}
+                },
+                {
+                    "name": "WctStatusError",
+                    "value": {}
+                },
+                {
+                    "name": "WctStatusMax",
+                    "value": {}
+                }
+            ]
+        }
+    },
+    {
+        "name": "WAITCHAIN_NODE_INFO",
+        "type": {
+            "data_type": "Struct",
+            "name": "_WAITCHAIN_NODE_INFO",
+            "elements": [
+                {
+                    "name": "ObjectType",
+                    "type": "WCT_OBJECT_TYPE"
+                },
+                {
+                    "name": "ObjectStatus",
+                    "type": "WCT_OBJECT_STATUS"
+                },
+                {
+                    "data_type": "Union",
+                    "elements": [
+                        {
+                            "name": "LockObject",
+                            "type": {
+                                "data_type": "Struct",
+                                "elements": [
+                                    {
+                                        "data_type": "ArrayDecl",
+                                        "dim": {
+                                            "type": "int",
+                                            "value": "128"
+                                        },
+                                        "name": "ObjectName"
+                                    },
+                                    {
+                                        "name": "Timeout",
+                                        "type": "LARGE_INTEGER"
+                                    },
+                                    {
+                                        "name": "Alertable",
+                                        "type": "BOOL"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "ThreadObject",
+                            "type": {
+                                "data_type": "Struct",
+                                "elements": [
+                                    {
+                                        "name": "ProcessId",
+                                        "type": "DWORD"
+                                    },
+                                    {
+                                        "name": "ThreadId",
+                                        "type": "DWORD"
+                                    },
+                                    {
+                                        "name": "WaitTime",
+                                        "type": "DWORD"
+                                    },
+                                    {
+                                        "name": "ContextSwitches",
+                                        "type": "DWORD"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "name": "PWAITCHAIN_NODE_INFO",
+        "type": {
+            "data_type": "Struct",
+            "name": "_WAITCHAIN_NODE_INFO",
+            "elements": [
+                {
+                    "name": "ObjectType",
+                    "type": "WCT_OBJECT_TYPE"
+                },
+                {
+                    "name": "ObjectStatus",
+                    "type": "WCT_OBJECT_STATUS"
+                },
+                {
+                    "data_type": "Union",
+                    "elements": [
+                        {
+                            "name": "LockObject",
+                            "type": {
+                                "data_type": "Struct",
+                                "elements": [
+                                    {
+                                        "data_type": "ArrayDecl",
+                                        "dim": {
+                                            "type": "int",
+                                            "value": "128"
+                                        },
+                                        "name": "ObjectName"
+                                    },
+                                    {
+                                        "name": "Timeout",
+                                        "type": "LARGE_INTEGER"
+                                    },
+                                    {
+                                        "name": "Alertable",
+                                        "type": "BOOL"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "ThreadObject",
+                            "type": {
+                                "data_type": "Struct",
+                                "elements": [
+                                    {
+                                        "name": "ProcessId",
+                                        "type": "DWORD"
+                                    },
+                                    {
+                                        "name": "ThreadId",
+                                        "type": "DWORD"
+                                    },
+                                    {
+                                        "name": "WaitTime",
+                                        "type": "DWORD"
+                                    },
+                                    {
+                                        "name": "ContextSwitches",
+                                        "type": "DWORD"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "HWCT",
+        "type": "LPVOID"
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
+            "name": "PWAITCHAINCALLBACK",
+            "type": "void"
+        },
+        "name": "PWAITCHAINCALLBACK",
+        "arguments": [
+            {
+                "name": "WctHandle",
                 "type": "HWCT"
             },
+            {
+                "name": "Context",
+                "type": "DWORD_PTR"
+            },
+            {
+                "name": "CallbackStatus",
+                "type": "DWORD"
+            },
+            {
+                "name": "NodeCount",
+                "type": "LPDWORD"
+            },
+            {
+                "name": "NodeInfoArray",
+                "type": "PWAITCHAIN_NODE_INFO"
+            },
+            {
+                "name": "IsCycle",
+                "type": "LPBOOL"
+            }
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "OpenThreadWaitChainSession",
-            "arguments": [
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "callback",
-                    "type": "PWAITCHAINCALLBACK",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Advapi32.dll",
-                "Ext-MS-Win-wer-wct-l1-1-0.dll",
-                "wer.dll"
-            ]
+            "type": "HWCT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "CloseThreadWaitChainSession",
-                "type": "void"
+        "name": "OpenThreadWaitChainSession",
+        "arguments": [
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "callback",
+                "type": "PWAITCHAINCALLBACK",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Advapi32.dll",
+            "Ext-MS-Win-wer-wct-l1-1-0.dll",
+            "wer.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "CloseThreadWaitChainSession",
-            "arguments": [
-                {
-                    "name": "WctHandle",
-                    "type": "HWCT",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Advapi32.dll",
-                "Ext-MS-Win-wer-wct-l1-1-0.dll",
-                "wer.dll"
-            ]
+            "type": "void"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetThreadWaitChain",
-                "type": "BOOL"
-            },
+        "name": "CloseThreadWaitChainSession",
+        "arguments": [
+            {
+                "name": "WctHandle",
+                "type": "HWCT",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Advapi32.dll",
+            "Ext-MS-Win-wer-wct-l1-1-0.dll",
+            "wer.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "GetThreadWaitChain",
-            "arguments": [
-                {
-                    "name": "WctHandle",
-                    "type": "HWCT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Context",
-                    "type": "DWORD_PTR",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "ThreadId",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "NodeCount",
-                    "type": "LPDWORD",
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "NodeInfoArray",
-                    "type": "PWAITCHAIN_NODE_INFO",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "IsCycle",
-                    "type": "LPBOOL",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Advapi32.dll",
-                "Ext-MS-Win-wer-wct-l1-1-0.dll",
-                "wer.dll"
-            ]
+            "type": "BOOL"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "RegisterWaitChainCOMCallback",
-                "type": "void"
+        "name": "GetThreadWaitChain",
+        "arguments": [
+            {
+                "name": "WctHandle",
+                "type": "HWCT",
+                "sal": [
+                    "in"
+                ]
             },
-            "name": "RegisterWaitChainCOMCallback",
-            "arguments": [
-                {
-                    "name": "CallStateCallback",
-                    "type": "PCOGETCALLSTATE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "ActivationStateCallback",
-                    "type": "PCOGETACTIVATIONSTATE",
-                    "sal": [
-                        "in"
-                    ]
+            {
+                "name": "Context",
+                "type": "DWORD_PTR",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "ThreadId",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "NodeCount",
+                "type": "LPDWORD",
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "NodeInfoArray",
+                "type": "PWAITCHAIN_NODE_INFO",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "IsCycle",
+                "type": "LPBOOL",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Advapi32.dll",
+            "Ext-MS-Win-wer-wct-l1-1-0.dll",
+            "wer.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
+            "name": "PCOGETCALLSTATE",
+            "type": "HRESULT"
+        },
+        "name": "PCOGETCALLSTATE",
+        "arguments": [
+            {
+                "type": "int"
+            },
+            {
+                "type": "PULONG"
+            }
+        ]
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
+            "name": "PCOGETACTIVATIONSTATE",
+            "type": "HRESULT"
+        },
+        "name": "PCOGETACTIVATIONSTATE",
+        "arguments": [
+            {
+                "type": "GUID"
+            },
+            {
+                "type": "DWORD"
+            },
+            {
+                "type": {
+                    "type": "DWORD"
                 }
-            ],
-            "api_locations": [
-                "Advapi32.dll",
-                "Ext-MS-Win-wer-wct-l1-1-0.dll",
-                "wer.dll"
-            ]
-        }
-    ]
-}
+            }
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "RegisterWaitChainCOMCallback",
+            "type": "void"
+        },
+        "name": "RegisterWaitChainCOMCallback",
+        "arguments": [
+            {
+                "name": "CallStateCallback",
+                "type": "PCOGETCALLSTATE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "ActivationStateCallback",
+                "type": "PCOGETACTIVATIONSTATE",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Advapi32.dll",
+            "Ext-MS-Win-wer-wct-l1-1-0.dll",
+            "wer.dll"
+        ]
+    }
+]

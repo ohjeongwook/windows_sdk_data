@@ -1,173 +1,169 @@
-{
-    "typedefs": [
-        {
-            "name": "IndexedResourceQualifier",
-            "type": {
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "name",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "value",
-                        "type": "PWSTR"
-                    }
+[
+    {
+        "name": "IndexedResourceQualifier",
+        "type": {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "name": "name",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "value",
+                    "type": "PWSTR"
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "CreateResourceIndexer",
+            "type": "HRESULT"
+        },
+        "name": "CreateResourceIndexer",
+        "arguments": [
+            {
+                "name": "projectRoot",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "extensionDllPath",
+                "type": "PCWSTR",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "ppResourceIndexer",
+                    "type": "PVOID"
+                },
+                "sal": [
+                    "out"
                 ]
             }
-        }
-    ],
-    "funcdefs": [
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "CreateResourceIndexer",
-                "type": "HRESULT"
-            },
-            "name": "CreateResourceIndexer",
-            "arguments": [
-                {
-                    "name": "projectRoot",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "extensionDllPath",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "ppResourceIndexer",
-                        "type": "PVOID"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "mrmsupport.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "DestroyResourceIndexer",
-                "type": "void"
-            },
+        ],
+        "api_locations": [
+            "mrmsupport.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "DestroyResourceIndexer",
-            "arguments": [
-                {
-                    "name": "resourceIndexer",
-                    "type": "PVOID",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "mrmsupport.dll"
-            ]
+            "type": "void"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "IndexFilePath",
-                "type": "HRESULT"
-            },
+        "name": "DestroyResourceIndexer",
+        "arguments": [
+            {
+                "name": "resourceIndexer",
+                "type": "PVOID",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "mrmsupport.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "IndexFilePath",
-            "arguments": [
-                {
-                    "name": "resourceIndexer",
-                    "type": "PVOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "filePath",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "ppResourceUri",
-                        "type": "PWSTR"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pQualifierCount",
-                        "type": "ULONG"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "ppQualifiers",
-                        "type": "IndexedResourceQualifier",
-                        "data_type": "Ptr"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "mrmsupport.dll"
-            ]
+            "type": "HRESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "DestroyIndexedResults",
-                "type": "void"
+        "name": "IndexFilePath",
+        "arguments": [
+            {
+                "name": "resourceIndexer",
+                "type": "PVOID",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "filePath",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "ppResourceUri",
+                    "type": "PWSTR"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pQualifierCount",
+                    "type": "ULONG"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "ppQualifiers",
+                    "type": "IndexedResourceQualifier",
+                    "data_type": "Ptr"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "mrmsupport.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "DestroyIndexedResults",
-            "arguments": [
-                {
-                    "name": "resourceUri",
-                    "type": "PWSTR",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
+            "type": "void"
+        },
+        "name": "DestroyIndexedResults",
+        "arguments": [
+            {
+                "name": "resourceUri",
+                "type": "PWSTR",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "qualifierCount",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "qualifiers",
+                    "type": "IndexedResourceQualifier"
                 },
-                {
-                    "name": "qualifierCount",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "qualifiers",
-                        "type": "IndexedResourceQualifier"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "mrmsupport.dll"
-            ]
-        }
-    ]
-}
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "mrmsupport.dll"
+        ]
+    }
+]

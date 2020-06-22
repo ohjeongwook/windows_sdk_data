@@ -1,1987 +1,1983 @@
-{
-    "typedefs": [
-        {
-            "name": "PXE_DHCP_OPTION",
-            "type": {
-                "data_type": "Struct",
-                "name": "tagPXE_DHCP_OPTION",
-                "elements": [
-                    {
-                        "name": "OptionType",
-                        "type": "BYTE"
-                    },
-                    {
-                        "name": "OptionLength",
-                        "type": "BYTE"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "1"
-                        },
-                        "name": "OptionValue"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PPXE_DHCP_OPTION",
-            "type": {
-                "data_type": "Struct",
-                "name": "tagPXE_DHCP_OPTION",
-                "elements": [
-                    {
-                        "name": "OptionType",
-                        "type": "BYTE"
-                    },
-                    {
-                        "name": "OptionLength",
-                        "type": "BYTE"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "1"
-                        },
-                        "name": "OptionValue"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "PXE_DHCP_MESSAGE",
-            "type": {
-                "data_type": "Struct",
-                "name": "tagPXE_DHCP_MESSAGE",
-                "elements": [
-                    {
-                        "name": "Operation",
-                        "type": "BYTE"
-                    },
-                    {
-                        "name": "HardwareAddressType",
-                        "type": "BYTE"
-                    },
-                    {
-                        "name": "HardwareAddressLength",
-                        "type": "BYTE"
-                    },
-                    {
-                        "name": "HopCount",
-                        "type": "BYTE"
-                    },
-                    {
-                        "name": "TransactionID",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "SecondsSinceBoot",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "Reserved",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "ClientIpAddress",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "YourIpAddress",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "BootstrapServerAddress",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "RelayAgentIpAddress",
-                        "type": "ULONG"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "16"
-                        },
-                        "name": "HardwareAddress"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "64"
-                        },
-                        "name": "HostName"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "128"
-                        },
-                        "name": "BootFileName"
-                    },
-                    {
-                        "data_type": "Union",
-                        "elements": [
-                            {
-                                "data_type": "ArrayDecl",
-                                "dim": {
-                                    "type": "int",
-                                    "value": "4"
-                                },
-                                "name": "bMagicCookie"
-                            },
-                            {
-                                "name": "uMagicCookie",
-                                "type": "ULONG"
-                            }
-                        ]
-                    },
-                    {
-                        "name": "Option",
-                        "type": "PXE_DHCP_OPTION"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PPXE_DHCP_MESSAGE",
-            "type": {
-                "data_type": "Struct",
-                "name": "tagPXE_DHCP_MESSAGE",
-                "elements": [
-                    {
-                        "name": "Operation",
-                        "type": "BYTE"
-                    },
-                    {
-                        "name": "HardwareAddressType",
-                        "type": "BYTE"
-                    },
-                    {
-                        "name": "HardwareAddressLength",
-                        "type": "BYTE"
-                    },
-                    {
-                        "name": "HopCount",
-                        "type": "BYTE"
-                    },
-                    {
-                        "name": "TransactionID",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "SecondsSinceBoot",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "Reserved",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "ClientIpAddress",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "YourIpAddress",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "BootstrapServerAddress",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "RelayAgentIpAddress",
-                        "type": "ULONG"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "16"
-                        },
-                        "name": "HardwareAddress"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "64"
-                        },
-                        "name": "HostName"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "128"
-                        },
-                        "name": "BootFileName"
-                    },
-                    {
-                        "data_type": "Union",
-                        "elements": [
-                            {
-                                "data_type": "ArrayDecl",
-                                "dim": {
-                                    "type": "int",
-                                    "value": "4"
-                                },
-                                "name": "bMagicCookie"
-                            },
-                            {
-                                "name": "uMagicCookie",
-                                "type": "ULONG"
-                            }
-                        ]
-                    },
-                    {
-                        "name": "Option",
-                        "type": "PXE_DHCP_OPTION"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "PXE_DHCPV6_OPTION",
-            "type": {
-                "data_type": "Struct",
-                "name": "tagPXE_DHCPV6_OPTION",
-                "elements": [
-                    {
-                        "name": "OptionCode",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "DataLength",
-                        "type": "WORD"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "1"
-                        },
-                        "name": "Data"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PPXE_DHCPV6_OPTION",
-            "type": {
-                "data_type": "Struct",
-                "name": "tagPXE_DHCPV6_OPTION",
-                "elements": [
-                    {
-                        "name": "OptionCode",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "DataLength",
-                        "type": "WORD"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "1"
-                        },
-                        "name": "Data"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "PXE_DHCPV6_MESSAGE_HEADER",
-            "type": {
-                "data_type": "Struct",
-                "name": "tagPXE_DHCPV6_MESSAGE_HEADER",
-                "elements": [
-                    {
-                        "name": "MessageType",
-                        "type": "BYTE"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "1"
-                        },
-                        "name": "Message"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PPXE_DHCPV6_MESSAGE_HEADER",
-            "type": {
-                "data_type": "Struct",
-                "name": "tagPXE_DHCPV6_MESSAGE_HEADER",
-                "elements": [
-                    {
-                        "name": "MessageType",
-                        "type": "BYTE"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "1"
-                        },
-                        "name": "Message"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "PXE_DHCPV6_MESSAGE",
-            "type": {
-                "data_type": "Struct",
-                "name": "tagPXE_DHCPV6_MESSAGE",
-                "elements": [
-                    {
-                        "name": "MessageType",
-                        "type": "BYTE"
-                    },
-                    {
-                        "name": "TransactionIDByte1",
-                        "type": "BYTE"
-                    },
-                    {
-                        "name": "TransactionIDByte2",
-                        "type": "BYTE"
-                    },
-                    {
-                        "name": "TransactionIDByte3",
-                        "type": "BYTE"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "1"
-                        },
-                        "name": "Options"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PPXE_DHCPV6_MESSAGE",
-            "type": {
-                "data_type": "Struct",
-                "name": "tagPXE_DHCPV6_MESSAGE",
-                "elements": [
-                    {
-                        "name": "MessageType",
-                        "type": "BYTE"
-                    },
-                    {
-                        "name": "TransactionIDByte1",
-                        "type": "BYTE"
-                    },
-                    {
-                        "name": "TransactionIDByte2",
-                        "type": "BYTE"
-                    },
-                    {
-                        "name": "TransactionIDByte3",
-                        "type": "BYTE"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "1"
-                        },
-                        "name": "Options"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "PXE_DHCPV6_RELAY_MESSAGE",
-            "type": {
-                "data_type": "Struct",
-                "name": "tagPXE_DHCPV6_RELAY_MESSAGE",
-                "elements": [
-                    {
-                        "name": "MessageType",
-                        "type": "BYTE"
-                    },
-                    {
-                        "name": "HopCount",
-                        "type": "BYTE"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "16"
-                        },
-                        "name": "LinkAddress"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "16"
-                        },
-                        "name": "PeerAddress"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "1"
-                        },
-                        "name": "Options"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PPXE_DHCPV6_RELAY_MESSAGE",
-            "type": {
-                "data_type": "Struct",
-                "name": "tagPXE_DHCPV6_RELAY_MESSAGE",
-                "elements": [
-                    {
-                        "name": "MessageType",
-                        "type": "BYTE"
-                    },
-                    {
-                        "name": "HopCount",
-                        "type": "BYTE"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "16"
-                        },
-                        "name": "LinkAddress"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "16"
-                        },
-                        "name": "PeerAddress"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "1"
-                        },
-                        "name": "Options"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "PXE_REG_INDEX",
-            "type": "ULONG"
-        },
-        {
-            "name": "PXE_PROVIDER",
-            "type": {
-                "data_type": "Struct",
-                "name": "tagPXE_PROVIDER",
-                "elements": [
-                    {
-                        "name": "uSizeOfStruct",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "pwszName",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "pwszFilePath",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "bIsCritical",
-                        "type": "BOOL"
-                    },
-                    {
-                        "name": "uIndex",
-                        "type": "ULONG"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PPXE_PROVIDER",
-            "type": {
-                "data_type": "Struct",
-                "name": "tagPXE_PROVIDER",
-                "elements": [
-                    {
-                        "name": "uSizeOfStruct",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "pwszName",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "pwszFilePath",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "bIsCritical",
-                        "type": "BOOL"
-                    },
-                    {
-                        "name": "uIndex",
-                        "type": "ULONG"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "PXE_CALLBACK_TYPE",
-            "type": "ULONG"
-        },
-        {
-            "name": "PXE_GSI_TYPE",
-            "type": "ULONG"
-        },
-        {
-            "name": "PXE_ADDRESS",
-            "type": {
-                "data_type": "Struct",
-                "name": "tagPXE_ADDRESS",
-                "elements": [
-                    {
-                        "name": "uFlags",
-                        "type": "ULONG"
-                    },
-                    {
-                        "data_type": "Union",
-                        "elements": [
-                            {
-                                "data_type": "ArrayDecl",
-                                "dim": {
-                                    "type": "int",
-                                    "value": "16"
-                                },
-                                "name": "bAddress"
-                            },
-                            {
-                                "name": "uIpAddress",
-                                "type": "ULONG"
-                            }
-                        ]
-                    },
-                    {
-                        "name": "uAddrLen",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "uPort",
-                        "type": "USHORT"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PPXE_ADDRESS",
-            "type": {
-                "data_type": "Struct",
-                "name": "tagPXE_ADDRESS",
-                "elements": [
-                    {
-                        "name": "uFlags",
-                        "type": "ULONG"
-                    },
-                    {
-                        "data_type": "Union",
-                        "elements": [
-                            {
-                                "data_type": "ArrayDecl",
-                                "dim": {
-                                    "type": "int",
-                                    "value": "16"
-                                },
-                                "name": "bAddress"
-                            },
-                            {
-                                "name": "uIpAddress",
-                                "type": "ULONG"
-                            }
-                        ]
-                    },
-                    {
-                        "name": "uAddrLen",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "uPort",
-                        "type": "USHORT"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "PXE_DHCPV6_NESTED_RELAY_MESSAGE",
-            "type": {
-                "data_type": "Struct",
-                "name": "tagPXE_DHCPV6_NESTED_RELAY_MESSAGE",
-                "elements": [
-                    {
-                        "name": "pRelayMessage",
-                        "type": "PPXE_DHCPV6_RELAY_MESSAGE"
-                    },
-                    {
-                        "name": "cbRelayMessage",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "pInterfaceIdOption",
-                        "type": "PVOID"
-                    },
-                    {
-                        "name": "cbInterfaceIdOption",
-                        "type": "WORD"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PPXE_DHCPV6_NESTED_RELAY_MESSAGE",
-            "type": {
-                "data_type": "Struct",
-                "name": "tagPXE_DHCPV6_NESTED_RELAY_MESSAGE",
-                "elements": [
-                    {
-                        "name": "pRelayMessage",
-                        "type": "PPXE_DHCPV6_RELAY_MESSAGE"
-                    },
-                    {
-                        "name": "cbRelayMessage",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "pInterfaceIdOption",
-                        "type": "PVOID"
-                    },
-                    {
-                        "name": "cbInterfaceIdOption",
-                        "type": "WORD"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "PXE_BOOT_ACTION",
-            "type": "ULONG"
-        },
-        {
-            "name": "PXE_SEVERITY",
-            "type": "ULONG"
-        },
-        {
-            "name": "PXE_PROVIDER_ATTRIBUTE",
-            "type": "ULONG"
+[
+    {
+        "name": "PXE_DHCP_OPTION",
+        "type": {
+            "data_type": "Struct",
+            "name": "tagPXE_DHCP_OPTION",
+            "elements": [
+                {
+                    "name": "OptionType",
+                    "type": "BYTE"
+                },
+                {
+                    "name": "OptionLength",
+                    "type": "BYTE"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "1"
+                    },
+                    "name": "OptionValue"
+                }
+            ]
         }
-    ],
-    "funcdefs": [
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxeProviderRegister",
-                "type": "DWORD"
-            },
-            "name": "PxeProviderRegister",
-            "arguments": [
+    },
+    {
+        "name": "PPXE_DHCP_OPTION",
+        "type": {
+            "data_type": "Struct",
+            "name": "tagPXE_DHCP_OPTION",
+            "elements": [
                 {
-                    "name": "pszProviderName",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
+                    "name": "OptionType",
+                    "type": "BYTE"
+                },
+                {
+                    "name": "OptionLength",
+                    "type": "BYTE"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "1"
+                    },
+                    "name": "OptionValue"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "PXE_DHCP_MESSAGE",
+        "type": {
+            "data_type": "Struct",
+            "name": "tagPXE_DHCP_MESSAGE",
+            "elements": [
+                {
+                    "name": "Operation",
+                    "type": "BYTE"
+                },
+                {
+                    "name": "HardwareAddressType",
+                    "type": "BYTE"
+                },
+                {
+                    "name": "HardwareAddressLength",
+                    "type": "BYTE"
+                },
+                {
+                    "name": "HopCount",
+                    "type": "BYTE"
+                },
+                {
+                    "name": "TransactionID",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "SecondsSinceBoot",
+                    "type": "WORD"
+                },
+                {
+                    "name": "Reserved",
+                    "type": "WORD"
+                },
+                {
+                    "name": "ClientIpAddress",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "YourIpAddress",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "BootstrapServerAddress",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "RelayAgentIpAddress",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "16"
+                    },
+                    "name": "HardwareAddress"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "64"
+                    },
+                    "name": "HostName"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "128"
+                    },
+                    "name": "BootFileName"
+                },
+                {
+                    "data_type": "Union",
+                    "elements": [
+                        {
+                            "data_type": "ArrayDecl",
+                            "dim": {
+                                "type": "int",
+                                "value": "4"
+                            },
+                            "name": "bMagicCookie"
+                        },
+                        {
+                            "name": "uMagicCookie",
+                            "type": "ULONG"
+                        }
                     ]
                 },
                 {
-                    "name": "pszModulePath",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
+                    "name": "Option",
+                    "type": "PXE_DHCP_OPTION"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PPXE_DHCP_MESSAGE",
+        "type": {
+            "data_type": "Struct",
+            "name": "tagPXE_DHCP_MESSAGE",
+            "elements": [
+                {
+                    "name": "Operation",
+                    "type": "BYTE"
+                },
+                {
+                    "name": "HardwareAddressType",
+                    "type": "BYTE"
+                },
+                {
+                    "name": "HardwareAddressLength",
+                    "type": "BYTE"
+                },
+                {
+                    "name": "HopCount",
+                    "type": "BYTE"
+                },
+                {
+                    "name": "TransactionID",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "SecondsSinceBoot",
+                    "type": "WORD"
+                },
+                {
+                    "name": "Reserved",
+                    "type": "WORD"
+                },
+                {
+                    "name": "ClientIpAddress",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "YourIpAddress",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "BootstrapServerAddress",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "RelayAgentIpAddress",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "16"
+                    },
+                    "name": "HardwareAddress"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "64"
+                    },
+                    "name": "HostName"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "128"
+                    },
+                    "name": "BootFileName"
+                },
+                {
+                    "data_type": "Union",
+                    "elements": [
+                        {
+                            "data_type": "ArrayDecl",
+                            "dim": {
+                                "type": "int",
+                                "value": "4"
+                            },
+                            "name": "bMagicCookie"
+                        },
+                        {
+                            "name": "uMagicCookie",
+                            "type": "ULONG"
+                        }
                     ]
                 },
                 {
-                    "name": "Index",
-                    "type": "PXE_REG_INDEX",
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "Option",
+                    "type": "PXE_DHCP_OPTION"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "PXE_DHCPV6_OPTION",
+        "type": {
+            "data_type": "Struct",
+            "name": "tagPXE_DHCPV6_OPTION",
+            "elements": [
+                {
+                    "name": "OptionCode",
+                    "type": "WORD"
+                },
+                {
+                    "name": "DataLength",
+                    "type": "WORD"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "1"
+                    },
+                    "name": "Data"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PPXE_DHCPV6_OPTION",
+        "type": {
+            "data_type": "Struct",
+            "name": "tagPXE_DHCPV6_OPTION",
+            "elements": [
+                {
+                    "name": "OptionCode",
+                    "type": "WORD"
+                },
+                {
+                    "name": "DataLength",
+                    "type": "WORD"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "1"
+                    },
+                    "name": "Data"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "PXE_DHCPV6_MESSAGE_HEADER",
+        "type": {
+            "data_type": "Struct",
+            "name": "tagPXE_DHCPV6_MESSAGE_HEADER",
+            "elements": [
+                {
+                    "name": "MessageType",
+                    "type": "BYTE"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "1"
+                    },
+                    "name": "Message"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PPXE_DHCPV6_MESSAGE_HEADER",
+        "type": {
+            "data_type": "Struct",
+            "name": "tagPXE_DHCPV6_MESSAGE_HEADER",
+            "elements": [
+                {
+                    "name": "MessageType",
+                    "type": "BYTE"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "1"
+                    },
+                    "name": "Message"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "PXE_DHCPV6_MESSAGE",
+        "type": {
+            "data_type": "Struct",
+            "name": "tagPXE_DHCPV6_MESSAGE",
+            "elements": [
+                {
+                    "name": "MessageType",
+                    "type": "BYTE"
+                },
+                {
+                    "name": "TransactionIDByte1",
+                    "type": "BYTE"
+                },
+                {
+                    "name": "TransactionIDByte2",
+                    "type": "BYTE"
+                },
+                {
+                    "name": "TransactionIDByte3",
+                    "type": "BYTE"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "1"
+                    },
+                    "name": "Options"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PPXE_DHCPV6_MESSAGE",
+        "type": {
+            "data_type": "Struct",
+            "name": "tagPXE_DHCPV6_MESSAGE",
+            "elements": [
+                {
+                    "name": "MessageType",
+                    "type": "BYTE"
+                },
+                {
+                    "name": "TransactionIDByte1",
+                    "type": "BYTE"
+                },
+                {
+                    "name": "TransactionIDByte2",
+                    "type": "BYTE"
+                },
+                {
+                    "name": "TransactionIDByte3",
+                    "type": "BYTE"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "1"
+                    },
+                    "name": "Options"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "PXE_DHCPV6_RELAY_MESSAGE",
+        "type": {
+            "data_type": "Struct",
+            "name": "tagPXE_DHCPV6_RELAY_MESSAGE",
+            "elements": [
+                {
+                    "name": "MessageType",
+                    "type": "BYTE"
+                },
+                {
+                    "name": "HopCount",
+                    "type": "BYTE"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "16"
+                    },
+                    "name": "LinkAddress"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "16"
+                    },
+                    "name": "PeerAddress"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "1"
+                    },
+                    "name": "Options"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PPXE_DHCPV6_RELAY_MESSAGE",
+        "type": {
+            "data_type": "Struct",
+            "name": "tagPXE_DHCPV6_RELAY_MESSAGE",
+            "elements": [
+                {
+                    "name": "MessageType",
+                    "type": "BYTE"
+                },
+                {
+                    "name": "HopCount",
+                    "type": "BYTE"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "16"
+                    },
+                    "name": "LinkAddress"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "16"
+                    },
+                    "name": "PeerAddress"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "1"
+                    },
+                    "name": "Options"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "PXE_REG_INDEX",
+        "type": "ULONG"
+    },
+    {
+        "name": "PXE_PROVIDER",
+        "type": {
+            "data_type": "Struct",
+            "name": "tagPXE_PROVIDER",
+            "elements": [
+                {
+                    "name": "uSizeOfStruct",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "pwszName",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "pwszFilePath",
+                    "type": "LPWSTR"
                 },
                 {
                     "name": "bIsCritical",
-                    "type": "BOOL",
-                    "sal": [
-                        "in"
-                    ]
+                    "type": "BOOL"
                 },
                 {
-                    "name": "phProviderKey",
-                    "type": "PHKEY",
-                    "sal": [
-                        "out"
-                    ]
+                    "name": "uIndex",
+                    "type": "ULONG"
                 }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxeProviderUnRegister",
-                "type": "DWORD"
-            },
-            "name": "PxeProviderUnRegister",
-            "arguments": [
-                {
-                    "name": "pszProviderName",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxeProviderQueryIndex",
-                "type": "DWORD"
-            },
-            "name": "PxeProviderQueryIndex",
-            "arguments": [
-                {
-                    "name": "pszProviderName",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "puIndex",
-                    "type": "PULONG",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxeProviderEnumFirst",
-                "type": "DWORD"
-            },
-            "name": "PxeProviderEnumFirst",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "phEnum",
-                        "type": "HANDLE"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxeProviderEnumNext",
-                "type": "DWORD"
-            },
-            "name": "PxeProviderEnumNext",
-            "arguments": [
-                {
-                    "name": "hEnum",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "ppProvider",
-                        "type": "PPXE_PROVIDER"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxeProviderEnumClose",
-                "type": "DWORD"
-            },
-            "name": "PxeProviderEnumClose",
-            "arguments": [
-                {
-                    "name": "hEnum",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxeProviderFreeInfo",
-                "type": "DWORD"
-            },
-            "name": "PxeProviderFreeInfo",
-            "arguments": [
-                {
-                    "name": "pProvider",
-                    "type": "PPXE_PROVIDER",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxeRegisterCallback",
-                "type": "DWORD"
-            },
-            "name": "PxeRegisterCallback",
-            "arguments": [
-                {
-                    "name": "hProvider",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "CallbackType",
-                    "type": "PXE_CALLBACK_TYPE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pCallbackFunction",
-                    "type": "PVOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pContext",
-                    "type": "PVOID",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxeSendReply",
-                "type": "DWORD"
-            },
-            "name": "PxeSendReply",
-            "arguments": [
-                {
-                    "name": "hClientRequest",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pPacket",
-                    "type": "PVOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "uPacketLen",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pAddress",
-                        "type": "PXE_ADDRESS"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxeAsyncRecvDone",
-                "type": "DWORD"
-            },
-            "name": "PxeAsyncRecvDone",
-            "arguments": [
-                {
-                    "name": "hClientRequest",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Action",
-                    "type": "PXE_BOOT_ACTION",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxeTrace",
-                "type": "DWORD"
-            },
-            "name": "PxeTrace",
-            "arguments": [
-                {
-                    "name": "hProvider",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Severity",
-                    "type": "PXE_SEVERITY",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pszFormat",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxePacketAllocate",
-                "type": "PVOID"
-            },
-            "name": "PxePacketAllocate",
-            "arguments": [
-                {
-                    "name": "hProvider",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "hClientRequest",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "uSize",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxePacketFree",
-                "type": "DWORD"
-            },
-            "name": "PxePacketFree",
-            "arguments": [
-                {
-                    "name": "hProvider",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "hClientRequest",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pPacket",
-                    "type": "PVOID",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxeProviderSetAttribute",
-                "type": "DWORD"
-            },
-            "name": "PxeProviderSetAttribute",
-            "arguments": [
-                {
-                    "name": "hProvider",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Attribute",
-                    "type": "PXE_PROVIDER_ATTRIBUTE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pParameterBuffer",
-                    "type": "PVOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "uParamLen",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxeDhcpInitialize",
-                "type": "DWORD"
-            },
-            "name": "PxeDhcpInitialize",
-            "arguments": [
-                {
-                    "name": "pRecvPacket",
-                    "type": "PVOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "uRecvPacketLen",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pReplyPacket",
-                    "type": "PVOID",
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "uMaxReplyPacketLen",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "puReplyPacketLen",
-                    "type": "PULONG",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxeDhcpv6Initialize",
-                "type": "DWORD"
-            },
-            "name": "PxeDhcpv6Initialize",
-            "arguments": [
-                {
-                    "name": "pRequest",
-                    "type": "PVOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cbRequest",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pReply",
-                    "type": "PVOID",
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "cbReply",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pcbReplyUsed",
-                    "type": "PULONG",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxeDhcpAppendOption",
-                "type": "DWORD"
-            },
-            "name": "PxeDhcpAppendOption",
-            "arguments": [
-                {
-                    "name": "pReplyPacket",
-                    "type": "PVOID",
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "uMaxReplyPacketLen",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "puReplyPacketLen",
-                    "type": "PULONG",
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "bOption",
-                    "type": "BYTE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "bOptionLen",
-                    "type": "BYTE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pValue",
-                    "type": "PVOID",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxeDhcpv6AppendOption",
-                "type": "DWORD"
-            },
-            "name": "PxeDhcpv6AppendOption",
-            "arguments": [
-                {
-                    "name": "pReply",
-                    "type": "PVOID",
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "cbReply",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pcbReplyUsed",
-                    "type": "PULONG",
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "wOptionType",
-                    "type": "WORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cbOption",
-                    "type": "WORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pOption",
-                    "type": "PVOID",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxeDhcpAppendOptionRaw",
-                "type": "DWORD"
-            },
-            "name": "PxeDhcpAppendOptionRaw",
-            "arguments": [
-                {
-                    "name": "pReplyPacket",
-                    "type": "PVOID",
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "uMaxReplyPacketLen",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "puReplyPacketLen",
-                    "type": "PULONG",
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "uBufferLen",
-                    "type": "USHORT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pBuffer",
-                    "type": "PVOID",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxeDhcpv6AppendOptionRaw",
-                "type": "DWORD"
-            },
-            "name": "PxeDhcpv6AppendOptionRaw",
-            "arguments": [
-                {
-                    "name": "pReply",
-                    "type": "PVOID",
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "cbReply",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pcbReplyUsed",
-                    "type": "PULONG",
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "cbBuffer",
-                    "type": "USHORT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pBuffer",
-                    "type": "PVOID",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxeDhcpIsValid",
-                "type": "DWORD"
-            },
-            "name": "PxeDhcpIsValid",
-            "arguments": [
-                {
-                    "name": "pPacket",
-                    "type": "PVOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "uPacketLen",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "bRequestPacket",
-                    "type": "BOOL",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pbPxeOptionPresent",
-                    "type": "PBOOL",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxeDhcpv6IsValid",
-                "type": "DWORD"
-            },
-            "name": "PxeDhcpv6IsValid",
-            "arguments": [
-                {
-                    "name": "pPacket",
-                    "type": "PVOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "uPacketLen",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "bRequestPacket",
-                    "type": "BOOL",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pbPxeOptionPresent",
-                    "type": "PBOOL",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxeDhcpGetOptionValue",
-                "type": "DWORD"
-            },
-            "name": "PxeDhcpGetOptionValue",
-            "arguments": [
-                {
-                    "name": "pPacket",
-                    "type": "PVOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "uPacketLen",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "uInstance",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "bOption",
-                    "type": "BYTE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pbOptionLen",
-                    "type": "PBYTE",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "ppOptionValue",
-                        "type": "PVOID"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxeDhcpv6GetOptionValue",
-                "type": "DWORD"
-            },
-            "name": "PxeDhcpv6GetOptionValue",
-            "arguments": [
-                {
-                    "name": "pPacket",
-                    "type": "PVOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "uPacketLen",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "uInstance",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "wOption",
-                    "type": "WORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pwOptionLen",
-                    "type": "PWORD",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "ppOptionValue",
-                        "type": "PVOID"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxeDhcpGetVendorOptionValue",
-                "type": "DWORD"
-            },
-            "name": "PxeDhcpGetVendorOptionValue",
-            "arguments": [
-                {
-                    "name": "pPacket",
-                    "type": "PVOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "uPacketLen",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "bOption",
-                    "type": "BYTE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "uInstance",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pbOptionLen",
-                    "type": "PBYTE",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "ppOptionValue",
-                        "type": "PVOID"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxeDhcpv6GetVendorOptionValue",
-                "type": "DWORD"
-            },
-            "name": "PxeDhcpv6GetVendorOptionValue",
-            "arguments": [
-                {
-                    "name": "pPacket",
-                    "type": "PVOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "uPacketLen",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "dwEnterpriseNumber",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "wOption",
-                    "type": "WORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "uInstance",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pwOptionLen",
-                    "type": "PWORD",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "ppOptionValue",
-                        "type": "PVOID"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxeDhcpv6ParseRelayForw",
-                "type": "DWORD"
-            },
-            "name": "PxeDhcpv6ParseRelayForw",
-            "arguments": [
-                {
-                    "name": "pRelayForwPacket",
-                    "type": "PVOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "uRelayForwPacketLen",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pRelayMessages",
-                    "type": "PPXE_DHCPV6_NESTED_RELAY_MESSAGE",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "nRelayMessages",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pnRelayMessages",
-                    "type": "PULONG",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "ppInnerPacket",
-                        "type": "PBYTE"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "pcbInnerPacket",
-                    "type": "PULONG",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxeDhcpv6CreateRelayRepl",
-                "type": "DWORD"
-            },
-            "name": "PxeDhcpv6CreateRelayRepl",
-            "arguments": [
-                {
-                    "name": "pRelayMessages",
-                    "type": "PPXE_DHCPV6_NESTED_RELAY_MESSAGE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "nRelayMessages",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pInnerPacket",
-                    "type": "PBYTE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cbInnerPacket",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pReplyBuffer",
-                    "type": "PVOID",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "cbReplyBuffer",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pcbReplyBuffer",
-                    "type": "PULONG",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxeGetServerInfo",
-                "type": "DWORD"
-            },
-            "name": "PxeGetServerInfo",
-            "arguments": [
-                {
-                    "name": "uInfoType",
-                    "type": "PXE_GSI_TYPE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pBuffer",
-                    "type": "PVOID",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "uBufferLen",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PxeGetServerInfoEx",
-                "type": "DWORD"
-            },
-            "name": "PxeGetServerInfoEx",
-            "arguments": [
-                {
-                    "name": "uInfoType",
-                    "type": "PXE_GSI_TYPE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pBuffer",
-                    "type": "PVOID",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "uBufferLen",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "puBufferUsed",
-                    "type": "PULONG",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "WdsPxe.dll"
             ]
         }
-    ]
-}
+    },
+    {
+        "name": "PPXE_PROVIDER",
+        "type": {
+            "data_type": "Struct",
+            "name": "tagPXE_PROVIDER",
+            "elements": [
+                {
+                    "name": "uSizeOfStruct",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "pwszName",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "pwszFilePath",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "bIsCritical",
+                    "type": "BOOL"
+                },
+                {
+                    "name": "uIndex",
+                    "type": "ULONG"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "PXE_CALLBACK_TYPE",
+        "type": "ULONG"
+    },
+    {
+        "name": "PXE_GSI_TYPE",
+        "type": "ULONG"
+    },
+    {
+        "name": "PXE_ADDRESS",
+        "type": {
+            "data_type": "Struct",
+            "name": "tagPXE_ADDRESS",
+            "elements": [
+                {
+                    "name": "uFlags",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "Union",
+                    "elements": [
+                        {
+                            "data_type": "ArrayDecl",
+                            "dim": {
+                                "type": "int",
+                                "value": "16"
+                            },
+                            "name": "bAddress"
+                        },
+                        {
+                            "name": "uIpAddress",
+                            "type": "ULONG"
+                        }
+                    ]
+                },
+                {
+                    "name": "uAddrLen",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "uPort",
+                    "type": "USHORT"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PPXE_ADDRESS",
+        "type": {
+            "data_type": "Struct",
+            "name": "tagPXE_ADDRESS",
+            "elements": [
+                {
+                    "name": "uFlags",
+                    "type": "ULONG"
+                },
+                {
+                    "data_type": "Union",
+                    "elements": [
+                        {
+                            "data_type": "ArrayDecl",
+                            "dim": {
+                                "type": "int",
+                                "value": "16"
+                            },
+                            "name": "bAddress"
+                        },
+                        {
+                            "name": "uIpAddress",
+                            "type": "ULONG"
+                        }
+                    ]
+                },
+                {
+                    "name": "uAddrLen",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "uPort",
+                    "type": "USHORT"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "PXE_DHCPV6_NESTED_RELAY_MESSAGE",
+        "type": {
+            "data_type": "Struct",
+            "name": "tagPXE_DHCPV6_NESTED_RELAY_MESSAGE",
+            "elements": [
+                {
+                    "name": "pRelayMessage",
+                    "type": "PPXE_DHCPV6_RELAY_MESSAGE"
+                },
+                {
+                    "name": "cbRelayMessage",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "pInterfaceIdOption",
+                    "type": "PVOID"
+                },
+                {
+                    "name": "cbInterfaceIdOption",
+                    "type": "WORD"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PPXE_DHCPV6_NESTED_RELAY_MESSAGE",
+        "type": {
+            "data_type": "Struct",
+            "name": "tagPXE_DHCPV6_NESTED_RELAY_MESSAGE",
+            "elements": [
+                {
+                    "name": "pRelayMessage",
+                    "type": "PPXE_DHCPV6_RELAY_MESSAGE"
+                },
+                {
+                    "name": "cbRelayMessage",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "pInterfaceIdOption",
+                    "type": "PVOID"
+                },
+                {
+                    "name": "cbInterfaceIdOption",
+                    "type": "WORD"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "PXE_BOOT_ACTION",
+        "type": "ULONG"
+    },
+    {
+        "name": "PXE_SEVERITY",
+        "type": "ULONG"
+    },
+    {
+        "name": "PXE_PROVIDER_ATTRIBUTE",
+        "type": "ULONG"
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxeProviderRegister",
+            "type": "DWORD"
+        },
+        "name": "PxeProviderRegister",
+        "arguments": [
+            {
+                "name": "pszProviderName",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pszModulePath",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Index",
+                "type": "PXE_REG_INDEX",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "bIsCritical",
+                "type": "BOOL",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "phProviderKey",
+                "type": "PHKEY",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxeProviderUnRegister",
+            "type": "DWORD"
+        },
+        "name": "PxeProviderUnRegister",
+        "arguments": [
+            {
+                "name": "pszProviderName",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxeProviderQueryIndex",
+            "type": "DWORD"
+        },
+        "name": "PxeProviderQueryIndex",
+        "arguments": [
+            {
+                "name": "pszProviderName",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "puIndex",
+                "type": "PULONG",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxeProviderEnumFirst",
+            "type": "DWORD"
+        },
+        "name": "PxeProviderEnumFirst",
+        "arguments": [
+            {
+                "type": {
+                    "name": "phEnum",
+                    "type": "HANDLE"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxeProviderEnumNext",
+            "type": "DWORD"
+        },
+        "name": "PxeProviderEnumNext",
+        "arguments": [
+            {
+                "name": "hEnum",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "ppProvider",
+                    "type": "PPXE_PROVIDER"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxeProviderEnumClose",
+            "type": "DWORD"
+        },
+        "name": "PxeProviderEnumClose",
+        "arguments": [
+            {
+                "name": "hEnum",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxeProviderFreeInfo",
+            "type": "DWORD"
+        },
+        "name": "PxeProviderFreeInfo",
+        "arguments": [
+            {
+                "name": "pProvider",
+                "type": "PPXE_PROVIDER",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxeRegisterCallback",
+            "type": "DWORD"
+        },
+        "name": "PxeRegisterCallback",
+        "arguments": [
+            {
+                "name": "hProvider",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "CallbackType",
+                "type": "PXE_CALLBACK_TYPE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pCallbackFunction",
+                "type": "PVOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pContext",
+                "type": "PVOID",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxeSendReply",
+            "type": "DWORD"
+        },
+        "name": "PxeSendReply",
+        "arguments": [
+            {
+                "name": "hClientRequest",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pPacket",
+                "type": "PVOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "uPacketLen",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pAddress",
+                    "type": "PXE_ADDRESS"
+                },
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxeAsyncRecvDone",
+            "type": "DWORD"
+        },
+        "name": "PxeAsyncRecvDone",
+        "arguments": [
+            {
+                "name": "hClientRequest",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Action",
+                "type": "PXE_BOOT_ACTION",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxeTrace",
+            "type": "DWORD"
+        },
+        "name": "PxeTrace",
+        "arguments": [
+            {
+                "name": "hProvider",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Severity",
+                "type": "PXE_SEVERITY",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pszFormat",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxePacketAllocate",
+            "type": "PVOID"
+        },
+        "name": "PxePacketAllocate",
+        "arguments": [
+            {
+                "name": "hProvider",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "hClientRequest",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "uSize",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxePacketFree",
+            "type": "DWORD"
+        },
+        "name": "PxePacketFree",
+        "arguments": [
+            {
+                "name": "hProvider",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "hClientRequest",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pPacket",
+                "type": "PVOID",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxeProviderSetAttribute",
+            "type": "DWORD"
+        },
+        "name": "PxeProviderSetAttribute",
+        "arguments": [
+            {
+                "name": "hProvider",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Attribute",
+                "type": "PXE_PROVIDER_ATTRIBUTE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pParameterBuffer",
+                "type": "PVOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "uParamLen",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxeDhcpInitialize",
+            "type": "DWORD"
+        },
+        "name": "PxeDhcpInitialize",
+        "arguments": [
+            {
+                "name": "pRecvPacket",
+                "type": "PVOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "uRecvPacketLen",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pReplyPacket",
+                "type": "PVOID",
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "uMaxReplyPacketLen",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "puReplyPacketLen",
+                "type": "PULONG",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxeDhcpv6Initialize",
+            "type": "DWORD"
+        },
+        "name": "PxeDhcpv6Initialize",
+        "arguments": [
+            {
+                "name": "pRequest",
+                "type": "PVOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cbRequest",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pReply",
+                "type": "PVOID",
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "cbReply",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pcbReplyUsed",
+                "type": "PULONG",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxeDhcpAppendOption",
+            "type": "DWORD"
+        },
+        "name": "PxeDhcpAppendOption",
+        "arguments": [
+            {
+                "name": "pReplyPacket",
+                "type": "PVOID",
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "uMaxReplyPacketLen",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "puReplyPacketLen",
+                "type": "PULONG",
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "bOption",
+                "type": "BYTE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "bOptionLen",
+                "type": "BYTE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pValue",
+                "type": "PVOID",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxeDhcpv6AppendOption",
+            "type": "DWORD"
+        },
+        "name": "PxeDhcpv6AppendOption",
+        "arguments": [
+            {
+                "name": "pReply",
+                "type": "PVOID",
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "cbReply",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pcbReplyUsed",
+                "type": "PULONG",
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "wOptionType",
+                "type": "WORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cbOption",
+                "type": "WORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pOption",
+                "type": "PVOID",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxeDhcpAppendOptionRaw",
+            "type": "DWORD"
+        },
+        "name": "PxeDhcpAppendOptionRaw",
+        "arguments": [
+            {
+                "name": "pReplyPacket",
+                "type": "PVOID",
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "uMaxReplyPacketLen",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "puReplyPacketLen",
+                "type": "PULONG",
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "uBufferLen",
+                "type": "USHORT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pBuffer",
+                "type": "PVOID",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxeDhcpv6AppendOptionRaw",
+            "type": "DWORD"
+        },
+        "name": "PxeDhcpv6AppendOptionRaw",
+        "arguments": [
+            {
+                "name": "pReply",
+                "type": "PVOID",
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "cbReply",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pcbReplyUsed",
+                "type": "PULONG",
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "cbBuffer",
+                "type": "USHORT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pBuffer",
+                "type": "PVOID",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxeDhcpIsValid",
+            "type": "DWORD"
+        },
+        "name": "PxeDhcpIsValid",
+        "arguments": [
+            {
+                "name": "pPacket",
+                "type": "PVOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "uPacketLen",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "bRequestPacket",
+                "type": "BOOL",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pbPxeOptionPresent",
+                "type": "PBOOL",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxeDhcpv6IsValid",
+            "type": "DWORD"
+        },
+        "name": "PxeDhcpv6IsValid",
+        "arguments": [
+            {
+                "name": "pPacket",
+                "type": "PVOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "uPacketLen",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "bRequestPacket",
+                "type": "BOOL",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pbPxeOptionPresent",
+                "type": "PBOOL",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxeDhcpGetOptionValue",
+            "type": "DWORD"
+        },
+        "name": "PxeDhcpGetOptionValue",
+        "arguments": [
+            {
+                "name": "pPacket",
+                "type": "PVOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "uPacketLen",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "uInstance",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "bOption",
+                "type": "BYTE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pbOptionLen",
+                "type": "PBYTE",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "ppOptionValue",
+                    "type": "PVOID"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxeDhcpv6GetOptionValue",
+            "type": "DWORD"
+        },
+        "name": "PxeDhcpv6GetOptionValue",
+        "arguments": [
+            {
+                "name": "pPacket",
+                "type": "PVOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "uPacketLen",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "uInstance",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "wOption",
+                "type": "WORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pwOptionLen",
+                "type": "PWORD",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "ppOptionValue",
+                    "type": "PVOID"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxeDhcpGetVendorOptionValue",
+            "type": "DWORD"
+        },
+        "name": "PxeDhcpGetVendorOptionValue",
+        "arguments": [
+            {
+                "name": "pPacket",
+                "type": "PVOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "uPacketLen",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "bOption",
+                "type": "BYTE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "uInstance",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pbOptionLen",
+                "type": "PBYTE",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "ppOptionValue",
+                    "type": "PVOID"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxeDhcpv6GetVendorOptionValue",
+            "type": "DWORD"
+        },
+        "name": "PxeDhcpv6GetVendorOptionValue",
+        "arguments": [
+            {
+                "name": "pPacket",
+                "type": "PVOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "uPacketLen",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "dwEnterpriseNumber",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "wOption",
+                "type": "WORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "uInstance",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pwOptionLen",
+                "type": "PWORD",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "ppOptionValue",
+                    "type": "PVOID"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxeDhcpv6ParseRelayForw",
+            "type": "DWORD"
+        },
+        "name": "PxeDhcpv6ParseRelayForw",
+        "arguments": [
+            {
+                "name": "pRelayForwPacket",
+                "type": "PVOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "uRelayForwPacketLen",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pRelayMessages",
+                "type": "PPXE_DHCPV6_NESTED_RELAY_MESSAGE",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "nRelayMessages",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pnRelayMessages",
+                "type": "PULONG",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "ppInnerPacket",
+                    "type": "PBYTE"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "pcbInnerPacket",
+                "type": "PULONG",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxeDhcpv6CreateRelayRepl",
+            "type": "DWORD"
+        },
+        "name": "PxeDhcpv6CreateRelayRepl",
+        "arguments": [
+            {
+                "name": "pRelayMessages",
+                "type": "PPXE_DHCPV6_NESTED_RELAY_MESSAGE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "nRelayMessages",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pInnerPacket",
+                "type": "PBYTE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cbInnerPacket",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pReplyBuffer",
+                "type": "PVOID",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "cbReplyBuffer",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pcbReplyBuffer",
+                "type": "PULONG",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxeGetServerInfo",
+            "type": "DWORD"
+        },
+        "name": "PxeGetServerInfo",
+        "arguments": [
+            {
+                "name": "uInfoType",
+                "type": "PXE_GSI_TYPE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pBuffer",
+                "type": "PVOID",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "uBufferLen",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PxeGetServerInfoEx",
+            "type": "DWORD"
+        },
+        "name": "PxeGetServerInfoEx",
+        "arguments": [
+            {
+                "name": "uInfoType",
+                "type": "PXE_GSI_TYPE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pBuffer",
+                "type": "PVOID",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "uBufferLen",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "puBufferUsed",
+                "type": "PULONG",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "WdsPxe.dll"
+        ]
+    }
+]

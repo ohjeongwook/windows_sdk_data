@@ -1,3326 +1,3322 @@
-{
-    "typedefs": [
-        {
-            "name": "SCRIPT_CACHE",
-            "type": "void",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "SCRIPT_CONTROL",
-            "type": {
-                "data_type": "Struct",
-                "name": "tag_SCRIPT_CONTROL",
-                "elements": [
-                    {
-                        "name": "uDefaultLanguage",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "fContextDigits",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "fInvertPreBoundDir",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "fInvertPostBoundDir",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "fLinkStringBefore",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "fLinkStringAfter",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "fNeutralOverride",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "fNumericOverride",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "fLegacyBidiClass",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "fMergeNeutralItems",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "fUseStandardBidi",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "fReserved",
-                        "type": "DWORD"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "SCRIPT_STATE",
-            "type": {
-                "data_type": "Struct",
-                "name": "tag_SCRIPT_STATE",
-                "elements": [
-                    {
-                        "name": "uBidiLevel",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "fOverrideDirection",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "fInhibitSymSwap",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "fCharShape",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "fDigitSubstitute",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "fInhibitLigate",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "fDisplayZWG",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "fArabicNumContext",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "fGcpClusters",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "fReserved",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "fEngineReserved",
-                        "type": "WORD"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "SCRIPT_ANALYSIS",
-            "type": {
-                "data_type": "Struct",
-                "name": "tag_SCRIPT_ANALYSIS",
-                "elements": [
-                    {
-                        "name": "eScript",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "fRTL",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "fLayoutRTL",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "fLinkBefore",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "fLinkAfter",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "fLogicalOrder",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "fNoGlyphIndex",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "s",
-                        "type": "SCRIPT_STATE"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "SCRIPT_ITEM",
-            "type": {
-                "data_type": "Struct",
-                "name": "tag_SCRIPT_ITEM",
-                "elements": [
-                    {
-                        "name": "iCharPos",
-                        "type": "int"
-                    },
-                    {
-                        "name": "a",
-                        "type": "SCRIPT_ANALYSIS"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "SCRIPT_JUSTIFY",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "SCRIPT_JUSTIFY_NONE",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "SCRIPT_JUSTIFY_ARABIC_BLANK",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    },
-                    {
-                        "name": "SCRIPT_JUSTIFY_CHARACTER",
-                        "value": {
-                            "type": "int",
-                            "value": "2"
-                        }
-                    },
-                    {
-                        "name": "SCRIPT_JUSTIFY_RESERVED1",
-                        "value": {
-                            "type": "int",
-                            "value": "3"
-                        }
-                    },
-                    {
-                        "name": "SCRIPT_JUSTIFY_BLANK",
-                        "value": {
-                            "type": "int",
-                            "value": "4"
-                        }
-                    },
-                    {
-                        "name": "SCRIPT_JUSTIFY_RESERVED2",
-                        "value": {
-                            "type": "int",
-                            "value": "5"
-                        }
-                    },
-                    {
-                        "name": "SCRIPT_JUSTIFY_RESERVED3",
-                        "value": {
-                            "type": "int",
-                            "value": "6"
-                        }
-                    },
-                    {
-                        "name": "SCRIPT_JUSTIFY_ARABIC_NORMAL",
-                        "value": {
-                            "type": "int",
-                            "value": "7"
-                        }
-                    },
-                    {
-                        "name": "SCRIPT_JUSTIFY_ARABIC_KASHIDA",
-                        "value": {
-                            "type": "int",
-                            "value": "8"
-                        }
-                    },
-                    {
-                        "name": "SCRIPT_JUSTIFY_ARABIC_ALEF",
-                        "value": {
-                            "type": "int",
-                            "value": "9"
-                        }
-                    },
-                    {
-                        "name": "SCRIPT_JUSTIFY_ARABIC_HA",
-                        "value": {
-                            "type": "int",
-                            "value": "10"
-                        }
-                    },
-                    {
-                        "name": "SCRIPT_JUSTIFY_ARABIC_RA",
-                        "value": {
-                            "type": "int",
-                            "value": "11"
-                        }
-                    },
-                    {
-                        "name": "SCRIPT_JUSTIFY_ARABIC_BA",
-                        "value": {
-                            "type": "int",
-                            "value": "12"
-                        }
-                    },
-                    {
-                        "name": "SCRIPT_JUSTIFY_ARABIC_BARA",
-                        "value": {
-                            "type": "int",
-                            "value": "13"
-                        }
-                    },
-                    {
-                        "name": "SCRIPT_JUSTIFY_ARABIC_SEEN",
-                        "value": {
-                            "type": "int",
-                            "value": "14"
-                        }
-                    },
-                    {
-                        "name": "SCRIPT_JUSTIFY_ARABIC_SEEN_M",
-                        "value": {
-                            "type": "int",
-                            "value": "15"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "SCRIPT_VISATTR",
-            "type": {
-                "data_type": "Struct",
-                "name": "tag_SCRIPT_VISATTR",
-                "elements": [
-                    {
-                        "name": "uJustification",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "fClusterStart",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "fDiacritic",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "fZeroWidth",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "fReserved",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "fShapeReserved",
-                        "type": "WORD"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "GOFFSET",
-            "type": {
-                "data_type": "Struct",
-                "name": "tagGOFFSET",
-                "elements": [
-                    {
-                        "name": "du",
-                        "type": "LONG"
-                    },
-                    {
-                        "name": "dv",
-                        "type": "LONG"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "SCRIPT_LOGATTR",
-            "type": {
-                "data_type": "Struct",
-                "name": "tag_SCRIPT_LOGATTR",
-                "elements": [
-                    {
-                        "name": "fSoftBreak",
-                        "type": "BYTE"
-                    },
-                    {
-                        "name": "fWhiteSpace",
-                        "type": "BYTE"
-                    },
-                    {
-                        "name": "fCharStop",
-                        "type": "BYTE"
-                    },
-                    {
-                        "name": "fWordStop",
-                        "type": "BYTE"
-                    },
-                    {
-                        "name": "fInvalid",
-                        "type": "BYTE"
-                    },
-                    {
-                        "name": "fReserved",
-                        "type": "BYTE"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "SCRIPT_PROPERTIES",
-            "type": {
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "langid",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "fNumeric",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "fComplex",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "fNeedsWordBreaking",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "fNeedsCaretInfo",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "bCharSet",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "fControl",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "fPrivateUseArea",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "fNeedsCharacterJustify",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "fInvalidGlyph",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "fInvalidLogAttr",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "fCDM",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "fAmbiguousCharSet",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "fClusterSizeVaries",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "fRejectInvalid",
-                        "type": "DWORD"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "SCRIPT_FONTPROPERTIES",
-            "type": {
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "cBytes",
-                        "type": "int"
-                    },
-                    {
-                        "name": "wgBlank",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "wgDefault",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "wgInvalid",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "wgKashida",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "iKashidaWidth",
-                        "type": "int"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "SCRIPT_TABDEF",
-            "type": {
-                "data_type": "Struct",
-                "name": "tag_SCRIPT_TABDEF",
-                "elements": [
-                    {
-                        "name": "cTabStops",
-                        "type": "int"
-                    },
-                    {
-                        "name": "iScale",
-                        "type": "int"
-                    },
-                    {
-                        "name": "pTabStops",
-                        "type": "int",
-                        "data_type": "Ptr"
-                    },
-                    {
-                        "name": "iTabOrigin",
-                        "type": "int"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "SCRIPT_STRING_ANALYSIS",
-            "type": "void",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "SCRIPT_DIGITSUBSTITUTE",
-            "type": {
-                "data_type": "Struct",
-                "name": "tag_SCRIPT_DIGITSUBSTITUTE",
-                "elements": [
-                    {
-                        "name": "NationalDigitLanguage",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "TraditionalDigitLanguage",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "DigitSubstitute",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "dwReserved",
-                        "type": "DWORD"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "OPENTYPE_TAG",
-            "type": "ULONG"
-        },
-        {
-            "name": "OPENTYPE_FEATURE_RECORD",
-            "type": {
-                "data_type": "Struct",
-                "name": "opentype_feature_record",
-                "elements": [
-                    {
-                        "name": "tagFeature",
-                        "type": "OPENTYPE_TAG"
-                    },
-                    {
-                        "name": "lParameter",
-                        "type": "LONG"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "TEXTRANGE_PROPERTIES",
-            "type": {
-                "data_type": "Struct",
-                "name": "textrange_properties",
-                "elements": [
-                    {
-                        "name": "potfRecords",
-                        "type": "OPENTYPE_FEATURE_RECORD",
-                        "data_type": "Ptr"
-                    },
-                    {
-                        "name": "cotfRecords",
-                        "type": "int"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "SCRIPT_CHARPROP",
-            "type": {
-                "data_type": "Struct",
-                "name": "script_charprop",
-                "elements": [
-                    {
-                        "name": "fCanGlyphAlone",
-                        "type": "WORD"
-                    },
-                    {
-                        "name": "reserved",
-                        "type": "WORD"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "SCRIPT_GLYPHPROP",
-            "type": {
-                "data_type": "Struct",
-                "name": "script_glyphprop",
-                "elements": [
-                    {
-                        "name": "sva",
-                        "type": "SCRIPT_VISATTR"
-                    },
-                    {
-                        "name": "reserved",
-                        "type": "WORD"
-                    }
-                ]
-            }
-        }
-    ],
-    "funcdefs": [
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptFreeCache",
-                "type": "HRESULT"
-            },
+[
+    {
+        "name": "SCRIPT_CACHE",
+        "type": "void",
+        "data_type": "Ptr"
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "ScriptFreeCache",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "psc",
-                        "type": "SCRIPT_CACHE"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "usp10.dll",
-                "Ext-MS-Win-usp10-l1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
+            "type": "HRESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptItemize",
-                "type": "HRESULT"
-            },
+        "name": "ScriptFreeCache",
+        "arguments": [
+            {
+                "type": {
+                    "name": "psc",
+                    "type": "SCRIPT_CACHE"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "usp10.dll",
+            "Ext-MS-Win-usp10-l1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "name": "SCRIPT_CONTROL",
+        "type": {
+            "data_type": "Struct",
+            "name": "tag_SCRIPT_CONTROL",
+            "elements": [
+                {
+                    "name": "uDefaultLanguage",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "fContextDigits",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "fInvertPreBoundDir",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "fInvertPostBoundDir",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "fLinkStringBefore",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "fLinkStringAfter",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "fNeutralOverride",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "fNumericOverride",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "fLegacyBidiClass",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "fMergeNeutralItems",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "fUseStandardBidi",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "fReserved",
+                    "type": "DWORD"
+                }
+            ]
+        }
+    },
+    {
+        "name": "SCRIPT_STATE",
+        "type": {
+            "data_type": "Struct",
+            "name": "tag_SCRIPT_STATE",
+            "elements": [
+                {
+                    "name": "uBidiLevel",
+                    "type": "WORD"
+                },
+                {
+                    "name": "fOverrideDirection",
+                    "type": "WORD"
+                },
+                {
+                    "name": "fInhibitSymSwap",
+                    "type": "WORD"
+                },
+                {
+                    "name": "fCharShape",
+                    "type": "WORD"
+                },
+                {
+                    "name": "fDigitSubstitute",
+                    "type": "WORD"
+                },
+                {
+                    "name": "fInhibitLigate",
+                    "type": "WORD"
+                },
+                {
+                    "name": "fDisplayZWG",
+                    "type": "WORD"
+                },
+                {
+                    "name": "fArabicNumContext",
+                    "type": "WORD"
+                },
+                {
+                    "name": "fGcpClusters",
+                    "type": "WORD"
+                },
+                {
+                    "name": "fReserved",
+                    "type": "WORD"
+                },
+                {
+                    "name": "fEngineReserved",
+                    "type": "WORD"
+                }
+            ]
+        }
+    },
+    {
+        "name": "SCRIPT_ANALYSIS",
+        "type": {
+            "data_type": "Struct",
+            "name": "tag_SCRIPT_ANALYSIS",
+            "elements": [
+                {
+                    "name": "eScript",
+                    "type": "WORD"
+                },
+                {
+                    "name": "fRTL",
+                    "type": "WORD"
+                },
+                {
+                    "name": "fLayoutRTL",
+                    "type": "WORD"
+                },
+                {
+                    "name": "fLinkBefore",
+                    "type": "WORD"
+                },
+                {
+                    "name": "fLinkAfter",
+                    "type": "WORD"
+                },
+                {
+                    "name": "fLogicalOrder",
+                    "type": "WORD"
+                },
+                {
+                    "name": "fNoGlyphIndex",
+                    "type": "WORD"
+                },
+                {
+                    "name": "s",
+                    "type": "SCRIPT_STATE"
+                }
+            ]
+        }
+    },
+    {
+        "name": "SCRIPT_ITEM",
+        "type": {
+            "data_type": "Struct",
+            "name": "tag_SCRIPT_ITEM",
+            "elements": [
+                {
+                    "name": "iCharPos",
+                    "type": "int"
+                },
+                {
+                    "name": "a",
+                    "type": "SCRIPT_ANALYSIS"
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "ScriptItemize",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "pwcInChars",
-                        "type": "WCHAR"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cInChars",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cMaxItems",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psControl",
-                        "type": "SCRIPT_CONTROL"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psState",
-                        "type": "SCRIPT_STATE"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pItems",
-                        "type": "SCRIPT_ITEM"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pcItems",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "usp10.dll",
-                "Ext-MS-Win-usp10-l1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
+            "type": "HRESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptLayout",
-                "type": "HRESULT"
+        "name": "ScriptItemize",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pwcInChars",
+                    "type": "WCHAR"
+                },
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "cInChars",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cMaxItems",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psControl",
+                    "type": "SCRIPT_CONTROL"
+                },
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psState",
+                    "type": "SCRIPT_STATE"
+                },
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pItems",
+                    "type": "SCRIPT_ITEM"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pcItems",
+                    "type": "int"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "usp10.dll",
+            "Ext-MS-Win-usp10-l1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "ScriptLayout",
-            "arguments": [
-                {
-                    "name": "cRuns",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pbLevel",
-                        "type": "BYTE"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "piVisualToLogical",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "piLogicalToVisual",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "usp10.dll",
-                "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
+            "type": "HRESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptShape",
-                "type": "HRESULT"
+        "name": "ScriptLayout",
+        "arguments": [
+            {
+                "name": "cRuns",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "type": {
+                    "name": "pbLevel",
+                    "type": "BYTE"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "piVisualToLogical",
+                    "type": "int"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "piLogicalToVisual",
+                    "type": "int"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "usp10.dll",
+            "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "name": "SCRIPT_JUSTIFY",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "SCRIPT_JUSTIFY_NONE",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "SCRIPT_JUSTIFY_ARABIC_BLANK",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                },
+                {
+                    "name": "SCRIPT_JUSTIFY_CHARACTER",
+                    "value": {
+                        "type": "int",
+                        "value": "2"
+                    }
+                },
+                {
+                    "name": "SCRIPT_JUSTIFY_RESERVED1",
+                    "value": {
+                        "type": "int",
+                        "value": "3"
+                    }
+                },
+                {
+                    "name": "SCRIPT_JUSTIFY_BLANK",
+                    "value": {
+                        "type": "int",
+                        "value": "4"
+                    }
+                },
+                {
+                    "name": "SCRIPT_JUSTIFY_RESERVED2",
+                    "value": {
+                        "type": "int",
+                        "value": "5"
+                    }
+                },
+                {
+                    "name": "SCRIPT_JUSTIFY_RESERVED3",
+                    "value": {
+                        "type": "int",
+                        "value": "6"
+                    }
+                },
+                {
+                    "name": "SCRIPT_JUSTIFY_ARABIC_NORMAL",
+                    "value": {
+                        "type": "int",
+                        "value": "7"
+                    }
+                },
+                {
+                    "name": "SCRIPT_JUSTIFY_ARABIC_KASHIDA",
+                    "value": {
+                        "type": "int",
+                        "value": "8"
+                    }
+                },
+                {
+                    "name": "SCRIPT_JUSTIFY_ARABIC_ALEF",
+                    "value": {
+                        "type": "int",
+                        "value": "9"
+                    }
+                },
+                {
+                    "name": "SCRIPT_JUSTIFY_ARABIC_HA",
+                    "value": {
+                        "type": "int",
+                        "value": "10"
+                    }
+                },
+                {
+                    "name": "SCRIPT_JUSTIFY_ARABIC_RA",
+                    "value": {
+                        "type": "int",
+                        "value": "11"
+                    }
+                },
+                {
+                    "name": "SCRIPT_JUSTIFY_ARABIC_BA",
+                    "value": {
+                        "type": "int",
+                        "value": "12"
+                    }
+                },
+                {
+                    "name": "SCRIPT_JUSTIFY_ARABIC_BARA",
+                    "value": {
+                        "type": "int",
+                        "value": "13"
+                    }
+                },
+                {
+                    "name": "SCRIPT_JUSTIFY_ARABIC_SEEN",
+                    "value": {
+                        "type": "int",
+                        "value": "14"
+                    }
+                },
+                {
+                    "name": "SCRIPT_JUSTIFY_ARABIC_SEEN_M",
+                    "value": {
+                        "type": "int",
+                        "value": "15"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "SCRIPT_VISATTR",
+        "type": {
+            "data_type": "Struct",
+            "name": "tag_SCRIPT_VISATTR",
+            "elements": [
+                {
+                    "name": "uJustification",
+                    "type": "WORD"
+                },
+                {
+                    "name": "fClusterStart",
+                    "type": "WORD"
+                },
+                {
+                    "name": "fDiacritic",
+                    "type": "WORD"
+                },
+                {
+                    "name": "fZeroWidth",
+                    "type": "WORD"
+                },
+                {
+                    "name": "fReserved",
+                    "type": "WORD"
+                },
+                {
+                    "name": "fShapeReserved",
+                    "type": "WORD"
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "ScriptShape",
-            "arguments": [
-                {
-                    "name": "hdc",
-                    "type": "HDC",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psc",
-                        "type": "SCRIPT_CACHE"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pwcChars",
-                        "type": "WCHAR"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cChars",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cMaxGlyphs",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psa",
-                        "type": "SCRIPT_ANALYSIS"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pwOutGlyphs",
-                        "type": "WORD"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pwLogClust",
-                        "type": "WORD"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psva",
-                        "type": "SCRIPT_VISATTR"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pcGlyphs",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "usp10.dll",
-                "Ext-MS-Win-usp10-l1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
+            "type": "HRESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptPlace",
-                "type": "HRESULT"
+        "name": "ScriptShape",
+        "arguments": [
+            {
+                "name": "hdc",
+                "type": "HDC",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "type": {
+                    "name": "psc",
+                    "type": "SCRIPT_CACHE"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pwcChars",
+                    "type": "WCHAR"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cChars",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cMaxGlyphs",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psa",
+                    "type": "SCRIPT_ANALYSIS"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pwOutGlyphs",
+                    "type": "WORD"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pwLogClust",
+                    "type": "WORD"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psva",
+                    "type": "SCRIPT_VISATTR"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pcGlyphs",
+                    "type": "int"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "usp10.dll",
+            "Ext-MS-Win-usp10-l1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "name": "GOFFSET",
+        "type": {
+            "data_type": "Struct",
+            "name": "tagGOFFSET",
+            "elements": [
+                {
+                    "name": "du",
+                    "type": "LONG"
+                },
+                {
+                    "name": "dv",
+                    "type": "LONG"
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "ScriptPlace",
-            "arguments": [
-                {
-                    "name": "hdc",
-                    "type": "HDC",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psc",
-                        "type": "SCRIPT_CACHE"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pwGlyphs",
-                        "type": "WORD"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cGlyphs",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psva",
-                        "type": "SCRIPT_VISATTR"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psa",
-                        "type": "SCRIPT_ANALYSIS"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "piAdvance",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pGoffset",
-                        "type": "GOFFSET"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pABC",
-                        "type": "ABC"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Usp10.dll",
-                "Ext-MS-Win-usp10-l1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
+            "type": "HRESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptTextOut",
-                "type": "HRESULT"
+        "name": "ScriptPlace",
+        "arguments": [
+            {
+                "name": "hdc",
+                "type": "HDC",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "type": {
+                    "name": "psc",
+                    "type": "SCRIPT_CACHE"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pwGlyphs",
+                    "type": "WORD"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cGlyphs",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psva",
+                    "type": "SCRIPT_VISATTR"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psa",
+                    "type": "SCRIPT_ANALYSIS"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "piAdvance",
+                    "type": "int"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pGoffset",
+                    "type": "GOFFSET"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pABC",
+                    "type": "ABC"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Usp10.dll",
+            "Ext-MS-Win-usp10-l1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "ScriptTextOut",
-            "arguments": [
-                {
-                    "name": "hdc",
-                    "type": "HDC",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psc",
-                        "type": "SCRIPT_CACHE"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "x",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "y",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "fuOptions",
-                    "type": "UINT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "lprc",
-                        "type": "RECT"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psa",
-                        "type": "SCRIPT_ANALYSIS"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pwcReserved",
-                        "type": "WCHAR"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "iReserved",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pwGlyphs",
-                        "type": "WORD"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cGlyphs",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "piAdvance",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "piJustify",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pGoffset",
-                        "type": "GOFFSET"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Usp10.dll",
-                "Ext-MS-Win-usp10-l1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
+            "type": "HRESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptJustify",
-                "type": "HRESULT"
+        "name": "ScriptTextOut",
+        "arguments": [
+            {
+                "name": "hdc",
+                "type": "HDC",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "type": {
+                    "name": "psc",
+                    "type": "SCRIPT_CACHE"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "x",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "y",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "fuOptions",
+                "type": "UINT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "lprc",
+                    "type": "RECT"
+                },
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psa",
+                    "type": "SCRIPT_ANALYSIS"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pwcReserved",
+                    "type": "WCHAR"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "iReserved",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pwGlyphs",
+                    "type": "WORD"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cGlyphs",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "piAdvance",
+                    "type": "int"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "piJustify",
+                    "type": "int"
+                },
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pGoffset",
+                    "type": "GOFFSET"
+                },
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Usp10.dll",
+            "Ext-MS-Win-usp10-l1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "ScriptJustify",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "psva",
-                        "type": "SCRIPT_VISATTR"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "piAdvance",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cGlyphs",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "iDx",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "iMinKashida",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "piJustify",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Usp10.dll",
-                "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
+            "type": "HRESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptBreak",
-                "type": "HRESULT"
+        "name": "ScriptJustify",
+        "arguments": [
+            {
+                "type": {
+                    "name": "psva",
+                    "type": "SCRIPT_VISATTR"
+                },
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "type": {
+                    "name": "piAdvance",
+                    "type": "int"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cGlyphs",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "iDx",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "iMinKashida",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "piJustify",
+                    "type": "int"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Usp10.dll",
+            "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "name": "SCRIPT_LOGATTR",
+        "type": {
+            "data_type": "Struct",
+            "name": "tag_SCRIPT_LOGATTR",
+            "elements": [
+                {
+                    "name": "fSoftBreak",
+                    "type": "BYTE"
+                },
+                {
+                    "name": "fWhiteSpace",
+                    "type": "BYTE"
+                },
+                {
+                    "name": "fCharStop",
+                    "type": "BYTE"
+                },
+                {
+                    "name": "fWordStop",
+                    "type": "BYTE"
+                },
+                {
+                    "name": "fInvalid",
+                    "type": "BYTE"
+                },
+                {
+                    "name": "fReserved",
+                    "type": "BYTE"
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "ScriptBreak",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "pwcChars",
-                        "type": "WCHAR"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cChars",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psa",
-                        "type": "SCRIPT_ANALYSIS"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psla",
-                        "type": "SCRIPT_LOGATTR"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "usp10.dll",
-                "Ext-MS-Win-usp10-l1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
+            "type": "HRESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptCPtoX",
-                "type": "HRESULT"
+        "name": "ScriptBreak",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pwcChars",
+                    "type": "WCHAR"
+                },
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "cChars",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psa",
+                    "type": "SCRIPT_ANALYSIS"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psla",
+                    "type": "SCRIPT_LOGATTR"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "usp10.dll",
+            "Ext-MS-Win-usp10-l1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "ScriptCPtoX",
-            "arguments": [
-                {
-                    "name": "iCP",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "fTrailing",
-                    "type": "BOOL",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cChars",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cGlyphs",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pwLogClust",
-                        "type": "WORD"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psva",
-                        "type": "SCRIPT_VISATTR"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "piAdvance",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psa",
-                        "type": "SCRIPT_ANALYSIS"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "piX",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "usp10.dll",
-                "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
+            "type": "HRESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptXtoCP",
-                "type": "HRESULT"
+        "name": "ScriptCPtoX",
+        "arguments": [
+            {
+                "name": "iCP",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "fTrailing",
+                "type": "BOOL",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cChars",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cGlyphs",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pwLogClust",
+                    "type": "WORD"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psva",
+                    "type": "SCRIPT_VISATTR"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "piAdvance",
+                    "type": "int"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psa",
+                    "type": "SCRIPT_ANALYSIS"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "piX",
+                    "type": "int"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "usp10.dll",
+            "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "ScriptXtoCP",
-            "arguments": [
-                {
-                    "name": "iX",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cChars",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cGlyphs",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pwLogClust",
-                        "type": "WORD"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psva",
-                        "type": "SCRIPT_VISATTR"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "piAdvance",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psa",
-                        "type": "SCRIPT_ANALYSIS"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "piCP",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "piTrailing",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Usp10.dll",
-                "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
+            "type": "HRESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptGetLogicalWidths",
-                "type": "HRESULT"
+        "name": "ScriptXtoCP",
+        "arguments": [
+            {
+                "name": "iX",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "cChars",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cGlyphs",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pwLogClust",
+                    "type": "WORD"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psva",
+                    "type": "SCRIPT_VISATTR"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "piAdvance",
+                    "type": "int"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psa",
+                    "type": "SCRIPT_ANALYSIS"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "piCP",
+                    "type": "int"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "piTrailing",
+                    "type": "int"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Usp10.dll",
+            "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "ScriptGetLogicalWidths",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "psa",
-                        "type": "SCRIPT_ANALYSIS"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cChars",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cGlyphs",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "piGlyphWidth",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pwLogClust",
-                        "type": "WORD"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psva",
-                        "type": "SCRIPT_VISATTR"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "piDx",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "usp10.dll",
-                "Ext-MS-Win-usp10-l1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
+            "type": "HRESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptApplyLogicalWidth",
-                "type": "HRESULT"
+        "name": "ScriptGetLogicalWidths",
+        "arguments": [
+            {
+                "type": {
+                    "name": "psa",
+                    "type": "SCRIPT_ANALYSIS"
+                },
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "cChars",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cGlyphs",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "piGlyphWidth",
+                    "type": "int"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pwLogClust",
+                    "type": "WORD"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psva",
+                    "type": "SCRIPT_VISATTR"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "piDx",
+                    "type": "int"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "usp10.dll",
+            "Ext-MS-Win-usp10-l1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "ScriptApplyLogicalWidth",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "piDx",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cChars",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cGlyphs",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pwLogClust",
-                        "type": "WORD"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psva",
-                        "type": "SCRIPT_VISATTR"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "piAdvance",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psa",
-                        "type": "SCRIPT_ANALYSIS"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pABC",
-                        "type": "ABC"
-                    },
-                    "sal": [
-                        "in",
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "piJustify",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "usp10.dll",
-                "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
+            "type": "HRESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptGetCMap",
-                "type": "HRESULT"
+        "name": "ScriptApplyLogicalWidth",
+        "arguments": [
+            {
+                "type": {
+                    "name": "piDx",
+                    "type": "int"
+                },
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "cChars",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cGlyphs",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pwLogClust",
+                    "type": "WORD"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psva",
+                    "type": "SCRIPT_VISATTR"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "piAdvance",
+                    "type": "int"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psa",
+                    "type": "SCRIPT_ANALYSIS"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pABC",
+                    "type": "ABC"
+                },
+                "sal": [
+                    "in",
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "piJustify",
+                    "type": "int"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "usp10.dll",
+            "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "ScriptGetCMap",
-            "arguments": [
-                {
-                    "name": "hdc",
-                    "type": "HDC",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psc",
-                        "type": "SCRIPT_CACHE"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pwcInChars",
-                        "type": "WCHAR"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cChars",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "dwFlags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pwOutGlyphs",
-                        "type": "WORD"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "usp10.dll",
-                "Ext-MS-Win-usp10-l1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
+            "type": "HRESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptGetGlyphABCWidth",
-                "type": "HRESULT"
+        "name": "ScriptGetCMap",
+        "arguments": [
+            {
+                "name": "hdc",
+                "type": "HDC",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "type": {
+                    "name": "psc",
+                    "type": "SCRIPT_CACHE"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pwcInChars",
+                    "type": "WCHAR"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cChars",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "dwFlags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pwOutGlyphs",
+                    "type": "WORD"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "usp10.dll",
+            "Ext-MS-Win-usp10-l1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "ScriptGetGlyphABCWidth",
-            "arguments": [
-                {
-                    "name": "hdc",
-                    "type": "HDC",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psc",
-                        "type": "SCRIPT_CACHE"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "wGlyph",
-                    "type": "WORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pABC",
-                        "type": "ABC"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "usp10.dll",
-                "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
+            "type": "HRESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptGetProperties",
-                "type": "HRESULT"
+        "name": "ScriptGetGlyphABCWidth",
+        "arguments": [
+            {
+                "name": "hdc",
+                "type": "HDC",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "type": {
+                    "name": "psc",
+                    "type": "SCRIPT_CACHE"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "wGlyph",
+                "type": "WORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pABC",
+                    "type": "ABC"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "usp10.dll",
+            "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "name": "SCRIPT_PROPERTIES",
+        "type": {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "name": "langid",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "fNumeric",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "fComplex",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "fNeedsWordBreaking",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "fNeedsCaretInfo",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "bCharSet",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "fControl",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "fPrivateUseArea",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "fNeedsCharacterJustify",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "fInvalidGlyph",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "fInvalidLogAttr",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "fCDM",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "fAmbiguousCharSet",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "fClusterSizeVaries",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "fRejectInvalid",
+                    "type": "DWORD"
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "ScriptGetProperties",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "ppSp",
-                        "type": "SCRIPT_PROPERTIES",
-                        "data_type": "PtrPtr"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "piNumScripts",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "usp10.dll",
-                "Ext-MS-Win-usp10-l1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
+            "type": "HRESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptGetFontProperties",
-                "type": "HRESULT"
-            },
-            "name": "ScriptGetFontProperties",
-            "arguments": [
-                {
-                    "name": "hdc",
-                    "type": "HDC",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psc",
-                        "type": "SCRIPT_CACHE"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "sfp",
-                        "type": "SCRIPT_FONTPROPERTIES"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "usp10.dll",
-                "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptCacheGetHeight",
-                "type": "HRESULT"
-            },
-            "name": "ScriptCacheGetHeight",
-            "arguments": [
-                {
-                    "name": "hdc",
-                    "type": "HDC",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psc",
-                        "type": "SCRIPT_CACHE"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "tmHeight",
-                        "type": "long"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "usp10.dll",
-                "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptStringAnalyse",
-                "type": "HRESULT"
-            },
-            "name": "ScriptStringAnalyse",
-            "arguments": [
-                {
-                    "name": "hdc",
-                    "type": "HDC",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pString",
-                        "type": "void"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cString",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cGlyphs",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "iCharset",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "dwFlags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "iReqWidth",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psControl",
-                        "type": "SCRIPT_CONTROL"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psState",
-                        "type": "SCRIPT_STATE"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "piDx",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pTabdef",
-                        "type": "SCRIPT_TABDEF"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pbInClass",
-                        "type": "BYTE"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pssa",
-                        "type": "SCRIPT_STRING_ANALYSIS"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Usp10.dll",
-                "Ext-MS-Win-usp10-l1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptStringFree",
-                "type": "HRESULT"
-            },
-            "name": "ScriptStringFree",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "pssa",
-                        "type": "SCRIPT_STRING_ANALYSIS"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Usp10.dll",
-                "Ext-MS-Win-usp10-l1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
+        "name": "ScriptGetProperties",
+        "arguments": [
+            {
                 "type": {
-                    "name": "ScriptString_pSize",
-                    "type": "SIZE"
-                }
+                    "name": "ppSp",
+                    "type": "SCRIPT_PROPERTIES",
+                    "data_type": "PtrPtr"
+                },
+                "sal": [
+                    "out"
+                ]
             },
-            "name": "ScriptString_pSize",
-            "arguments": [
-                {
-                    "name": "ssa",
-                    "type": "SCRIPT_STRING_ANALYSIS",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "usp10.dll",
-                "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
+            {
                 "type": {
-                    "name": "ScriptString_pcOutChars",
+                    "name": "piNumScripts",
+                    "type": "int"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "usp10.dll",
+            "Ext-MS-Win-usp10-l1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "name": "SCRIPT_FONTPROPERTIES",
+        "type": {
+            "data_type": "Struct",
+            "elements": [
+                {
+                    "name": "cBytes",
+                    "type": "int"
+                },
+                {
+                    "name": "wgBlank",
+                    "type": "WORD"
+                },
+                {
+                    "name": "wgDefault",
+                    "type": "WORD"
+                },
+                {
+                    "name": "wgInvalid",
+                    "type": "WORD"
+                },
+                {
+                    "name": "wgKashida",
+                    "type": "WORD"
+                },
+                {
+                    "name": "iKashidaWidth",
                     "type": "int"
                 }
-            },
-            "name": "ScriptString_pcOutChars",
-            "arguments": [
-                {
-                    "name": "ssa",
-                    "type": "SCRIPT_STRING_ANALYSIS",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "usp10.dll",
-                "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "type": {
-                    "name": "ScriptString_pLogAttr",
-                    "type": "SCRIPT_LOGATTR"
-                }
-            },
-            "name": "ScriptString_pLogAttr",
-            "arguments": [
-                {
-                    "name": "ssa",
-                    "type": "SCRIPT_STRING_ANALYSIS",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Usp10.dll",
-                "Ext-MS-Win-usp10-l1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptStringGetOrder",
-                "type": "HRESULT"
-            },
-            "name": "ScriptStringGetOrder",
-            "arguments": [
-                {
-                    "name": "ssa",
-                    "type": "SCRIPT_STRING_ANALYSIS",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "puOrder",
-                        "type": "UINT"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "usp10.dll",
-                "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptStringCPtoX",
-                "type": "HRESULT"
-            },
-            "name": "ScriptStringCPtoX",
-            "arguments": [
-                {
-                    "name": "ssa",
-                    "type": "SCRIPT_STRING_ANALYSIS",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "icp",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "fTrailing",
-                    "type": "BOOL",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pX",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "usp10.dll",
-                "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptStringXtoCP",
-                "type": "HRESULT"
-            },
-            "name": "ScriptStringXtoCP",
-            "arguments": [
-                {
-                    "name": "ssa",
-                    "type": "SCRIPT_STRING_ANALYSIS",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "iX",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "piCh",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "piTrailing",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Usp10.dll",
-                "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptStringGetLogicalWidths",
-                "type": "HRESULT"
-            },
-            "name": "ScriptStringGetLogicalWidths",
-            "arguments": [
-                {
-                    "name": "ssa",
-                    "type": "SCRIPT_STRING_ANALYSIS",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "piDx",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Usp10.dll",
-                "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptStringValidate",
-                "type": "HRESULT"
-            },
-            "name": "ScriptStringValidate",
-            "arguments": [
-                {
-                    "name": "ssa",
-                    "type": "SCRIPT_STRING_ANALYSIS",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Usp10.dll",
-                "Ext-MS-Win-usp10-l1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptStringOut",
-                "type": "HRESULT"
-            },
-            "name": "ScriptStringOut",
-            "arguments": [
-                {
-                    "name": "ssa",
-                    "type": "SCRIPT_STRING_ANALYSIS",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "iX",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "iY",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "uOptions",
-                    "type": "UINT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "prc",
-                        "type": "RECT"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "iMinSel",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "iMaxSel",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "fDisabled",
-                    "type": "BOOL",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "usp10.dll",
-                "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptIsComplex",
-                "type": "HRESULT"
-            },
-            "name": "ScriptIsComplex",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "pwcInChars",
-                        "type": "WCHAR"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cInChars",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "dwFlags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "usp10.dll",
-                "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptRecordDigitSubstitution",
-                "type": "HRESULT"
-            },
-            "name": "ScriptRecordDigitSubstitution",
-            "arguments": [
-                {
-                    "name": "Locale",
-                    "type": "LCID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psds",
-                        "type": "SCRIPT_DIGITSUBSTITUTE"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "usp10.dll",
-                "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptApplyDigitSubstitution",
-                "type": "HRESULT"
-            },
-            "name": "ScriptApplyDigitSubstitution",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "psds",
-                        "type": "SCRIPT_DIGITSUBSTITUTE"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psc",
-                        "type": "SCRIPT_CONTROL"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pss",
-                        "type": "SCRIPT_STATE"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Usp10.dll",
-                "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptShapeOpenType",
-                "type": "HRESULT"
-            },
-            "name": "ScriptShapeOpenType",
-            "arguments": [
-                {
-                    "name": "hdc",
-                    "type": "HDC",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psc",
-                        "type": "SCRIPT_CACHE"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psa",
-                        "type": "SCRIPT_ANALYSIS"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "tagScript",
-                    "type": "OPENTYPE_TAG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "tagLangSys",
-                    "type": "OPENTYPE_TAG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "rcRangeChars",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "rpRangeProperties",
-                        "type": "TEXTRANGE_PROPERTIES",
-                        "data_type": "Ptr"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "cRanges",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pwcChars",
-                        "type": "WCHAR"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cChars",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cMaxGlyphs",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pwLogClust",
-                        "type": "WORD"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pCharProps",
-                        "type": "SCRIPT_CHARPROP"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pwOutGlyphs",
-                        "type": "WORD"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pOutGlyphProps",
-                        "type": "SCRIPT_GLYPHPROP"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pcGlyphs",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Usp10.dll",
-                "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptPlaceOpenType",
-                "type": "HRESULT"
-            },
-            "name": "ScriptPlaceOpenType",
-            "arguments": [
-                {
-                    "name": "hdc",
-                    "type": "HDC",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psc",
-                        "type": "SCRIPT_CACHE"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psa",
-                        "type": "SCRIPT_ANALYSIS"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "tagScript",
-                    "type": "OPENTYPE_TAG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "tagLangSys",
-                    "type": "OPENTYPE_TAG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "rcRangeChars",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "rpRangeProperties",
-                        "type": "TEXTRANGE_PROPERTIES",
-                        "data_type": "Ptr"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "cRanges",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pwcChars",
-                        "type": "WCHAR"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pwLogClust",
-                        "type": "WORD"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pCharProps",
-                        "type": "SCRIPT_CHARPROP"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cChars",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pwGlyphs",
-                        "type": "WORD"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pGlyphProps",
-                        "type": "SCRIPT_GLYPHPROP"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cGlyphs",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "piAdvance",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pGoffset",
-                        "type": "GOFFSET"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pABC",
-                        "type": "ABC"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Usp10.dll",
-                "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptItemizeOpenType",
-                "type": "HRESULT"
-            },
-            "name": "ScriptItemizeOpenType",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "pwcInChars",
-                        "type": "WCHAR"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cInChars",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cMaxItems",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psControl",
-                        "type": "SCRIPT_CONTROL"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psState",
-                        "type": "SCRIPT_STATE"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pItems",
-                        "type": "SCRIPT_ITEM"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pScriptTags",
-                        "type": "OPENTYPE_TAG"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pcItems",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "usp10.dll",
-                "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptGetFontScriptTags",
-                "type": "HRESULT"
-            },
-            "name": "ScriptGetFontScriptTags",
-            "arguments": [
-                {
-                    "name": "hdc",
-                    "type": "HDC",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psc",
-                        "type": "SCRIPT_CACHE"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psa",
-                        "type": "SCRIPT_ANALYSIS"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "cMaxTags",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pScriptTags",
-                        "type": "OPENTYPE_TAG"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pcTags",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Usp10.dll",
-                "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptGetFontLanguageTags",
-                "type": "HRESULT"
-            },
-            "name": "ScriptGetFontLanguageTags",
-            "arguments": [
-                {
-                    "name": "hdc",
-                    "type": "HDC",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psc",
-                        "type": "SCRIPT_CACHE"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psa",
-                        "type": "SCRIPT_ANALYSIS"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "tagScript",
-                    "type": "OPENTYPE_TAG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cMaxTags",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pLangsysTags",
-                        "type": "OPENTYPE_TAG"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pcTags",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Usp10.dll",
-                "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptGetFontFeatureTags",
-                "type": "HRESULT"
-            },
-            "name": "ScriptGetFontFeatureTags",
-            "arguments": [
-                {
-                    "name": "hdc",
-                    "type": "HDC",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psc",
-                        "type": "SCRIPT_CACHE"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psa",
-                        "type": "SCRIPT_ANALYSIS"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "tagScript",
-                    "type": "OPENTYPE_TAG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "tagLangSys",
-                    "type": "OPENTYPE_TAG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cMaxTags",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pFeatureTags",
-                        "type": "OPENTYPE_TAG"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pcTags",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Usp10.dll",
-                "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptGetFontAlternateGlyphs",
-                "type": "HRESULT"
-            },
-            "name": "ScriptGetFontAlternateGlyphs",
-            "arguments": [
-                {
-                    "name": "hdc",
-                    "type": "HDC",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psc",
-                        "type": "SCRIPT_CACHE"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psa",
-                        "type": "SCRIPT_ANALYSIS"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "tagScript",
-                    "type": "OPENTYPE_TAG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "tagLangSys",
-                    "type": "OPENTYPE_TAG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "tagFeature",
-                    "type": "OPENTYPE_TAG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "wGlyphId",
-                    "type": "WORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cMaxAlternates",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pAlternateGlyphs",
-                        "type": "WORD"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pcAlternates",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Usp10.dll",
-                "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptSubstituteSingleGlyph",
-                "type": "HRESULT"
-            },
-            "name": "ScriptSubstituteSingleGlyph",
-            "arguments": [
-                {
-                    "name": "hdc",
-                    "type": "HDC",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psc",
-                        "type": "SCRIPT_CACHE"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psa",
-                        "type": "SCRIPT_ANALYSIS"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "tagScript",
-                    "type": "OPENTYPE_TAG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "tagLangSys",
-                    "type": "OPENTYPE_TAG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "tagFeature",
-                    "type": "OPENTYPE_TAG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "lParameter",
-                    "type": "LONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "wGlyphId",
-                    "type": "WORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pwOutGlyphId",
-                        "type": "WORD"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Usp10.dll",
-                "Ext-MS-Win-usp10-l1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ScriptPositionSingleGlyph",
-                "type": "HRESULT"
-            },
-            "name": "ScriptPositionSingleGlyph",
-            "arguments": [
-                {
-                    "name": "hdc",
-                    "type": "HDC",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psc",
-                        "type": "SCRIPT_CACHE"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "psa",
-                        "type": "SCRIPT_ANALYSIS"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "tagScript",
-                    "type": "OPENTYPE_TAG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "tagLangSys",
-                    "type": "OPENTYPE_TAG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "tagFeature",
-                    "type": "OPENTYPE_TAG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "lParameter",
-                    "type": "LONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "wGlyphId",
-                    "type": "WORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "iAdvance",
-                    "type": "int",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "GOffset",
-                    "type": "GOFFSET",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "piOutAdvance",
-                        "type": "int"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pOutGoffset",
-                        "type": "GOFFSET"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Usp10.dll",
-                "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
-                "GDI32.dll",
-                "GDI32Full.dll"
             ]
         }
-    ]
-}
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "ScriptGetFontProperties",
+            "type": "HRESULT"
+        },
+        "name": "ScriptGetFontProperties",
+        "arguments": [
+            {
+                "name": "hdc",
+                "type": "HDC",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psc",
+                    "type": "SCRIPT_CACHE"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "sfp",
+                    "type": "SCRIPT_FONTPROPERTIES"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "usp10.dll",
+            "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "ScriptCacheGetHeight",
+            "type": "HRESULT"
+        },
+        "name": "ScriptCacheGetHeight",
+        "arguments": [
+            {
+                "name": "hdc",
+                "type": "HDC",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psc",
+                    "type": "SCRIPT_CACHE"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "tmHeight",
+                    "type": "long"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "usp10.dll",
+            "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "name": "SCRIPT_TABDEF",
+        "type": {
+            "data_type": "Struct",
+            "name": "tag_SCRIPT_TABDEF",
+            "elements": [
+                {
+                    "name": "cTabStops",
+                    "type": "int"
+                },
+                {
+                    "name": "iScale",
+                    "type": "int"
+                },
+                {
+                    "name": "pTabStops",
+                    "type": "int",
+                    "data_type": "Ptr"
+                },
+                {
+                    "name": "iTabOrigin",
+                    "type": "int"
+                }
+            ]
+        }
+    },
+    {
+        "name": "SCRIPT_STRING_ANALYSIS",
+        "type": "void",
+        "data_type": "Ptr"
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "ScriptStringAnalyse",
+            "type": "HRESULT"
+        },
+        "name": "ScriptStringAnalyse",
+        "arguments": [
+            {
+                "name": "hdc",
+                "type": "HDC",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pString",
+                    "type": "void"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cString",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cGlyphs",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "iCharset",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "dwFlags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "iReqWidth",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psControl",
+                    "type": "SCRIPT_CONTROL"
+                },
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psState",
+                    "type": "SCRIPT_STATE"
+                },
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "piDx",
+                    "type": "int"
+                },
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pTabdef",
+                    "type": "SCRIPT_TABDEF"
+                },
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pbInClass",
+                    "type": "BYTE"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pssa",
+                    "type": "SCRIPT_STRING_ANALYSIS"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Usp10.dll",
+            "Ext-MS-Win-usp10-l1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "ScriptStringFree",
+            "type": "HRESULT"
+        },
+        "name": "ScriptStringFree",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pssa",
+                    "type": "SCRIPT_STRING_ANALYSIS"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Usp10.dll",
+            "Ext-MS-Win-usp10-l1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "type": {
+                "name": "ScriptString_pSize",
+                "type": "SIZE"
+            }
+        },
+        "name": "ScriptString_pSize",
+        "arguments": [
+            {
+                "name": "ssa",
+                "type": "SCRIPT_STRING_ANALYSIS",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "usp10.dll",
+            "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "type": {
+                "name": "ScriptString_pcOutChars",
+                "type": "int"
+            }
+        },
+        "name": "ScriptString_pcOutChars",
+        "arguments": [
+            {
+                "name": "ssa",
+                "type": "SCRIPT_STRING_ANALYSIS",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "usp10.dll",
+            "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "type": {
+                "name": "ScriptString_pLogAttr",
+                "type": "SCRIPT_LOGATTR"
+            }
+        },
+        "name": "ScriptString_pLogAttr",
+        "arguments": [
+            {
+                "name": "ssa",
+                "type": "SCRIPT_STRING_ANALYSIS",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Usp10.dll",
+            "Ext-MS-Win-usp10-l1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "ScriptStringGetOrder",
+            "type": "HRESULT"
+        },
+        "name": "ScriptStringGetOrder",
+        "arguments": [
+            {
+                "name": "ssa",
+                "type": "SCRIPT_STRING_ANALYSIS",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "puOrder",
+                    "type": "UINT"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "usp10.dll",
+            "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "ScriptStringCPtoX",
+            "type": "HRESULT"
+        },
+        "name": "ScriptStringCPtoX",
+        "arguments": [
+            {
+                "name": "ssa",
+                "type": "SCRIPT_STRING_ANALYSIS",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "icp",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "fTrailing",
+                "type": "BOOL",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pX",
+                    "type": "int"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "usp10.dll",
+            "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "ScriptStringXtoCP",
+            "type": "HRESULT"
+        },
+        "name": "ScriptStringXtoCP",
+        "arguments": [
+            {
+                "name": "ssa",
+                "type": "SCRIPT_STRING_ANALYSIS",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "iX",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "piCh",
+                    "type": "int"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "piTrailing",
+                    "type": "int"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Usp10.dll",
+            "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "ScriptStringGetLogicalWidths",
+            "type": "HRESULT"
+        },
+        "name": "ScriptStringGetLogicalWidths",
+        "arguments": [
+            {
+                "name": "ssa",
+                "type": "SCRIPT_STRING_ANALYSIS",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "piDx",
+                    "type": "int"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Usp10.dll",
+            "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "ScriptStringValidate",
+            "type": "HRESULT"
+        },
+        "name": "ScriptStringValidate",
+        "arguments": [
+            {
+                "name": "ssa",
+                "type": "SCRIPT_STRING_ANALYSIS",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Usp10.dll",
+            "Ext-MS-Win-usp10-l1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "ScriptStringOut",
+            "type": "HRESULT"
+        },
+        "name": "ScriptStringOut",
+        "arguments": [
+            {
+                "name": "ssa",
+                "type": "SCRIPT_STRING_ANALYSIS",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "iX",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "iY",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "uOptions",
+                "type": "UINT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "prc",
+                    "type": "RECT"
+                },
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "iMinSel",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "iMaxSel",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "fDisabled",
+                "type": "BOOL",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "usp10.dll",
+            "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "ScriptIsComplex",
+            "type": "HRESULT"
+        },
+        "name": "ScriptIsComplex",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pwcInChars",
+                    "type": "WCHAR"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cInChars",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "dwFlags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "usp10.dll",
+            "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "name": "SCRIPT_DIGITSUBSTITUTE",
+        "type": {
+            "data_type": "Struct",
+            "name": "tag_SCRIPT_DIGITSUBSTITUTE",
+            "elements": [
+                {
+                    "name": "NationalDigitLanguage",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "TraditionalDigitLanguage",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "DigitSubstitute",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "dwReserved",
+                    "type": "DWORD"
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "ScriptRecordDigitSubstitution",
+            "type": "HRESULT"
+        },
+        "name": "ScriptRecordDigitSubstitution",
+        "arguments": [
+            {
+                "name": "Locale",
+                "type": "LCID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psds",
+                    "type": "SCRIPT_DIGITSUBSTITUTE"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "usp10.dll",
+            "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "ScriptApplyDigitSubstitution",
+            "type": "HRESULT"
+        },
+        "name": "ScriptApplyDigitSubstitution",
+        "arguments": [
+            {
+                "type": {
+                    "name": "psds",
+                    "type": "SCRIPT_DIGITSUBSTITUTE"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psc",
+                    "type": "SCRIPT_CONTROL"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pss",
+                    "type": "SCRIPT_STATE"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Usp10.dll",
+            "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "name": "OPENTYPE_TAG",
+        "type": "ULONG"
+    },
+    {
+        "name": "OPENTYPE_FEATURE_RECORD",
+        "type": {
+            "data_type": "Struct",
+            "name": "opentype_feature_record",
+            "elements": [
+                {
+                    "name": "tagFeature",
+                    "type": "OPENTYPE_TAG"
+                },
+                {
+                    "name": "lParameter",
+                    "type": "LONG"
+                }
+            ]
+        }
+    },
+    {
+        "name": "TEXTRANGE_PROPERTIES",
+        "type": {
+            "data_type": "Struct",
+            "name": "textrange_properties",
+            "elements": [
+                {
+                    "name": "potfRecords",
+                    "type": "OPENTYPE_FEATURE_RECORD",
+                    "data_type": "Ptr"
+                },
+                {
+                    "name": "cotfRecords",
+                    "type": "int"
+                }
+            ]
+        }
+    },
+    {
+        "name": "SCRIPT_CHARPROP",
+        "type": {
+            "data_type": "Struct",
+            "name": "script_charprop",
+            "elements": [
+                {
+                    "name": "fCanGlyphAlone",
+                    "type": "WORD"
+                },
+                {
+                    "name": "reserved",
+                    "type": "WORD"
+                }
+            ]
+        }
+    },
+    {
+        "name": "SCRIPT_GLYPHPROP",
+        "type": {
+            "data_type": "Struct",
+            "name": "script_glyphprop",
+            "elements": [
+                {
+                    "name": "sva",
+                    "type": "SCRIPT_VISATTR"
+                },
+                {
+                    "name": "reserved",
+                    "type": "WORD"
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "ScriptShapeOpenType",
+            "type": "HRESULT"
+        },
+        "name": "ScriptShapeOpenType",
+        "arguments": [
+            {
+                "name": "hdc",
+                "type": "HDC",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psc",
+                    "type": "SCRIPT_CACHE"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psa",
+                    "type": "SCRIPT_ANALYSIS"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "tagScript",
+                "type": "OPENTYPE_TAG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "tagLangSys",
+                "type": "OPENTYPE_TAG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "rcRangeChars",
+                    "type": "int"
+                },
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "rpRangeProperties",
+                    "type": "TEXTRANGE_PROPERTIES",
+                    "data_type": "Ptr"
+                },
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "cRanges",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pwcChars",
+                    "type": "WCHAR"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cChars",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cMaxGlyphs",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pwLogClust",
+                    "type": "WORD"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pCharProps",
+                    "type": "SCRIPT_CHARPROP"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pwOutGlyphs",
+                    "type": "WORD"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pOutGlyphProps",
+                    "type": "SCRIPT_GLYPHPROP"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pcGlyphs",
+                    "type": "int"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Usp10.dll",
+            "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "ScriptPlaceOpenType",
+            "type": "HRESULT"
+        },
+        "name": "ScriptPlaceOpenType",
+        "arguments": [
+            {
+                "name": "hdc",
+                "type": "HDC",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psc",
+                    "type": "SCRIPT_CACHE"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psa",
+                    "type": "SCRIPT_ANALYSIS"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "tagScript",
+                "type": "OPENTYPE_TAG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "tagLangSys",
+                "type": "OPENTYPE_TAG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "rcRangeChars",
+                    "type": "int"
+                },
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "rpRangeProperties",
+                    "type": "TEXTRANGE_PROPERTIES",
+                    "data_type": "Ptr"
+                },
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "cRanges",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pwcChars",
+                    "type": "WCHAR"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pwLogClust",
+                    "type": "WORD"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pCharProps",
+                    "type": "SCRIPT_CHARPROP"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cChars",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pwGlyphs",
+                    "type": "WORD"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pGlyphProps",
+                    "type": "SCRIPT_GLYPHPROP"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cGlyphs",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "piAdvance",
+                    "type": "int"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pGoffset",
+                    "type": "GOFFSET"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pABC",
+                    "type": "ABC"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Usp10.dll",
+            "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "ScriptItemizeOpenType",
+            "type": "HRESULT"
+        },
+        "name": "ScriptItemizeOpenType",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pwcInChars",
+                    "type": "WCHAR"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cInChars",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cMaxItems",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psControl",
+                    "type": "SCRIPT_CONTROL"
+                },
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psState",
+                    "type": "SCRIPT_STATE"
+                },
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pItems",
+                    "type": "SCRIPT_ITEM"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pScriptTags",
+                    "type": "OPENTYPE_TAG"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pcItems",
+                    "type": "int"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "usp10.dll",
+            "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "ScriptGetFontScriptTags",
+            "type": "HRESULT"
+        },
+        "name": "ScriptGetFontScriptTags",
+        "arguments": [
+            {
+                "name": "hdc",
+                "type": "HDC",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psc",
+                    "type": "SCRIPT_CACHE"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psa",
+                    "type": "SCRIPT_ANALYSIS"
+                },
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "cMaxTags",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pScriptTags",
+                    "type": "OPENTYPE_TAG"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pcTags",
+                    "type": "int"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Usp10.dll",
+            "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "ScriptGetFontLanguageTags",
+            "type": "HRESULT"
+        },
+        "name": "ScriptGetFontLanguageTags",
+        "arguments": [
+            {
+                "name": "hdc",
+                "type": "HDC",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psc",
+                    "type": "SCRIPT_CACHE"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psa",
+                    "type": "SCRIPT_ANALYSIS"
+                },
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "tagScript",
+                "type": "OPENTYPE_TAG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cMaxTags",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pLangsysTags",
+                    "type": "OPENTYPE_TAG"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pcTags",
+                    "type": "int"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Usp10.dll",
+            "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "ScriptGetFontFeatureTags",
+            "type": "HRESULT"
+        },
+        "name": "ScriptGetFontFeatureTags",
+        "arguments": [
+            {
+                "name": "hdc",
+                "type": "HDC",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psc",
+                    "type": "SCRIPT_CACHE"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psa",
+                    "type": "SCRIPT_ANALYSIS"
+                },
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "tagScript",
+                "type": "OPENTYPE_TAG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "tagLangSys",
+                "type": "OPENTYPE_TAG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cMaxTags",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pFeatureTags",
+                    "type": "OPENTYPE_TAG"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pcTags",
+                    "type": "int"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Usp10.dll",
+            "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "ScriptGetFontAlternateGlyphs",
+            "type": "HRESULT"
+        },
+        "name": "ScriptGetFontAlternateGlyphs",
+        "arguments": [
+            {
+                "name": "hdc",
+                "type": "HDC",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psc",
+                    "type": "SCRIPT_CACHE"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psa",
+                    "type": "SCRIPT_ANALYSIS"
+                },
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "tagScript",
+                "type": "OPENTYPE_TAG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "tagLangSys",
+                "type": "OPENTYPE_TAG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "tagFeature",
+                "type": "OPENTYPE_TAG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "wGlyphId",
+                "type": "WORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cMaxAlternates",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pAlternateGlyphs",
+                    "type": "WORD"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pcAlternates",
+                    "type": "int"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Usp10.dll",
+            "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "ScriptSubstituteSingleGlyph",
+            "type": "HRESULT"
+        },
+        "name": "ScriptSubstituteSingleGlyph",
+        "arguments": [
+            {
+                "name": "hdc",
+                "type": "HDC",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psc",
+                    "type": "SCRIPT_CACHE"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psa",
+                    "type": "SCRIPT_ANALYSIS"
+                },
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "tagScript",
+                "type": "OPENTYPE_TAG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "tagLangSys",
+                "type": "OPENTYPE_TAG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "tagFeature",
+                "type": "OPENTYPE_TAG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "lParameter",
+                "type": "LONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "wGlyphId",
+                "type": "WORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pwOutGlyphId",
+                    "type": "WORD"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Usp10.dll",
+            "Ext-MS-Win-usp10-l1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "ScriptPositionSingleGlyph",
+            "type": "HRESULT"
+        },
+        "name": "ScriptPositionSingleGlyph",
+        "arguments": [
+            {
+                "name": "hdc",
+                "type": "HDC",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psc",
+                    "type": "SCRIPT_CACHE"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "psa",
+                    "type": "SCRIPT_ANALYSIS"
+                },
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "tagScript",
+                "type": "OPENTYPE_TAG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "tagLangSys",
+                "type": "OPENTYPE_TAG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "tagFeature",
+                "type": "OPENTYPE_TAG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "lParameter",
+                "type": "LONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "wGlyphId",
+                "type": "WORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "iAdvance",
+                "type": "int",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "GOffset",
+                "type": "GOFFSET",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "piOutAdvance",
+                    "type": "int"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pOutGoffset",
+                    "type": "GOFFSET"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Usp10.dll",
+            "Ext-MS-Win-GDI-Internal-Desktop-L1-1-0.dll",
+            "GDI32.dll",
+            "GDI32Full.dll"
+        ]
+    }
+]

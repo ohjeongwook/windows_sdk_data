@@ -1,542 +1,538 @@
-{
-    "typedefs": [
-        {
-            "name": "INSTALLSPECTYPE",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "APPNAME",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    },
-                    {
-                        "name": "FILEEXT",
-                        "value": {}
-                    },
-                    {
-                        "name": "PROGID",
-                        "value": {}
-                    },
-                    {
-                        "name": "COMCLASS",
-                        "value": {}
+[
+    {
+        "name": "INSTALLSPECTYPE",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "APPNAME",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
                     }
-                ]
-            }
-        },
-        {
-            "name": "INSTALLSPEC",
-            "type": {
-                "data_type": "Union",
-                "name": "_INSTALLSPEC",
-                "elements": [
-                    {
-                        "name": "AppName",
-                        "type": {
-                            "data_type": "Struct",
-                            "elements": [
-                                {
-                                    "name": "Name",
-                                    "type": "WCHAR",
-                                    "data_type": "Ptr"
-                                },
-                                {
-                                    "name": "GPOId",
-                                    "type": "GUID"
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "name": "FileExt",
-                        "type": "WCHAR",
-                        "data_type": "Ptr"
-                    },
-                    {
-                        "name": "ProgId",
-                        "type": "WCHAR",
-                        "data_type": "Ptr"
-                    },
-                    {
-                        "name": "COMClass",
-                        "type": {
-                            "data_type": "Struct",
-                            "elements": [
-                                {
-                                    "name": "Clsid",
-                                    "type": "GUID"
-                                },
-                                {
-                                    "name": "ClsCtx",
-                                    "type": "DWORD"
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "INSTALLDATA",
-            "type": {
-                "data_type": "Struct",
-                "name": "_INSTALLDATA",
-                "elements": [
-                    {
-                        "name": "Type",
-                        "type": "INSTALLSPECTYPE"
-                    },
-                    {
-                        "name": "Spec",
-                        "type": "INSTALLSPEC"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PINSTALLDATA",
-            "type": {
-                "data_type": "Struct",
-                "name": "_INSTALLDATA",
-                "elements": [
-                    {
-                        "name": "Type",
-                        "type": "INSTALLSPECTYPE"
-                    },
-                    {
-                        "name": "Spec",
-                        "type": "INSTALLSPEC"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "APPSTATE",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "ABSENT",
-                        "value": {}
-                    },
-                    {
-                        "name": "ASSIGNED",
-                        "value": {}
-                    },
-                    {
-                        "name": "PUBLISHED",
-                        "value": {}
-                    }
-                ]
-            }
-        },
-        {
-            "name": "LOCALMANAGEDAPPLICATION",
-            "type": {
-                "data_type": "Struct",
-                "name": "_LOCALMANAGEDAPPLICATION",
-                "elements": [
-                    {
-                        "name": "pszDeploymentName",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "pszPolicyName",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "pszProductId",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "dwState",
-                        "type": "DWORD"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PLOCALMANAGEDAPPLICATION",
-            "type": {
-                "data_type": "Struct",
-                "name": "_LOCALMANAGEDAPPLICATION",
-                "elements": [
-                    {
-                        "name": "pszDeploymentName",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "pszPolicyName",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "pszProductId",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "dwState",
-                        "type": "DWORD"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "MANAGEDAPPLICATION",
-            "type": {
-                "data_type": "Struct",
-                "name": "_MANAGEDAPPLICATION",
-                "elements": [
-                    {
-                        "name": "pszPackageName",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "pszPublisher",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "dwVersionHi",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "dwVersionLo",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "dwRevision",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "GpoId",
-                        "type": "GUID"
-                    },
-                    {
-                        "name": "pszPolicyName",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "ProductId",
-                        "type": "GUID"
-                    },
-                    {
-                        "name": "Language",
-                        "type": "LANGID"
-                    },
-                    {
-                        "name": "pszOwner",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "pszCompany",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "pszComments",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "pszContact",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "pszSupportUrl",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "dwPathType",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "bInstalled",
-                        "type": "BOOL"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PMANAGEDAPPLICATION",
-            "type": {
-                "data_type": "Struct",
-                "name": "_MANAGEDAPPLICATION",
-                "elements": [
-                    {
-                        "name": "pszPackageName",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "pszPublisher",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "dwVersionHi",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "dwVersionLo",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "dwRevision",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "GpoId",
-                        "type": "GUID"
-                    },
-                    {
-                        "name": "pszPolicyName",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "ProductId",
-                        "type": "GUID"
-                    },
-                    {
-                        "name": "Language",
-                        "type": "LANGID"
-                    },
-                    {
-                        "name": "pszOwner",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "pszCompany",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "pszComments",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "pszContact",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "pszSupportUrl",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "dwPathType",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "bInstalled",
-                        "type": "BOOL"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "APPCATEGORYINFO",
-            "type": {
-                "data_type": "Struct",
-                "name": "_APPCATEGORYINFO",
-                "elements": [
-                    {
-                        "name": "Locale",
-                        "type": "LCID"
-                    },
-                    {
-                        "name": "pszDescription",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "AppCategoryId",
-                        "type": "GUID"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "APPCATEGORYINFOLIST",
-            "type": {
-                "data_type": "Struct",
-                "name": "_APPCATEGORYINFOLIST",
-                "elements": [
-                    {
-                        "name": "cCategory",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "pCategoryInfo",
-                        "type": "APPCATEGORYINFO",
-                        "data_type": "Ptr"
-                    }
-                ]
-            }
+                },
+                {
+                    "name": "FILEEXT",
+                    "value": {}
+                },
+                {
+                    "name": "PROGID",
+                    "value": {}
+                },
+                {
+                    "name": "COMCLASS",
+                    "value": {}
+                }
+            ]
         }
-    ],
-    "funcdefs": [
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "InstallApplication",
-                "type": "DWORD"
-            },
+    },
+    {
+        "name": "INSTALLSPEC",
+        "type": {
+            "data_type": "Union",
+            "name": "_INSTALLSPEC",
+            "elements": [
+                {
+                    "name": "AppName",
+                    "type": {
+                        "data_type": "Struct",
+                        "elements": [
+                            {
+                                "name": "Name",
+                                "type": "WCHAR",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "GPOId",
+                                "type": "GUID"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "FileExt",
+                    "type": "WCHAR",
+                    "data_type": "Ptr"
+                },
+                {
+                    "name": "ProgId",
+                    "type": "WCHAR",
+                    "data_type": "Ptr"
+                },
+                {
+                    "name": "COMClass",
+                    "type": {
+                        "data_type": "Struct",
+                        "elements": [
+                            {
+                                "name": "Clsid",
+                                "type": "GUID"
+                            },
+                            {
+                                "name": "ClsCtx",
+                                "type": "DWORD"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "INSTALLDATA",
+        "type": {
+            "data_type": "Struct",
+            "name": "_INSTALLDATA",
+            "elements": [
+                {
+                    "name": "Type",
+                    "type": "INSTALLSPECTYPE"
+                },
+                {
+                    "name": "Spec",
+                    "type": "INSTALLSPEC"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PINSTALLDATA",
+        "type": {
+            "data_type": "Struct",
+            "name": "_INSTALLDATA",
+            "elements": [
+                {
+                    "name": "Type",
+                    "type": "INSTALLSPECTYPE"
+                },
+                {
+                    "name": "Spec",
+                    "type": "INSTALLSPEC"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "APPSTATE",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "ABSENT",
+                    "value": {}
+                },
+                {
+                    "name": "ASSIGNED",
+                    "value": {}
+                },
+                {
+                    "name": "PUBLISHED",
+                    "value": {}
+                }
+            ]
+        }
+    },
+    {
+        "name": "LOCALMANAGEDAPPLICATION",
+        "type": {
+            "data_type": "Struct",
+            "name": "_LOCALMANAGEDAPPLICATION",
+            "elements": [
+                {
+                    "name": "pszDeploymentName",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "pszPolicyName",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "pszProductId",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "dwState",
+                    "type": "DWORD"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PLOCALMANAGEDAPPLICATION",
+        "type": {
+            "data_type": "Struct",
+            "name": "_LOCALMANAGEDAPPLICATION",
+            "elements": [
+                {
+                    "name": "pszDeploymentName",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "pszPolicyName",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "pszProductId",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "dwState",
+                    "type": "DWORD"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "MANAGEDAPPLICATION",
+        "type": {
+            "data_type": "Struct",
+            "name": "_MANAGEDAPPLICATION",
+            "elements": [
+                {
+                    "name": "pszPackageName",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "pszPublisher",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "dwVersionHi",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "dwVersionLo",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "dwRevision",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "GpoId",
+                    "type": "GUID"
+                },
+                {
+                    "name": "pszPolicyName",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "ProductId",
+                    "type": "GUID"
+                },
+                {
+                    "name": "Language",
+                    "type": "LANGID"
+                },
+                {
+                    "name": "pszOwner",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "pszCompany",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "pszComments",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "pszContact",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "pszSupportUrl",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "dwPathType",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "bInstalled",
+                    "type": "BOOL"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PMANAGEDAPPLICATION",
+        "type": {
+            "data_type": "Struct",
+            "name": "_MANAGEDAPPLICATION",
+            "elements": [
+                {
+                    "name": "pszPackageName",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "pszPublisher",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "dwVersionHi",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "dwVersionLo",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "dwRevision",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "GpoId",
+                    "type": "GUID"
+                },
+                {
+                    "name": "pszPolicyName",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "ProductId",
+                    "type": "GUID"
+                },
+                {
+                    "name": "Language",
+                    "type": "LANGID"
+                },
+                {
+                    "name": "pszOwner",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "pszCompany",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "pszComments",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "pszContact",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "pszSupportUrl",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "dwPathType",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "bInstalled",
+                    "type": "BOOL"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "APPCATEGORYINFO",
+        "type": {
+            "data_type": "Struct",
+            "name": "_APPCATEGORYINFO",
+            "elements": [
+                {
+                    "name": "Locale",
+                    "type": "LCID"
+                },
+                {
+                    "name": "pszDescription",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "AppCategoryId",
+                    "type": "GUID"
+                }
+            ]
+        }
+    },
+    {
+        "name": "APPCATEGORYINFOLIST",
+        "type": {
+            "data_type": "Struct",
+            "name": "_APPCATEGORYINFOLIST",
+            "elements": [
+                {
+                    "name": "cCategory",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "pCategoryInfo",
+                    "type": "APPCATEGORYINFO",
+                    "data_type": "Ptr"
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "InstallApplication",
-            "arguments": [
-                {
-                    "name": "pInstallInfo",
-                    "type": "PINSTALLDATA",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Advapi32.dll",
-                "ext-ms-win-advapi32-msi-l1-1-0.dll"
-            ]
+            "type": "DWORD"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "UninstallApplication",
-                "type": "DWORD"
-            },
+        "name": "InstallApplication",
+        "arguments": [
+            {
+                "name": "pInstallInfo",
+                "type": "PINSTALLDATA",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Advapi32.dll",
+            "ext-ms-win-advapi32-msi-l1-1-0.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "UninstallApplication",
-            "arguments": [
-                {
-                    "name": "ProductCode",
-                    "type": "LPWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "dwStatus",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Advapi32.dll"
-            ]
+            "type": "DWORD"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetManagedApplications",
-                "type": "DWORD"
+        "name": "UninstallApplication",
+        "arguments": [
+            {
+                "name": "ProductCode",
+                "type": "LPWSTR",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "dwStatus",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Advapi32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "GetManagedApplications",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "pCategory",
-                        "type": "GUID"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "dwQueryFlags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "dwInfoLevel",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pdwApps",
-                    "type": "LPDWORD",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "prgManagedApps",
-                        "type": "PMANAGEDAPPLICATION"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Advapi32.dll"
-            ]
+            "type": "DWORD"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetLocalManagedApplications",
-                "type": "DWORD"
+        "name": "GetManagedApplications",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pCategory",
+                    "type": "GUID"
+                },
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "dwQueryFlags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "dwInfoLevel",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pdwApps",
+                "type": "LPDWORD",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "prgManagedApps",
+                    "type": "PMANAGEDAPPLICATION"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Advapi32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "GetLocalManagedApplications",
-            "arguments": [
-                {
-                    "name": "bUserApps",
-                    "type": "BOOL",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pdwApps",
-                    "type": "LPDWORD",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "prgLocalApps",
-                        "type": "PLOCALMANAGEDAPPLICATION"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Advapi32.dll"
-            ]
+            "type": "DWORD"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetManagedApplicationCategories",
-                "type": "DWORD"
+        "name": "GetLocalManagedApplications",
+        "arguments": [
+            {
+                "name": "bUserApps",
+                "type": "BOOL",
+                "sal": [
+                    "in"
+                ]
             },
-            "name": "GetManagedApplicationCategories",
-            "arguments": [
-                {
-                    "name": "dwReserved",
-                    "type": "DWORD",
-                    "sal": [
-                        "out"
-                    ]
+            {
+                "name": "pdwApps",
+                "type": "LPDWORD",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "prgLocalApps",
+                    "type": "PLOCALMANAGEDAPPLICATION"
                 },
-                {
-                    "type": {
-                        "name": "pAppCategory",
-                        "type": "APPCATEGORYINFOLIST"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Advapi32.dll"
-            ]
-        }
-    ]
-}
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Advapi32.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "GetManagedApplicationCategories",
+            "type": "DWORD"
+        },
+        "name": "GetManagedApplicationCategories",
+        "arguments": [
+            {
+                "name": "dwReserved",
+                "type": "DWORD",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pAppCategory",
+                    "type": "APPCATEGORYINFOLIST"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Advapi32.dll"
+        ]
+    }
+]

@@ -1,215 +1,211 @@
-{
-    "typedefs": [
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "ONDEMAND_NOTIFICATION_CALLBACK",
-                "type": "void"
-            },
-            "name": "ONDEMAND_NOTIFICATION_CALLBACK",
-            "arguments": [
-                {
-                    "type": {
-                        "type": "void"
-                    }
-                }
-            ]
-        },
-        {
-            "name": "NET_INTERFACE_CONTEXT",
-            "type": {
-                "data_type": "Struct",
-                "name": "_NET_INTERFACE_CONTEXT",
-                "elements": [
-                    {
-                        "name": "InterfaceIndex",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "ConfigurationName",
-                        "type": "LPWSTR"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "NET_INTERFACE_CONTEXT_TABLE",
-            "type": {
-                "data_type": "Struct",
-                "name": "_NET_INTERFACE_CONTEXT_TABLE",
-                "elements": [
-                    {
-                        "name": "InterfaceContextHandle",
-                        "type": "HANDLE"
-                    },
-                    {
-                        "name": "NumberOfEntries",
-                        "type": "UINT"
-                    },
-                    {
-                        "name": "InterfaceContextArray",
-                        "type": "NET_INTERFACE_CONTEXT",
-                        "data_type": "Ptr"
-                    }
-                ]
-            }
-        }
-    ],
-    "funcdefs": [
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "OnDemandGetRoutingHint",
-                "type": "HRESULT"
-            },
+[
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "OnDemandGetRoutingHint",
-            "arguments": [
-                {
-                    "name": "destinationHostName",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "interfaceIndex",
-                        "type": "DWORD"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "OnDemandConnRouteHelper.dll"
-            ]
+            "type": "HRESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "OnDemandRegisterNotification",
-                "type": "HRESULT"
+        "name": "OnDemandGetRoutingHint",
+        "arguments": [
+            {
+                "name": "destinationHostName",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "type": {
+                    "name": "interfaceIndex",
+                    "type": "DWORD"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "OnDemandConnRouteHelper.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
+            "name": "ONDEMAND_NOTIFICATION_CALLBACK",
+            "type": "void"
+        },
+        "name": "ONDEMAND_NOTIFICATION_CALLBACK",
+        "arguments": [
+            {
+                "type": {
+                    "type": "void"
+                }
+            }
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "OnDemandRegisterNotification",
-            "arguments": [
-                {
-                    "name": "callback",
-                    "type": "ONDEMAND_NOTIFICATION_CALLBACK",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "callbackContext",
-                        "type": "void"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "registrationHandle",
-                        "type": "HANDLE"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "OnDemandConnRouteHelper.dll"
-            ]
+            "type": "HRESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetInterfaceContextTableForHostName",
-                "type": "HRESULT"
+        "name": "OnDemandRegisterNotification",
+        "arguments": [
+            {
+                "name": "callback",
+                "type": "ONDEMAND_NOTIFICATION_CALLBACK",
+                "sal": [
+                    "in"
+                ]
             },
-            "name": "GetInterfaceContextTableForHostName",
-            "arguments": [
-                {
-                    "name": "HostName",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
+            {
+                "type": {
+                    "name": "callbackContext",
+                    "type": "void"
                 },
-                {
-                    "name": "ProxyName",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "ConnectionProfileFilterRawData",
-                        "type": "BYTE"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "ConnectionProfileFilterRawDataSize",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "InterfaceContextTable",
-                        "type": "NET_INTERFACE_CONTEXT_TABLE",
-                        "data_type": "Ptr"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "OnDemandConnRouteHelper.dll",
-                "API-Ms-Win-Networking-InterfaceContexts-L1-1-0.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "FreeInterfaceContextTable",
-                "type": "void"
+                "sal": [
+                    "in",
+                    "optional"
+                ]
             },
-            "name": "FreeInterfaceContextTable",
-            "arguments": [
+            {
+                "type": {
+                    "name": "registrationHandle",
+                    "type": "HANDLE"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "OnDemandConnRouteHelper.dll"
+        ]
+    },
+    {
+        "name": "NET_INTERFACE_CONTEXT",
+        "type": {
+            "data_type": "Struct",
+            "name": "_NET_INTERFACE_CONTEXT",
+            "elements": [
                 {
-                    "type": {
-                        "name": "InterfaceContextTable",
-                        "type": "NET_INTERFACE_CONTEXT_TABLE"
-                    },
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "InterfaceIndex",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "ConfigurationName",
+                    "type": "LPWSTR"
                 }
-            ],
-            "api_locations": [
-                "OnDemandConnRouteHelper.dll",
-                "API-Ms-Win-Networking-InterfaceContexts-L1-1-0.dll"
             ]
         }
-    ]
-}
+    },
+    {
+        "name": "NET_INTERFACE_CONTEXT_TABLE",
+        "type": {
+            "data_type": "Struct",
+            "name": "_NET_INTERFACE_CONTEXT_TABLE",
+            "elements": [
+                {
+                    "name": "InterfaceContextHandle",
+                    "type": "HANDLE"
+                },
+                {
+                    "name": "NumberOfEntries",
+                    "type": "UINT"
+                },
+                {
+                    "name": "InterfaceContextArray",
+                    "type": "NET_INTERFACE_CONTEXT",
+                    "data_type": "Ptr"
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "GetInterfaceContextTableForHostName",
+            "type": "HRESULT"
+        },
+        "name": "GetInterfaceContextTableForHostName",
+        "arguments": [
+            {
+                "name": "HostName",
+                "type": "PCWSTR",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "ProxyName",
+                "type": "PCWSTR",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "ConnectionProfileFilterRawData",
+                    "type": "BYTE"
+                },
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "ConnectionProfileFilterRawDataSize",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "InterfaceContextTable",
+                    "type": "NET_INTERFACE_CONTEXT_TABLE",
+                    "data_type": "Ptr"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "OnDemandConnRouteHelper.dll",
+            "API-Ms-Win-Networking-InterfaceContexts-L1-1-0.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "FreeInterfaceContextTable",
+            "type": "void"
+        },
+        "name": "FreeInterfaceContextTable",
+        "arguments": [
+            {
+                "type": {
+                    "name": "InterfaceContextTable",
+                    "type": "NET_INTERFACE_CONTEXT_TABLE"
+                },
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "OnDemandConnRouteHelper.dll",
+            "API-Ms-Win-Networking-InterfaceContexts-L1-1-0.dll"
+        ]
+    }
+]

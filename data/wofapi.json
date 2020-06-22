@@ -1,659 +1,655 @@
-{
-    "typedefs": [
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "WofEnumEntryProc",
-                "type": "BOOL"
-            },
-            "name": "WofEnumEntryProc",
-            "arguments": [
-                {
-                    "name": "EntryInfo",
-                    "type": "PVOID"
-                },
-                {
-                    "name": "UserData",
-                    "type": "PVOID"
-                }
-            ]
-        },
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "WofEnumFilesProc",
-                "type": "BOOL"
-            },
-            "name": "WofEnumFilesProc",
-            "arguments": [
-                {
-                    "name": "FilePath",
-                    "type": "PCWSTR"
-                },
-                {
-                    "name": "ExternalFileInfo",
-                    "type": "PVOID"
-                },
-                {
-                    "name": "UserData",
-                    "type": "PVOID"
-                }
-            ]
-        },
-        {
-            "name": "WIM_ENTRY_INFO",
-            "type": {
-                "data_type": "Struct",
-                "name": "_WIM_ENTRY_INFO",
-                "elements": [
-                    {
-                        "name": "WimEntryInfoSize",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "WimType",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "DataSourceId",
-                        "type": "LARGE_INTEGER"
-                    },
-                    {
-                        "name": "WimGuid",
-                        "type": "GUID"
-                    },
-                    {
-                        "name": "WimPath",
-                        "type": "PCWSTR"
-                    },
-                    {
-                        "name": "WimIndex",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "Flags",
-                        "type": "DWORD"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PWIM_ENTRY_INFO",
-            "type": {
-                "data_type": "Struct",
-                "name": "_WIM_ENTRY_INFO",
-                "elements": [
-                    {
-                        "name": "WimEntryInfoSize",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "WimType",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "DataSourceId",
-                        "type": "LARGE_INTEGER"
-                    },
-                    {
-                        "name": "WimGuid",
-                        "type": "GUID"
-                    },
-                    {
-                        "name": "WimPath",
-                        "type": "PCWSTR"
-                    },
-                    {
-                        "name": "WimIndex",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "Flags",
-                        "type": "DWORD"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "WIM_EXTERNAL_FILE_INFO",
-            "type": {
-                "data_type": "Struct",
-                "name": "_WIM_EXTERNAL_FILE_INFO",
-                "elements": [
-                    {
-                        "name": "DataSourceId",
-                        "type": "LARGE_INTEGER"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "20"
-                        },
-                        "name": "ResourceHash"
-                    },
-                    {
-                        "name": "Flags",
-                        "type": "ULONG"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PWIM_EXTERNAL_FILE_INFO",
-            "type": {
-                "data_type": "Struct",
-                "name": "_WIM_EXTERNAL_FILE_INFO",
-                "elements": [
-                    {
-                        "name": "DataSourceId",
-                        "type": "LARGE_INTEGER"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "20"
-                        },
-                        "name": "ResourceHash"
-                    },
-                    {
-                        "name": "Flags",
-                        "type": "ULONG"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "WOF_FILE_COMPRESSION_INFO_V0",
-            "type": {
-                "data_type": "Struct",
-                "name": "_WOF_FILE_COMPRESSION_INFO_V0",
-                "elements": [
-                    {
-                        "name": "Algorithm",
-                        "type": "ULONG"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PWOF_FILE_COMPRESSION_INFO_V0",
-            "type": {
-                "data_type": "Struct",
-                "name": "_WOF_FILE_COMPRESSION_INFO_V0",
-                "elements": [
-                    {
-                        "name": "Algorithm",
-                        "type": "ULONG"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "WOF_FILE_COMPRESSION_INFO_V1",
-            "type": {
-                "data_type": "Struct",
-                "name": "_WOF_FILE_COMPRESSION_INFO_V1",
-                "elements": [
-                    {
-                        "name": "Algorithm",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "Flags",
-                        "type": "ULONG"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PWOF_FILE_COMPRESSION_INFO_V1",
-            "type": {
-                "data_type": "Struct",
-                "name": "_WOF_FILE_COMPRESSION_INFO_V1",
-                "elements": [
-                    {
-                        "name": "Algorithm",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "Flags",
-                        "type": "ULONG"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "WOF_FILE_COMPRESSION_INFO",
-            "type": "WOF_FILE_COMPRESSION_INFO_V1"
-        },
-        {
-            "name": "PWOF_FILE_COMPRESSION_INFO",
-            "type": "PWOF_FILE_COMPRESSION_INFO_V1"
-        }
-    ],
-    "funcdefs": [
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "WofShouldCompressBinaries",
-                "type": "BOOL"
-            },
+[
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "WofShouldCompressBinaries",
-            "arguments": [
-                {
-                    "name": "Volume",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Algorithm",
-                    "type": "PULONG",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "wofutil.dll"
-            ]
+            "type": "BOOL"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "WofGetDriverVersion",
-                "type": "HRESULT"
+        "name": "WofShouldCompressBinaries",
+        "arguments": [
+            {
+                "name": "Volume",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "Algorithm",
+                "type": "PULONG",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "wofutil.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "WofGetDriverVersion",
-            "arguments": [
-                {
-                    "name": "FileOrVolumeHandle",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Provider",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "WofVersion",
-                    "type": "PULONG",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "wofutil.dll"
-            ]
+            "type": "HRESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "WofSetFileDataLocation",
-                "type": "HRESULT"
+        "name": "WofGetDriverVersion",
+        "arguments": [
+            {
+                "name": "FileOrVolumeHandle",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "Provider",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "WofVersion",
+                "type": "PULONG",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "wofutil.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "WofSetFileDataLocation",
-            "arguments": [
-                {
-                    "name": "FileHandle",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Provider",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "ExternalFileInfo",
-                    "type": "PVOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Length",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "wofutil.dll"
-            ]
+            "type": "HRESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "WofIsExternalFile",
-                "type": "HRESULT"
+        "name": "WofSetFileDataLocation",
+        "arguments": [
+            {
+                "name": "FileHandle",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "Provider",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "ExternalFileInfo",
+                "type": "PVOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Length",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "wofutil.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "WofIsExternalFile",
-            "arguments": [
-                {
-                    "name": "FilePath",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "IsExternalFile",
-                    "type": "PBOOL",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "Provider",
-                    "type": "PULONG",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "ExternalFileInfo",
-                    "type": "PVOID",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "BufferLength",
-                    "type": "PULONG",
-                    "sal": [
-                        "in",
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "wofutil.dll"
-            ]
+            "type": "HRESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "WofEnumEntries",
-                "type": "HRESULT"
+        "name": "WofIsExternalFile",
+        "arguments": [
+            {
+                "name": "FilePath",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "IsExternalFile",
+                "type": "PBOOL",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "name": "Provider",
+                "type": "PULONG",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "name": "ExternalFileInfo",
+                "type": "PVOID",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "name": "BufferLength",
+                "type": "PULONG",
+                "sal": [
+                    "in",
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "wofutil.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
+            "name": "WofEnumEntryProc",
+            "type": "BOOL"
+        },
+        "name": "WofEnumEntryProc",
+        "arguments": [
+            {
+                "name": "EntryInfo",
+                "type": "PVOID"
+            },
+            {
+                "name": "UserData",
+                "type": "PVOID"
+            }
+        ]
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
+            "name": "WofEnumFilesProc",
+            "type": "BOOL"
+        },
+        "name": "WofEnumFilesProc",
+        "arguments": [
+            {
+                "name": "FilePath",
+                "type": "PCWSTR"
+            },
+            {
+                "name": "ExternalFileInfo",
+                "type": "PVOID"
+            },
+            {
+                "name": "UserData",
+                "type": "PVOID"
+            }
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "WofEnumEntries",
-            "arguments": [
-                {
-                    "name": "VolumeName",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Provider",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "EnumProc",
-                    "type": "WofEnumEntryProc",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "UserData",
-                    "type": "PVOID",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "wofutil.dll"
-            ]
+            "type": "HRESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "WofWimAddEntry",
-                "type": "HRESULT"
+        "name": "WofEnumEntries",
+        "arguments": [
+            {
+                "name": "VolumeName",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
             },
-            "name": "WofWimAddEntry",
-            "arguments": [
+            {
+                "name": "Provider",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "EnumProc",
+                "type": "WofEnumEntryProc",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "UserData",
+                "type": "PVOID",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "wofutil.dll"
+        ]
+    },
+    {
+        "name": "WIM_ENTRY_INFO",
+        "type": {
+            "data_type": "Struct",
+            "name": "_WIM_ENTRY_INFO",
+            "elements": [
                 {
-                    "name": "VolumeName",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "WimPath",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "WimEntryInfoSize",
+                    "type": "DWORD"
                 },
                 {
                     "name": "WimType",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
+                    "type": "DWORD"
+                },
+                {
+                    "name": "DataSourceId",
+                    "type": "LARGE_INTEGER"
+                },
+                {
+                    "name": "WimGuid",
+                    "type": "GUID"
+                },
+                {
+                    "name": "WimPath",
+                    "type": "PCWSTR"
                 },
                 {
                     "name": "WimIndex",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
+                    "type": "DWORD"
                 },
                 {
-                    "name": "DataSourceId",
-                    "type": "PLARGE_INTEGER",
-                    "sal": [
-                        "out"
-                    ]
+                    "name": "Flags",
+                    "type": "DWORD"
                 }
-            ],
-            "api_locations": [
-                "wofutil.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "WofWimEnumFiles",
-                "type": "HRESULT"
-            },
-            "name": "WofWimEnumFiles",
-            "arguments": [
-                {
-                    "name": "VolumeName",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "DataSourceId",
-                    "type": "LARGE_INTEGER",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "EnumProc",
-                    "type": "WofEnumFilesProc",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "UserData",
-                    "type": "PVOID",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "wofutil.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "WofWimSuspendEntry",
-                "type": "HRESULT"
-            },
-            "name": "WofWimSuspendEntry",
-            "arguments": [
-                {
-                    "name": "VolumeName",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "DataSourceId",
-                    "type": "LARGE_INTEGER",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "wofutil.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "WofWimRemoveEntry",
-                "type": "HRESULT"
-            },
-            "name": "WofWimRemoveEntry",
-            "arguments": [
-                {
-                    "name": "VolumeName",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "DataSourceId",
-                    "type": "LARGE_INTEGER",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "wofutil.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "WofWimUpdateEntry",
-                "type": "HRESULT"
-            },
-            "name": "WofWimUpdateEntry",
-            "arguments": [
-                {
-                    "name": "VolumeName",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "DataSourceId",
-                    "type": "LARGE_INTEGER",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "NewWimPath",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "wofutil.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "WofFileEnumFiles",
-                "type": "HRESULT"
-            },
-            "name": "WofFileEnumFiles",
-            "arguments": [
-                {
-                    "name": "VolumeName",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Algorithm",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "EnumProc",
-                    "type": "WofEnumFilesProc",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "UserData",
-                    "type": "PVOID",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "wofutil.dll"
             ]
         }
-    ]
-}
+    },
+    {
+        "name": "PWIM_ENTRY_INFO",
+        "type": {
+            "data_type": "Struct",
+            "name": "_WIM_ENTRY_INFO",
+            "elements": [
+                {
+                    "name": "WimEntryInfoSize",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "WimType",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "DataSourceId",
+                    "type": "LARGE_INTEGER"
+                },
+                {
+                    "name": "WimGuid",
+                    "type": "GUID"
+                },
+                {
+                    "name": "WimPath",
+                    "type": "PCWSTR"
+                },
+                {
+                    "name": "WimIndex",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "Flags",
+                    "type": "DWORD"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "WIM_EXTERNAL_FILE_INFO",
+        "type": {
+            "data_type": "Struct",
+            "name": "_WIM_EXTERNAL_FILE_INFO",
+            "elements": [
+                {
+                    "name": "DataSourceId",
+                    "type": "LARGE_INTEGER"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "20"
+                    },
+                    "name": "ResourceHash"
+                },
+                {
+                    "name": "Flags",
+                    "type": "ULONG"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PWIM_EXTERNAL_FILE_INFO",
+        "type": {
+            "data_type": "Struct",
+            "name": "_WIM_EXTERNAL_FILE_INFO",
+            "elements": [
+                {
+                    "name": "DataSourceId",
+                    "type": "LARGE_INTEGER"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "20"
+                    },
+                    "name": "ResourceHash"
+                },
+                {
+                    "name": "Flags",
+                    "type": "ULONG"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "WofWimAddEntry",
+            "type": "HRESULT"
+        },
+        "name": "WofWimAddEntry",
+        "arguments": [
+            {
+                "name": "VolumeName",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "WimPath",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "WimType",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "WimIndex",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "DataSourceId",
+                "type": "PLARGE_INTEGER",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "wofutil.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "WofWimEnumFiles",
+            "type": "HRESULT"
+        },
+        "name": "WofWimEnumFiles",
+        "arguments": [
+            {
+                "name": "VolumeName",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "DataSourceId",
+                "type": "LARGE_INTEGER",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "EnumProc",
+                "type": "WofEnumFilesProc",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "UserData",
+                "type": "PVOID",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "wofutil.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "WofWimSuspendEntry",
+            "type": "HRESULT"
+        },
+        "name": "WofWimSuspendEntry",
+        "arguments": [
+            {
+                "name": "VolumeName",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "DataSourceId",
+                "type": "LARGE_INTEGER",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "wofutil.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "WofWimRemoveEntry",
+            "type": "HRESULT"
+        },
+        "name": "WofWimRemoveEntry",
+        "arguments": [
+            {
+                "name": "VolumeName",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "DataSourceId",
+                "type": "LARGE_INTEGER",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "wofutil.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "WofWimUpdateEntry",
+            "type": "HRESULT"
+        },
+        "name": "WofWimUpdateEntry",
+        "arguments": [
+            {
+                "name": "VolumeName",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "DataSourceId",
+                "type": "LARGE_INTEGER",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "NewWimPath",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "wofutil.dll"
+        ]
+    },
+    {
+        "name": "WOF_FILE_COMPRESSION_INFO_V0",
+        "type": {
+            "data_type": "Struct",
+            "name": "_WOF_FILE_COMPRESSION_INFO_V0",
+            "elements": [
+                {
+                    "name": "Algorithm",
+                    "type": "ULONG"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PWOF_FILE_COMPRESSION_INFO_V0",
+        "type": {
+            "data_type": "Struct",
+            "name": "_WOF_FILE_COMPRESSION_INFO_V0",
+            "elements": [
+                {
+                    "name": "Algorithm",
+                    "type": "ULONG"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "WOF_FILE_COMPRESSION_INFO_V1",
+        "type": {
+            "data_type": "Struct",
+            "name": "_WOF_FILE_COMPRESSION_INFO_V1",
+            "elements": [
+                {
+                    "name": "Algorithm",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "Flags",
+                    "type": "ULONG"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PWOF_FILE_COMPRESSION_INFO_V1",
+        "type": {
+            "data_type": "Struct",
+            "name": "_WOF_FILE_COMPRESSION_INFO_V1",
+            "elements": [
+                {
+                    "name": "Algorithm",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "Flags",
+                    "type": "ULONG"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "WOF_FILE_COMPRESSION_INFO",
+        "type": "WOF_FILE_COMPRESSION_INFO_V1"
+    },
+    {
+        "name": "PWOF_FILE_COMPRESSION_INFO",
+        "type": "PWOF_FILE_COMPRESSION_INFO_V1"
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "WofFileEnumFiles",
+            "type": "HRESULT"
+        },
+        "name": "WofFileEnumFiles",
+        "arguments": [
+            {
+                "name": "VolumeName",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Algorithm",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "EnumProc",
+                "type": "WofEnumFilesProc",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "UserData",
+                "type": "PVOID",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "wofutil.dll"
+        ]
+    }
+]

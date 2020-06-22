@@ -1,1812 +1,1808 @@
-{
-    "typedefs": [
-        {
-            "name": "INTERACTION_ID",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "INTERACTION_ID_NONE",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000000"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_ID_MANIPULATION",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000001"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_ID_TAP",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000002"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_ID_SECONDARY_TAP",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000003"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_ID_HOLD",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000004"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_ID_DRAG",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000005"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_ID_CROSS_SLIDE",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000006"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_ID_MAX",
-                        "value": {
-                            "type": "int",
-                            "value": "0xffffffff"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "INTERACTION_FLAGS",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "INTERACTION_FLAG_NONE",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000000"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_FLAG_BEGIN",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000001"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_FLAG_END",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000002"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_FLAG_CANCEL",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000004"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_FLAG_INERTIA",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000008"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_FLAG_MAX",
-                        "value": {
-                            "type": "int",
-                            "value": "0xffffffff"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "INTERACTION_CONFIGURATION_FLAGS",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "INTERACTION_CONFIGURATION_FLAG_NONE",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000000"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONFIGURATION_FLAG_MANIPULATION",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000001"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONFIGURATION_FLAG_MANIPULATION_TRANSLATION_X",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000002"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONFIGURATION_FLAG_MANIPULATION_TRANSLATION_Y",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000004"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONFIGURATION_FLAG_MANIPULATION_ROTATION",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000008"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONFIGURATION_FLAG_MANIPULATION_SCALING",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000010"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONFIGURATION_FLAG_MANIPULATION_TRANSLATION_INERTIA",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000020"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONFIGURATION_FLAG_MANIPULATION_ROTATION_INERTIA",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000040"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONFIGURATION_FLAG_MANIPULATION_SCALING_INERTIA",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000080"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONFIGURATION_FLAG_MANIPULATION_RAILS_X",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000100"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONFIGURATION_FLAG_MANIPULATION_RAILS_Y",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000200"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONFIGURATION_FLAG_MANIPULATION_EXACT",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000400"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONFIGURATION_FLAG_MANIPULATION_MULTIPLE_FINGER_PANNING",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000800"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000001"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_HORIZONTAL",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000002"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_SELECT",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000004"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_SPEED_BUMP",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000008"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_REARRANGE",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000010"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_EXACT",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000020"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONFIGURATION_FLAG_TAP",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000001"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONFIGURATION_FLAG_TAP_DOUBLE",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000002"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONFIGURATION_FLAG_TAP_MULTIPLE_FINGER",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000004"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONFIGURATION_FLAG_SECONDARY_TAP",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000001"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONFIGURATION_FLAG_HOLD",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000001"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONFIGURATION_FLAG_HOLD_MOUSE",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000002"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONFIGURATION_FLAG_HOLD_MULTIPLE_FINGER",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000004"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONFIGURATION_FLAG_DRAG",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000001"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONFIGURATION_FLAG_MAX",
-                        "value": {
-                            "type": "int",
-                            "value": "0xffffffff"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "INERTIA_PARAMETER",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "INERTIA_PARAMETER_TRANSLATION_DECELERATION",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000001"
-                        }
-                    },
-                    {
-                        "name": "INERTIA_PARAMETER_TRANSLATION_DISPLACEMENT",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000002"
-                        }
-                    },
-                    {
-                        "name": "INERTIA_PARAMETER_ROTATION_DECELERATION",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000003"
-                        }
-                    },
-                    {
-                        "name": "INERTIA_PARAMETER_ROTATION_ANGLE",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000004"
-                        }
-                    },
-                    {
-                        "name": "INERTIA_PARAMETER_EXPANSION_DECELERATION",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000005"
-                        }
-                    },
-                    {
-                        "name": "INERTIA_PARAMETER_EXPANSION_EXPANSION",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000006"
-                        }
-                    },
-                    {
-                        "name": "INERTIA_PARAMETER_MAX",
-                        "value": {
-                            "type": "int",
-                            "value": "0xffffffff"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "INTERACTION_STATE",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "INTERACTION_STATE_IDLE",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000000"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_STATE_IN_INTERACTION",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000001"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_STATE_POSSIBLE_DOUBLE_TAP",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000002"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_STATE_MAX",
-                        "value": {
-                            "type": "int",
-                            "value": "0xffffffff"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "INTERACTION_CONTEXT_PROPERTY",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "INTERACTION_CONTEXT_PROPERTY_MEASUREMENT_UNITS",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000001"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONTEXT_PROPERTY_INTERACTION_UI_FEEDBACK",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000002"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONTEXT_PROPERTY_FILTER_POINTERS",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000003"
-                        }
-                    },
-                    {
-                        "name": "INTERACTION_CONTEXT_PROPERTY_MAX",
-                        "value": {
-                            "type": "int",
-                            "value": "0xffffffff"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "CROSS_SLIDE_THRESHOLD",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "CROSS_SLIDE_THRESHOLD_SELECT_START",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000000"
-                        }
-                    },
-                    {
-                        "name": "CROSS_SLIDE_THRESHOLD_SPEED_BUMP_START",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000001"
-                        }
-                    },
-                    {
-                        "name": "CROSS_SLIDE_THRESHOLD_SPEED_BUMP_END",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000002"
-                        }
-                    },
-                    {
-                        "name": "CROSS_SLIDE_THRESHOLD_REARRANGE_START",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000003"
-                        }
-                    },
-                    {
-                        "name": "CROSS_SLIDE_THRESHOLD_COUNT",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000004"
-                        }
-                    },
-                    {
-                        "name": "CROSS_SLIDE_THRESHOLD_MAX",
-                        "value": {
-                            "type": "int",
-                            "value": "0xffffffff"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "CROSS_SLIDE_FLAGS",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "CROSS_SLIDE_FLAGS_NONE",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000000"
-                        }
-                    },
-                    {
-                        "name": "CROSS_SLIDE_FLAGS_SELECT",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000001"
-                        }
-                    },
-                    {
-                        "name": "CROSS_SLIDE_FLAGS_SPEED_BUMP",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000002"
-                        }
-                    },
-                    {
-                        "name": "CROSS_SLIDE_FLAGS_REARRANGE",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000004"
-                        }
-                    },
-                    {
-                        "name": "CROSS_SLIDE_FLAGS_MAX",
-                        "value": {
-                            "type": "int",
-                            "value": "0xffffffff"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "MOUSE_WHEEL_PARAMETER",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "MOUSE_WHEEL_PARAMETER_CHAR_TRANSLATION_X",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000001"
-                        }
-                    },
-                    {
-                        "name": "MOUSE_WHEEL_PARAMETER_CHAR_TRANSLATION_Y",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000002"
-                        }
-                    },
-                    {
-                        "name": "MOUSE_WHEEL_PARAMETER_DELTA_SCALE",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000003"
-                        }
-                    },
-                    {
-                        "name": "MOUSE_WHEEL_PARAMETER_DELTA_ROTATION",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000004"
-                        }
-                    },
-                    {
-                        "name": "MOUSE_WHEEL_PARAMETER_PAGE_TRANSLATION_X",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000005"
-                        }
-                    },
-                    {
-                        "name": "MOUSE_WHEEL_PARAMETER_PAGE_TRANSLATION_Y",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000006"
-                        }
-                    },
-                    {
-                        "name": "MOUSE_WHEEL_PARAMETER_MAX",
-                        "value": {
-                            "type": "int",
-                            "value": "0xffffffff"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "TAP_PARAMETER",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "TAP_PARAMETER_MIN_CONTACT_COUNT",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000000"
-                        }
-                    },
-                    {
-                        "name": "TAP_PARAMETER_MAX_CONTACT_COUNT",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000001"
-                        }
-                    },
-                    {
-                        "name": "TAP_PARAMETER_MAX",
-                        "value": {
-                            "type": "int",
-                            "value": "0xffffffff"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "HOLD_PARAMETER",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "HOLD_PARAMETER_MIN_CONTACT_COUNT",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000000"
-                        }
-                    },
-                    {
-                        "name": "HOLD_PARAMETER_MAX_CONTACT_COUNT",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000001"
-                        }
-                    },
-                    {
-                        "name": "HOLD_PARAMETER_THRESHOLD_RADIUS",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000002"
-                        }
-                    },
-                    {
-                        "name": "HOLD_PARAMETER_THRESHOLD_START_DELAY",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000003"
-                        }
-                    },
-                    {
-                        "name": "HOLD_PARAMETER_MAX",
-                        "value": {
-                            "type": "int",
-                            "value": "0xffffffff"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "TRANSLATION_PARAMETER",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "TRANSLATION_PARAMETER_MIN_CONTACT_COUNT",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000000"
-                        }
-                    },
-                    {
-                        "name": "TRANSLATION_PARAMETER_MAX_CONTACT_COUNT",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000001"
-                        }
-                    },
-                    {
-                        "name": "TRANSLATION_PARAMETER_MAX",
-                        "value": {
-                            "type": "int",
-                            "value": "0xffffffff"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "MANIPULATION_RAILS_STATE",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "MANIPULATION_RAILS_STATE_UNDECIDED",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000000"
-                        }
-                    },
-                    {
-                        "name": "MANIPULATION_RAILS_STATE_FREE",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000001"
-                        }
-                    },
-                    {
-                        "name": "MANIPULATION_RAILS_STATE_RAILED",
-                        "value": {
-                            "type": "int",
-                            "value": "0x00000002"
-                        }
-                    },
-                    {
-                        "name": "MANIPULATION_RAILS_STATE_MAX",
-                        "value": {
-                            "type": "int",
-                            "value": "0xffffffff"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "MANIPULATION_TRANSFORM",
-            "type": {
-                "data_type": "Struct",
-                "name": "MANIPULATION_TRANSFORM",
-                "elements": [
-                    {
-                        "name": "translationX",
-                        "type": "float"
-                    },
-                    {
-                        "name": "translationY",
-                        "type": "float"
-                    },
-                    {
-                        "name": "scale",
-                        "type": "float"
-                    },
-                    {
-                        "name": "expansion",
-                        "type": "float"
-                    },
-                    {
-                        "name": "rotation",
-                        "type": "float"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "MANIPULATION_VELOCITY",
-            "type": {
-                "data_type": "Struct",
-                "name": "MANIPULATION_VELOCITY",
-                "elements": [
-                    {
-                        "name": "velocityX",
-                        "type": "float"
-                    },
-                    {
-                        "name": "velocityY",
-                        "type": "float"
-                    },
-                    {
-                        "name": "velocityExpansion",
-                        "type": "float"
-                    },
-                    {
-                        "name": "velocityAngular",
-                        "type": "float"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "INTERACTION_ARGUMENTS_MANIPULATION",
-            "type": {
-                "data_type": "Struct",
-                "name": "INTERACTION_ARGUMENTS_MANIPULATION",
-                "elements": [
-                    {
-                        "name": "delta",
-                        "type": "MANIPULATION_TRANSFORM"
-                    },
-                    {
-                        "name": "cumulative",
-                        "type": "MANIPULATION_TRANSFORM"
-                    },
-                    {
-                        "name": "velocity",
-                        "type": "MANIPULATION_VELOCITY"
-                    },
-                    {
-                        "name": "railsState",
-                        "type": "MANIPULATION_RAILS_STATE"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "INTERACTION_ARGUMENTS_TAP",
-            "type": {
-                "data_type": "Struct",
-                "name": "INTERACTION_ARGUMENTS_TAP",
-                "elements": [
-                    {
-                        "name": "count",
-                        "type": "UINT32"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "INTERACTION_ARGUMENTS_CROSS_SLIDE",
-            "type": {
-                "data_type": "Struct",
-                "name": "INTERACTION_ARGUMENTS_CROSS_SLIDE",
-                "elements": [
-                    {
-                        "name": "flags",
-                        "type": "CROSS_SLIDE_FLAGS"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "INTERACTION_CONTEXT_OUTPUT",
-            "type": {
-                "data_type": "Struct",
-                "name": "INTERACTION_CONTEXT_OUTPUT",
-                "elements": [
-                    {
-                        "name": "interactionId",
-                        "type": "INTERACTION_ID"
-                    },
-                    {
-                        "name": "interactionFlags",
-                        "type": "INTERACTION_FLAGS"
-                    },
-                    {
-                        "name": "inputType",
-                        "type": "POINTER_INPUT_TYPE"
-                    },
-                    {
-                        "name": "x",
-                        "type": "float"
-                    },
-                    {
-                        "name": "y",
-                        "type": "float"
-                    },
-                    {
-                        "name": "arguments",
-                        "type": {
-                            "data_type": "Union",
-                            "elements": [
-                                {
-                                    "name": "manipulation",
-                                    "type": "INTERACTION_ARGUMENTS_MANIPULATION"
-                                },
-                                {
-                                    "name": "tap",
-                                    "type": "INTERACTION_ARGUMENTS_TAP"
-                                },
-                                {
-                                    "name": "crossSlide",
-                                    "type": "INTERACTION_ARGUMENTS_CROSS_SLIDE"
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "INTERACTION_CONTEXT_OUTPUT2",
-            "type": {
-                "data_type": "Struct",
-                "name": "INTERACTION_CONTEXT_OUTPUT2",
-                "elements": [
-                    {
-                        "name": "interactionId",
-                        "type": "INTERACTION_ID"
-                    },
-                    {
-                        "name": "interactionFlags",
-                        "type": "INTERACTION_FLAGS"
-                    },
-                    {
-                        "name": "inputType",
-                        "type": "POINTER_INPUT_TYPE"
-                    },
-                    {
-                        "name": "contactCount",
-                        "type": "UINT32"
-                    },
-                    {
-                        "name": "currentContactCount",
-                        "type": "UINT32"
-                    },
-                    {
-                        "name": "x",
-                        "type": "float"
-                    },
-                    {
-                        "name": "y",
-                        "type": "float"
-                    },
-                    {
-                        "name": "arguments",
-                        "type": {
-                            "data_type": "Union",
-                            "elements": [
-                                {
-                                    "name": "manipulation",
-                                    "type": "INTERACTION_ARGUMENTS_MANIPULATION"
-                                },
-                                {
-                                    "name": "tap",
-                                    "type": "INTERACTION_ARGUMENTS_TAP"
-                                },
-                                {
-                                    "name": "crossSlide",
-                                    "type": "INTERACTION_ARGUMENTS_CROSS_SLIDE"
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "INTERACTION_CONTEXT_CONFIGURATION",
-            "type": {
-                "data_type": "Struct",
-                "name": "INTERACTION_CONTEXT_CONFIGURATION",
-                "elements": [
-                    {
-                        "name": "interactionId",
-                        "type": "INTERACTION_ID"
-                    },
-                    {
-                        "name": "enable",
-                        "type": "INTERACTION_CONFIGURATION_FLAGS"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "CROSS_SLIDE_PARAMETER",
-            "type": {
-                "data_type": "Struct",
-                "name": "CROSS_SLIDE_PARAMETER",
-                "elements": [
-                    {
-                        "name": "threshold",
-                        "type": "CROSS_SLIDE_THRESHOLD"
-                    },
-                    {
-                        "name": "distance",
-                        "type": "float"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "INTERACTION_CONTEXT_OUTPUT_CALLBACK",
-                "type": "void"
-            },
-            "name": "INTERACTION_CONTEXT_OUTPUT_CALLBACK",
-            "arguments": [
+[
+    {
+        "name": "INTERACTION_ID",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
                 {
-                    "type": {
-                        "name": "clientData",
-                        "type": "void"
+                    "name": "INTERACTION_ID_NONE",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000000"
                     }
                 },
                 {
-                    "type": {
-                        "name": "output",
-                        "type": "INTERACTION_CONTEXT_OUTPUT"
-                    }
-                }
-            ]
-        },
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "INTERACTION_CONTEXT_OUTPUT_CALLBACK2",
-                "type": "void"
-            },
-            "name": "INTERACTION_CONTEXT_OUTPUT_CALLBACK2",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "clientData",
-                        "type": "void"
+                    "name": "INTERACTION_ID_MANIPULATION",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000001"
                     }
                 },
                 {
-                    "type": {
-                        "name": "output",
-                        "type": "INTERACTION_CONTEXT_OUTPUT2"
+                    "name": "INTERACTION_ID_TAP",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000002"
+                    }
+                },
+                {
+                    "name": "INTERACTION_ID_SECONDARY_TAP",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000003"
+                    }
+                },
+                {
+                    "name": "INTERACTION_ID_HOLD",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000004"
+                    }
+                },
+                {
+                    "name": "INTERACTION_ID_DRAG",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000005"
+                    }
+                },
+                {
+                    "name": "INTERACTION_ID_CROSS_SLIDE",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000006"
+                    }
+                },
+                {
+                    "name": "INTERACTION_ID_MAX",
+                    "value": {
+                        "type": "int",
+                        "value": "0xffffffff"
                     }
                 }
             ]
-        },
-        {
+        }
+    },
+    {
+        "name": "INTERACTION_FLAGS",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "INTERACTION_FLAG_NONE",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000000"
+                    }
+                },
+                {
+                    "name": "INTERACTION_FLAG_BEGIN",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000001"
+                    }
+                },
+                {
+                    "name": "INTERACTION_FLAG_END",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000002"
+                    }
+                },
+                {
+                    "name": "INTERACTION_FLAG_CANCEL",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000004"
+                    }
+                },
+                {
+                    "name": "INTERACTION_FLAG_INERTIA",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000008"
+                    }
+                },
+                {
+                    "name": "INTERACTION_FLAG_MAX",
+                    "value": {
+                        "type": "int",
+                        "value": "0xffffffff"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "INTERACTION_CONFIGURATION_FLAGS",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "INTERACTION_CONFIGURATION_FLAG_NONE",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000000"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONFIGURATION_FLAG_MANIPULATION",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000001"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONFIGURATION_FLAG_MANIPULATION_TRANSLATION_X",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000002"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONFIGURATION_FLAG_MANIPULATION_TRANSLATION_Y",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000004"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONFIGURATION_FLAG_MANIPULATION_ROTATION",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000008"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONFIGURATION_FLAG_MANIPULATION_SCALING",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000010"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONFIGURATION_FLAG_MANIPULATION_TRANSLATION_INERTIA",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000020"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONFIGURATION_FLAG_MANIPULATION_ROTATION_INERTIA",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000040"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONFIGURATION_FLAG_MANIPULATION_SCALING_INERTIA",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000080"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONFIGURATION_FLAG_MANIPULATION_RAILS_X",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000100"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONFIGURATION_FLAG_MANIPULATION_RAILS_Y",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000200"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONFIGURATION_FLAG_MANIPULATION_EXACT",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000400"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONFIGURATION_FLAG_MANIPULATION_MULTIPLE_FINGER_PANNING",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000800"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000001"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_HORIZONTAL",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000002"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_SELECT",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000004"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_SPEED_BUMP",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000008"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_REARRANGE",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000010"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_EXACT",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000020"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONFIGURATION_FLAG_TAP",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000001"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONFIGURATION_FLAG_TAP_DOUBLE",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000002"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONFIGURATION_FLAG_TAP_MULTIPLE_FINGER",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000004"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONFIGURATION_FLAG_SECONDARY_TAP",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000001"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONFIGURATION_FLAG_HOLD",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000001"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONFIGURATION_FLAG_HOLD_MOUSE",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000002"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONFIGURATION_FLAG_HOLD_MULTIPLE_FINGER",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000004"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONFIGURATION_FLAG_DRAG",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000001"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONFIGURATION_FLAG_MAX",
+                    "value": {
+                        "type": "int",
+                        "value": "0xffffffff"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "INERTIA_PARAMETER",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "INERTIA_PARAMETER_TRANSLATION_DECELERATION",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000001"
+                    }
+                },
+                {
+                    "name": "INERTIA_PARAMETER_TRANSLATION_DISPLACEMENT",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000002"
+                    }
+                },
+                {
+                    "name": "INERTIA_PARAMETER_ROTATION_DECELERATION",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000003"
+                    }
+                },
+                {
+                    "name": "INERTIA_PARAMETER_ROTATION_ANGLE",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000004"
+                    }
+                },
+                {
+                    "name": "INERTIA_PARAMETER_EXPANSION_DECELERATION",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000005"
+                    }
+                },
+                {
+                    "name": "INERTIA_PARAMETER_EXPANSION_EXPANSION",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000006"
+                    }
+                },
+                {
+                    "name": "INERTIA_PARAMETER_MAX",
+                    "value": {
+                        "type": "int",
+                        "value": "0xffffffff"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "INTERACTION_STATE",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "INTERACTION_STATE_IDLE",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000000"
+                    }
+                },
+                {
+                    "name": "INTERACTION_STATE_IN_INTERACTION",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000001"
+                    }
+                },
+                {
+                    "name": "INTERACTION_STATE_POSSIBLE_DOUBLE_TAP",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000002"
+                    }
+                },
+                {
+                    "name": "INTERACTION_STATE_MAX",
+                    "value": {
+                        "type": "int",
+                        "value": "0xffffffff"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "INTERACTION_CONTEXT_PROPERTY",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "INTERACTION_CONTEXT_PROPERTY_MEASUREMENT_UNITS",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000001"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONTEXT_PROPERTY_INTERACTION_UI_FEEDBACK",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000002"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONTEXT_PROPERTY_FILTER_POINTERS",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000003"
+                    }
+                },
+                {
+                    "name": "INTERACTION_CONTEXT_PROPERTY_MAX",
+                    "value": {
+                        "type": "int",
+                        "value": "0xffffffff"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "CROSS_SLIDE_THRESHOLD",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "CROSS_SLIDE_THRESHOLD_SELECT_START",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000000"
+                    }
+                },
+                {
+                    "name": "CROSS_SLIDE_THRESHOLD_SPEED_BUMP_START",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000001"
+                    }
+                },
+                {
+                    "name": "CROSS_SLIDE_THRESHOLD_SPEED_BUMP_END",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000002"
+                    }
+                },
+                {
+                    "name": "CROSS_SLIDE_THRESHOLD_REARRANGE_START",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000003"
+                    }
+                },
+                {
+                    "name": "CROSS_SLIDE_THRESHOLD_COUNT",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000004"
+                    }
+                },
+                {
+                    "name": "CROSS_SLIDE_THRESHOLD_MAX",
+                    "value": {
+                        "type": "int",
+                        "value": "0xffffffff"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "CROSS_SLIDE_FLAGS",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "CROSS_SLIDE_FLAGS_NONE",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000000"
+                    }
+                },
+                {
+                    "name": "CROSS_SLIDE_FLAGS_SELECT",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000001"
+                    }
+                },
+                {
+                    "name": "CROSS_SLIDE_FLAGS_SPEED_BUMP",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000002"
+                    }
+                },
+                {
+                    "name": "CROSS_SLIDE_FLAGS_REARRANGE",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000004"
+                    }
+                },
+                {
+                    "name": "CROSS_SLIDE_FLAGS_MAX",
+                    "value": {
+                        "type": "int",
+                        "value": "0xffffffff"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "MOUSE_WHEEL_PARAMETER",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "MOUSE_WHEEL_PARAMETER_CHAR_TRANSLATION_X",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000001"
+                    }
+                },
+                {
+                    "name": "MOUSE_WHEEL_PARAMETER_CHAR_TRANSLATION_Y",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000002"
+                    }
+                },
+                {
+                    "name": "MOUSE_WHEEL_PARAMETER_DELTA_SCALE",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000003"
+                    }
+                },
+                {
+                    "name": "MOUSE_WHEEL_PARAMETER_DELTA_ROTATION",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000004"
+                    }
+                },
+                {
+                    "name": "MOUSE_WHEEL_PARAMETER_PAGE_TRANSLATION_X",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000005"
+                    }
+                },
+                {
+                    "name": "MOUSE_WHEEL_PARAMETER_PAGE_TRANSLATION_Y",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000006"
+                    }
+                },
+                {
+                    "name": "MOUSE_WHEEL_PARAMETER_MAX",
+                    "value": {
+                        "type": "int",
+                        "value": "0xffffffff"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "TAP_PARAMETER",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "TAP_PARAMETER_MIN_CONTACT_COUNT",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000000"
+                    }
+                },
+                {
+                    "name": "TAP_PARAMETER_MAX_CONTACT_COUNT",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000001"
+                    }
+                },
+                {
+                    "name": "TAP_PARAMETER_MAX",
+                    "value": {
+                        "type": "int",
+                        "value": "0xffffffff"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "HOLD_PARAMETER",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "HOLD_PARAMETER_MIN_CONTACT_COUNT",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000000"
+                    }
+                },
+                {
+                    "name": "HOLD_PARAMETER_MAX_CONTACT_COUNT",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000001"
+                    }
+                },
+                {
+                    "name": "HOLD_PARAMETER_THRESHOLD_RADIUS",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000002"
+                    }
+                },
+                {
+                    "name": "HOLD_PARAMETER_THRESHOLD_START_DELAY",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000003"
+                    }
+                },
+                {
+                    "name": "HOLD_PARAMETER_MAX",
+                    "value": {
+                        "type": "int",
+                        "value": "0xffffffff"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "TRANSLATION_PARAMETER",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "TRANSLATION_PARAMETER_MIN_CONTACT_COUNT",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000000"
+                    }
+                },
+                {
+                    "name": "TRANSLATION_PARAMETER_MAX_CONTACT_COUNT",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000001"
+                    }
+                },
+                {
+                    "name": "TRANSLATION_PARAMETER_MAX",
+                    "value": {
+                        "type": "int",
+                        "value": "0xffffffff"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "MANIPULATION_RAILS_STATE",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "MANIPULATION_RAILS_STATE_UNDECIDED",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000000"
+                    }
+                },
+                {
+                    "name": "MANIPULATION_RAILS_STATE_FREE",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000001"
+                    }
+                },
+                {
+                    "name": "MANIPULATION_RAILS_STATE_RAILED",
+                    "value": {
+                        "type": "int",
+                        "value": "0x00000002"
+                    }
+                },
+                {
+                    "name": "MANIPULATION_RAILS_STATE_MAX",
+                    "value": {
+                        "type": "int",
+                        "value": "0xffffffff"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "MANIPULATION_TRANSFORM",
+        "type": {
             "data_type": "Struct",
-            "name": "HINTERACTIONCONTEXT__",
+            "name": "MANIPULATION_TRANSFORM",
             "elements": [
                 {
-                    "name": "unused",
-                    "type": "int"
+                    "name": "translationX",
+                    "type": "float"
+                },
+                {
+                    "name": "translationY",
+                    "type": "float"
+                },
+                {
+                    "name": "scale",
+                    "type": "float"
+                },
+                {
+                    "name": "expansion",
+                    "type": "float"
+                },
+                {
+                    "name": "rotation",
+                    "type": "float"
                 }
             ]
-        },
-        {
-            "name": "HINTERACTIONCONTEXT",
-            "type": {
-                "data_type": "Struct",
-                "name": "HINTERACTIONCONTEXT__",
-                "elements": []
-            },
-            "data_type": "Ptr"
         }
-    ],
-    "funcdefs": [
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "CreateInteractionContext",
-                "type": "HRESULT"
-            },
-            "name": "CreateInteractionContext",
-            "arguments": [
+    },
+    {
+        "name": "MANIPULATION_VELOCITY",
+        "type": {
+            "data_type": "Struct",
+            "name": "MANIPULATION_VELOCITY",
+            "elements": [
                 {
-                    "type": {
-                        "name": "interactionContext",
-                        "type": "HINTERACTIONCONTEXT"
-                    },
-                    "sal": [
-                        "out"
-                    ]
+                    "name": "velocityX",
+                    "type": "float"
+                },
+                {
+                    "name": "velocityY",
+                    "type": "float"
+                },
+                {
+                    "name": "velocityExpansion",
+                    "type": "float"
+                },
+                {
+                    "name": "velocityAngular",
+                    "type": "float"
                 }
-            ],
-            "api_locations": [
-                "ninput.dll",
-                "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
-                "IE_Shims.dll"
             ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "DestroyInteractionContext",
-                "type": "HRESULT"
-            },
-            "name": "DestroyInteractionContext",
-            "arguments": [
+        }
+    },
+    {
+        "name": "INTERACTION_ARGUMENTS_MANIPULATION",
+        "type": {
+            "data_type": "Struct",
+            "name": "INTERACTION_ARGUMENTS_MANIPULATION",
+            "elements": [
                 {
-                    "name": "interactionContext",
-                    "type": "HINTERACTIONCONTEXT",
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "delta",
+                    "type": "MANIPULATION_TRANSFORM"
+                },
+                {
+                    "name": "cumulative",
+                    "type": "MANIPULATION_TRANSFORM"
+                },
+                {
+                    "name": "velocity",
+                    "type": "MANIPULATION_VELOCITY"
+                },
+                {
+                    "name": "railsState",
+                    "type": "MANIPULATION_RAILS_STATE"
                 }
-            ],
-            "api_locations": [
-                "ninput.dll",
-                "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
-                "IE_Shims.dll"
             ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "RegisterOutputCallbackInteractionContext",
-                "type": "HRESULT"
-            },
-            "name": "RegisterOutputCallbackInteractionContext",
-            "arguments": [
+        }
+    },
+    {
+        "name": "INTERACTION_ARGUMENTS_TAP",
+        "type": {
+            "data_type": "Struct",
+            "name": "INTERACTION_ARGUMENTS_TAP",
+            "elements": [
                 {
-                    "name": "interactionContext",
-                    "type": "HINTERACTIONCONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "outputCallback",
-                    "type": "INTERACTION_CONTEXT_OUTPUT_CALLBACK",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "clientData",
-                        "type": "void"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
+                    "name": "count",
+                    "type": "UINT32"
                 }
-            ],
-            "api_locations": [
-                "ninput.dll",
-                "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
-                "IE_Shims.dll"
             ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SetInteractionConfigurationInteractionContext",
-                "type": "HRESULT"
-            },
-            "name": "SetInteractionConfigurationInteractionContext",
-            "arguments": [
+        }
+    },
+    {
+        "name": "INTERACTION_ARGUMENTS_CROSS_SLIDE",
+        "type": {
+            "data_type": "Struct",
+            "name": "INTERACTION_ARGUMENTS_CROSS_SLIDE",
+            "elements": [
                 {
-                    "name": "interactionContext",
-                    "type": "HINTERACTIONCONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "configurationCount",
-                    "type": "UINT32",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "configuration",
-                        "type": "INTERACTION_CONTEXT_CONFIGURATION"
-                    },
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "flags",
+                    "type": "CROSS_SLIDE_FLAGS"
                 }
-            ],
-            "api_locations": [
-                "ninput.dll",
-                "edgehtml.dll",
-                "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
-                "IE_Shims.dll"
             ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetInteractionConfigurationInteractionContext",
-                "type": "HRESULT"
-            },
-            "name": "GetInteractionConfigurationInteractionContext",
-            "arguments": [
+        }
+    },
+    {
+        "name": "INTERACTION_CONTEXT_OUTPUT",
+        "type": {
+            "data_type": "Struct",
+            "name": "INTERACTION_CONTEXT_OUTPUT",
+            "elements": [
                 {
-                    "name": "interactionContext",
-                    "type": "HINTERACTIONCONTEXT",
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "interactionId",
+                    "type": "INTERACTION_ID"
                 },
                 {
-                    "name": "configurationCount",
-                    "type": "UINT32",
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "interactionFlags",
+                    "type": "INTERACTION_FLAGS"
                 },
                 {
-                    "type": {
-                        "name": "configuration",
-                        "type": "INTERACTION_CONTEXT_CONFIGURATION"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "ninput.dll",
-                "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
-                "IE_Shims.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SetPropertyInteractionContext",
-                "type": "HRESULT"
-            },
-            "name": "SetPropertyInteractionContext",
-            "arguments": [
-                {
-                    "name": "interactionContext",
-                    "type": "HINTERACTIONCONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "contextProperty",
-                    "type": "INTERACTION_CONTEXT_PROPERTY",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "value",
-                    "type": "UINT32",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "ninput.dll",
-                "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
-                "IE_Shims.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetPropertyInteractionContext",
-                "type": "HRESULT"
-            },
-            "name": "GetPropertyInteractionContext",
-            "arguments": [
-                {
-                    "name": "interactionContext",
-                    "type": "HINTERACTIONCONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "contextProperty",
-                    "type": "INTERACTION_CONTEXT_PROPERTY",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "value",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "ninput.dll",
-                "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
-                "IE_Shims.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SetInertiaParameterInteractionContext",
-                "type": "HRESULT"
-            },
-            "name": "SetInertiaParameterInteractionContext",
-            "arguments": [
-                {
-                    "name": "interactionContext",
-                    "type": "HINTERACTIONCONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "inertiaParameter",
-                    "type": "INERTIA_PARAMETER",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "value",
-                    "type": "float",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "ninput.dll",
-                "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
-                "IE_Shims.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetInertiaParameterInteractionContext",
-                "type": "HRESULT"
-            },
-            "name": "GetInertiaParameterInteractionContext",
-            "arguments": [
-                {
-                    "name": "interactionContext",
-                    "type": "HINTERACTIONCONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "inertiaParameter",
-                    "type": "INERTIA_PARAMETER",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "value",
-                        "type": "float"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "ninput.dll",
-                "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
-                "IE_Shims.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SetCrossSlideParametersInteractionContext",
-                "type": "HRESULT"
-            },
-            "name": "SetCrossSlideParametersInteractionContext",
-            "arguments": [
-                {
-                    "name": "interactionContext",
-                    "type": "HINTERACTIONCONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "parameterCount",
-                    "type": "UINT32",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "crossSlideParameters",
-                        "type": "CROSS_SLIDE_PARAMETER"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "ninput.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetCrossSlideParameterInteractionContext",
-                "type": "HRESULT"
-            },
-            "name": "GetCrossSlideParameterInteractionContext",
-            "arguments": [
-                {
-                    "name": "interactionContext",
-                    "type": "HINTERACTIONCONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "threshold",
-                    "type": "CROSS_SLIDE_THRESHOLD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "distance",
-                        "type": "float"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "ninput.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SetMouseWheelParameterInteractionContext",
-                "type": "HRESULT"
-            },
-            "name": "SetMouseWheelParameterInteractionContext",
-            "arguments": [
-                {
-                    "name": "interactionContext",
-                    "type": "HINTERACTIONCONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "parameter",
-                    "type": "MOUSE_WHEEL_PARAMETER",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "value",
-                    "type": "float",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "ninput.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetMouseWheelParameterInteractionContext",
-                "type": "HRESULT"
-            },
-            "name": "GetMouseWheelParameterInteractionContext",
-            "arguments": [
-                {
-                    "name": "interactionContext",
-                    "type": "HINTERACTIONCONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "parameter",
-                    "type": "MOUSE_WHEEL_PARAMETER",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "value",
-                        "type": "float"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "ninput.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ResetInteractionContext",
-                "type": "HRESULT"
-            },
-            "name": "ResetInteractionContext",
-            "arguments": [
-                {
-                    "name": "interactionContext",
-                    "type": "HINTERACTIONCONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "ninput.dll",
-                "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
-                "IE_Shims.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetStateInteractionContext",
-                "type": "HRESULT"
-            },
-            "name": "GetStateInteractionContext",
-            "arguments": [
-                {
-                    "name": "interactionContext",
-                    "type": "HINTERACTIONCONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pointerInfo",
-                        "type": "POINTER_INFO"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "state",
-                        "type": "INTERACTION_STATE"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "ninput.dll",
-                "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
-                "IE_Shims.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AddPointerInteractionContext",
-                "type": "HRESULT"
-            },
-            "name": "AddPointerInteractionContext",
-            "arguments": [
-                {
-                    "name": "interactionContext",
-                    "type": "HINTERACTIONCONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pointerId",
-                    "type": "UINT32",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "ninput.dll",
-                "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
-                "IE_Shims.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "RemovePointerInteractionContext",
-                "type": "HRESULT"
-            },
-            "name": "RemovePointerInteractionContext",
-            "arguments": [
-                {
-                    "name": "interactionContext",
-                    "type": "HINTERACTIONCONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pointerId",
-                    "type": "UINT32",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "ninput.dll",
-                "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
-                "IE_Shims.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ProcessPointerFramesInteractionContext",
-                "type": "HRESULT"
-            },
-            "name": "ProcessPointerFramesInteractionContext",
-            "arguments": [
-                {
-                    "name": "interactionContext",
-                    "type": "HINTERACTIONCONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "entriesCount",
-                    "type": "UINT32",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pointerCount",
-                    "type": "UINT32",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pointerInfo",
-                        "type": "POINTER_INFO"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "ninput.dll",
-                "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
-                "IE_Shims.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "BufferPointerPacketsInteractionContext",
-                "type": "HRESULT"
-            },
-            "name": "BufferPointerPacketsInteractionContext",
-            "arguments": [
-                {
-                    "name": "interactionContext",
-                    "type": "HINTERACTIONCONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "entriesCount",
-                    "type": "UINT32",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pointerInfo",
-                        "type": "POINTER_INFO"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "ninput.dll",
-                "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
-                "IE_Shims.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ProcessBufferedPacketsInteractionContext",
-                "type": "HRESULT"
-            },
-            "name": "ProcessBufferedPacketsInteractionContext",
-            "arguments": [
-                {
-                    "name": "interactionContext",
-                    "type": "HINTERACTIONCONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "ninput.dll",
-                "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
-                "IE_Shims.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ProcessInertiaInteractionContext",
-                "type": "HRESULT"
-            },
-            "name": "ProcessInertiaInteractionContext",
-            "arguments": [
-                {
-                    "name": "interactionContext",
-                    "type": "HINTERACTIONCONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "ninput.dll",
-                "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
-                "IE_Shims.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "StopInteractionContext",
-                "type": "HRESULT"
-            },
-            "name": "StopInteractionContext",
-            "arguments": [
-                {
-                    "name": "interactionContext",
-                    "type": "HINTERACTIONCONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "ninput.dll",
-                "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
-                "IE_Shims.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SetPivotInteractionContext",
-                "type": "HRESULT"
-            },
-            "name": "SetPivotInteractionContext",
-            "arguments": [
-                {
-                    "name": "interactionContext",
-                    "type": "HINTERACTIONCONTEXT",
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "inputType",
+                    "type": "POINTER_INPUT_TYPE"
                 },
                 {
                     "name": "x",
-                    "type": "float",
-                    "sal": [
-                        "in"
-                    ]
+                    "type": "float"
                 },
                 {
                     "name": "y",
-                    "type": "float",
-                    "sal": [
-                        "in"
-                    ]
+                    "type": "float"
                 },
                 {
-                    "name": "radius",
-                    "type": "float",
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "arguments",
+                    "type": {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "manipulation",
+                                "type": "INTERACTION_ARGUMENTS_MANIPULATION"
+                            },
+                            {
+                                "name": "tap",
+                                "type": "INTERACTION_ARGUMENTS_TAP"
+                            },
+                            {
+                                "name": "crossSlide",
+                                "type": "INTERACTION_ARGUMENTS_CROSS_SLIDE"
+                            }
+                        ]
+                    }
                 }
-            ],
-            "api_locations": [
-                "ninput.dll",
-                "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
-                "IE_Shims.dll"
             ]
         }
-    ]
-}
+    },
+    {
+        "name": "INTERACTION_CONTEXT_OUTPUT2",
+        "type": {
+            "data_type": "Struct",
+            "name": "INTERACTION_CONTEXT_OUTPUT2",
+            "elements": [
+                {
+                    "name": "interactionId",
+                    "type": "INTERACTION_ID"
+                },
+                {
+                    "name": "interactionFlags",
+                    "type": "INTERACTION_FLAGS"
+                },
+                {
+                    "name": "inputType",
+                    "type": "POINTER_INPUT_TYPE"
+                },
+                {
+                    "name": "contactCount",
+                    "type": "UINT32"
+                },
+                {
+                    "name": "currentContactCount",
+                    "type": "UINT32"
+                },
+                {
+                    "name": "x",
+                    "type": "float"
+                },
+                {
+                    "name": "y",
+                    "type": "float"
+                },
+                {
+                    "name": "arguments",
+                    "type": {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "manipulation",
+                                "type": "INTERACTION_ARGUMENTS_MANIPULATION"
+                            },
+                            {
+                                "name": "tap",
+                                "type": "INTERACTION_ARGUMENTS_TAP"
+                            },
+                            {
+                                "name": "crossSlide",
+                                "type": "INTERACTION_ARGUMENTS_CROSS_SLIDE"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "INTERACTION_CONTEXT_CONFIGURATION",
+        "type": {
+            "data_type": "Struct",
+            "name": "INTERACTION_CONTEXT_CONFIGURATION",
+            "elements": [
+                {
+                    "name": "interactionId",
+                    "type": "INTERACTION_ID"
+                },
+                {
+                    "name": "enable",
+                    "type": "INTERACTION_CONFIGURATION_FLAGS"
+                }
+            ]
+        }
+    },
+    {
+        "name": "CROSS_SLIDE_PARAMETER",
+        "type": {
+            "data_type": "Struct",
+            "name": "CROSS_SLIDE_PARAMETER",
+            "elements": [
+                {
+                    "name": "threshold",
+                    "type": "CROSS_SLIDE_THRESHOLD"
+                },
+                {
+                    "name": "distance",
+                    "type": "float"
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
+            "name": "INTERACTION_CONTEXT_OUTPUT_CALLBACK",
+            "type": "void"
+        },
+        "name": "INTERACTION_CONTEXT_OUTPUT_CALLBACK",
+        "arguments": [
+            {
+                "type": {
+                    "name": "clientData",
+                    "type": "void"
+                }
+            },
+            {
+                "type": {
+                    "name": "output",
+                    "type": "INTERACTION_CONTEXT_OUTPUT"
+                }
+            }
+        ]
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
+            "name": "INTERACTION_CONTEXT_OUTPUT_CALLBACK2",
+            "type": "void"
+        },
+        "name": "INTERACTION_CONTEXT_OUTPUT_CALLBACK2",
+        "arguments": [
+            {
+                "type": {
+                    "name": "clientData",
+                    "type": "void"
+                }
+            },
+            {
+                "type": {
+                    "name": "output",
+                    "type": "INTERACTION_CONTEXT_OUTPUT2"
+                }
+            }
+        ]
+    },
+    {
+        "data_type": "Struct",
+        "name": "HINTERACTIONCONTEXT__",
+        "elements": [
+            {
+                "name": "unused",
+                "type": "int"
+            }
+        ]
+    },
+    {
+        "name": "HINTERACTIONCONTEXT",
+        "type": {
+            "data_type": "Struct",
+            "name": "HINTERACTIONCONTEXT__",
+            "elements": []
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "CreateInteractionContext",
+            "type": "HRESULT"
+        },
+        "name": "CreateInteractionContext",
+        "arguments": [
+            {
+                "type": {
+                    "name": "interactionContext",
+                    "type": "HINTERACTIONCONTEXT"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "ninput.dll",
+            "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
+            "IE_Shims.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "DestroyInteractionContext",
+            "type": "HRESULT"
+        },
+        "name": "DestroyInteractionContext",
+        "arguments": [
+            {
+                "name": "interactionContext",
+                "type": "HINTERACTIONCONTEXT",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "ninput.dll",
+            "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
+            "IE_Shims.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "RegisterOutputCallbackInteractionContext",
+            "type": "HRESULT"
+        },
+        "name": "RegisterOutputCallbackInteractionContext",
+        "arguments": [
+            {
+                "name": "interactionContext",
+                "type": "HINTERACTIONCONTEXT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "outputCallback",
+                "type": "INTERACTION_CONTEXT_OUTPUT_CALLBACK",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "clientData",
+                    "type": "void"
+                },
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "ninput.dll",
+            "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
+            "IE_Shims.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SetInteractionConfigurationInteractionContext",
+            "type": "HRESULT"
+        },
+        "name": "SetInteractionConfigurationInteractionContext",
+        "arguments": [
+            {
+                "name": "interactionContext",
+                "type": "HINTERACTIONCONTEXT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "configurationCount",
+                "type": "UINT32",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "configuration",
+                    "type": "INTERACTION_CONTEXT_CONFIGURATION"
+                },
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "ninput.dll",
+            "edgehtml.dll",
+            "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
+            "IE_Shims.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "GetInteractionConfigurationInteractionContext",
+            "type": "HRESULT"
+        },
+        "name": "GetInteractionConfigurationInteractionContext",
+        "arguments": [
+            {
+                "name": "interactionContext",
+                "type": "HINTERACTIONCONTEXT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "configurationCount",
+                "type": "UINT32",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "configuration",
+                    "type": "INTERACTION_CONTEXT_CONFIGURATION"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "ninput.dll",
+            "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
+            "IE_Shims.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SetPropertyInteractionContext",
+            "type": "HRESULT"
+        },
+        "name": "SetPropertyInteractionContext",
+        "arguments": [
+            {
+                "name": "interactionContext",
+                "type": "HINTERACTIONCONTEXT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "contextProperty",
+                "type": "INTERACTION_CONTEXT_PROPERTY",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "value",
+                "type": "UINT32",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "ninput.dll",
+            "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
+            "IE_Shims.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "GetPropertyInteractionContext",
+            "type": "HRESULT"
+        },
+        "name": "GetPropertyInteractionContext",
+        "arguments": [
+            {
+                "name": "interactionContext",
+                "type": "HINTERACTIONCONTEXT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "contextProperty",
+                "type": "INTERACTION_CONTEXT_PROPERTY",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "value",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "ninput.dll",
+            "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
+            "IE_Shims.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SetInertiaParameterInteractionContext",
+            "type": "HRESULT"
+        },
+        "name": "SetInertiaParameterInteractionContext",
+        "arguments": [
+            {
+                "name": "interactionContext",
+                "type": "HINTERACTIONCONTEXT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "inertiaParameter",
+                "type": "INERTIA_PARAMETER",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "value",
+                "type": "float",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "ninput.dll",
+            "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
+            "IE_Shims.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "GetInertiaParameterInteractionContext",
+            "type": "HRESULT"
+        },
+        "name": "GetInertiaParameterInteractionContext",
+        "arguments": [
+            {
+                "name": "interactionContext",
+                "type": "HINTERACTIONCONTEXT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "inertiaParameter",
+                "type": "INERTIA_PARAMETER",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "value",
+                    "type": "float"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "ninput.dll",
+            "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
+            "IE_Shims.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SetCrossSlideParametersInteractionContext",
+            "type": "HRESULT"
+        },
+        "name": "SetCrossSlideParametersInteractionContext",
+        "arguments": [
+            {
+                "name": "interactionContext",
+                "type": "HINTERACTIONCONTEXT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "parameterCount",
+                "type": "UINT32",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "crossSlideParameters",
+                    "type": "CROSS_SLIDE_PARAMETER"
+                },
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "ninput.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "GetCrossSlideParameterInteractionContext",
+            "type": "HRESULT"
+        },
+        "name": "GetCrossSlideParameterInteractionContext",
+        "arguments": [
+            {
+                "name": "interactionContext",
+                "type": "HINTERACTIONCONTEXT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "threshold",
+                "type": "CROSS_SLIDE_THRESHOLD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "distance",
+                    "type": "float"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "ninput.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SetMouseWheelParameterInteractionContext",
+            "type": "HRESULT"
+        },
+        "name": "SetMouseWheelParameterInteractionContext",
+        "arguments": [
+            {
+                "name": "interactionContext",
+                "type": "HINTERACTIONCONTEXT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "parameter",
+                "type": "MOUSE_WHEEL_PARAMETER",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "value",
+                "type": "float",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "ninput.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "GetMouseWheelParameterInteractionContext",
+            "type": "HRESULT"
+        },
+        "name": "GetMouseWheelParameterInteractionContext",
+        "arguments": [
+            {
+                "name": "interactionContext",
+                "type": "HINTERACTIONCONTEXT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "parameter",
+                "type": "MOUSE_WHEEL_PARAMETER",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "value",
+                    "type": "float"
+                },
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "ninput.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "ResetInteractionContext",
+            "type": "HRESULT"
+        },
+        "name": "ResetInteractionContext",
+        "arguments": [
+            {
+                "name": "interactionContext",
+                "type": "HINTERACTIONCONTEXT",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "ninput.dll",
+            "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
+            "IE_Shims.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "GetStateInteractionContext",
+            "type": "HRESULT"
+        },
+        "name": "GetStateInteractionContext",
+        "arguments": [
+            {
+                "name": "interactionContext",
+                "type": "HINTERACTIONCONTEXT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pointerInfo",
+                    "type": "POINTER_INFO"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "state",
+                    "type": "INTERACTION_STATE"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "ninput.dll",
+            "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
+            "IE_Shims.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AddPointerInteractionContext",
+            "type": "HRESULT"
+        },
+        "name": "AddPointerInteractionContext",
+        "arguments": [
+            {
+                "name": "interactionContext",
+                "type": "HINTERACTIONCONTEXT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pointerId",
+                "type": "UINT32",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "ninput.dll",
+            "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
+            "IE_Shims.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "RemovePointerInteractionContext",
+            "type": "HRESULT"
+        },
+        "name": "RemovePointerInteractionContext",
+        "arguments": [
+            {
+                "name": "interactionContext",
+                "type": "HINTERACTIONCONTEXT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pointerId",
+                "type": "UINT32",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "ninput.dll",
+            "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
+            "IE_Shims.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "ProcessPointerFramesInteractionContext",
+            "type": "HRESULT"
+        },
+        "name": "ProcessPointerFramesInteractionContext",
+        "arguments": [
+            {
+                "name": "interactionContext",
+                "type": "HINTERACTIONCONTEXT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "entriesCount",
+                "type": "UINT32",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pointerCount",
+                "type": "UINT32",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pointerInfo",
+                    "type": "POINTER_INFO"
+                },
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "ninput.dll",
+            "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
+            "IE_Shims.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "BufferPointerPacketsInteractionContext",
+            "type": "HRESULT"
+        },
+        "name": "BufferPointerPacketsInteractionContext",
+        "arguments": [
+            {
+                "name": "interactionContext",
+                "type": "HINTERACTIONCONTEXT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "entriesCount",
+                "type": "UINT32",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pointerInfo",
+                    "type": "POINTER_INFO"
+                },
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "ninput.dll",
+            "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
+            "IE_Shims.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "ProcessBufferedPacketsInteractionContext",
+            "type": "HRESULT"
+        },
+        "name": "ProcessBufferedPacketsInteractionContext",
+        "arguments": [
+            {
+                "name": "interactionContext",
+                "type": "HINTERACTIONCONTEXT",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "ninput.dll",
+            "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
+            "IE_Shims.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "ProcessInertiaInteractionContext",
+            "type": "HRESULT"
+        },
+        "name": "ProcessInertiaInteractionContext",
+        "arguments": [
+            {
+                "name": "interactionContext",
+                "type": "HINTERACTIONCONTEXT",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "ninput.dll",
+            "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
+            "IE_Shims.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "StopInteractionContext",
+            "type": "HRESULT"
+        },
+        "name": "StopInteractionContext",
+        "arguments": [
+            {
+                "name": "interactionContext",
+                "type": "HINTERACTIONCONTEXT",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "ninput.dll",
+            "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
+            "IE_Shims.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SetPivotInteractionContext",
+            "type": "HRESULT"
+        },
+        "name": "SetPivotInteractionContext",
+        "arguments": [
+            {
+                "name": "interactionContext",
+                "type": "HINTERACTIONCONTEXT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "x",
+                "type": "float",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "y",
+                "type": "float",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "radius",
+                "type": "float",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "ninput.dll",
+            "API-MS-Win-Input-IE-InteractionContext-l1-1-0.dll",
+            "IE_Shims.dll"
+        ]
+    }
+]

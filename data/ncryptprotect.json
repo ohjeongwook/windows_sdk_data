@@ -1,679 +1,675 @@
-{
-    "typedefs": [
-        {
+[
+    {
+        "data_type": "Struct",
+        "name": "NCRYPT_DESCRIPTOR_HANDLE__",
+        "elements": [
+            {
+                "name": "unused",
+                "type": "int"
+            }
+        ]
+    },
+    {
+        "name": "NCRYPT_DESCRIPTOR_HANDLE",
+        "type": {
             "data_type": "Struct",
             "name": "NCRYPT_DESCRIPTOR_HANDLE__",
-            "elements": [
-                {
-                    "name": "unused",
-                    "type": "int"
-                }
-            ]
+            "elements": []
         },
-        {
-            "name": "NCRYPT_DESCRIPTOR_HANDLE",
-            "type": {
-                "data_type": "Struct",
-                "name": "NCRYPT_DESCRIPTOR_HANDLE__",
-                "elements": []
-            },
-            "data_type": "Ptr"
+        "data_type": "Ptr"
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "NCryptRegisterProtectionDescriptorName",
+            "type": "SECURITY_STATUS"
         },
-        {
-            "data_type": "Struct",
-            "name": "NCRYPT_STREAM_HANDLE__",
-            "elements": [
-                {
-                    "name": "unused",
-                    "type": "int"
-                }
-            ]
-        },
-        {
-            "name": "NCRYPT_STREAM_HANDLE",
-            "type": {
-                "data_type": "Struct",
-                "name": "NCRYPT_STREAM_HANDLE__",
-                "elements": []
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "PFNCryptStreamOutputCallback",
-                "type": "SECURITY_STATUS"
-            },
-            "name": "PFNCryptStreamOutputCallback",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "pvCallbackCtxt",
-                        "type": "void"
-                    }
-                },
-                {
-                    "type": {
-                        "name": "pbData",
-                        "type": "BYTE"
-                    }
-                },
-                {
-                    "name": "cbData",
-                    "type": "SIZE_T"
-                },
-                {
-                    "name": "fFinal",
-                    "type": "BOOL"
-                }
-            ]
-        },
-        {
-            "name": "NCRYPT_PROTECT_STREAM_INFO",
-            "type": {
-                "data_type": "Struct",
-                "name": "NCRYPT_PROTECT_STREAM_INFO",
-                "elements": [
-                    {
-                        "name": "pfnStreamOutput",
-                        "type": "PFNCryptStreamOutputCallback"
-                    },
-                    {
-                        "name": "pvCallbackCtxt",
-                        "type": "void",
-                        "data_type": "Ptr"
-                    }
+        "name": "NCryptRegisterProtectionDescriptorName",
+        "arguments": [
+            {
+                "name": "pwszName",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
                 ]
-            }
-        },
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "PFNCryptStreamOutputCallbackEx",
-                "type": "SECURITY_STATUS"
             },
-            "name": "PFNCryptStreamOutputCallbackEx",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "pvCallbackCtxt",
-                        "type": "void"
-                    }
-                },
-                {
-                    "type": {
-                        "name": "pbData",
-                        "type": "BYTE"
-                    }
-                },
-                {
-                    "name": "cbData",
+            {
+                "name": "pwszDescriptorString",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "dwFlags",
+                "type": "DWORD",
+                "sal": []
+            }
+        ],
+        "api_locations": [
+            "NCrypt.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "NCryptQueryProtectionDescriptorName",
+            "type": "SECURITY_STATUS"
+        },
+        "name": "NCryptQueryProtectionDescriptorName",
+        "arguments": [
+            {
+                "name": "pwszName",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pwszDescriptorString",
+                "type": "LPWSTR",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pcDescriptorString",
                     "type": "SIZE_T"
                 },
-                {
-                    "name": "hDescriptor",
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "dwFlags",
+                "type": "DWORD",
+                "sal": []
+            }
+        ],
+        "api_locations": [
+            "NCrypt.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "NCryptCreateProtectionDescriptor",
+            "type": "SECURITY_STATUS"
+        },
+        "name": "NCryptCreateProtectionDescriptor",
+        "arguments": [
+            {
+                "name": "pwszDescriptorString",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "dwFlags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "phDescriptor",
                     "type": "NCRYPT_DESCRIPTOR_HANDLE"
                 },
-                {
-                    "name": "fFinal",
-                    "type": "BOOL"
-                }
-            ]
-        },
-        {
-            "name": "NCRYPT_PROTECT_STREAM_INFO_EX",
-            "type": {
-                "data_type": "Struct",
-                "name": "NCRYPT_PROTECT_STREAM_INFO_EX",
-                "elements": [
-                    {
-                        "name": "pfnStreamOutput",
-                        "type": "PFNCryptStreamOutputCallbackEx"
-                    },
-                    {
-                        "name": "pvCallbackCtxt",
-                        "type": "void",
-                        "data_type": "Ptr"
-                    }
+                "sal": [
+                    "out"
                 ]
             }
-        }
-    ],
-    "funcdefs": [
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "NCryptRegisterProtectionDescriptorName",
-                "type": "SECURITY_STATUS"
-            },
-            "name": "NCryptRegisterProtectionDescriptorName",
-            "arguments": [
-                {
-                    "name": "pwszName",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pwszDescriptorString",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "dwFlags",
-                    "type": "DWORD",
-                    "sal": []
-                }
-            ],
-            "api_locations": [
-                "NCrypt.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "NCryptQueryProtectionDescriptorName",
-                "type": "SECURITY_STATUS"
-            },
-            "name": "NCryptQueryProtectionDescriptorName",
-            "arguments": [
-                {
-                    "name": "pwszName",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pwszDescriptorString",
-                    "type": "LPWSTR",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pcDescriptorString",
-                        "type": "SIZE_T"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "dwFlags",
-                    "type": "DWORD",
-                    "sal": []
-                }
-            ],
-            "api_locations": [
-                "NCrypt.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "NCryptCreateProtectionDescriptor",
-                "type": "SECURITY_STATUS"
-            },
-            "name": "NCryptCreateProtectionDescriptor",
-            "arguments": [
-                {
-                    "name": "pwszDescriptorString",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "dwFlags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "phDescriptor",
-                        "type": "NCRYPT_DESCRIPTOR_HANDLE"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "NCrypt.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "NCryptCloseProtectionDescriptor",
-                "type": "SECURITY_STATUS"
-            },
+        ],
+        "api_locations": [
+            "NCrypt.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "NCryptCloseProtectionDescriptor",
-            "arguments": [
-                {
-                    "name": "hDescriptor",
-                    "type": "NCRYPT_DESCRIPTOR_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "NCrypt.dll"
-            ]
+            "type": "SECURITY_STATUS"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "NCryptGetProtectionDescriptorInfo",
-                "type": "SECURITY_STATUS"
-            },
+        "name": "NCryptCloseProtectionDescriptor",
+        "arguments": [
+            {
+                "name": "hDescriptor",
+                "type": "NCRYPT_DESCRIPTOR_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "NCrypt.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "NCryptGetProtectionDescriptorInfo",
-            "arguments": [
-                {
-                    "name": "hDescriptor",
-                    "type": "NCRYPT_DESCRIPTOR_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pMemPara",
-                        "type": "NCRYPT_ALLOC_PARA"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "dwInfoType",
-                    "type": "DWORD",
-                    "sal": []
-                },
-                {
-                    "type": {
-                        "name": "ppvInfo",
-                        "type": "void",
-                        "data_type": "Ptr"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "NCrypt.dll"
-            ]
+            "type": "SECURITY_STATUS"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "NCryptProtectSecret",
-                "type": "SECURITY_STATUS"
+        "name": "NCryptGetProtectionDescriptorInfo",
+        "arguments": [
+            {
+                "name": "hDescriptor",
+                "type": "NCRYPT_DESCRIPTOR_HANDLE",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "type": {
+                    "name": "pMemPara",
+                    "type": "NCRYPT_ALLOC_PARA"
+                },
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "dwInfoType",
+                "type": "DWORD",
+                "sal": []
+            },
+            {
+                "type": {
+                    "name": "ppvInfo",
+                    "type": "void",
+                    "data_type": "Ptr"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "NCrypt.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "NCryptProtectSecret",
-            "arguments": [
-                {
-                    "name": "hDescriptor",
-                    "type": "NCRYPT_DESCRIPTOR_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "dwFlags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pbData",
-                        "type": "BYTE"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cbData",
-                    "type": "ULONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pMemPara",
-                        "type": "NCRYPT_ALLOC_PARA"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "hWnd",
-                    "type": "HWND",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "ppbProtectedBlob",
-                        "type": "BYTE",
-                        "data_type": "Ptr"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pcbProtectedBlob",
-                        "type": "ULONG"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "NCrypt.dll"
-            ]
+            "type": "SECURITY_STATUS"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "NCryptUnprotectSecret",
-                "type": "SECURITY_STATUS"
+        "name": "NCryptProtectSecret",
+        "arguments": [
+            {
+                "name": "hDescriptor",
+                "type": "NCRYPT_DESCRIPTOR_HANDLE",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "dwFlags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pbData",
+                    "type": "BYTE"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cbData",
+                "type": "ULONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pMemPara",
+                    "type": "NCRYPT_ALLOC_PARA"
+                },
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "hWnd",
+                "type": "HWND",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "ppbProtectedBlob",
+                    "type": "BYTE",
+                    "data_type": "Ptr"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pcbProtectedBlob",
+                    "type": "ULONG"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "NCrypt.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "NCryptUnprotectSecret",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "phDescriptor",
-                        "type": "NCRYPT_DESCRIPTOR_HANDLE"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "dwFlags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pbProtectedBlob",
-                        "type": "BYTE"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cbProtectedBlob",
-                    "type": "ULONG",
-                    "sal": []
-                },
-                {
-                    "type": {
-                        "name": "pMemPara",
-                        "type": "NCRYPT_ALLOC_PARA"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "hWnd",
-                    "type": "HWND",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "ppbData",
-                        "type": "BYTE",
-                        "data_type": "Ptr"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pcbData",
-                        "type": "ULONG"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "NCrypt.dll"
-            ]
+            "type": "SECURITY_STATUS"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "NCryptStreamOpenToProtect",
-                "type": "SECURITY_STATUS"
+        "name": "NCryptUnprotectSecret",
+        "arguments": [
+            {
+                "type": {
+                    "name": "phDescriptor",
+                    "type": "NCRYPT_DESCRIPTOR_HANDLE"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
             },
-            "name": "NCryptStreamOpenToProtect",
-            "arguments": [
-                {
-                    "name": "hDescriptor",
-                    "type": "NCRYPT_DESCRIPTOR_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
+            {
+                "name": "dwFlags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pbProtectedBlob",
+                    "type": "BYTE"
                 },
-                {
-                    "name": "dwFlags",
-                    "type": "DWORD",
-                    "sal": []
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cbProtectedBlob",
+                "type": "ULONG",
+                "sal": []
+            },
+            {
+                "type": {
+                    "name": "pMemPara",
+                    "type": "NCRYPT_ALLOC_PARA"
                 },
-                {
-                    "name": "hWnd",
-                    "type": "HWND",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "hWnd",
+                "type": "HWND",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "ppbData",
+                    "type": "BYTE",
+                    "data_type": "Ptr"
                 },
-                {
-                    "type": {
-                        "name": "pStreamInfo",
-                        "type": "NCRYPT_PROTECT_STREAM_INFO"
-                    },
-                    "sal": [
-                        "in"
-                    ]
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pcbData",
+                    "type": "ULONG"
                 },
-                {
-                    "type": {
-                        "name": "phStream",
-                        "type": "NCRYPT_STREAM_HANDLE"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "NCrypt.dll"
-            ]
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "NCrypt.dll"
+        ]
+    },
+    {
+        "data_type": "Struct",
+        "name": "NCRYPT_STREAM_HANDLE__",
+        "elements": [
+            {
+                "name": "unused",
+                "type": "int"
+            }
+        ]
+    },
+    {
+        "name": "NCRYPT_STREAM_HANDLE",
+        "type": {
+            "data_type": "Struct",
+            "name": "NCRYPT_STREAM_HANDLE__",
+            "elements": []
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "NCryptStreamOpenToUnprotect",
-                "type": "SECURITY_STATUS"
-            },
-            "name": "NCryptStreamOpenToUnprotect",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "pStreamInfo",
-                        "type": "NCRYPT_PROTECT_STREAM_INFO"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "dwFlags",
-                    "type": "DWORD",
-                    "sal": []
-                },
-                {
-                    "name": "hWnd",
-                    "type": "HWND",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "phStream",
-                        "type": "NCRYPT_STREAM_HANDLE"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "NCrypt.dll"
-            ]
+        "data_type": "Ptr"
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
+            "name": "PFNCryptStreamOutputCallback",
+            "type": "SECURITY_STATUS"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "NCryptStreamOpenToUnprotectEx",
-                "type": "SECURITY_STATUS"
-            },
-            "name": "NCryptStreamOpenToUnprotectEx",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "pStreamInfo",
-                        "type": "NCRYPT_PROTECT_STREAM_INFO_EX"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "dwFlags",
-                    "type": "DWORD",
-                    "sal": []
-                },
-                {
-                    "name": "hWnd",
-                    "type": "HWND",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "phStream",
-                        "type": "NCRYPT_STREAM_HANDLE"
-                    },
-                    "sal": [
-                        "out"
-                    ]
+        "name": "PFNCryptStreamOutputCallback",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pvCallbackCtxt",
+                    "type": "void"
                 }
-            ],
-            "api_locations": [
-                "ncrypt.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "NCryptStreamUpdate",
-                "type": "SECURITY_STATUS"
             },
-            "name": "NCryptStreamUpdate",
-            "arguments": [
-                {
-                    "name": "hStream",
-                    "type": "NCRYPT_STREAM_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pbData",
-                        "type": "BYTE"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cbData",
-                    "type": "SIZE_T",
-                    "sal": []
-                },
-                {
-                    "name": "fFinal",
-                    "type": "BOOL",
-                    "sal": []
+            {
+                "type": {
+                    "name": "pbData",
+                    "type": "BYTE"
                 }
-            ],
-            "api_locations": [
-                "NCrypt.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "NCryptStreamClose",
-                "type": "SECURITY_STATUS"
             },
-            "name": "NCryptStreamClose",
-            "arguments": [
+            {
+                "name": "cbData",
+                "type": "SIZE_T"
+            },
+            {
+                "name": "fFinal",
+                "type": "BOOL"
+            }
+        ]
+    },
+    {
+        "name": "NCRYPT_PROTECT_STREAM_INFO",
+        "type": {
+            "data_type": "Struct",
+            "name": "NCRYPT_PROTECT_STREAM_INFO",
+            "elements": [
                 {
-                    "name": "hStream",
-                    "type": "NCRYPT_STREAM_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "pfnStreamOutput",
+                    "type": "PFNCryptStreamOutputCallback"
+                },
+                {
+                    "name": "pvCallbackCtxt",
+                    "type": "void",
+                    "data_type": "Ptr"
                 }
-            ],
-            "api_locations": [
-                "NCrypt.dll"
             ]
         }
-    ]
-}
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "NCryptStreamOpenToProtect",
+            "type": "SECURITY_STATUS"
+        },
+        "name": "NCryptStreamOpenToProtect",
+        "arguments": [
+            {
+                "name": "hDescriptor",
+                "type": "NCRYPT_DESCRIPTOR_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "dwFlags",
+                "type": "DWORD",
+                "sal": []
+            },
+            {
+                "name": "hWnd",
+                "type": "HWND",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pStreamInfo",
+                    "type": "NCRYPT_PROTECT_STREAM_INFO"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "phStream",
+                    "type": "NCRYPT_STREAM_HANDLE"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "NCrypt.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "NCryptStreamOpenToUnprotect",
+            "type": "SECURITY_STATUS"
+        },
+        "name": "NCryptStreamOpenToUnprotect",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pStreamInfo",
+                    "type": "NCRYPT_PROTECT_STREAM_INFO"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "dwFlags",
+                "type": "DWORD",
+                "sal": []
+            },
+            {
+                "name": "hWnd",
+                "type": "HWND",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "phStream",
+                    "type": "NCRYPT_STREAM_HANDLE"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "NCrypt.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
+            "name": "PFNCryptStreamOutputCallbackEx",
+            "type": "SECURITY_STATUS"
+        },
+        "name": "PFNCryptStreamOutputCallbackEx",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pvCallbackCtxt",
+                    "type": "void"
+                }
+            },
+            {
+                "type": {
+                    "name": "pbData",
+                    "type": "BYTE"
+                }
+            },
+            {
+                "name": "cbData",
+                "type": "SIZE_T"
+            },
+            {
+                "name": "hDescriptor",
+                "type": "NCRYPT_DESCRIPTOR_HANDLE"
+            },
+            {
+                "name": "fFinal",
+                "type": "BOOL"
+            }
+        ]
+    },
+    {
+        "name": "NCRYPT_PROTECT_STREAM_INFO_EX",
+        "type": {
+            "data_type": "Struct",
+            "name": "NCRYPT_PROTECT_STREAM_INFO_EX",
+            "elements": [
+                {
+                    "name": "pfnStreamOutput",
+                    "type": "PFNCryptStreamOutputCallbackEx"
+                },
+                {
+                    "name": "pvCallbackCtxt",
+                    "type": "void",
+                    "data_type": "Ptr"
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "NCryptStreamOpenToUnprotectEx",
+            "type": "SECURITY_STATUS"
+        },
+        "name": "NCryptStreamOpenToUnprotectEx",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pStreamInfo",
+                    "type": "NCRYPT_PROTECT_STREAM_INFO_EX"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "dwFlags",
+                "type": "DWORD",
+                "sal": []
+            },
+            {
+                "name": "hWnd",
+                "type": "HWND",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "phStream",
+                    "type": "NCRYPT_STREAM_HANDLE"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "ncrypt.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "NCryptStreamUpdate",
+            "type": "SECURITY_STATUS"
+        },
+        "name": "NCryptStreamUpdate",
+        "arguments": [
+            {
+                "name": "hStream",
+                "type": "NCRYPT_STREAM_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pbData",
+                    "type": "BYTE"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cbData",
+                "type": "SIZE_T",
+                "sal": []
+            },
+            {
+                "name": "fFinal",
+                "type": "BOOL",
+                "sal": []
+            }
+        ],
+        "api_locations": [
+            "NCrypt.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "NCryptStreamClose",
+            "type": "SECURITY_STATUS"
+        },
+        "name": "NCryptStreamClose",
+        "arguments": [
+            {
+                "name": "hStream",
+                "type": "NCRYPT_STREAM_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "NCrypt.dll"
+        ]
+    }
+]

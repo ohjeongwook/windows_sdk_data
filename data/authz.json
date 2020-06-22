@@ -1,3077 +1,3073 @@
-{
-    "typedefs": [
-        {
-            "name": "AUDIT_PARAM_TYPE",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "APT_None",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
+[
+    {
+        "name": "AUDIT_PARAM_TYPE",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "APT_None",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                },
+                {
+                    "name": "APT_String",
+                    "value": {}
+                },
+                {
+                    "name": "APT_Ulong",
+                    "value": {}
+                },
+                {
+                    "name": "APT_Pointer",
+                    "value": {}
+                },
+                {
+                    "name": "APT_Sid",
+                    "value": {}
+                },
+                {
+                    "name": "APT_LogonId",
+                    "value": {}
+                },
+                {
+                    "name": "APT_ObjectTypeList",
+                    "value": {}
+                },
+                {
+                    "name": "APT_Luid",
+                    "value": {}
+                },
+                {
+                    "name": "APT_Guid",
+                    "value": {}
+                },
+                {
+                    "name": "APT_Time",
+                    "value": {}
+                },
+                {
+                    "name": "APT_Int64",
+                    "value": {}
+                },
+                {
+                    "name": "APT_IpAddress",
+                    "value": {}
+                },
+                {
+                    "name": "APT_LogonIdWithSid",
+                    "value": {}
+                }
+            ]
+        }
+    },
+    {
+        "name": "AUDIT_OBJECT_TYPE",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUDIT_OBJECT_TYPE",
+            "elements": [
+                {
+                    "name": "ObjectType",
+                    "type": "GUID"
+                },
+                {
+                    "name": "Flags",
+                    "type": "USHORT"
+                },
+                {
+                    "name": "Level",
+                    "type": "USHORT"
+                },
+                {
+                    "name": "AccessMask",
+                    "type": "ACCESS_MASK"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PAUDIT_OBJECT_TYPE",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUDIT_OBJECT_TYPE",
+            "elements": [
+                {
+                    "name": "ObjectType",
+                    "type": "GUID"
+                },
+                {
+                    "name": "Flags",
+                    "type": "USHORT"
+                },
+                {
+                    "name": "Level",
+                    "type": "USHORT"
+                },
+                {
+                    "name": "AccessMask",
+                    "type": "ACCESS_MASK"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "AUDIT_OBJECT_TYPES",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUDIT_OBJECT_TYPES",
+            "elements": [
+                {
+                    "name": "Count",
+                    "type": "USHORT"
+                },
+                {
+                    "name": "Flags",
+                    "type": "USHORT"
+                },
+                {
+                    "name": "pObjectTypes",
+                    "type": "AUDIT_OBJECT_TYPE",
+                    "data_type": "Ptr"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PAUDIT_OBJECT_TYPES",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUDIT_OBJECT_TYPES",
+            "elements": [
+                {
+                    "name": "Count",
+                    "type": "USHORT"
+                },
+                {
+                    "name": "Flags",
+                    "type": "USHORT"
+                },
+                {
+                    "name": "pObjectTypes",
+                    "type": "AUDIT_OBJECT_TYPE",
+                    "data_type": "Ptr"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "AUDIT_IP_ADDRESS",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUDIT_IP_ADDRESS",
+            "elements": [
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "128"
+                    },
+                    "name": "pIpAddress"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PAUDIT_IP_ADDRESS",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUDIT_IP_ADDRESS",
+            "elements": [
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "128"
+                    },
+                    "name": "pIpAddress"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "AUDIT_PARAM",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUDIT_PARAM",
+            "elements": [
+                {
+                    "name": "Type",
+                    "type": "AUDIT_PARAM_TYPE"
+                },
+                {
+                    "name": "Length",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "Flags",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "Union",
+                    "elements": [
+                        {
+                            "name": "Data0",
+                            "type": "ULONG_PTR"
+                        },
+                        {
+                            "name": "String",
+                            "type": "PWSTR"
+                        },
+                        {
+                            "name": "u",
+                            "type": "ULONG_PTR"
+                        },
+                        {
+                            "name": "psid",
+                            "type": "SID",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "pguid",
+                            "type": "GUID",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "LogonId_LowPart",
+                            "type": "ULONG"
+                        },
+                        {
+                            "name": "pObjectTypes",
+                            "type": "AUDIT_OBJECT_TYPES",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "pIpAddress",
+                            "type": "AUDIT_IP_ADDRESS",
+                            "data_type": "Ptr"
                         }
-                    },
-                    {
-                        "name": "APT_String",
-                        "value": {}
-                    },
-                    {
-                        "name": "APT_Ulong",
-                        "value": {}
-                    },
-                    {
-                        "name": "APT_Pointer",
-                        "value": {}
-                    },
-                    {
-                        "name": "APT_Sid",
-                        "value": {}
-                    },
-                    {
-                        "name": "APT_LogonId",
-                        "value": {}
-                    },
-                    {
-                        "name": "APT_ObjectTypeList",
-                        "value": {}
-                    },
-                    {
-                        "name": "APT_Luid",
-                        "value": {}
-                    },
-                    {
-                        "name": "APT_Guid",
-                        "value": {}
-                    },
-                    {
-                        "name": "APT_Time",
-                        "value": {}
-                    },
-                    {
-                        "name": "APT_Int64",
-                        "value": {}
-                    },
-                    {
-                        "name": "APT_IpAddress",
-                        "value": {}
-                    },
-                    {
-                        "name": "APT_LogonIdWithSid",
-                        "value": {}
-                    }
-                ]
-            }
-        },
-        {
-            "name": "AUDIT_OBJECT_TYPE",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUDIT_OBJECT_TYPE",
-                "elements": [
-                    {
-                        "name": "ObjectType",
-                        "type": "GUID"
-                    },
-                    {
-                        "name": "Flags",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "Level",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "AccessMask",
-                        "type": "ACCESS_MASK"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PAUDIT_OBJECT_TYPE",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUDIT_OBJECT_TYPE",
-                "elements": [
-                    {
-                        "name": "ObjectType",
-                        "type": "GUID"
-                    },
-                    {
-                        "name": "Flags",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "Level",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "AccessMask",
-                        "type": "ACCESS_MASK"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "AUDIT_OBJECT_TYPES",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUDIT_OBJECT_TYPES",
-                "elements": [
-                    {
-                        "name": "Count",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "Flags",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "pObjectTypes",
-                        "type": "AUDIT_OBJECT_TYPE",
-                        "data_type": "Ptr"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PAUDIT_OBJECT_TYPES",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUDIT_OBJECT_TYPES",
-                "elements": [
-                    {
-                        "name": "Count",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "Flags",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "pObjectTypes",
-                        "type": "AUDIT_OBJECT_TYPE",
-                        "data_type": "Ptr"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "AUDIT_IP_ADDRESS",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUDIT_IP_ADDRESS",
-                "elements": [
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "128"
+                    ]
+                },
+                {
+                    "data_type": "Union",
+                    "elements": [
+                        {
+                            "name": "Data1",
+                            "type": "ULONG_PTR"
                         },
-                        "name": "pIpAddress"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PAUDIT_IP_ADDRESS",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUDIT_IP_ADDRESS",
-                "elements": [
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "128"
+                        {
+                            "name": "LogonId_HighPart",
+                            "type": "LONG"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "name": "PAUDIT_PARAM",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUDIT_PARAM",
+            "elements": [
+                {
+                    "name": "Type",
+                    "type": "AUDIT_PARAM_TYPE"
+                },
+                {
+                    "name": "Length",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "Flags",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "Union",
+                    "elements": [
+                        {
+                            "name": "Data0",
+                            "type": "ULONG_PTR"
                         },
-                        "name": "pIpAddress"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
+                        {
+                            "name": "String",
+                            "type": "PWSTR"
+                        },
+                        {
+                            "name": "u",
+                            "type": "ULONG_PTR"
+                        },
+                        {
+                            "name": "psid",
+                            "type": "SID",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "pguid",
+                            "type": "GUID",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "LogonId_LowPart",
+                            "type": "ULONG"
+                        },
+                        {
+                            "name": "pObjectTypes",
+                            "type": "AUDIT_OBJECT_TYPES",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "pIpAddress",
+                            "type": "AUDIT_IP_ADDRESS",
+                            "data_type": "Ptr"
+                        }
+                    ]
+                },
+                {
+                    "data_type": "Union",
+                    "elements": [
+                        {
+                            "name": "Data1",
+                            "type": "ULONG_PTR"
+                        },
+                        {
+                            "name": "LogonId_HighPart",
+                            "type": "LONG"
+                        }
+                    ]
+                }
+            ]
         },
-        {
-            "name": "AUDIT_PARAM",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUDIT_PARAM",
-                "elements": [
-                    {
-                        "name": "Type",
-                        "type": "AUDIT_PARAM_TYPE"
-                    },
-                    {
-                        "name": "Length",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "Flags",
-                        "type": "DWORD"
-                    },
-                    {
-                        "data_type": "Union",
-                        "elements": [
-                            {
-                                "name": "Data0",
-                                "type": "ULONG_PTR"
-                            },
-                            {
-                                "name": "String",
-                                "type": "PWSTR"
-                            },
-                            {
-                                "name": "u",
-                                "type": "ULONG_PTR"
-                            },
-                            {
-                                "name": "psid",
-                                "type": "SID",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "pguid",
-                                "type": "GUID",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "LogonId_LowPart",
-                                "type": "ULONG"
-                            },
-                            {
-                                "name": "pObjectTypes",
-                                "type": "AUDIT_OBJECT_TYPES",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "pIpAddress",
-                                "type": "AUDIT_IP_ADDRESS",
-                                "data_type": "Ptr"
-                            }
-                        ]
-                    },
-                    {
-                        "data_type": "Union",
-                        "elements": [
-                            {
-                                "name": "Data1",
-                                "type": "ULONG_PTR"
-                            },
-                            {
-                                "name": "LogonId_HighPart",
-                                "type": "LONG"
-                            }
-                        ]
-                    }
-                ]
+        "data_type": "Ptr"
+    },
+    {
+        "name": "AUDIT_PARAMS",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUDIT_PARAMS",
+            "elements": [
+                {
+                    "name": "Length",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "Flags",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "Count",
+                    "type": "USHORT"
+                },
+                {
+                    "name": "Parameters",
+                    "type": "AUDIT_PARAM",
+                    "data_type": "Ptr"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PAUDIT_PARAMS",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUDIT_PARAMS",
+            "elements": [
+                {
+                    "name": "Length",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "Flags",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "Count",
+                    "type": "USHORT"
+                },
+                {
+                    "name": "Parameters",
+                    "type": "AUDIT_PARAM",
+                    "data_type": "Ptr"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "AUTHZ_AUDIT_EVENT_TYPE_LEGACY",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUTHZ_AUDIT_EVENT_TYPE_LEGACY",
+            "elements": [
+                {
+                    "name": "CategoryId",
+                    "type": "USHORT"
+                },
+                {
+                    "name": "AuditId",
+                    "type": "USHORT"
+                },
+                {
+                    "name": "ParameterCount",
+                    "type": "USHORT"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PAUTHZ_AUDIT_EVENT_TYPE_LEGACY",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUTHZ_AUDIT_EVENT_TYPE_LEGACY",
+            "elements": [
+                {
+                    "name": "CategoryId",
+                    "type": "USHORT"
+                },
+                {
+                    "name": "AuditId",
+                    "type": "USHORT"
+                },
+                {
+                    "name": "ParameterCount",
+                    "type": "USHORT"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "AUTHZ_AUDIT_EVENT_TYPE_UNION",
+        "type": {
+            "data_type": "Union",
+            "name": "_AUTHZ_AUDIT_EVENT_TYPE_UNION",
+            "elements": [
+                {
+                    "name": "Legacy",
+                    "type": "AUTHZ_AUDIT_EVENT_TYPE_LEGACY"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PAUTHZ_AUDIT_EVENT_TYPE_UNION",
+        "type": {
+            "data_type": "Union",
+            "name": "_AUTHZ_AUDIT_EVENT_TYPE_UNION",
+            "elements": [
+                {
+                    "name": "Legacy",
+                    "type": "AUTHZ_AUDIT_EVENT_TYPE_LEGACY"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "AUTHZ_AUDIT_EVENT_TYPE_OLD",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUTHZ_AUDIT_EVENT_TYPE_OLD",
+            "elements": [
+                {
+                    "name": "Version",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "dwFlags",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "RefCount",
+                    "type": "LONG"
+                },
+                {
+                    "name": "hAudit",
+                    "type": "ULONG_PTR"
+                },
+                {
+                    "name": "LinkId",
+                    "type": "LUID"
+                },
+                {
+                    "name": "u",
+                    "type": "AUTHZ_AUDIT_EVENT_TYPE_UNION"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PAUTHZ_AUDIT_EVENT_TYPE_OLD",
+        "type": "AUTHZ_AUDIT_EVENT_TYPE_OLD",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "AUDIT_HANDLE",
+        "type": "PVOID"
+    },
+    {
+        "name": "PAUDIT_HANDLE",
+        "type": "PVOID",
+        "data_type": "Ptr"
+    },
+    {
+        "data_type": "Struct",
+        "name": "AUTHZ_ACCESS_CHECK_RESULTS_HANDLE__",
+        "elements": [
+            {
+                "name": "unused",
+                "type": "int"
             }
-        },
-        {
-            "name": "PAUDIT_PARAM",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUDIT_PARAM",
-                "elements": [
-                    {
-                        "name": "Type",
-                        "type": "AUDIT_PARAM_TYPE"
-                    },
-                    {
-                        "name": "Length",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "Flags",
-                        "type": "DWORD"
-                    },
-                    {
-                        "data_type": "Union",
-                        "elements": [
-                            {
-                                "name": "Data0",
-                                "type": "ULONG_PTR"
-                            },
-                            {
-                                "name": "String",
-                                "type": "PWSTR"
-                            },
-                            {
-                                "name": "u",
-                                "type": "ULONG_PTR"
-                            },
-                            {
-                                "name": "psid",
-                                "type": "SID",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "pguid",
-                                "type": "GUID",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "LogonId_LowPart",
-                                "type": "ULONG"
-                            },
-                            {
-                                "name": "pObjectTypes",
-                                "type": "AUDIT_OBJECT_TYPES",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "pIpAddress",
-                                "type": "AUDIT_IP_ADDRESS",
-                                "data_type": "Ptr"
-                            }
-                        ]
-                    },
-                    {
-                        "data_type": "Union",
-                        "elements": [
-                            {
-                                "name": "Data1",
-                                "type": "ULONG_PTR"
-                            },
-                            {
-                                "name": "LogonId_HighPart",
-                                "type": "LONG"
-                            }
-                        ]
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "AUDIT_PARAMS",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUDIT_PARAMS",
-                "elements": [
-                    {
-                        "name": "Length",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "Flags",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "Count",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "Parameters",
-                        "type": "AUDIT_PARAM",
-                        "data_type": "Ptr"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PAUDIT_PARAMS",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUDIT_PARAMS",
-                "elements": [
-                    {
-                        "name": "Length",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "Flags",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "Count",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "Parameters",
-                        "type": "AUDIT_PARAM",
-                        "data_type": "Ptr"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "AUTHZ_AUDIT_EVENT_TYPE_LEGACY",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUTHZ_AUDIT_EVENT_TYPE_LEGACY",
-                "elements": [
-                    {
-                        "name": "CategoryId",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "AuditId",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "ParameterCount",
-                        "type": "USHORT"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PAUTHZ_AUDIT_EVENT_TYPE_LEGACY",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUTHZ_AUDIT_EVENT_TYPE_LEGACY",
-                "elements": [
-                    {
-                        "name": "CategoryId",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "AuditId",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "ParameterCount",
-                        "type": "USHORT"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "AUTHZ_AUDIT_EVENT_TYPE_UNION",
-            "type": {
-                "data_type": "Union",
-                "name": "_AUTHZ_AUDIT_EVENT_TYPE_UNION",
-                "elements": [
-                    {
-                        "name": "Legacy",
-                        "type": "AUTHZ_AUDIT_EVENT_TYPE_LEGACY"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PAUTHZ_AUDIT_EVENT_TYPE_UNION",
-            "type": {
-                "data_type": "Union",
-                "name": "_AUTHZ_AUDIT_EVENT_TYPE_UNION",
-                "elements": [
-                    {
-                        "name": "Legacy",
-                        "type": "AUTHZ_AUDIT_EVENT_TYPE_LEGACY"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "AUTHZ_AUDIT_EVENT_TYPE_OLD",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUTHZ_AUDIT_EVENT_TYPE_OLD",
-                "elements": [
-                    {
-                        "name": "Version",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "dwFlags",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "RefCount",
-                        "type": "LONG"
-                    },
-                    {
-                        "name": "hAudit",
-                        "type": "ULONG_PTR"
-                    },
-                    {
-                        "name": "LinkId",
-                        "type": "LUID"
-                    },
-                    {
-                        "name": "u",
-                        "type": "AUTHZ_AUDIT_EVENT_TYPE_UNION"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PAUTHZ_AUDIT_EVENT_TYPE_OLD",
-            "type": "AUTHZ_AUDIT_EVENT_TYPE_OLD",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "AUDIT_HANDLE",
-            "type": "PVOID"
-        },
-        {
-            "name": "PAUDIT_HANDLE",
-            "type": "PVOID",
-            "data_type": "Ptr"
-        },
-        {
+        ]
+    },
+    {
+        "name": "AUTHZ_ACCESS_CHECK_RESULTS_HANDLE",
+        "type": {
             "data_type": "Struct",
             "name": "AUTHZ_ACCESS_CHECK_RESULTS_HANDLE__",
-            "elements": [
-                {
-                    "name": "unused",
-                    "type": "int"
-                }
-            ]
+            "elements": []
         },
-        {
-            "name": "AUTHZ_ACCESS_CHECK_RESULTS_HANDLE",
-            "type": {
-                "data_type": "Struct",
-                "name": "AUTHZ_ACCESS_CHECK_RESULTS_HANDLE__",
-                "elements": []
-            },
-            "data_type": "Ptr"
-        },
-        {
+        "data_type": "Ptr"
+    },
+    {
+        "data_type": "Struct",
+        "name": "AUTHZ_CLIENT_CONTEXT_HANDLE__",
+        "elements": [
+            {
+                "name": "unused",
+                "type": "int"
+            }
+        ]
+    },
+    {
+        "name": "AUTHZ_CLIENT_CONTEXT_HANDLE",
+        "type": {
             "data_type": "Struct",
             "name": "AUTHZ_CLIENT_CONTEXT_HANDLE__",
-            "elements": [
-                {
-                    "name": "unused",
-                    "type": "int"
-                }
-            ]
+            "elements": []
         },
-        {
-            "name": "AUTHZ_CLIENT_CONTEXT_HANDLE",
-            "type": {
-                "data_type": "Struct",
-                "name": "AUTHZ_CLIENT_CONTEXT_HANDLE__",
-                "elements": []
-            },
-            "data_type": "Ptr"
-        },
-        {
+        "data_type": "Ptr"
+    },
+    {
+        "data_type": "Struct",
+        "name": "AUTHZ_RESOURCE_MANAGER_HANDLE__",
+        "elements": [
+            {
+                "name": "unused",
+                "type": "int"
+            }
+        ]
+    },
+    {
+        "name": "AUTHZ_RESOURCE_MANAGER_HANDLE",
+        "type": {
             "data_type": "Struct",
             "name": "AUTHZ_RESOURCE_MANAGER_HANDLE__",
-            "elements": [
-                {
-                    "name": "unused",
-                    "type": "int"
-                }
-            ]
+            "elements": []
         },
-        {
-            "name": "AUTHZ_RESOURCE_MANAGER_HANDLE",
-            "type": {
-                "data_type": "Struct",
-                "name": "AUTHZ_RESOURCE_MANAGER_HANDLE__",
-                "elements": []
-            },
-            "data_type": "Ptr"
-        },
-        {
+        "data_type": "Ptr"
+    },
+    {
+        "data_type": "Struct",
+        "name": "AUTHZ_AUDIT_EVENT_HANDLE__",
+        "elements": [
+            {
+                "name": "unused",
+                "type": "int"
+            }
+        ]
+    },
+    {
+        "name": "AUTHZ_AUDIT_EVENT_HANDLE",
+        "type": {
             "data_type": "Struct",
             "name": "AUTHZ_AUDIT_EVENT_HANDLE__",
-            "elements": [
-                {
-                    "name": "unused",
-                    "type": "int"
-                }
-            ]
+            "elements": []
         },
-        {
-            "name": "AUTHZ_AUDIT_EVENT_HANDLE",
-            "type": {
-                "data_type": "Struct",
-                "name": "AUTHZ_AUDIT_EVENT_HANDLE__",
-                "elements": []
-            },
-            "data_type": "Ptr"
-        },
-        {
+        "data_type": "Ptr"
+    },
+    {
+        "data_type": "Struct",
+        "name": "AUTHZ_AUDIT_EVENT_TYPE_HANDLE__",
+        "elements": [
+            {
+                "name": "unused",
+                "type": "int"
+            }
+        ]
+    },
+    {
+        "name": "AUTHZ_AUDIT_EVENT_TYPE_HANDLE",
+        "type": {
             "data_type": "Struct",
             "name": "AUTHZ_AUDIT_EVENT_TYPE_HANDLE__",
-            "elements": [
-                {
-                    "name": "unused",
-                    "type": "int"
-                }
-            ]
+            "elements": []
         },
-        {
-            "name": "AUTHZ_AUDIT_EVENT_TYPE_HANDLE",
-            "type": {
-                "data_type": "Struct",
-                "name": "AUTHZ_AUDIT_EVENT_TYPE_HANDLE__",
-                "elements": []
-            },
-            "data_type": "Ptr"
-        },
-        {
+        "data_type": "Ptr"
+    },
+    {
+        "data_type": "Struct",
+        "name": "AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE__",
+        "elements": [
+            {
+                "name": "unused",
+                "type": "int"
+            }
+        ]
+    },
+    {
+        "name": "AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE",
+        "type": {
             "data_type": "Struct",
             "name": "AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE__",
-            "elements": [
-                {
-                    "name": "unused",
-                    "type": "int"
-                }
-            ]
+            "elements": []
         },
-        {
-            "name": "AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE",
-            "type": {
-                "data_type": "Struct",
-                "name": "AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE__",
-                "elements": []
-            },
-            "data_type": "Ptr"
-        },
-        {
+        "data_type": "Ptr"
+    },
+    {
+        "data_type": "Struct",
+        "name": "AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__",
+        "elements": [
+            {
+                "name": "unused",
+                "type": "int"
+            }
+        ]
+    },
+    {
+        "name": "AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE",
+        "type": {
             "data_type": "Struct",
             "name": "AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__",
+            "elements": []
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "PAUTHZ_ACCESS_CHECK_RESULTS_HANDLE",
+        "type": "AUTHZ_ACCESS_CHECK_RESULTS_HANDLE",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "PAUTHZ_CLIENT_CONTEXT_HANDLE",
+        "type": "AUTHZ_CLIENT_CONTEXT_HANDLE",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "PAUTHZ_RESOURCE_MANAGER_HANDLE",
+        "type": "AUTHZ_RESOURCE_MANAGER_HANDLE",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "PAUTHZ_AUDIT_EVENT_HANDLE",
+        "type": "AUTHZ_AUDIT_EVENT_HANDLE",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "PAUTHZ_AUDIT_EVENT_TYPE_HANDLE",
+        "type": "AUTHZ_AUDIT_EVENT_TYPE_HANDLE",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE",
+        "type": "AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "PAUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE",
+        "type": "AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "AUTHZ_ACCESS_REQUEST",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUTHZ_ACCESS_REQUEST",
             "elements": [
                 {
-                    "name": "unused",
-                    "type": "int"
-                }
-            ]
-        },
-        {
-            "name": "AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE",
-            "type": {
-                "data_type": "Struct",
-                "name": "AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__",
-                "elements": []
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "PAUTHZ_ACCESS_CHECK_RESULTS_HANDLE",
-            "type": "AUTHZ_ACCESS_CHECK_RESULTS_HANDLE",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "PAUTHZ_CLIENT_CONTEXT_HANDLE",
-            "type": "AUTHZ_CLIENT_CONTEXT_HANDLE",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "PAUTHZ_RESOURCE_MANAGER_HANDLE",
-            "type": "AUTHZ_RESOURCE_MANAGER_HANDLE",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "PAUTHZ_AUDIT_EVENT_HANDLE",
-            "type": "AUTHZ_AUDIT_EVENT_HANDLE",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "PAUTHZ_AUDIT_EVENT_TYPE_HANDLE",
-            "type": "AUTHZ_AUDIT_EVENT_TYPE_HANDLE",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE",
-            "type": "AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "PAUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE",
-            "type": "AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "AUTHZ_ACCESS_REQUEST",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUTHZ_ACCESS_REQUEST",
-                "elements": [
-                    {
-                        "name": "DesiredAccess",
-                        "type": "ACCESS_MASK"
-                    },
-                    {
-                        "name": "PrincipalSelfSid",
-                        "type": "PSID"
-                    },
-                    {
-                        "name": "ObjectTypeList",
-                        "type": "POBJECT_TYPE_LIST"
-                    },
-                    {
-                        "name": "ObjectTypeListLength",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "OptionalArguments",
-                        "type": "PVOID"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PAUTHZ_ACCESS_REQUEST",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUTHZ_ACCESS_REQUEST",
-                "elements": [
-                    {
-                        "name": "DesiredAccess",
-                        "type": "ACCESS_MASK"
-                    },
-                    {
-                        "name": "PrincipalSelfSid",
-                        "type": "PSID"
-                    },
-                    {
-                        "name": "ObjectTypeList",
-                        "type": "POBJECT_TYPE_LIST"
-                    },
-                    {
-                        "name": "ObjectTypeListLength",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "OptionalArguments",
-                        "type": "PVOID"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "AUTHZ_ACCESS_REPLY",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUTHZ_ACCESS_REPLY",
-                "elements": [
-                    {
-                        "name": "ResultListLength",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "GrantedAccessMask",
-                        "type": "PACCESS_MASK"
-                    },
-                    {
-                        "name": "SaclEvaluationResults",
-                        "type": "PDWORD"
-                    },
-                    {
-                        "name": "Error",
-                        "type": "PDWORD"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PAUTHZ_ACCESS_REPLY",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUTHZ_ACCESS_REPLY",
-                "elements": [
-                    {
-                        "name": "ResultListLength",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "GrantedAccessMask",
-                        "type": "PACCESS_MASK"
-                    },
-                    {
-                        "name": "SaclEvaluationResults",
-                        "type": "PDWORD"
-                    },
-                    {
-                        "name": "Error",
-                        "type": "PDWORD"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "PFN_AUTHZ_DYNAMIC_ACCESS_CHECK",
-                "type": "BOOL"
-            },
-            "name": "PFN_AUTHZ_DYNAMIC_ACCESS_CHECK",
-            "arguments": [
-                {
-                    "name": "hAuthzClientContext",
-                    "type": "AUTHZ_CLIENT_CONTEXT_HANDLE"
+                    "name": "DesiredAccess",
+                    "type": "ACCESS_MASK"
                 },
                 {
-                    "name": "pAce",
-                    "type": "PACE_HEADER"
-                },
-                {
-                    "name": "pArgs",
-                    "type": "PVOID"
-                },
-                {
-                    "name": "pbAceApplicable",
-                    "type": "PBOOL"
-                }
-            ]
-        },
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS",
-                "type": "BOOL"
-            },
-            "name": "PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS",
-            "arguments": [
-                {
-                    "name": "hAuthzClientContext",
-                    "type": "AUTHZ_CLIENT_CONTEXT_HANDLE"
-                },
-                {
-                    "name": "Args",
-                    "type": "PVOID"
-                },
-                {
-                    "type": {
-                        "name": "pSidAttrArray",
-                        "type": "PSID_AND_ATTRIBUTES"
-                    }
-                },
-                {
-                    "name": "pSidCount",
-                    "type": "PDWORD"
-                },
-                {
-                    "type": {
-                        "name": "pRestrictedSidAttrArray",
-                        "type": "PSID_AND_ATTRIBUTES"
-                    }
-                },
-                {
-                    "name": "pRestrictedSidCount",
-                    "type": "PDWORD"
-                }
-            ]
-        },
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "PFN_AUTHZ_FREE_DYNAMIC_GROUPS",
-                "type": "void"
-            },
-            "name": "PFN_AUTHZ_FREE_DYNAMIC_GROUPS",
-            "arguments": [
-                {
-                    "name": "pSidAttrArray",
-                    "type": "PSID_AND_ATTRIBUTES"
-                }
-            ]
-        },
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY",
-                "type": "BOOL"
-            },
-            "name": "PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY",
-            "arguments": [
-                {
-                    "name": "hAuthzClientContext",
-                    "type": "AUTHZ_CLIENT_CONTEXT_HANDLE"
-                },
-                {
-                    "name": "capid",
+                    "name": "PrincipalSelfSid",
                     "type": "PSID"
                 },
                 {
-                    "name": "pArgs",
-                    "type": "PVOID"
+                    "name": "ObjectTypeList",
+                    "type": "POBJECT_TYPE_LIST"
                 },
                 {
-                    "name": "pCentralAccessPolicyApplicable",
-                    "type": "PBOOL"
+                    "name": "ObjectTypeListLength",
+                    "type": "DWORD"
                 },
                 {
-                    "type": {
-                        "name": "ppCentralAccessPolicy",
-                        "type": "PVOID"
-                    }
-                }
-            ]
-        },
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY",
-                "type": "void"
-            },
-            "name": "PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY",
-            "arguments": [
-                {
-                    "name": "pCentralAccessPolicy",
+                    "name": "OptionalArguments",
                     "type": "PVOID"
                 }
             ]
-        },
-        {
-            "name": "AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE",
-                "elements": [
-                    {
-                        "name": "Version",
-                        "type": "ULONG64"
-                    },
-                    {
-                        "name": "pName",
-                        "type": "PWSTR"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PAUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE",
-                "elements": [
-                    {
-                        "name": "Version",
-                        "type": "ULONG64"
-                    },
-                    {
-                        "name": "pName",
-                        "type": "PWSTR"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE",
-                "elements": [
-                    {
-                        "name": "pValue",
-                        "type": "PVOID"
-                    },
-                    {
-                        "name": "ValueLength",
-                        "type": "ULONG"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PAUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE",
-                "elements": [
-                    {
-                        "name": "pValue",
-                        "type": "PVOID"
-                    },
-                    {
-                        "name": "ValueLength",
-                        "type": "ULONG"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "AUTHZ_SECURITY_ATTRIBUTE_OPERATION",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AUTHZ_SECURITY_ATTRIBUTE_OPERATION_NONE",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE_ALL",
-                        "value": {}
-                    },
-                    {
-                        "name": "AUTHZ_SECURITY_ATTRIBUTE_OPERATION_ADD",
-                        "value": {}
-                    },
-                    {
-                        "name": "AUTHZ_SECURITY_ATTRIBUTE_OPERATION_DELETE",
-                        "value": {}
-                    },
-                    {
-                        "name": "AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE",
-                        "value": {}
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PAUTHZ_SECURITY_ATTRIBUTE_OPERATION",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AUTHZ_SECURITY_ATTRIBUTE_OPERATION_NONE",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE_ALL",
-                        "value": {}
-                    },
-                    {
-                        "name": "AUTHZ_SECURITY_ATTRIBUTE_OPERATION_ADD",
-                        "value": {}
-                    },
-                    {
-                        "name": "AUTHZ_SECURITY_ATTRIBUTE_OPERATION_DELETE",
-                        "value": {}
-                    },
-                    {
-                        "name": "AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE",
-                        "value": {}
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "AUTHZ_SID_OPERATION",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AUTHZ_SID_OPERATION_NONE",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "AUTHZ_SID_OPERATION_REPLACE_ALL",
-                        "value": {}
-                    },
-                    {
-                        "name": "AUTHZ_SID_OPERATION_ADD",
-                        "value": {}
-                    },
-                    {
-                        "name": "AUTHZ_SID_OPERATION_DELETE",
-                        "value": {}
-                    },
-                    {
-                        "name": "AUTHZ_SID_OPERATION_REPLACE",
-                        "value": {}
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PAUTHZ_SID_OPERATION",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AUTHZ_SID_OPERATION_NONE",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "AUTHZ_SID_OPERATION_REPLACE_ALL",
-                        "value": {}
-                    },
-                    {
-                        "name": "AUTHZ_SID_OPERATION_ADD",
-                        "value": {}
-                    },
-                    {
-                        "name": "AUTHZ_SID_OPERATION_DELETE",
-                        "value": {}
-                    },
-                    {
-                        "name": "AUTHZ_SID_OPERATION_REPLACE",
-                        "value": {}
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "AUTHZ_SECURITY_ATTRIBUTE_V1",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUTHZ_SECURITY_ATTRIBUTE_V1",
-                "elements": [
-                    {
-                        "name": "pName",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "ValueType",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "Reserved",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "Flags",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "ValueCount",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "Values",
-                        "type": {
-                            "data_type": "Union",
-                            "elements": [
-                                {
-                                    "name": "pInt64",
-                                    "type": "PLONG64"
-                                },
-                                {
-                                    "name": "pUint64",
-                                    "type": "PULONG64"
-                                },
-                                {
-                                    "name": "ppString",
-                                    "type": "PWSTR",
-                                    "data_type": "Ptr"
-                                },
-                                {
-                                    "name": "pFqbn",
-                                    "type": "PAUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE"
-                                },
-                                {
-                                    "name": "pOctetString",
-                                    "type": "PAUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE"
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PAUTHZ_SECURITY_ATTRIBUTE_V1",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUTHZ_SECURITY_ATTRIBUTE_V1",
-                "elements": [
-                    {
-                        "name": "pName",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "ValueType",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "Reserved",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "Flags",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "ValueCount",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "Values",
-                        "type": {
-                            "data_type": "Union",
-                            "elements": [
-                                {
-                                    "name": "pInt64",
-                                    "type": "PLONG64"
-                                },
-                                {
-                                    "name": "pUint64",
-                                    "type": "PULONG64"
-                                },
-                                {
-                                    "name": "ppString",
-                                    "type": "PWSTR",
-                                    "data_type": "Ptr"
-                                },
-                                {
-                                    "name": "pFqbn",
-                                    "type": "PAUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE"
-                                },
-                                {
-                                    "name": "pOctetString",
-                                    "type": "PAUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE"
-                                }
-                            ]
-                        }
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "AUTHZ_SECURITY_ATTRIBUTES_INFORMATION",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUTHZ_SECURITY_ATTRIBUTES_INFORMATION",
-                "elements": [
-                    {
-                        "name": "Version",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "Reserved",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "AttributeCount",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "Attribute",
-                        "type": {
-                            "data_type": "Union",
-                            "elements": [
-                                {
-                                    "name": "pAttributeV1",
-                                    "type": "PAUTHZ_SECURITY_ATTRIBUTE_V1"
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PAUTHZ_SECURITY_ATTRIBUTES_INFORMATION",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUTHZ_SECURITY_ATTRIBUTES_INFORMATION",
-                "elements": [
-                    {
-                        "name": "Version",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "Reserved",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "AttributeCount",
-                        "type": "ULONG"
-                    },
-                    {
-                        "name": "Attribute",
-                        "type": {
-                            "data_type": "Union",
-                            "elements": [
-                                {
-                                    "name": "pAttributeV1",
-                                    "type": "PAUTHZ_SECURITY_ATTRIBUTE_V1"
-                                }
-                            ]
-                        }
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "AUTHZ_RPC_INIT_INFO_CLIENT",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUTHZ_RPC_INIT_INFO_CLIENT",
-                "elements": [
-                    {
-                        "name": "version",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "ObjectUuid",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "ProtSeq",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "NetworkAddr",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "Endpoint",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "Options",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "ServerSpn",
-                        "type": "PWSTR"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PAUTHZ_RPC_INIT_INFO_CLIENT",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUTHZ_RPC_INIT_INFO_CLIENT",
-                "elements": [
-                    {
-                        "name": "version",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "ObjectUuid",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "ProtSeq",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "NetworkAddr",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "Endpoint",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "Options",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "ServerSpn",
-                        "type": "PWSTR"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "AUTHZ_INIT_INFO",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUTHZ_INIT_INFO",
-                "elements": [
-                    {
-                        "name": "version",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "szResourceManagerName",
-                        "type": "PCWSTR"
-                    },
-                    {
-                        "name": "pfnDynamicAccessCheck",
-                        "type": "PFN_AUTHZ_DYNAMIC_ACCESS_CHECK"
-                    },
-                    {
-                        "name": "pfnComputeDynamicGroups",
-                        "type": "PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS"
-                    },
-                    {
-                        "name": "pfnFreeDynamicGroups",
-                        "type": "PFN_AUTHZ_FREE_DYNAMIC_GROUPS"
-                    },
-                    {
-                        "name": "pfnGetCentralAccessPolicy",
-                        "type": "PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY"
-                    },
-                    {
-                        "name": "pfnFreeCentralAccessPolicy",
-                        "type": "PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PAUTHZ_INIT_INFO",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUTHZ_INIT_INFO",
-                "elements": [
-                    {
-                        "name": "version",
-                        "type": "USHORT"
-                    },
-                    {
-                        "name": "szResourceManagerName",
-                        "type": "PCWSTR"
-                    },
-                    {
-                        "name": "pfnDynamicAccessCheck",
-                        "type": "PFN_AUTHZ_DYNAMIC_ACCESS_CHECK"
-                    },
-                    {
-                        "name": "pfnComputeDynamicGroups",
-                        "type": "PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS"
-                    },
-                    {
-                        "name": "pfnFreeDynamicGroups",
-                        "type": "PFN_AUTHZ_FREE_DYNAMIC_GROUPS"
-                    },
-                    {
-                        "name": "pfnGetCentralAccessPolicy",
-                        "type": "PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY"
-                    },
-                    {
-                        "name": "pfnFreeCentralAccessPolicy",
-                        "type": "PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "AUTHZ_CONTEXT_INFORMATION_CLASS",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AuthzContextInfoUserSid",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    },
-                    {
-                        "name": "AuthzContextInfoGroupsSids",
-                        "value": {}
-                    },
-                    {
-                        "name": "AuthzContextInfoRestrictedSids",
-                        "value": {}
-                    },
-                    {
-                        "name": "AuthzContextInfoPrivileges",
-                        "value": {}
-                    },
-                    {
-                        "name": "AuthzContextInfoExpirationTime",
-                        "value": {}
-                    },
-                    {
-                        "name": "AuthzContextInfoServerContext",
-                        "value": {}
-                    },
-                    {
-                        "name": "AuthzContextInfoIdentifier",
-                        "value": {}
-                    },
-                    {
-                        "name": "AuthzContextInfoSource",
-                        "value": {}
-                    },
-                    {
-                        "name": "AuthzContextInfoAll",
-                        "value": {}
-                    },
-                    {
-                        "name": "AuthzContextInfoAuthenticationId",
-                        "value": {}
-                    },
-                    {
-                        "name": "AuthzContextInfoSecurityAttributes",
-                        "value": {}
-                    },
-                    {
-                        "name": "AuthzContextInfoDeviceSids",
-                        "value": {}
-                    },
-                    {
-                        "name": "AuthzContextInfoUserClaims",
-                        "value": {}
-                    },
-                    {
-                        "name": "AuthzContextInfoDeviceClaims",
-                        "value": {}
-                    },
-                    {
-                        "name": "AuthzContextInfoAppContainerSid",
-                        "value": {}
-                    },
-                    {
-                        "name": "AuthzContextInfoCapabilitySids",
-                        "value": {}
-                    }
-                ]
-            }
-        },
-        {
-            "name": "AUTHZ_AUDIT_EVENT_INFORMATION_CLASS",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AuthzAuditEventInfoFlags",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    },
-                    {
-                        "name": "AuthzAuditEventInfoOperationType",
-                        "value": {}
-                    },
-                    {
-                        "name": "AuthzAuditEventInfoObjectType",
-                        "value": {}
-                    },
-                    {
-                        "name": "AuthzAuditEventInfoObjectName",
-                        "value": {}
-                    },
-                    {
-                        "name": "AuthzAuditEventInfoAdditionalInfo",
-                        "value": {}
-                    }
-                ]
-            }
-        },
-        {
-            "name": "AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET",
-                "elements": [
-                    {
-                        "name": "szObjectTypeName",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "dwOffset",
-                        "type": "DWORD"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PAUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET",
-                "elements": [
-                    {
-                        "name": "szObjectTypeName",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "dwOffset",
-                        "type": "DWORD"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "AUTHZ_SOURCE_SCHEMA_REGISTRATION",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUTHZ_SOURCE_SCHEMA_REGISTRATION",
-                "elements": [
-                    {
-                        "name": "dwFlags",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "szEventSourceName",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "szEventMessageFile",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "szEventSourceXmlSchemaFile",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "szEventAccessStringsFile",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "szExecutableImagePath",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "data_type": "Union",
-                        "elements": [
-                            {
-                                "name": "pReserved",
-                                "type": "PVOID"
-                            },
-                            {
-                                "name": "pProviderGuid",
-                                "type": "GUID",
-                                "data_type": "Ptr"
-                            }
-                        ]
-                    },
-                    {
-                        "name": "dwObjectTypeNameCount",
-                        "type": "DWORD"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "1"
-                        },
-                        "name": "ObjectTypeNames"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PAUTHZ_SOURCE_SCHEMA_REGISTRATION",
-            "type": {
-                "data_type": "Struct",
-                "name": "_AUTHZ_SOURCE_SCHEMA_REGISTRATION",
-                "elements": [
-                    {
-                        "name": "dwFlags",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "szEventSourceName",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "szEventMessageFile",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "szEventSourceXmlSchemaFile",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "szEventAccessStringsFile",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "szExecutableImagePath",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "data_type": "Union",
-                        "elements": [
-                            {
-                                "name": "pReserved",
-                                "type": "PVOID"
-                            },
-                            {
-                                "name": "pProviderGuid",
-                                "type": "GUID",
-                                "data_type": "Ptr"
-                            }
-                        ]
-                    },
-                    {
-                        "name": "dwObjectTypeNameCount",
-                        "type": "DWORD"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "1"
-                        },
-                        "name": "ObjectTypeNames"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
         }
-    ],
-    "funcdefs": [
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzAccessCheck",
-                "type": "BOOL"
+    },
+    {
+        "name": "PAUTHZ_ACCESS_REQUEST",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUTHZ_ACCESS_REQUEST",
+            "elements": [
+                {
+                    "name": "DesiredAccess",
+                    "type": "ACCESS_MASK"
+                },
+                {
+                    "name": "PrincipalSelfSid",
+                    "type": "PSID"
+                },
+                {
+                    "name": "ObjectTypeList",
+                    "type": "POBJECT_TYPE_LIST"
+                },
+                {
+                    "name": "ObjectTypeListLength",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "OptionalArguments",
+                    "type": "PVOID"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "AUTHZ_ACCESS_REPLY",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUTHZ_ACCESS_REPLY",
+            "elements": [
+                {
+                    "name": "ResultListLength",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "GrantedAccessMask",
+                    "type": "PACCESS_MASK"
+                },
+                {
+                    "name": "SaclEvaluationResults",
+                    "type": "PDWORD"
+                },
+                {
+                    "name": "Error",
+                    "type": "PDWORD"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PAUTHZ_ACCESS_REPLY",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUTHZ_ACCESS_REPLY",
+            "elements": [
+                {
+                    "name": "ResultListLength",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "GrantedAccessMask",
+                    "type": "PACCESS_MASK"
+                },
+                {
+                    "name": "SaclEvaluationResults",
+                    "type": "PDWORD"
+                },
+                {
+                    "name": "Error",
+                    "type": "PDWORD"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
+            "name": "PFN_AUTHZ_DYNAMIC_ACCESS_CHECK",
+            "type": "BOOL"
+        },
+        "name": "PFN_AUTHZ_DYNAMIC_ACCESS_CHECK",
+        "arguments": [
+            {
+                "name": "hAuthzClientContext",
+                "type": "AUTHZ_CLIENT_CONTEXT_HANDLE"
             },
+            {
+                "name": "pAce",
+                "type": "PACE_HEADER"
+            },
+            {
+                "name": "pArgs",
+                "type": "PVOID"
+            },
+            {
+                "name": "pbAceApplicable",
+                "type": "PBOOL"
+            }
+        ]
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
+            "name": "PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS",
+            "type": "BOOL"
+        },
+        "name": "PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS",
+        "arguments": [
+            {
+                "name": "hAuthzClientContext",
+                "type": "AUTHZ_CLIENT_CONTEXT_HANDLE"
+            },
+            {
+                "name": "Args",
+                "type": "PVOID"
+            },
+            {
+                "type": {
+                    "name": "pSidAttrArray",
+                    "type": "PSID_AND_ATTRIBUTES"
+                }
+            },
+            {
+                "name": "pSidCount",
+                "type": "PDWORD"
+            },
+            {
+                "type": {
+                    "name": "pRestrictedSidAttrArray",
+                    "type": "PSID_AND_ATTRIBUTES"
+                }
+            },
+            {
+                "name": "pRestrictedSidCount",
+                "type": "PDWORD"
+            }
+        ]
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
+            "name": "PFN_AUTHZ_FREE_DYNAMIC_GROUPS",
+            "type": "void"
+        },
+        "name": "PFN_AUTHZ_FREE_DYNAMIC_GROUPS",
+        "arguments": [
+            {
+                "name": "pSidAttrArray",
+                "type": "PSID_AND_ATTRIBUTES"
+            }
+        ]
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
+            "name": "PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY",
+            "type": "BOOL"
+        },
+        "name": "PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY",
+        "arguments": [
+            {
+                "name": "hAuthzClientContext",
+                "type": "AUTHZ_CLIENT_CONTEXT_HANDLE"
+            },
+            {
+                "name": "capid",
+                "type": "PSID"
+            },
+            {
+                "name": "pArgs",
+                "type": "PVOID"
+            },
+            {
+                "name": "pCentralAccessPolicyApplicable",
+                "type": "PBOOL"
+            },
+            {
+                "type": {
+                    "name": "ppCentralAccessPolicy",
+                    "type": "PVOID"
+                }
+            }
+        ]
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
+            "name": "PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY",
+            "type": "void"
+        },
+        "name": "PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY",
+        "arguments": [
+            {
+                "name": "pCentralAccessPolicy",
+                "type": "PVOID"
+            }
+        ]
+    },
+    {
+        "name": "AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE",
+            "elements": [
+                {
+                    "name": "Version",
+                    "type": "ULONG64"
+                },
+                {
+                    "name": "pName",
+                    "type": "PWSTR"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PAUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE",
+            "elements": [
+                {
+                    "name": "Version",
+                    "type": "ULONG64"
+                },
+                {
+                    "name": "pName",
+                    "type": "PWSTR"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE",
+            "elements": [
+                {
+                    "name": "pValue",
+                    "type": "PVOID"
+                },
+                {
+                    "name": "ValueLength",
+                    "type": "ULONG"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PAUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE",
+            "elements": [
+                {
+                    "name": "pValue",
+                    "type": "PVOID"
+                },
+                {
+                    "name": "ValueLength",
+                    "type": "ULONG"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "AUTHZ_SECURITY_ATTRIBUTE_OPERATION",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AUTHZ_SECURITY_ATTRIBUTE_OPERATION_NONE",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE_ALL",
+                    "value": {}
+                },
+                {
+                    "name": "AUTHZ_SECURITY_ATTRIBUTE_OPERATION_ADD",
+                    "value": {}
+                },
+                {
+                    "name": "AUTHZ_SECURITY_ATTRIBUTE_OPERATION_DELETE",
+                    "value": {}
+                },
+                {
+                    "name": "AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE",
+                    "value": {}
+                }
+            ]
+        }
+    },
+    {
+        "name": "PAUTHZ_SECURITY_ATTRIBUTE_OPERATION",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AUTHZ_SECURITY_ATTRIBUTE_OPERATION_NONE",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE_ALL",
+                    "value": {}
+                },
+                {
+                    "name": "AUTHZ_SECURITY_ATTRIBUTE_OPERATION_ADD",
+                    "value": {}
+                },
+                {
+                    "name": "AUTHZ_SECURITY_ATTRIBUTE_OPERATION_DELETE",
+                    "value": {}
+                },
+                {
+                    "name": "AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE",
+                    "value": {}
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "AUTHZ_SID_OPERATION",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AUTHZ_SID_OPERATION_NONE",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "AUTHZ_SID_OPERATION_REPLACE_ALL",
+                    "value": {}
+                },
+                {
+                    "name": "AUTHZ_SID_OPERATION_ADD",
+                    "value": {}
+                },
+                {
+                    "name": "AUTHZ_SID_OPERATION_DELETE",
+                    "value": {}
+                },
+                {
+                    "name": "AUTHZ_SID_OPERATION_REPLACE",
+                    "value": {}
+                }
+            ]
+        }
+    },
+    {
+        "name": "PAUTHZ_SID_OPERATION",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AUTHZ_SID_OPERATION_NONE",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "AUTHZ_SID_OPERATION_REPLACE_ALL",
+                    "value": {}
+                },
+                {
+                    "name": "AUTHZ_SID_OPERATION_ADD",
+                    "value": {}
+                },
+                {
+                    "name": "AUTHZ_SID_OPERATION_DELETE",
+                    "value": {}
+                },
+                {
+                    "name": "AUTHZ_SID_OPERATION_REPLACE",
+                    "value": {}
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "AUTHZ_SECURITY_ATTRIBUTE_V1",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUTHZ_SECURITY_ATTRIBUTE_V1",
+            "elements": [
+                {
+                    "name": "pName",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "ValueType",
+                    "type": "USHORT"
+                },
+                {
+                    "name": "Reserved",
+                    "type": "USHORT"
+                },
+                {
+                    "name": "Flags",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "ValueCount",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "Values",
+                    "type": {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "pInt64",
+                                "type": "PLONG64"
+                            },
+                            {
+                                "name": "pUint64",
+                                "type": "PULONG64"
+                            },
+                            {
+                                "name": "ppString",
+                                "type": "PWSTR",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "pFqbn",
+                                "type": "PAUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE"
+                            },
+                            {
+                                "name": "pOctetString",
+                                "type": "PAUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "PAUTHZ_SECURITY_ATTRIBUTE_V1",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUTHZ_SECURITY_ATTRIBUTE_V1",
+            "elements": [
+                {
+                    "name": "pName",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "ValueType",
+                    "type": "USHORT"
+                },
+                {
+                    "name": "Reserved",
+                    "type": "USHORT"
+                },
+                {
+                    "name": "Flags",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "ValueCount",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "Values",
+                    "type": {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "pInt64",
+                                "type": "PLONG64"
+                            },
+                            {
+                                "name": "pUint64",
+                                "type": "PULONG64"
+                            },
+                            {
+                                "name": "ppString",
+                                "type": "PWSTR",
+                                "data_type": "Ptr"
+                            },
+                            {
+                                "name": "pFqbn",
+                                "type": "PAUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE"
+                            },
+                            {
+                                "name": "pOctetString",
+                                "type": "PAUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "AUTHZ_SECURITY_ATTRIBUTES_INFORMATION",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUTHZ_SECURITY_ATTRIBUTES_INFORMATION",
+            "elements": [
+                {
+                    "name": "Version",
+                    "type": "USHORT"
+                },
+                {
+                    "name": "Reserved",
+                    "type": "USHORT"
+                },
+                {
+                    "name": "AttributeCount",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "Attribute",
+                    "type": {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "pAttributeV1",
+                                "type": "PAUTHZ_SECURITY_ATTRIBUTE_V1"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "PAUTHZ_SECURITY_ATTRIBUTES_INFORMATION",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUTHZ_SECURITY_ATTRIBUTES_INFORMATION",
+            "elements": [
+                {
+                    "name": "Version",
+                    "type": "USHORT"
+                },
+                {
+                    "name": "Reserved",
+                    "type": "USHORT"
+                },
+                {
+                    "name": "AttributeCount",
+                    "type": "ULONG"
+                },
+                {
+                    "name": "Attribute",
+                    "type": {
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "pAttributeV1",
+                                "type": "PAUTHZ_SECURITY_ATTRIBUTE_V1"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "AuthzAccessCheck",
-            "arguments": [
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "hAuthzClientContext",
-                    "type": "AUTHZ_CLIENT_CONTEXT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pRequest",
-                    "type": "PAUTHZ_ACCESS_REQUEST",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "hAuditEvent",
-                    "type": "AUTHZ_AUDIT_EVENT_HANDLE",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "pSecurityDescriptor",
-                    "type": "PSECURITY_DESCRIPTOR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "OptionalSecurityDescriptorArray",
-                        "type": "PSECURITY_DESCRIPTOR"
-                    },
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "OptionalSecurityDescriptorCount",
-                    "type": "DWORD",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "pReply",
-                    "type": "PAUTHZ_ACCESS_REPLY",
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "phAccessCheckResults",
-                    "type": "PAUTHZ_ACCESS_CHECK_RESULTS_HANDLE",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll"
-            ]
+            "type": "BOOL"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzCachedAccessCheck",
-                "type": "BOOL"
+        "name": "AuthzAccessCheck",
+        "arguments": [
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "hAuthzClientContext",
+                "type": "AUTHZ_CLIENT_CONTEXT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pRequest",
+                "type": "PAUTHZ_ACCESS_REQUEST",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "hAuditEvent",
+                "type": "AUTHZ_AUDIT_EVENT_HANDLE",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "pSecurityDescriptor",
+                "type": "PSECURITY_DESCRIPTOR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "OptionalSecurityDescriptorArray",
+                    "type": "PSECURITY_DESCRIPTOR"
+                },
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "OptionalSecurityDescriptorCount",
+                "type": "DWORD",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "pReply",
+                "type": "PAUTHZ_ACCESS_REPLY",
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "phAccessCheckResults",
+                "type": "PAUTHZ_ACCESS_CHECK_RESULTS_HANDLE",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "AuthzCachedAccessCheck",
-            "arguments": [
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "hAccessCheckResults",
-                    "type": "AUTHZ_ACCESS_CHECK_RESULTS_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pRequest",
-                    "type": "PAUTHZ_ACCESS_REQUEST",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "hAuditEvent",
-                    "type": "AUTHZ_AUDIT_EVENT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pReply",
-                    "type": "PAUTHZ_ACCESS_REPLY",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll"
-            ]
+            "type": "BOOL"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzOpenObjectAudit",
-                "type": "BOOL"
+        "name": "AuthzCachedAccessCheck",
+        "arguments": [
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "hAccessCheckResults",
+                "type": "AUTHZ_ACCESS_CHECK_RESULTS_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pRequest",
+                "type": "PAUTHZ_ACCESS_REQUEST",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "hAuditEvent",
+                "type": "AUTHZ_AUDIT_EVENT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pReply",
+                "type": "PAUTHZ_ACCESS_REPLY",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "AuthzOpenObjectAudit",
-            "arguments": [
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "hAuthzClientContext",
-                    "type": "AUTHZ_CLIENT_CONTEXT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pRequest",
-                    "type": "PAUTHZ_ACCESS_REQUEST",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "hAuditEvent",
-                    "type": "AUTHZ_AUDIT_EVENT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pSecurityDescriptor",
-                    "type": "PSECURITY_DESCRIPTOR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "OptionalSecurityDescriptorArray",
-                        "type": "PSECURITY_DESCRIPTOR"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "OptionalSecurityDescriptorCount",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pReply",
-                    "type": "PAUTHZ_ACCESS_REPLY",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll"
-            ]
+            "type": "BOOL"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzFreeHandle",
-                "type": "BOOL"
+        "name": "AuthzOpenObjectAudit",
+        "arguments": [
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "hAuthzClientContext",
+                "type": "AUTHZ_CLIENT_CONTEXT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pRequest",
+                "type": "PAUTHZ_ACCESS_REQUEST",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "hAuditEvent",
+                "type": "AUTHZ_AUDIT_EVENT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pSecurityDescriptor",
+                "type": "PSECURITY_DESCRIPTOR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "OptionalSecurityDescriptorArray",
+                    "type": "PSECURITY_DESCRIPTOR"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "OptionalSecurityDescriptorCount",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pReply",
+                "type": "PAUTHZ_ACCESS_REPLY",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "AuthzFreeHandle",
-            "arguments": [
+            "type": "BOOL"
+        },
+        "name": "AuthzFreeHandle",
+        "arguments": [
+            {
+                "name": "hAccessCheckResults",
+                "type": "AUTHZ_ACCESS_CHECK_RESULTS_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AuthzInitializeResourceManager",
+            "type": "BOOL"
+        },
+        "name": "AuthzInitializeResourceManager",
+        "arguments": [
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pfnDynamicAccessCheck",
+                "type": "PFN_AUTHZ_DYNAMIC_ACCESS_CHECK",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "pfnComputeDynamicGroups",
+                "type": "PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "pfnFreeDynamicGroups",
+                "type": "PFN_AUTHZ_FREE_DYNAMIC_GROUPS",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "szResourceManagerName",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "phAuthzResourceManager",
+                "type": "PAUTHZ_RESOURCE_MANAGER_HANDLE",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll",
+            "Ext-MS-Win-authz-context-l1-1-0.dll"
+        ]
+    },
+    {
+        "name": "AUTHZ_RPC_INIT_INFO_CLIENT",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUTHZ_RPC_INIT_INFO_CLIENT",
+            "elements": [
                 {
-                    "name": "hAccessCheckResults",
-                    "type": "AUTHZ_ACCESS_CHECK_RESULTS_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "version",
+                    "type": "USHORT"
+                },
+                {
+                    "name": "ObjectUuid",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "ProtSeq",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "NetworkAddr",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "Endpoint",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "Options",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "ServerSpn",
+                    "type": "PWSTR"
                 }
-            ],
-            "api_locations": [
-                "Authz.dll"
+            ]
+        }
+    },
+    {
+        "name": "PAUTHZ_RPC_INIT_INFO_CLIENT",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUTHZ_RPC_INIT_INFO_CLIENT",
+            "elements": [
+                {
+                    "name": "version",
+                    "type": "USHORT"
+                },
+                {
+                    "name": "ObjectUuid",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "ProtSeq",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "NetworkAddr",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "Endpoint",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "Options",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "ServerSpn",
+                    "type": "PWSTR"
+                }
             ]
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzInitializeResourceManager",
-                "type": "BOOL"
-            },
-            "name": "AuthzInitializeResourceManager",
-            "arguments": [
+        "data_type": "Ptr"
+    },
+    {
+        "name": "AUTHZ_INIT_INFO",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUTHZ_INIT_INFO",
+            "elements": [
                 {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pfnDynamicAccessCheck",
-                    "type": "PFN_AUTHZ_DYNAMIC_ACCESS_CHECK",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "pfnComputeDynamicGroups",
-                    "type": "PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "pfnFreeDynamicGroups",
-                    "type": "PFN_AUTHZ_FREE_DYNAMIC_GROUPS",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
+                    "name": "version",
+                    "type": "USHORT"
                 },
                 {
                     "name": "szResourceManagerName",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
+                    "type": "PCWSTR"
                 },
                 {
-                    "name": "phAuthzResourceManager",
-                    "type": "PAUTHZ_RESOURCE_MANAGER_HANDLE",
-                    "sal": [
-                        "out"
-                    ]
+                    "name": "pfnDynamicAccessCheck",
+                    "type": "PFN_AUTHZ_DYNAMIC_ACCESS_CHECK"
+                },
+                {
+                    "name": "pfnComputeDynamicGroups",
+                    "type": "PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS"
+                },
+                {
+                    "name": "pfnFreeDynamicGroups",
+                    "type": "PFN_AUTHZ_FREE_DYNAMIC_GROUPS"
+                },
+                {
+                    "name": "pfnGetCentralAccessPolicy",
+                    "type": "PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY"
+                },
+                {
+                    "name": "pfnFreeCentralAccessPolicy",
+                    "type": "PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY"
                 }
-            ],
-            "api_locations": [
-                "Authz.dll",
-                "Ext-MS-Win-authz-context-l1-1-0.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzInitializeResourceManagerEx",
-                "type": "BOOL"
-            },
-            "name": "AuthzInitializeResourceManagerEx",
-            "arguments": [
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "pAuthzInitInfo",
-                    "type": "PAUTHZ_INIT_INFO",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "phAuthzResourceManager",
-                    "type": "PAUTHZ_RESOURCE_MANAGER_HANDLE",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzInitializeRemoteResourceManager",
-                "type": "BOOL"
-            },
-            "name": "AuthzInitializeRemoteResourceManager",
-            "arguments": [
-                {
-                    "name": "pRpcInitInfo",
-                    "type": "PAUTHZ_RPC_INIT_INFO_CLIENT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "phAuthzResourceManager",
-                    "type": "PAUTHZ_RESOURCE_MANAGER_HANDLE",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzFreeResourceManager",
-                "type": "BOOL"
-            },
-            "name": "AuthzFreeResourceManager",
-            "arguments": [
-                {
-                    "name": "hAuthzResourceManager",
-                    "type": "AUTHZ_RESOURCE_MANAGER_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll",
-                "Ext-MS-Win-authz-context-l1-1-0.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzInitializeContextFromToken",
-                "type": "BOOL"
-            },
-            "name": "AuthzInitializeContextFromToken",
-            "arguments": [
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "TokenHandle",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "hAuthzResourceManager",
-                    "type": "AUTHZ_RESOURCE_MANAGER_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pExpirationTime",
-                    "type": "PLARGE_INTEGER",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "Identifier",
-                    "type": "LUID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "DynamicGroupArgs",
-                    "type": "PVOID",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "phAuthzClientContext",
-                    "type": "PAUTHZ_CLIENT_CONTEXT_HANDLE",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll",
-                "Ext-MS-Win-authz-context-l1-1-0.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzInitializeContextFromSid",
-                "type": "BOOL"
-            },
-            "name": "AuthzInitializeContextFromSid",
-            "arguments": [
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "UserSid",
-                    "type": "PSID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "hAuthzResourceManager",
-                    "type": "AUTHZ_RESOURCE_MANAGER_HANDLE",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "pExpirationTime",
-                    "type": "PLARGE_INTEGER",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Identifier",
-                    "type": "LUID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "DynamicGroupArgs",
-                    "type": "PVOID",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "phAuthzClientContext",
-                    "type": "PAUTHZ_CLIENT_CONTEXT_HANDLE",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll",
-                "Ext-MS-Win-authz-context-l1-1-0.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzInitializeContextFromAuthzContext",
-                "type": "BOOL"
-            },
-            "name": "AuthzInitializeContextFromAuthzContext",
-            "arguments": [
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "hAuthzClientContext",
-                    "type": "AUTHZ_CLIENT_CONTEXT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pExpirationTime",
-                    "type": "PLARGE_INTEGER",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "Identifier",
-                    "type": "LUID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "DynamicGroupArgs",
-                    "type": "PVOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "phNewAuthzClientContext",
-                    "type": "PAUTHZ_CLIENT_CONTEXT_HANDLE",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll",
-                "Ext-MS-Win-authz-context-l1-1-0.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzInitializeCompoundContext",
-                "type": "BOOL"
-            },
-            "name": "AuthzInitializeCompoundContext",
-            "arguments": [
-                {
-                    "name": "UserContext",
-                    "type": "AUTHZ_CLIENT_CONTEXT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "DeviceContext",
-                    "type": "AUTHZ_CLIENT_CONTEXT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "phCompoundContext",
-                    "type": "PAUTHZ_CLIENT_CONTEXT_HANDLE",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzAddSidsToContext",
-                "type": "BOOL"
-            },
-            "name": "AuthzAddSidsToContext",
-            "arguments": [
-                {
-                    "name": "hAuthzClientContext",
-                    "type": "AUTHZ_CLIENT_CONTEXT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Sids",
-                    "type": "PSID_AND_ATTRIBUTES",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "SidCount",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "RestrictedSids",
-                    "type": "PSID_AND_ATTRIBUTES",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "RestrictedSidCount",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "phNewAuthzClientContext",
-                    "type": "PAUTHZ_CLIENT_CONTEXT_HANDLE",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzModifySecurityAttributes",
-                "type": "BOOL"
-            },
-            "name": "AuthzModifySecurityAttributes",
-            "arguments": [
-                {
-                    "name": "hAuthzClientContext",
-                    "type": "AUTHZ_CLIENT_CONTEXT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pOperations",
-                    "type": "PAUTHZ_SECURITY_ATTRIBUTE_OPERATION",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pAttributes",
-                    "type": "PAUTHZ_SECURITY_ATTRIBUTES_INFORMATION",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzModifyClaims",
-                "type": "BOOL"
-            },
-            "name": "AuthzModifyClaims",
-            "arguments": [
-                {
-                    "name": "hAuthzClientContext",
-                    "type": "AUTHZ_CLIENT_CONTEXT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "ClaimClass",
-                    "type": "AUTHZ_CONTEXT_INFORMATION_CLASS",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pClaimOperations",
-                    "type": "PAUTHZ_SECURITY_ATTRIBUTE_OPERATION",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pClaims",
-                    "type": "PAUTHZ_SECURITY_ATTRIBUTES_INFORMATION",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzModifySids",
-                "type": "BOOL"
-            },
-            "name": "AuthzModifySids",
-            "arguments": [
-                {
-                    "name": "hAuthzClientContext",
-                    "type": "AUTHZ_CLIENT_CONTEXT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "SidClass",
-                    "type": "AUTHZ_CONTEXT_INFORMATION_CLASS",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pSidOperations",
-                    "type": "PAUTHZ_SID_OPERATION",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pSids",
-                    "type": "PTOKEN_GROUPS",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzSetAppContainerInformation",
-                "type": "BOOL"
-            },
-            "name": "AuthzSetAppContainerInformation",
-            "arguments": [
-                {
-                    "name": "hAuthzClientContext",
-                    "type": "AUTHZ_CLIENT_CONTEXT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pAppContainerSid",
-                    "type": "PSID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "CapabilityCount",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pCapabilitySids",
-                    "type": "PSID_AND_ATTRIBUTES",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzGetInformationFromContext",
-                "type": "BOOL"
-            },
-            "name": "AuthzGetInformationFromContext",
-            "arguments": [
-                {
-                    "name": "hAuthzClientContext",
-                    "type": "AUTHZ_CLIENT_CONTEXT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "InfoClass",
-                    "type": "AUTHZ_CONTEXT_INFORMATION_CLASS",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "BufferSize",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pSizeRequired",
-                    "type": "PDWORD",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "Buffer",
-                    "type": "PVOID",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzFreeContext",
-                "type": "BOOL"
-            },
-            "name": "AuthzFreeContext",
-            "arguments": [
-                {
-                    "name": "hAuthzClientContext",
-                    "type": "AUTHZ_CLIENT_CONTEXT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll",
-                "Ext-MS-Win-authz-context-l1-1-0.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzInitializeObjectAccessAuditEvent",
-                "type": "BOOL"
-            },
-            "name": "AuthzInitializeObjectAccessAuditEvent",
-            "arguments": [
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "hAuditEventType",
-                    "type": "AUTHZ_AUDIT_EVENT_TYPE_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "szOperationType",
-                    "type": "PWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "szObjectType",
-                    "type": "PWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "szObjectName",
-                    "type": "PWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "szAdditionalInfo",
-                    "type": "PWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "phAuditEvent",
-                    "type": "PAUTHZ_AUDIT_EVENT_HANDLE",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "dwAdditionalParameterCount",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzInitializeObjectAccessAuditEvent2",
-                "type": "BOOL"
-            },
-            "name": "AuthzInitializeObjectAccessAuditEvent2",
-            "arguments": [
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "hAuditEventType",
-                    "type": "AUTHZ_AUDIT_EVENT_TYPE_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "szOperationType",
-                    "type": "PWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "szObjectType",
-                    "type": "PWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "szObjectName",
-                    "type": "PWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "szAdditionalInfo",
-                    "type": "PWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "szAdditionalInfo2",
-                    "type": "PWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "phAuditEvent",
-                    "type": "PAUTHZ_AUDIT_EVENT_HANDLE",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "dwAdditionalParameterCount",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzFreeAuditEvent",
-                "type": "BOOL"
-            },
-            "name": "AuthzFreeAuditEvent",
-            "arguments": [
-                {
-                    "name": "hAuditEvent",
-                    "type": "AUTHZ_AUDIT_EVENT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll",
-                "Ext-MS-Win-authz-context-l1-1-0.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzInstallSecurityEventSource",
-                "type": "BOOL"
-            },
-            "name": "AuthzInstallSecurityEventSource",
-            "arguments": [
-                {
-                    "name": "dwFlags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pRegistration",
-                    "type": "PAUTHZ_SOURCE_SCHEMA_REGISTRATION",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzUninstallSecurityEventSource",
-                "type": "BOOL"
-            },
-            "name": "AuthzUninstallSecurityEventSource",
-            "arguments": [
-                {
-                    "name": "dwFlags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "szEventSourceName",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzEnumerateSecurityEventSources",
-                "type": "BOOL"
-            },
-            "name": "AuthzEnumerateSecurityEventSources",
-            "arguments": [
-                {
-                    "name": "dwFlags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Buffer",
-                    "type": "PAUTHZ_SOURCE_SCHEMA_REGISTRATION",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "pdwCount",
-                    "type": "PDWORD",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "pdwLength",
-                    "type": "PDWORD",
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzRegisterSecurityEventSource",
-                "type": "BOOL"
-            },
-            "name": "AuthzRegisterSecurityEventSource",
-            "arguments": [
-                {
-                    "name": "dwFlags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "szEventSourceName",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "phEventProvider",
-                    "type": "PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzUnregisterSecurityEventSource",
-                "type": "BOOL"
-            },
-            "name": "AuthzUnregisterSecurityEventSource",
-            "arguments": [
-                {
-                    "name": "dwFlags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "phEventProvider",
-                    "type": "PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE",
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzReportSecurityEvent",
-                "type": "BOOL"
-            },
-            "name": "AuthzReportSecurityEvent",
-            "arguments": [
-                {
-                    "name": "dwFlags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "hEventProvider",
-                    "type": "AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE",
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "dwAuditId",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pUserSid",
-                    "type": "PSID",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "dwCount",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzReportSecurityEventFromParams",
-                "type": "BOOL"
-            },
-            "name": "AuthzReportSecurityEventFromParams",
-            "arguments": [
-                {
-                    "name": "dwFlags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "hEventProvider",
-                    "type": "AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "dwAuditId",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pUserSid",
-                    "type": "PSID",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "pParams",
-                    "type": "PAUDIT_PARAMS",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzRegisterCapChangeNotification",
-                "type": "BOOL"
-            },
-            "name": "AuthzRegisterCapChangeNotification",
-            "arguments": [
-                {
-                    "name": "phCapChangeSubscription",
-                    "type": "PAUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "pfnCapChangeCallback",
-                    "type": "LPTHREAD_START_ROUTINE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pCallbackContext",
-                    "type": "PVOID",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzUnregisterCapChangeNotification",
-                "type": "BOOL"
-            },
-            "name": "AuthzUnregisterCapChangeNotification",
-            "arguments": [
-                {
-                    "name": "hCapChangeSubscription",
-                    "type": "AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Authz.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AuthzFreeCentralAccessPolicyCache",
-                "type": "BOOL"
-            },
-            "name": "AuthzFreeCentralAccessPolicyCache",
-            "arguments": [
-                {
-                    "type": "void"
-                }
-            ],
-            "api_locations": [
-                "Authz.dll"
             ]
         }
-    ]
-}
+    },
+    {
+        "name": "PAUTHZ_INIT_INFO",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUTHZ_INIT_INFO",
+            "elements": [
+                {
+                    "name": "version",
+                    "type": "USHORT"
+                },
+                {
+                    "name": "szResourceManagerName",
+                    "type": "PCWSTR"
+                },
+                {
+                    "name": "pfnDynamicAccessCheck",
+                    "type": "PFN_AUTHZ_DYNAMIC_ACCESS_CHECK"
+                },
+                {
+                    "name": "pfnComputeDynamicGroups",
+                    "type": "PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS"
+                },
+                {
+                    "name": "pfnFreeDynamicGroups",
+                    "type": "PFN_AUTHZ_FREE_DYNAMIC_GROUPS"
+                },
+                {
+                    "name": "pfnGetCentralAccessPolicy",
+                    "type": "PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY"
+                },
+                {
+                    "name": "pfnFreeCentralAccessPolicy",
+                    "type": "PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AuthzInitializeResourceManagerEx",
+            "type": "BOOL"
+        },
+        "name": "AuthzInitializeResourceManagerEx",
+        "arguments": [
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "pAuthzInitInfo",
+                "type": "PAUTHZ_INIT_INFO",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "phAuthzResourceManager",
+                "type": "PAUTHZ_RESOURCE_MANAGER_HANDLE",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AuthzInitializeRemoteResourceManager",
+            "type": "BOOL"
+        },
+        "name": "AuthzInitializeRemoteResourceManager",
+        "arguments": [
+            {
+                "name": "pRpcInitInfo",
+                "type": "PAUTHZ_RPC_INIT_INFO_CLIENT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "phAuthzResourceManager",
+                "type": "PAUTHZ_RESOURCE_MANAGER_HANDLE",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AuthzFreeResourceManager",
+            "type": "BOOL"
+        },
+        "name": "AuthzFreeResourceManager",
+        "arguments": [
+            {
+                "name": "hAuthzResourceManager",
+                "type": "AUTHZ_RESOURCE_MANAGER_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll",
+            "Ext-MS-Win-authz-context-l1-1-0.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AuthzInitializeContextFromToken",
+            "type": "BOOL"
+        },
+        "name": "AuthzInitializeContextFromToken",
+        "arguments": [
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "TokenHandle",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "hAuthzResourceManager",
+                "type": "AUTHZ_RESOURCE_MANAGER_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pExpirationTime",
+                "type": "PLARGE_INTEGER",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "Identifier",
+                "type": "LUID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "DynamicGroupArgs",
+                "type": "PVOID",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "phAuthzClientContext",
+                "type": "PAUTHZ_CLIENT_CONTEXT_HANDLE",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll",
+            "Ext-MS-Win-authz-context-l1-1-0.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AuthzInitializeContextFromSid",
+            "type": "BOOL"
+        },
+        "name": "AuthzInitializeContextFromSid",
+        "arguments": [
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "UserSid",
+                "type": "PSID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "hAuthzResourceManager",
+                "type": "AUTHZ_RESOURCE_MANAGER_HANDLE",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "pExpirationTime",
+                "type": "PLARGE_INTEGER",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Identifier",
+                "type": "LUID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "DynamicGroupArgs",
+                "type": "PVOID",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "phAuthzClientContext",
+                "type": "PAUTHZ_CLIENT_CONTEXT_HANDLE",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll",
+            "Ext-MS-Win-authz-context-l1-1-0.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AuthzInitializeContextFromAuthzContext",
+            "type": "BOOL"
+        },
+        "name": "AuthzInitializeContextFromAuthzContext",
+        "arguments": [
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "hAuthzClientContext",
+                "type": "AUTHZ_CLIENT_CONTEXT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pExpirationTime",
+                "type": "PLARGE_INTEGER",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "Identifier",
+                "type": "LUID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "DynamicGroupArgs",
+                "type": "PVOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "phNewAuthzClientContext",
+                "type": "PAUTHZ_CLIENT_CONTEXT_HANDLE",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll",
+            "Ext-MS-Win-authz-context-l1-1-0.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AuthzInitializeCompoundContext",
+            "type": "BOOL"
+        },
+        "name": "AuthzInitializeCompoundContext",
+        "arguments": [
+            {
+                "name": "UserContext",
+                "type": "AUTHZ_CLIENT_CONTEXT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "DeviceContext",
+                "type": "AUTHZ_CLIENT_CONTEXT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "phCompoundContext",
+                "type": "PAUTHZ_CLIENT_CONTEXT_HANDLE",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AuthzAddSidsToContext",
+            "type": "BOOL"
+        },
+        "name": "AuthzAddSidsToContext",
+        "arguments": [
+            {
+                "name": "hAuthzClientContext",
+                "type": "AUTHZ_CLIENT_CONTEXT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Sids",
+                "type": "PSID_AND_ATTRIBUTES",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "SidCount",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "RestrictedSids",
+                "type": "PSID_AND_ATTRIBUTES",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "RestrictedSidCount",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "phNewAuthzClientContext",
+                "type": "PAUTHZ_CLIENT_CONTEXT_HANDLE",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AuthzModifySecurityAttributes",
+            "type": "BOOL"
+        },
+        "name": "AuthzModifySecurityAttributes",
+        "arguments": [
+            {
+                "name": "hAuthzClientContext",
+                "type": "AUTHZ_CLIENT_CONTEXT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pOperations",
+                "type": "PAUTHZ_SECURITY_ATTRIBUTE_OPERATION",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pAttributes",
+                "type": "PAUTHZ_SECURITY_ATTRIBUTES_INFORMATION",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll"
+        ]
+    },
+    {
+        "name": "AUTHZ_CONTEXT_INFORMATION_CLASS",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AuthzContextInfoUserSid",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                },
+                {
+                    "name": "AuthzContextInfoGroupsSids",
+                    "value": {}
+                },
+                {
+                    "name": "AuthzContextInfoRestrictedSids",
+                    "value": {}
+                },
+                {
+                    "name": "AuthzContextInfoPrivileges",
+                    "value": {}
+                },
+                {
+                    "name": "AuthzContextInfoExpirationTime",
+                    "value": {}
+                },
+                {
+                    "name": "AuthzContextInfoServerContext",
+                    "value": {}
+                },
+                {
+                    "name": "AuthzContextInfoIdentifier",
+                    "value": {}
+                },
+                {
+                    "name": "AuthzContextInfoSource",
+                    "value": {}
+                },
+                {
+                    "name": "AuthzContextInfoAll",
+                    "value": {}
+                },
+                {
+                    "name": "AuthzContextInfoAuthenticationId",
+                    "value": {}
+                },
+                {
+                    "name": "AuthzContextInfoSecurityAttributes",
+                    "value": {}
+                },
+                {
+                    "name": "AuthzContextInfoDeviceSids",
+                    "value": {}
+                },
+                {
+                    "name": "AuthzContextInfoUserClaims",
+                    "value": {}
+                },
+                {
+                    "name": "AuthzContextInfoDeviceClaims",
+                    "value": {}
+                },
+                {
+                    "name": "AuthzContextInfoAppContainerSid",
+                    "value": {}
+                },
+                {
+                    "name": "AuthzContextInfoCapabilitySids",
+                    "value": {}
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AuthzModifyClaims",
+            "type": "BOOL"
+        },
+        "name": "AuthzModifyClaims",
+        "arguments": [
+            {
+                "name": "hAuthzClientContext",
+                "type": "AUTHZ_CLIENT_CONTEXT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "ClaimClass",
+                "type": "AUTHZ_CONTEXT_INFORMATION_CLASS",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pClaimOperations",
+                "type": "PAUTHZ_SECURITY_ATTRIBUTE_OPERATION",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pClaims",
+                "type": "PAUTHZ_SECURITY_ATTRIBUTES_INFORMATION",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AuthzModifySids",
+            "type": "BOOL"
+        },
+        "name": "AuthzModifySids",
+        "arguments": [
+            {
+                "name": "hAuthzClientContext",
+                "type": "AUTHZ_CLIENT_CONTEXT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "SidClass",
+                "type": "AUTHZ_CONTEXT_INFORMATION_CLASS",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pSidOperations",
+                "type": "PAUTHZ_SID_OPERATION",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pSids",
+                "type": "PTOKEN_GROUPS",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AuthzSetAppContainerInformation",
+            "type": "BOOL"
+        },
+        "name": "AuthzSetAppContainerInformation",
+        "arguments": [
+            {
+                "name": "hAuthzClientContext",
+                "type": "AUTHZ_CLIENT_CONTEXT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pAppContainerSid",
+                "type": "PSID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "CapabilityCount",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pCapabilitySids",
+                "type": "PSID_AND_ATTRIBUTES",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AuthzGetInformationFromContext",
+            "type": "BOOL"
+        },
+        "name": "AuthzGetInformationFromContext",
+        "arguments": [
+            {
+                "name": "hAuthzClientContext",
+                "type": "AUTHZ_CLIENT_CONTEXT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "InfoClass",
+                "type": "AUTHZ_CONTEXT_INFORMATION_CLASS",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "BufferSize",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pSizeRequired",
+                "type": "PDWORD",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "Buffer",
+                "type": "PVOID",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AuthzFreeContext",
+            "type": "BOOL"
+        },
+        "name": "AuthzFreeContext",
+        "arguments": [
+            {
+                "name": "hAuthzClientContext",
+                "type": "AUTHZ_CLIENT_CONTEXT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll",
+            "Ext-MS-Win-authz-context-l1-1-0.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AuthzInitializeObjectAccessAuditEvent",
+            "type": "BOOL"
+        },
+        "name": "AuthzInitializeObjectAccessAuditEvent",
+        "arguments": [
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "hAuditEventType",
+                "type": "AUTHZ_AUDIT_EVENT_TYPE_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "szOperationType",
+                "type": "PWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "szObjectType",
+                "type": "PWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "szObjectName",
+                "type": "PWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "szAdditionalInfo",
+                "type": "PWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "phAuditEvent",
+                "type": "PAUTHZ_AUDIT_EVENT_HANDLE",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "dwAdditionalParameterCount",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AuthzInitializeObjectAccessAuditEvent2",
+            "type": "BOOL"
+        },
+        "name": "AuthzInitializeObjectAccessAuditEvent2",
+        "arguments": [
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "hAuditEventType",
+                "type": "AUTHZ_AUDIT_EVENT_TYPE_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "szOperationType",
+                "type": "PWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "szObjectType",
+                "type": "PWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "szObjectName",
+                "type": "PWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "szAdditionalInfo",
+                "type": "PWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "szAdditionalInfo2",
+                "type": "PWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "phAuditEvent",
+                "type": "PAUTHZ_AUDIT_EVENT_HANDLE",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "dwAdditionalParameterCount",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll"
+        ]
+    },
+    {
+        "name": "AUTHZ_AUDIT_EVENT_INFORMATION_CLASS",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AuthzAuditEventInfoFlags",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                },
+                {
+                    "name": "AuthzAuditEventInfoOperationType",
+                    "value": {}
+                },
+                {
+                    "name": "AuthzAuditEventInfoObjectType",
+                    "value": {}
+                },
+                {
+                    "name": "AuthzAuditEventInfoObjectName",
+                    "value": {}
+                },
+                {
+                    "name": "AuthzAuditEventInfoAdditionalInfo",
+                    "value": {}
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AuthzFreeAuditEvent",
+            "type": "BOOL"
+        },
+        "name": "AuthzFreeAuditEvent",
+        "arguments": [
+            {
+                "name": "hAuditEvent",
+                "type": "AUTHZ_AUDIT_EVENT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll",
+            "Ext-MS-Win-authz-context-l1-1-0.dll"
+        ]
+    },
+    {
+        "name": "AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET",
+            "elements": [
+                {
+                    "name": "szObjectTypeName",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "dwOffset",
+                    "type": "DWORD"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PAUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET",
+            "elements": [
+                {
+                    "name": "szObjectTypeName",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "dwOffset",
+                    "type": "DWORD"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "AUTHZ_SOURCE_SCHEMA_REGISTRATION",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUTHZ_SOURCE_SCHEMA_REGISTRATION",
+            "elements": [
+                {
+                    "name": "dwFlags",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "szEventSourceName",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "szEventMessageFile",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "szEventSourceXmlSchemaFile",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "szEventAccessStringsFile",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "szExecutableImagePath",
+                    "type": "PWSTR"
+                },
+                {
+                    "data_type": "Union",
+                    "elements": [
+                        {
+                            "name": "pReserved",
+                            "type": "PVOID"
+                        },
+                        {
+                            "name": "pProviderGuid",
+                            "type": "GUID",
+                            "data_type": "Ptr"
+                        }
+                    ]
+                },
+                {
+                    "name": "dwObjectTypeNameCount",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "1"
+                    },
+                    "name": "ObjectTypeNames"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PAUTHZ_SOURCE_SCHEMA_REGISTRATION",
+        "type": {
+            "data_type": "Struct",
+            "name": "_AUTHZ_SOURCE_SCHEMA_REGISTRATION",
+            "elements": [
+                {
+                    "name": "dwFlags",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "szEventSourceName",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "szEventMessageFile",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "szEventSourceXmlSchemaFile",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "szEventAccessStringsFile",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "szExecutableImagePath",
+                    "type": "PWSTR"
+                },
+                {
+                    "data_type": "Union",
+                    "elements": [
+                        {
+                            "name": "pReserved",
+                            "type": "PVOID"
+                        },
+                        {
+                            "name": "pProviderGuid",
+                            "type": "GUID",
+                            "data_type": "Ptr"
+                        }
+                    ]
+                },
+                {
+                    "name": "dwObjectTypeNameCount",
+                    "type": "DWORD"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "1"
+                    },
+                    "name": "ObjectTypeNames"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AuthzInstallSecurityEventSource",
+            "type": "BOOL"
+        },
+        "name": "AuthzInstallSecurityEventSource",
+        "arguments": [
+            {
+                "name": "dwFlags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pRegistration",
+                "type": "PAUTHZ_SOURCE_SCHEMA_REGISTRATION",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AuthzUninstallSecurityEventSource",
+            "type": "BOOL"
+        },
+        "name": "AuthzUninstallSecurityEventSource",
+        "arguments": [
+            {
+                "name": "dwFlags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "szEventSourceName",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AuthzEnumerateSecurityEventSources",
+            "type": "BOOL"
+        },
+        "name": "AuthzEnumerateSecurityEventSources",
+        "arguments": [
+            {
+                "name": "dwFlags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Buffer",
+                "type": "PAUTHZ_SOURCE_SCHEMA_REGISTRATION",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "pdwCount",
+                "type": "PDWORD",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "pdwLength",
+                "type": "PDWORD",
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AuthzRegisterSecurityEventSource",
+            "type": "BOOL"
+        },
+        "name": "AuthzRegisterSecurityEventSource",
+        "arguments": [
+            {
+                "name": "dwFlags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "szEventSourceName",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "phEventProvider",
+                "type": "PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AuthzUnregisterSecurityEventSource",
+            "type": "BOOL"
+        },
+        "name": "AuthzUnregisterSecurityEventSource",
+        "arguments": [
+            {
+                "name": "dwFlags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "phEventProvider",
+                "type": "PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE",
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AuthzReportSecurityEvent",
+            "type": "BOOL"
+        },
+        "name": "AuthzReportSecurityEvent",
+        "arguments": [
+            {
+                "name": "dwFlags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "hEventProvider",
+                "type": "AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE",
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "dwAuditId",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pUserSid",
+                "type": "PSID",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "dwCount",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AuthzReportSecurityEventFromParams",
+            "type": "BOOL"
+        },
+        "name": "AuthzReportSecurityEventFromParams",
+        "arguments": [
+            {
+                "name": "dwFlags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "hEventProvider",
+                "type": "AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "dwAuditId",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pUserSid",
+                "type": "PSID",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "pParams",
+                "type": "PAUDIT_PARAMS",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AuthzRegisterCapChangeNotification",
+            "type": "BOOL"
+        },
+        "name": "AuthzRegisterCapChangeNotification",
+        "arguments": [
+            {
+                "name": "phCapChangeSubscription",
+                "type": "PAUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "pfnCapChangeCallback",
+                "type": "LPTHREAD_START_ROUTINE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pCallbackContext",
+                "type": "PVOID",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AuthzUnregisterCapChangeNotification",
+            "type": "BOOL"
+        },
+        "name": "AuthzUnregisterCapChangeNotification",
+        "arguments": [
+            {
+                "name": "hCapChangeSubscription",
+                "type": "AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Authz.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AuthzFreeCentralAccessPolicyCache",
+            "type": "BOOL"
+        },
+        "name": "AuthzFreeCentralAccessPolicyCache",
+        "arguments": [
+            {
+                "type": "void"
+            }
+        ],
+        "api_locations": [
+            "Authz.dll"
+        ]
+    }
+]

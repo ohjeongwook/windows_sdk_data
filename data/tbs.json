@@ -1,589 +1,585 @@
-{
-    "typedefs": [
-        {
-            "name": "PCINT32",
-            "type": "INT32",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "PCUINT32",
-            "type": "UINT32",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "PCVOID",
-            "type": "void",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "PCBOOL",
-            "type": "BOOL",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "PCBYTE",
-            "type": "BYTE",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "TBS_BOOL",
-            "type": "BOOL"
-        },
-        {
-            "name": "TBS_RESULT",
-            "type": "UINT32"
-        },
-        {
-            "name": "TBS_HCONTEXT",
-            "type": "PVOID"
-        },
-        {
-            "name": "PTBS_HCONTEXT",
-            "type": "PVOID",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "TBS_COMMAND_PRIORITY",
-            "type": "UINT32"
-        },
-        {
-            "name": "TBS_COMMAND_LOCALITY",
-            "type": "UINT32"
-        },
-        {
-            "name": "TBS_OWNERAUTH_TYPE",
-            "type": "UINT32"
-        },
-        {
-            "name": "TBS_HANDLE",
-            "type": "UINT32"
-        },
-        {
-            "name": "TBS_CONTEXT_PARAMS",
-            "type": {
-                "data_type": "Struct",
-                "name": "tdTBS_CONTEXT_PARAMS",
-                "elements": [
-                    {
-                        "name": "version",
-                        "type": "UINT32"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PTBS_CONTEXT_PARAMS",
-            "type": {
-                "data_type": "Struct",
-                "name": "tdTBS_CONTEXT_PARAMS",
-                "elements": [
-                    {
-                        "name": "version",
-                        "type": "UINT32"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "PCTBS_CONTEXT_PARAMS",
-            "type": "TBS_CONTEXT_PARAMS",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "TBS_CONTEXT_PARAMS2",
-            "type": {
-                "data_type": "Struct",
-                "name": "tdTBS_CONTEXT_PARAMS2",
-                "elements": [
-                    {
-                        "name": "version",
-                        "type": "UINT32"
-                    },
-                    {
-                        "data_type": "Union",
-                        "elements": [
-                            {
-                                "data_type": "Struct",
-                                "elements": [
-                                    {
-                                        "name": "requestRaw",
-                                        "type": "UINT32"
-                                    },
-                                    {
-                                        "name": "includeTpm12",
-                                        "type": "UINT32"
-                                    },
-                                    {
-                                        "name": "includeTpm20",
-                                        "type": "UINT32"
-                                    }
-                                ]
-                            },
-                            {
-                                "name": "asUINT32",
-                                "type": "UINT32"
-                            }
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PTBS_CONTEXT_PARAMS2",
-            "type": {
-                "data_type": "Struct",
-                "name": "tdTBS_CONTEXT_PARAMS2",
-                "elements": [
-                    {
-                        "name": "version",
-                        "type": "UINT32"
-                    },
-                    {
-                        "data_type": "Union",
-                        "elements": [
-                            {
-                                "data_type": "Struct",
-                                "elements": [
-                                    {
-                                        "name": "requestRaw",
-                                        "type": "UINT32"
-                                    },
-                                    {
-                                        "name": "includeTpm12",
-                                        "type": "UINT32"
-                                    },
-                                    {
-                                        "name": "includeTpm20",
-                                        "type": "UINT32"
-                                    }
-                                ]
-                            },
-                            {
-                                "name": "asUINT32",
-                                "type": "UINT32"
-                            }
-                        ]
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "PCTBS_CONTEXT_PARAMS2",
-            "type": "TBS_CONTEXT_PARAMS2",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "TPM_WNF_PROVISIONING",
-            "type": {
-                "data_type": "Struct",
-                "name": "tdTPM_WNF_PROVISIONING",
-                "elements": [
-                    {
-                        "name": "status",
-                        "type": "UINT32"
-                    },
-                    {
-                        "data_type": "ArrayDecl",
-                        "dim": {
-                            "type": "int",
-                            "value": "28"
-                        },
-                        "name": "message"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "TPM_DEVICE_INFO",
-            "type": {
-                "data_type": "Struct",
-                "name": "_TPM_DEVICE_INFO",
-                "elements": [
-                    {
-                        "name": "structVersion",
-                        "type": "UINT32"
-                    },
-                    {
-                        "name": "tpmVersion",
-                        "type": "UINT32"
-                    },
-                    {
-                        "name": "tpmInterfaceType",
-                        "type": "UINT32"
-                    },
-                    {
-                        "name": "tpmImpRevision",
-                        "type": "UINT32"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PTPM_DEVICE_INFO",
-            "type": {
-                "data_type": "Struct",
-                "name": "_TPM_DEVICE_INFO",
-                "elements": [
-                    {
-                        "name": "structVersion",
-                        "type": "UINT32"
-                    },
-                    {
-                        "name": "tpmVersion",
-                        "type": "UINT32"
-                    },
-                    {
-                        "name": "tpmInterfaceType",
-                        "type": "UINT32"
-                    },
-                    {
-                        "name": "tpmImpRevision",
-                        "type": "UINT32"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "PCTPM_DEVICE_INFO",
-            "type": "TPM_DEVICE_INFO",
-            "data_type": "Ptr"
+[
+    {
+        "name": "PCINT32",
+        "type": "INT32",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "PCUINT32",
+        "type": "UINT32",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "PCVOID",
+        "type": "void",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "PCBOOL",
+        "type": "BOOL",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "PCBYTE",
+        "type": "BYTE",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "TBS_BOOL",
+        "type": "BOOL"
+    },
+    {
+        "name": "TBS_RESULT",
+        "type": "UINT32"
+    },
+    {
+        "name": "TBS_HCONTEXT",
+        "type": "PVOID"
+    },
+    {
+        "name": "PTBS_HCONTEXT",
+        "type": "PVOID",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "TBS_COMMAND_PRIORITY",
+        "type": "UINT32"
+    },
+    {
+        "name": "TBS_COMMAND_LOCALITY",
+        "type": "UINT32"
+    },
+    {
+        "name": "TBS_OWNERAUTH_TYPE",
+        "type": "UINT32"
+    },
+    {
+        "name": "TBS_HANDLE",
+        "type": "UINT32"
+    },
+    {
+        "name": "TBS_CONTEXT_PARAMS",
+        "type": {
+            "data_type": "Struct",
+            "name": "tdTBS_CONTEXT_PARAMS",
+            "elements": [
+                {
+                    "name": "version",
+                    "type": "UINT32"
+                }
+            ]
         }
-    ],
-    "funcdefs": [
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "Tbsi_Context_Create",
-                "type": "TBS_RESULT"
-            },
+    },
+    {
+        "name": "PTBS_CONTEXT_PARAMS",
+        "type": {
+            "data_type": "Struct",
+            "name": "tdTBS_CONTEXT_PARAMS",
+            "elements": [
+                {
+                    "name": "version",
+                    "type": "UINT32"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "PCTBS_CONTEXT_PARAMS",
+        "type": "TBS_CONTEXT_PARAMS",
+        "data_type": "Ptr"
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "Tbsi_Context_Create",
-            "arguments": [
-                {
-                    "name": "pContextParams",
-                    "type": "PCTBS_CONTEXT_PARAMS",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "phContext",
-                    "type": "PTBS_HCONTEXT",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Tbs.dll"
-            ]
+            "type": "TBS_RESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "Tbsip_Context_Close",
-                "type": "TBS_RESULT"
+        "name": "Tbsi_Context_Create",
+        "arguments": [
+            {
+                "name": "pContextParams",
+                "type": "PCTBS_CONTEXT_PARAMS",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "phContext",
+                "type": "PTBS_HCONTEXT",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Tbs.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "Tbsip_Context_Close",
-            "arguments": [
-                {
-                    "name": "hContext",
-                    "type": "TBS_HCONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Tbs.dll"
-            ]
+            "type": "TBS_RESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "Tbsip_Submit_Command",
-                "type": "TBS_RESULT"
-            },
+        "name": "Tbsip_Context_Close",
+        "arguments": [
+            {
+                "name": "hContext",
+                "type": "TBS_HCONTEXT",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Tbs.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "Tbsip_Submit_Command",
-            "arguments": [
-                {
-                    "name": "hContext",
-                    "type": "TBS_HCONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Locality",
-                    "type": "TBS_COMMAND_LOCALITY",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Priority",
-                    "type": "TBS_COMMAND_PRIORITY",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pabCommand",
-                    "type": "PCBYTE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cbCommand",
-                    "type": "UINT32",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pabResult",
-                    "type": "PBYTE",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "pcbResult",
-                    "type": "PUINT32",
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Tbs.dll"
-            ]
+            "type": "TBS_RESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "Tbsip_Cancel_Commands",
-                "type": "TBS_RESULT"
+        "name": "Tbsip_Submit_Command",
+        "arguments": [
+            {
+                "name": "hContext",
+                "type": "TBS_HCONTEXT",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "Locality",
+                "type": "TBS_COMMAND_LOCALITY",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Priority",
+                "type": "TBS_COMMAND_PRIORITY",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pabCommand",
+                "type": "PCBYTE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cbCommand",
+                "type": "UINT32",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pabResult",
+                "type": "PBYTE",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "pcbResult",
+                "type": "PUINT32",
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Tbs.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "Tbsip_Cancel_Commands",
-            "arguments": [
-                {
-                    "name": "hContext",
-                    "type": "TBS_HCONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Tbs.dll"
-            ]
+            "type": "TBS_RESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "Tbsi_Physical_Presence_Command",
-                "type": "TBS_RESULT"
-            },
+        "name": "Tbsip_Cancel_Commands",
+        "arguments": [
+            {
+                "name": "hContext",
+                "type": "TBS_HCONTEXT",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Tbs.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "Tbsi_Physical_Presence_Command",
-            "arguments": [
-                {
-                    "name": "hContext",
-                    "type": "TBS_HCONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pabInput",
-                    "type": "PCBYTE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "cbInput",
-                    "type": "UINT32",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pabOutput",
-                    "type": "PBYTE",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "pcbOutput",
-                    "type": "PUINT32",
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Tbs.dll"
-            ]
+            "type": "TBS_RESULT"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "Tbsi_Get_TCG_Log",
-                "type": "TBS_RESULT"
+        "name": "Tbsi_Physical_Presence_Command",
+        "arguments": [
+            {
+                "name": "hContext",
+                "type": "TBS_HCONTEXT",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "pabInput",
+                "type": "PCBYTE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "cbInput",
+                "type": "UINT32",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pabOutput",
+                "type": "PBYTE",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "pcbOutput",
+                "type": "PUINT32",
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Tbs.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "Tbsi_Get_TCG_Log",
-            "arguments": [
+            "type": "TBS_RESULT"
+        },
+        "name": "Tbsi_Get_TCG_Log",
+        "arguments": [
+            {
+                "name": "hContext",
+                "type": "TBS_HCONTEXT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pOutputBuf",
+                "type": "PBYTE",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "pOutputBufLen",
+                "type": "PUINT32",
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Tbs.dll"
+        ]
+    },
+    {
+        "name": "TBS_CONTEXT_PARAMS2",
+        "type": {
+            "data_type": "Struct",
+            "name": "tdTBS_CONTEXT_PARAMS2",
+            "elements": [
                 {
-                    "name": "hContext",
-                    "type": "TBS_HCONTEXT",
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "version",
+                    "type": "UINT32"
                 },
                 {
-                    "name": "pOutputBuf",
-                    "type": "PBYTE",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "pOutputBufLen",
-                    "type": "PUINT32",
-                    "sal": [
-                        "in",
-                        "out"
+                    "data_type": "Union",
+                    "elements": [
+                        {
+                            "data_type": "Struct",
+                            "elements": [
+                                {
+                                    "name": "requestRaw",
+                                    "type": "UINT32"
+                                },
+                                {
+                                    "name": "includeTpm12",
+                                    "type": "UINT32"
+                                },
+                                {
+                                    "name": "includeTpm20",
+                                    "type": "UINT32"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "asUINT32",
+                            "type": "UINT32"
+                        }
                     ]
                 }
-            ],
-            "api_locations": [
-                "Tbs.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "Tbsi_GetDeviceInfo",
-                "type": "TBS_RESULT"
-            },
-            "name": "Tbsi_GetDeviceInfo",
-            "arguments": [
-                {
-                    "name": "Size",
-                    "type": "UINT32",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Info",
-                    "type": "PVOID",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Tbs.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "Tbsi_Get_OwnerAuth",
-                "type": "TBS_RESULT"
-            },
-            "name": "Tbsi_Get_OwnerAuth",
-            "arguments": [
-                {
-                    "name": "hContext",
-                    "type": "TBS_HCONTEXT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "ownerauthType",
-                    "type": "TBS_OWNERAUTH_TYPE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pOutputBuf",
-                    "type": "PBYTE",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "pOutputBufLen",
-                    "type": "PUINT32",
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Tbs.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "Tbsi_Revoke_Attestation",
-                "type": "TBS_RESULT"
-            },
-            "name": "Tbsi_Revoke_Attestation",
-            "arguments": [],
-            "api_locations": [
-                "Tbs.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "Tbsi_Get_TCG_Log_Ex",
-                "type": "TBS_RESULT"
-            },
-            "name": "Tbsi_Get_TCG_Log_Ex",
-            "arguments": [
-                {
-                    "name": "logType",
-                    "type": "UINT32",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "pbOutput",
-                    "type": "PBYTE",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "pcbOutput",
-                    "type": "PUINT32",
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Tbs.dll"
             ]
         }
-    ]
-}
+    },
+    {
+        "name": "PTBS_CONTEXT_PARAMS2",
+        "type": {
+            "data_type": "Struct",
+            "name": "tdTBS_CONTEXT_PARAMS2",
+            "elements": [
+                {
+                    "name": "version",
+                    "type": "UINT32"
+                },
+                {
+                    "data_type": "Union",
+                    "elements": [
+                        {
+                            "data_type": "Struct",
+                            "elements": [
+                                {
+                                    "name": "requestRaw",
+                                    "type": "UINT32"
+                                },
+                                {
+                                    "name": "includeTpm12",
+                                    "type": "UINT32"
+                                },
+                                {
+                                    "name": "includeTpm20",
+                                    "type": "UINT32"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "asUINT32",
+                            "type": "UINT32"
+                        }
+                    ]
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "PCTBS_CONTEXT_PARAMS2",
+        "type": "TBS_CONTEXT_PARAMS2",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "TPM_WNF_PROVISIONING",
+        "type": {
+            "data_type": "Struct",
+            "name": "tdTPM_WNF_PROVISIONING",
+            "elements": [
+                {
+                    "name": "status",
+                    "type": "UINT32"
+                },
+                {
+                    "data_type": "ArrayDecl",
+                    "dim": {
+                        "type": "int",
+                        "value": "28"
+                    },
+                    "name": "message"
+                }
+            ]
+        }
+    },
+    {
+        "name": "TPM_DEVICE_INFO",
+        "type": {
+            "data_type": "Struct",
+            "name": "_TPM_DEVICE_INFO",
+            "elements": [
+                {
+                    "name": "structVersion",
+                    "type": "UINT32"
+                },
+                {
+                    "name": "tpmVersion",
+                    "type": "UINT32"
+                },
+                {
+                    "name": "tpmInterfaceType",
+                    "type": "UINT32"
+                },
+                {
+                    "name": "tpmImpRevision",
+                    "type": "UINT32"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PTPM_DEVICE_INFO",
+        "type": {
+            "data_type": "Struct",
+            "name": "_TPM_DEVICE_INFO",
+            "elements": [
+                {
+                    "name": "structVersion",
+                    "type": "UINT32"
+                },
+                {
+                    "name": "tpmVersion",
+                    "type": "UINT32"
+                },
+                {
+                    "name": "tpmInterfaceType",
+                    "type": "UINT32"
+                },
+                {
+                    "name": "tpmImpRevision",
+                    "type": "UINT32"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "PCTPM_DEVICE_INFO",
+        "type": "TPM_DEVICE_INFO",
+        "data_type": "Ptr"
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "Tbsi_GetDeviceInfo",
+            "type": "TBS_RESULT"
+        },
+        "name": "Tbsi_GetDeviceInfo",
+        "arguments": [
+            {
+                "name": "Size",
+                "type": "UINT32",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Info",
+                "type": "PVOID",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Tbs.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "Tbsi_Get_OwnerAuth",
+            "type": "TBS_RESULT"
+        },
+        "name": "Tbsi_Get_OwnerAuth",
+        "arguments": [
+            {
+                "name": "hContext",
+                "type": "TBS_HCONTEXT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "ownerauthType",
+                "type": "TBS_OWNERAUTH_TYPE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pOutputBuf",
+                "type": "PBYTE",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "name": "pOutputBufLen",
+                "type": "PUINT32",
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Tbs.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "Tbsi_Revoke_Attestation",
+            "type": "TBS_RESULT"
+        },
+        "name": "Tbsi_Revoke_Attestation",
+        "arguments": [],
+        "api_locations": [
+            "Tbs.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "Tbsi_Get_TCG_Log_Ex",
+            "type": "TBS_RESULT"
+        },
+        "name": "Tbsi_Get_TCG_Log_Ex",
+        "arguments": [
+            {
+                "name": "logType",
+                "type": "UINT32",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "pbOutput",
+                "type": "PBYTE",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "name": "pcbOutput",
+                "type": "PUINT32",
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Tbs.dll"
+        ]
+    }
+]

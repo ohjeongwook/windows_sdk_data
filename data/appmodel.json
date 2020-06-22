@@ -1,2120 +1,2116 @@
-{
-    "typedefs": [
-        {
+[
+    {
+        "name": "PACKAGE_VERSION",
+        "type": {
+            "data_type": "Struct",
             "name": "PACKAGE_VERSION",
-            "type": {
-                "data_type": "Struct",
-                "name": "PACKAGE_VERSION",
-                "elements": [
-                    {
-                        "data_type": "Union",
-                        "elements": [
-                            {
-                                "name": "Version",
-                                "type": "UINT64"
-                            },
-                            {
-                                "data_type": "Struct",
-                                "elements": [
-                                    {
-                                        "name": "Revision",
-                                        "type": "USHORT"
-                                    },
-                                    {
-                                        "name": "Build",
-                                        "type": "USHORT"
-                                    },
-                                    {
-                                        "name": "Minor",
-                                        "type": "USHORT"
-                                    },
-                                    {
-                                        "name": "Major",
-                                        "type": "USHORT"
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            }
-        },
-        {
+            "elements": [
+                {
+                    "data_type": "Union",
+                    "elements": [
+                        {
+                            "name": "Version",
+                            "type": "UINT64"
+                        },
+                        {
+                            "data_type": "Struct",
+                            "elements": [
+                                {
+                                    "name": "Revision",
+                                    "type": "USHORT"
+                                },
+                                {
+                                    "name": "Build",
+                                    "type": "USHORT"
+                                },
+                                {
+                                    "name": "Minor",
+                                    "type": "USHORT"
+                                },
+                                {
+                                    "name": "Major",
+                                    "type": "USHORT"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "name": "PACKAGE_ID",
+        "type": {
+            "data_type": "Struct",
             "name": "PACKAGE_ID",
-            "type": {
-                "data_type": "Struct",
-                "name": "PACKAGE_ID",
-                "elements": [
-                    {
-                        "name": "reserved",
-                        "type": "UINT32"
-                    },
-                    {
-                        "name": "processorArchitecture",
-                        "type": "UINT32"
-                    },
-                    {
-                        "name": "version",
-                        "type": "PACKAGE_VERSION"
-                    },
-                    {
-                        "name": "name",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "publisher",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "resourceId",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "publisherId",
-                        "type": "PWSTR"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PackagePathType",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "PackagePathType_Install",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "PackagePathType_Mutable",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    },
-                    {
-                        "name": "PackagePathType_Effective",
-                        "value": {
-                            "type": "int",
-                            "value": "2"
-                        }
-                    },
-                    {
-                        "name": "PackagePathType_MachineExternal",
-                        "value": {
-                            "type": "int",
-                            "value": "3"
-                        }
-                    },
-                    {
-                        "name": "PackagePathType_UserExternal",
-                        "value": {
-                            "type": "int",
-                            "value": "4"
-                        }
-                    },
-                    {
-                        "name": "PackagePathType_EffectiveExternal",
-                        "value": {
-                            "type": "int",
-                            "value": "5"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PackageOrigin",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "PackageOrigin_Unknown",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "PackageOrigin_Unsigned",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    },
-                    {
-                        "name": "PackageOrigin_Inbox",
-                        "value": {
-                            "type": "int",
-                            "value": "2"
-                        }
-                    },
-                    {
-                        "name": "PackageOrigin_Store",
-                        "value": {
-                            "type": "int",
-                            "value": "3"
-                        }
-                    },
-                    {
-                        "name": "PackageOrigin_DeveloperUnsigned",
-                        "value": {
-                            "type": "int",
-                            "value": "4"
-                        }
-                    },
-                    {
-                        "name": "PackageOrigin_DeveloperSigned",
-                        "value": {
-                            "type": "int",
-                            "value": "5"
-                        }
-                    },
-                    {
-                        "name": "PackageOrigin_LineOfBusiness",
-                        "value": {
-                            "type": "int",
-                            "value": "6"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PACKAGE_INFO_REFERENCE",
-            "type": {
-                "data_type": "Struct",
-                "name": "_PACKAGE_INFO_REFERENCE",
-                "elements": [
-                    {
-                        "name": "reserved",
-                        "type": "void",
-                        "data_type": "Ptr"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "PACKAGE_INFO",
-            "type": {
-                "data_type": "Struct",
-                "name": "PACKAGE_INFO",
-                "elements": [
-                    {
-                        "name": "reserved",
-                        "type": "UINT32"
-                    },
-                    {
-                        "name": "flags",
-                        "type": "UINT32"
-                    },
-                    {
-                        "name": "path",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "packageFullName",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "packageFamilyName",
-                        "type": "PWSTR"
-                    },
-                    {
-                        "name": "packageId",
-                        "type": "PACKAGE_ID"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "AppPolicyLifecycleManagement",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AppPolicyLifecycleManagement_Unmanaged",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyLifecycleManagement_Managed",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "AppPolicyWindowingModel",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AppPolicyWindowingModel_None",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyWindowingModel_Universal",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyWindowingModel_ClassicDesktop",
-                        "value": {
-                            "type": "int",
-                            "value": "2"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyWindowingModel_ClassicPhone",
-                        "value": {
-                            "type": "int",
-                            "value": "3"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "AppPolicyMediaFoundationCodecLoading",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AppPolicyMediaFoundationCodecLoading_All",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyMediaFoundationCodecLoading_InboxOnly",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "AppPolicyClrCompat",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AppPolicyClrCompat_Other",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyClrCompat_ClassicDesktop",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyClrCompat_Universal",
-                        "value": {
-                            "type": "int",
-                            "value": "2"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyClrCompat_PackagedDesktop",
-                        "value": {
-                            "type": "int",
-                            "value": "3"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "AppPolicyThreadInitializationType",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AppPolicyThreadInitializationType_None",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyThreadInitializationType_InitializeWinRT",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "AppPolicyShowDeveloperDiagnostic",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AppPolicyShowDeveloperDiagnostic_None",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyShowDeveloperDiagnostic_ShowUI",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "AppPolicyProcessTerminationMethod",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AppPolicyProcessTerminationMethod_ExitProcess",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyProcessTerminationMethod_TerminateProcess",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "AppPolicyCreateFileAccess",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "AppPolicyCreateFileAccess_Full",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "AppPolicyCreateFileAccess_Limited",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    }
-                ]
-            }
+            "elements": [
+                {
+                    "name": "reserved",
+                    "type": "UINT32"
+                },
+                {
+                    "name": "processorArchitecture",
+                    "type": "UINT32"
+                },
+                {
+                    "name": "version",
+                    "type": "PACKAGE_VERSION"
+                },
+                {
+                    "name": "name",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "publisher",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "resourceId",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "publisherId",
+                    "type": "PWSTR"
+                }
+            ]
         }
-    ],
-    "funcdefs": [
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetCurrentPackageId",
-                "type": "LONG"
-            },
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "GetCurrentPackageId",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "bufferLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "buffer",
-                        "type": "BYTE"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
-                "kernel32legacy.dll",
-                "Ext-MS-Win-kernel32-package-current-l1-1-0.dll",
-                "modernapiexthost.dll",
-                "kernel.appcore.dll",
-                "API-MS-Win-AppModel-Runtime-l1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-l1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-l1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
+            "type": "LONG"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetCurrentPackageFullName",
-                "type": "LONG"
+        "name": "GetCurrentPackageId",
+        "arguments": [
+            {
+                "type": {
+                    "name": "bufferLength",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
             },
+            {
+                "type": {
+                    "name": "buffer",
+                    "type": "BYTE"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
+            "kernel32legacy.dll",
+            "Ext-MS-Win-kernel32-package-current-l1-1-0.dll",
+            "modernapiexthost.dll",
+            "kernel.appcore.dll",
+            "API-MS-Win-AppModel-Runtime-l1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-l1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-l1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "GetCurrentPackageFullName",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "packageFullNameLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "packageFullName",
-                    "type": "PWSTR",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
-                "kernel32legacy.dll",
-                "Kernel.AppCore.dll",
-                "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
+            "type": "LONG"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetCurrentPackageFamilyName",
-                "type": "LONG"
+        "name": "GetCurrentPackageFullName",
+        "arguments": [
+            {
+                "type": {
+                    "name": "packageFullNameLength",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
             },
+            {
+                "name": "packageFullName",
+                "type": "PWSTR",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
+            "kernel32legacy.dll",
+            "Kernel.AppCore.dll",
+            "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "GetCurrentPackageFamilyName",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "packageFamilyNameLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "packageFamilyName",
-                    "type": "PWSTR",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
-                "kernel32legacy.dll",
-                "Kernel.AppCore.dll",
-                "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
+            "type": "LONG"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetCurrentPackagePath",
-                "type": "LONG"
+        "name": "GetCurrentPackageFamilyName",
+        "arguments": [
+            {
+                "type": {
+                    "name": "packageFamilyNameLength",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
             },
+            {
+                "name": "packageFamilyName",
+                "type": "PWSTR",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
+            "kernel32legacy.dll",
+            "Kernel.AppCore.dll",
+            "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "GetCurrentPackagePath",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "pathLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "path",
-                    "type": "PWSTR",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
-                "kernel32legacy.dll",
-                "Kernel.AppCore.dll",
-                "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
+            "type": "LONG"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetPackageId",
-                "type": "LONG"
+        "name": "GetCurrentPackagePath",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pathLength",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
             },
+            {
+                "name": "path",
+                "type": "PWSTR",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
+            "kernel32legacy.dll",
+            "Kernel.AppCore.dll",
+            "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "GetPackageId",
-            "arguments": [
-                {
-                    "name": "hProcess",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "bufferLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "buffer",
-                        "type": "BYTE"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
-                "kernel32legacy.dll",
-                "Ext-MS-Win-kernel32-package-l1-1-0.dll",
-                "Kernel.AppCore.dll",
-                "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
-                "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
-                "ext-ms-win-kernel32-package-l1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
+            "type": "LONG"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetPackageFullName",
-                "type": "LONG"
+        "name": "GetPackageId",
+        "arguments": [
+            {
+                "name": "hProcess",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "type": {
+                    "name": "bufferLength",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "buffer",
+                    "type": "BYTE"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
+            "kernel32legacy.dll",
+            "Ext-MS-Win-kernel32-package-l1-1-0.dll",
+            "Kernel.AppCore.dll",
+            "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
+            "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
+            "ext-ms-win-kernel32-package-l1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "GetPackageFullName",
-            "arguments": [
-                {
-                    "name": "hProcess",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "packageFullNameLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "packageFullName",
-                    "type": "PWSTR",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
-                "kernel32legacy.dll",
-                "Ext-MS-Win-kernel32-package-l1-1-0.dll",
-                "Kernel.AppCore.dll",
-                "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
-                "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
-                "ext-ms-win-kernel32-package-l1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
+            "type": "LONG"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetPackageFullNameFromToken",
-                "type": "LONG"
+        "name": "GetPackageFullName",
+        "arguments": [
+            {
+                "name": "hProcess",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "type": {
+                    "name": "packageFullNameLength",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "packageFullName",
+                "type": "PWSTR",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
+            "kernel32legacy.dll",
+            "Ext-MS-Win-kernel32-package-l1-1-0.dll",
+            "Kernel.AppCore.dll",
+            "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
+            "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
+            "ext-ms-win-kernel32-package-l1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "GetPackageFullNameFromToken",
-            "arguments": [
-                {
-                    "name": "token",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "packageFullNameLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "packageFullName",
-                    "type": "PWSTR",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-Runtime-Internal-L1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-Internal-L1-1-2.dll",
-                "API-MS-Win-AppModel-Runtime-Internal-L1-1-3.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-0.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll",
-                "Ext-MS-Win-Kernel32-Package-L1-1-0.dll",
-                "Ext-MS-Win-Kernel32-Package-L1-1-1.dll",
-                "Ext-MS-Win-Kernel32-Package-L1-1-2.dll",
-                "Kernel.AppCore.dll",
-                "Kernel32Legacy.dll"
-            ]
+            "type": "LONG"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetPackageFamilyName",
-                "type": "LONG"
+        "name": "GetPackageFullNameFromToken",
+        "arguments": [
+            {
+                "name": "token",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "type": {
+                    "name": "packageFullNameLength",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "packageFullName",
+                "type": "PWSTR",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-Runtime-Internal-L1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-Internal-L1-1-2.dll",
+            "API-MS-Win-AppModel-Runtime-Internal-L1-1-3.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-0.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll",
+            "Ext-MS-Win-Kernel32-Package-L1-1-0.dll",
+            "Ext-MS-Win-Kernel32-Package-L1-1-1.dll",
+            "Ext-MS-Win-Kernel32-Package-L1-1-2.dll",
+            "Kernel.AppCore.dll",
+            "Kernel32Legacy.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "GetPackageFamilyName",
-            "arguments": [
-                {
-                    "name": "hProcess",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "packageFamilyNameLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "packageFamilyName",
-                    "type": "PWSTR",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
-                "kernel32legacy.dll",
-                "Ext-MS-Win-kernel32-package-l1-1-0.dll",
-                "Kernel.AppCore.dll",
-                "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
-                "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
-                "ext-ms-win-kernel32-package-l1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
+            "type": "LONG"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetPackageFamilyNameFromToken",
-                "type": "LONG"
+        "name": "GetPackageFamilyName",
+        "arguments": [
+            {
+                "name": "hProcess",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "type": {
+                    "name": "packageFamilyNameLength",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "packageFamilyName",
+                "type": "PWSTR",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
+            "kernel32legacy.dll",
+            "Ext-MS-Win-kernel32-package-l1-1-0.dll",
+            "Kernel.AppCore.dll",
+            "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
+            "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
+            "ext-ms-win-kernel32-package-l1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "GetPackageFamilyNameFromToken",
-            "arguments": [
-                {
-                    "name": "token",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "packageFamilyNameLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "packageFamilyName",
-                    "type": "PWSTR",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
-                "kernel32legacy.dll",
-                "Ext-MS-Win-kernel32-package-l1-1-0.dll",
-                "Kernel.AppCore.dll",
-                "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
-                "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
-                "ext-ms-win-kernel32-package-l1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
+            "type": "LONG"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetPackagePath",
-                "type": "LONG"
+        "name": "GetPackageFamilyNameFromToken",
+        "arguments": [
+            {
+                "name": "token",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "type": {
+                    "name": "packageFamilyNameLength",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "packageFamilyName",
+                "type": "PWSTR",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
+            "kernel32legacy.dll",
+            "Ext-MS-Win-kernel32-package-l1-1-0.dll",
+            "Kernel.AppCore.dll",
+            "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
+            "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
+            "ext-ms-win-kernel32-package-l1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "GetPackagePath",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "packageId",
-                        "type": "PACKAGE_ID"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "reserved",
-                    "type": "UINT32",
-                    "sal": []
-                },
-                {
-                    "type": {
-                        "name": "pathLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "path",
-                    "type": "PWSTR",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
-                "kernel32legacy.dll",
-                "Ext-MS-Win-kernel32-package-l1-1-0.dll",
-                "Kernel.AppCore.dll",
-                "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
-                "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
-                "ext-ms-win-kernel32-package-l1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
+            "type": "LONG"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetPackagePathByFullName",
-                "type": "LONG"
+        "name": "GetPackagePath",
+        "arguments": [
+            {
+                "type": {
+                    "name": "packageId",
+                    "type": "PACKAGE_ID"
+                },
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "reserved",
+                "type": "UINT32",
+                "sal": []
+            },
+            {
+                "type": {
+                    "name": "pathLength",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "path",
+                "type": "PWSTR",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
+            "kernel32legacy.dll",
+            "Ext-MS-Win-kernel32-package-l1-1-0.dll",
+            "Kernel.AppCore.dll",
+            "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
+            "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
+            "ext-ms-win-kernel32-package-l1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "GetPackagePathByFullName",
-            "arguments": [
-                {
-                    "name": "packageFullName",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pathLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "path",
-                    "type": "PWSTR",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
-                "Kernel.AppCore.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
+            "type": "LONG"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetStagedPackagePathByFullName",
-                "type": "LONG"
+        "name": "GetPackagePathByFullName",
+        "arguments": [
+            {
+                "name": "packageFullName",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "type": {
+                    "name": "pathLength",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "path",
+                "type": "PWSTR",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
+            "Kernel.AppCore.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "GetStagedPackagePathByFullName",
-            "arguments": [
-                {
-                    "name": "packageFullName",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pathLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "path",
-                    "type": "PWSTR",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
-                "Kernel.AppCore.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
+            "type": "LONG"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetCurrentApplicationUserModelId",
-                "type": "LONG"
+        "name": "GetStagedPackagePathByFullName",
+        "arguments": [
+            {
+                "name": "packageFullName",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
             },
-            "name": "GetCurrentApplicationUserModelId",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "applicationUserModelIdLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
+            {
+                "type": {
+                    "name": "pathLength",
+                    "type": "UINT32"
                 },
-                {
-                    "name": "applicationUserModelId",
-                    "type": "PWSTR",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
-                "kernel32legacy.dll",
-                "Kernel.AppCore.dll",
-                "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetApplicationUserModelId",
-                "type": "LONG"
+                "sal": [
+                    "in",
+                    "out"
+                ]
             },
-            "name": "GetApplicationUserModelId",
-            "arguments": [
+            {
+                "name": "path",
+                "type": "PWSTR",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
+            "Kernel.AppCore.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "name": "PackagePathType",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
                 {
-                    "name": "hProcess",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "PackagePathType_Install",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
                 },
                 {
-                    "type": {
-                        "name": "applicationUserModelIdLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
+                    "name": "PackagePathType_Mutable",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
                 },
                 {
-                    "name": "applicationUserModelId",
-                    "type": "PWSTR",
-                    "sal": [
-                        "out"
-                    ]
+                    "name": "PackagePathType_Effective",
+                    "value": {
+                        "type": "int",
+                        "value": "2"
+                    }
+                },
+                {
+                    "name": "PackagePathType_MachineExternal",
+                    "value": {
+                        "type": "int",
+                        "value": "3"
+                    }
+                },
+                {
+                    "name": "PackagePathType_UserExternal",
+                    "value": {
+                        "type": "int",
+                        "value": "4"
+                    }
+                },
+                {
+                    "name": "PackagePathType_EffectiveExternal",
+                    "value": {
+                        "type": "int",
+                        "value": "5"
+                    }
                 }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
-                "kernel32legacy.dll",
-                "Kernel.AppCore.dll",
-                "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetApplicationUserModelIdFromToken",
-                "type": "LONG"
-            },
-            "name": "GetApplicationUserModelIdFromToken",
-            "arguments": [
-                {
-                    "name": "token",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "applicationUserModelIdLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "applicationUserModelId",
-                    "type": "PWSTR",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
-                "kernel32legacy.dll",
-                "Kernel.AppCore.dll",
-                "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PackageIdFromFullName",
-                "type": "LONG"
-            },
-            "name": "PackageIdFromFullName",
-            "arguments": [
-                {
-                    "name": "packageFullName",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "flags",
-                    "type": "UINT32",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "bufferLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "buffer",
-                        "type": "BYTE"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
-                "kernel32legacy.dll",
-                "Ext-MS-Win-kernel32-package-l1-1-0.dll",
-                "Kernel.AppCore.dll",
-                "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
-                "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
-                "ext-ms-win-kernel32-package-l1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PackageFullNameFromId",
-                "type": "LONG"
-            },
-            "name": "PackageFullNameFromId",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "packageId",
-                        "type": "PACKAGE_ID"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "packageFullNameLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "packageFullName",
-                    "type": "PWSTR",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
-                "kernel32legacy.dll",
-                "Ext-MS-Win-kernel32-package-l1-1-0.dll",
-                "Kernel.AppCore.dll",
-                "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
-                "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
-                "ext-ms-win-kernel32-package-l1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PackageFamilyNameFromId",
-                "type": "LONG"
-            },
-            "name": "PackageFamilyNameFromId",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "packageId",
-                        "type": "PACKAGE_ID"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "packageFamilyNameLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "packageFamilyName",
-                    "type": "PWSTR",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
-                "kernel32legacy.dll",
-                "Ext-MS-Win-kernel32-package-l1-1-0.dll",
-                "Kernel.AppCore.dll",
-                "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
-                "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
-                "ext-ms-win-kernel32-package-l1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PackageFamilyNameFromFullName",
-                "type": "LONG"
-            },
-            "name": "PackageFamilyNameFromFullName",
-            "arguments": [
-                {
-                    "name": "packageFullName",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "packageFamilyNameLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "packageFamilyName",
-                    "type": "PWSTR",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
-                "kernel32legacy.dll",
-                "Ext-MS-Win-kernel32-package-l1-1-0.dll",
-                "Kernel.AppCore.dll",
-                "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
-                "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
-                "ext-ms-win-kernel32-package-l1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "PackageNameAndPublisherIdFromFamilyName",
-                "type": "LONG"
-            },
-            "name": "PackageNameAndPublisherIdFromFamilyName",
-            "arguments": [
-                {
-                    "name": "packageFamilyName",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "packageNameLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "packageName",
-                    "type": "PWSTR",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "packagePublisherIdLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "packagePublisherId",
-                    "type": "PWSTR",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
-                "kernel32legacy.dll",
-                "Kernel.AppCore.dll",
-                "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "FormatApplicationUserModelId",
-                "type": "LONG"
-            },
-            "name": "FormatApplicationUserModelId",
-            "arguments": [
-                {
-                    "name": "packageFamilyName",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "packageRelativeApplicationId",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "applicationUserModelIdLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "applicationUserModelId",
-                    "type": "PWSTR",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
-                "Kernel.AppCore.dll",
-                "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
-                "ext-ms-win-kernel32-package-l1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ParseApplicationUserModelId",
-                "type": "LONG"
-            },
-            "name": "ParseApplicationUserModelId",
-            "arguments": [
-                {
-                    "name": "applicationUserModelId",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "packageFamilyNameLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "packageFamilyName",
-                    "type": "PWSTR",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "packageRelativeApplicationIdLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "name": "packageRelativeApplicationId",
-                    "type": "PWSTR",
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
-                "Kernel.AppCore.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetPackagesByPackageFamily",
-                "type": "LONG"
-            },
-            "name": "GetPackagesByPackageFamily",
-            "arguments": [
-                {
-                    "name": "packageFamilyName",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "count",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "packageFullNames",
-                        "type": "PWSTR"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "bufferLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "buffer",
-                        "type": "WCHAR"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
-                "kernel32legacy.dll",
-                "Ext-MS-Win-kernel32-package-l1-1-0.dll",
-                "Kernel.AppCore.dll",
-                "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
-                "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
-                "ext-ms-win-kernel32-package-l1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "FindPackagesByPackageFamily",
-                "type": "LONG"
-            },
-            "name": "FindPackagesByPackageFamily",
-            "arguments": [
-                {
-                    "name": "packageFamilyName",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "packageFilters",
-                    "type": "UINT32",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "count",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "packageFullNames",
-                        "type": "PWSTR"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "bufferLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "buffer",
-                        "type": "WCHAR"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "packageProperties",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
-                "Kernel.AppCore.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetStagedPackageOrigin",
-                "type": "LONG"
-            },
-            "name": "GetStagedPackageOrigin",
-            "arguments": [
-                {
-                    "name": "packageFullName",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "origin",
-                        "type": "PackageOrigin"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
-                "Kernel.AppCore.dll",
-                "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
-                "ext-ms-win-kernel32-package-l1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetCurrentPackageInfo",
-                "type": "LONG"
-            },
-            "name": "GetCurrentPackageInfo",
-            "arguments": [
-                {
-                    "name": "flags",
-                    "type": "UINT32",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "bufferLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "buffer",
-                        "type": "BYTE"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "count",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
-                "kernel32legacy.dll",
-                "Ext-MS-Win-kernel32-package-current-l1-1-0.dll",
-                "modernapiexthost.dll",
-                "kernel.appcore.dll",
-                "API-MS-Win-AppModel-Runtime-l1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-l1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-l1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "OpenPackageInfoByFullName",
-                "type": "LONG"
-            },
-            "name": "OpenPackageInfoByFullName",
-            "arguments": [
-                {
-                    "name": "packageFullName",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "reserved",
-                    "type": "UINT32",
-                    "sal": []
-                },
-                {
-                    "type": {
-                        "name": "packageInfoReference",
-                        "type": "PACKAGE_INFO_REFERENCE"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
-                "kernel32legacy.dll",
-                "Ext-MS-Win-kernel32-package-l1-1-0.dll",
-                "Kernel.AppCore.dll",
-                "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
-                "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
-                "ext-ms-win-kernel32-package-l1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ClosePackageInfo",
-                "type": "LONG"
-            },
-            "name": "ClosePackageInfo",
-            "arguments": [
-                {
-                    "name": "packageInfoReference",
-                    "type": "PACKAGE_INFO_REFERENCE",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
-                "kernel32legacy.dll",
-                "Ext-MS-Win-kernel32-package-l1-1-0.dll",
-                "Kernel.AppCore.dll",
-                "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
-                "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
-                "ext-ms-win-kernel32-package-l1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetPackageInfo",
-                "type": "LONG"
-            },
-            "name": "GetPackageInfo",
-            "arguments": [
-                {
-                    "name": "packageInfoReference",
-                    "type": "PACKAGE_INFO_REFERENCE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "flags",
-                    "type": "UINT32",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "bufferLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "buffer",
-                        "type": "BYTE"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "count",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
-                "kernel32legacy.dll",
-                "Ext-MS-Win-kernel32-package-l1-1-0.dll",
-                "Kernel.AppCore.dll",
-                "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
-                "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
-                "ext-ms-win-kernel32-package-l1-1-1.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "GetPackageApplicationIds",
-                "type": "LONG"
-            },
-            "name": "GetPackageApplicationIds",
-            "arguments": [
-                {
-                    "name": "packageInfoReference",
-                    "type": "PACKAGE_INFO_REFERENCE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "bufferLength",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "buffer",
-                        "type": "BYTE"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "count",
-                        "type": "UINT32"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Kernel32.dll",
-                "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
-                "Kernel.AppCore.dll",
-                "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AppPolicyGetLifecycleManagement",
-                "type": "LONG"
-            },
-            "name": "AppPolicyGetLifecycleManagement",
-            "arguments": [
-                {
-                    "name": "processToken",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "policy",
-                        "type": "AppPolicyLifecycleManagement"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "api-ms-win-appmodel-runtime-l1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AppPolicyGetWindowingModel",
-                "type": "LONG"
-            },
-            "name": "AppPolicyGetWindowingModel",
-            "arguments": [
-                {
-                    "name": "processToken",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "policy",
-                        "type": "AppPolicyWindowingModel"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "api-ms-win-appmodel-runtime-l1-1-2.dll",
-                "kernel.appcore.dll",
-                "kernel32.dll",
-                "kernelbase.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AppPolicyGetMediaFoundationCodecLoading",
-                "type": "LONG"
-            },
-            "name": "AppPolicyGetMediaFoundationCodecLoading",
-            "arguments": [
-                {
-                    "name": "processToken",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "policy",
-                        "type": "AppPolicyMediaFoundationCodecLoading"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "api-ms-win-appmodel-runtime-l1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AppPolicyGetClrCompat",
-                "type": "LONG"
-            },
-            "name": "AppPolicyGetClrCompat",
-            "arguments": [
-                {
-                    "name": "processToken",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "policy",
-                        "type": "AppPolicyClrCompat"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "api-ms-win-appmodel-runtime-l1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AppPolicyGetThreadInitializationType",
-                "type": "LONG"
-            },
-            "name": "AppPolicyGetThreadInitializationType",
-            "arguments": [
-                {
-                    "name": "processToken",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "policy",
-                        "type": "AppPolicyThreadInitializationType"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "api-ms-win-appmodel-runtime-l1-1-2.dll",
-                "kernel.appcore.dll",
-                "kernel32.dll",
-                "kernelbase.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AppPolicyGetShowDeveloperDiagnostic",
-                "type": "LONG"
-            },
-            "name": "AppPolicyGetShowDeveloperDiagnostic",
-            "arguments": [
-                {
-                    "name": "processToken",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "policy",
-                        "type": "AppPolicyShowDeveloperDiagnostic"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "api-ms-win-appmodel-runtime-l1-1-2.dll",
-                "kernel.appcore.dll",
-                "kernel32.dll",
-                "kernelbase.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AppPolicyGetProcessTerminationMethod",
-                "type": "LONG"
-            },
-            "name": "AppPolicyGetProcessTerminationMethod",
-            "arguments": [
-                {
-                    "name": "processToken",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "policy",
-                        "type": "AppPolicyProcessTerminationMethod"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "api-ms-win-appmodel-runtime-l1-1-2.dll",
-                "kernel.appcore.dll",
-                "kernel32.dll",
-                "kernelbase.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "AppPolicyGetCreateFileAccess",
-                "type": "LONG"
-            },
-            "name": "AppPolicyGetCreateFileAccess",
-            "arguments": [
-                {
-                    "name": "processToken",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "policy",
-                        "type": "AppPolicyCreateFileAccess"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "api-ms-win-appmodel-runtime-l1-1-2.dll"
             ]
         }
-    ]
-}
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "GetCurrentApplicationUserModelId",
+            "type": "LONG"
+        },
+        "name": "GetCurrentApplicationUserModelId",
+        "arguments": [
+            {
+                "type": {
+                    "name": "applicationUserModelIdLength",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "applicationUserModelId",
+                "type": "PWSTR",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
+            "kernel32legacy.dll",
+            "Kernel.AppCore.dll",
+            "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "GetApplicationUserModelId",
+            "type": "LONG"
+        },
+        "name": "GetApplicationUserModelId",
+        "arguments": [
+            {
+                "name": "hProcess",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "applicationUserModelIdLength",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "applicationUserModelId",
+                "type": "PWSTR",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
+            "kernel32legacy.dll",
+            "Kernel.AppCore.dll",
+            "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "GetApplicationUserModelIdFromToken",
+            "type": "LONG"
+        },
+        "name": "GetApplicationUserModelIdFromToken",
+        "arguments": [
+            {
+                "name": "token",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "applicationUserModelIdLength",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "applicationUserModelId",
+                "type": "PWSTR",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
+            "kernel32legacy.dll",
+            "Kernel.AppCore.dll",
+            "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PackageIdFromFullName",
+            "type": "LONG"
+        },
+        "name": "PackageIdFromFullName",
+        "arguments": [
+            {
+                "name": "packageFullName",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "flags",
+                "type": "UINT32",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "bufferLength",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "buffer",
+                    "type": "BYTE"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
+            "kernel32legacy.dll",
+            "Ext-MS-Win-kernel32-package-l1-1-0.dll",
+            "Kernel.AppCore.dll",
+            "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
+            "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
+            "ext-ms-win-kernel32-package-l1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PackageFullNameFromId",
+            "type": "LONG"
+        },
+        "name": "PackageFullNameFromId",
+        "arguments": [
+            {
+                "type": {
+                    "name": "packageId",
+                    "type": "PACKAGE_ID"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "packageFullNameLength",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "packageFullName",
+                "type": "PWSTR",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
+            "kernel32legacy.dll",
+            "Ext-MS-Win-kernel32-package-l1-1-0.dll",
+            "Kernel.AppCore.dll",
+            "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
+            "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
+            "ext-ms-win-kernel32-package-l1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PackageFamilyNameFromId",
+            "type": "LONG"
+        },
+        "name": "PackageFamilyNameFromId",
+        "arguments": [
+            {
+                "type": {
+                    "name": "packageId",
+                    "type": "PACKAGE_ID"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "packageFamilyNameLength",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "packageFamilyName",
+                "type": "PWSTR",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
+            "kernel32legacy.dll",
+            "Ext-MS-Win-kernel32-package-l1-1-0.dll",
+            "Kernel.AppCore.dll",
+            "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
+            "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
+            "ext-ms-win-kernel32-package-l1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PackageFamilyNameFromFullName",
+            "type": "LONG"
+        },
+        "name": "PackageFamilyNameFromFullName",
+        "arguments": [
+            {
+                "name": "packageFullName",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "packageFamilyNameLength",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "packageFamilyName",
+                "type": "PWSTR",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
+            "kernel32legacy.dll",
+            "Ext-MS-Win-kernel32-package-l1-1-0.dll",
+            "Kernel.AppCore.dll",
+            "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
+            "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
+            "ext-ms-win-kernel32-package-l1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "PackageNameAndPublisherIdFromFamilyName",
+            "type": "LONG"
+        },
+        "name": "PackageNameAndPublisherIdFromFamilyName",
+        "arguments": [
+            {
+                "name": "packageFamilyName",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "packageNameLength",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "packageName",
+                "type": "PWSTR",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "packagePublisherIdLength",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "packagePublisherId",
+                "type": "PWSTR",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
+            "kernel32legacy.dll",
+            "Kernel.AppCore.dll",
+            "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "FormatApplicationUserModelId",
+            "type": "LONG"
+        },
+        "name": "FormatApplicationUserModelId",
+        "arguments": [
+            {
+                "name": "packageFamilyName",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "packageRelativeApplicationId",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "applicationUserModelIdLength",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "applicationUserModelId",
+                "type": "PWSTR",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
+            "Kernel.AppCore.dll",
+            "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
+            "ext-ms-win-kernel32-package-l1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "ParseApplicationUserModelId",
+            "type": "LONG"
+        },
+        "name": "ParseApplicationUserModelId",
+        "arguments": [
+            {
+                "name": "applicationUserModelId",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "packageFamilyNameLength",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "packageFamilyName",
+                "type": "PWSTR",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "packageRelativeApplicationIdLength",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "name": "packageRelativeApplicationId",
+                "type": "PWSTR",
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
+            "Kernel.AppCore.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "GetPackagesByPackageFamily",
+            "type": "LONG"
+        },
+        "name": "GetPackagesByPackageFamily",
+        "arguments": [
+            {
+                "name": "packageFamilyName",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "count",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "packageFullNames",
+                    "type": "PWSTR"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "bufferLength",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "buffer",
+                    "type": "WCHAR"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
+            "kernel32legacy.dll",
+            "Ext-MS-Win-kernel32-package-l1-1-0.dll",
+            "Kernel.AppCore.dll",
+            "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
+            "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
+            "ext-ms-win-kernel32-package-l1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "FindPackagesByPackageFamily",
+            "type": "LONG"
+        },
+        "name": "FindPackagesByPackageFamily",
+        "arguments": [
+            {
+                "name": "packageFamilyName",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "packageFilters",
+                "type": "UINT32",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "count",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "packageFullNames",
+                    "type": "PWSTR"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "bufferLength",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "buffer",
+                    "type": "WCHAR"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "packageProperties",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
+            "Kernel.AppCore.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "name": "PackageOrigin",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "PackageOrigin_Unknown",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "PackageOrigin_Unsigned",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                },
+                {
+                    "name": "PackageOrigin_Inbox",
+                    "value": {
+                        "type": "int",
+                        "value": "2"
+                    }
+                },
+                {
+                    "name": "PackageOrigin_Store",
+                    "value": {
+                        "type": "int",
+                        "value": "3"
+                    }
+                },
+                {
+                    "name": "PackageOrigin_DeveloperUnsigned",
+                    "value": {
+                        "type": "int",
+                        "value": "4"
+                    }
+                },
+                {
+                    "name": "PackageOrigin_DeveloperSigned",
+                    "value": {
+                        "type": "int",
+                        "value": "5"
+                    }
+                },
+                {
+                    "name": "PackageOrigin_LineOfBusiness",
+                    "value": {
+                        "type": "int",
+                        "value": "6"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "GetStagedPackageOrigin",
+            "type": "LONG"
+        },
+        "name": "GetStagedPackageOrigin",
+        "arguments": [
+            {
+                "name": "packageFullName",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "origin",
+                    "type": "PackageOrigin"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
+            "Kernel.AppCore.dll",
+            "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
+            "ext-ms-win-kernel32-package-l1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "name": "PACKAGE_INFO_REFERENCE",
+        "type": {
+            "data_type": "Struct",
+            "name": "_PACKAGE_INFO_REFERENCE",
+            "elements": [
+                {
+                    "name": "reserved",
+                    "type": "void",
+                    "data_type": "Ptr"
+                }
+            ]
+        },
+        "data_type": "Ptr"
+    },
+    {
+        "name": "PACKAGE_INFO",
+        "type": {
+            "data_type": "Struct",
+            "name": "PACKAGE_INFO",
+            "elements": [
+                {
+                    "name": "reserved",
+                    "type": "UINT32"
+                },
+                {
+                    "name": "flags",
+                    "type": "UINT32"
+                },
+                {
+                    "name": "path",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "packageFullName",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "packageFamilyName",
+                    "type": "PWSTR"
+                },
+                {
+                    "name": "packageId",
+                    "type": "PACKAGE_ID"
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "GetCurrentPackageInfo",
+            "type": "LONG"
+        },
+        "name": "GetCurrentPackageInfo",
+        "arguments": [
+            {
+                "name": "flags",
+                "type": "UINT32",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "bufferLength",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "buffer",
+                    "type": "BYTE"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "count",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
+            "kernel32legacy.dll",
+            "Ext-MS-Win-kernel32-package-current-l1-1-0.dll",
+            "modernapiexthost.dll",
+            "kernel.appcore.dll",
+            "API-MS-Win-AppModel-Runtime-l1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-l1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-l1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "OpenPackageInfoByFullName",
+            "type": "LONG"
+        },
+        "name": "OpenPackageInfoByFullName",
+        "arguments": [
+            {
+                "name": "packageFullName",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "reserved",
+                "type": "UINT32",
+                "sal": []
+            },
+            {
+                "type": {
+                    "name": "packageInfoReference",
+                    "type": "PACKAGE_INFO_REFERENCE"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
+            "kernel32legacy.dll",
+            "Ext-MS-Win-kernel32-package-l1-1-0.dll",
+            "Kernel.AppCore.dll",
+            "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
+            "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
+            "ext-ms-win-kernel32-package-l1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "ClosePackageInfo",
+            "type": "LONG"
+        },
+        "name": "ClosePackageInfo",
+        "arguments": [
+            {
+                "name": "packageInfoReference",
+                "type": "PACKAGE_INFO_REFERENCE",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
+            "kernel32legacy.dll",
+            "Ext-MS-Win-kernel32-package-l1-1-0.dll",
+            "Kernel.AppCore.dll",
+            "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
+            "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
+            "ext-ms-win-kernel32-package-l1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "GetPackageInfo",
+            "type": "LONG"
+        },
+        "name": "GetPackageInfo",
+        "arguments": [
+            {
+                "name": "packageInfoReference",
+                "type": "PACKAGE_INFO_REFERENCE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "flags",
+                "type": "UINT32",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "bufferLength",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "buffer",
+                    "type": "BYTE"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "count",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-Runtime-l1-1-0.dll",
+            "kernel32legacy.dll",
+            "Ext-MS-Win-kernel32-package-l1-1-0.dll",
+            "Kernel.AppCore.dll",
+            "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
+            "Ext-MS-Win-Kernel32-package-l1-1-2.dll",
+            "ext-ms-win-kernel32-package-l1-1-1.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "GetPackageApplicationIds",
+            "type": "LONG"
+        },
+        "name": "GetPackageApplicationIds",
+        "arguments": [
+            {
+                "name": "packageInfoReference",
+                "type": "PACKAGE_INFO_REFERENCE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "bufferLength",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "buffer",
+                    "type": "BYTE"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            },
+            {
+                "type": {
+                    "name": "count",
+                    "type": "UINT32"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Kernel32.dll",
+            "API-MS-Win-AppModel-RunTime-l1-1-1.dll",
+            "Kernel.AppCore.dll",
+            "API-MS-Win-AppModel-Runtime-L1-1-2.dll"
+        ]
+    },
+    {
+        "name": "AppPolicyLifecycleManagement",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AppPolicyLifecycleManagement_Unmanaged",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "AppPolicyLifecycleManagement_Managed",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AppPolicyGetLifecycleManagement",
+            "type": "LONG"
+        },
+        "name": "AppPolicyGetLifecycleManagement",
+        "arguments": [
+            {
+                "name": "processToken",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "policy",
+                    "type": "AppPolicyLifecycleManagement"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "api-ms-win-appmodel-runtime-l1-1-2.dll"
+        ]
+    },
+    {
+        "name": "AppPolicyWindowingModel",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AppPolicyWindowingModel_None",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "AppPolicyWindowingModel_Universal",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                },
+                {
+                    "name": "AppPolicyWindowingModel_ClassicDesktop",
+                    "value": {
+                        "type": "int",
+                        "value": "2"
+                    }
+                },
+                {
+                    "name": "AppPolicyWindowingModel_ClassicPhone",
+                    "value": {
+                        "type": "int",
+                        "value": "3"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AppPolicyGetWindowingModel",
+            "type": "LONG"
+        },
+        "name": "AppPolicyGetWindowingModel",
+        "arguments": [
+            {
+                "name": "processToken",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "policy",
+                    "type": "AppPolicyWindowingModel"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "api-ms-win-appmodel-runtime-l1-1-2.dll",
+            "kernel.appcore.dll",
+            "kernel32.dll",
+            "kernelbase.dll"
+        ]
+    },
+    {
+        "name": "AppPolicyMediaFoundationCodecLoading",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AppPolicyMediaFoundationCodecLoading_All",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "AppPolicyMediaFoundationCodecLoading_InboxOnly",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AppPolicyGetMediaFoundationCodecLoading",
+            "type": "LONG"
+        },
+        "name": "AppPolicyGetMediaFoundationCodecLoading",
+        "arguments": [
+            {
+                "name": "processToken",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "policy",
+                    "type": "AppPolicyMediaFoundationCodecLoading"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "api-ms-win-appmodel-runtime-l1-1-2.dll"
+        ]
+    },
+    {
+        "name": "AppPolicyClrCompat",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AppPolicyClrCompat_Other",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "AppPolicyClrCompat_ClassicDesktop",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                },
+                {
+                    "name": "AppPolicyClrCompat_Universal",
+                    "value": {
+                        "type": "int",
+                        "value": "2"
+                    }
+                },
+                {
+                    "name": "AppPolicyClrCompat_PackagedDesktop",
+                    "value": {
+                        "type": "int",
+                        "value": "3"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AppPolicyGetClrCompat",
+            "type": "LONG"
+        },
+        "name": "AppPolicyGetClrCompat",
+        "arguments": [
+            {
+                "name": "processToken",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "policy",
+                    "type": "AppPolicyClrCompat"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "api-ms-win-appmodel-runtime-l1-1-2.dll"
+        ]
+    },
+    {
+        "name": "AppPolicyThreadInitializationType",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AppPolicyThreadInitializationType_None",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "AppPolicyThreadInitializationType_InitializeWinRT",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AppPolicyGetThreadInitializationType",
+            "type": "LONG"
+        },
+        "name": "AppPolicyGetThreadInitializationType",
+        "arguments": [
+            {
+                "name": "processToken",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "policy",
+                    "type": "AppPolicyThreadInitializationType"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "api-ms-win-appmodel-runtime-l1-1-2.dll",
+            "kernel.appcore.dll",
+            "kernel32.dll",
+            "kernelbase.dll"
+        ]
+    },
+    {
+        "name": "AppPolicyShowDeveloperDiagnostic",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AppPolicyShowDeveloperDiagnostic_None",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "AppPolicyShowDeveloperDiagnostic_ShowUI",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AppPolicyGetShowDeveloperDiagnostic",
+            "type": "LONG"
+        },
+        "name": "AppPolicyGetShowDeveloperDiagnostic",
+        "arguments": [
+            {
+                "name": "processToken",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "policy",
+                    "type": "AppPolicyShowDeveloperDiagnostic"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "api-ms-win-appmodel-runtime-l1-1-2.dll",
+            "kernel.appcore.dll",
+            "kernel32.dll",
+            "kernelbase.dll"
+        ]
+    },
+    {
+        "name": "AppPolicyProcessTerminationMethod",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AppPolicyProcessTerminationMethod_ExitProcess",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "AppPolicyProcessTerminationMethod_TerminateProcess",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AppPolicyGetProcessTerminationMethod",
+            "type": "LONG"
+        },
+        "name": "AppPolicyGetProcessTerminationMethod",
+        "arguments": [
+            {
+                "name": "processToken",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "policy",
+                    "type": "AppPolicyProcessTerminationMethod"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "api-ms-win-appmodel-runtime-l1-1-2.dll",
+            "kernel.appcore.dll",
+            "kernel32.dll",
+            "kernelbase.dll"
+        ]
+    },
+    {
+        "name": "AppPolicyCreateFileAccess",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "AppPolicyCreateFileAccess_Full",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "AppPolicyCreateFileAccess_Limited",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "AppPolicyGetCreateFileAccess",
+            "type": "LONG"
+        },
+        "name": "AppPolicyGetCreateFileAccess",
+        "arguments": [
+            {
+                "name": "processToken",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "policy",
+                    "type": "AppPolicyCreateFileAccess"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "api-ms-win-appmodel-runtime-l1-1-2.dll"
+        ]
+    }
+]

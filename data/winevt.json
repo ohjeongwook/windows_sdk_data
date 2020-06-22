@@ -1,3046 +1,3042 @@
-{
-    "typedefs": [
-        {
-            "name": "EVT_HANDLE",
-            "type": "HANDLE"
-        },
-        {
-            "name": "PEVT_HANDLE",
-            "type": "HANDLE",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "EVT_VARIANT_TYPE",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "EvtVarTypeNull",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "EvtVarTypeString",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    },
-                    {
-                        "name": "EvtVarTypeAnsiString",
-                        "value": {
-                            "type": "int",
-                            "value": "2"
-                        }
-                    },
-                    {
-                        "name": "EvtVarTypeSByte",
-                        "value": {
-                            "type": "int",
-                            "value": "3"
-                        }
-                    },
-                    {
-                        "name": "EvtVarTypeByte",
-                        "value": {
-                            "type": "int",
-                            "value": "4"
-                        }
-                    },
-                    {
-                        "name": "EvtVarTypeInt16",
-                        "value": {
-                            "type": "int",
-                            "value": "5"
-                        }
-                    },
-                    {
-                        "name": "EvtVarTypeUInt16",
-                        "value": {
-                            "type": "int",
-                            "value": "6"
-                        }
-                    },
-                    {
-                        "name": "EvtVarTypeInt32",
-                        "value": {
-                            "type": "int",
-                            "value": "7"
-                        }
-                    },
-                    {
-                        "name": "EvtVarTypeUInt32",
-                        "value": {
-                            "type": "int",
-                            "value": "8"
-                        }
-                    },
-                    {
-                        "name": "EvtVarTypeInt64",
-                        "value": {
-                            "type": "int",
-                            "value": "9"
-                        }
-                    },
-                    {
-                        "name": "EvtVarTypeUInt64",
-                        "value": {
-                            "type": "int",
-                            "value": "10"
-                        }
-                    },
-                    {
-                        "name": "EvtVarTypeSingle",
-                        "value": {
-                            "type": "int",
-                            "value": "11"
-                        }
-                    },
-                    {
-                        "name": "EvtVarTypeDouble",
-                        "value": {
-                            "type": "int",
-                            "value": "12"
-                        }
-                    },
-                    {
-                        "name": "EvtVarTypeBoolean",
-                        "value": {
-                            "type": "int",
-                            "value": "13"
-                        }
-                    },
-                    {
-                        "name": "EvtVarTypeBinary",
-                        "value": {
-                            "type": "int",
-                            "value": "14"
-                        }
-                    },
-                    {
-                        "name": "EvtVarTypeGuid",
-                        "value": {
-                            "type": "int",
-                            "value": "15"
-                        }
-                    },
-                    {
-                        "name": "EvtVarTypeSizeT",
-                        "value": {
-                            "type": "int",
-                            "value": "16"
-                        }
-                    },
-                    {
-                        "name": "EvtVarTypeFileTime",
-                        "value": {
-                            "type": "int",
-                            "value": "17"
-                        }
-                    },
-                    {
-                        "name": "EvtVarTypeSysTime",
-                        "value": {
-                            "type": "int",
-                            "value": "18"
-                        }
-                    },
-                    {
-                        "name": "EvtVarTypeSid",
-                        "value": {
-                            "type": "int",
-                            "value": "19"
-                        }
-                    },
-                    {
-                        "name": "EvtVarTypeHexInt32",
-                        "value": {
-                            "type": "int",
-                            "value": "20"
-                        }
-                    },
-                    {
-                        "name": "EvtVarTypeHexInt64",
-                        "value": {
-                            "type": "int",
-                            "value": "21"
-                        }
-                    },
-                    {
-                        "name": "EvtVarTypeEvtHandle",
-                        "value": {
-                            "type": "int",
-                            "value": "32"
-                        }
-                    },
-                    {
-                        "name": "EvtVarTypeEvtXml",
-                        "value": {
-                            "type": "int",
-                            "value": "35"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "EVT_VARIANT",
-            "type": {
-                "data_type": "Struct",
-                "name": "_EVT_VARIANT",
-                "elements": [
-                    {
-                        "data_type": "Union",
-                        "elements": [
-                            {
-                                "name": "BooleanVal",
-                                "type": "BOOL"
-                            },
-                            {
-                                "name": "SByteVal",
-                                "type": "INT8"
-                            },
-                            {
-                                "name": "Int16Val",
-                                "type": "INT16"
-                            },
-                            {
-                                "name": "Int32Val",
-                                "type": "INT32"
-                            },
-                            {
-                                "name": "Int64Val",
-                                "type": "INT64"
-                            },
-                            {
-                                "name": "ByteVal",
-                                "type": "UINT8"
-                            },
-                            {
-                                "name": "UInt16Val",
-                                "type": "UINT16"
-                            },
-                            {
-                                "name": "UInt32Val",
-                                "type": "UINT32"
-                            },
-                            {
-                                "name": "UInt64Val",
-                                "type": "UINT64"
-                            },
-                            {
-                                "name": "SingleVal",
-                                "type": "float"
-                            },
-                            {
-                                "name": "DoubleVal",
-                                "type": "double"
-                            },
-                            {
-                                "name": "FileTimeVal",
-                                "type": "ULONGLONG"
-                            },
-                            {
-                                "name": "SysTimeVal",
-                                "type": "SYSTEMTIME",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "GuidVal",
-                                "type": "GUID",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "StringVal",
-                                "type": "LPCWSTR"
-                            },
-                            {
-                                "name": "AnsiStringVal",
-                                "type": "LPCSTR"
-                            },
-                            {
-                                "name": "BinaryVal",
-                                "type": "PBYTE"
-                            },
-                            {
-                                "name": "SidVal",
-                                "type": "PSID"
-                            },
-                            {
-                                "name": "SizeTVal",
-                                "type": "size_t"
-                            },
-                            {
-                                "name": "BooleanArr",
-                                "type": "BOOL",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "SByteArr",
-                                "type": "INT8",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "Int16Arr",
-                                "type": "INT16",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "Int32Arr",
-                                "type": "INT32",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "Int64Arr",
-                                "type": "INT64",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "ByteArr",
-                                "type": "UINT8",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "UInt16Arr",
-                                "type": "UINT16",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "UInt32Arr",
-                                "type": "UINT32",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "UInt64Arr",
-                                "type": "UINT64",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "SingleArr",
-                                "type": "float",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "DoubleArr",
-                                "type": "double",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "FileTimeArr",
-                                "type": "FILETIME",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "SysTimeArr",
-                                "type": "SYSTEMTIME",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "GuidArr",
-                                "type": "GUID",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "StringArr",
-                                "type": "LPWSTR",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "AnsiStringArr",
-                                "type": "LPSTR",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "SidArr",
-                                "type": "PSID",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "SizeTArr",
-                                "type": "size_t",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "EvtHandleVal",
-                                "type": "EVT_HANDLE"
-                            },
-                            {
-                                "name": "XmlVal",
-                                "type": "LPCWSTR"
-                            },
-                            {
-                                "name": "XmlValArr",
-                                "type": "LPCWSTR",
-                                "data_type": "Ptr"
-                            }
-                        ]
-                    },
-                    {
-                        "name": "Count",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "Type",
-                        "type": "DWORD"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "PEVT_VARIANT",
-            "type": {
-                "data_type": "Struct",
-                "name": "_EVT_VARIANT",
-                "elements": [
-                    {
-                        "data_type": "Union",
-                        "elements": [
-                            {
-                                "name": "BooleanVal",
-                                "type": "BOOL"
-                            },
-                            {
-                                "name": "SByteVal",
-                                "type": "INT8"
-                            },
-                            {
-                                "name": "Int16Val",
-                                "type": "INT16"
-                            },
-                            {
-                                "name": "Int32Val",
-                                "type": "INT32"
-                            },
-                            {
-                                "name": "Int64Val",
-                                "type": "INT64"
-                            },
-                            {
-                                "name": "ByteVal",
-                                "type": "UINT8"
-                            },
-                            {
-                                "name": "UInt16Val",
-                                "type": "UINT16"
-                            },
-                            {
-                                "name": "UInt32Val",
-                                "type": "UINT32"
-                            },
-                            {
-                                "name": "UInt64Val",
-                                "type": "UINT64"
-                            },
-                            {
-                                "name": "SingleVal",
-                                "type": "float"
-                            },
-                            {
-                                "name": "DoubleVal",
-                                "type": "double"
-                            },
-                            {
-                                "name": "FileTimeVal",
-                                "type": "ULONGLONG"
-                            },
-                            {
-                                "name": "SysTimeVal",
-                                "type": "SYSTEMTIME",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "GuidVal",
-                                "type": "GUID",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "StringVal",
-                                "type": "LPCWSTR"
-                            },
-                            {
-                                "name": "AnsiStringVal",
-                                "type": "LPCSTR"
-                            },
-                            {
-                                "name": "BinaryVal",
-                                "type": "PBYTE"
-                            },
-                            {
-                                "name": "SidVal",
-                                "type": "PSID"
-                            },
-                            {
-                                "name": "SizeTVal",
-                                "type": "size_t"
-                            },
-                            {
-                                "name": "BooleanArr",
-                                "type": "BOOL",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "SByteArr",
-                                "type": "INT8",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "Int16Arr",
-                                "type": "INT16",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "Int32Arr",
-                                "type": "INT32",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "Int64Arr",
-                                "type": "INT64",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "ByteArr",
-                                "type": "UINT8",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "UInt16Arr",
-                                "type": "UINT16",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "UInt32Arr",
-                                "type": "UINT32",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "UInt64Arr",
-                                "type": "UINT64",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "SingleArr",
-                                "type": "float",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "DoubleArr",
-                                "type": "double",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "FileTimeArr",
-                                "type": "FILETIME",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "SysTimeArr",
-                                "type": "SYSTEMTIME",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "GuidArr",
-                                "type": "GUID",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "StringArr",
-                                "type": "LPWSTR",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "AnsiStringArr",
-                                "type": "LPSTR",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "SidArr",
-                                "type": "PSID",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "SizeTArr",
-                                "type": "size_t",
-                                "data_type": "Ptr"
-                            },
-                            {
-                                "name": "EvtHandleVal",
-                                "type": "EVT_HANDLE"
-                            },
-                            {
-                                "name": "XmlVal",
-                                "type": "LPCWSTR"
-                            },
-                            {
-                                "name": "XmlValArr",
-                                "type": "LPCWSTR",
-                                "data_type": "Ptr"
-                            }
-                        ]
-                    },
-                    {
-                        "name": "Count",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "Type",
-                        "type": "DWORD"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "EVT_LOGIN_CLASS",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "EvtRpcLogin",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "EVT_RPC_LOGIN_FLAGS",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "EvtRpcLoginAuthDefault",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "EvtRpcLoginAuthNegotiate",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtRpcLoginAuthKerberos",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtRpcLoginAuthNTLM",
-                        "value": {}
-                    }
-                ]
-            }
-        },
-        {
-            "name": "EVT_RPC_LOGIN",
-            "type": {
-                "data_type": "Struct",
-                "name": "_EVT_RPC_LOGIN",
-                "elements": [
-                    {
-                        "name": "Server",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "User",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "Domain",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "Password",
-                        "type": "LPWSTR"
-                    },
-                    {
-                        "name": "Flags",
-                        "type": "DWORD"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "EVT_QUERY_FLAGS",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "EvtQueryChannelPath",
-                        "value": {
-                            "type": "int",
-                            "value": "0x1"
-                        }
-                    },
-                    {
-                        "name": "EvtQueryFilePath",
-                        "value": {
-                            "type": "int",
-                            "value": "0x2"
-                        }
-                    },
-                    {
-                        "name": "EvtQueryForwardDirection",
-                        "value": {
-                            "type": "int",
-                            "value": "0x100"
-                        }
-                    },
-                    {
-                        "name": "EvtQueryReverseDirection",
-                        "value": {
-                            "type": "int",
-                            "value": "0x200"
-                        }
-                    },
-                    {
-                        "name": "EvtQueryTolerateQueryErrors",
-                        "value": {
-                            "type": "int",
-                            "value": "0x1000"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "EVT_SEEK_FLAGS",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "EvtSeekRelativeToFirst",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    },
-                    {
-                        "name": "EvtSeekRelativeToLast",
-                        "value": {
-                            "type": "int",
-                            "value": "2"
-                        }
-                    },
-                    {
-                        "name": "EvtSeekRelativeToCurrent",
-                        "value": {
-                            "type": "int",
-                            "value": "3"
-                        }
-                    },
-                    {
-                        "name": "EvtSeekRelativeToBookmark",
-                        "value": {
-                            "type": "int",
-                            "value": "4"
-                        }
-                    },
-                    {
-                        "name": "EvtSeekOriginMask",
-                        "value": {
-                            "type": "int",
-                            "value": "7"
-                        }
-                    },
-                    {
-                        "name": "EvtSeekStrict",
-                        "value": {
-                            "type": "int",
-                            "value": "0x10000"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "EVT_SUBSCRIBE_FLAGS",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "EvtSubscribeToFutureEvents",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    },
-                    {
-                        "name": "EvtSubscribeStartAtOldestRecord",
-                        "value": {
-                            "type": "int",
-                            "value": "2"
-                        }
-                    },
-                    {
-                        "name": "EvtSubscribeStartAfterBookmark",
-                        "value": {
-                            "type": "int",
-                            "value": "3"
-                        }
-                    },
-                    {
-                        "name": "EvtSubscribeOriginMask",
-                        "value": {
-                            "type": "int",
-                            "value": "3"
-                        }
-                    },
-                    {
-                        "name": "EvtSubscribeTolerateQueryErrors",
-                        "value": {
-                            "type": "int",
-                            "value": "0x1000"
-                        }
-                    },
-                    {
-                        "name": "EvtSubscribeStrict",
-                        "value": {
-                            "type": "int",
-                            "value": "0x10000"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "EVT_SUBSCRIBE_NOTIFY_ACTION",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "EvtSubscribeActionError",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "EvtSubscribeActionDeliver",
-                        "value": {}
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "EVT_SUBSCRIBE_CALLBACK",
-                "type": "DWORD"
-            },
-            "name": "EVT_SUBSCRIBE_CALLBACK",
-            "arguments": [
+[
+    {
+        "name": "EVT_HANDLE",
+        "type": "HANDLE"
+    },
+    {
+        "name": "PEVT_HANDLE",
+        "type": "HANDLE",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "EVT_VARIANT_TYPE",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
                 {
-                    "name": "Action",
-                    "type": "EVT_SUBSCRIBE_NOTIFY_ACTION"
+                    "name": "EvtVarTypeNull",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
                 },
                 {
-                    "name": "UserContext",
-                    "type": "PVOID"
+                    "name": "EvtVarTypeString",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
                 },
                 {
-                    "name": "Event",
-                    "type": "EVT_HANDLE"
+                    "name": "EvtVarTypeAnsiString",
+                    "value": {
+                        "type": "int",
+                        "value": "2"
+                    }
+                },
+                {
+                    "name": "EvtVarTypeSByte",
+                    "value": {
+                        "type": "int",
+                        "value": "3"
+                    }
+                },
+                {
+                    "name": "EvtVarTypeByte",
+                    "value": {
+                        "type": "int",
+                        "value": "4"
+                    }
+                },
+                {
+                    "name": "EvtVarTypeInt16",
+                    "value": {
+                        "type": "int",
+                        "value": "5"
+                    }
+                },
+                {
+                    "name": "EvtVarTypeUInt16",
+                    "value": {
+                        "type": "int",
+                        "value": "6"
+                    }
+                },
+                {
+                    "name": "EvtVarTypeInt32",
+                    "value": {
+                        "type": "int",
+                        "value": "7"
+                    }
+                },
+                {
+                    "name": "EvtVarTypeUInt32",
+                    "value": {
+                        "type": "int",
+                        "value": "8"
+                    }
+                },
+                {
+                    "name": "EvtVarTypeInt64",
+                    "value": {
+                        "type": "int",
+                        "value": "9"
+                    }
+                },
+                {
+                    "name": "EvtVarTypeUInt64",
+                    "value": {
+                        "type": "int",
+                        "value": "10"
+                    }
+                },
+                {
+                    "name": "EvtVarTypeSingle",
+                    "value": {
+                        "type": "int",
+                        "value": "11"
+                    }
+                },
+                {
+                    "name": "EvtVarTypeDouble",
+                    "value": {
+                        "type": "int",
+                        "value": "12"
+                    }
+                },
+                {
+                    "name": "EvtVarTypeBoolean",
+                    "value": {
+                        "type": "int",
+                        "value": "13"
+                    }
+                },
+                {
+                    "name": "EvtVarTypeBinary",
+                    "value": {
+                        "type": "int",
+                        "value": "14"
+                    }
+                },
+                {
+                    "name": "EvtVarTypeGuid",
+                    "value": {
+                        "type": "int",
+                        "value": "15"
+                    }
+                },
+                {
+                    "name": "EvtVarTypeSizeT",
+                    "value": {
+                        "type": "int",
+                        "value": "16"
+                    }
+                },
+                {
+                    "name": "EvtVarTypeFileTime",
+                    "value": {
+                        "type": "int",
+                        "value": "17"
+                    }
+                },
+                {
+                    "name": "EvtVarTypeSysTime",
+                    "value": {
+                        "type": "int",
+                        "value": "18"
+                    }
+                },
+                {
+                    "name": "EvtVarTypeSid",
+                    "value": {
+                        "type": "int",
+                        "value": "19"
+                    }
+                },
+                {
+                    "name": "EvtVarTypeHexInt32",
+                    "value": {
+                        "type": "int",
+                        "value": "20"
+                    }
+                },
+                {
+                    "name": "EvtVarTypeHexInt64",
+                    "value": {
+                        "type": "int",
+                        "value": "21"
+                    }
+                },
+                {
+                    "name": "EvtVarTypeEvtHandle",
+                    "value": {
+                        "type": "int",
+                        "value": "32"
+                    }
+                },
+                {
+                    "name": "EvtVarTypeEvtXml",
+                    "value": {
+                        "type": "int",
+                        "value": "35"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "EVT_VARIANT",
+        "type": {
+            "data_type": "Struct",
+            "name": "_EVT_VARIANT",
+            "elements": [
+                {
+                    "data_type": "Union",
+                    "elements": [
+                        {
+                            "name": "BooleanVal",
+                            "type": "BOOL"
+                        },
+                        {
+                            "name": "SByteVal",
+                            "type": "INT8"
+                        },
+                        {
+                            "name": "Int16Val",
+                            "type": "INT16"
+                        },
+                        {
+                            "name": "Int32Val",
+                            "type": "INT32"
+                        },
+                        {
+                            "name": "Int64Val",
+                            "type": "INT64"
+                        },
+                        {
+                            "name": "ByteVal",
+                            "type": "UINT8"
+                        },
+                        {
+                            "name": "UInt16Val",
+                            "type": "UINT16"
+                        },
+                        {
+                            "name": "UInt32Val",
+                            "type": "UINT32"
+                        },
+                        {
+                            "name": "UInt64Val",
+                            "type": "UINT64"
+                        },
+                        {
+                            "name": "SingleVal",
+                            "type": "float"
+                        },
+                        {
+                            "name": "DoubleVal",
+                            "type": "double"
+                        },
+                        {
+                            "name": "FileTimeVal",
+                            "type": "ULONGLONG"
+                        },
+                        {
+                            "name": "SysTimeVal",
+                            "type": "SYSTEMTIME",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "GuidVal",
+                            "type": "GUID",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "StringVal",
+                            "type": "LPCWSTR"
+                        },
+                        {
+                            "name": "AnsiStringVal",
+                            "type": "LPCSTR"
+                        },
+                        {
+                            "name": "BinaryVal",
+                            "type": "PBYTE"
+                        },
+                        {
+                            "name": "SidVal",
+                            "type": "PSID"
+                        },
+                        {
+                            "name": "SizeTVal",
+                            "type": "size_t"
+                        },
+                        {
+                            "name": "BooleanArr",
+                            "type": "BOOL",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "SByteArr",
+                            "type": "INT8",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "Int16Arr",
+                            "type": "INT16",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "Int32Arr",
+                            "type": "INT32",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "Int64Arr",
+                            "type": "INT64",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "ByteArr",
+                            "type": "UINT8",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "UInt16Arr",
+                            "type": "UINT16",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "UInt32Arr",
+                            "type": "UINT32",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "UInt64Arr",
+                            "type": "UINT64",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "SingleArr",
+                            "type": "float",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "DoubleArr",
+                            "type": "double",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "FileTimeArr",
+                            "type": "FILETIME",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "SysTimeArr",
+                            "type": "SYSTEMTIME",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "GuidArr",
+                            "type": "GUID",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "StringArr",
+                            "type": "LPWSTR",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "AnsiStringArr",
+                            "type": "LPSTR",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "SidArr",
+                            "type": "PSID",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "SizeTArr",
+                            "type": "size_t",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "EvtHandleVal",
+                            "type": "EVT_HANDLE"
+                        },
+                        {
+                            "name": "XmlVal",
+                            "type": "LPCWSTR"
+                        },
+                        {
+                            "name": "XmlValArr",
+                            "type": "LPCWSTR",
+                            "data_type": "Ptr"
+                        }
+                    ]
+                },
+                {
+                    "name": "Count",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "Type",
+                    "type": "DWORD"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PEVT_VARIANT",
+        "type": {
+            "data_type": "Struct",
+            "name": "_EVT_VARIANT",
+            "elements": [
+                {
+                    "data_type": "Union",
+                    "elements": [
+                        {
+                            "name": "BooleanVal",
+                            "type": "BOOL"
+                        },
+                        {
+                            "name": "SByteVal",
+                            "type": "INT8"
+                        },
+                        {
+                            "name": "Int16Val",
+                            "type": "INT16"
+                        },
+                        {
+                            "name": "Int32Val",
+                            "type": "INT32"
+                        },
+                        {
+                            "name": "Int64Val",
+                            "type": "INT64"
+                        },
+                        {
+                            "name": "ByteVal",
+                            "type": "UINT8"
+                        },
+                        {
+                            "name": "UInt16Val",
+                            "type": "UINT16"
+                        },
+                        {
+                            "name": "UInt32Val",
+                            "type": "UINT32"
+                        },
+                        {
+                            "name": "UInt64Val",
+                            "type": "UINT64"
+                        },
+                        {
+                            "name": "SingleVal",
+                            "type": "float"
+                        },
+                        {
+                            "name": "DoubleVal",
+                            "type": "double"
+                        },
+                        {
+                            "name": "FileTimeVal",
+                            "type": "ULONGLONG"
+                        },
+                        {
+                            "name": "SysTimeVal",
+                            "type": "SYSTEMTIME",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "GuidVal",
+                            "type": "GUID",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "StringVal",
+                            "type": "LPCWSTR"
+                        },
+                        {
+                            "name": "AnsiStringVal",
+                            "type": "LPCSTR"
+                        },
+                        {
+                            "name": "BinaryVal",
+                            "type": "PBYTE"
+                        },
+                        {
+                            "name": "SidVal",
+                            "type": "PSID"
+                        },
+                        {
+                            "name": "SizeTVal",
+                            "type": "size_t"
+                        },
+                        {
+                            "name": "BooleanArr",
+                            "type": "BOOL",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "SByteArr",
+                            "type": "INT8",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "Int16Arr",
+                            "type": "INT16",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "Int32Arr",
+                            "type": "INT32",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "Int64Arr",
+                            "type": "INT64",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "ByteArr",
+                            "type": "UINT8",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "UInt16Arr",
+                            "type": "UINT16",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "UInt32Arr",
+                            "type": "UINT32",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "UInt64Arr",
+                            "type": "UINT64",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "SingleArr",
+                            "type": "float",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "DoubleArr",
+                            "type": "double",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "FileTimeArr",
+                            "type": "FILETIME",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "SysTimeArr",
+                            "type": "SYSTEMTIME",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "GuidArr",
+                            "type": "GUID",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "StringArr",
+                            "type": "LPWSTR",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "AnsiStringArr",
+                            "type": "LPSTR",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "SidArr",
+                            "type": "PSID",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "SizeTArr",
+                            "type": "size_t",
+                            "data_type": "Ptr"
+                        },
+                        {
+                            "name": "EvtHandleVal",
+                            "type": "EVT_HANDLE"
+                        },
+                        {
+                            "name": "XmlVal",
+                            "type": "LPCWSTR"
+                        },
+                        {
+                            "name": "XmlValArr",
+                            "type": "LPCWSTR",
+                            "data_type": "Ptr"
+                        }
+                    ]
+                },
+                {
+                    "name": "Count",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "Type",
+                    "type": "DWORD"
                 }
             ]
         },
-        {
-            "name": "EVT_SYSTEM_PROPERTY_ID",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "EvtSystemProviderName",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "EvtSystemProviderGuid",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtSystemEventID",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtSystemQualifiers",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtSystemLevel",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtSystemTask",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtSystemOpcode",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtSystemKeywords",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtSystemTimeCreated",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtSystemEventRecordId",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtSystemActivityID",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtSystemRelatedActivityID",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtSystemProcessID",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtSystemThreadID",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtSystemChannel",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtSystemComputer",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtSystemUserID",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtSystemVersion",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtSystemPropertyIdEND",
-                        "value": {}
+        "data_type": "Ptr"
+    },
+    {
+        "name": "EVT_LOGIN_CLASS",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "EvtRpcLogin",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
                     }
-                ]
-            }
-        },
-        {
-            "name": "EVT_RENDER_CONTEXT_FLAGS",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "EvtRenderContextValues",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "EvtRenderContextSystem",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtRenderContextUser",
-                        "value": {}
-                    }
-                ]
-            }
-        },
-        {
-            "name": "EVT_RENDER_FLAGS",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "EvtRenderEventValues",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "EvtRenderEventXml",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtRenderBookmark",
-                        "value": {}
-                    }
-                ]
-            }
-        },
-        {
-            "name": "EVT_FORMAT_MESSAGE_FLAGS",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "EvtFormatMessageEvent",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    },
-                    {
-                        "name": "EvtFormatMessageLevel",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtFormatMessageTask",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtFormatMessageOpcode",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtFormatMessageKeyword",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtFormatMessageChannel",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtFormatMessageProvider",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtFormatMessageId",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtFormatMessageXml",
-                        "value": {}
-                    }
-                ]
-            }
-        },
-        {
-            "name": "EVT_OPEN_LOG_FLAGS",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "EvtOpenChannelPath",
-                        "value": {
-                            "type": "int",
-                            "value": "0x1"
-                        }
-                    },
-                    {
-                        "name": "EvtOpenFilePath",
-                        "value": {
-                            "type": "int",
-                            "value": "0x2"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "EVT_LOG_PROPERTY_ID",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "EvtLogCreationTime",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "EvtLogLastAccessTime",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtLogLastWriteTime",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtLogFileSize",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtLogAttributes",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtLogNumberOfLogRecords",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtLogOldestRecordNumber",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtLogFull",
-                        "value": {}
-                    }
-                ]
-            }
-        },
-        {
-            "name": "EVT_EXPORTLOG_FLAGS",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "EvtExportLogChannelPath",
-                        "value": {
-                            "type": "int",
-                            "value": "0x1"
-                        }
-                    },
-                    {
-                        "name": "EvtExportLogFilePath",
-                        "value": {
-                            "type": "int",
-                            "value": "0x2"
-                        }
-                    },
-                    {
-                        "name": "EvtExportLogTolerateQueryErrors",
-                        "value": {
-                            "type": "int",
-                            "value": "0x1000"
-                        }
-                    },
-                    {
-                        "name": "EvtExportLogOverwrite",
-                        "value": {
-                            "type": "int",
-                            "value": "0x2000"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "EVT_CHANNEL_CONFIG_PROPERTY_ID",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "EvtChannelConfigEnabled",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "EvtChannelConfigIsolation",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtChannelConfigType",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtChannelConfigOwningPublisher",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtChannelConfigClassicEventlog",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtChannelConfigAccess",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtChannelLoggingConfigRetention",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtChannelLoggingConfigAutoBackup",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtChannelLoggingConfigMaxSize",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtChannelLoggingConfigLogFilePath",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtChannelPublishingConfigLevel",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtChannelPublishingConfigKeywords",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtChannelPublishingConfigControlGuid",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtChannelPublishingConfigBufferSize",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtChannelPublishingConfigMinBuffers",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtChannelPublishingConfigMaxBuffers",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtChannelPublishingConfigLatency",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtChannelPublishingConfigClockType",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtChannelPublishingConfigSidType",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtChannelPublisherList",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtChannelPublishingConfigFileMax",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtChannelConfigPropertyIdEND",
-                        "value": {}
-                    }
-                ]
-            }
-        },
-        {
-            "name": "EVT_CHANNEL_TYPE",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "EvtChannelTypeAdmin",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "EvtChannelTypeOperational",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtChannelTypeAnalytic",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtChannelTypeDebug",
-                        "value": {}
-                    }
-                ]
-            }
-        },
-        {
-            "name": "EVT_CHANNEL_ISOLATION_TYPE",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "EvtChannelIsolationTypeApplication",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "EvtChannelIsolationTypeSystem",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtChannelIsolationTypeCustom",
-                        "value": {}
-                    }
-                ]
-            }
-        },
-        {
-            "name": "EVT_CHANNEL_CLOCK_TYPE",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "EvtChannelClockTypeSystemTime",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "EvtChannelClockTypeQPC",
-                        "value": {}
-                    }
-                ]
-            }
-        },
-        {
-            "name": "EVT_CHANNEL_SID_TYPE",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "EvtChannelSidTypeNone",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "EvtChannelSidTypePublishing",
-                        "value": {}
-                    }
-                ]
-            }
-        },
-        {
-            "name": "EVT_CHANNEL_REFERENCE_FLAGS",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "EvtChannelReferenceImported",
-                        "value": {
-                            "type": "int",
-                            "value": "0x1"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "EVT_PUBLISHER_METADATA_PROPERTY_ID",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "EvtPublisherMetadataPublisherGuid",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "EvtPublisherMetadataResourceFilePath",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtPublisherMetadataParameterFilePath",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtPublisherMetadataMessageFilePath",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtPublisherMetadataHelpLink",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtPublisherMetadataPublisherMessageID",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtPublisherMetadataChannelReferences",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtPublisherMetadataChannelReferencePath",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtPublisherMetadataChannelReferenceIndex",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtPublisherMetadataChannelReferenceID",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtPublisherMetadataChannelReferenceFlags",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtPublisherMetadataChannelReferenceMessageID",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtPublisherMetadataLevels",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtPublisherMetadataLevelName",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtPublisherMetadataLevelValue",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtPublisherMetadataLevelMessageID",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtPublisherMetadataTasks",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtPublisherMetadataTaskName",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtPublisherMetadataTaskEventGuid",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtPublisherMetadataTaskValue",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtPublisherMetadataTaskMessageID",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtPublisherMetadataOpcodes",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtPublisherMetadataOpcodeName",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtPublisherMetadataOpcodeValue",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtPublisherMetadataOpcodeMessageID",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtPublisherMetadataKeywords",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtPublisherMetadataKeywordName",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtPublisherMetadataKeywordValue",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtPublisherMetadataKeywordMessageID",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtPublisherMetadataPropertyIdEND",
-                        "value": {}
-                    }
-                ]
-            }
-        },
-        {
-            "name": "EVT_EVENT_METADATA_PROPERTY_ID",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "EventMetadataEventID",
-                        "value": {}
-                    },
-                    {
-                        "name": "EventMetadataEventVersion",
-                        "value": {}
-                    },
-                    {
-                        "name": "EventMetadataEventChannel",
-                        "value": {}
-                    },
-                    {
-                        "name": "EventMetadataEventLevel",
-                        "value": {}
-                    },
-                    {
-                        "name": "EventMetadataEventOpcode",
-                        "value": {}
-                    },
-                    {
-                        "name": "EventMetadataEventTask",
-                        "value": {}
-                    },
-                    {
-                        "name": "EventMetadataEventKeyword",
-                        "value": {}
-                    },
-                    {
-                        "name": "EventMetadataEventMessageID",
-                        "value": {}
-                    },
-                    {
-                        "name": "EventMetadataEventTemplate",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtEventMetadataPropertyIdEND",
-                        "value": {}
-                    }
-                ]
-            }
-        },
-        {
-            "name": "EVT_OBJECT_ARRAY_PROPERTY_HANDLE",
-            "type": "HANDLE"
-        },
-        {
-            "name": "EVT_QUERY_PROPERTY_ID",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "EvtQueryNames",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtQueryStatuses",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtQueryPropertyIdEND",
-                        "value": {}
-                    }
-                ]
-            }
-        },
-        {
-            "name": "EVT_EVENT_PROPERTY_ID",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "EvtEventQueryIDs",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "EvtEventPath",
-                        "value": {}
-                    },
-                    {
-                        "name": "EvtEventPropertyIdEND",
-                        "value": {}
-                    }
-                ]
-            }
+                }
+            ]
         }
-    ],
-    "funcdefs": [
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtOpenSession",
-                "type": "EVT_HANDLE"
-            },
+    },
+    {
+        "name": "EVT_RPC_LOGIN_FLAGS",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "EvtRpcLoginAuthDefault",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "EvtRpcLoginAuthNegotiate",
+                    "value": {}
+                },
+                {
+                    "name": "EvtRpcLoginAuthKerberos",
+                    "value": {}
+                },
+                {
+                    "name": "EvtRpcLoginAuthNTLM",
+                    "value": {}
+                }
+            ]
+        }
+    },
+    {
+        "name": "EVT_RPC_LOGIN",
+        "type": {
+            "data_type": "Struct",
+            "name": "_EVT_RPC_LOGIN",
+            "elements": [
+                {
+                    "name": "Server",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "User",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "Domain",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "Password",
+                    "type": "LPWSTR"
+                },
+                {
+                    "name": "Flags",
+                    "type": "DWORD"
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "EvtOpenSession",
-            "arguments": [
-                {
-                    "name": "LoginClass",
-                    "type": "EVT_LOGIN_CLASS",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Login",
-                    "type": "PVOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Timeout",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll",
-                "Ext-MS-Win-WEvtAPI-EventLog-L1-1-1.dll",
-                "Ext-MS-Win-WEvtAPI-EventLog-L1-1-2.dll"
-            ]
+            "type": "EVT_HANDLE"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtClose",
-                "type": "BOOL"
+        "name": "EvtOpenSession",
+        "arguments": [
+            {
+                "name": "LoginClass",
+                "type": "EVT_LOGIN_CLASS",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "Login",
+                "type": "PVOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Timeout",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll",
+            "Ext-MS-Win-WEvtAPI-EventLog-L1-1-1.dll",
+            "Ext-MS-Win-WEvtAPI-EventLog-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "EvtClose",
-            "arguments": [
-                {
-                    "name": "Object",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll",
-                "Ext-MS-Win-WEvtAPI-EventLog-L1-1-0.dll",
-                "Ext-MS-Win-WEvtAPI-EventLog-L1-1-1.dll",
-                "Ext-MS-Win-WEvtAPI-EventLog-L1-1-2.dll"
-            ]
+            "type": "BOOL"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtCancel",
-                "type": "BOOL"
-            },
+        "name": "EvtClose",
+        "arguments": [
+            {
+                "name": "Object",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll",
+            "Ext-MS-Win-WEvtAPI-EventLog-L1-1-0.dll",
+            "Ext-MS-Win-WEvtAPI-EventLog-L1-1-1.dll",
+            "Ext-MS-Win-WEvtAPI-EventLog-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "EvtCancel",
-            "arguments": [
-                {
-                    "name": "Object",
-                    "type": "EVT_HANDLE",
-                    "sal": []
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll"
-            ]
+            "type": "BOOL"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtGetExtendedStatus",
-                "type": "DWORD"
-            },
+        "name": "EvtCancel",
+        "arguments": [
+            {
+                "name": "Object",
+                "type": "EVT_HANDLE",
+                "sal": []
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "EvtGetExtendedStatus",
-            "arguments": [
-                {
-                    "name": "BufferSize",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Buffer",
-                    "type": "LPWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "BufferUsed",
-                    "type": "PDWORD",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll"
-            ]
+            "type": "DWORD"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtQuery",
-                "type": "EVT_HANDLE"
+        "name": "EvtGetExtendedStatus",
+        "arguments": [
+            {
+                "name": "BufferSize",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
             },
-            "name": "EvtQuery",
-            "arguments": [
-                {
-                    "name": "Session",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Path",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Query",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll",
-                "Ext-MS-Win-WevtAPI-EventLog-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtNext",
-                "type": "BOOL"
+            {
+                "name": "Buffer",
+                "type": "LPWSTR",
+                "sal": [
+                    "in"
+                ]
             },
-            "name": "EvtNext",
-            "arguments": [
+            {
+                "name": "BufferUsed",
+                "type": "PDWORD",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll"
+        ]
+    },
+    {
+        "name": "EVT_QUERY_FLAGS",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
                 {
-                    "name": "ResultSet",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "EvtQueryChannelPath",
+                    "value": {
+                        "type": "int",
+                        "value": "0x1"
+                    }
                 },
                 {
-                    "name": "EventsSize",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "EvtQueryFilePath",
+                    "value": {
+                        "type": "int",
+                        "value": "0x2"
+                    }
                 },
                 {
-                    "name": "Events",
-                    "type": "PEVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "EvtQueryForwardDirection",
+                    "value": {
+                        "type": "int",
+                        "value": "0x100"
+                    }
                 },
                 {
-                    "name": "Timeout",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "EvtQueryReverseDirection",
+                    "value": {
+                        "type": "int",
+                        "value": "0x200"
+                    }
                 },
                 {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Returned",
-                    "type": "PDWORD",
-                    "sal": [
-                        "out"
-                    ]
+                    "name": "EvtQueryTolerateQueryErrors",
+                    "value": {
+                        "type": "int",
+                        "value": "0x1000"
+                    }
                 }
-            ],
-            "api_locations": [
-                "Wevtapi.dll",
-                "Ext-MS-Win-WEvtAPI-EventLog-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtSeek",
-                "type": "BOOL"
-            },
-            "name": "EvtSeek",
-            "arguments": [
-                {
-                    "name": "ResultSet",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Position",
-                    "type": "LONGLONG",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Bookmark",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Timeout",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtSubscribe",
-                "type": "EVT_HANDLE"
-            },
-            "name": "EvtSubscribe",
-            "arguments": [
-                {
-                    "name": "Session",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "SignalEvent",
-                    "type": "HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "ChannelPath",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Query",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Bookmark",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Context",
-                    "type": "PVOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Callback",
-                    "type": "EVT_SUBSCRIBE_CALLBACK",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll",
-                "Ext-MS-Win-WEvtAPI-EventLog-L1-1-0.dll",
-                "Ext-MS-Win-WEvtAPI-EventLog-L1-1-1.dll",
-                "Ext-MS-Win-WEvtAPI-EventLog-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtCreateRenderContext",
-                "type": "EVT_HANDLE"
-            },
-            "name": "EvtCreateRenderContext",
-            "arguments": [
-                {
-                    "name": "ValuePathsCount",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "ValuePaths",
-                        "type": "LPCWSTR"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll",
-                "Ext-MS-Win-WEvtAPI-EventLog-L1-1-0.dll",
-                "Ext-MS-Win-WEvtAPI-EventLog-L1-1-1.dll",
-                "Ext-MS-Win-WEvtAPI-EventLog-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtRender",
-                "type": "BOOL"
-            },
-            "name": "EvtRender",
-            "arguments": [
-                {
-                    "name": "Context",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Fragment",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "BufferSize",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Buffer",
-                    "type": "PVOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "BufferUsed",
-                    "type": "PDWORD",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "PropertyCount",
-                    "type": "PDWORD",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll",
-                "Ext-MS-Win-WEvtAPI-EventLog-L1-1-0.dll",
-                "Ext-MS-Win-WEvtAPI-EventLog-L1-1-1.dll",
-                "Ext-MS-Win-WEvtAPI-EventLog-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtFormatMessage",
-                "type": "BOOL"
-            },
-            "name": "EvtFormatMessage",
-            "arguments": [
-                {
-                    "name": "PublisherMetadata",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Event",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "MessageId",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "ValueCount",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Values",
-                    "type": "PEVT_VARIANT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "BufferSize",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Buffer",
-                    "type": "LPWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "BufferUsed",
-                    "type": "PDWORD",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll",
-                "Ext-MS-Win-WevtAPI-EventLog-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtOpenLog",
-                "type": "EVT_HANDLE"
-            },
-            "name": "EvtOpenLog",
-            "arguments": [
-                {
-                    "name": "Session",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Path",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtGetLogInfo",
-                "type": "BOOL"
-            },
-            "name": "EvtGetLogInfo",
-            "arguments": [
-                {
-                    "name": "Log",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PropertyId",
-                    "type": "EVT_LOG_PROPERTY_ID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PropertyValueBufferSize",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PropertyValueBuffer",
-                    "type": "PEVT_VARIANT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PropertyValueBufferUsed",
-                    "type": "PDWORD",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtClearLog",
-                "type": "BOOL"
-            },
-            "name": "EvtClearLog",
-            "arguments": [
-                {
-                    "name": "Session",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "ChannelPath",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "TargetFilePath",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtExportLog",
-                "type": "BOOL"
-            },
-            "name": "EvtExportLog",
-            "arguments": [
-                {
-                    "name": "Session",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "Path",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Query",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "TargetFilePath",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll",
-                "Ext-MS-Win-WEvtAPI-EventLog-L1-1-0.dll",
-                "Ext-MS-Win-WEvtAPI-EventLog-L1-1-1.dll",
-                "Ext-MS-Win-WEvtAPI-EventLog-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtArchiveExportedLog",
-                "type": "BOOL"
-            },
-            "name": "EvtArchiveExportedLog",
-            "arguments": [
-                {
-                    "name": "Session",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "LogFilePath",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Locale",
-                    "type": "LCID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtOpenChannelEnum",
-                "type": "EVT_HANDLE"
-            },
-            "name": "EvtOpenChannelEnum",
-            "arguments": [
-                {
-                    "name": "Session",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtNextChannelPath",
-                "type": "BOOL"
-            },
-            "name": "EvtNextChannelPath",
-            "arguments": [
-                {
-                    "name": "ChannelEnum",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "ChannelPathBufferSize",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "ChannelPathBuffer",
-                    "type": "LPWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "ChannelPathBufferUsed",
-                    "type": "PDWORD",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtOpenChannelConfig",
-                "type": "EVT_HANDLE"
-            },
-            "name": "EvtOpenChannelConfig",
-            "arguments": [
-                {
-                    "name": "Session",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "ChannelPath",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll",
-                "Ext-MS-Win-WEvtAPI-EventLog-L1-1-0.dll",
-                "Ext-MS-Win-WEvtAPI-EventLog-L1-1-1.dll",
-                "Ext-MS-Win-WEvtAPI-EventLog-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtSaveChannelConfig",
-                "type": "BOOL"
-            },
-            "name": "EvtSaveChannelConfig",
-            "arguments": [
-                {
-                    "name": "ChannelConfig",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll",
-                "Ext-MS-Win-WEvtAPI-EventLog-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtSetChannelConfigProperty",
-                "type": "BOOL"
-            },
-            "name": "EvtSetChannelConfigProperty",
-            "arguments": [
-                {
-                    "name": "ChannelConfig",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PropertyId",
-                    "type": "EVT_CHANNEL_CONFIG_PROPERTY_ID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PropertyValue",
-                    "type": "PEVT_VARIANT",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll",
-                "Ext-MS-Win-WEvtAPI-EventLog-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtGetChannelConfigProperty",
-                "type": "BOOL"
-            },
-            "name": "EvtGetChannelConfigProperty",
-            "arguments": [
-                {
-                    "name": "ChannelConfig",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PropertyId",
-                    "type": "EVT_CHANNEL_CONFIG_PROPERTY_ID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PropertyValueBufferSize",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PropertyValueBuffer",
-                    "type": "PEVT_VARIANT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PropertyValueBufferUsed",
-                    "type": "PDWORD",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll",
-                "Ext-MS-Win-WEvtAPI-EventLog-L1-1-0.dll",
-                "Ext-MS-Win-WEvtAPI-EventLog-L1-1-1.dll",
-                "Ext-MS-Win-WEvtAPI-EventLog-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtOpenPublisherEnum",
-                "type": "EVT_HANDLE"
-            },
-            "name": "EvtOpenPublisherEnum",
-            "arguments": [
-                {
-                    "name": "Session",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtNextPublisherId",
-                "type": "BOOL"
-            },
-            "name": "EvtNextPublisherId",
-            "arguments": [
-                {
-                    "name": "PublisherEnum",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PublisherIdBufferSize",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PublisherIdBuffer",
-                    "type": "LPWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PublisherIdBufferUsed",
-                    "type": "PDWORD",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtOpenPublisherMetadata",
-                "type": "EVT_HANDLE"
-            },
-            "name": "EvtOpenPublisherMetadata",
-            "arguments": [
-                {
-                    "name": "Session",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "PublisherId",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "LogFilePath",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "Locale",
-                    "type": "LCID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll",
-                "Ext-MS-Win-WevtAPI-EventLog-L1-1-2.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtGetPublisherMetadataProperty",
-                "type": "BOOL"
-            },
-            "name": "EvtGetPublisherMetadataProperty",
-            "arguments": [
-                {
-                    "name": "PublisherMetadata",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PropertyId",
-                    "type": "EVT_PUBLISHER_METADATA_PROPERTY_ID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PublisherMetadataPropertyBufferSize",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PublisherMetadataPropertyBuffer",
-                    "type": "PEVT_VARIANT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PublisherMetadataPropertyBufferUsed",
-                    "type": "PDWORD",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtOpenEventMetadataEnum",
-                "type": "EVT_HANDLE"
-            },
-            "name": "EvtOpenEventMetadataEnum",
-            "arguments": [
-                {
-                    "name": "PublisherMetadata",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtNextEventMetadata",
-                "type": "EVT_HANDLE"
-            },
-            "name": "EvtNextEventMetadata",
-            "arguments": [
-                {
-                    "name": "EventMetadataEnum",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtGetEventMetadataProperty",
-                "type": "BOOL"
-            },
-            "name": "EvtGetEventMetadataProperty",
-            "arguments": [
-                {
-                    "name": "EventMetadata",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PropertyId",
-                    "type": "EVT_EVENT_METADATA_PROPERTY_ID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "EventMetadataPropertyBufferSize",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "EventMetadataPropertyBuffer",
-                    "type": "PEVT_VARIANT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "EventMetadataPropertyBufferUsed",
-                    "type": "PDWORD",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtGetObjectArraySize",
-                "type": "BOOL"
-            },
-            "name": "EvtGetObjectArraySize",
-            "arguments": [
-                {
-                    "name": "ObjectArray",
-                    "type": "EVT_OBJECT_ARRAY_PROPERTY_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "ObjectArraySize",
-                    "type": "PDWORD",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtGetObjectArrayProperty",
-                "type": "BOOL"
-            },
-            "name": "EvtGetObjectArrayProperty",
-            "arguments": [
-                {
-                    "name": "ObjectArray",
-                    "type": "EVT_OBJECT_ARRAY_PROPERTY_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PropertyId",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "ArrayIndex",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Flags",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PropertyValueBufferSize",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PropertyValueBuffer",
-                    "type": "PEVT_VARIANT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PropertyValueBufferUsed",
-                    "type": "PDWORD",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtGetQueryInfo",
-                "type": "BOOL"
-            },
-            "name": "EvtGetQueryInfo",
-            "arguments": [
-                {
-                    "name": "QueryOrSubscription",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PropertyId",
-                    "type": "EVT_QUERY_PROPERTY_ID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PropertyValueBufferSize",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PropertyValueBuffer",
-                    "type": "PEVT_VARIANT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PropertyValueBufferUsed",
-                    "type": "PDWORD",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtCreateBookmark",
-                "type": "EVT_HANDLE"
-            },
-            "name": "EvtCreateBookmark",
-            "arguments": [
-                {
-                    "name": "BookmarkXml",
-                    "type": "LPCWSTR",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtUpdateBookmark",
-                "type": "BOOL"
-            },
-            "name": "EvtUpdateBookmark",
-            "arguments": [
-                {
-                    "name": "Bookmark",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "Event",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "EvtGetEventInfo",
-                "type": "BOOL"
-            },
-            "name": "EvtGetEventInfo",
-            "arguments": [
-                {
-                    "name": "Event",
-                    "type": "EVT_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PropertyId",
-                    "type": "EVT_EVENT_PROPERTY_ID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PropertyValueBufferSize",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PropertyValueBuffer",
-                    "type": "PEVT_VARIANT",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "PropertyValueBufferUsed",
-                    "type": "PDWORD",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Wevtapi.dll"
             ]
         }
-    ]
-}
+    },
+    {
+        "name": "EVT_SEEK_FLAGS",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "EvtSeekRelativeToFirst",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                },
+                {
+                    "name": "EvtSeekRelativeToLast",
+                    "value": {
+                        "type": "int",
+                        "value": "2"
+                    }
+                },
+                {
+                    "name": "EvtSeekRelativeToCurrent",
+                    "value": {
+                        "type": "int",
+                        "value": "3"
+                    }
+                },
+                {
+                    "name": "EvtSeekRelativeToBookmark",
+                    "value": {
+                        "type": "int",
+                        "value": "4"
+                    }
+                },
+                {
+                    "name": "EvtSeekOriginMask",
+                    "value": {
+                        "type": "int",
+                        "value": "7"
+                    }
+                },
+                {
+                    "name": "EvtSeekStrict",
+                    "value": {
+                        "type": "int",
+                        "value": "0x10000"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtQuery",
+            "type": "EVT_HANDLE"
+        },
+        "name": "EvtQuery",
+        "arguments": [
+            {
+                "name": "Session",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Path",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Query",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll",
+            "Ext-MS-Win-WevtAPI-EventLog-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtNext",
+            "type": "BOOL"
+        },
+        "name": "EvtNext",
+        "arguments": [
+            {
+                "name": "ResultSet",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "EventsSize",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Events",
+                "type": "PEVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Timeout",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Returned",
+                "type": "PDWORD",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll",
+            "Ext-MS-Win-WEvtAPI-EventLog-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtSeek",
+            "type": "BOOL"
+        },
+        "name": "EvtSeek",
+        "arguments": [
+            {
+                "name": "ResultSet",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Position",
+                "type": "LONGLONG",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Bookmark",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Timeout",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll"
+        ]
+    },
+    {
+        "name": "EVT_SUBSCRIBE_FLAGS",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "EvtSubscribeToFutureEvents",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                },
+                {
+                    "name": "EvtSubscribeStartAtOldestRecord",
+                    "value": {
+                        "type": "int",
+                        "value": "2"
+                    }
+                },
+                {
+                    "name": "EvtSubscribeStartAfterBookmark",
+                    "value": {
+                        "type": "int",
+                        "value": "3"
+                    }
+                },
+                {
+                    "name": "EvtSubscribeOriginMask",
+                    "value": {
+                        "type": "int",
+                        "value": "3"
+                    }
+                },
+                {
+                    "name": "EvtSubscribeTolerateQueryErrors",
+                    "value": {
+                        "type": "int",
+                        "value": "0x1000"
+                    }
+                },
+                {
+                    "name": "EvtSubscribeStrict",
+                    "value": {
+                        "type": "int",
+                        "value": "0x10000"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "EVT_SUBSCRIBE_NOTIFY_ACTION",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "EvtSubscribeActionError",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "EvtSubscribeActionDeliver",
+                    "value": {}
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
+            "name": "EVT_SUBSCRIBE_CALLBACK",
+            "type": "DWORD"
+        },
+        "name": "EVT_SUBSCRIBE_CALLBACK",
+        "arguments": [
+            {
+                "name": "Action",
+                "type": "EVT_SUBSCRIBE_NOTIFY_ACTION"
+            },
+            {
+                "name": "UserContext",
+                "type": "PVOID"
+            },
+            {
+                "name": "Event",
+                "type": "EVT_HANDLE"
+            }
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtSubscribe",
+            "type": "EVT_HANDLE"
+        },
+        "name": "EvtSubscribe",
+        "arguments": [
+            {
+                "name": "Session",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "SignalEvent",
+                "type": "HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "ChannelPath",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Query",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Bookmark",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Context",
+                "type": "PVOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Callback",
+                "type": "EVT_SUBSCRIBE_CALLBACK",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll",
+            "Ext-MS-Win-WEvtAPI-EventLog-L1-1-0.dll",
+            "Ext-MS-Win-WEvtAPI-EventLog-L1-1-1.dll",
+            "Ext-MS-Win-WEvtAPI-EventLog-L1-1-2.dll"
+        ]
+    },
+    {
+        "name": "EVT_SYSTEM_PROPERTY_ID",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "EvtSystemProviderName",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "EvtSystemProviderGuid",
+                    "value": {}
+                },
+                {
+                    "name": "EvtSystemEventID",
+                    "value": {}
+                },
+                {
+                    "name": "EvtSystemQualifiers",
+                    "value": {}
+                },
+                {
+                    "name": "EvtSystemLevel",
+                    "value": {}
+                },
+                {
+                    "name": "EvtSystemTask",
+                    "value": {}
+                },
+                {
+                    "name": "EvtSystemOpcode",
+                    "value": {}
+                },
+                {
+                    "name": "EvtSystemKeywords",
+                    "value": {}
+                },
+                {
+                    "name": "EvtSystemTimeCreated",
+                    "value": {}
+                },
+                {
+                    "name": "EvtSystemEventRecordId",
+                    "value": {}
+                },
+                {
+                    "name": "EvtSystemActivityID",
+                    "value": {}
+                },
+                {
+                    "name": "EvtSystemRelatedActivityID",
+                    "value": {}
+                },
+                {
+                    "name": "EvtSystemProcessID",
+                    "value": {}
+                },
+                {
+                    "name": "EvtSystemThreadID",
+                    "value": {}
+                },
+                {
+                    "name": "EvtSystemChannel",
+                    "value": {}
+                },
+                {
+                    "name": "EvtSystemComputer",
+                    "value": {}
+                },
+                {
+                    "name": "EvtSystemUserID",
+                    "value": {}
+                },
+                {
+                    "name": "EvtSystemVersion",
+                    "value": {}
+                },
+                {
+                    "name": "EvtSystemPropertyIdEND",
+                    "value": {}
+                }
+            ]
+        }
+    },
+    {
+        "name": "EVT_RENDER_CONTEXT_FLAGS",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "EvtRenderContextValues",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "EvtRenderContextSystem",
+                    "value": {}
+                },
+                {
+                    "name": "EvtRenderContextUser",
+                    "value": {}
+                }
+            ]
+        }
+    },
+    {
+        "name": "EVT_RENDER_FLAGS",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "EvtRenderEventValues",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "EvtRenderEventXml",
+                    "value": {}
+                },
+                {
+                    "name": "EvtRenderBookmark",
+                    "value": {}
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtCreateRenderContext",
+            "type": "EVT_HANDLE"
+        },
+        "name": "EvtCreateRenderContext",
+        "arguments": [
+            {
+                "name": "ValuePathsCount",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "ValuePaths",
+                    "type": "LPCWSTR"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll",
+            "Ext-MS-Win-WEvtAPI-EventLog-L1-1-0.dll",
+            "Ext-MS-Win-WEvtAPI-EventLog-L1-1-1.dll",
+            "Ext-MS-Win-WEvtAPI-EventLog-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtRender",
+            "type": "BOOL"
+        },
+        "name": "EvtRender",
+        "arguments": [
+            {
+                "name": "Context",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Fragment",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "BufferSize",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Buffer",
+                "type": "PVOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "BufferUsed",
+                "type": "PDWORD",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "PropertyCount",
+                "type": "PDWORD",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll",
+            "Ext-MS-Win-WEvtAPI-EventLog-L1-1-0.dll",
+            "Ext-MS-Win-WEvtAPI-EventLog-L1-1-1.dll",
+            "Ext-MS-Win-WEvtAPI-EventLog-L1-1-2.dll"
+        ]
+    },
+    {
+        "name": "EVT_FORMAT_MESSAGE_FLAGS",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "EvtFormatMessageEvent",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                },
+                {
+                    "name": "EvtFormatMessageLevel",
+                    "value": {}
+                },
+                {
+                    "name": "EvtFormatMessageTask",
+                    "value": {}
+                },
+                {
+                    "name": "EvtFormatMessageOpcode",
+                    "value": {}
+                },
+                {
+                    "name": "EvtFormatMessageKeyword",
+                    "value": {}
+                },
+                {
+                    "name": "EvtFormatMessageChannel",
+                    "value": {}
+                },
+                {
+                    "name": "EvtFormatMessageProvider",
+                    "value": {}
+                },
+                {
+                    "name": "EvtFormatMessageId",
+                    "value": {}
+                },
+                {
+                    "name": "EvtFormatMessageXml",
+                    "value": {}
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtFormatMessage",
+            "type": "BOOL"
+        },
+        "name": "EvtFormatMessage",
+        "arguments": [
+            {
+                "name": "PublisherMetadata",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Event",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "MessageId",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "ValueCount",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Values",
+                "type": "PEVT_VARIANT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "BufferSize",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Buffer",
+                "type": "LPWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "BufferUsed",
+                "type": "PDWORD",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll",
+            "Ext-MS-Win-WevtAPI-EventLog-L1-1-2.dll"
+        ]
+    },
+    {
+        "name": "EVT_OPEN_LOG_FLAGS",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "EvtOpenChannelPath",
+                    "value": {
+                        "type": "int",
+                        "value": "0x1"
+                    }
+                },
+                {
+                    "name": "EvtOpenFilePath",
+                    "value": {
+                        "type": "int",
+                        "value": "0x2"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "EVT_LOG_PROPERTY_ID",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "EvtLogCreationTime",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "EvtLogLastAccessTime",
+                    "value": {}
+                },
+                {
+                    "name": "EvtLogLastWriteTime",
+                    "value": {}
+                },
+                {
+                    "name": "EvtLogFileSize",
+                    "value": {}
+                },
+                {
+                    "name": "EvtLogAttributes",
+                    "value": {}
+                },
+                {
+                    "name": "EvtLogNumberOfLogRecords",
+                    "value": {}
+                },
+                {
+                    "name": "EvtLogOldestRecordNumber",
+                    "value": {}
+                },
+                {
+                    "name": "EvtLogFull",
+                    "value": {}
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtOpenLog",
+            "type": "EVT_HANDLE"
+        },
+        "name": "EvtOpenLog",
+        "arguments": [
+            {
+                "name": "Session",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Path",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtGetLogInfo",
+            "type": "BOOL"
+        },
+        "name": "EvtGetLogInfo",
+        "arguments": [
+            {
+                "name": "Log",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PropertyId",
+                "type": "EVT_LOG_PROPERTY_ID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PropertyValueBufferSize",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PropertyValueBuffer",
+                "type": "PEVT_VARIANT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PropertyValueBufferUsed",
+                "type": "PDWORD",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtClearLog",
+            "type": "BOOL"
+        },
+        "name": "EvtClearLog",
+        "arguments": [
+            {
+                "name": "Session",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "ChannelPath",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "TargetFilePath",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll"
+        ]
+    },
+    {
+        "name": "EVT_EXPORTLOG_FLAGS",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "EvtExportLogChannelPath",
+                    "value": {
+                        "type": "int",
+                        "value": "0x1"
+                    }
+                },
+                {
+                    "name": "EvtExportLogFilePath",
+                    "value": {
+                        "type": "int",
+                        "value": "0x2"
+                    }
+                },
+                {
+                    "name": "EvtExportLogTolerateQueryErrors",
+                    "value": {
+                        "type": "int",
+                        "value": "0x1000"
+                    }
+                },
+                {
+                    "name": "EvtExportLogOverwrite",
+                    "value": {
+                        "type": "int",
+                        "value": "0x2000"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtExportLog",
+            "type": "BOOL"
+        },
+        "name": "EvtExportLog",
+        "arguments": [
+            {
+                "name": "Session",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "Path",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Query",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "TargetFilePath",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll",
+            "Ext-MS-Win-WEvtAPI-EventLog-L1-1-0.dll",
+            "Ext-MS-Win-WEvtAPI-EventLog-L1-1-1.dll",
+            "Ext-MS-Win-WEvtAPI-EventLog-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtArchiveExportedLog",
+            "type": "BOOL"
+        },
+        "name": "EvtArchiveExportedLog",
+        "arguments": [
+            {
+                "name": "Session",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "LogFilePath",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Locale",
+                "type": "LCID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll"
+        ]
+    },
+    {
+        "name": "EVT_CHANNEL_CONFIG_PROPERTY_ID",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "EvtChannelConfigEnabled",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "EvtChannelConfigIsolation",
+                    "value": {}
+                },
+                {
+                    "name": "EvtChannelConfigType",
+                    "value": {}
+                },
+                {
+                    "name": "EvtChannelConfigOwningPublisher",
+                    "value": {}
+                },
+                {
+                    "name": "EvtChannelConfigClassicEventlog",
+                    "value": {}
+                },
+                {
+                    "name": "EvtChannelConfigAccess",
+                    "value": {}
+                },
+                {
+                    "name": "EvtChannelLoggingConfigRetention",
+                    "value": {}
+                },
+                {
+                    "name": "EvtChannelLoggingConfigAutoBackup",
+                    "value": {}
+                },
+                {
+                    "name": "EvtChannelLoggingConfigMaxSize",
+                    "value": {}
+                },
+                {
+                    "name": "EvtChannelLoggingConfigLogFilePath",
+                    "value": {}
+                },
+                {
+                    "name": "EvtChannelPublishingConfigLevel",
+                    "value": {}
+                },
+                {
+                    "name": "EvtChannelPublishingConfigKeywords",
+                    "value": {}
+                },
+                {
+                    "name": "EvtChannelPublishingConfigControlGuid",
+                    "value": {}
+                },
+                {
+                    "name": "EvtChannelPublishingConfigBufferSize",
+                    "value": {}
+                },
+                {
+                    "name": "EvtChannelPublishingConfigMinBuffers",
+                    "value": {}
+                },
+                {
+                    "name": "EvtChannelPublishingConfigMaxBuffers",
+                    "value": {}
+                },
+                {
+                    "name": "EvtChannelPublishingConfigLatency",
+                    "value": {}
+                },
+                {
+                    "name": "EvtChannelPublishingConfigClockType",
+                    "value": {}
+                },
+                {
+                    "name": "EvtChannelPublishingConfigSidType",
+                    "value": {}
+                },
+                {
+                    "name": "EvtChannelPublisherList",
+                    "value": {}
+                },
+                {
+                    "name": "EvtChannelPublishingConfigFileMax",
+                    "value": {}
+                },
+                {
+                    "name": "EvtChannelConfigPropertyIdEND",
+                    "value": {}
+                }
+            ]
+        }
+    },
+    {
+        "name": "EVT_CHANNEL_TYPE",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "EvtChannelTypeAdmin",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "EvtChannelTypeOperational",
+                    "value": {}
+                },
+                {
+                    "name": "EvtChannelTypeAnalytic",
+                    "value": {}
+                },
+                {
+                    "name": "EvtChannelTypeDebug",
+                    "value": {}
+                }
+            ]
+        }
+    },
+    {
+        "name": "EVT_CHANNEL_ISOLATION_TYPE",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "EvtChannelIsolationTypeApplication",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "EvtChannelIsolationTypeSystem",
+                    "value": {}
+                },
+                {
+                    "name": "EvtChannelIsolationTypeCustom",
+                    "value": {}
+                }
+            ]
+        }
+    },
+    {
+        "name": "EVT_CHANNEL_CLOCK_TYPE",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "EvtChannelClockTypeSystemTime",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "EvtChannelClockTypeQPC",
+                    "value": {}
+                }
+            ]
+        }
+    },
+    {
+        "name": "EVT_CHANNEL_SID_TYPE",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "EvtChannelSidTypeNone",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "EvtChannelSidTypePublishing",
+                    "value": {}
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtOpenChannelEnum",
+            "type": "EVT_HANDLE"
+        },
+        "name": "EvtOpenChannelEnum",
+        "arguments": [
+            {
+                "name": "Session",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtNextChannelPath",
+            "type": "BOOL"
+        },
+        "name": "EvtNextChannelPath",
+        "arguments": [
+            {
+                "name": "ChannelEnum",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "ChannelPathBufferSize",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "ChannelPathBuffer",
+                "type": "LPWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "ChannelPathBufferUsed",
+                "type": "PDWORD",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtOpenChannelConfig",
+            "type": "EVT_HANDLE"
+        },
+        "name": "EvtOpenChannelConfig",
+        "arguments": [
+            {
+                "name": "Session",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "ChannelPath",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll",
+            "Ext-MS-Win-WEvtAPI-EventLog-L1-1-0.dll",
+            "Ext-MS-Win-WEvtAPI-EventLog-L1-1-1.dll",
+            "Ext-MS-Win-WEvtAPI-EventLog-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtSaveChannelConfig",
+            "type": "BOOL"
+        },
+        "name": "EvtSaveChannelConfig",
+        "arguments": [
+            {
+                "name": "ChannelConfig",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll",
+            "Ext-MS-Win-WEvtAPI-EventLog-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtSetChannelConfigProperty",
+            "type": "BOOL"
+        },
+        "name": "EvtSetChannelConfigProperty",
+        "arguments": [
+            {
+                "name": "ChannelConfig",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PropertyId",
+                "type": "EVT_CHANNEL_CONFIG_PROPERTY_ID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PropertyValue",
+                "type": "PEVT_VARIANT",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll",
+            "Ext-MS-Win-WEvtAPI-EventLog-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtGetChannelConfigProperty",
+            "type": "BOOL"
+        },
+        "name": "EvtGetChannelConfigProperty",
+        "arguments": [
+            {
+                "name": "ChannelConfig",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PropertyId",
+                "type": "EVT_CHANNEL_CONFIG_PROPERTY_ID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PropertyValueBufferSize",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PropertyValueBuffer",
+                "type": "PEVT_VARIANT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PropertyValueBufferUsed",
+                "type": "PDWORD",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll",
+            "Ext-MS-Win-WEvtAPI-EventLog-L1-1-0.dll",
+            "Ext-MS-Win-WEvtAPI-EventLog-L1-1-1.dll",
+            "Ext-MS-Win-WEvtAPI-EventLog-L1-1-2.dll"
+        ]
+    },
+    {
+        "name": "EVT_CHANNEL_REFERENCE_FLAGS",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "EvtChannelReferenceImported",
+                    "value": {
+                        "type": "int",
+                        "value": "0x1"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "EVT_PUBLISHER_METADATA_PROPERTY_ID",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "EvtPublisherMetadataPublisherGuid",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "EvtPublisherMetadataResourceFilePath",
+                    "value": {}
+                },
+                {
+                    "name": "EvtPublisherMetadataParameterFilePath",
+                    "value": {}
+                },
+                {
+                    "name": "EvtPublisherMetadataMessageFilePath",
+                    "value": {}
+                },
+                {
+                    "name": "EvtPublisherMetadataHelpLink",
+                    "value": {}
+                },
+                {
+                    "name": "EvtPublisherMetadataPublisherMessageID",
+                    "value": {}
+                },
+                {
+                    "name": "EvtPublisherMetadataChannelReferences",
+                    "value": {}
+                },
+                {
+                    "name": "EvtPublisherMetadataChannelReferencePath",
+                    "value": {}
+                },
+                {
+                    "name": "EvtPublisherMetadataChannelReferenceIndex",
+                    "value": {}
+                },
+                {
+                    "name": "EvtPublisherMetadataChannelReferenceID",
+                    "value": {}
+                },
+                {
+                    "name": "EvtPublisherMetadataChannelReferenceFlags",
+                    "value": {}
+                },
+                {
+                    "name": "EvtPublisherMetadataChannelReferenceMessageID",
+                    "value": {}
+                },
+                {
+                    "name": "EvtPublisherMetadataLevels",
+                    "value": {}
+                },
+                {
+                    "name": "EvtPublisherMetadataLevelName",
+                    "value": {}
+                },
+                {
+                    "name": "EvtPublisherMetadataLevelValue",
+                    "value": {}
+                },
+                {
+                    "name": "EvtPublisherMetadataLevelMessageID",
+                    "value": {}
+                },
+                {
+                    "name": "EvtPublisherMetadataTasks",
+                    "value": {}
+                },
+                {
+                    "name": "EvtPublisherMetadataTaskName",
+                    "value": {}
+                },
+                {
+                    "name": "EvtPublisherMetadataTaskEventGuid",
+                    "value": {}
+                },
+                {
+                    "name": "EvtPublisherMetadataTaskValue",
+                    "value": {}
+                },
+                {
+                    "name": "EvtPublisherMetadataTaskMessageID",
+                    "value": {}
+                },
+                {
+                    "name": "EvtPublisherMetadataOpcodes",
+                    "value": {}
+                },
+                {
+                    "name": "EvtPublisherMetadataOpcodeName",
+                    "value": {}
+                },
+                {
+                    "name": "EvtPublisherMetadataOpcodeValue",
+                    "value": {}
+                },
+                {
+                    "name": "EvtPublisherMetadataOpcodeMessageID",
+                    "value": {}
+                },
+                {
+                    "name": "EvtPublisherMetadataKeywords",
+                    "value": {}
+                },
+                {
+                    "name": "EvtPublisherMetadataKeywordName",
+                    "value": {}
+                },
+                {
+                    "name": "EvtPublisherMetadataKeywordValue",
+                    "value": {}
+                },
+                {
+                    "name": "EvtPublisherMetadataKeywordMessageID",
+                    "value": {}
+                },
+                {
+                    "name": "EvtPublisherMetadataPropertyIdEND",
+                    "value": {}
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtOpenPublisherEnum",
+            "type": "EVT_HANDLE"
+        },
+        "name": "EvtOpenPublisherEnum",
+        "arguments": [
+            {
+                "name": "Session",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtNextPublisherId",
+            "type": "BOOL"
+        },
+        "name": "EvtNextPublisherId",
+        "arguments": [
+            {
+                "name": "PublisherEnum",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PublisherIdBufferSize",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PublisherIdBuffer",
+                "type": "LPWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PublisherIdBufferUsed",
+                "type": "PDWORD",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtOpenPublisherMetadata",
+            "type": "EVT_HANDLE"
+        },
+        "name": "EvtOpenPublisherMetadata",
+        "arguments": [
+            {
+                "name": "Session",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "PublisherId",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "LogFilePath",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "Locale",
+                "type": "LCID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll",
+            "Ext-MS-Win-WevtAPI-EventLog-L1-1-2.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtGetPublisherMetadataProperty",
+            "type": "BOOL"
+        },
+        "name": "EvtGetPublisherMetadataProperty",
+        "arguments": [
+            {
+                "name": "PublisherMetadata",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PropertyId",
+                "type": "EVT_PUBLISHER_METADATA_PROPERTY_ID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PublisherMetadataPropertyBufferSize",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PublisherMetadataPropertyBuffer",
+                "type": "PEVT_VARIANT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PublisherMetadataPropertyBufferUsed",
+                "type": "PDWORD",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll"
+        ]
+    },
+    {
+        "name": "EVT_EVENT_METADATA_PROPERTY_ID",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "EventMetadataEventID",
+                    "value": {}
+                },
+                {
+                    "name": "EventMetadataEventVersion",
+                    "value": {}
+                },
+                {
+                    "name": "EventMetadataEventChannel",
+                    "value": {}
+                },
+                {
+                    "name": "EventMetadataEventLevel",
+                    "value": {}
+                },
+                {
+                    "name": "EventMetadataEventOpcode",
+                    "value": {}
+                },
+                {
+                    "name": "EventMetadataEventTask",
+                    "value": {}
+                },
+                {
+                    "name": "EventMetadataEventKeyword",
+                    "value": {}
+                },
+                {
+                    "name": "EventMetadataEventMessageID",
+                    "value": {}
+                },
+                {
+                    "name": "EventMetadataEventTemplate",
+                    "value": {}
+                },
+                {
+                    "name": "EvtEventMetadataPropertyIdEND",
+                    "value": {}
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtOpenEventMetadataEnum",
+            "type": "EVT_HANDLE"
+        },
+        "name": "EvtOpenEventMetadataEnum",
+        "arguments": [
+            {
+                "name": "PublisherMetadata",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtNextEventMetadata",
+            "type": "EVT_HANDLE"
+        },
+        "name": "EvtNextEventMetadata",
+        "arguments": [
+            {
+                "name": "EventMetadataEnum",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtGetEventMetadataProperty",
+            "type": "BOOL"
+        },
+        "name": "EvtGetEventMetadataProperty",
+        "arguments": [
+            {
+                "name": "EventMetadata",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PropertyId",
+                "type": "EVT_EVENT_METADATA_PROPERTY_ID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "EventMetadataPropertyBufferSize",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "EventMetadataPropertyBuffer",
+                "type": "PEVT_VARIANT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "EventMetadataPropertyBufferUsed",
+                "type": "PDWORD",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll"
+        ]
+    },
+    {
+        "name": "EVT_OBJECT_ARRAY_PROPERTY_HANDLE",
+        "type": "HANDLE"
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtGetObjectArraySize",
+            "type": "BOOL"
+        },
+        "name": "EvtGetObjectArraySize",
+        "arguments": [
+            {
+                "name": "ObjectArray",
+                "type": "EVT_OBJECT_ARRAY_PROPERTY_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "ObjectArraySize",
+                "type": "PDWORD",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtGetObjectArrayProperty",
+            "type": "BOOL"
+        },
+        "name": "EvtGetObjectArrayProperty",
+        "arguments": [
+            {
+                "name": "ObjectArray",
+                "type": "EVT_OBJECT_ARRAY_PROPERTY_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PropertyId",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "ArrayIndex",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Flags",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PropertyValueBufferSize",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PropertyValueBuffer",
+                "type": "PEVT_VARIANT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PropertyValueBufferUsed",
+                "type": "PDWORD",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll"
+        ]
+    },
+    {
+        "name": "EVT_QUERY_PROPERTY_ID",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "EvtQueryNames",
+                    "value": {}
+                },
+                {
+                    "name": "EvtQueryStatuses",
+                    "value": {}
+                },
+                {
+                    "name": "EvtQueryPropertyIdEND",
+                    "value": {}
+                }
+            ]
+        }
+    },
+    {
+        "name": "EVT_EVENT_PROPERTY_ID",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "EvtEventQueryIDs",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "EvtEventPath",
+                    "value": {}
+                },
+                {
+                    "name": "EvtEventPropertyIdEND",
+                    "value": {}
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtGetQueryInfo",
+            "type": "BOOL"
+        },
+        "name": "EvtGetQueryInfo",
+        "arguments": [
+            {
+                "name": "QueryOrSubscription",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PropertyId",
+                "type": "EVT_QUERY_PROPERTY_ID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PropertyValueBufferSize",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PropertyValueBuffer",
+                "type": "PEVT_VARIANT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PropertyValueBufferUsed",
+                "type": "PDWORD",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtCreateBookmark",
+            "type": "EVT_HANDLE"
+        },
+        "name": "EvtCreateBookmark",
+        "arguments": [
+            {
+                "name": "BookmarkXml",
+                "type": "LPCWSTR",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtUpdateBookmark",
+            "type": "BOOL"
+        },
+        "name": "EvtUpdateBookmark",
+        "arguments": [
+            {
+                "name": "Bookmark",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "Event",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "EvtGetEventInfo",
+            "type": "BOOL"
+        },
+        "name": "EvtGetEventInfo",
+        "arguments": [
+            {
+                "name": "Event",
+                "type": "EVT_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PropertyId",
+                "type": "EVT_EVENT_PROPERTY_ID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PropertyValueBufferSize",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PropertyValueBuffer",
+                "type": "PEVT_VARIANT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "PropertyValueBufferUsed",
+                "type": "PDWORD",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Wevtapi.dll"
+        ]
+    }
+]

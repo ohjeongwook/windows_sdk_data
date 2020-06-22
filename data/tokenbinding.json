@@ -1,504 +1,500 @@
-{
-    "typedefs": [
-        {
-            "name": "TOKENBINDING_TYPE",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "TOKENBINDING_TYPE_PROVIDED",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "TOKENBINDING_TYPE_REFERRED",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
+[
+    {
+        "name": "TOKENBINDING_TYPE",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "TOKENBINDING_TYPE_PROVIDED",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
                     }
-                ]
-            }
-        },
-        {
-            "name": "TOKENBINDING_EXTENSION_FORMAT",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "TOKENBINDING_EXTENSION_FORMAT_UNDEFINED",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
+                },
+                {
+                    "name": "TOKENBINDING_TYPE_REFERRED",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
                     }
-                ]
-            }
-        },
-        {
-            "name": "TOKENBINDING_KEY_PARAMETERS_TYPE",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "TOKENBINDING_KEY_PARAMETERS_TYPE_RSA2048_PKCS",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "TOKENBINDING_KEY_PARAMETERS_TYPE_RSA2048_PSS",
-                        "value": {
-                            "type": "int",
-                            "value": "1"
-                        }
-                    },
-                    {
-                        "name": "TOKENBINDING_KEY_PARAMETERS_TYPE_ECDSAP256",
-                        "value": {
-                            "type": "int",
-                            "value": "2"
-                        }
-                    },
-                    {
-                        "name": "TOKENBINDING_KEY_PARAMETERS_TYPE_ANYEXISTING",
-                        "value": {
-                            "type": "int",
-                            "value": "255"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "TOKENBINDING_IDENTIFIER",
-            "type": {
-                "data_type": "Struct",
-                "name": "TOKENBINDING_IDENTIFIER",
-                "elements": [
-                    {
-                        "name": "keyType",
-                        "type": "BYTE"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "TOKENBINDING_RESULT_DATA",
-            "type": {
-                "data_type": "Struct",
-                "name": "TOKENBINDING_RESULT_DATA",
-                "elements": [
-                    {
-                        "name": "bindingType",
-                        "type": "TOKENBINDING_TYPE"
-                    },
-                    {
-                        "name": "identifierSize",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "identifierData",
-                        "type": "TOKENBINDING_IDENTIFIER",
-                        "data_type": "Ptr"
-                    },
-                    {
-                        "name": "extensionFormat",
-                        "type": "TOKENBINDING_EXTENSION_FORMAT"
-                    },
-                    {
-                        "name": "extensionSize",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "extensionData",
-                        "type": "PVOID"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "TOKENBINDING_RESULT_LIST",
-            "type": {
-                "data_type": "Struct",
-                "name": "TOKENBINDING_RESULT_LIST",
-                "elements": [
-                    {
-                        "name": "resultCount",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "resultData",
-                        "type": "TOKENBINDING_RESULT_DATA",
-                        "data_type": "Ptr"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "TOKENBINDING_KEY_TYPES",
-            "type": {
-                "data_type": "Struct",
-                "name": "TOKENBINDING_KEY_TYPES",
-                "elements": [
-                    {
-                        "name": "keyCount",
-                        "type": "DWORD"
-                    },
-                    {
-                        "name": "keyType",
-                        "type": "TOKENBINDING_KEY_PARAMETERS_TYPE",
-                        "data_type": "Ptr"
-                    }
-                ]
-            }
+                }
+            ]
         }
-    ],
-    "funcdefs": [
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "TokenBindingGenerateBinding",
-                "type": "SECURITY_STATUS"
-            },
-            "name": "TokenBindingGenerateBinding",
-            "arguments": [
+    },
+    {
+        "name": "TOKENBINDING_EXTENSION_FORMAT",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "TOKENBINDING_EXTENSION_FORMAT_UNDEFINED",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "TOKENBINDING_KEY_PARAMETERS_TYPE",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "TOKENBINDING_KEY_PARAMETERS_TYPE_RSA2048_PKCS",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
+                    }
+                },
+                {
+                    "name": "TOKENBINDING_KEY_PARAMETERS_TYPE_RSA2048_PSS",
+                    "value": {
+                        "type": "int",
+                        "value": "1"
+                    }
+                },
+                {
+                    "name": "TOKENBINDING_KEY_PARAMETERS_TYPE_ECDSAP256",
+                    "value": {
+                        "type": "int",
+                        "value": "2"
+                    }
+                },
+                {
+                    "name": "TOKENBINDING_KEY_PARAMETERS_TYPE_ANYEXISTING",
+                    "value": {
+                        "type": "int",
+                        "value": "255"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "TOKENBINDING_IDENTIFIER",
+        "type": {
+            "data_type": "Struct",
+            "name": "TOKENBINDING_IDENTIFIER",
+            "elements": [
                 {
                     "name": "keyType",
-                    "type": "TOKENBINDING_KEY_PARAMETERS_TYPE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "targetURL",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                },
+                    "type": "BYTE"
+                }
+            ]
+        }
+    },
+    {
+        "name": "TOKENBINDING_RESULT_DATA",
+        "type": {
+            "data_type": "Struct",
+            "name": "TOKENBINDING_RESULT_DATA",
+            "elements": [
                 {
                     "name": "bindingType",
-                    "type": "TOKENBINDING_TYPE",
-                    "sal": [
-                        "in"
-                    ]
+                    "type": "TOKENBINDING_TYPE"
                 },
                 {
-                    "type": {
-                        "name": "tlsEKM",
-                        "type": "void"
-                    },
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "identifierSize",
+                    "type": "DWORD"
                 },
                 {
-                    "name": "tlsEKMSize",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "identifierData",
+                    "type": "TOKENBINDING_IDENTIFIER",
+                    "data_type": "Ptr"
                 },
                 {
                     "name": "extensionFormat",
-                    "type": "TOKENBINDING_EXTENSION_FORMAT",
-                    "sal": [
-                        "in"
-                    ]
+                    "type": "TOKENBINDING_EXTENSION_FORMAT"
                 },
                 {
-                    "type": {
-                        "name": "extensionData",
-                        "type": "void"
-                    },
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "extensionSize",
+                    "type": "DWORD"
                 },
                 {
-                    "type": {
-                        "name": "tokenBinding",
-                        "type": "void",
-                        "data_type": "Ptr"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "tokenBindingSize",
-                        "type": "DWORD"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "resultData",
-                        "type": "TOKENBINDING_RESULT_DATA",
-                        "data_type": "Ptr"
-                    },
-                    "sal": [
-                        "out",
-                        "optional"
-                    ]
+                    "name": "extensionData",
+                    "type": "PVOID"
                 }
-            ],
-            "api_locations": [
-                "tokenbinding.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "TokenBindingGenerateMessage",
-                "type": "SECURITY_STATUS"
-            },
-            "name": "TokenBindingGenerateMessage",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "tokenBindings",
-                        "type": "void",
-                        "data_type": "Ptr"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "tokenBindingsSize",
-                        "type": "DWORD"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "tokenBindingsCount",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "tokenBindingMessage",
-                        "type": "void",
-                        "data_type": "Ptr"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "tokenBindingMessageSize",
-                        "type": "DWORD"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "tokenbinding.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "TokenBindingVerifyMessage",
-                "type": "SECURITY_STATUS"
-            },
-            "name": "TokenBindingVerifyMessage",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "tokenBindingMessage",
-                        "type": "void"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "tokenBindingMessageSize",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "keyType",
-                    "type": "TOKENBINDING_KEY_PARAMETERS_TYPE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "tlsEKM",
-                        "type": "void"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "tlsEKMSize",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "resultList",
-                        "type": "TOKENBINDING_RESULT_LIST",
-                        "data_type": "Ptr"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "tokenbinding.dll",
-                "Ksecdd.sys"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "TokenBindingGetKeyTypesClient",
-                "type": "SECURITY_STATUS"
-            },
-            "name": "TokenBindingGetKeyTypesClient",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "keyTypes",
-                        "type": "TOKENBINDING_KEY_TYPES",
-                        "data_type": "Ptr"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "tokenbinding.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "TokenBindingGetKeyTypesServer",
-                "type": "SECURITY_STATUS"
-            },
-            "name": "TokenBindingGetKeyTypesServer",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "keyTypes",
-                        "type": "TOKENBINDING_KEY_TYPES",
-                        "data_type": "Ptr"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "tokenbinding.dll",
-                "Ksecdd.sys"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "TokenBindingDeleteBinding",
-                "type": "SECURITY_STATUS"
-            },
-            "name": "TokenBindingDeleteBinding",
-            "arguments": [
-                {
-                    "name": "targetURL",
-                    "type": "PCWSTR",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "tokenbinding.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "TokenBindingDeleteAllBindings",
-                "type": "SECURITY_STATUS"
-            },
-            "name": "TokenBindingDeleteAllBindings",
-            "arguments": [],
-            "api_locations": [
-                "tokenbinding.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "TokenBindingGenerateID",
-                "type": "SECURITY_STATUS"
-            },
-            "name": "TokenBindingGenerateID",
-            "arguments": [
-                {
-                    "name": "keyType",
-                    "type": "TOKENBINDING_KEY_PARAMETERS_TYPE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "publicKey",
-                        "type": "void"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "publicKeySize",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "resultData",
-                        "type": "TOKENBINDING_RESULT_DATA",
-                        "data_type": "Ptr"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "tokenbinding.dll"
             ]
         }
-    ]
-}
+    },
+    {
+        "name": "TOKENBINDING_RESULT_LIST",
+        "type": {
+            "data_type": "Struct",
+            "name": "TOKENBINDING_RESULT_LIST",
+            "elements": [
+                {
+                    "name": "resultCount",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "resultData",
+                    "type": "TOKENBINDING_RESULT_DATA",
+                    "data_type": "Ptr"
+                }
+            ]
+        }
+    },
+    {
+        "name": "TOKENBINDING_KEY_TYPES",
+        "type": {
+            "data_type": "Struct",
+            "name": "TOKENBINDING_KEY_TYPES",
+            "elements": [
+                {
+                    "name": "keyCount",
+                    "type": "DWORD"
+                },
+                {
+                    "name": "keyType",
+                    "type": "TOKENBINDING_KEY_PARAMETERS_TYPE",
+                    "data_type": "Ptr"
+                }
+            ]
+        }
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "TokenBindingGenerateBinding",
+            "type": "SECURITY_STATUS"
+        },
+        "name": "TokenBindingGenerateBinding",
+        "arguments": [
+            {
+                "name": "keyType",
+                "type": "TOKENBINDING_KEY_PARAMETERS_TYPE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "targetURL",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "bindingType",
+                "type": "TOKENBINDING_TYPE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "tlsEKM",
+                    "type": "void"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "tlsEKMSize",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "extensionFormat",
+                "type": "TOKENBINDING_EXTENSION_FORMAT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "extensionData",
+                    "type": "void"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "tokenBinding",
+                    "type": "void",
+                    "data_type": "Ptr"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "tokenBindingSize",
+                    "type": "DWORD"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "resultData",
+                    "type": "TOKENBINDING_RESULT_DATA",
+                    "data_type": "Ptr"
+                },
+                "sal": [
+                    "out",
+                    "optional"
+                ]
+            }
+        ],
+        "api_locations": [
+            "tokenbinding.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "TokenBindingGenerateMessage",
+            "type": "SECURITY_STATUS"
+        },
+        "name": "TokenBindingGenerateMessage",
+        "arguments": [
+            {
+                "type": {
+                    "name": "tokenBindings",
+                    "type": "void",
+                    "data_type": "Ptr"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "tokenBindingsSize",
+                    "type": "DWORD"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "tokenBindingsCount",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "tokenBindingMessage",
+                    "type": "void",
+                    "data_type": "Ptr"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "tokenBindingMessageSize",
+                    "type": "DWORD"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "tokenbinding.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "TokenBindingVerifyMessage",
+            "type": "SECURITY_STATUS"
+        },
+        "name": "TokenBindingVerifyMessage",
+        "arguments": [
+            {
+                "type": {
+                    "name": "tokenBindingMessage",
+                    "type": "void"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "tokenBindingMessageSize",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "keyType",
+                "type": "TOKENBINDING_KEY_PARAMETERS_TYPE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "tlsEKM",
+                    "type": "void"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "tlsEKMSize",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "resultList",
+                    "type": "TOKENBINDING_RESULT_LIST",
+                    "data_type": "Ptr"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "tokenbinding.dll",
+            "Ksecdd.sys"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "TokenBindingGetKeyTypesClient",
+            "type": "SECURITY_STATUS"
+        },
+        "name": "TokenBindingGetKeyTypesClient",
+        "arguments": [
+            {
+                "type": {
+                    "name": "keyTypes",
+                    "type": "TOKENBINDING_KEY_TYPES",
+                    "data_type": "Ptr"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "tokenbinding.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "TokenBindingGetKeyTypesServer",
+            "type": "SECURITY_STATUS"
+        },
+        "name": "TokenBindingGetKeyTypesServer",
+        "arguments": [
+            {
+                "type": {
+                    "name": "keyTypes",
+                    "type": "TOKENBINDING_KEY_TYPES",
+                    "data_type": "Ptr"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "tokenbinding.dll",
+            "Ksecdd.sys"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "TokenBindingDeleteBinding",
+            "type": "SECURITY_STATUS"
+        },
+        "name": "TokenBindingDeleteBinding",
+        "arguments": [
+            {
+                "name": "targetURL",
+                "type": "PCWSTR",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "tokenbinding.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "TokenBindingDeleteAllBindings",
+            "type": "SECURITY_STATUS"
+        },
+        "name": "TokenBindingDeleteAllBindings",
+        "arguments": [],
+        "api_locations": [
+            "tokenbinding.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "TokenBindingGenerateID",
+            "type": "SECURITY_STATUS"
+        },
+        "name": "TokenBindingGenerateID",
+        "arguments": [
+            {
+                "name": "keyType",
+                "type": "TOKENBINDING_KEY_PARAMETERS_TYPE",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "publicKey",
+                    "type": "void"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "publicKeySize",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "resultData",
+                    "type": "TOKENBINDING_RESULT_DATA",
+                    "data_type": "Ptr"
+                },
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "tokenbinding.dll"
+        ]
+    }
+]

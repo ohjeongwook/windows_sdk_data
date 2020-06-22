@@ -1,565 +1,561 @@
-{
-    "typedefs": [
-        {
+[
+    {
+        "data_type": "Struct",
+        "name": "COMPRESSOR_HANDLE__",
+        "elements": [
+            {
+                "name": "unused",
+                "type": "int"
+            }
+        ]
+    },
+    {
+        "name": "COMPRESSOR_HANDLE",
+        "type": {
             "data_type": "Struct",
             "name": "COMPRESSOR_HANDLE__",
-            "elements": [
-                {
-                    "name": "unused",
-                    "type": "int"
-                }
-            ]
+            "elements": []
         },
-        {
-            "name": "COMPRESSOR_HANDLE",
-            "type": {
-                "data_type": "Struct",
-                "name": "COMPRESSOR_HANDLE__",
-                "elements": []
-            },
-            "data_type": "Ptr"
+        "data_type": "Ptr"
+    },
+    {
+        "name": "PCOMPRESSOR_HANDLE",
+        "type": "COMPRESSOR_HANDLE",
+        "data_type": "Ptr"
+    },
+    {
+        "name": "DECOMPRESSOR_HANDLE",
+        "type": "COMPRESSOR_HANDLE"
+    },
+    {
+        "name": "PDECOMPRESSOR_HANDLE",
+        "type": "COMPRESSOR_HANDLE",
+        "data_type": "Ptr"
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
+            "name": "PFN_COMPRESS_ALLOCATE",
+            "type": "PVOID"
         },
-        {
-            "name": "PCOMPRESSOR_HANDLE",
-            "type": "COMPRESSOR_HANDLE",
-            "data_type": "Ptr"
-        },
-        {
-            "name": "DECOMPRESSOR_HANDLE",
-            "type": "COMPRESSOR_HANDLE"
-        },
-        {
-            "name": "PDECOMPRESSOR_HANDLE",
-            "type": "COMPRESSOR_HANDLE",
-            "data_type": "Ptr"
-        },
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "PFN_COMPRESS_ALLOCATE",
+        "name": "PFN_COMPRESS_ALLOCATE",
+        "arguments": [
+            {
+                "name": "UserContext",
                 "type": "PVOID"
             },
-            "name": "PFN_COMPRESS_ALLOCATE",
-            "arguments": [
-                {
-                    "name": "UserContext",
-                    "type": "PVOID"
-                },
-                {
-                    "name": "Size",
-                    "type": "SIZE_T"
-                }
-            ]
-        },
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "PFN_COMPRESS_FREE",
-                "type": "void"
-            },
+            {
+                "name": "Size",
+                "type": "SIZE_T"
+            }
+        ]
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
             "name": "PFN_COMPRESS_FREE",
-            "arguments": [
+            "type": "void"
+        },
+        "name": "PFN_COMPRESS_FREE",
+        "arguments": [
+            {
+                "name": "UserContext",
+                "type": "PVOID"
+            },
+            {
+                "name": "Memory",
+                "type": "PVOID"
+            }
+        ]
+    },
+    {
+        "name": "COMPRESS_ALLOCATION_ROUTINES",
+        "type": {
+            "data_type": "Struct",
+            "name": "_COMPRESS_ALLOCATION_ROUTINES",
+            "elements": [
+                {
+                    "name": "Allocate",
+                    "type": "PFN_COMPRESS_ALLOCATE"
+                },
+                {
+                    "name": "Free",
+                    "type": "PFN_COMPRESS_FREE"
+                },
                 {
                     "name": "UserContext",
                     "type": "PVOID"
+                }
+            ]
+        }
+    },
+    {
+        "name": "PCOMPRESS_ALLOCATION_ROUTINES",
+        "type": {
+            "data_type": "Struct",
+            "name": "_COMPRESS_ALLOCATION_ROUTINES",
+            "elements": [
+                {
+                    "name": "Allocate",
+                    "type": "PFN_COMPRESS_ALLOCATE"
                 },
                 {
-                    "name": "Memory",
+                    "name": "Free",
+                    "type": "PFN_COMPRESS_FREE"
+                },
+                {
+                    "name": "UserContext",
                     "type": "PVOID"
                 }
             ]
         },
-        {
-            "name": "COMPRESS_ALLOCATION_ROUTINES",
-            "type": {
-                "data_type": "Struct",
-                "name": "_COMPRESS_ALLOCATION_ROUTINES",
-                "elements": [
-                    {
-                        "name": "Allocate",
-                        "type": "PFN_COMPRESS_ALLOCATE"
-                    },
-                    {
-                        "name": "Free",
-                        "type": "PFN_COMPRESS_FREE"
-                    },
-                    {
-                        "name": "UserContext",
-                        "type": "PVOID"
+        "data_type": "Ptr"
+    },
+    {
+        "name": "COMPRESS_INFORMATION_CLASS",
+        "type": {
+            "data_type": "Enum",
+            "enumerators": [
+                {
+                    "name": "COMPRESS_INFORMATION_CLASS_INVALID",
+                    "value": {
+                        "type": "int",
+                        "value": "0"
                     }
-                ]
-            }
-        },
-        {
-            "name": "PCOMPRESS_ALLOCATION_ROUTINES",
-            "type": {
-                "data_type": "Struct",
-                "name": "_COMPRESS_ALLOCATION_ROUTINES",
-                "elements": [
-                    {
-                        "name": "Allocate",
-                        "type": "PFN_COMPRESS_ALLOCATE"
-                    },
-                    {
-                        "name": "Free",
-                        "type": "PFN_COMPRESS_FREE"
-                    },
-                    {
-                        "name": "UserContext",
-                        "type": "PVOID"
-                    }
-                ]
-            },
-            "data_type": "Ptr"
-        },
-        {
-            "name": "COMPRESS_INFORMATION_CLASS",
-            "type": {
-                "data_type": "Enum",
-                "enumerators": [
-                    {
-                        "name": "COMPRESS_INFORMATION_CLASS_INVALID",
-                        "value": {
-                            "type": "int",
-                            "value": "0"
-                        }
-                    },
-                    {
-                        "name": "COMPRESS_INFORMATION_CLASS_BLOCK_SIZE",
-                        "value": {}
-                    },
-                    {
-                        "name": "COMPRESS_INFORMATION_CLASS_LEVEL",
-                        "value": {}
-                    }
-                ]
-            }
+                },
+                {
+                    "name": "COMPRESS_INFORMATION_CLASS_BLOCK_SIZE",
+                    "value": {}
+                },
+                {
+                    "name": "COMPRESS_INFORMATION_CLASS_LEVEL",
+                    "value": {}
+                }
+            ]
         }
-    ],
-    "funcdefs": [
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "CreateCompressor",
-                "type": "BOOL"
-            },
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "CreateCompressor",
-            "arguments": [
-                {
-                    "name": "Algorithm",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "AllocationRoutines",
-                    "type": "PCOMPRESS_ALLOCATION_ROUTINES",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "CompressorHandle",
-                    "type": "PCOMPRESSOR_HANDLE",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "cabinet.dll"
-            ]
+            "type": "BOOL"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SetCompressorInformation",
-                "type": "BOOL"
+        "name": "CreateCompressor",
+        "arguments": [
+            {
+                "name": "Algorithm",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "AllocationRoutines",
+                "type": "PCOMPRESS_ALLOCATION_ROUTINES",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "CompressorHandle",
+                "type": "PCOMPRESSOR_HANDLE",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "cabinet.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "SetCompressorInformation",
-            "arguments": [
-                {
-                    "name": "CompressorHandle",
-                    "type": "COMPRESSOR_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "CompressInformationClass",
-                    "type": "COMPRESS_INFORMATION_CLASS",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "CompressInformation",
-                    "type": "LPCVOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "CompressInformationSize",
-                    "type": "SIZE_T",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "cabinet.dll"
-            ]
+            "type": "BOOL"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "QueryCompressorInformation",
-                "type": "BOOL"
+        "name": "SetCompressorInformation",
+        "arguments": [
+            {
+                "name": "CompressorHandle",
+                "type": "COMPRESSOR_HANDLE",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "CompressInformationClass",
+                "type": "COMPRESS_INFORMATION_CLASS",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "CompressInformation",
+                "type": "LPCVOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "CompressInformationSize",
+                "type": "SIZE_T",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "cabinet.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "QueryCompressorInformation",
-            "arguments": [
-                {
-                    "name": "CompressorHandle",
-                    "type": "COMPRESSOR_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "CompressInformationClass",
-                    "type": "COMPRESS_INFORMATION_CLASS",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "CompressInformation",
-                    "type": "PVOID",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "CompressInformationSize",
-                    "type": "SIZE_T",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "cabinet.dll"
-            ]
+            "type": "BOOL"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "Compress",
-                "type": "BOOL"
+        "name": "QueryCompressorInformation",
+        "arguments": [
+            {
+                "name": "CompressorHandle",
+                "type": "COMPRESSOR_HANDLE",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "CompressInformationClass",
+                "type": "COMPRESS_INFORMATION_CLASS",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "CompressInformation",
+                "type": "PVOID",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "CompressInformationSize",
+                "type": "SIZE_T",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "cabinet.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "Compress",
-            "arguments": [
-                {
-                    "name": "CompressorHandle",
-                    "type": "COMPRESSOR_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "UncompressedData",
-                    "type": "LPCVOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "UncompressedDataSize",
-                    "type": "SIZE_T",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "CompressedBuffer",
-                    "type": "PVOID",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "CompressedBufferSize",
-                    "type": "SIZE_T",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "CompressedDataSize",
-                    "type": "PSIZE_T",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "cabinet.dll"
-            ]
+            "type": "BOOL"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ResetCompressor",
-                "type": "BOOL"
+        "name": "Compress",
+        "arguments": [
+            {
+                "name": "CompressorHandle",
+                "type": "COMPRESSOR_HANDLE",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "UncompressedData",
+                "type": "LPCVOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "UncompressedDataSize",
+                "type": "SIZE_T",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "CompressedBuffer",
+                "type": "PVOID",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "CompressedBufferSize",
+                "type": "SIZE_T",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "CompressedDataSize",
+                "type": "PSIZE_T",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "cabinet.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "ResetCompressor",
-            "arguments": [
-                {
-                    "name": "CompressorHandle",
-                    "type": "COMPRESSOR_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "cabinet.dll"
-            ]
+            "type": "BOOL"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "CloseCompressor",
-                "type": "BOOL"
-            },
+        "name": "ResetCompressor",
+        "arguments": [
+            {
+                "name": "CompressorHandle",
+                "type": "COMPRESSOR_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "cabinet.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "CloseCompressor",
-            "arguments": [
-                {
-                    "name": "CompressorHandle",
-                    "type": "COMPRESSOR_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "cabinet.dll"
-            ]
+            "type": "BOOL"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "CreateDecompressor",
-                "type": "BOOL"
-            },
+        "name": "CloseCompressor",
+        "arguments": [
+            {
+                "name": "CompressorHandle",
+                "type": "COMPRESSOR_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "cabinet.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "CreateDecompressor",
-            "arguments": [
-                {
-                    "name": "Algorithm",
-                    "type": "DWORD",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "AllocationRoutines",
-                    "type": "PCOMPRESS_ALLOCATION_ROUTINES",
-                    "sal": [
-                        "in",
-                        "optional"
-                    ]
-                },
-                {
-                    "name": "DecompressorHandle",
-                    "type": "PDECOMPRESSOR_HANDLE",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "cabinet.dll"
-            ]
+            "type": "BOOL"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SetDecompressorInformation",
-                "type": "BOOL"
+        "name": "CreateDecompressor",
+        "arguments": [
+            {
+                "name": "Algorithm",
+                "type": "DWORD",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "AllocationRoutines",
+                "type": "PCOMPRESS_ALLOCATION_ROUTINES",
+                "sal": [
+                    "in",
+                    "optional"
+                ]
+            },
+            {
+                "name": "DecompressorHandle",
+                "type": "PDECOMPRESSOR_HANDLE",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "cabinet.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "SetDecompressorInformation",
-            "arguments": [
-                {
-                    "name": "DecompressorHandle",
-                    "type": "DECOMPRESSOR_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "CompressInformationClass",
-                    "type": "COMPRESS_INFORMATION_CLASS",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "CompressInformation",
-                    "type": "LPCVOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "CompressInformationSize",
-                    "type": "SIZE_T",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "cabinet.dll"
-            ]
+            "type": "BOOL"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "QueryDecompressorInformation",
-                "type": "BOOL"
+        "name": "SetDecompressorInformation",
+        "arguments": [
+            {
+                "name": "DecompressorHandle",
+                "type": "DECOMPRESSOR_HANDLE",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "CompressInformationClass",
+                "type": "COMPRESS_INFORMATION_CLASS",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "CompressInformation",
+                "type": "LPCVOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "CompressInformationSize",
+                "type": "SIZE_T",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "cabinet.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "QueryDecompressorInformation",
-            "arguments": [
-                {
-                    "name": "DecompressorHandle",
-                    "type": "DECOMPRESSOR_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "CompressInformationClass",
-                    "type": "COMPRESS_INFORMATION_CLASS",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "CompressInformation",
-                    "type": "PVOID",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "CompressInformationSize",
-                    "type": "SIZE_T",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "cabinet.dll"
-            ]
+            "type": "BOOL"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "Decompress",
-                "type": "BOOL"
+        "name": "QueryDecompressorInformation",
+        "arguments": [
+            {
+                "name": "DecompressorHandle",
+                "type": "DECOMPRESSOR_HANDLE",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "CompressInformationClass",
+                "type": "COMPRESS_INFORMATION_CLASS",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "CompressInformation",
+                "type": "PVOID",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "CompressInformationSize",
+                "type": "SIZE_T",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "cabinet.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "Decompress",
-            "arguments": [
-                {
-                    "name": "DecompressorHandle",
-                    "type": "DECOMPRESSOR_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "CompressedData",
-                    "type": "LPCVOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "CompressedDataSize",
-                    "type": "SIZE_T",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "UncompressedBuffer",
-                    "type": "PVOID",
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "name": "UncompressedBufferSize",
-                    "type": "SIZE_T",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "UncompressedDataSize",
-                    "type": "PSIZE_T",
-                    "sal": [
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "cabinet.dll"
-            ]
+            "type": "BOOL"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "ResetDecompressor",
-                "type": "BOOL"
+        "name": "Decompress",
+        "arguments": [
+            {
+                "name": "DecompressorHandle",
+                "type": "DECOMPRESSOR_HANDLE",
+                "sal": [
+                    "in"
+                ]
             },
+            {
+                "name": "CompressedData",
+                "type": "LPCVOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "CompressedDataSize",
+                "type": "SIZE_T",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "UncompressedBuffer",
+                "type": "PVOID",
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "name": "UncompressedBufferSize",
+                "type": "SIZE_T",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "UncompressedDataSize",
+                "type": "PSIZE_T",
+                "sal": [
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "cabinet.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "ResetDecompressor",
-            "arguments": [
-                {
-                    "name": "DecompressorHandle",
-                    "type": "DECOMPRESSOR_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "cabinet.dll"
-            ]
+            "type": "BOOL"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "CloseDecompressor",
-                "type": "BOOL"
-            },
+        "name": "ResetDecompressor",
+        "arguments": [
+            {
+                "name": "DecompressorHandle",
+                "type": "DECOMPRESSOR_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "cabinet.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
             "name": "CloseDecompressor",
-            "arguments": [
-                {
-                    "name": "DecompressorHandle",
-                    "type": "DECOMPRESSOR_HANDLE",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "cabinet.dll"
-            ]
-        }
-    ]
-}
+            "type": "BOOL"
+        },
+        "name": "CloseDecompressor",
+        "arguments": [
+            {
+                "name": "DecompressorHandle",
+                "type": "DECOMPRESSOR_HANDLE",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "cabinet.dll"
+        ]
+    }
+]

@@ -1,1064 +1,1060 @@
-{
-    "typedefs": [
-        {
-            "name": "AsnOctetString",
-            "type": {
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "stream",
-                        "type": "BYTE",
-                        "data_type": "Ptr"
-                    },
-                    {
-                        "name": "length",
-                        "type": "UINT"
-                    },
-                    {
-                        "name": "dynamic",
-                        "type": "BOOL"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "AsnObjectIdentifier",
-            "type": {
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "idLength",
-                        "type": "UINT"
-                    },
-                    {
-                        "name": "ids",
-                        "type": "UINT",
-                        "data_type": "Ptr"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "AsnInteger32",
-            "type": "LONG"
-        },
-        {
-            "name": "AsnUnsigned32",
-            "type": "ULONG"
-        },
-        {
-            "name": "AsnCounter64",
-            "type": "ULARGE_INTEGER"
-        },
-        {
-            "name": "AsnCounter32",
-            "type": "AsnUnsigned32"
-        },
-        {
-            "name": "AsnGauge32",
-            "type": "AsnUnsigned32"
-        },
-        {
-            "name": "AsnTimeticks",
-            "type": "AsnUnsigned32"
-        },
-        {
-            "name": "AsnBits",
-            "type": "AsnOctetString"
-        },
-        {
-            "name": "AsnSequence",
-            "type": "AsnOctetString"
-        },
-        {
-            "name": "AsnImplicitSequence",
-            "type": "AsnOctetString"
-        },
-        {
-            "name": "AsnIPAddress",
-            "type": "AsnOctetString"
-        },
-        {
-            "name": "AsnNetworkAddress",
-            "type": "AsnOctetString"
-        },
-        {
-            "name": "AsnDisplayString",
-            "type": "AsnOctetString"
-        },
-        {
-            "name": "AsnOpaque",
-            "type": "AsnOctetString"
-        },
-        {
-            "name": "AsnAny",
-            "type": {
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "asnType",
-                        "type": "BYTE"
-                    },
-                    {
-                        "name": "asnValue",
-                        "type": {
-                            "data_type": "Union",
-                            "elements": [
-                                {
-                                    "name": "number",
-                                    "type": "AsnInteger32"
-                                },
-                                {
-                                    "name": "unsigned32",
-                                    "type": "AsnUnsigned32"
-                                },
-                                {
-                                    "name": "counter64",
-                                    "type": "AsnCounter64"
-                                },
-                                {
-                                    "name": "string",
-                                    "type": "AsnOctetString"
-                                },
-                                {
-                                    "name": "bits",
-                                    "type": "AsnBits"
-                                },
-                                {
-                                    "name": "object",
-                                    "type": "AsnObjectIdentifier"
-                                },
-                                {
-                                    "name": "sequence",
-                                    "type": "AsnSequence"
-                                },
-                                {
-                                    "name": "address",
-                                    "type": "AsnIPAddress"
-                                },
-                                {
-                                    "name": "counter",
-                                    "type": "AsnCounter32"
-                                },
-                                {
-                                    "name": "gauge",
-                                    "type": "AsnGauge32"
-                                },
-                                {
-                                    "name": "ticks",
-                                    "type": "AsnTimeticks"
-                                },
-                                {
-                                    "name": "arbitrary",
-                                    "type": "AsnOpaque"
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "AsnObjectName",
-            "type": "AsnObjectIdentifier"
-        },
-        {
-            "name": "AsnObjectSyntax",
-            "type": "AsnAny"
-        },
-        {
-            "name": "SnmpVarBind",
-            "type": {
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "name",
-                        "type": "AsnObjectName"
-                    },
-                    {
-                        "name": "value",
-                        "type": "AsnObjectSyntax"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "SnmpVarBindList",
-            "type": {
-                "data_type": "Struct",
-                "elements": [
-                    {
-                        "name": "list",
-                        "type": "SnmpVarBind",
-                        "data_type": "Ptr"
-                    },
-                    {
-                        "name": "len",
-                        "type": "UINT"
-                    }
-                ]
-            }
-        },
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "PFNSNMPEXTENSIONINIT",
-                "type": "BOOL"
-            },
-            "name": "PFNSNMPEXTENSIONINIT",
-            "arguments": [
+[
+    {
+        "name": "AsnOctetString",
+        "type": {
+            "data_type": "Struct",
+            "elements": [
                 {
-                    "name": "dwUpTimeReference",
-                    "type": "DWORD"
+                    "name": "stream",
+                    "type": "BYTE",
+                    "data_type": "Ptr"
                 },
                 {
-                    "type": {
-                        "name": "phSubagentTrapEvent",
-                        "type": "HANDLE"
-                    }
+                    "name": "length",
+                    "type": "UINT"
                 },
                 {
-                    "type": {
-                        "name": "pFirstSupportedRegion",
-                        "type": "AsnObjectIdentifier"
-                    }
+                    "name": "dynamic",
+                    "type": "BOOL"
                 }
             ]
-        },
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "PFNSNMPEXTENSIONINITEX",
-                "type": "BOOL"
-            },
-            "name": "PFNSNMPEXTENSIONINITEX",
-            "arguments": [
+        }
+    },
+    {
+        "name": "AsnObjectIdentifier",
+        "type": {
+            "data_type": "Struct",
+            "elements": [
                 {
-                    "type": {
-                        "name": "pNextSupportedRegion",
-                        "type": "AsnObjectIdentifier"
-                    }
+                    "name": "idLength",
+                    "type": "UINT"
+                },
+                {
+                    "name": "ids",
+                    "type": "UINT",
+                    "data_type": "Ptr"
                 }
             ]
-        },
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "PFNSNMPEXTENSIONMONITOR",
-                "type": "BOOL"
-            },
-            "name": "PFNSNMPEXTENSIONMONITOR",
-            "arguments": [
+        }
+    },
+    {
+        "name": "AsnInteger32",
+        "type": "LONG"
+    },
+    {
+        "name": "AsnUnsigned32",
+        "type": "ULONG"
+    },
+    {
+        "name": "AsnCounter64",
+        "type": "ULARGE_INTEGER"
+    },
+    {
+        "name": "AsnCounter32",
+        "type": "AsnUnsigned32"
+    },
+    {
+        "name": "AsnGauge32",
+        "type": "AsnUnsigned32"
+    },
+    {
+        "name": "AsnTimeticks",
+        "type": "AsnUnsigned32"
+    },
+    {
+        "name": "AsnBits",
+        "type": "AsnOctetString"
+    },
+    {
+        "name": "AsnSequence",
+        "type": "AsnOctetString"
+    },
+    {
+        "name": "AsnImplicitSequence",
+        "type": "AsnOctetString"
+    },
+    {
+        "name": "AsnIPAddress",
+        "type": "AsnOctetString"
+    },
+    {
+        "name": "AsnNetworkAddress",
+        "type": "AsnOctetString"
+    },
+    {
+        "name": "AsnDisplayString",
+        "type": "AsnOctetString"
+    },
+    {
+        "name": "AsnOpaque",
+        "type": "AsnOctetString"
+    },
+    {
+        "name": "AsnAny",
+        "type": {
+            "data_type": "Struct",
+            "elements": [
                 {
-                    "name": "pAgentMgmtData",
-                    "type": "LPVOID"
-                }
-            ]
-        },
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "PFNSNMPEXTENSIONQUERY",
-                "type": "BOOL"
-            },
-            "name": "PFNSNMPEXTENSIONQUERY",
-            "arguments": [
-                {
-                    "name": "bPduType",
+                    "name": "asnType",
                     "type": "BYTE"
                 },
                 {
+                    "name": "asnValue",
                     "type": {
-                        "name": "pVarBindList",
-                        "type": "SnmpVarBindList"
-                    }
-                },
-                {
-                    "type": {
-                        "name": "pErrorStatus",
-                        "type": "AsnInteger32"
-                    }
-                },
-                {
-                    "type": {
-                        "name": "pErrorIndex",
-                        "type": "AsnInteger32"
-                    }
-                }
-            ]
-        },
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "PFNSNMPEXTENSIONQUERYEX",
-                "type": "BOOL"
-            },
-            "name": "PFNSNMPEXTENSIONQUERYEX",
-            "arguments": [
-                {
-                    "name": "nRequestType",
-                    "type": "UINT"
-                },
-                {
-                    "name": "nTransactionId",
-                    "type": "UINT"
-                },
-                {
-                    "type": {
-                        "name": "pVarBindList",
-                        "type": "SnmpVarBindList"
-                    }
-                },
-                {
-                    "type": {
-                        "name": "pContextInfo",
-                        "type": "AsnOctetString"
-                    }
-                },
-                {
-                    "type": {
-                        "name": "pErrorStatus",
-                        "type": "AsnInteger32"
-                    }
-                },
-                {
-                    "type": {
-                        "name": "pErrorIndex",
-                        "type": "AsnInteger32"
+                        "data_type": "Union",
+                        "elements": [
+                            {
+                                "name": "number",
+                                "type": "AsnInteger32"
+                            },
+                            {
+                                "name": "unsigned32",
+                                "type": "AsnUnsigned32"
+                            },
+                            {
+                                "name": "counter64",
+                                "type": "AsnCounter64"
+                            },
+                            {
+                                "name": "string",
+                                "type": "AsnOctetString"
+                            },
+                            {
+                                "name": "bits",
+                                "type": "AsnBits"
+                            },
+                            {
+                                "name": "object",
+                                "type": "AsnObjectIdentifier"
+                            },
+                            {
+                                "name": "sequence",
+                                "type": "AsnSequence"
+                            },
+                            {
+                                "name": "address",
+                                "type": "AsnIPAddress"
+                            },
+                            {
+                                "name": "counter",
+                                "type": "AsnCounter32"
+                            },
+                            {
+                                "name": "gauge",
+                                "type": "AsnGauge32"
+                            },
+                            {
+                                "name": "ticks",
+                                "type": "AsnTimeticks"
+                            },
+                            {
+                                "name": "arbitrary",
+                                "type": "AsnOpaque"
+                            }
+                        ]
                     }
                 }
             ]
-        },
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "PFNSNMPEXTENSIONTRAP",
-                "type": "BOOL"
-            },
-            "name": "PFNSNMPEXTENSIONTRAP",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "pEnterpriseOid",
-                        "type": "AsnObjectIdentifier"
-                    }
-                },
-                {
-                    "type": {
-                        "name": "pGenericTrapId",
-                        "type": "AsnInteger32"
-                    }
-                },
-                {
-                    "type": {
-                        "name": "pSpecificTrapId",
-                        "type": "AsnInteger32"
-                    }
-                },
-                {
-                    "type": {
-                        "name": "pTimeStamp",
-                        "type": "AsnTimeticks"
-                    }
-                },
-                {
-                    "type": {
-                        "name": "pVarBindList",
-                        "type": "SnmpVarBindList"
-                    }
-                }
-            ]
-        },
-        {
-            "data_type": "FuncDeclPtr",
-            "type": {
-                "name": "PFNSNMPEXTENSIONCLOSE",
-                "type": "void"
-            },
-            "name": "PFNSNMPEXTENSIONCLOSE",
-            "arguments": []
         }
-    ],
-    "funcdefs": [
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpUtilOidCpy",
-                "type": "INT"
-            },
-            "name": "SnmpUtilOidCpy",
-            "arguments": [
+    },
+    {
+        "name": "AsnObjectName",
+        "type": "AsnObjectIdentifier"
+    },
+    {
+        "name": "AsnObjectSyntax",
+        "type": "AsnAny"
+    },
+    {
+        "name": "SnmpVarBind",
+        "type": {
+            "data_type": "Struct",
+            "elements": [
                 {
-                    "type": {
-                        "name": "pOidDst",
-                        "type": "AsnObjectIdentifier"
-                    },
-                    "sal": [
-                        "out"
-                    ]
+                    "name": "name",
+                    "type": "AsnObjectName"
                 },
                 {
-                    "type": {
-                        "name": "pOidSrc",
-                        "type": "AsnObjectIdentifier"
-                    },
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "value",
+                    "type": "AsnObjectSyntax"
                 }
-            ],
-            "api_locations": [
-                "Snmpapi.dll"
             ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpUtilOidAppend",
-                "type": "INT"
-            },
-            "name": "SnmpUtilOidAppend",
-            "arguments": [
+        }
+    },
+    {
+        "name": "SnmpVarBindList",
+        "type": {
+            "data_type": "Struct",
+            "elements": [
                 {
-                    "type": {
-                        "name": "pOidDst",
-                        "type": "AsnObjectIdentifier"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
+                    "name": "list",
+                    "type": "SnmpVarBind",
+                    "data_type": "Ptr"
                 },
                 {
-                    "type": {
-                        "name": "pOidSrc",
-                        "type": "AsnObjectIdentifier"
-                    },
-                    "sal": [
-                        "in"
-                    ]
+                    "name": "len",
+                    "type": "UINT"
                 }
-            ],
-            "api_locations": [
-                "Snmpapi.dll"
             ]
+        }
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
+            "name": "PFNSNMPEXTENSIONINIT",
+            "type": "BOOL"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpUtilOidNCmp",
-                "type": "INT"
-            },
-            "name": "SnmpUtilOidNCmp",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "pOid1",
-                        "type": "AsnObjectIdentifier"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pOid2",
-                        "type": "AsnObjectIdentifier"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "nSubIds",
-                    "type": "UINT",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Snmpapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpUtilOidCmp",
-                "type": "INT"
-            },
-            "name": "SnmpUtilOidCmp",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "pOid1",
-                        "type": "AsnObjectIdentifier"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pOid2",
-                        "type": "AsnObjectIdentifier"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Snmpapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpUtilOidFree",
-                "type": "void"
-            },
-            "name": "SnmpUtilOidFree",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "pOid",
-                        "type": "AsnObjectIdentifier"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Snmpapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpUtilOctetsCmp",
-                "type": "INT"
-            },
-            "name": "SnmpUtilOctetsCmp",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "pOctets1",
-                        "type": "AsnOctetString"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pOctets2",
-                        "type": "AsnOctetString"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Snmpapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpUtilOctetsNCmp",
-                "type": "INT"
-            },
-            "name": "SnmpUtilOctetsNCmp",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "pOctets1",
-                        "type": "AsnOctetString"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pOctets2",
-                        "type": "AsnOctetString"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "nChars",
-                    "type": "UINT",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Snmpapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpUtilOctetsCpy",
-                "type": "INT"
-            },
-            "name": "SnmpUtilOctetsCpy",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "pOctetsDst",
-                        "type": "AsnOctetString"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pOctetsSrc",
-                        "type": "AsnOctetString"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Snmpapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpUtilOctetsFree",
-                "type": "void"
-            },
-            "name": "SnmpUtilOctetsFree",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "pOctets",
-                        "type": "AsnOctetString"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Snmpapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpUtilAsnAnyCpy",
-                "type": "INT"
-            },
-            "name": "SnmpUtilAsnAnyCpy",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "pAnyDst",
-                        "type": "AsnAny"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pAnySrc",
-                        "type": "AsnAny"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Snmpapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpUtilAsnAnyFree",
-                "type": "void"
-            },
-            "name": "SnmpUtilAsnAnyFree",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "pAny",
-                        "type": "AsnAny"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Snmpapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpUtilVarBindCpy",
-                "type": "INT"
-            },
-            "name": "SnmpUtilVarBindCpy",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "pVbDst",
-                        "type": "SnmpVarBind"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pVbSrc",
-                        "type": "SnmpVarBind"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Snmpapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpUtilVarBindFree",
-                "type": "void"
-            },
-            "name": "SnmpUtilVarBindFree",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "pVb",
-                        "type": "SnmpVarBind"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Snmpapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpUtilVarBindListCpy",
-                "type": "INT"
-            },
-            "name": "SnmpUtilVarBindListCpy",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "pVblDst",
-                        "type": "SnmpVarBindList"
-                    },
-                    "sal": [
-                        "out"
-                    ]
-                },
-                {
-                    "type": {
-                        "name": "pVblSrc",
-                        "type": "SnmpVarBindList"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Snmpapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpUtilVarBindListFree",
-                "type": "void"
-            },
-            "name": "SnmpUtilVarBindListFree",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "pVbl",
-                        "type": "SnmpVarBindList"
-                    },
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Snmpapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpUtilMemFree",
-                "type": "void"
-            },
-            "name": "SnmpUtilMemFree",
-            "arguments": [
-                {
-                    "name": "pMem",
-                    "type": "LPVOID",
-                    "sal": [
-                        "in",
-                        "out"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Snmpapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpUtilMemAlloc",
-                "type": "LPVOID"
-            },
-            "name": "SnmpUtilMemAlloc",
-            "arguments": [
-                {
-                    "name": "nBytes",
-                    "type": "UINT",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Snmpapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpUtilMemReAlloc",
-                "type": "LPVOID"
-            },
-            "name": "SnmpUtilMemReAlloc",
-            "arguments": [
-                {
-                    "name": "pMem",
-                    "type": "LPVOID",
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "nBytes",
-                    "type": "UINT",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Snmpapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpUtilOidToA",
-                "type": "LPSTR"
-            },
-            "name": "SnmpUtilOidToA",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "Oid",
-                        "type": "AsnObjectIdentifier"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Snmpapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpUtilIdsToA",
-                "type": "LPSTR"
-            },
-            "name": "SnmpUtilIdsToA",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "Ids",
-                        "type": "UINT"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                },
-                {
-                    "name": "IdLength",
-                    "type": "UINT",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Snmpapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpUtilPrintOid",
-                "type": "void"
-            },
-            "name": "SnmpUtilPrintOid",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "Oid",
-                        "type": "AsnObjectIdentifier"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Snmpapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpUtilPrintAsnAny",
-                "type": "void"
-            },
-            "name": "SnmpUtilPrintAsnAny",
-            "arguments": [
-                {
-                    "type": {
-                        "name": "pAny",
-                        "type": "AsnAny"
-                    },
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Snmpapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpSvcGetUptime",
+        "name": "PFNSNMPEXTENSIONINIT",
+        "arguments": [
+            {
+                "name": "dwUpTimeReference",
                 "type": "DWORD"
             },
-            "name": "SnmpSvcGetUptime",
-            "arguments": [],
-            "api_locations": [
-                "Snmpapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpSvcSetLogLevel",
-                "type": "void"
-            },
-            "name": "SnmpSvcSetLogLevel",
-            "arguments": [
-                {
-                    "name": "nLogLevel",
-                    "type": "INT",
-                    "sal": [
-                        "in"
-                    ]
+            {
+                "type": {
+                    "name": "phSubagentTrapEvent",
+                    "type": "HANDLE"
                 }
-            ],
-            "api_locations": [
-                "Snmpapi.dll"
-            ]
-        },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpSvcSetLogType",
-                "type": "void"
             },
-            "name": "SnmpSvcSetLogType",
-            "arguments": [
-                {
-                    "name": "nLogType",
-                    "type": "INT",
-                    "sal": [
-                        "in"
-                    ]
+            {
+                "type": {
+                    "name": "pFirstSupportedRegion",
+                    "type": "AsnObjectIdentifier"
                 }
-            ],
-            "api_locations": [
-                "Snmpapi.dll"
-            ]
+            }
+        ]
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
+            "name": "PFNSNMPEXTENSIONINITEX",
+            "type": "BOOL"
         },
-        {
-            "data_type": "FuncDecl",
-            "type": {
-                "name": "SnmpUtilDbgPrint",
-                "type": "void"
+        "name": "PFNSNMPEXTENSIONINITEX",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pNextSupportedRegion",
+                    "type": "AsnObjectIdentifier"
+                }
+            }
+        ]
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
+            "name": "PFNSNMPEXTENSIONMONITOR",
+            "type": "BOOL"
+        },
+        "name": "PFNSNMPEXTENSIONMONITOR",
+        "arguments": [
+            {
+                "name": "pAgentMgmtData",
+                "type": "LPVOID"
+            }
+        ]
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
+            "name": "PFNSNMPEXTENSIONQUERY",
+            "type": "BOOL"
+        },
+        "name": "PFNSNMPEXTENSIONQUERY",
+        "arguments": [
+            {
+                "name": "bPduType",
+                "type": "BYTE"
             },
-            "name": "SnmpUtilDbgPrint",
-            "arguments": [
-                {
-                    "name": "nLogLevel",
-                    "type": "INT",
-                    "sal": [
-                        "in"
-                    ]
+            {
+                "type": {
+                    "name": "pVarBindList",
+                    "type": "SnmpVarBindList"
+                }
+            },
+            {
+                "type": {
+                    "name": "pErrorStatus",
+                    "type": "AsnInteger32"
+                }
+            },
+            {
+                "type": {
+                    "name": "pErrorIndex",
+                    "type": "AsnInteger32"
+                }
+            }
+        ]
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
+            "name": "PFNSNMPEXTENSIONQUERYEX",
+            "type": "BOOL"
+        },
+        "name": "PFNSNMPEXTENSIONQUERYEX",
+        "arguments": [
+            {
+                "name": "nRequestType",
+                "type": "UINT"
+            },
+            {
+                "name": "nTransactionId",
+                "type": "UINT"
+            },
+            {
+                "type": {
+                    "name": "pVarBindList",
+                    "type": "SnmpVarBindList"
+                }
+            },
+            {
+                "type": {
+                    "name": "pContextInfo",
+                    "type": "AsnOctetString"
+                }
+            },
+            {
+                "type": {
+                    "name": "pErrorStatus",
+                    "type": "AsnInteger32"
+                }
+            },
+            {
+                "type": {
+                    "name": "pErrorIndex",
+                    "type": "AsnInteger32"
+                }
+            }
+        ]
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
+            "name": "PFNSNMPEXTENSIONTRAP",
+            "type": "BOOL"
+        },
+        "name": "PFNSNMPEXTENSIONTRAP",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pEnterpriseOid",
+                    "type": "AsnObjectIdentifier"
+                }
+            },
+            {
+                "type": {
+                    "name": "pGenericTrapId",
+                    "type": "AsnInteger32"
+                }
+            },
+            {
+                "type": {
+                    "name": "pSpecificTrapId",
+                    "type": "AsnInteger32"
+                }
+            },
+            {
+                "type": {
+                    "name": "pTimeStamp",
+                    "type": "AsnTimeticks"
+                }
+            },
+            {
+                "type": {
+                    "name": "pVarBindList",
+                    "type": "SnmpVarBindList"
+                }
+            }
+        ]
+    },
+    {
+        "data_type": "FuncDeclPtr",
+        "type": {
+            "name": "PFNSNMPEXTENSIONCLOSE",
+            "type": "void"
+        },
+        "name": "PFNSNMPEXTENSIONCLOSE",
+        "arguments": []
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpUtilOidCpy",
+            "type": "INT"
+        },
+        "name": "SnmpUtilOidCpy",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pOidDst",
+                    "type": "AsnObjectIdentifier"
                 },
-                {
-                    "name": "szFormat",
-                    "type": "LPSTR",
-                    "sal": [
-                        "in"
-                    ]
-                }
-            ],
-            "api_locations": [
-                "Snmpapi.dll"
-            ]
-        }
-    ]
-}
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pOidSrc",
+                    "type": "AsnObjectIdentifier"
+                },
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Snmpapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpUtilOidAppend",
+            "type": "INT"
+        },
+        "name": "SnmpUtilOidAppend",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pOidDst",
+                    "type": "AsnObjectIdentifier"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pOidSrc",
+                    "type": "AsnObjectIdentifier"
+                },
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Snmpapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpUtilOidNCmp",
+            "type": "INT"
+        },
+        "name": "SnmpUtilOidNCmp",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pOid1",
+                    "type": "AsnObjectIdentifier"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pOid2",
+                    "type": "AsnObjectIdentifier"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "nSubIds",
+                "type": "UINT",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Snmpapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpUtilOidCmp",
+            "type": "INT"
+        },
+        "name": "SnmpUtilOidCmp",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pOid1",
+                    "type": "AsnObjectIdentifier"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pOid2",
+                    "type": "AsnObjectIdentifier"
+                },
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Snmpapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpUtilOidFree",
+            "type": "void"
+        },
+        "name": "SnmpUtilOidFree",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pOid",
+                    "type": "AsnObjectIdentifier"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Snmpapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpUtilOctetsCmp",
+            "type": "INT"
+        },
+        "name": "SnmpUtilOctetsCmp",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pOctets1",
+                    "type": "AsnOctetString"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pOctets2",
+                    "type": "AsnOctetString"
+                },
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Snmpapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpUtilOctetsNCmp",
+            "type": "INT"
+        },
+        "name": "SnmpUtilOctetsNCmp",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pOctets1",
+                    "type": "AsnOctetString"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pOctets2",
+                    "type": "AsnOctetString"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "nChars",
+                "type": "UINT",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Snmpapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpUtilOctetsCpy",
+            "type": "INT"
+        },
+        "name": "SnmpUtilOctetsCpy",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pOctetsDst",
+                    "type": "AsnOctetString"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pOctetsSrc",
+                    "type": "AsnOctetString"
+                },
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Snmpapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpUtilOctetsFree",
+            "type": "void"
+        },
+        "name": "SnmpUtilOctetsFree",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pOctets",
+                    "type": "AsnOctetString"
+                },
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Snmpapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpUtilAsnAnyCpy",
+            "type": "INT"
+        },
+        "name": "SnmpUtilAsnAnyCpy",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pAnyDst",
+                    "type": "AsnAny"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pAnySrc",
+                    "type": "AsnAny"
+                },
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Snmpapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpUtilAsnAnyFree",
+            "type": "void"
+        },
+        "name": "SnmpUtilAsnAnyFree",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pAny",
+                    "type": "AsnAny"
+                },
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Snmpapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpUtilVarBindCpy",
+            "type": "INT"
+        },
+        "name": "SnmpUtilVarBindCpy",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pVbDst",
+                    "type": "SnmpVarBind"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pVbSrc",
+                    "type": "SnmpVarBind"
+                },
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Snmpapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpUtilVarBindFree",
+            "type": "void"
+        },
+        "name": "SnmpUtilVarBindFree",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pVb",
+                    "type": "SnmpVarBind"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Snmpapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpUtilVarBindListCpy",
+            "type": "INT"
+        },
+        "name": "SnmpUtilVarBindListCpy",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pVblDst",
+                    "type": "SnmpVarBindList"
+                },
+                "sal": [
+                    "out"
+                ]
+            },
+            {
+                "type": {
+                    "name": "pVblSrc",
+                    "type": "SnmpVarBindList"
+                },
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Snmpapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpUtilVarBindListFree",
+            "type": "void"
+        },
+        "name": "SnmpUtilVarBindListFree",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pVbl",
+                    "type": "SnmpVarBindList"
+                },
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Snmpapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpUtilMemFree",
+            "type": "void"
+        },
+        "name": "SnmpUtilMemFree",
+        "arguments": [
+            {
+                "name": "pMem",
+                "type": "LPVOID",
+                "sal": [
+                    "in",
+                    "out"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Snmpapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpUtilMemAlloc",
+            "type": "LPVOID"
+        },
+        "name": "SnmpUtilMemAlloc",
+        "arguments": [
+            {
+                "name": "nBytes",
+                "type": "UINT",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Snmpapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpUtilMemReAlloc",
+            "type": "LPVOID"
+        },
+        "name": "SnmpUtilMemReAlloc",
+        "arguments": [
+            {
+                "name": "pMem",
+                "type": "LPVOID",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "nBytes",
+                "type": "UINT",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Snmpapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpUtilOidToA",
+            "type": "LPSTR"
+        },
+        "name": "SnmpUtilOidToA",
+        "arguments": [
+            {
+                "type": {
+                    "name": "Oid",
+                    "type": "AsnObjectIdentifier"
+                },
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Snmpapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpUtilIdsToA",
+            "type": "LPSTR"
+        },
+        "name": "SnmpUtilIdsToA",
+        "arguments": [
+            {
+                "type": {
+                    "name": "Ids",
+                    "type": "UINT"
+                },
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "IdLength",
+                "type": "UINT",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Snmpapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpUtilPrintOid",
+            "type": "void"
+        },
+        "name": "SnmpUtilPrintOid",
+        "arguments": [
+            {
+                "type": {
+                    "name": "Oid",
+                    "type": "AsnObjectIdentifier"
+                },
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Snmpapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpUtilPrintAsnAny",
+            "type": "void"
+        },
+        "name": "SnmpUtilPrintAsnAny",
+        "arguments": [
+            {
+                "type": {
+                    "name": "pAny",
+                    "type": "AsnAny"
+                },
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Snmpapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpSvcGetUptime",
+            "type": "DWORD"
+        },
+        "name": "SnmpSvcGetUptime",
+        "arguments": [],
+        "api_locations": [
+            "Snmpapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpSvcSetLogLevel",
+            "type": "void"
+        },
+        "name": "SnmpSvcSetLogLevel",
+        "arguments": [
+            {
+                "name": "nLogLevel",
+                "type": "INT",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Snmpapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpSvcSetLogType",
+            "type": "void"
+        },
+        "name": "SnmpSvcSetLogType",
+        "arguments": [
+            {
+                "name": "nLogType",
+                "type": "INT",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Snmpapi.dll"
+        ]
+    },
+    {
+        "data_type": "FuncDecl",
+        "type": {
+            "name": "SnmpUtilDbgPrint",
+            "type": "void"
+        },
+        "name": "SnmpUtilDbgPrint",
+        "arguments": [
+            {
+                "name": "nLogLevel",
+                "type": "INT",
+                "sal": [
+                    "in"
+                ]
+            },
+            {
+                "name": "szFormat",
+                "type": "LPSTR",
+                "sal": [
+                    "in"
+                ]
+            }
+        ],
+        "api_locations": [
+            "Snmpapi.dll"
+        ]
+    }
+]
